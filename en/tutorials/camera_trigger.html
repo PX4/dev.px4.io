@@ -1,0 +1,2318 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Camera Trigger · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../advanced/gimbal_control.html" />
+    
+    
+    <link rel="prev" href="../advanced/rtk_gps.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      <div class="common_menu_options">
+        <div id="menu_dc" class="common_dronecode_menu_item"><a href="https://www.dronecode.org/">Dronecode</a></div>
+        <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+        <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+        <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+        <div class="common_dronecode_menu_item"><a href="http://dronecore.io/">DroneCore</a></div>
+        <!-- <div class="common_dronecode_menu_item small_versionn"><a href="http://dronecore.io/">&lt;D/C&gt;</a></div> -->
+        <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+        <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+        <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+        <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+        <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    Initial Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    Toolchain Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    Ubuntu/Debian Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    CentOS Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    Advanced Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    Virtual Machine Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    Bash on Windows Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
+            
+                <a href="../setup/dev_env_windows_msys.html">
+            
+                    
+                    Msys Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    Building the Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    Writing your First Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    Application/Module Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 Architectural Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    Controller Diagrams
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    Dronecode Platform Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    Flight Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    Mixing and Actuators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit state machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    Multi-Vehicle Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    Hardware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../debug/reference-design.html">
+            
+                <a href="../debug/reference-design.html">
+            
+                    
+                    Flight Controller Reference Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../debug/porting-guide.html">
+            
+                <a href="../debug/porting-guide.html">
+            
+                    
+                    Flight Controller Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    Airframes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    Airframes Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    Adding a New Airframe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    Device Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    Telemetry Radio
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    Sensor and Actuator I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C Bus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN Bus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN Firmware Upgrades
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN Various Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../sensor_bus/uart.html">
+            
+                <a href="../sensor_bus/uart.html">
+            
+                    
+                    UART
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.8" data-path="camera_trigger.html">
+            
+                <a href="camera_trigger.html">
+            
+                    
+                    Camera Trigger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    Gimbal (Mount) Control Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    Companion Computers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    Middleware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
+            
+                <a href="../middleware/uorb_graph.html">
+            
+                    
+                    uORB Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 Interface
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    Throughput Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    Manually Generate Client/Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    Modules & Commands
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    Communication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_controller.html">
+            
+                <a href="../middleware/modules_controller.html">
+            
+                    
+                    Controllers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
+            
+                <a href="../middleware/modules_estimator.html">
+            
+                    
+                    Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../middleware/modules_template.html">
+            
+                <a href="../middleware/modules_template.html">
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    Robotics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    Offboard Control from Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (MAVLink on ROS)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS Offboard Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    ROS with Gazebo Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    OctoMap Models with ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    ROS Installation on RPi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    External Position Estimation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    Debugging/Logging
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    Autopilot Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    Simulation Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    Sending Debug Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    Flight Log Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="tutorials.html">
+            
+                <a href="tutorials.html">
+            
+                    
+                    Tutorials
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    Ground Control Station
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    Video Streaming in QGC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    Long-distance Video Streaming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="optical_flow.html">
+            
+                <a href="optical_flow.html">
+            
+                    
+                    Optical Flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="tuning_the_ecl_ekf.html">
+            
+                <a href="tuning_the_ecl_ekf.html">
+            
+                    
+                    ecl EKF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="land_detector.html">
+            
+                <a href="land_detector.html">
+            
+                    
+                    Land Detector
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="motion-capture-vicon-optitrack.html">
+            
+                <a href="motion-capture-vicon-optitrack.html">
+            
+                    
+                    Motion Capture (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="linux_sbus.html">
+            
+                <a href="linux_sbus.html">
+            
+                    
+                    S.Bus Driver for Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/system_startup.html">
+            
+                <a href="../advanced/system_startup.html">
+            
+                    
+                    System Boot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    Parameters & Configs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    Parameter Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Installing driver for Intel RealSense R200
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    Switching State Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    Out-of-Tree Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    Platform Testing and CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    Test Flights
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    Continuous Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins Continuous Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker Containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    Maintenance
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    Contributing & Dev Call
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    Terminology/Notation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://docs.dronecore.io/en/">
+            
+                    
+                    DroneCore Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Camera Trigger</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="camera-trigger">Camera Trigger</h1>
+<p>The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera. This can be used for multiple applications including timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.</p>
+<p>In addition to a pulse being sent out, a MAVLink message is published containing a sequence number (thus the current session&apos;s image sequence number) and the corresponding timestamp.</p>
+<h2 id="trigger-modesconfiguration">Trigger Modes/Configuration</h2>
+<h3 id="trigger-modes">Trigger Modes</h3>
+<p>Four different modes are supported, controlled by the <a href="../advanced/parameter_reference.html#TRIG_MODE">TRIG_MODE</a> parameter:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Camera triggering is disabled.</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Camera triggered on time interval (&quot;intervalometer&quot;). Triggering can be enabled and disabled by using the <a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL" target="_blank">MAV_CMD_DO_TRIGGER_CONTROL</a> MAVLink command. See <a href="#command-interface">command interface</a> for more details.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Camera triggered on time interval. Triggering always enabled.</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>Camera triggered based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Triggers automatically when flying a survey in Mission mode.</td>
+</tr>
+</tbody>
+</table>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
+<p> If it is your first time enabling the camera trigger app, remember to reboot after changing the <code>TRIG_MODE</code> parameter.</p>
+</blockquote>
+<h3 id="trigger-hardware-configuration">Trigger Hardware Configuration</h3>
+<p>You can choose which AUX pins to use for triggering using the <a href="../advanced/parameter_reference.html#TRIG_PINS">TRIG_PINS</a> parameter. The default is 56, which means that trigger is enabled on AUX 5 and AUX 6. </p>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> <strong>DO NOT CHANGE THE DEFAULT VALUE OF <code>TRIG_PINS</code> IF YOU NEED ACTUATOR OUTPUTS.</strong>
+With <a href="../advanced/parameter_reference.html#TRIG_PINS">TRIG_PINS</a> set to its <strong>default</strong> value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. </p>
+</blockquote>
+<h2 id="trigger-interface-backends">Trigger Interface Backends</h2>
+<p>The camera trigger driver supports several backends for triggering different types of camera interfaces. The type of camera can be specified using the <a href="../advanced/parameter_reference.html#TRIG_INTERFACE">TRIG_INTERFACE</a> parameter: </p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Interface</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td><em>GPIO interface</em></td>
+<td>The AUX outputs are pulsed high or low (depending on the <code>TRIG_POLARITY</code> parameter) every <code>TRIG_INTERVAL</code> duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><em>Seagull MAP2 interface</em></td>
+<td>This allows the use of the <a href="http://www.seagulluav.com/product/seagull-map2/" target="_blank">Seagull MAP2</a> to interface to a multitude of supported cameras. Pin 1 of the MAP2 should be connected to the lower AUX pin of <code>TRIG_PINS</code> (therefore, pin 1 to AUX 5 and pin 2 to AUX 6 by default). In this mode, PX4 also supports automatic power control and keep-alive functionalities of <em>Sony Multiport</em> cameras like the QX-1.</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><em>MAVLink interface</em></td>
+<td>In this mode, no actual hardware output is used - the driver only sends the <a href="https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER" target="_blank">CAMERA_TRIGGER</a> MAVLink message (by default, if the MAVLink application is in <code>onboard</code> mode. Otherwise, a custom stream will need to be enabled). PX4 must separately forward all MAVLink camera messages from a GCS to a connected MAVLink camera.</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>Generic PWM interface</td>
+<td>Allows the use of  <a href="http://www.himodel.com/FPV_Telemetry/Super_Tiny_1g_Only_Universal_Remote_Control_Infrared_Shutter_IR-RC.html" target="_blank">infrared triggers</a> or servos to trigger your camera.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-parameters">Other Parameters</h3>
+<ul>
+<li><a href="../advanced/parameter_reference.html#TRIG_POLARITY">TRIG_POLARITY</a> - Relevant only while using the GPIO interface. Sets the polarity of the trigger pin. Active high means that the pin is pulled low normally and pulled high on a trigger event. Active low is vice-versa.</li>
+<li><a href="../advanced/parameter_reference.html#TRIG_INTERVAL">TRIG_INTERVAL</a> - Defines the time between two consecutive trigger events in milliseconds.</li>
+<li><a href="../advanced/parameter_reference.html#TRIG_ACTIVATION_TIME">TRIG_ACTIVATION_TIME</a> - Defines the time in milliseconds the trigger pin is held in the &quot;active&quot; state before returning to neutral. In PWM modes, the minimum is limited to 40 ms to make sure we always fit an activate pulse into the 50Hz PWM signal.</li>
+</ul>
+<p>The full list of parameters pertaining to the camera trigger module can be found on the <a href="../advanced/parameter_reference.html#camera-trigger">parameter reference</a> page.</p>
+<h2 id="command-interface">Trigger Command Interface </h2>
+<p>The camera trigger driver supports the following commands.</p>
+<h3 id="mavcmddotriggercontrol">MAV_CMD_DO_TRIGGER_CONTROL</h3>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL" target="_blank">MAV_CMD_DO_TRIGGER_CONTROL</a> - Accepted in <code>TRIG_MODE 1</code> (&quot;command controlled&quot; mode).</p>
+<table>
+<thead>
+<tr>
+<th>Command Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Param #1</td>
+<td>Trigger enable/disable (set to 0 for enable, 1 for start)</td>
+</tr>
+<tr>
+<td>Param #2</td>
+<td>Sequence reset (set to 1 to reset image sequence number, 0 to keep current sequence number)</td>
+</tr>
+<tr>
+<td>Param #3</td>
+<td>Trigger pause/restart (set to 0 for pause, 1 for restart). Pausing does not switch off/retract the camera.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mavcmddodigicamcontrol">MAV_CMD_DO_DIGICAM_CONTROL</h3>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL" target="_blank">MAV_CMD_DO_DIGICAM_CONTROL</a> - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec. <!-- deprecated? --></p>
+<table>
+<thead>
+<tr>
+<th>Command Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Param #5</td>
+<td>Trigger one-shot command (set to 1 to trigger a single image frame)</td>
+</tr>
+<tr>
+<td>Param #7</td>
+<td>Trigger test shot - not logged or forwarded to GCS for geotagging (set to 1 to trigger a test shot)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mavcmddosetcamtriggdist">MAV_CMD_DO_SET_CAM_TRIGG_DIST</h3>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST" target="_blank">MAV_CMD_DO_SET_CAM_TRIGG_DIST</a> - Accepted in &quot;mission controlled&quot; mode (<code>TRIG_MODE</code> 4)</p>
+<p>This command is auto-generated during missions to trigger the camera based on survey missions from the GCS.</p>
+<table>
+<thead>
+<tr>
+<th>Command Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Param #1</td>
+<td>Trigger distance between shots (if <code>&gt;0</code>). <code>0</code>: triggering paused. <code>-1</code>: triggering disabled.</td>
+</tr>
+<tr>
+<td>Param #2</td>
+<td>Trigger activation time in ms - for GPIO mode only (<code>TRIG_INTERFACE 1</code>)</td>
+</tr>
+<tr>
+<td>Param #2</td>
+<td>Trigger single shot immediately (if &gt;0)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mavcmddosetcamtrigginterval">MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL</h3>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL" target="_blank">MAV_CMD_DO_SET_CAM_TRIGG_INTERVAL</a> - Accepted in &quot;mission controlled&quot; mode (<code>TRIG_MODE</code> 4)</p>
+<p>This command is auto-generated during missions to trigger the camera based on survey missions from the GCS. </p>
+<table>
+<thead>
+<tr>
+<th>Command Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Param #1</td>
+<td>Trigger interval time.</td>
+</tr>
+<tr>
+<td>Param #2</td>
+<td>Shutter activation time in ms - for GPIO mode only (<code>TRIG_INTERFACE 1</code>)</td>
+</tr>
+<tr>
+<td>Param #2</td>
+<td>Trigger single shot immediately (if &gt;0)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="testing-trigger-functionality">Testing Trigger Functionality</h2>
+<ul>
+<li><p>On the PX4 console: </p>
+<pre><code class="lang-sh">camera_trigger <span class="hljs-built_in">test</span>
+</code></pre>
+</li>
+<li><p>From <em>QGroundControl</em>: </p>
+<p>Click on <strong>Trigger Camera</strong> in the main instrument panel. These shots are not logged or counted for geotagging.</p>
+<p><img src="../../assets/qgc_test_camera.png" alt=""></p>
+</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="sony-qx-1-example-photogrammetry">Sony QX-1 example (Photogrammetry)</h3>
+<p><img src="../../assets/photogrammetry.png" alt=""></p>
+<p>In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission. </p>
+<h4 id="trigger-settings">Trigger Settings</h4>
+<p>The camera trigger can be configured from the <em>QGroundControl</em> <strong>Settings tab &gt; Camera</strong> page </p>
+<ul>
+<li><code>TRIG_INTERFACE</code>: 2, Seagull MAP2.</li>
+<li><code>TRIG_MODE</code>: 4, Mission controlled.</li>
+</ul>
+<p>Leave the rest of the parameters at their defaults.</p>
+<p><img src="../../assets/trigger_pins.png" alt=""></p>
+<p>You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to AUX 5, and Pin 2 to AUX 6. The other end of the MAP2 cable will go into the QX-1&apos;s &quot;MULTI&quot; port.</p>
+<h4 id="camera-configuration">Camera Configuration</h4>
+<p>We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.</p>
+<p>To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed :</p>
+<ul>
+<li>Manual focus to infinity</li>
+<li>Set camera to continuous shooting mode</li>
+<li>Manually set exposure and aperture</li>
+<li>ISO should be set as low as possible</li>
+<li>Manual white balance suitable for scene</li>
+</ul>
+<h4 id="mission-planning">Mission Planning</h4>
+<p><img src="../../assets/qgc_survey_polygon.jpeg" alt=""></p>
+<p><img src="../../assets/qgc_survey_parameters.jpg" alt=""></p>
+<h4 id="geotagging">Geotagging</h4>
+<p>Download/copy the logfile and images from the flight and point <em>QGroundControl</em> to them. Then click <strong>Start Tagging</strong>.</p>
+<p><img src="../../assets/qgc_geotag.png" alt=""></p>
+<p>You can verify the geotagging using a free online service like <a href="https://www.pic2map.com/" target="_blank">Pic2Map</a>. Note that <em>Pic2Map</em> is limited to only 40 images.</p>
+<h4 id="reconstruction">Reconstruction</h4>
+<p>We use <a href="https://pix4d.com/" target="_blank">Pix4D</a> for 3D reconstruction.</p>
+<p><img src="../../assets/geotag.jpg" alt=""></p>
+<h3 id="camera-imu-sync-example-vio">Camera-IMU Sync Example (VIO)</h3>
+<p>In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn&apos;t to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.</p>
+<p>The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g <a href="https://mavlink.io/en/messages/common.html#HIGHRES_IMU" target="_blank">HIGHRES_IMU</a>) in the cross-middleware translator component (e.g Mavros on the companion and <code>mavlink_receiver</code> in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if Mavros is used with a high-bandwidth onboard link (MAVLink mode <code>onboard</code>).</p>
+<p>For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (<a href="https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER" target="_blank">CAMERA_TRIGGER</a> message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the <code>CAMERA_TRIGGER</code> message) and then published.</p>
+<p>The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.</p>
+<p><div id="container" class="mermaid-container">
+    <div id="mermaid-holder"><div class="mermaid" data-processed="true"><svg id="mermaidChart0" width="100%" xmlns="http://www.w3.org/2000/svg" height="100%" style="max-width:750px;" viewbox="-50 -10 750 657"><style type="text/css" title="mermaid-svg-internal-css">/*  */
+.actor { stroke: #ccccff; fill: #ececff; }
+text.actor { fill: #000000; stroke: none; }
+.actor-line { stroke: #808080; }
+.messageline0 { stroke-width: 1.5px; stroke: #333333; }
+#arrowhead { fill: #333333; }
+#crosshead path { fill: #333333 !important; stroke: #333333 !important; }
+.messagetext { fill: #333333; stroke: none; }
+.labelbox { stroke: #ccccff; fill: #ececff; }
+.labeltext { fill: #000000; stroke: none; }
+.looptext { fill: #000000; stroke: none; }
+.loopline { stroke-width: 2px; stroke: #ccccff; }
+.note { stroke: #aaaa33; fill: #fff5ad; }
+.notetext { fill: #000000; stroke: none; font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
+text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
+/*  */
+</style><g><g><line id="actor0" x1="75" y1="5" x2="75" y2="646" class="actor-line" stroke-width="0.5px" stroke="#999"/><rect x="0" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"/><text x="75" y="37.5" class="actor" style="text-anchor: middle; ">PX4 </text></g><g><line id="actor1" x1="275" y1="5" x2="275" y2="646" class="actor-line" stroke-width="0.5px" stroke="#999"/><rect x="200" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"/><text x="275" y="37.5" class="actor" style="text-anchor: middle; ">mavros </text></g><g><line id="actor2" x1="475" y1="5" x2="475" y2="646" class="actor-line" stroke-width="0.5px" stroke="#999"/><rect x="400" y="0" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"/><text x="475" y="37.5" class="actor" style="text-anchor: middle; ">camera driver </text></g><defs><marker id="arrowhead" refx="5" refy="2" markerwidth="6" markerheight="4" orient="auto"><path d="M 0,0 V 4 L6,2 Z"/></marker></defs><defs><marker id="crosshead" markerwidth="15" markerheight="8" orient="auto" refx="16" refy="4"><path fill="black" stroke="#000000" style="stroke-dasharray: 0px, 0px; " stroke-width="1px" d="M 9,2 V 6 L16,4 Z"/><path fill="none" stroke="#000000" style="stroke-dasharray: 0px, 0px; " stroke-width="1px" d="M 0,1 L 6,7 M 6,1 L 0,7"/></marker></defs><g><rect x="100" y="75" fill="#EDF2AE" stroke="#666" width="150" height="68" rx="0" ry="0" class="note"/><text x="116" y="98" fill="black" class="noteText"><tspan x="116">Time sync with</tspan><tspan dy="16" x="116">mavros is done</tspan><tspan dy="16" x="116">automatically</tspan></text></g><g><text x="175" y="171" style="text-anchor: middle; " class="messageText">Camera Trigger ready</text><line x1="75" y1="178" x2="275" y2="178" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><rect x="500" y="188" fill="#EDF2AE" stroke="#666" width="150" height="68" rx="0" ry="0" class="note"/><text x="516" y="211" fill="black" class="noteText"><tspan x="516">Camera driver</tspan><tspan dy="16" x="516">boots and is</tspan><tspan dy="16" x="516">ready</tspan></text></g><g><text x="375" y="284" style="text-anchor: middle; " class="messageText">mavros_msgs::CommandTriggerControl</text><line x1="475" y1="291" x2="275" y2="291" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><text x="175" y="319" style="text-anchor: middle; " class="messageText">MAVLink::MAV_CMD_DO_TRIGGER_CONTROL</text><line x1="275" y1="326" x2="75" y2="326" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><text x="175" y="379" style="text-anchor: middle; " class="messageText">MAVLink::CAMERA_TRIGGER</text><line x1="75" y1="386" x2="275" y2="386" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><text x="375" y="414" style="text-anchor: middle; " class="messageText">mavros_msgs::CamIMUStamp</text><line x1="275" y1="421" x2="475" y2="421" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><text x="475" y="449" style="text-anchor: middle; " class="messageText">Match sequence number</text><path d="M 475,456 C 535,446 535,486 475,476" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><text x="475" y="514" style="text-anchor: middle; " class="messageText">Stamp image and publish</text><path d="M 475,521 C 535,511 535,551 475,541" class="messageLine0" stroke-width="2" stroke="black" style="fill: none; " marker-end="url(#arrowhead)"/></g><g><line x1="65" y1="336" x2="585" y2="336" stroke-width="2" stroke="#526e52" class="loopLine"/><line x1="585" y1="336" x2="585" y2="561" stroke-width="2" stroke="#526e52" class="loopLine"/><line x1="65" y1="561" x2="585" y2="561" stroke-width="2" stroke="#526e52" class="loopLine"/><line x1="65" y1="336" x2="65" y2="561" stroke-width="2" stroke="#526e52" class="loopLine"/><rect x="65" y="336" fill="#526e52" stroke="none" width="50" height="20" rx="0" ry="0" class="labelBox"/><text x="72.5" y="351" fill="white" class="labelText"><tspan x="72.5">loop</tspan></text><text x="325" y="351" style="text-anchor: middle; " fill="black" class="loopText"><tspan x="325">[ Every TRIG_INTERVAL milliseconds ]</tspan></text></g><g><rect x="0" y="581" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"/><text x="75" y="618.5" class="actor" style="text-anchor: middle; ">PX4 </text></g><g><rect x="200" y="581" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"/><text x="275" y="618.5" class="actor" style="text-anchor: middle; ">mavros </text></g><g><rect x="400" y="581" fill="#eaeaea" stroke="#666" width="150" height="65" rx="3" ry="3" class="actor"/><text x="475" y="618.5" class="actor" style="text-anchor: middle; ">camera driver </text></g></g></svg></div></div>
+  </div></p>
+<h4 id="step-1">Step 1</h4>
+<p>First, set the <code>TRIG_MODE</code> to 1 to make the driver wait for the start command and
+reboot your FCU to obtain the remaining parameters.</p>
+<h4 id="step-2">Step 2</h4>
+<p>For the purposes of this example we will be configuring the trigger to operate
+in conjunction with a Point Grey Firefly MV camera running at 30 FPS.</p>
+<ul>
+<li><code>TRIG_INTERVAL</code>: 33.33 ms</li>
+<li><code>TRIG_POLARITY</code>: 0 (active low)</li>
+<li><code>TRIG_ACT_TIME</code>: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.</li>
+<li><code>TRIG_MODE</code>: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.</li>
+<li><code>TRIG_PINS</code>: 56, Leave default.</li>
+</ul>
+<h4 id="step-3">Step 3</h4>
+<p>Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.</p>
+<h4 id="step-4">Step 4</h4>
+<p>You will have to modify your driver to follow the sequence diagram above. Public reference implementations for <a href="https://github.com/ProjectArtemis/ueye_cam" target="_blank">IDS Imaging UEye</a> cameras and for <a href="https://github.com/andre-nguyen/camera1394" target="_blank">IEEE1394 compliant</a> cameras are available.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../advanced/rtk_gps.html" class="navigation navigation-prev " aria-label="Previous page: RTK GPS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../advanced/gimbal_control.html" class="navigation navigation-next " aria-label="Next page: Gimbal (Mount) Control Setup">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Camera Trigger","level":"1.5.8","depth":2,"next":{"title":"Gimbal (Mount) Control Setup","level":"1.5.9","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},"previous":{"title":"RTK GPS","level":"1.5.7","depth":2,"path":"advanced/rtk_gps.md","ref":"advanced/rtk_gps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"tutorials/camera_trigger.md","mtime":"2018-06-13T23:32:19.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-14T06:15:21.260Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
