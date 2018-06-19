@@ -1,0 +1,2435 @@
+
+<!DOCTYPE HTML>
+<html lang="kr" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>명령 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="modules_communication.html" />
+    
+    
+    <link rel="prev" href="modules_main.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      <div class="common_menu_options">
+        <div id="menu_dc" class="common_dronecode_menu_item"><a href="https://www.dronecode.org/">Dronecode</a></div>
+        <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+        <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+        <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+        <div class="common_dronecode_menu_item"><a href="http://dronecore.io/">DroneCore</a></div>
+        <!-- <div class="common_dronecode_menu_item small_versionn"><a href="http://dronecore.io/">&lt;D/C&gt;</a></div> -->
+        <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+        <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+        <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+        <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+        <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    시작하기
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    초기 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    툴체인 설치
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    Ubuntu/Debian Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_boutique.html">
+            
+                <a href="../setup/dev_env_linux_boutique.html">
+            
+                    
+                    Arch/CentOS Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    고급 Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    코드 빌드하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../setup/config_advanced.html">
+            
+                <a href="../setup/config_advanced.html">
+            
+                    
+                    고급 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    기여하기
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.5.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5.2" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    라이센스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    비행 모드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    아키텍쳐 개요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_stack.html">
+            
+                <a href="../concept/flight_stack.html">
+            
+                    
+                    비행 스택
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/middleware.html">
+            
+                <a href="../concept/middleware.html">
+            
+                    
+                    미들웨어
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    미싱과 액츄레이터
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit 상태 머신
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim 시뮬레이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo 시뮬레이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL 시뮬레이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    ROS 인터페이스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim 시뮬레이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    Multi-Vehicle 시뮬레이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    Hardware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../flight_controller/">
+            
+                <a href="../flight_controller/">
+            
+                    
+                    Autopilot 하드웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/debug/porting-guide.html">
+            
+                    
+                    Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    Airframes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../airframes/architecture.html">
+            
+                <a href="../airframes/architecture.html">
+            
+                    
+                    통합 코드베이스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    Airframes 레퍼런스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    새로운 Airframe 추가
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../data_links/">
+            
+                <a href="../data_links/">
+            
+                    
+                    Data Links
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../advanced/telemetry_wifi.html">
+            
+                <a href="../advanced/telemetry_wifi.html">
+            
+                    
+                    텔레메트리 Wifi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.3" data-path="../tutorials/telemetry.html">
+            
+                <a href="../tutorials/telemetry.html">
+            
+                    
+                    텔레메트리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    센서와 액츄레이터 버스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C Bus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.1.1" data-path="../sensor/sf1xx_lidar_setup.html">
+            
+                <a href="../sensor/sf1xx_lidar_setup.html">
+            
+                    
+                    SF1XX lidar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN Bus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN 펌웨어 업그레이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 정보
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4.3" data-path="../sensor_bus/uart.html">
+            
+                <a href="../sensor_bus/uart.html">
+            
+                    
+                    UART
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.4.3.1" data-path="../sensor/uart_ulanding_radar.html">
+            
+                <a href="../sensor/uart_ulanding_radar.html">
+            
+                    
+                    uLanding Radar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../tutorials/camera_trigger.html">
+            
+                <a href="../tutorials/camera_trigger.html">
+            
+                    
+                    Camera Trigger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    짐벌 (마운트) 제어 셋업
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    컴패니온 컴퓨터
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    미들웨어와 아키텍쳐
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="uorb.html">
+            
+                <a href="uorb.html">
+            
+                    
+                    uORB 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="mavlink.html">
+            
+                <a href="mavlink.html">
+            
+                    
+                    MAVLink 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="micrortps.html">
+            
+                <a href="micrortps.html">
+            
+                    
+                    RTPS/ROS2 인터페이스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="micrortps_throughput_test.html">
+            
+                <a href="micrortps_throughput_test.html">
+            
+                    
+                    Throughput 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="micrortps_manual_code_generation.html">
+            
+                <a href="micrortps_manual_code_generation.html">
+            
+                    
+                    수동 Client/Agent 생성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../advanced/architecture_daemon.html">
+            
+                <a href="../advanced/architecture_daemon.html">
+            
+                    
+                    데몬
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="drivers.html">
+            
+                <a href="drivers.html">
+            
+                    
+                    Driver 프레임워크
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="modules_main.html">
+            
+                <a href="modules_main.html">
+            
+                    
+                    모듈 & 명령
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="modules_command.html">
+            
+                <a href="modules_command.html">
+            
+                    
+                    명령
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="modules_communication.html">
+            
+                <a href="modules_communication.html">
+            
+                    
+                    통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="modules_driver.html">
+            
+                <a href="modules_driver.html">
+            
+                    
+                    드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="modules_estimator.html">
+            
+                <a href="modules_estimator.html">
+            
+                    
+                    Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="modules_system.html">
+            
+                <a href="modules_system.html">
+            
+                    
+                    시스템
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    로보틱스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    Linux에서 Offboard 제어
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    RPi에 ROS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (MAVLink on ROS)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS offboard 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    외부 Position Estimation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    Gazebo Octomap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    Debugging/Logging
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    시스템 콘솔
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    Autopilot 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    Simulation 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    시스템 수준 Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    프로파일링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    디버거 값 보내기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    로깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    비행 로그 분석
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog 파일 포맷
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    튜토리얼
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    그라운드 컨트롤 스테이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../tutorials/tutorial_hello_sky.html">
+            
+                <a href="../tutorials/tutorial_hello_sky.html">
+            
+                    
+                    어플리케이션 작성하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    QGC 비디오 스트리밍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    장거리 비디오 스트리밍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../tutorials/optical_flow.html">
+            
+                <a href="../tutorials/optical_flow.html">
+            
+                    
+                    Optical Flow
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../tutorials/tuning_the_ecl_ekf.html">
+            
+                <a href="../tutorials/tuning_the_ecl_ekf.html">
+            
+                    
+                    ecl EKF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../tutorials/pre_flight_checks.html">
+            
+                <a href="../tutorials/pre_flight_checks.html">
+            
+                    
+                    비행전 체크
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../tutorials/land_detector.html">
+            
+                <a href="../tutorials/land_detector.html">
+            
+                    
+                    착륙 감지기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    모션 캡쳐 (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    리눅스 S.Bus 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/system_startup.html">
+            
+                <a href="../advanced/system_startup.html">
+            
+                    
+                    시스템 부트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    퍄라미터 & 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/parameter_reference_korean.html">
+            
+                <a href="../advanced/parameter_reference_korean.html">
+            
+                    
+                    파라미터 레퍼런스 (Korean)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    파라미터 레퍼런스 (English)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Intel RealSense R200 드라이버 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    State Estimators 스위칭
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    Out-of-tree 모듈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    테스팅과 CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/test_and_ci/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins 지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    통합 테스팅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker 컨테이너
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    유지보수
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode 바로가기</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 사용자 가이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 사용자 가이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 개발자 가이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://docs.dronecore.io/en/">
+            
+                    
+                    DroneCore 가이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink 개발자 가이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >명령</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="modules-&#xB808;&#xD37C;&#xB7F0;&#xC2A4;-command">Modules &#xB808;&#xD37C;&#xB7F0;&#xC2A4;: Command</h1>
+<h2 id="blupdate">bl_update</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update" target="_blank">systemcmds/bl_update</a></p>
+<p>&#xD30C;&#xC77C;&#xC5D0;&#xC11C; bootloader&#xB97C; &#xD50C;&#xB798;&#xC26C;&#xD558;&#xB294; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>bl_update [arguments...]
+   setopt        Set option bits to unlock the FLASH (only needed if in locked
+                 state)
+
+   &lt;file&gt;        Bootloader bin file
+</code></pre><h2 id="&#xC124;&#xC815;">&#xC124;&#xC815;</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/config" target="_blank">systemcmds/config</a></p>
+<p>&#xC13C;&#xC11C; &#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xC124;&#xC815;(&#xC0D8;&#xD50C;&#xB9C1; &amp; public rate, range &#xB4F1;)</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>config &lt;command&gt; [arguments...]
+ Commands:
+
+ The &lt;file:dev&gt; argument is typically one of /dev/{gyro,accel,mag}i
+   block         Block sensor topic publication
+     &lt;file:dev&gt;  Sensor device file
+
+   unblock       Unblock sensor topic publication
+     &lt;file:dev&gt;  Sensor device file
+
+   sampling      Set sensor sampling rate
+     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and sampling rate in Hz
+
+   rate          Set sensor publication rate
+     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and publication rate in Hz
+
+   range         Set sensor measurement range
+     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and range
+
+   check         Perform sensor self-test (and print info)
+     &lt;file:dev&gt;  Sensor device file
+</code></pre><h2 id="dumpfile">dumpfile</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile" target="_blank">systemcmds/dumpfile</a></p>
+<p>&#xB364;&#xD504; &#xD30C;&#xC77C; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;. binary &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C; stdout&#xC73C;&#xB85C; &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xC640; &#xB0B4;&#xC6A9;&#xC744; &#xCD9C;&#xB825;(LF&#xB97C; CR LF&#xB85C; &#xBC14;&#xAFB8;&#xC9C0; &#xB9D0;&#xAC83;)</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>dumpfile [arguments...]
+     &lt;file&gt;      File to dump
+</code></pre><h2 id="esccalib">esc_calib</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib" target="_blank">systemcmds/esc_calib</a></p>
+<p>ESC &#xCE7C;&#xB9AC;&#xBE0C;&#xB808;&#xC774;&#xC158;&#xC744; &#xC704;&#xD55C; &#xB3C4;&#xAD6C;</p>
+<p>&#xCE7C;&#xB9AC;&#xBE0C;&#xB808;&#xC774;&#xC158; &#xC808;&#xCC28;(&#xBA85;&#xB839; &#xC2E4;&#xD589;&#xC744; &#xD1B5;&#xD55C; &#xAC00;&#xC774;&#xB4DC;):</p>
+<ul>
+<li>&#xD504;&#xB85C;&#xD3A0;&#xB7EC; &#xC81C;&#xAC70;, ESC &#xC804;&#xC6D0;&#xB044;&#xAE30;</li>
+<li>attitude &#xC81C;&#xC5B4;&#xAE30; &#xC815;&#xC9C0;: mc_att_control stop, fw_att_control &#xC815;&#xC9C0;</li>
+<li>safety&#xAC00; &#xAEBC;&#xC838;&#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;</li>
+<li>&#xC774; &#xBA85;&#xB839; &#xC2E4;&#xD589;</li>
+</ul>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>esc_calib [arguments...]
+     [-d &lt;val&gt;]  Select PWM output device
+                 values: &lt;file:dev&gt;, default: /dev/pwm_output0
+     [-l &lt;val&gt;]  Low PWM value in us
+                 default: 1000
+     [-h &lt;val&gt;]  High PWM value in us
+                 default: 2000
+     [-c &lt;val&gt;]  select channels in the form: 1234 (1 digit per channel,
+                 1=first)
+     [-m &lt;val&gt;]  Select channels via bitmask (eg. 0xF, 3)
+                 default: 0
+     [-a]        Select all channels
+</code></pre><h2 id="hardfaultlog">hardfault_log</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log" target="_blank">systemcmds/hardfault_log</a></p>
+<p>Hardfault &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;</p>
+<p>hardfaults&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC2DC;&#xC791; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>hardfault_log &lt;command&gt; [arguments...]
+ Commands:
+   check         Check if there&apos;s an uncommited hardfault
+
+   rearm         Drop an uncommited hardfault
+
+   fault         Generate a hardfault (this command crashes the system :)
+     [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
+
+   commit        Write uncommited hardfault to /fs/microsd/fault_%i.txt (and
+                 rearm, but don&apos;t reset)
+
+   count         Read the reboot counter, counts the number of reboots of an
+                 uncommited hardfault (returned as the exit code of the program)
+
+   reset         Reset the reboot counter
+</code></pre><h2 id="ledcontrol">led_control</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/led_control" target="_blank">systemcmds/led_control</a></p>
+<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<p>(&#xC678;&#xBD80;) LED&#xB97C; &#xC81C;&#xC5B4; &#xBC0F; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xCEE4;&#xB9E8;&#xB4DC; &#xB77C;&#xC778; &#xD234;</p>
+<p>&#xC774;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC788;&#xB294; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xAC00; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;. &#xC774; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xAC00; led_control uorb topic&#xC744; &#xCC98;&#xB9AC;.</p>
+<p>&#xC5EC;&#xAE30;&#xC5D0;&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xC788;&#xB294;&#xB370; &#xC608;&#xB97C; &#xB4E4;&#xBA74; &#xD558;&#xB098;&#xC758; &#xBAA8;&#xB4C8;&#xC774; &#xB0AE;&#xC740; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB85C; &#xC0C9;&#xAE54;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xACE0; &#xB2E4;&#xB978; &#xBAA8;&#xB4C8;&#xC740; &#xB192;&#xC740; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB85C; N&#xBC88; &#xAE5C;&#xBE61;&#xC774;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE5C;&#xBE61;&#xC784; &#xD6C4;&#xC5D0; LED&#xB294; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB0AE;&#xC740; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB85C; &#xB3CC;&#xC544;&#xAC11;&#xB2C8;&#xB2E4;. <code>reset</code> &#xBA85;&#xB839;&#xC740; &#xB354; &#xB0AE;&#xC740; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<p>&#xCC98;&#xC74C; LED&#xB97C; 5&#xD68C; &#xD30C;&#xB780;&#xC0C9;&#xC73C;&#xB85C; &#xAE5C;&#xBE61;&#xC784; :</p>
+<pre><code>led_control blink -c blue -l 0 -n 5
+</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>led_control &lt;command&gt; [arguments...]
+ Commands:
+   test          Run a test pattern
+
+   on            Turn LED on
+
+   off           Turn LED off
+
+   reset         Reset LED priority
+
+   blink         Blink LED N times
+     [-n &lt;val&gt;]  Number of blinks
+                 default: 3
+     [-s &lt;val&gt;]  Set blinking speed
+                 values: fast|normal|slow, default: normal
+
+   breathe       Continuously fade LED in &amp; out
+
+ The following arguments apply to all of the above commands except for &apos;test&apos;:
+     [-c &lt;val&gt;]  color
+                 values: red|blue|green|yellow|purple|amber|cyan|white, default:
+                 white
+     [-l &lt;val&gt;]  Which LED to control: 0, 1, 2, ... (default=all)
+                 default: -1
+     [-p &lt;val&gt;]  Priority
+                 default: 2
+</code></pre><h2 id="listener">listener</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/topic_listener" target="_blank">systemcmds/topic_listener</a></p>
+<p>uORB topic&#xC744; listen&#xD558;&#xB294; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;&#xB85C; &#xCF58;&#xC194;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC81C;&#xC57D;: topic&#xC758; &#xCC98;&#xC74C; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB9CC; listen&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>listener [arguments...]
+     &lt;topic_name&gt; [&lt;num_msgs&gt;] uORB topic name and optionally number of messages
+                 (default=1)
+</code></pre><h2 id="mixer">mixer</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/mixer" target="_blank">systemcmds/mixer</a></p>
+<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<p>ESC driver&#xB85C; &#xBBF9;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xB85C;&#xB4DC;&#xD558;&#xAC70;&#xB098; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB294; &#xBC18;&#xB4DC;&#xC2DC; ioctl &#xC0AC;&#xC6A9;&#xC744; &#xC9C0;&#xC6D0;&#xD574;&#xC57C;&#xB9CC; &#xD569;&#xB2C8;&#xB2E4;. NuttX&#xC5D0; &#xD574;&#xB2F9;&#xB418;&#xC9C0;&#xB9CC; RPi&#xC5D0;&#xB294; &#xD574;&#xB2F9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>mixer &lt;command&gt; [arguments..Reference.]
+ Commands:
+   load
+     &lt;file:dev&gt; &lt;file&gt; Output device (eg. /dev/pwm_output0) and mixer file
+
+   append
+     &lt;file:dev&gt; &lt;file&gt; Output device (eg. /dev/pwm_output0) and mixer file
+</code></pre><h2 id="motorramp">motor_ramp</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_ramp" target="_blank">systemcmds/motor_ramp</a></p>
+<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<p>&#xBAA8;&#xD130;&#xB97C; ramp up &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC704;&#xD55C; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;.</p>
+<p>&#xC2DC;&#xC791;&#xD558;&#xAE30; &#xC804;&#xC5D0;, &#xC2E4;&#xD589; &#xC911;&#xC778; attitude &#xC81C;&#xC5B4;&#xAE30;&#xB97C; &#xC815;&#xC9C0;&#xC2DC;&#xCF30;&#xB294;&#xC9C0; &#xD655;&#xC778; :</p>
+<pre><code>mc_att_control stop
+fw_att_control stop
+</code></pre><p>&#xC2DC;&#xC791;&#xD560;&#xB54C;, &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xD0DC;&#xC2A4;&#xD06C;&#xAC00; &#xC2DC;&#xC791;&#xB418;&#xACE0; &#xC2E4;&#xD589;&#xD558;&#xB294;&#xB370; &#xC218; &#xCD08;&#xAC00; &#xAC78;&#xB9BD;&#xB2C8;&#xB2E4;(&#xC9C0;&#xC815;&#xD55C; &#xBC14;&#xC640; &#xAC19;&#xC774;). &#xADF8;&#xB7F0; &#xB2E4;&#xC74C; &#xBE60;&#xC838;&#xB098;&#xC635;&#xB2C8;&#xB2E4;.
+When starting, a background task is started, runs for several seconds (as specified), then exits.</p>
+<p>Note: &#xC774; &#xBA85;&#xB839;&#xC740; &#xB3D9;&#xC2DC;&#xC5D0; <code>/dev/pwm_output0</code> &#xCD9C;&#xB825;&#xB9CC; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<pre><code>motor_ramp sine 1100 0.5
+</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>motor_ramp [arguments...]
+     ramp|sine|square mode
+     &lt;min_pwm&gt; &lt;time&gt; [&lt;max_pwm&gt;] pwm value in us, time in sec
+
+ WARNING: motors will ramp up to full speed!
+</code></pre><h2 id="motortest">motor_test</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_test" target="_blank">systemcmds/motor_test</a></p>
+<p>&#xBAA8;&#xD130; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC704;&#xD55C; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;</p>
+<p>Note: motor_test uorb topic&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.(&#xD604;&#xC7AC; uavcan&#xACFC; tap_esc)</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>motor_test &lt;command&gt; [arguments...]
+ Commands:
+   test          Set motor(s) to a specific output value
+     [-m &lt;val&gt;]  Motor to test (0...7, all if not specified)
+                 default: -1
+     [-p &lt;val&gt;]  Power (0...100)
+                 default: 0
+
+   stop          Stop all motors
+
+   iterate       Iterate all motors starting and stopping one after the other
+</code></pre><h2 id="mtd">mtd</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd" target="_blank">systemcmds/mtd</a></p>
+<p>&#xD30C;&#xD2F0;&#xC158;&#xC744; &#xB9C8;&#xC6B4;&#xD2B8;&#xD558;&#xACE0; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xB294; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;(FRAM/EEPROM &#xC2A4;&#xD1A0;&#xB9AC;&#xC9C0; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xD574;&#xB2F9; &#xBCF4;&#xB4DC;&#xC5D0;&#xC11C; &#xC815;&#xC758;)</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>mtd &lt;command&gt; [arguments...]
+ Commands:
+   status        Print status information
+
+   start         Mount partitions
+
+   readtest      Perform read test
+
+   rwtest        Perform read-write test
+
+   erase         Erase partition(s)
+
+ The commands &apos;start&apos;, &apos;readtest&apos;, &apos;rwtest&apos; and &apos;erase&apos; have an optional
+ parameter:
+     [&lt;partition_name1&gt; [&lt;partition_name2&gt; ...]] Partition names (eg.
+                 /fs/mtd_params), use system default if not provided
+</code></pre><h2 id="nshterm">nshterm</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/nshterm" target="_blank">systemcmds/nshterm</a></p>
+<p>NSH &#xC258;&#xC744; &#xD574;&#xB2F9; &#xD3EC;&#xD2B8;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;.</p>
+<p>USB &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xB85C; &#xC258;&#xC744; &#xC2DC;&#xC791;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD588;&#xB358; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC774;&#xC81C;&#xB294; mavlink&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA70; mavlink &#xC0C1;&#xC5D0;&#xC11C; &#xC258;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>nshterm [arguments...]
+     &lt;file:dev&gt;  Device on which to start the shell (eg. /dev/ttyACM0)
+</code></pre><h2 id="param">param</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/param" target="_blank">systemcmds/param</a></p>
+<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<p>&#xC258;&#xC774;&#xB098; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB85C; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB97C; &#xC811;&#xADFC;&#xD558;&#xACE0; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xBA85;&#xB839;.</p>
+<p>airframe-specific &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB97C; &#xC124;&#xC815;&#xD558;&#xB294; &#xC2DC;&#xC791; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; &#xC608;&#xC81C;&#xB85C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB294; &#xBCC0;&#xACBD;&#xB418;&#xBA74; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;. &#xC608;&#xB85C; <code>param set</code>. &#xC774;&#xAC83;&#xB4E4;&#xC740; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; FRAM&#xC774;&#xB098; SD &#xCE74;&#xB4DC;&#xC5D0; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;. <code>param select</code>&#xC740; &#xCC28;&#xD6C4; &#xC800;&#xC7A5;&#xC744; &#xC704;&#xD55C; &#xC800;&#xC7A5; &#xC704;&#xCE58;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.(&#xB9E4;&#xBC88; &#xBD80;&#xD305;&#xB9C8;&#xB2E4; (&#xC7AC;)&#xC124;&#xC815;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;)</p>
+<p>&#xAC01; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB294; &apos;used&apos; flag&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xACE0;, &#xBD80;&#xD305;&#xB3D9;&#xC548; &#xC77D;&#xD788;&#xB294; &#xACBD;&#xC6B0; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;. &#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xCEE8;&#xD2B8;&#xB864; &#xC2A4;&#xD14C;&#xC774;&#xC158;&#xACFC; &#xAD00;&#xB828; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB97C;&#xB9CC; &#xBCF4;&#xC5EC;&#xC8FC;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<p>airframe&#xC744; &#xBCC0;&#xACBD;&#xD558;&#xACE0; airframe&#xC758; &#xB514;&#xD3F4;&#xD2B8; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xAC00; &#xB85C;&#xB4DC;&#xB418;&#xC5C8;&#xB294;&#xC9C0; &#xD655;&#xC778;:</p>
+<pre><code>param set SYS_AUTOSTART 4001
+param set SYS_AUTOCONFIG 1
+reboot
+</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>param &lt;command&gt; [arguments...]
+ Commands:
+   load          Load params from a file (overwrite all)
+     [&lt;file&gt;]    File name (use default if not given)
+
+   import        Import params from a file
+     [&lt;file&gt;]    File name (use default if not given)
+
+   save          Save params to a file
+     [&lt;file&gt;]    File name (use default if not given)
+
+   select        Select default file
+     [&lt;file&gt;]    File name (use &lt;root&gt;/eeprom/parameters if not given)
+
+   show          Show parameter values
+     [-c]        Show only changed params
+     [&lt;filter&gt;]  Filter by param name (wildcard at end allowed, eg. sys_*)
+
+   set           Set parameter to a value
+     &lt;param_name&gt; &lt;value&gt; Parameter name and value to set
+     [fail]      If provided, let the command fail if param is not found
+
+   compare       Compare a param with a value. Command will succeed if equal
+     &lt;param_name&gt; &lt;value&gt; Parameter name and value to compare
+
+   greater       Compare a param with a value. Command will succeed if param is
+                 greater than the value
+     &lt;param_name&gt; &lt;value&gt; Parameter name and value to compare
+
+   reset         Reset params to default
+     [&lt;exclude1&gt; [&lt;exclude2&gt;]] Do not reset matching params (wildcard at end
+                 allowed)
+
+   reset_nostart Reset params to default, but keep SYS_AUTOSTART and
+                 SYS_AUTOCONFIG
+     [&lt;exclude1&gt; [&lt;exclude2&gt;]] Do not reset matching params (wildcard at end
+                 allowed)
+
+   index         Show param for a given index
+     &lt;index&gt;     Index: an integer &gt;= 0
+
+   index_used    Show used param for a given index
+     &lt;index&gt;     Index: an integer &gt;= 0
+
+   find          Show index of a param
+     &lt;param&gt;     param name
+</code></pre><h2 id="perf">perf</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf" target="_blank">systemcmds/perf</a></p>
+<p>&#xC131;&#xB2A5; &#xCE74;&#xC6B4;&#xD130;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xB294; &#xB3C4;&#xAD6C;</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>perf [arguments...]
+   reset         Reset all counters
+
+   latency       Print HRT timer latency histogram
+
+ Prints all performance counters if no arguments given
+</code></pre><h2 id="pwm">pwm</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/pwm" target="_blank">systemcmds/pwm</a></p>
+<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<p>&#xC774; &#xBA85;&#xB839;&#xC740; servo&#xC640; ESC &#xC81C;&#xC5B4;&#xB97C; &#xC704;&#xD55C; PWM &#xCD9C;&#xB825;&#xC744; &#xC124;&#xC815;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB514;&#xD3F4;&#xD2B8; &#xC7A5;&#xCE58; <code>/dev/pwm_output0</code>&#xAC00; &#xBA54;&#xC778; &#xCC44;&#xB110;&#xC774;&#xACE0; AUX &#xCC44;&#xB110;&#xC740; <code>/dev/pwm_output1</code>&#xC5D0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.(<code>-d</code> parameter).</p>
+<p>PWM &#xD30C;&#xB77C;&#xBBF8;&#xD130; (<code>PWM_*</code>)&#xB97C; &#xC801;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC2A4;&#xD0C0;&#xD2B8;&#xC5C5; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.(&#xD639;&#xC740; &#xD2B9;&#xC815; airframe config&#xC5D0;&#xC11C; &#xC81C;&#xACF5;) <code>pwm info</code>&#xB294; &#xD604;&#xC7AC; &#xC14B;&#xD305;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.(trim &#xAC12;&#xC740; offset&#xC774;&#xACE0; <code>PWM_MAIN_TRIMx</code>&#xC640; <code>PWM_AUX_TRIMx</code>&#xB85C; &#xC124;&#xC815;)</p>
+<p>disarmed &#xAC12;&#xC740; &#xBAA8;&#xD130;&#xAC00; &#xD68C;&#xC804;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xAC12;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD574;&#xC57C;&#xB9CC; &#xD558;&#xBA70;(&#xC774;&#xB294; kill &#xC2A4;&#xC704;&#xCE58;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC74C;), &#xD68C;&#xC804;&#xD574;&#xC57C;&#xD558;&#xB294; &#xCD5C;&#xC18C;&#xAC12;.
+&#xCC44;&#xB110;&#xB4E4;&#xC744; &#xD558;&#xB098;&#xC758; &#xADF8;&#xB8F9;&#xC5D0; &#xD560;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC81C;&#xC57D; &#xB54C;&#xBB38;&#xC5D0;, &#xC5C5;&#xB370;&#xC774;&#xD2B8; rate&#xB294; &#xADF8;&#xB8F9;&#xC5D0; &#xD55C;&#xD574;&#xC11C;&#xB9CC; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>pwm info</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xD574;&#xB2F9; &#xADF8;&#xB8F9;&#xC744; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>-c</code> &#xC778;&#xC790;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74;, &#xD3EC;&#xD568;&#xB41C; &#xADF8;&#xB8F9;&#xC758; &#xBAA8;&#xB4E0; &#xCC44;&#xB110;&#xC740; &#xBC18;&#xB4DC;&#xC2DC; &#xD3EC;&#xD568;&#xD574;&#xC57C;&#xB9CC; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD30C;&#xB77C;&#xBBF8;&#xD130; <code>-p</code>&#xC640; <code>-r</code>&#xC740; &#xC815;&#xC218;&#xB97C; &#xC9C0;&#xC815;&#xD558;&#xB294; &#xB300;&#xC2E0;&#xC5D0; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB85C; &#xC9C0;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;: &#xC608;&#xC81C;&#xB85C; -p p:PWM_MIN&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>OneShot &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C; PWM &#xBC94;&#xC704; [1000, 2000]&#xB294; &#xC790;&#xB3D9;&#xC73C;&#xB85C; [125, 250]&#xB85C; &#xB9E4;&#xD551;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<p>&#xBAA8;&#xB4E0; &#xCC44;&#xB110;&#xC744; 400 Hz&#xB85C; PWM rate&#xC744; &#xC124;&#xC815;:</p>
+<pre><code>pwm rate -a -r 400
+</code></pre><p>&#xCC44;&#xB110; 1&#xACFC; 3&#xC758; &#xCD9C;&#xB825;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xACE0; PWM &#xAC12;&#xC744; 1200 us&#xB85C; &#xC124;&#xC815;:</p>
+<pre><code>pwm arm
+pwm test -c 13 -p 1200
+</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>pwm &lt;command&gt; [arguments...]
+ Commands:
+   arm           Arm output
+
+   disarm        Disarm output
+
+   info          Print current configuration of all channels
+
+   forcefail     Force Failsafe mode
+     on|off      Turn on or off
+
+   terminatefail Force Termination Failsafe mode
+     on|off      Turn on or off
+
+   rate          Configure PWM rates
+     -r &lt;val&gt;    PWM Rate in Hz (0 = Oneshot, otherwise 50 to 400Hz)
+
+   oneshot       Configure Oneshot125 (rate is set to 0)
+
+   failsafe      Set Failsafe PWM value
+
+   disarmed      Set Disarmed PWM value
+
+   min           Set Minimum PWM value
+
+   max           Set Maximum PWM value
+
+   test          Set Output to a specific value until &apos;q&apos; or &apos;c&apos; or &apos;ctrl-c&apos;
+                 pressed
+
+   steps         Run 5 steps from 0 to 100%
+
+ The commands &apos;failsafe&apos;, &apos;disarmed&apos;, &apos;min&apos;, &apos;max&apos; and &apos;test&apos; require a PWM
+ value:
+     -p &lt;val&gt;    PWM value (eg. 1100)
+
+ The commands &apos;rate&apos;, &apos;oneshot&apos;, &apos;failsafe&apos;, &apos;disarmed&apos;, &apos;min&apos;, &apos;max&apos;, &apos;test&apos;
+ and &apos;steps&apos; additionally require to specify the channels with one of the
+ following commands:
+     [-c &lt;val&gt;]  select channels in the form: 1234 (1 digit per channel,
+                 1=first)
+     [-m &lt;val&gt;]  Select channels via bitmask (eg. 0xF, 3)
+                 default: 0
+     [-g &lt;val&gt;]  Select channels by group (eg. 0, 1, 2. use &apos;pwm info&apos; to show
+                 groups)
+                 default: 0
+     [-a]        Select all channels
+
+ These parameters apply to all commands:
+     [-d &lt;val&gt;]  Select PWM output device
+                 values: &lt;file:dev&gt;, default: /dev/pwm_output0
+     [-v]        Verbose output
+     [-e]        Exit with 1 instead of 0 on error
+</code></pre><h2 id="reboot">reboot</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot" target="_blank">systemcmds/reboot</a></p>
+<p>&#xC2DC;&#xC2A4;&#xD15C; &#xB9AC;&#xBD80;&#xD305;</p>
+<h3 id="usage">Usage</h3>
+<pre><code>reboot [arguments...]
+     [-b]        Reboot into bootloader
+</code></pre><h2 id="sdbench">sd_bench</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench" target="_blank">systemcmds/sd_bench</a></p>
+<p>SD &#xCE74;&#xB4DC;&#xC758; &#xC18D;&#xB3C4;&#xB97C; &#xD14C;&#xC2A4;&#xD2B8;</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>sd_bench [arguments...]
+     [-b &lt;val&gt;]  Block size for each read/write
+                 default: 4096
+     [-r &lt;val&gt;]  Number of runs
+                 default: 5
+     [-d &lt;val&gt;]  Duration of a run in ms
+                 default: 2000
+     [-s]        Call fsync after each block (default=at end of each run)
+</code></pre><h2 id="top">top</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/top" target="_blank">systemcmds/top</a></p>
+<p>&#xC2E4;&#xD589; &#xC911;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;, CPU, &#xC2A4;&#xD0DD; &#xC0AC;&#xC6A9;, &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xC640; &#xC0C1;&#xD0DC;&#xB97C; &#xBAA8;&#xB2C8;&#xD130;&#xB9C1;</p>
+<h3 id="usage">Usage</h3>
+<pre><code>top [arguments...]
+   once          print load only once
+</code></pre><h2 id="usbconnected">usb_connected</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/usb_connected" target="_blank">systemcmds/usb_connected</a></p>
+<p>USB&#xAC00; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB294; &#xC720;&#xD2F8;&#xB9AC;&#xD2F0;. &#xC774;&#xC804;&#xC5D0;&#xB294; &#xC2DC;&#xC791; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD588;&#xC5C8;&#xC74C;. &#xB9AC;&#xD134;&#xAC12; 0&#xC740; USB&#xAC00; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xB2E4;&#xB294; &#xB73B;&#xC774;&#xACE0; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC740; &#xACBD;&#xC6B0; 1.</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>usb_connected [arguments...]
+</code></pre><h2 id="ver">ver</h2>
+<p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver" target="_blank">systemcmds/ver</a></p>
+<p>&#xC5EC;&#xB7EC; &#xBC84;&#xC804; &#xC815;&#xBCF4;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xB294; &#xB3C4;&#xAD6C;</p>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<pre><code>ver &lt;command&gt; [arguments...]
+ Commands:
+   hw            Hardware architecture
+
+   mcu           MCU info
+
+   git           git version information
+
+   bdate         Build date and time
+
+   gcc           Compiler info
+
+   bdate         Build date and time
+
+   uid           UUID
+
+   mfguid        Manufacturer UUID
+
+   uri           Build URI
+
+   all           Print all versions
+
+   hwcmp         Compare hardware version (returns 0 on match)
+     &lt;hw&gt;        Hardware to compare against (eg. PX4FMU_V4)
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="modules_main.html" class="navigation navigation-prev " aria-label="Previous page: 모듈 & 명령">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="modules_communication.html" class="navigation navigation-next " aria-label="Next page: 통신">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"명령","level":"1.7.1","depth":2,"next":{"title":"통신","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"모듈 & 명령","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"명령","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"통신","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"드라이버","level":"1.7.3","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},{"title":"Estimators","level":"1.7.4","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"시스템","level":"1.7.5","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2018-06-18T23:50:37.474Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-18T23:52:38.793Z"},"basePath":"..","book":{"language":"kr"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
