@@ -2002,7 +2002,10 @@
 </ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> Further details on why you need to use the scripts and how it all works <a href="#manual_setup">explained below</a>.</p>
-<p><strong>Tip</strong> You can create desktop shortcuts to the batch scripts to have easier access, the installer as of toolchain version 0.2 does not yet create them for you.</p>
+</blockquote>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> You can create desktop shortcuts to the batch scripts to have easier access, the installer as of toolchain version 0.2 does not yet create them for you.</p>
 </blockquote>
 <p>The ordinary workflow consists of starting a console window by douple clicking on the <code>run-console.bat</code> script to manually run terminal commands and starting your favorite IDE with its corresponding <code>run-XXX.bat</code> script to edit code and possibly also run builds. </p>
 <h3 id="getting_started">Getting Started </h3>
@@ -2025,7 +2028,7 @@ Compilation of source files also works with CR+LF endings checked out locally bu
 Luckily git can do this for you when you execute the two commands in the root directory of your repo:</p>
 <pre><code>git config core.autocrlf false
 git config core.eol lf
-</code></pre><p>If you work with this Toolchain on multiple repositories you can also set these two configurations globally for your machine by <code>git config --global</code>... but this will apply system wide and hence also in other unrelated git usages on your Windows and is not recommended.</p>
+</code></pre><p>If you work with this Toolchain on multiple repositories you can also set these two configurations globally for your machine by <code>git config --global ...</code> but this will apply system wide and hence also in other unrelated git usages on your Windows and is not recommended.</p>
 <h4 id="unix-permissions-execution-bit">Unix permissions execution bit</h4>
 <p>Under unix there&apos;s a flag in the permissions of each file which tells the OS if the file is allowed to be executed or not. Windows has a different permission system and no such bit but git especially under cygwin supports and cares about that bit.
 This often results in git finding difffereces in permissions even if there is no real diff which looks like this:</p>
@@ -2044,7 +2047,7 @@ git clone https://github.com/MaEtUgR/PX4Toolchain PX4
 </ol>
 <h2 id="manual_setup">Manual Installation (for Toolchain Developers) </h2>
 <p>This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.</p>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The Toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.</p>
 </blockquote>
 <ol>
@@ -2073,7 +2076,10 @@ git clone https://github.com/MaEtUgR/PX4Toolchain PX4
 <li><p>Web:wget</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.</p>
-<p><strong>Note:</strong> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat" target="_blank">cygwin64/install-cygwin-px4.bat</a> does.</p>
+</blockquote>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat" target="_blank">cygwin64/install-cygwin-px4.bat</a> does.</p>
 </blockquote>
 </li>
 </ul>
@@ -2083,60 +2089,59 @@ git clone https://github.com/MaEtUgR/PX4Toolchain PX4
 <p> The script <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>
  locally sets environmental variables for the workspace root directory <code>PX4_DIR</code>, all binary locations <code>PATH</code>, and the home directory of the unix environment <code>HOME</code>.</p>
 </li>
-</ol>
-<p>1.
-    Add necessary <strong>python packages</strong> to your setup by opening the Cygwin toolchain console (double clicking <code>run-console.bat</code>) and executing</p>
-<pre><code>```
-pip2 install toml
-pip2 install pyserial
-pip2 install pyulog
-```
-&gt; **Note:** That&apos;s what [cygwin64/install-cygwin-python-packages.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) does.
-</code></pre><p>1.
-    Download the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" target="_blank"><strong>ARM GCC compiler</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\gcc-arm</code>.</p>
-<pre><code>&gt; **Note:** That&apos;s what [gcc-arm/install-gcc-arm.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat) does.
-</code></pre><p>1.</p>
-<pre><code>* Download the [**Java Development Kit Installer**](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-* Because sadly there is no portable archive containing the binaries directly you have to install it.
-*  Find the binaries and move/copy them to `C:\PX4\toolchain\jdk`.
-* You can uninstall the Kit from your Windows system again, we only needed the binaried for the toolchain.
-
-&gt; **Note:** That&apos;s what [jdk/install-jdk.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat) does.
-</code></pre><p>1.
-    Download <a href="https://ant.apache.org/bindownload.cgi" target="_blank"><strong>Apache Ant</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\apache-ant</code>.</p>
-<pre><code>&gt; **Tip:** make sure you don&apos;t have an additional folder layer from the folder which is inside the downloaded archive.
-
-&gt; **Note:** That&apos;s what [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat) does.
-</code></pre><p>1.
-    Download, build and add <strong>genromfs</strong> to the path:</p>
-<pre><code>* Clone the source code to the folder `C:\PX4\toolchain\genromfs\genromfs-src` with
-```
-cd /c/toolchain/genromfs
-git clone https://github.com/chexum/genromfs.git genromfs-src
-```
-* compile it with
-```
-cd genromfs-src
-make all
-```
-* Copy the resulting binary `genromfs.exe` one folder level out to `C:\PX4\toolchain\genromfs`
-
-&gt; **Note:** That&apos;s what [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat) does.
-</code></pre><p>1.
-    Make sure all the binary folders of all the isntalled components are correctly listed in the <code>PATH</code> variable configured by <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>.</p>
-<!-- import docs for other tools and next steps. -->
-<!-- Additional DevTools Common to all Platforms - imported into other pages -->
-<h2 id="ground-control-software">Ground Control Software</h2>
-<p>Download and install the <a href="https://docs.qgroundcontrol.com/en/releases/daily_builds.html" target="_blank">QGroundControl Daily Build</a>.</p>
-<p><img src="../../assets/qgc_goto.jpg" alt="QGroundControl"></p>
-<h2 id="editor--ide">Editor / IDE</h2>
-<p>The development team often use:</p>
-<ul>
-<li><a href="https://www.sublimetext.com" target="_blank">Sublime Text</a>: a fast and lean text editor. </li>
-<li><a href="http://www.qt.io/download-open-source/#section-6" target="_blank">Qt Creator</a>: A popular open-source IDE.</li>
+<li><p> Add necessary <strong>python packages</strong> to your setup by opening the Cygwin toolchain console (double clicking <code>run-console.bat</code>) and executing</p>
+<pre><code> pip2 install toml
+ pip2 install pyserial
+ pip2 install pyulog
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat" target="_blank">cygwin64/install-cygwin-python-packages.bat</a> does.</p>
+</blockquote>
+</li>
+<li><p> Download the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" target="_blank"><strong>ARM GCC compiler</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\gcc-arm</code>.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat" target="_blank">gcc-arm/install-gcc-arm.bat</a> does.</p>
+</blockquote>
+</li>
+<li><ul>
+<li>Download the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank"><strong>Java Development Kit Installer</strong></a>.</li>
+<li>Because sadly there is no portable archive containing the binaries directly you have to install it.</li>
+<li>Find the binaries and move/copy them to <code>C:\PX4\toolchain\jdk</code>.</li>
+<li><p>You can uninstall the Kit from your Windows system again, we only needed the binaried for the toolchain.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat" target="_blank">jdk/install-jdk.bat</a> does.</p>
+</blockquote>
+</li>
 </ul>
-<h2 id="next-steps">Next Steps</h2>
-<p>Once you have finished setting up the environment, continue to the <a href="building_px4.html">build instructions</a>.</p>
+</li>
+<li><p> Download <a href="https://ant.apache.org/bindownload.cgi" target="_blank"><strong>Apache Ant</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\apache-ant</code>.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> Make sure you don&apos;t have an additional folder layer from the folder which is inside the downloaded archive.</p>
+</blockquote>
+<p> <span></span></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat" target="_blank">apache-ant/install-apache-ant.bat</a> does.</p>
+</blockquote>
+</li>
+<li><p> Download, build and add <strong>genromfs</strong> to the path:</p>
+<ul>
+<li><p>Clone the source code to the folder <code>C:\PX4\toolchain\genromfs\genromfs-src</code> with</p>
+<pre><code>  cd /c/toolchain/genromfs
+  git clone https://github.com/chexum/genromfs.git genromfs-src
+</code></pre></li>
+<li><p>compile it with</p>
+<pre><code>  cd genromfs-src
+  make all
+</code></pre></li>
+<li><p>Copy the resulting binary <code>genromfs.exe</code> one folder level out to <code>C:\PX4\toolchain\genromfs</code></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat" target="_blank">genromfs/install-genromfs.bat</a> does.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p> Make sure all the binary folders of all the isntalled components are correctly listed in the <code>PATH</code> variable configured by <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>.</p>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -2180,7 +2185,7 @@ make all
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"next":{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"path":"setup/dev_env_windows_cygwin.md","ref":"setup/dev_env_windows_cygwin.md","articles":[]},{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},{"title":"Bash on Windows Toolchain","level":"1.2.2.3.3","depth":4,"path":"setup/dev_env_windows_bash_on_win.md","ref":"setup/dev_env_windows_bash_on_win.md","articles":[]},{"title":"Msys Toolchain","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_windows_cygwin.md","mtime":"2018-06-28T00:38:56.630Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-28T00:40:17.669Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"next":{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"path":"setup/dev_env_windows_cygwin.md","ref":"setup/dev_env_windows_cygwin.md","articles":[]},{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},{"title":"Bash on Windows Toolchain","level":"1.2.2.3.3","depth":4,"path":"setup/dev_env_windows_bash_on_win.md","ref":"setup/dev_env_windows_bash_on_win.md","articles":[]},{"title":"Msys Toolchain","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_windows_cygwin.md","mtime":"2018-06-28T00:51:33.567Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-06-28T00:52:47.526Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
