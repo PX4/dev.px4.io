@@ -356,6 +356,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.2.5" data-path="generic_dev_tools.html">
+            
+                <a href="generic_dev_tools.html">
+            
+                    
+                    Additional Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1944,105 +1957,127 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="windows-cygwin-toolchain">Windows Cygwin Toolchain</h1>
-<h2 id="ready-to-use-msi-installer-download">Ready to use MSI Installer Download</h2>
-<p>Latest Download:</p>
+<p>This is the newest (and best!) toolchain for developing PX4 on Windows.</p>
+<p>The toolchain is portable, easy to install, and easy to use. 
+It supports build/upload of PX4 to NuttX targets (Pixhawk series controllers) and can run the JMAVSim/SITL simulator with significantly better performance than the other Windows toolchains. </p>
+<!--
+## Ready to use MSI Installer Download {#installation}
+
+Latest Download: [PX4 Windows Cygwin Toolchain 0.3 Download](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.3.msi) (25.07.2018)
+
+
+Legacy Versions (**deprecated**):
+
+* [PX4 Windows Cygwin Toolchain 0.3 Download](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.3.msi) (25.07.2018)
+* [PX4 Windows Cygwin Toolchain 0.2 Download](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.2.msi) (09.05.2018)
+* [PX4 Windows Cygwin Toolchain 0.1 Download](https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.1.msi) (23.02.2018)
+-->
+<h2 id="features--issues">Features / Issues</h2>
+<p>The following features are known to work (version 2.0):</p>
 <ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.3.msi" target="_blank">PX4 Windows Cygwin Toolchain 0.3 Download</a> (25.07.2018)</li>
-</ul>
-<p>Legacy Versions (<strong>deprecated</strong>):</p>
-<ul>
-<li><a href="https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.2.msi" target="_blank">PX4 Windows Cygwin Toolchain 0.2 Download</a> (09.05.2018)</li>
-<li><a href="https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.1.msi" target="_blank">PX4 Windows Cygwin Toolchain 0.1 Download</a> (23.02.2018)</li>
-</ul>
-<h2 id="support--known-problems">Support / Known Problems</h2>
-<p>Tested and working:</p>
-<ul>
-<li>Building and running SITL with jMAVsim, generates a native windows binary px4.exe and has a lot better prformance than a VM</li>
-<li>Building and uploading NuttX builds like px4fmu-v2 and px4fmu-v4</li>
-<li>Style check with astyle with the command make format</li>
+<li>Building and running SITL with jMAVSim with significantly better performance than a VM (it generates a native windows binary <strong>px4.exe</strong>).</li>
+<li>Building and uploading NuttX builds (e.g.: px4fmu-v2 and px4fmu-v4)</li>
+<li>Style check with <em>astyle</em> (supports the command: <code>make format</code>)</li>
 <li>Command line auto completion</li>
-<li>The installer does <strong>NOT</strong> screw up your system and global path, it only modifies the selected installation directory e.g. <code>C:\PX4\</code> and uses a temporary local path</li>
+<li>Non-invasive installer! The installer does NOT affect your system and global path (it only modifies the selected installation directory e.g. <strong>C:\PX4\</strong> and uses a temporary local path).</li>
 <li>The installer supports updating to a new version keeping your personal changes inside the toolchain folder</li>
 </ul>
-<p><a href="https://github.com/orgs/PX4/projects/6" target="_blank">Known problems / Report your issue</a></p>
+<p>Omissions:</p>
+<ul>
+<li>Simulation: Gazebo and ROS are not supported</li>
+<li>Only NuttX and JMAVSim/SITL builds are supported.</li>
+<li><a href="https://github.com/orgs/PX4/projects/6" target="_blank">Known problems / Report your issue</a></li>
+</ul>
 <h2 id="installation-instructions">Installation Instructions</h2>
 <ol>
-<li>Download the latest version of the ready to use MSI installer above</li>
+<li>Download the latest version of the ready to use MSI installer: <a href="https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.3.msi" target="_blank">PX4 Windows Cygwin Toolchain 0.3 Download</a> (25.07.2018)</li>
 <li>Run it, choose your desired installation location, let it install
  <img src="../../assets/toolchain/cygwin_toolchain_installer.PNG" alt="jMAVSimOnWindows"></li>
-<li>Make sure to tick the box in the end of the installation to clone the PX4 repository, build and run simulation with jMAVsim this simplifies the process to get you started. </li>
-</ol>
+<li><p>Tick the box at the end of the installation to <em>clone the PX4 repository, build and run simulation with jMAVSim</em> (this simplifies the process to get you started). </p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Don&apos;t worry if you missed the opportunity or the script failed (e.g. because you didn&apos;t have a working internet connection). You can also <a href="#getting_started">do that step manually on the console afterwards</a>.</p>
+<p> If you missed this step will need to <a href="#getting_started">clone the PX4 Firmware repository manually</a>.</p>
 </blockquote>
+</li>
+</ol>
+<h2 id="getting_started">Getting Started </h2>
+<p>The toolchain uses a specially configured PX console window (started by running the <strong>run-console.bat</strong> script) from which you can call the normal PX4 build commands:</p>
+<ol>
+<li>Browse to the toolchain installation directory (default `<strong>C:\PX4\</strong>)</li>
+<li>Run <strong>run-console.bat</strong> (double click) to start the Cygwin bash console</li>
+<li><p>Clone the PX4 Firmware repository from within the console:</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Cloning only needs to be done once! 
+  Stkip this step if you ticked the installer option to <em>clone the PX4 repository, build and run simulation with jMAVSim</em>.</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-comment"># Clone PX4 Firmware repository into the home folder &amp; loads submodules in parallel</span>
+git <span class="hljs-built_in">clone</span> --recursive -j8 https://github.com/PX4/Firmware.git
+</code></pre>
+<p>You can now use the console/Firmware repository to build PX4.</p>
+</li>
+<li><p>For example, to run JMAVSim:</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Navigate to Firmware repo</span>
+<span class="hljs-built_in">cd</span> Firmware
+<span class="hljs-comment"># Build and runs SITL simulation with jMAVSim to test the setup</span>
+make posix jmavsim
+</code></pre>
+<p>The console will then display:</p>
+<p><img src="../../assets/simulation/jmavsim_windows_cygwin.PNG" alt="jMAVSimOnWindows"></p>
+</li>
+</ol>
+<p>Continue next to <a href="building_px4.html">the detailed instructions on how to build PX4</a> (or see the section below for more general usage instructions).</p>
 <h2 id="usage_instructions">Usage Instructions </h2>
-<p>After the installation when you browse to the directory you installed the toolchain to (default <code>C:\PX4\</code>) you&apos;ll find the following batch scripts which start up a console/terminal or different IDEs inside the Cygwin toolchain environment:</p>
+<p>The installation directory (default: <strong>C:\PX4\</strong>) contains batch scripts for launching console windows and starting different IDEs inside the Cygwin toolchain environment.
+The full list of scripts provided is.</p>
 <ul>
-<li><p><strong><code>run-console.bat</code></strong></p>
-<p>  To start the POSIX (linux like) bash console.</p>
-</li>
-<li><p><strong><code>run-eclipse.bat</code></strong></p>
-<p>  To start the as of Toolchain version 0.2 built in portable <a href="http://www.eclipse.org/downloads/eclipse-packages/" target="_blank">eclipse for C++ IDE</a>.</p>
-</li>
-<li><p><strong><code>run-vscode.bat</code></strong></p>
-<p>  To start the not included <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code IDE</a> from its default install directory <code>C:\Program Files\Microsoft VS Code</code></p>
-</li>
+<li><strong>run-console.bat</strong> - Start the POSIX (linux like) bash console.</li>
+<li><strong>run-eclipse.bat</strong> - Start the build in portable <a href="http://www.eclipse.org/downloads/eclipse-packages/" target="_blank">eclipse for C++ IDE</a>.</li>
+<li><strong>run-vscode.bat</strong> - Start the <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code IDE</a> (this must be installed separately) from its default install directory: <code>C:\Program Files\Microsoft VS Code</code></li>
 </ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Further details on why you need to use the scripts and how it all works <a href="#manual_setup">explained below</a>.</p>
+<p> The <a href="#manual_setup">Manual Setup</a> section explains why you need to use the scripts and how it all works.</p>
 </blockquote>
 <p><span></span></p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can create desktop shortcuts to the batch scripts to have easier access, the installer as of toolchain version 0.2 does not yet create them for you.</p>
+<p> You can create desktop shortcuts to the batch scripts to have easier access, the installer does not yet create them for you (as of toolchain version 0.2).</p>
 </blockquote>
-<p>The ordinary workflow consists of starting a console window by douple clicking on the <code>run-console.bat</code> script to manually run terminal commands and starting your favorite IDE with its corresponding <code>run-XXX.bat</code> script to edit code and possibly also run builds. </p>
-<h3 id="getting_started">Getting Started </h3>
-<p>Ticking the box to clone and run simulation at the end of the installer opens the Cygwin console and runs the following commands:</p>
-<pre><code># clones PX4 repository into the home folder &amp; loads submodules in parallel
-git clone --recursive -j8 https://github.com/PX4/Firmware.git
-# switches into the Firmware repository folder
-cd Firmware
-# builds and runs SITL simulation with jMAVSim to test the setup
-make posix jmavsim
-</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Cloning only needs to be done once, if you ticked the box to clone at the installer or just updated your toolchain it&apos;s already done and you can skip the fist command.</p>
-</blockquote>
-<p><img src="../../assets/simulation/jmavsim_windows_cygwin.PNG" alt="jMAVSimOnWindows"></p>
-<p>Continue at this stage with <a href="building_px4.html">the detailed instructions on how to build PX4</a>.</p>
+<p>The ordinary workflow consists of starting a console window by double clicking on the <strong>run-console.bat</strong> script to manually run terminal commands. Developers who prefer an IDE can start it with the corresponding <strong>run-XXX.bat</strong> script to edit code/run builds. </p>
 <h3 id="windows--git-special-cases">Windows &amp; Git Special Cases</h3>
 <h4 id="windows-crlf-vs-unix-lf-line-endings">Windows CR+LF vs Unix LF Line Endings</h4>
-<p>It is recommended that you force unix style LF endings for every repository you&apos;re working with using this Toolcahin and use an editor which preserves them when saving your changes like eclipse or VS Code.
-Compilation of source files also works with CR+LF endings checked out locally but there are cases in Cygwin like execution of shell scripts that require unix line endings otherwise you get errors like <code>$&apos;\r&apos;: Command not found.</code>.
+<p>We recommend that you force Unix style LF endings for every repository you&apos;re working with using this toolchain (and use an editor which preserves them when saving your changes - e.g. Eclipse or VS Code).
+Compilation of source files also works with CR+LF endings checked out locally, but there are cases in Cygwin (e.g. execution of shell scripts) that require Unix line endings ( otherwise you get errors like <code>$&apos;\r&apos;: Command not found.</code>).
 Luckily git can do this for you when you execute the two commands in the root directory of your repo:</p>
 <pre><code>git config core.autocrlf false
 git config core.eol lf
-</code></pre><p>If you work with this Toolchain on multiple repositories you can also set these two configurations globally for your machine by <code>git config --global ...</code> but this will apply system wide and hence also in other unrelated git usages on your Windows and is not recommended.</p>
-<h4 id="unix-permissions-execution-bit">Unix permissions execution bit</h4>
-<p>Under unix there&apos;s a flag in the permissions of each file which tells the OS if the file is allowed to be executed or not. Windows has a different permission system and no such bit but git especially under cygwin supports and cares about that bit.
-This often results in git finding difffereces in permissions even if there is no real diff which looks like this:</p>
+</code></pre><p>If you work with this toolchain on multiple repositories you can also set these two configurations globally for your machine:</p>
+<pre><code>git config --global ...
+</code></pre><p>This is not recommended because it may affect any other (unrelated) git use on your Windows machine.</p>
+<h4 id="unix-permissions-execution-bit">Unix Permissions Execution Bit</h4>
+<p>Under Unix there&apos;s a flag in the permissions of each file which tells the OS whether or not the file is allowed to be executed. 
+<em>git</em> under Cygwin supports and cares about that bit (even though Windows has a different permission system). 
+This often results in <em>git</em> finding differences in permissions even if there is no real diff which looks like this:</p>
 <pre><code>diff --git ...
 old mode 100644
 new mode 100755
-</code></pre><p>It&apos;s recommended to disable this functionality by executing <code>git config core.fileMode false</code> in every repo you use with this toolchain.</p>
-<h2 id="script_setup">Shell Script installation </h2>
+</code></pre><p>We recommend disabling this functionality by executing <code>git config core.fileMode false</code> in every repo where you use with this toolchain.</p>
+<h2 id="script_setup">Shell Script Installation </h2>
 <ol>
-<li>Make sure you have Git for Windows installed. You can get it from <a href="https://git-scm.com/download/win" target="_blank">https://git-scm.com/download/win</a>.</li>
+<li>Make sure you have <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> installed.</li>
 <li>Clone the repository <a href="https://github.com/MaEtUgR/PX4Toolchain" target="_blank">https://github.com/MaEtUgR/PX4Toolchain</a> to the location you want to install the toolchain. Default location and naming is achieved by opening the <code>Git Bash</code> and executing:<pre><code>cd /c/
 git clone https://github.com/MaEtUgR/PX4Toolchain PX4
 </code></pre></li>
-<li>If you want to install all components navigate to the freshly cloned folder and double click on the script <code>install-all-components.bat</code> located in the folder <code>toolchain</code>. If you only need certain components and want to safe internet traffic and or disk space you can navigate to the different component folders like e.g. <code>toolchain\cygwin64</code> and click on the <code>install-XXX.bat</code> scripts to only fetch something specific.</li>
-<li>Continue with <a href="#usage_instructions">Usage Instructions</a> and <a href="#getting_started">Getting Started</a></li>
+<li>If you want to install all components navigate to the freshly cloned folder and double click on the script <code>install-all-components.bat</code> located in the folder <code>toolchain</code>. If you only need certain components and want to safe Internet traffic and or disk space you can navigate to the different component folders like e.g. <code>toolchain\cygwin64</code> and click on the <strong>install-XXX.bat</strong> scripts to only fetch something specific.</li>
+<li>Continue with <a href="#getting_started">Getting Started</a> (or <a href="#usage_instructions">Usage Instructions</a>) </li>
 </ol>
 <h2 id="manual_setup">Manual Installation (for Toolchain Developers) </h2>
 <p>This section describes how to setup the Cygwin toolchain manually yourself while pointing to the corresponding scripts from the script based installation repo. The result should be the same as using the scripts or MSI installer.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The Toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.</p>
+<p> The toolchain gets maintained and hence these instructions might not cover every detail of all the future changes.</p>
 </blockquote>
 <ol>
-<li>Create the <strong>folders</strong> <code>C:\PX4\</code>, <code>C:\PX4\toolchain\</code> and <code>C:\PX4\home\</code></li>
-<li>Download the <strong>Cygwin installer</strong> file <a href="https://cygwin.com/setup-x86_64.exe" target="_blank">setup-x86_64.exe</a> from the <a href="https://cygwin.com/install.html" target="_blank">official Cygwin website</a></li>
+<li>Create the <em>folders</em>: <strong>C:\PX4\</strong>, <strong>C:\PX4\toolchain\</strong> and <strong>C:\PX4\home\</strong></li>
+<li>Download the <em>Cygwin installer</em> file <a href="https://cygwin.com/setup-x86_64.exe" target="_blank">setup-x86_64.exe</a> from the <a href="https://cygwin.com/install.html" target="_blank">official Cygwin website</a></li>
 <li>Run the downloaded setup file</li>
-<li>In the wizard choose to install into the folder <code>C:\PX4\toolchain\cygwin64\</code></li>
+<li>In the wizard choose to install into the folder: <strong>C:\PX4\toolchain\cygwin64\</strong></li>
 <li><p>Select to install the default Cygwin base and the newest available version of the following additional packages:</p>
 <ul>
 <li><strong>Category:Packagename</strong></li>
@@ -2061,7 +2096,8 @@ git clone https://github.com/MaEtUgR/PX4Toolchain PX4
 <li>Archive:unzip</li>
 <li>Utils:astyle</li>
 <li>Shells:bash-completion</li>
-<li><p>Web:wget</p>
+<li>Web:wget</li>
+</ul>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.</p>
 </blockquote>
@@ -2070,64 +2106,63 @@ git clone https://github.com/MaEtUgR/PX4Toolchain PX4
 <p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat" target="_blank">cygwin64/install-cygwin-px4.bat</a> does.</p>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p> Write up or copy the <strong>batch scripts</strong> <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat" target="_blank"><code>run-console.bat</code></a> and <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>. </p>
-<p> The reason to start all the development tools through the prepared batch scripts is they preconfigure the starting program to use the local, portable Cygwin environment inside the toolchain&apos;s folder. This is done by always first calling the script <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a> and the desired application like the console after that.</p>
-<p> The script <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>
+<li><p>Write up or copy the <strong>batch scripts</strong> <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat" target="_blank"><code>run-console.bat</code></a> and <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>. </p>
+<p>The reason to start all the development tools through the prepared batch scripts is they preconfigure the starting program to use the local, portable Cygwin environment inside the toolchain&apos;s folder. This is done by always first calling the script <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><strong>setup-environment-variables.bat</strong></a> and the desired application like the console after that.</p>
+<p>The script <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>
  locally sets environmental variables for the workspace root directory <code>PX4_DIR</code>, all binary locations <code>PATH</code>, and the home directory of the unix environment <code>HOME</code>.</p>
 </li>
-<li><p> Add necessary <strong>python packages</strong> to your setup by opening the Cygwin toolchain console (double clicking <code>run-console.bat</code>) and executing</p>
-<pre><code> pip2 install toml
- pip2 install pyserial
- pip2 install pyulog
+<li><p>Add necessary <strong>python packages</strong> to your setup by opening the Cygwin toolchain console (double clicking <strong>run-console.bat</strong>) and executing</p>
+<pre><code>pip2 install toml
+pip2 install pyserial
+pip2 install pyulog
 </code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat" target="_blank">cygwin64/install-cygwin-python-packages.bat</a> does.</p>
 </blockquote>
 </li>
-<li><p> Download the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" target="_blank"><strong>ARM GCC compiler</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\gcc-arm</code>.</p>
+<li><p>Download the <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" target="_blank"><strong>ARM GCC compiler</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\gcc-arm</code>.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat" target="_blank">gcc-arm/install-gcc-arm.bat</a> does.</p>
+<p> This is what the toolchain does in: <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat" target="_blank">gcc-arm/install-gcc-arm.bat</a>.</p>
 </blockquote>
 </li>
-<li><ul>
+<li><p>Install the JDK:</p>
+<ul>
 <li>Download the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank"><strong>Java Development Kit Installer</strong></a>.</li>
 <li>Because sadly there is no portable archive containing the binaries directly you have to install it.</li>
-<li>Find the binaries and move/copy them to <code>C:\PX4\toolchain\jdk</code>.</li>
-<li><p>You can uninstall the Kit from your Windows system again, we only needed the binaried for the toolchain.</p>
+<li>Find the binaries and move/copy them to <strong>C:\PX4\toolchain\jdk</strong>.</li>
+<li>You can uninstall the Kit from your Windows system again, we only needed the binaries for the toolchain.</li>
+</ul>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat" target="_blank">jdk/install-jdk.bat</a> does.</p>
+<p> This is what the toolchain does in: <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat" target="_blank">jdk/install-jdk.bat</a>.</p>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p> Download <a href="https://ant.apache.org/bindownload.cgi" target="_blank"><strong>Apache Ant</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\apache-ant</code>.</p>
+<li><p>Download <a href="https://ant.apache.org/bindownload.cgi" target="_blank"><strong>Apache Ant</strong></a> as zip archive of the binaries for Windows and unpack the content to the folder <code>C:\PX4\toolchain\apache-ant</code>.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> Make sure you don&apos;t have an additional folder layer from the folder which is inside the downloaded archive.</p>
 </blockquote>
-<p> <span></span></p>
+<p><span></span></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat" target="_blank">apache-ant/install-apache-ant.bat</a> does.</p>
+<p> This is what the toolchain does in: <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat" target="_blank">apache-ant/install-apache-ant.bat</a>.</p>
 </blockquote>
 </li>
-<li><p> Download, build and add <strong>genromfs</strong> to the path:</p>
+<li><p>Download, build and add <em>genromfs</em> to the path:</p>
 <ul>
-<li><p>Clone the source code to the folder <code>C:\PX4\toolchain\genromfs\genromfs-src</code> with</p>
-<pre><code>  cd /c/toolchain/genromfs
-  git clone https://github.com/chexum/genromfs.git genromfs-src
+<li><p>Clone the source code to the folder <strong>C:\PX4\toolchain\genromfs\genromfs-src</strong> with</p>
+<pre><code>cd /c/toolchain/genromfs
+git clone https://github.com/chexum/genromfs.git genromfs-src
 </code></pre></li>
-<li><p>compile it with</p>
-<pre><code>  cd genromfs-src
-  make all
-</code></pre></li>
-<li><p>Copy the resulting binary <code>genromfs.exe</code> one folder level out to <code>C:\PX4\toolchain\genromfs</code></p>
+<li><p>Compile it with:</p>
+<pre><code>cd genromfs-src
+make all
+</code></pre><ul>
+<li>Copy the resulting binary <strong>genromfs.exe</strong> one folder level out to: <strong>C:\PX4\toolchain\genromfs</strong></li>
+</ul>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat" target="_blank">genromfs/install-genromfs.bat</a> does.</p>
+<p> This is what the toolchain does in: <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat" target="_blank">genromfs/install-genromfs.bat</a>.</p>
 </blockquote>
 </li>
 </ul>
 </li>
-<li><p> Make sure all the binary folders of all the isntalled components are correctly listed in the <code>PATH</code> variable configured by <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><code>setup-environment-variables.bat</code></a>.</p>
+<li><p>Make sure all the binary folders of all the installed components are correctly listed in the <code>PATH</code> variable configured by <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat" target="_blank"><strong>setup-environment-variables.bat</strong></a>.</p>
 </li>
 </ol>
 
@@ -2173,7 +2208,7 @@ git clone https://github.com/MaEtUgR/PX4Toolchain PX4
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"next":{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"path":"setup/dev_env_windows_cygwin.md","ref":"setup/dev_env_windows_cygwin.md","articles":[]},{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},{"title":"Bash on Windows Toolchain","level":"1.2.2.3.3","depth":4,"path":"setup/dev_env_windows_bash_on_win.md","ref":"setup/dev_env_windows_bash_on_win.md","articles":[]},{"title":"Msys Toolchain","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_windows_cygwin.md","mtime":"2018-07-25T10:06:06.157Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-25T10:07:17.001Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"next":{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[{"title":"Cygwin Toolchain","level":"1.2.2.3.1","depth":4,"path":"setup/dev_env_windows_cygwin.md","ref":"setup/dev_env_windows_cygwin.md","articles":[]},{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},{"title":"Bash on Windows Toolchain","level":"1.2.2.3.3","depth":4,"path":"setup/dev_env_windows_bash_on_win.md","ref":"setup/dev_env_windows_bash_on_win.md","articles":[]},{"title":"Msys Toolchain","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_windows_cygwin.md","mtime":"2018-07-27T04:19:08.627Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-27T04:20:32.387Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

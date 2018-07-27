@@ -356,6 +356,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    Additional Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1965,7 +1978,7 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <h2 id="control-groups">Control Groups</h2>
 <p>PX4 uses control groups (inputs) and output groups. Conceptually they are very simple: A control group is e.g. <code>attitude</code>, for the core flight controls, or <code>gimbal</code> for payload. An output group is one physical bus, e.g. the first 8 PWM outputs for servos. Each of these groups has 8 normalized (-1..+1) command ports, which can be mapped and scaled through the mixer. A mixer defines how each of these 8 signals of the controls are connected to the 8 outputs.</p>
 <p>For a simple plane control 0 (roll) is connected straight to output 0 (aileron). For a multicopter things are a bit different: control 0 (roll) is connected to all four motors and combined with throttle.</p>
-<h4 id="control-group-0-flight-control">Control Group #0 (Flight Control)</h4>
+<h3 id="control-group-0-flight-control">Control Group #0 (Flight Control)</h3>
 <ul>
 <li>0: roll (-1..1)</li>
 <li>1: pitch (-1..1)</li>
@@ -1976,7 +1989,7 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <li>6: airbrakes (-1..1)</li>
 <li>7: landing gear (-1..1)</li>
 </ul>
-<h4 id="control-group-1-flight-control-vtolalternate">Control Group #1 (Flight Control VTOL/Alternate)</h4>
+<h3 id="control-group-1-flight-control-vtolalternate">Control Group #1 (Flight Control VTOL/Alternate)</h3>
 <ul>
 <li>0: roll ALT (-1..1)</li>
 <li>1: pitch ALT (-1..1)</li>
@@ -1987,7 +2000,7 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <li>6: reserved / aux2</li>
 <li>7: reserved / aux3</li>
 </ul>
-<h4 id="control-group-2-gimbal">Control Group #2 (Gimbal)</h4>
+<h3 id="control-group-2-gimbal">Control Group #2 (Gimbal)</h3>
 <ul>
 <li>0: gimbal roll</li>
 <li>1: gimbal pitch</li>
@@ -1998,7 +2011,7 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <li>6: reserved</li>
 <li>7: reserved (parachute, -1..1)</li>
 </ul>
-<h4 id="control-group-3-manual-passthrough">Control Group #3 (Manual Passthrough)</h4>
+<h3 id="control-group-3-manual-passthrough">Control Group #3 (Manual Passthrough)</h3>
 <ul>
 <li>0: RC roll</li>
 <li>1: RC pitch</li>
@@ -2009,7 +2022,7 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <li>6: RC aux2</li>
 <li>7: RC aux3</li>
 </ul>
-<h4 id="control-group-6-first-payload">Control Group #6 (First Payload)</h4>
+<h3 id="control-group-6-first-payload">Control Group #6 (First Payload)</h3>
 <ul>
 <li>0: function 0 (default: parachute)</li>
 <li>1: function 1</li>
@@ -2020,9 +2033,9 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <li>6: function 6</li>
 <li>7: function 7</li>
 </ul>
-<h3 id="virtual-control-groups">Virtual Control Groups</h3>
+<h2 id="virtual-control-groups">Virtual Control Groups</h2>
 <p>These groups are NOT mixer inputs, but serve as meta-channels to feed fixed wing and multicopter controller outputs into the VTOL governor module.</p>
-<h4 id="control-group-4-flight-control-mc-virtual">Control Group #4 (Flight Control MC VIRTUAL)</h4>
+<h3 id="control-group-4-flight-control-mc-virtual">Control Group #4 (Flight Control MC VIRTUAL)</h3>
 <ul>
 <li>0: roll ALT (-1..1)</li>
 <li>1: pitch ALT (-1..1)</li>
@@ -2033,7 +2046,7 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 <li>6: reserved / aux2</li>
 <li>7: reserved / aux3</li>
 </ul>
-<h4 id="control-group-5-flight-control-fw-virtual">Control Group #5 (Flight Control FW VIRTUAL)</h4>
+<h3 id="control-group-5-flight-control-fw-virtual">Control Group #5 (Flight Control FW VIRTUAL)</h3>
 <ul>
 <li>0: roll ALT (-1..1)</li>
 <li>1: pitch ALT (-1..1)</li>
@@ -2059,9 +2072,11 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 /*  */
 </style><g><g class="output"><g class="clusters"><g class="edgePaths"><g class="edgePath" style="opacity: 1; "><path class="path" d="M137.32558139534882,56L85,81L85,106" marker-end="url(#arrowhead9)" style="stroke: #333; stroke-width: 1.5px;fill:none"/><defs><marker id="arrowhead9" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"/></marker></defs></g><g class="edgePath" style="opacity: 1; "><path class="path" d="M212.67441860465118,56L265,81L265,106" marker-end="url(#arrowhead10)" style="stroke: #333; stroke-width: 1.5px;fill:none"/><defs><marker id="arrowhead10" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"/></marker></defs></g><g class="edgePath" style="opacity: 1; "><path class="path" d="M450.5,56L450.5,81L450.5,106" marker-end="url(#arrowhead11)" style="stroke: #333; stroke-width: 1.5px;fill:none"/><defs><marker id="arrowhead11" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"/></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1; " transform=""><g transform="translate(0,0)" class="label"><text><tspan space="preserve" dy="1em" x="1"/></text></g></g><g class="edgeLabel" style="opacity: 1; " transform=""><g transform="translate(0,0)" class="label"><text><tspan space="preserve" dy="1em" x="1"/></text></g></g><g class="edgeLabel" style="opacity: 1; " transform=""><g transform="translate(0,0)" class="label"><text><tspan space="preserve" dy="1em" x="1"/></text></g></g></g><g class="nodes"><g class="node" style="opacity: 1; " id="actuator_group_0" transform="translate(175,38)"><rect rx="0" ry="0" x="-70.5" y="-18" width="141" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-60.5,-8)"><text><tspan space="preserve" dy="1em" x="1">actuator_group_0</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="output_group_5" transform="translate(85,124)"><rect rx="0" ry="0" x="-65" y="-18" width="130" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-55,-8)"><text><tspan space="preserve" dy="1em" x="1">output_group_5</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="output_group_6" transform="translate(265,124)"><rect rx="0" ry="0" x="-65" y="-18" width="130" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-55,-8)"><text><tspan space="preserve" dy="1em" x="1">output_group_6</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="actuator_group_1" transform="translate(450.5,38)"><rect rx="0" ry="0" x="-70.5" y="-18" width="141" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-60.5,-8)"><text><tspan space="preserve" dy="1em" x="1">actuator_group_1</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="output_group_0" transform="translate(450.5,124)"><rect rx="0" ry="0" x="-65" y="-18" width="130" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-55,-8)"><text><tspan space="preserve" dy="1em" x="1">output_group_0</tspan></text></g></g></g></g></g></g></g></svg></div></div>
   </div></p>
-<h2 id="px4-mixer-definitions">PX4 mixer definitions</h2>
-<p>Files in <code>ROMFS/px4fmu_common/mixers</code> implement mixers that are used for predefined airframes. They can be used as a basis
-for customisation, or for general testing purposes. A mixer file should be named XXXX.main.mix if it is responsible for the mixing of MAIN outputs or XXXX.aux.mix if it mixes AUX outputs.</p>
+<h2 id="px4-mixer-definitions">PX4 Mixer Definitions</h2>
+<p>Files in <strong>ROMFS/px4fmu_common/mixers</strong> implement mixers that are used for predefined airframes. They can be used as a basis
+for customisation, or for general testing purposes. </p>
+<h3 id="mixer-file-names">Mixer File Names</h3>
+<p>A mixer file must be named <strong>XXXX.<em>main</em>.mix</strong> if it is responsible for the mixing of MAIN outputs or <strong>XXXX.<em>aux</em>.mix</strong> if it mixes AUX outputs.</p>
 <h3 id="syntax">Syntax</h3>
 <p>Mixer definitions are text files; lines beginning with a single capital letter
 followed by a colon are significant. All other lines are ignored, meaning that
@@ -2088,22 +2103,20 @@ applying an output scaler.</p>
 <p>A simple mixer definition begins with:</p>
 <pre><code>M: &lt;control count&gt;
 O: &lt;-ve scale&gt; &lt;+ve scale&gt; &lt;offset&gt; &lt;lower limit&gt; &lt;upper limit&gt;
-</code></pre><p>If &lt;control count&gt; is zero, the sum is effectively zero and the mixer will
-output a fixed value that is &lt;offset&gt; constrained by &lt;lower limit&gt;
-and &lt;upper limit&gt;.</p>
+</code></pre><p>If <code>&lt;control count&gt;</code> is zero, the sum is effectively zero and the mixer will
+output a fixed value that is <code>&lt;offset&gt;</code> constrained by <code>&lt;lower limit&gt;</code>
+and <code>&lt;upper limit&gt;</code>.</p>
 <p>The second line defines the output scaler with scaler parameters as discussed
 above. Whilst the calculations are performed as floating-point operations, the
 values stored in the definition file are scaled by a factor of 10000; i.e. an
 offset of -0.5 is encoded as -5000.</p>
-<p>The definition continues with &lt;control count&gt; entries describing the control
+<p>The definition continues with <code>&lt;control count&gt;</code> entries describing the control
 inputs and their scaling, in the form:</p>
 <pre><code>S: &lt;group&gt; &lt;index&gt; &lt;-ve scale&gt; &lt;+ve scale&gt; &lt;offset&gt; &lt;lower limit&gt; &lt;upper limit&gt;
 </code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The <code>S:</code> lines must be below the <code>O:</code> line.</p>
 </blockquote>
-<p>The &lt;group&gt; value identifies the control group from which the scaler will read,
-and the &lt;index&gt; value an offset within that group.  These values are specific to
-the device reading the mixer definition.</p>
+<p>The <code>&lt;group&gt;</code> value identifies the control group from which the scaler will read, and the <code>&lt;index&gt;</code> value an offset within that group.<br>These values are specific to the device reading the mixer definition.</p>
 <p>When used to mix vehicle controls, mixer group zero is the vehicle attitude
 control group, and index values zero through three are normally roll, pitch,
 yaw and thrust respectively.</p>
@@ -2179,7 +2192,7 @@ the saturating actuator is limited to 1.0.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mixing and Actuators","level":"1.3.4","depth":2,"next":{"title":"PWM limit state machine","level":"1.3.5","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"previous":{"title":"Flight Modes","level":"1.3.3","depth":2,"path":"concept/flight_modes.md","ref":"concept/flight_modes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/mixing.md","mtime":"2018-07-25T10:06:06.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-25T10:07:17.001Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Mixing and Actuators","level":"1.3.4","depth":2,"next":{"title":"PWM limit state machine","level":"1.3.5","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"previous":{"title":"Flight Modes","level":"1.3.3","depth":2,"path":"concept/flight_modes.md","ref":"concept/flight_modes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/mixing.md","mtime":"2018-07-27T04:19:08.623Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-27T04:20:32.387Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
