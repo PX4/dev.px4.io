@@ -76,7 +76,7 @@
     <link rel="next" href="jmavsim.html" />
     
     
-    <link rel="prev" href="../concept/pwm_limit.html" />
+    <link rel="prev" href="../concept/system_startup.html" />
     
 
     </head>
@@ -512,6 +512,19 @@
             
                     
                     PWM limit state machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    System Startup
             
                 </a>
             
@@ -1552,20 +1565,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="../advanced/system_startup.html">
-            
-                <a href="../advanced/system_startup.html">
-            
-                    
-                    System Boot
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameters_and_configurations.html">
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
             
                 <a href="../advanced/parameters_and_configurations.html">
             
@@ -1578,7 +1578,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="../advanced/parameter_reference.html">
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
             
                 <a href="../advanced/parameter_reference.html">
             
@@ -1591,7 +1591,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/realsense_intel_driver.html">
             
                 <a href="../advanced/realsense_intel_driver.html">
             
@@ -1604,7 +1604,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/switching_state_estimators.html">
             
                 <a href="../advanced/switching_state_estimators.html">
             
@@ -1617,7 +1617,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/out_of_tree_modules.html">
             
                 <a href="../advanced/out_of_tree_modules.html">
             
@@ -1630,7 +1630,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+        <li class="chapter " data-level="1.11.6" data-path="../software_update/stm32_bootloader.html">
             
                 <a href="../software_update/stm32_bootloader.html">
             
@@ -2142,7 +2142,7 @@
 <p>If you use the normal build system SITL <code>make</code> configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured. You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.</p>
 <h3 id="startingbuilding-sitl-simulation">Starting/Building SITL Simulation</h3>
 <p>The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. For example, you can launch a SITL version of PX4 that uses the EKF2 estimator and simulate a plane in Gazebo with just the following command (provided all the build and gazebo dependencies are present!):</p>
-<pre><code>make posix_sitl_ekf2 gazebo_plane
+<pre><code>make posix_sitl_default gazebo_plane
 </code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> It is also possible to separately build and start SITL and the various simulators, but this is nowhere near as &quot;turnkey&quot;.</p>
 </blockquote>
@@ -2151,11 +2151,11 @@
 </code></pre>
 <p>where:</p>
 <ul>
-<li><p><strong>CONFIGURATION_TARGET:</strong> has the format <code>[OS][_PLATFORM][_FEATURE]</code></p>
+<li><p><strong>CONFIGURATION_TARGET:</strong> has the format <code>[OS_][PLATFORM][_FEATURE]</code></p>
 <ul>
 <li><strong>OS:</strong> posix, nuttx, qurt</li>
-<li><strong>PLATFORM:</strong> SITL (or in principle any platform supported among the different OS: bebop, eagle, excelsior, etc.)</li>
-<li><strong>FEATURE:</strong> A particular high level feature - for example which estimator to use (ekf2, lpe) or to run tests or simulate using a replay.</li>
+<li><strong>PLATFORM:</strong> sitl (or in principle any platform supported among the different OS: bebop, eagle, excelsior, etc.)</li>
+<li><strong>FEATURE:</strong> A particular high level feature - for example to cross-compile or to run tests. In most cases this is <code>default</code>.</li>
 </ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> You can get a list of all available configuration targets using the command:</p>
@@ -2165,7 +2165,7 @@
 <li><p><strong>VIEWER_MODEL_DEBUGGER:</strong> has the format <code>[SIMULATOR]_[MODEL][_DEBUGGER]</code></p>
 <ul>
 <li><strong>SIMULATOR:</strong> This is the simulator (&quot;viewer&quot;) to launch and connect: <code>gazebo</code>, <code>jmavsim</code> <!-- , ?airsim --></li>
-<li><strong>MODEL:</strong> The vehicle model to use (e.g. <code>iris</code>, <code>rover</code>, <code>tailsitter</code>, etc). This corresponds to a specific <a href="#init_file">initialisation file</a> that will be used to configure PX4. This might define the start up for a particular vehicle, or allow simulation of multiple vehicles (we explain how to find available init files in the next section).</li>
+<li><strong>MODEL:</strong> The vehicle model to use (e.g. <code>iris</code>, <code>rover</code>, <code>tailsitter</code>, etc). The environment variable <code>PX4_SIM_MODEL</code> will be set to the selected model, which is then used in the <a href="#scripts">startup script</a> to select appropriate parameters. It also ensures that the simulator (gazebo) loads the correct model (we explain how to find available options in the next section).</li>
 <li><strong>DEBUGGER:</strong> Debugger to (optionally) use: <code>none</code>, <code>ide</code>, <code>gdb</code>, <code>lldb</code>, <code>ddd</code>, <code>valgrind</code>, <code>callgrind</code>. For more information see <a href="../debug/simulation_debugging.html">Simulation Debugging</a>.</li>
 </ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
@@ -2183,92 +2183,15 @@ For example, <code>gazebo___gdb</code> is equivalent to <code>gazebo_iris_gdb</c
 <li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator. 
 For example start PX4 using <code>make posix_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh</code>.</li>
 </ul>
-<h3 id="init_file">Init File Location </h3>
-<p>The settings for each configuration target are defined in appropriately named files in <a href="https://github.com/PX4/Firmware/tree/master/cmake/configs" target="_blank">/Firmware/cmake/configs</a>. Within each file there is a setting <code>config_sitl_rcS_dir</code> that defines the location of the folder where the configuration stores its init files.</p>
-<p>In the cmake config file for <a href="https://github.com/PX4/Firmware/blob/master/cmake/configs/posix_sitl_ekf2.cmake" target="_blank">posix_sitl_ekf2</a> you can see that the init file will be stored in the folder: <strong>Firmware/posix-configs/SITL/init/ekf2/</strong>.</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">set</span>(config_sitl_rcS_dir
-    posix-configs/SITL/init/ekf2
-    )
-</code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Generally the init files are located using a consistent folder naming convention. For example, <code>make posix_sitl_ekf2 gazebo_iris</code> corresponds to the following folder structure:</p>
-<pre><code>Firmware/
-  posix-configs/  (os=posix)
-    SITL/         (platform=sitl)
-      init/       
-        ekf2/     (feature=ekf2)
-          iris    (init file name)
-</code></pre></blockquote>
-<h3 id="example-startup-file">Example Startup File</h3>
-<p>A slightly reduced version of the startup file for <code>make posix_sitl_ekf2 gazebo_iris</code> (<a href="https://github.com/PX4/Firmware/blob/master/posix-configs/SITL/init/ekf2/iris" target="_blank">/Firmware/posix-configs/SITL/init/ekf2/iris</a>) is shown below.</p>
-<pre><code class="lang-bash">uorb start
-param load
-dataman start
-param <span class="hljs-built_in">set</span> BAT_N_CELLS 3
-param <span class="hljs-built_in">set</span> CAL_ACC0_ID 1376264
-param <span class="hljs-built_in">set</span> CAL_ACC0_XOFF 0.01
-...
-...
-param <span class="hljs-built_in">set</span> SYS_MC_EST_GROUP 2
-param <span class="hljs-built_in">set</span> SYS_RESTART_TYPE 2
-replay tryapplyparams
-simulator start <span class="hljs-_">-s</span>
-tone_alarm start
-gyrosim start
-accelsim start
-barosim start
-adcsim start
-gpssim start
-pwm_out_sim mode_pwm
-sensors start
-commander start
-land_detector start multicopter
-navigator start
-ekf2 start
-mc_pos_control start
-mc_att_control start
-mixer load /dev/pwm_output0 ROMFS/px4fmu_common/mixers/quad_dc.main.mix
-mavlink start -u 14556 -r 4000000
-mavlink start -u 14557 -r 4000000 -m onboard -o 14540
-mavlink stream -r 50 <span class="hljs-_">-s</span> POSITION_TARGET_LOCAL_NED -u 14556
-mavlink stream -r 50 <span class="hljs-_">-s</span> LOCAL_POSITION_NED -u 14556
-mavlink stream -r 50 <span class="hljs-_">-s</span> GLOBAL_POSITION_INT -u 14556
-mavlink stream -r 50 <span class="hljs-_">-s</span> ATTITUDE -u 14556
-mavlink stream -r 50 <span class="hljs-_">-s</span> ATTITUDE_QUATERNION -u 14556
-mavlink stream -r 50 <span class="hljs-_">-s</span> ATTITUDE_TARGET -u 14556
-mavlink stream -r 50 <span class="hljs-_">-s</span> SERVO_OUTPUT_RAW_0 -u 14556
-mavlink stream -r 20 <span class="hljs-_">-s</span> RC_CHANNELS -u 14556
-mavlink stream -r 250 <span class="hljs-_">-s</span> HIGHRES_IMU -u 14556
-mavlink stream -r 10 <span class="hljs-_">-s</span> OPTICAL_FLOW_RAD -u 14556
-logger start <span class="hljs-_">-e</span> -t
-mavlink boot_complete
-replay trystart
-</code></pre>
-<p>Note the sections that set parameters, start simulator drivers and other modules. A few of the more relevant lines for simulation are highlighted below. </p>
-<ol>
-<li>Simulator being started:<pre><code>simulator start -s
-</code></pre></li>
-<li>PWM out mode being set for simulator:<pre><code>pwm_out_sim mode_pwm
-</code></pre></li>
-<li><p>Set MAVLink ports:</p>
+<h3 id="additional-options">Additional Options</h3>
+<p>The simulation can be further configured via environment variables:</p>
 <ul>
-<li>This line starts the MAVLink instance for connecting to offboard APIs. It broadcasts on 14540 and listens for responses on 14557. The <code>-m onboard</code> flag specifies a set of messages that will be streamed over the interface.<pre><code class="lang-bash"> mavlink start -u 14557 -r 4000000 -m onboard -o 14540
-</code></pre>
-</li>
-<li>This line starts MAVLink instance for connecting to <em>QGroundControl</em>/GCSs. PX4 listens for messages on port 14556. <pre><code class="lang-bash">mavlink start -u 14556 -r 4000000
-</code></pre>
-<ul>
-<li>The broadcast port is not explicitly set (the default is used: 14550). </li>
-<li>The messages that are streamed over this interface are specified using <code>mavlink stream</code> as shown below:<pre><code>mavlink stream -r 50 -s POSITION_TARGET_LOCAL_NED -u 14556
-mavlink stream -r 50 -s LOCAL_POSITION_NED -u 14556
-...
-</code></pre></li>
+<li><code>PX4_ESTIMATOR</code>: This variable configures which estimator to use.
+Possible options are: <code>ekf2</code> (default), <code>lpe</code>, <code>inav</code>. It can be set via <code>export PX4_ESTIMATOR=lpe</code> before running the simulation.</li>
 </ul>
-</li>
-</ul>
-</li>
-</ol>
-<p>For more information about using the MAVLink module see <a href="../middleware/modules_communication.html#mavlink">Modules Reference: Communication &gt; MAVLink</a>.</p>
+<h3 id="scripts">Startup Scripts </h3>
+<p>Scripts are used to control which parameter settings to use or which modules to start.
+They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d-posix" target="_blank">ROMFS/px4fmu_common/init.d-posix</a> directory, the <code>rcS</code> file is the main entry point. See <a href="../concept/system_startup.html">System Startup</a> for more information.</p>
 <h2 id="hitl-simulation-environment">HITL Simulation Environment</h2>
 <p>With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. The HITL Simulation Environment in documented in: <a href="hitl.html">HITL Simulation</a>.</p>
 <h2 id="joystickgamepad-integration">Joystick/Gamepad Integration</h2>
@@ -2321,7 +2244,7 @@ mavlink stream -r 50 -s LOCAL_POSITION_NED -u 14556
 
             
                 
-                <a href="../concept/pwm_limit.html" class="navigation navigation-prev " aria-label="Previous page: PWM limit state machine">
+                <a href="../concept/system_startup.html" class="navigation navigation-prev " aria-label="Previous page: System Startup">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2337,7 +2260,7 @@ mavlink stream -r 50 -s LOCAL_POSITION_NED -u 14556
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"PWM limit state machine","level":"1.3.5","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2018-09-03T04:12:34.881Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-03T04:13:45.887Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2018-09-10T00:53:38.188Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-10T00:54:50.991Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
