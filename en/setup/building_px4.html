@@ -2201,14 +2201,8 @@ make posix_bebop_default
 four times to enable ADB and to start the telnet daemon.</p>
 <pre><code class="lang-sh">make posix_bebop_default upload
 </code></pre>
-<p>This will upload the PX4 mainapp into /usr/bin and create the file /home/root/parameters if not already
-present. In addition, we need the Bebop&apos;s mixer file and the px4.config. Currently, both files have
-to be copied manually using the following commands.</p>
-<pre><code class="lang-sh">adb connect 192.168.42.1:9050
-adb push ROMFS/px4fmu_common/mixers/bebop.main.mix /home/root
-adb push posix-configs/bebop/px4.config /home/root
-adb disconnect
-</code></pre>
+<p>This will upload the PX4 mainapp into /data/ftp/internal_000/ and create the file /home/root/parameters if not already
+present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
 <h4 id="run">Run</h4>
 <p>Connect to the Bebop&apos;s wifi and press the power button four times. Next,
 connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
@@ -2218,7 +2212,7 @@ connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
 <pre><code class="lang-sh">kk
 </code></pre>
 <p>and start the PX4 mainapp with:</p>
-<pre><code class="lang-sh">px4 /home/root/px4.config
+<pre><code class="lang-sh">/data/ftp/internal_000/px4 <span class="hljs-_">-s</span> /home/root/px4.config
 </code></pre>
 <p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both,
 the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors
@@ -2227,14 +2221,15 @@ and setup your joystick device.</p>
 <p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>. Comment the following line:</p>
 <pre><code>DragonStarter.sh -out2null &amp;
 </code></pre><p>Replace it with:</p>
-<pre><code>px4 -d /home/root/px4.config &gt; /home/root/px4.log
+<pre><code>echo 1 &gt; /sys/class/gpio/gpio85/value # enables the fan
+/data/ftp/internal_000/px4 -d -s /home/root/px4.config &gt; /home/root/px4.log &amp;
 </code></pre><p>Enable adb server by pressing the power button 4 times and connect to adb server as described before:</p>
 <pre><code class="lang-sh">adb connect 192.168.42.1:9050
 </code></pre>
 <p>Re-mount the system partition as writeable:</p>
 <pre><code class="lang-sh">adb shell mount -o remount,rw /
 </code></pre>
-<p>In order to avoid editing the file manually, you can use this one : <a href="https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8" target="_blank">https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8</a></p>
+<p>In order to avoid editing the file manually, you can use this one : <a href="https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e" target="_blank">https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e</a></p>
 <p>Save the original one and push this one to the Bebop</p>
 <pre><code class="lang-sh">adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
 adb push rcS_mode_default /etc/init.d/
@@ -2373,7 +2368,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2018-10-03T12:08:40.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T12:09:57.770Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2018-10-08T00:26:27.797Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T00:28:06.438Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
