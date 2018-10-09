@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>UART · PX4 Developer Guide</title>
+        <title>Port-Configurable Serial Drivers · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -76,7 +76,7 @@
     <link rel="next" href="../advanced/rtk_gps.html" />
     
     
-    <link rel="prev" href="../uavcan/notes.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -764,9 +764,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.6" data-path="./">
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
             
-                <a href="./">
+                <a href="../sensor_bus/">
             
                     
                     Sensor and Actuator I/O
@@ -778,9 +778,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.6.1" data-path="i2c.html">
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
             
-                <a href="i2c.html">
+                <a href="../sensor_bus/i2c.html">
             
                     
                     I2C Bus
@@ -862,16 +862,35 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.6.3" data-path="uart.html">
+        <li class="chapter " data-level="1.5.6.3" data-path="./">
             
-                <a href="uart.html">
+                <a href="./">
             
                     
-                    UART
+                    UART/Serial Ports
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.6.3.1" data-path="user_configurable_serial_driver.html">
+            
+                <a href="user_configurable_serial_driver.html">
+            
+                    
+                    Port-Configurable Serial Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2015,7 +2034,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >UART</a>
+        <a href=".." >Port-Configurable Serial Drivers</a>
     </h1>
 </div>
 
@@ -2030,7 +2049,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="uart-bus">UART Bus</h1>
+                                <h1 id="making-serial-port-drivers-user-configurable">Making Serial Port Drivers User-Configurable</h1>
+<p>This topic explains how to set up a serial driver so that it can be end-user configured (via parameters) to run on any of a flight controller board&apos;s configurable serial ports.</p>
+<h2 id="preconditions">Preconditions</h2>
+<p>The driver is assumed to already exist, and be started in the shell using the command syntax:</p>
+<pre><code class="lang-sh">&lt;driver_name&gt; start <span class="hljs-_">-d</span> &lt;serial_port&gt; [-b &lt;baudrate&gt; | -b p:&lt;param_name&gt;]
+</code></pre>
+<p>where,</p>
+<ul>
+<li><code>-d</code>: serial port name.</li>
+<li><code>-b</code>: Baud rate (optional) if the driver supports multiple baud rates. 
+If supported, the driver must allow you to specify the rate as both a bare baudrate and as a parameter name in the form <code>-b p:&lt;param_name&gt;</code> (which can be parsed with <code>px4_get_parameter_value()</code>).<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> See the <a href="https://github.com/PX4/Firmware/blob/master/src/drivers/gps/gps.cpp#L1023" target="_blank">gps driver</a> for an example.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="making-the-driver-configurable">Making the Driver Configurable</h2>
+<p>To make driver configurable:</p>
+<ol>
+<li>Create a YAML module configuration file:<ul>
+<li>Add a new file in the driver&apos;s source directory named <strong>module.yaml</strong></li>
+<li>Insert the following text and adjust as needed:<pre><code>module_name: uLanding Radar
+serial_config:
+    - command: ulanding_radar start -d ${SERIAL_DEV} -b p:${BAUD_PARAM}
+      port_config_param:
+        name: SENS_ULAND_CFG
+        group: Sensors
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The full documentation of the module configuration file can be found in the <a href="https://github.com/PX4/Firmware/blob/master/validation/module_schema.yaml" target="_blank">validation/module_schema.yaml</a> file.
+This is also used to validate all configuration files in CI.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Add the module configuration to the <strong>CMakeLists.txt</strong> file for the driver module:<pre><code>px4_add_module(
+    MODULE drivers__ulanding
+    MAIN ulanding_radar
+    SRCS
+        ulanding.cpp
+    MODULE_CONFIG
+        module.yaml
+    )
+</code></pre></li>
+</ol>
 
                                 
                                 </section>
@@ -2058,7 +2119,7 @@
 
             
                 
-                <a href="../uavcan/notes.html" class="navigation navigation-prev " aria-label="Previous page: UAVCAN Various Notes">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: UART/Serial Ports">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2074,7 +2135,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"UART","level":"1.5.6.3","depth":3,"next":{"title":"RTK GPS","level":"1.5.7","depth":2,"path":"advanced/rtk_gps.md","ref":"advanced/rtk_gps.md","articles":[]},"previous":{"title":"UAVCAN Various Notes","level":"1.5.6.2.4","depth":4,"path":"uavcan/notes.md","ref":"uavcan/notes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"sensor_bus/uart.md","mtime":"2018-10-08T00:26:27.797Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T00:28:06.438Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Port-Configurable Serial Drivers","level":"1.5.6.3.1","depth":4,"next":{"title":"RTK GPS","level":"1.5.7","depth":2,"path":"advanced/rtk_gps.md","ref":"advanced/rtk_gps.md","articles":[]},"previous":{"title":"UART/Serial Ports","level":"1.5.6.3","depth":3,"path":"uart/README.md","ref":"uart/README.md","articles":[{"title":"Port-Configurable Serial Drivers","level":"1.5.6.3.1","depth":4,"path":"uart/user_configurable_serial_driver.md","ref":"uart/user_configurable_serial_driver.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"uart/user_configurable_serial_driver.md","mtime":"2018-10-09T01:01:05.113Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-09T01:02:20.643Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
