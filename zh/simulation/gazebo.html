@@ -1893,12 +1893,8 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 </blockquote>
 <h3 id="mac-os">Mac OS</h3>
 <p>Mac OS&#x9700;&#x8981;&#x5B89;&#x88C5;Gazebo 7&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x9700;&#x8981;&#x5B89;&#x88C5;xquartz&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x6CA1;&#x6709;OpenCV&#x65F6;&#x65E0;&#x6CD5;&#x8FD0;&#x884C;&#x3002;</p>
-<div class="host-code"></div>
-
 <pre><code class="lang-sh">brew cask install xquartz
-
 brew install opencv
-
 brew install gazebo7
 </code></pre>
 <h3 id="linux">Linux</h3>
@@ -1914,34 +1910,32 @@ brew install gazebo7
 <p>&#x6CE8;&#x610F;&#xFF1A;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x8BF4;&#x660E;&#x6765;&#x4FDD;&#x6301;Gazebo&#x8FD0;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x7528;&#x91CD;&#x65B0;&#x542F;&#x52A8;PX4&#x3002;</p>
 </blockquote>
 <h3 id="&#x56DB;&#x65CB;&#x7FFC;">&#x56DB;&#x65CB;&#x7FFC;</h3>
-<div class="host-code"></div>
-
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
-make px4_sitl_default gazebo
+make px4_sitl gazebo
 </code></pre>
 <h3 id="&#x56DB;&#x65CB;&#x7FFC;&#x5E26;&#x5149;&#x6D41;&#x6A21;&#x5757;">&#x56DB;&#x65CB;&#x7FFC;&#x5E26;&#x5149;&#x6D41;&#x6A21;&#x5757;</h3>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
-make posix gazebo_iris_opt_flow
+make px4_sitl gazebo_iris_opt_flow
 </code></pre>
 <h3 id="3dr-solo">3DR Solo</h3>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
-make posix gazebo_solo
+make px4_sitl gazebo_solo
 </code></pre>
 <p><img src="../../assets/gazebo/solo.png" alt=""></p>
 <h3 id="&#x6807;&#x51C6;&#x76F4;&#x5347;&#x673A;">&#x6807;&#x51C6;&#x76F4;&#x5347;&#x673A;</h3>
-<pre><code class="lang-sh">make posix gazebo_plane
+<pre><code class="lang-sh">make px4_sitl gazebo_plane
 </code></pre>
 <p><img src="../../assets/gazebo/plane.png" alt=""></p>
 <h3 id="&#x6807;&#x51C6;&#x5782;&#x76F4;&#x8D77;&#x964D;&#x98DE;&#x673A;">&#x6807;&#x51C6;&#x5782;&#x76F4;&#x8D77;&#x964D;&#x98DE;&#x673A;</h3>
-<pre><code class="lang-sh">make px4_sitl_default gazebo_standard_vtol
+<pre><code class="lang-sh">make px4_sitl gazebo_standard_vtol
 </code></pre>
 <p><img src="../../assets/gazebo/standard_vtol.png" alt=""></p>
 <h3 id="&#x7ACB;&#x5F0F;&#x5782;&#x76F4;&#x8D77;&#x964D;">&#x7ACB;&#x5F0F;&#x5782;&#x76F4;&#x8D77;&#x964D;</h3>
-<pre><code class="lang-sh">make px4_sitl_default gazebo_tailsitter
+<pre><code class="lang-sh">make px4_sitl gazebo_tailsitter
 </code></pre>
 <p><img src="../../assets/gazebo/tailsitter.png" alt=""></p>
 <h3 id="ackerman&#x8F66;">Ackerman&#x8F66;</h3>
-<pre><code class="lang-sh">make posix gazebo_rover
+<pre><code class="lang-sh">make px4_sitl gazebo_rover
 </code></pre>
 <p><img src="../../assets/gazebo/rover.png" alt=""></p>
 <h2 id="&#x66F4;&#x6539;&#x4E16;&#x754C;&#x80CC;&#x666F;">&#x66F4;&#x6539;&#x4E16;&#x754C;&#x80CC;&#x666F;</h2>
@@ -1983,7 +1977,7 @@ pxh&gt;
 <pre><code>export PX4_HOME_LAT=28.452386
 export PX4_HOME_LON=-13.867138
 export PX4_HOME_ALT=28.5
-make posix gazebo
+make px4_sitl gazebo
 </code></pre><h2 id="&#x5355;&#x72EC;&#x542F;&#x52A8;gazebo&#x548C;px4">&#x5355;&#x72EC;&#x542F;&#x52A8;Gazebo&#x548C;PX4</h2>
 <p>&#x5BF9;&#x4E8E;&#x6269;&#x5C55;&#x5F00;&#x53D1;&#x4F1A;&#x8BDD;(development sessions)&#xFF0C;&#x5355;&#x72EC;&#x542F;&#x52A8;Gazebo&#x548C;PX4&#x53EF;&#x80FD;&#x4F1A;&#x66F4;&#x4E3A;&#x65B9;&#x4FBF;&#xFF0C;&#x751A;&#x81F3;&#x8FD8;&#x53EF;&#x4EE5;&#x4ECE;IDE&#x4E2D;&#x542F;&#x52A8;&#x3002;</p>
 <p>&#x9664;&#x4E86;&#x73B0;&#x6709;&#x7684;&#x4F7F;&#x7528;px4&#x53C2;&#x6570;&#x8FD0;&#x884C;sitl_run.sh&#x6765;&#x52A0;&#x8F7D;&#x6B63;&#x786E;&#x7684;&#x6A21;&#x578B;&#x7684;cmake &#x76EE;&#x6807;(target)&#x4E4B;&#x5916;&#xFF0C;&#x5B83;&#x8FD8;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;px4_<mode>&#x7684;&#x542F;&#x52A8;&#x5668;&#x76EE;&#x6807;(launcher targets)(&#x8FD9;&#x662F;&#x539F;&#x59CB;sitl px4&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;thin wrapper)&#x3002; &#x8FD9;&#x4E2A;thin wrapper&#x53EA;&#x662F;&#x7B80;&#x5355;&#x5730;&#x5D4C;&#x5165;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x548C;&#x6A21;&#x578B;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;</mode></p>
@@ -2045,7 +2039,7 @@ make posix gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/gazebo.md","translated_sha":"d85d45b8e4f82e318ace49bd87c0ad17a129e017","title":"Gazebo仿真","level":"1.5.2","depth":2,"next":{"title":"HITL仿真","level":"1.5.3","depth":2,"path":"simulation/hitl.md","ref":"simulation/hitl.md","articles":[]},"previous":{"title":"基本仿真","level":"1.5.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2018-11-27T22:24:20.818Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T22:26:21.832Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/gazebo.md","translated_sha":"d85d45b8e4f82e318ace49bd87c0ad17a129e017","title":"Gazebo仿真","level":"1.5.2","depth":2,"next":{"title":"HITL仿真","level":"1.5.3","depth":2,"path":"simulation/hitl.md","ref":"simulation/hitl.md","articles":[]},"previous":{"title":"基本仿真","level":"1.5.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2018-11-27T23:17:59.839Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T23:19:17.171Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
