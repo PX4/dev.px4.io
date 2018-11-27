@@ -2059,15 +2059,15 @@ Reasons for this are given below.</p>
 <ul>
 <li>First, choose the file to replay, and build the target (from within the
 Firmware directory):<pre><code class="lang-sh"><span class="hljs-built_in">export</span> replay=&lt;absolute_path_to_<span class="hljs-built_in">log</span>_file.ulg&gt;
-make posix_sitl_default
+make px4_sitl_default
 </code></pre>
 This will create the output in a separate build directory
-<code>build/posix_sitl_default_replay</code> (so that the parameters don&apos;t interfere with
+<code>build/px4_sitl_default_replay</code> (so that the parameters don&apos;t interfere with
 normal builds). It&apos;s possible to choose any posix SITL build target for
 replay, the build system knows through the <code>replay</code> environment variable that
 it&apos;s in replay mode.</li>
 <li><p>Add ORB publisher rules file in
-<code>build/posix_sitl_default_replay/tmp/rootfs/orb_publisher.rules</code>.
+<code>build/px4_sitl_default_replay/tmp/rootfs/orb_publisher.rules</code>.
 This file defines which module is allowed to publish which messages. It has
 the following format:</p>
 <pre><code>restrict_topics: &lt;topic1&gt;, &lt;topic2&gt;, ..., &lt;topicN&gt;
@@ -2087,7 +2087,7 @@ ignore_others: true
 to be disabled for replay.</p>
 </li>
 <li><p>Optional: setup parameter overrides in the file
-<code>build/posix_sitl_default_replay/tmp/rootfs/replay_params.txt</code>.
+<code>build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt</code>.
 This file should contain a list of <code>&lt;param_name&gt; &lt;value&gt;</code>, like:</p>
 <pre><code>EKF2_GB_NOISE 0.001
 </code></pre><p>By default, all parameters from the log file are applied. When a parameter
@@ -2098,7 +2098,7 @@ changes to it from the log file will not be applied.</p>
 <li>Optional: copy <code>dataman</code> missions file from the SD card to the build
 directory. Only necessary if a mission should be replayed.</li>
 <li><p>Start the replay:</p>
-<pre><code class="lang-sh">make posix_sitl_default jmavsim
+<pre><code class="lang-sh">make px4_sitl_default jmavsim
 </code></pre>
 <p>This will automatically open the log file, apply the parameters and start
 to replay. Once done, it will be reported and the process can be exited. Then
@@ -2139,7 +2139,7 @@ make posix none
 <pre><code>INFO  [replay] Replay done (published 9917 msgs, 2.136 s)
 </code></pre><p>The parameters can be adjusted as well. They can be extracted from the log with
 (install pyulog with <code>sudo pip install pyulog</code> first):</p>
-<pre><code>ulog_params -i $replay -d &apos; &apos; | grep -e &apos;^EKF2&apos; &gt; build/posix_sitl_default_replay/tmp/rootfs/replay_params.txt
+<pre><code>ulog_params -i $replay -d &apos; &apos; | grep -e &apos;^EKF2&apos; &gt; build/px4_sitl_default_replay/tmp/rootfs/replay_params.txt
 </code></pre><p>Then edit the parameters in the file as needed and restart the replay process
 with <code>make posix none</code>. This will create a new log file.</p>
 <p>The location of the generated log is printed with a message like this:</p>
@@ -2206,7 +2206,7 @@ described above. They are only compiled for the posix SITL targets.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System-wide Replay","level":"1.9.7","depth":2,"next":{"title":"Profiling","level":"1.9.8","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"previous":{"title":"Sending Debug Values","level":"1.9.6","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_wide_replay.md","mtime":"2018-11-27T02:06:36.799Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T02:08:29.977Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"System-wide Replay","level":"1.9.7","depth":2,"next":{"title":"Profiling","level":"1.9.8","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"previous":{"title":"Sending Debug Values","level":"1.9.6","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_wide_replay.md","mtime":"2018-11-27T04:32:50.330Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T04:34:50.464Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

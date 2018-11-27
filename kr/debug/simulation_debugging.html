@@ -1918,7 +1918,7 @@
 <h2 id="clang-address-sanitizer-mac-os-linux">CLANG Address Sanitizer (Mac OS, Linux)</h2>
 <p>Clag address sanitizer&#xB294; &#xC138;&#xADF8;&#xBA58;&#xD14C;&#xC774;&#xC158; &#xD3F4;&#xD2B8;&#xC640; &#xAC19;&#xC774; alignment &#xC5D0;&#xB7EC;&#xB098; &#xB2E4;&#xB978; &#xBA54;&#xBAA8;&#xB9AC; &#xD3F4;&#xD2B8;&#xB97C; &#xCC3E;&#xB294;&#xB370; &#xB3C4;&#xC6C0;&#xC744; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC544;&#xB798; &#xBA85;&#xB839;&#xACFC; &#xAC19;&#xC774; &#xC62C;&#xBC14;&#xB978; &#xCEF4;&#xD30C;&#xC77C; &#xC635;&#xC158;&#xC744; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">make clean <span class="hljs-comment"># only required on first address sanitizer run after a normal build</span>
-PX4_ASAN=1 make posix jmavsim
+PX4_ASAN=1 make px4_sitl jmavsim
 </code></pre>
 <h2 id="valgrind">Valgrind</h2>
 <pre><code class="lang-sh">brew install valgrind
@@ -1931,21 +1931,13 @@ PX4_ASAN=1 make posix jmavsim
 </blockquote>
 <h2 id="combinations-&#xC2DC;&#xC791;&#xD558;&#xAE30;">combinations &#xC2DC;&#xC791;&#xD558;&#xAE30;</h2>
 <p>SITL&#xC740; &#xB514;&#xBC84;&#xAC70;&#xAC00; &#xC5F0;&#xACB0;&#xACFC; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; jMAVSIm&#xC774;&#xB098; Gazebo&#xC640; &#xAC19;&#xC740; &#xBC31;&#xC5D4;&#xB4DC; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xACFC; &#xD568;&#xAED8; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC2DC;&#xC791; &#xC635;&#xC158;&#xB4E4;&#xB85C; :</p>
-<pre><code class="lang-sh">make posix_sitl_default jmavsim
-make posix_sitl_default jmavsim___gdb
-make posix_sitl_default jmavsim___lldb
+<pre><code class="lang-sh">make px4_sitl_default jmavsim
+make px4_sitl_default jmavsim___gdb
+make px4_sitl_default jmavsim___lldb
 
-make posix_sitl_default gazebo
-make posix_sitl_default gazebo___gdb
-make posix_sitl_default gazebo___lldb
-
-make posix_sitl_lpe jmavsim
-make posix_sitl_lpe jmavsim___gdb
-make posix_sitl_lpe jmavsim___lldb
-
-make posix_sitl_lpe gazebo
-make posix_sitl_lpe gazebo___gdb
-make posix_sitl_lpe gazebo___lldb
+make px4_sitl_default gazebo
+make px4_sitl_default gazebo___gdb
+make px4_sitl_default gazebo___lldb
 </code></pre>
 <p>&#xB9C8;&#xC9C0;&#xB9C9; parameter&#xC5D0; &lt;viewer_model_debugger&gt; 3&#xAC1C;&#xAC00; &#xB4E4;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;.(&#xBC11;&#xC904; 3&#xAC1C;&#xB294; &#xAE30;&#xBCF8;&#xC73C;&#xB85C; &apos;iris&apos; &#xBAA8;&#xB378;&#xC744; &#xC758;&#xBBF8;)
 &#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; &#xB514;&#xBC84;&#xAC70;&#xB97C; &#xAD6C;&#xB3D9;&#xC2DC;&#xD0A4;&#xACE0; SITL application&#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;. debugger shell&#xB85C; &#xB4E4;&#xC5B4;&#xAC00;&#xB824;&#xBA74; &#xC2E4;&#xD589;&#xC744; &#xC911;&#xB2E8;&#xC2DC;&#xD0A4;&#xAE30; &#xC704;&#xD574; <code>CTRL-C</code>&#xC744; &#xB204;&#xB985;&#xB2C8;&#xB2E4;. :</p>
@@ -1966,11 +1958,11 @@ libsystem_kernel.dylib`__read_nocancel:
 <pre><code>(gdb) handle SIGCONT noprint nostop
 </code></pre><p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; lldb&#xB098; gdb shell&#xC740; &#xC77C;&#xBC18; &#xC138;&#xC158;&#xCC98;&#xB7FC; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;. LLDB / GDB &#xBB38;&#xC11C;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
 <p>&#xB9C8;&#xC9C0;&#xB9C9; &#xD30C;&#xB77C;&#xBBF8;&#xD130; &lt;viewer_model_debugger&gt; 3&#xAC1C;&#xB294; &#xC2E4;&#xC81C;&#xB85C; &#xBE4C;&#xB4DC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC788;&#xB294; make&#xB85C; &#xC804;&#xB2EC;&#xB429;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C;</p>
-<pre><code class="lang-sh">make posix_sitl_lpe jmavsim___gdb
+<pre><code class="lang-sh">make px4_sitl_default jmavsim___gdb
 </code></pre>
 <p>&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-sh">make posix_sitl_lpe    <span class="hljs-comment"># Configure with cmake</span>
-make -C build/posix_sitl_lpe jmavsim___gdb
+<pre><code class="lang-sh">make px4_sitl_default    <span class="hljs-comment"># Configure with cmake</span>
+make -C build/px4_sitl_default jmavsim___gdb
 </code></pre>
 <p>&#xBE4C;&#xB4DC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0;&#xC11C; make target &#xAC00;&#xB2A5;&#xD55C; &#xBAA8;&#xB4E0; &#xBAA9;&#xB85D;&#xC744; &#xBCF4;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74; :</p>
 <pre><code class="lang-sh">make <span class="hljs-built_in">help</span>
@@ -2031,7 +2023,7 @@ make -C build/posix_sitl_lpe jmavsim___gdb
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation 디버깅","level":"1.9.5","depth":2,"next":{"title":"시스템 수준 Replay","level":"1.9.6","depth":2,"path":"debug/system_wide_replay.md","ref":"debug/system_wide_replay.md","articles":[]},"previous":{"title":"Sensor/Topic 디버깅","level":"1.9.4","depth":2,"path":"debug/sensor_uorb_topic_debugging.md","ref":"debug/sensor_uorb_topic_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"debug/simulation_debugging.md","mtime":"2018-11-27T02:06:36.811Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T02:08:29.977Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation 디버깅","level":"1.9.5","depth":2,"next":{"title":"시스템 수준 Replay","level":"1.9.6","depth":2,"path":"debug/system_wide_replay.md","ref":"debug/system_wide_replay.md","articles":[]},"previous":{"title":"Sensor/Topic 디버깅","level":"1.9.4","depth":2,"path":"debug/sensor_uorb_topic_debugging.md","ref":"debug/sensor_uorb_topic_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"debug/simulation_debugging.md","mtime":"2018-11-27T04:32:50.346Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T04:34:50.464Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>

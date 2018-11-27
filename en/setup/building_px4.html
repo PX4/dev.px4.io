@@ -2088,7 +2088,7 @@ This will copy <em>most</em> of the <em>very latest</em> version of PX4 source c
 <h2 id="jmavsim_build">First Build (Using the jMAVSim Simulator) </h2>
 <p>For the first build we&apos;ll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
 <p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
-<pre><code class="lang-sh">make posix jmavsim
+<pre><code class="lang-sh">make px4_sitl jmavsim
 </code></pre>
 <p>This will bring up the PX4 console below:</p>
 <p><img src="../../assets/console_jmavsim.png" alt="PX4 Console (jMAVSim)"></p>
@@ -2106,40 +2106,43 @@ This will copy <em>most</em> of the <em>very latest</em> version of PX4 source c
 <h3 id="building_nuttx">Building </h3>
 <p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board. </p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> In the example below the first part of the build target <code>px4fmu-v4</code> is the autopilot hardware version and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). All PX4 build targets follow this logic).</p>
+<p> In the example below the first part of the build target <code>px4_fmu-v4</code> is the autopilot hardware version and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). All PX4 build targets follow this logic).</p>
 </blockquote>
 <p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make px4fmu-v4_default
+make px4_fmu-v4_default
 </code></pre>
 <p>A successful run will end with similar output to:</p>
-<pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/Firmware/build/nuttx_px4fmu-v4_default
-[954/954] Creating /home/youruser/src/Firmware/build/nuttx_px4fmu-v4_default/px4fmu-v4_default.px4
+<pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
+[954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 </code></pre>
 <p>The following list shows the build commands for common boards:</p>
 <ul>
-<li>Pixhawk 4: <code>make px4fmu-v5_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixracer.html" target="_blank">Pixracer</a>: <code>make px4fmu-v4_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk3_pro.html" target="_blank">Pixhawk 3 Pro</a>: <code>make px4fmu-v4pro_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk_mini.html" target="_blank">Pixhawk Mini</a>: <code>make px4fmu-v3_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk-2.html" target="_blank">Pixhawk 2</a>: <code>make px4fmu-v3_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mro_pixhawk.html" target="_blank">mRo Pixhawk</a>: <code>make px4fmu-v3_default</code> (supports 2MB Flash)</li>
-<li><a href="https://docs.px4.io/en/flight_controller/HKPilot32.html" target="_blank">HKPilot32</a>: <code>make px4fmu-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixfalcon.html" target="_blank">Pixfalcon</a>: <code>make px4fmu-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/dropix.html" target="_blank">Dropix</a>: <code>make px4fmu-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mindpx.html" target="_blank">MindPX</a>/<a href="https://docs.px4.io/en/flight_controller/mindracer.html" target="_blank">MindRacer</a>: <code>make mindpx-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mro_x2.1.html" target="_blank">mRo X-2.1</a>: <code>make auav-x21_default</code> </li>
-<li><a href="https://docs.px4.io/en/flight_controller/crazyflie2.html" target="_blank">Crazyflie 2.0</a>: <code>make crazyflie_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/intel_aero.html" target="_blank">Intel&#xAE; Aero Ready to Fly Drone</a>: <code>make aerofc-v1_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk.html" target="_blank">Pixhawk 1</a>: <code>make px4fmu-v2_default</code><blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<li>Pixhawk 4: <code>make px4_fmu-v5_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixracer.html" target="_blank">Pixracer</a>: <code>make px4_fmu-v4_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk3_pro.html" target="_blank">Pixhawk 3 Pro</a>: <code>make px4_fmu-v4pro_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk_mini.html" target="_blank">Pixhawk Mini</a>: <code>make px4_fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk-2.html" target="_blank">Pixhawk 2</a>: <code>make px4_fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mro_pixhawk.html" target="_blank">mRo Pixhawk</a>: <code>make px4_fmu-v3_default</code> (supports 2MB Flash)</li>
+<li><a href="https://docs.px4.io/en/flight_controller/HKPilot32.html" target="_blank">HKPilot32</a>: <code>make px4_fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixfalcon.html" target="_blank">Pixfalcon</a>: <code>make px4_fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/dropix.html" target="_blank">Dropix</a>: <code>make px4_fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mindpx.html" target="_blank">MindPX</a>/<a href="https://docs.px4.io/en/flight_controller/mindracer.html" target="_blank">MindRacer</a>: <code>make airmind_mindpx-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mro_x2.1.html" target="_blank">mRo X-2.1</a>: <code>make auav_x21_default</code> </li>
+<li><a href="https://docs.px4.io/en/flight_controller/crazyflie2.html" target="_blank">Crazyflie 2.0</a>: <code>make bitcraze_crazyflie_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/intel_aero.html" target="_blank">Intel&#xAE; Aero Ready to Fly Drone</a>: <code>make intel_aerofc-v1_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk.html" target="_blank">Pixhawk 1</a>: <code>make px4_fmu-v2_default</code><blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
 <p> You <strong>must</strong> use a <a href="dev_env_linux_ubuntu.html#nuttx-based-hardware">supported version of GCC</a> to build this board (e.g. the same as used by <a href="../test_and_ci/docker.html">CI/docker</a>) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board&apos;s 1MB flash limit.</p>
 </blockquote>
 </li>
-<li>Pixhawk 1 with 2 MB flash: <code>make px4fmu-v3_default</code></li>
+<li>Pixhawk 1 with 2 MB flash: <code>make px4_fmu-v3_default</code></li>
 </ul>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Generally the <code>_default</code> suffix is optional (i.e. you can also build using <code>make px4_fmu-v4</code>, <code>make bitcraze_crazyflie</code>, etc.).</p>
+</blockquote>
 <h3 id="uploading-firmware-flashing-the-board">Uploading Firmware (Flashing the board)</h3>
 <p>Append <code>upload</code> to the make commands to upload the compiled binary to the autopilot hardware via USB. For example</p>
-<pre><code class="lang-sh">make px4fmu-v4_default upload
+<pre><code class="lang-sh">make px4_fmu-v4_default upload
 </code></pre>
 <p>A successful run will end with this output:</p>
 <pre><code class="lang-sh">Erase  : [====================] 100.0%
@@ -2155,28 +2158,28 @@ Rebooting.
 <p>The command below builds the target for <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2</a>.</p>
 <h4 id="cross-compiler-build">Cross-compiler Build</h4>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make posix_rpi_cross <span class="hljs-comment"># for cross-compiler build</span>
+make emlid_navio2_cross <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
-<p>The &quot;px4&quot; executable file is in the directory <strong>build/posix_rpi_cross/</strong>.
+<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_cross/</strong>.
 Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
 <p>Then set the IP (or hostname) of your RPi using:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">export</span> AUTOPILOT_HOST=192.168.X.X
 </code></pre>
 <p>And upload it with:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make posix_rpi_cross upload <span class="hljs-comment"># for cross-compiler build</span>
+make emlid_navio2_cross upload <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
 <p>Then, connect over ssh and run it with (as root):</p>
 <pre><code class="lang-sh">sudo ./bin/px4 <span class="hljs-_">-s</span> px4.config
 </code></pre>
 <h4 id="native-build">Native Build</h4>
-<p>If you&apos;re building <em>directly</em> on the Pi, you will want the native build target (posix_rpi_native).</p>
+<p>If you&apos;re building <em>directly</em> on the Pi, you will want the native build target (emlid_navio2_native).</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make posix_rpi_native <span class="hljs-comment"># for native build</span>
+make emlid_navio2_native <span class="hljs-comment"># for native build</span>
 </code></pre>
-<p>The &quot;px4&quot; executable file is in the directory <strong>build/posix_rpi_native/</strong>.
+<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_native/</strong>.
 Run it directly with:</p>
-<pre><code class="lang-sh">sudo ./build/posix_rpi_native/px4 ./posix-configs/rpi/px4.config
+<pre><code class="lang-sh">sudo ./build/emlid_navio2_native/px4 ./posix-configs/rpi/px4.config
 </code></pre>
 <p>A successful build followed by executing px4 will give you something like this:</p>
 <pre><code class="lang-sh">
@@ -2201,16 +2204,18 @@ accordingly if you use native build), right before the <code>exit 0</code> line:
 <p>Support for the <a href="https://docs.px4.io/en/flight_controller/bebop.html" target="_blank">Parrot Bebop</a> is at an early stage and should be used very carefully.</p>
 <h4 id="build">Build</h4>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make posix_bebop_default
+make parrot_bebop_default
 </code></pre>
-<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi. Then, press the power button
+<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi. 
+Then, press the power button
 four times to enable ADB and to start the telnet daemon.</p>
-<pre><code class="lang-sh">make posix_bebop_default upload
+<pre><code class="lang-sh">make parrot_bebop_default upload
 </code></pre>
 <p>This will upload the PX4 mainapp into /data/ftp/internal_000/ and create the file /home/root/parameters if not already
 present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
 <h4 id="run">Run</h4>
-<p>Connect to the Bebop&apos;s wifi and press the power button four times. Next,
+<p>Connect to the Bebop&apos;s wifi and press the power button four times. 
+Next,
 connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
 <pre><code class="lang-sh">telnet 192.168.42.1
 </code></pre>
@@ -2258,15 +2263,15 @@ adb shell reboot
 </blockquote>
 <p>The commands below build the targets for the Linux and the DSP side. Both executables communicate via <a href="../middleware/uorb.html">muORB</a>.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make eagle_default
+make atlflight_eagle_default
 </code></pre>
 <p>To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:</p>
 <pre><code class="lang-sh">adb shell
 </code></pre>
 <p>Go back to previous terminal and upload:</p>
-<pre><code class="lang-sh">make eagle_default upload
+<pre><code class="lang-sh">make atlflight_eagle_default upload
 </code></pre>
-<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.</p>
+<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle. </p>
 <p>The mixer currently needs to be copied manually:</p>
 <pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 </code></pre>
@@ -2316,7 +2321,7 @@ mkdir ../Firmware-build
 <span class="hljs-built_in">cd</span> ../Firmware-build
 cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
 </code></pre>
-<p>Then load the CMakeLists.txt in the root firmware folder via File -&gt; Open File or Project -&gt; Select the CMakeLists.txt file.</p>
+<p>Then load the CMakeLists.txt in the root firmware folder via <strong>File &gt; Open File or Project</strong> (Select the CMakeLists.txt file).</p>
 <p>After loading, the <strong>play</strong> button can be configured to run the project by selecting &apos;custom executable&apos; in the run target configuration and entering &apos;make&apos; as executable and &apos;upload&apos; as argument.</p>
 <h3 id="qt-creator-on-windows">Qt Creator on Windows</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2374,7 +2379,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2018-11-27T02:06:36.803Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T02:08:29.977Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2018-11-27T04:32:50.334Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T04:34:50.464Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
