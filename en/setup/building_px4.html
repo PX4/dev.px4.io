@@ -2037,7 +2037,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="building-px4-software">Building PX4 Software</h1>
-<p>PX4 can be built on the console or in an IDE, for both simulated and hardware targets. </p>
+<p>PX4 can be built on the console or in an IDE, for both simulated and hardware targets.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Before following these instructions you must first install the <a href="dev_env.html">Developer Toolchain</a> for your host operating system and target hardware.</p>
+</blockquote>
 <h2 id="get_px4_code">Downloading PX4 Source Code </h2>
 <p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. We recommend that you <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository (creating a copy associated with your own Github account), and then <a href="https://help.github.com/articles/cloning-a-repository/" target="_blank">clone</a> the source to your local computer.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
@@ -2070,21 +2073,23 @@ This will create and open the forked repository.</p>
 You can use a <em>git</em> command line client as above or instead perform the same actions with the <em>Github for Windows</em> app.</p>
 </li>
 </ol>
-<p><span id="specific_version_source"></span>
-This will copy <em>most</em> of the <em>very latest</em> version of PX4 source code onto your computer 
+<p>This will copy <em>most</em> of the <em>very latest</em> version of PX4 source code onto your computer 
 (the rest of the code is automatically fetched from other <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> when you build PX4).</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> To get the source for a <em>specific older release</em>, you could then:</p>
-<pre><code class="lang-sh"> <span class="hljs-comment"># Navigate into Firmware directory</span>
- <span class="hljs-built_in">cd</span> Firmware
-
- <span class="hljs-comment"># list the releases (tags)</span>
- git tag <span class="hljs-_">-l</span>
-
- <span class="hljs-comment"># Checkout code for particular tag (e.g. for tag 1.7.4beta)</span>
- git checkout v1.7.4beta
+<p><span id="specific_version_source"></span></p>
+<h3 id="get-a-specific-release">Get a Specific Release</h3>
+<p>To get the source code for a <em>specific older release</em>:</p>
+<ol>
+<li>Clone the Firmware repo and navigate into Firmware directory:<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/PX4/Firmware.git
+<span class="hljs-built_in">cd</span> Firmware
 </code></pre>
-</blockquote>
+</li>
+<li>List all releases (tags)<pre><code class="lang-sh">git tag <span class="hljs-_">-l</span>
+</code></pre>
+</li>
+<li>Checkout code for particular tag (e.g. for tag 1.7.4beta)<pre><code class="lang-sh">git checkout v1.7.4beta
+</code></pre>
+</li>
+</ol>
 <h2 id="jmavsim_build">First Build (Using the jMAVSim Simulator) </h2>
 <p>For the first build we&apos;ll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
 <p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
@@ -2097,21 +2102,25 @@ This will copy <em>most</em> of the <em>very latest</em> version of PX4 source c
 </code></pre>
 <p><img src="../../assets/jmavsim_first_takeoff.png" alt="jMAVSim UI"></p>
 <p>The drone can be landed by typing <code>commander land</code> and the whole simulation can be stopped by doing <strong>CTRL+C</strong> (or by entering <code>shutdown</code>). </p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The simulation setup is documented in full detail here: <a href="../simulation/jmavsim.html">jMAVSim Simulation</a>.</p>
-</blockquote>
 <p>Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.</p>
 <p><img src="../../assets/qgc_goto.jpg" alt="QGroundControl GoTo"></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> PX4 can be used with a number of other <a href="../simulation/">Simulators</a>, including <a href="../simulation/gazebo.html">Gazebo Simulation</a> and <a href="../simulation/airsim.html">AirSim Simulation</a>. 
+  These are also started with <em>make</em> - e.g.</p>
+<pre><code>  make px4_sitl gazebo
+</code></pre></blockquote>
 <h2 id="nuttx--pixhawk-based-boards">NuttX / Pixhawk Based Boards</h2>
 <h3 id="building_nuttx">Building </h3>
 <p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board. </p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> In the example below the first part of the build target <code>px4_fmu-v4</code> is the autopilot hardware version and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). All PX4 build targets follow this logic).</p>
-</blockquote>
 <p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make px4_fmu-v4_default
 </code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> In the example above the first part of the build target <code>px4_fmu-v4</code> is the firmware for a particular flight controller hardware and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). 
+  The <code>default</code> is optional so you could instead do: </p>
+<pre><code>  make px4_fmu-v4
+</code></pre></blockquote>
 <p>A successful run will end with similar output to:</p>
 <pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
 [954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
@@ -2215,8 +2224,7 @@ four times to enable ADB and to start the telnet daemon.</p>
 present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
 <h4 id="run">Run</h4>
 <p>Connect to the Bebop&apos;s wifi and press the power button four times. 
-Next,
-connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
+Next, connect with the Bebop via telnet or adb shell and run the commands below.</p>
 <pre><code class="lang-sh">telnet 192.168.42.1
 </code></pre>
 <p>Kill the Bebop&apos;s proprietary driver with</p>
@@ -2225,11 +2233,12 @@ connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
 <p>and start the PX4 mainapp with:</p>
 <pre><code class="lang-sh">/data/ftp/internal_000/px4 <span class="hljs-_">-s</span> /home/root/px4.config
 </code></pre>
-<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both,
-the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors
-and setup your joystick device.</p>
+<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. 
+Both the Bebop and the joystick should be recognized. 
+Follow the instructions to calibrate the sensors and setup your joystick device.</p>
 <h4 id="autostart">Autostart</h4>
-<p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>. Comment the following line:</p>
+<p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>.
+Comment the following line:</p>
 <pre><code>DragonStarter.sh -out2null &amp;
 </code></pre><p>Replace it with:</p>
 <pre><code>echo 1 &gt; /sys/class/gpio/gpio85/value # enables the fan
@@ -2336,6 +2345,49 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 </code></pre>
 <p>That&apos;s it! Start <em>Qt Creator</em>, then complete the steps in the video below to set up the project to build.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/0pa0gS30zNw"></iframe></div></p>
+<h2 id="make_targets">PX4 Make Build Targets </h2>
+<p>The previous sections showed how you can call <em>make</em> to build a number of different targets, start simulators, use IDEs etc.
+This section shows how <em>make</em> options are constructed and how to find the available choices.</p>
+<p>The full syntax to call <em>make</em> with a particular configuration and initialization file is:</p>
+<pre><code class="lang-sh">make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER]
+</code></pre>
+<p><strong>VENDOR_MODEL_VARIANT</strong>: (also known as <code>CONFIGURATION_TARGET</code>)</p>
+<ul>
+<li><strong>VENDOR:</strong> The manufacturer of the board: <code>px4</code>, <code>aerotenna</code>, <code>airmind</code>, <code>atlflight</code>, <code>auav</code>, <code>beaglebone</code>, <code>intel</code>, <code>nxp</code>, <code>parrot</code>, etc.
+  The vendor name for Pixhawk series boards is <code>px4</code>.</li>
+<li><strong>MODEL:</strong> The <em>board model</em> &quot;model&quot;: <code>sitl</code>, <code>fmu-v2</code>, <code>fmu-v3</code>, <code>fmu-v4</code>, <code>fmu-v5</code>, <code>navio2</code>, etc.</li>
+<li><strong>VARIANT:</strong> Indicates particular configurations: e.g. <code>rtps</code>, <code>lpe</code>, which contain components that are not present in the <code>default</code> configuration. Most commonly this is <code>default</code>, and may be omitted.</li>
+</ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> You can get a list of <em>all</em> available <code>CONFIGURATION_TARGET</code> options using the command below:</p>
+<pre><code class="lang-sh">  make list_config_targets
+</code></pre>
+</blockquote>
+<p><strong>VIEWER_MODEL_DEBUGGER:</strong></p>
+<ul>
+<li><strong>VIEWER:</strong> This is the simulator (&quot;viewer&quot;) to launch and connect: <code>gazebo</code>, <code>jmavsim</code> <!-- , ?airsim --></li>
+<li><strong>MODEL:</strong> The <em>vehicle</em> model to use (e.g. <code>iris</code> (<em>default</em>), <code>rover</code>, <code>tailsitter</code>, etc), which will be loaded by the simulator.
+The environment variable <code>PX4_SIM_MODEL</code> will be set to the selected model, which is then used in the <a href="#scripts">startup script</a> to select appropriate parameters. </li>
+<li><strong>DEBUGGER:</strong> Debugger to use: <code>none</code> (<em>default</em>), <code>ide</code>, <code>gdb</code>, <code>lldb</code>, <code>ddd</code>, <code>valgrind</code>, <code>callgrind</code>. 
+For more information see <a href="../debug/simulation_debugging.html">Simulation Debugging</a>.</li>
+</ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> You can get a list of <em>all</em> available <code>VIEWER_MODEL_DEBUGGER</code> options using the command below:</p>
+<pre><code class="lang-sh">  make px4_sitl list_vmd_make_targets
+</code></pre>
+</blockquote>
+<p>Notes:</p>
+<ul>
+<li>Most of the values in the <code>CONFIGURATION_TARGET</code> and <code>VIEWER_MODEL_DEBUGGER</code> have defaults, and are hence optional. 
+For example, <code>gazebo</code> is equivalent to <code>gazebo_iris</code> or <code>gazebo_iris_none</code>. </li>
+<li>You can use three underscores if you want to specify a default value between two other settings. 
+For example, <code>gazebo___gdb</code> is equivalent to <code>gazebo_iris_gdb</code>.</li>
+<li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator. 
+For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh</code>.</li>
+</ul>
+<p>The <code>VENDOR_MODEL_VARIANT</code> options map to particular <em>cmake</em> configuration files in the PX4 source tree under the <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">/boards</a> directory.
+Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <strong>boards/VENDOR/MODEL/VARIANT.cmake</strong>
+(e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
 
                                 
                                 </section>
@@ -2379,7 +2431,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2018-11-27T04:32:50.334Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T04:34:50.464Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2018-11-27T22:24:20.794Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T22:26:21.832Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

@@ -2147,54 +2147,28 @@
 <p><img src="../../assets/simulation/px4_sitl_overview.png" alt="PX4 SITL overview"></p>
 <p>If you use the normal build system SITL <code>make</code> configuration targets (see next section) then both SITL and the Simulator will be launched on the same computer and the ports above will automatically be configured. You can configure additional MAVLink UDP connections and otherwise modify the simulation environment in the build configuration and initialisation files.</p>
 <h3 id="startingbuilding-sitl-simulation">Starting/Building SITL Simulation</h3>
-<p>The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them. For example, you can launch a SITL version of PX4 that uses the EKF2 estimator and simulate a plane in Gazebo with just the following command (provided all the build and gazebo dependencies are present!):</p>
-<pre><code>make px4_sitl_default gazebo_plane
-</code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> It is also possible to separately build and start SITL and the various simulators, but this is nowhere near as &quot;turnkey&quot;.</p>
-</blockquote>
-<p>The syntax to call <code>make</code> with a particular configuration and initialisation file is:</p>
-<pre><code class="lang-bash">make [CONFIGURATION_TARGET] [VIEWER_MODEL_DEBUGGER]
+<p>The build system makes it very easy to build and start PX4 on SITL, launch a simulator, and connect them.
+The syntax (simplified) looks like this:</p>
+<pre><code>make px4_sitl simulator[_vehicle-model]
+</code></pre><p>where <code>simulator</code> is <code>gazebo</code>, <code>jmavsim</code> or some other simulator, and vehicle-model is a particular vehicle type supported by that simulator (<a href="jmavsim.html">jMAVSim</a> only supports multicopters, while <a href="gazebo.html">Gazebo</a> supports many different types).</p>
+<p>A number of examples are shown below, and there are many more in the individual pages for each of the simulators:</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># Start Gazebo with plane</span>
+make px4_sitl gazebo_plane
+
+<span class="hljs-comment"># Start Gazebo with iris and optical flow</span>
+make px4_sitl gazebo_iris_opt_flow
+
+<span class="hljs-comment"># Start JMavSim with iris (default vehicle model)</span>
+make px4_sitl jmavsim
 </code></pre>
-<p>where:</p>
-<ul>
-<li><p><strong>CONFIGURATION_TARGET:</strong> has the format <code>[VENDOR_][MODEL][_VARIANT]</code></p>
-<ul>
-<li><strong>VENDOR:</strong> aerotenna, airmind, atlflight, auav, beaglebone, intel, nxp, parrot, px4 etc.</li>
-<li><strong>MODEL:</strong> sitl, fmu-v2, fmu-v3, fmu-v4, fmu-v5, navio2, etc.</li>
-<li><strong>VARIANT:</strong> Most commonly this is <code>default</code>, and may be omitted. This is used to indicate alternative configurations (most commonly a new configuration is created when not everything can be fitted into the <code>default</code> configuration). </li>
-</ul>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can get a list of all available configuration targets using the command:</p>
-<pre><code>  make list_config_targets
-</code></pre></blockquote>
-</li>
-<li><p><strong>VIEWER_MODEL_DEBUGGER:</strong> has the format <code>[SIMULATOR]_[MODEL][_DEBUGGER]</code></p>
-<ul>
-<li><strong>SIMULATOR:</strong> This is the simulator (&quot;viewer&quot;) to launch and connect: <code>gazebo</code>, <code>jmavsim</code> <!-- , ?airsim --></li>
-<li><strong>MODEL:</strong> The vehicle model to use (e.g. <code>iris</code>, <code>rover</code>, <code>tailsitter</code>, etc). The environment variable <code>PX4_SIM_MODEL</code> will be set to the selected model, which is then used in the <a href="#scripts">startup script</a> to select appropriate parameters. It also ensures that the simulator (gazebo) loads the correct model (we explain how to find available options in the next section).</li>
-<li><strong>DEBUGGER:</strong> Debugger to (optionally) use: <code>none</code>, <code>ide</code>, <code>gdb</code>, <code>lldb</code>, <code>ddd</code>, <code>valgrind</code>, <code>callgrind</code>. For more information see <a href="../debug/simulation_debugging.html">Simulation Debugging</a>.</li>
-</ul>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can get a list of all available <code>VIEWER_MODEL_DEBUGGER</code> options using the command:</p>
-<pre><code>  make posix list_vmd_make_targets
-</code></pre></blockquote>
-</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>Most of the values in the <code>CONFIGURATION_TARGET</code> and <code>VIEWER_MODEL_DEBUGGER</code> have defaults, and are hence optional. 
-For example, <code>gazebo</code> is equivalent to <code>gazebo_iris</code> or <code>gazebo_iris_none</code>. </li>
-<li>You can use three underscores if you want to specify a default value between two other settings. 
-For example, <code>gazebo___gdb</code> is equivalent to <code>gazebo_iris_gdb</code>.</li>
-<li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator. 
-For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh</code>.</li>
-</ul>
-<h3 id="additional-options">Additional Options</h3>
 <p>The simulation can be further configured via environment variables:</p>
 <ul>
 <li><code>PX4_ESTIMATOR</code>: This variable configures which estimator to use.
-Possible options are: <code>ekf2</code> (default), <code>lpe</code>, <code>inav</code>. It can be set via <code>export PX4_ESTIMATOR=lpe</code> before running the simulation.</li>
+Possible options are: <code>ekf2</code> (default), <code>lpe</code>, <code>inav</code>. 
+It can be set via <code>export PX4_ESTIMATOR=lpe</code> before running the simulation.</li>
 </ul>
+<p>The syntax described here is simplified, and there are many other options that you can configure via <em>make</em> - for example, to set that you wish to connect to an IDE or debugger. For more information see: 
+<a href="../setup/building_px4.html#make_targets">Building the Code &gt; PX4 Make Build Targets</a>.</p>
 <h3 id="scripts">Startup Scripts </h3>
 <p>Scripts are used to control which parameter settings to use or which modules to start.
 They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d-posix" target="_blank">ROMFS/px4fmu_common/init.d-posix</a> directory, the <code>rcS</code> file is the main entry point. See <a href="../concept/system_startup.html">System Startup</a> for more information.</p>
@@ -2266,7 +2240,7 @@ They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROM
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2018-11-27T04:32:50.338Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T04:34:50.464Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2018-11-27T22:24:20.798Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-27T22:26:21.832Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
