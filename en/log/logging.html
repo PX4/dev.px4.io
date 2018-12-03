@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
@@ -2040,13 +2044,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="logging">Logging</h1>
+                                <h1 id="logging"><a name="logging" class="plugin-anchor" href="#logging"><i class="fa fa-link" aria-hidden="true"></i></a>Logging</h1>
 <p>The logger is able to log any ORB topic with all included fields. Everything
 necessary is generated from the <code>.msg</code> file, so that only the topic name needs
 to be specified. An optional interval parameter specifies the maximum logging
 rate of a certain topic. All existing instances of a topic are logged.</p>
 <p>The output log format is <a href="ulog_file_format.html">ULog</a>.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h2>
 <p>By default, logging is automatically started when arming, and stopped when
 disarming. A new log file is created for each arming session on the SD card. To
 display the current state, use <code>logger status</code> on the console.  If you want to
@@ -2055,7 +2059,7 @@ if the system was armed. <code>logger off</code> undoes this.</p>
 <p>Use</p>
 <pre><code>logger help
 </code></pre><p>for a list of all supported logger commands and parameters.</p>
-<h2 id="configuration">Configuration</h2>
+<h2 id="configuration"><a name="configuration" class="plugin-anchor" href="#configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration</h2>
 <p>The list of logged topics can be customized with a file on the SD card. Create a
 file <code>etc/logging/logger_topics.txt</code> on the card with a list of topics (For
 SITL, it&apos;s <code>build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/logger_topics.txt</code>):</p>
@@ -2064,10 +2068,10 @@ SITL, it&apos;s <code>build/px4_sitl_default/tmp/rootfs/fs/microsd/etc/logging/l
 ms between two logged messages of this topic. If not specified, the topic is
 logged at full rate.</p>
 <p>The topics in this file replace all of the default logged topics.</p>
-<h2 id="scripts">Scripts</h2>
+<h2 id="scripts"><a name="scripts" class="plugin-anchor" href="#scripts"><i class="fa fa-link" aria-hidden="true"></i></a>Scripts</h2>
 <p>There are several scripts to analyze and convert logging files in the
 <a href="https://github.com/PX4/pyulog" target="_blank">pyulog</a> repository.</p>
-<h2 id="dropouts">Dropouts</h2>
+<h2 id="dropouts"><a name="dropouts" class="plugin-anchor" href="#dropouts"><i class="fa fa-link" aria-hidden="true"></i></a>Dropouts</h2>
 <p>Logging dropouts are undesired and there are a few factors that influence the
 amount of dropouts:</p>
 <ul>
@@ -2080,7 +2084,7 @@ card (see below).</li>
 <li>Decrease the logging rate of selected topics or remove unneeded topics from
 being logged (<code>info.py &lt;file&gt;</code> is useful for this).</li>
 </ul>
-<h2 id="sd-cards">SD Cards</h2>
+<h2 id="sd-cards"><a name="sd-cards" class="plugin-anchor" href="#sd-cards"><i class="fa fa-link" aria-hidden="true"></i></a>SD Cards</h2>
 <p>The following provides performance results for different SD cards.
 Tests were done on a Pixracer; the results are applicable to Pixhawk as well.</p>
 <table>
@@ -2144,7 +2148,7 @@ virtually no dropouts). Different card sizes might work equally well, but the
 performance is usually different.</p>
 <p>You can test your own SD card with <code>sd_bench -r 50</code>, and report the results to
 <a href="https://github.com/PX4/Firmware/issues/4634" target="_blank">https://github.com/PX4/Firmware/issues/4634</a>.</p>
-<h2 id="log-streaming">Log Streaming</h2>
+<h2 id="log-streaming"><a name="log-streaming" class="plugin-anchor" href="#log-streaming"><i class="fa fa-link" aria-hidden="true"></i></a>Log Streaming</h2>
 <p>The traditional and still fully supported way to do logging is using an SD card
 on the FMU. However there is an alternative, log streaming, which sends the
 same logging data via MAVLink. This method can be used for example in cases
@@ -2162,7 +2166,7 @@ drops.</p>
 <img src="../../assets/gcs/qgc-log-streaming.png" alt=""></li>
 <li><a href="https://github.com/ecmnet/MAVGCL" target="_blank">MAVGCL</a></li>
 </ul>
-<h3 id="diagnostics">Diagnostics</h3>
+<h3 id="diagnostics"><a name="diagnostics" class="plugin-anchor" href="#diagnostics"><i class="fa fa-link" aria-hidden="true"></i></a>Diagnostics</h3>
 <ul>
 <li>If log streaming does not start, make sure the <code>logger</code> is running (see
 above), and inspect the console output while starting.</li>
@@ -2232,7 +2236,7 @@ slow to handle the data.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.9.9","depth":2,"next":{"title":"Flight Log Analysis","level":"1.9.10","depth":2,"path":"log/flight_log_analysis.md","ref":"log/flight_log_analysis.md","articles":[]},"previous":{"title":"Profiling","level":"1.9.8","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"log/logging.md","mtime":"2018-12-03T01:55:40.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T01:56:56.396Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.9.9","depth":2,"next":{"title":"Flight Log Analysis","level":"1.9.10","depth":2,"path":"log/flight_log_analysis.md","ref":"log/flight_log_analysis.md","articles":[]},"previous":{"title":"Profiling","level":"1.9.8","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"log/logging.md","mtime":"2018-12-03T04:59:06.488Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T05:01:01.522Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

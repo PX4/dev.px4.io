@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
@@ -2040,15 +2044,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="modules-reference-estimator">Modules Reference: Estimator</h1>
-<h2 id="ekf2">ekf2</h2>
+                                <h1 id="modules-reference-estimator"><a name="modules-reference-estimator" class="plugin-anchor" href="#modules-reference-estimator"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Estimator</h1>
+<h2 id="ekf2"><a name="ekf2" class="plugin-anchor" href="#ekf2"><i class="fa fa-link" aria-hidden="true"></i></a>ekf2</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/ekf2" target="_blank">modules/ekf2</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Attitude and position estimator using an Extended Kalman Filter. It is used for Multirotors and Fixed-Wing.</p>
 <p>The documentation can be found on the <a href="https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html" target="_blank">tuning_the_ecl_ekf</a> page.</p>
 <p>ekf2 can be started in replay mode (<code>-r</code>): in this mode it does not access the system time, but only uses the
 timestamps from the sensor topics.</p>
-<h3 id="ekf2_usage">Usage </h3>
+<h3 id="ekf2_usage"><a name="ekf2_usage" class="plugin-anchor" href="#ekf2_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>ekf2 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2057,11 +2061,11 @@ timestamps from the sensor topics.</p>
    stop
 
    status        print status info
-</code></pre><h2 id="localpositionestimator">local_position_estimator</h2>
+</code></pre><h2 id="localpositionestimator"><a name="localpositionestimator" class="plugin-anchor" href="#localpositionestimator"><i class="fa fa-link" aria-hidden="true"></i></a>local_position_estimator</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/local_position_estimator" target="_blank">modules/local_position_estimator</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Attitude and position estimator using an Extended Kalman Filter.</p>
-<h3 id="local_position_estimator_usage">Usage </h3>
+<h3 id="local_position_estimator_usage"><a name="local_position_estimator_usage" class="plugin-anchor" href="#local_position_estimator_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>local_position_estimator &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2069,15 +2073,15 @@ timestamps from the sensor topics.</p>
    stop
 
    status        print status info
-</code></pre><h2 id="windestimator">wind_estimator</h2>
+</code></pre><h2 id="windestimator"><a name="windestimator" class="plugin-anchor" href="#windestimator"><i class="fa fa-link" aria-hidden="true"></i></a>wind_estimator</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/wind_estimator" target="_blank">modules/wind_estimator</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module runs a combined wind and airspeed scale factor estimator.
 If provided the vehicle NED speed and attitude it can estimate the horizontal wind components based on a zero
 sideslip assumption. This makes the estimator only suitable for fixed wing vehicles.
 If provided an airspeed measurement this module also estimates an airspeed scale factor based on the following model:
 measured_airspeed = scale_factor * real_airspeed.</p>
-<h3 id="wind_estimator_usage">Usage </h3>
+<h3 id="wind_estimator_usage"><a name="wind_estimator_usage" class="plugin-anchor" href="#wind_estimator_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2128,7 +2132,7 @@ measured_airspeed = scale_factor * real_airspeed.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Estimators","level":"1.7.5","depth":2,"next":{"title":"System","level":"1.7.6","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},"previous":{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_estimator.md","mtime":"2018-12-03T01:55:40.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T01:56:56.396Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Estimators","level":"1.7.5","depth":2,"next":{"title":"System","level":"1.7.6","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},"previous":{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_estimator.md","mtime":"2018-12-03T04:59:06.492Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T05:01:01.522Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

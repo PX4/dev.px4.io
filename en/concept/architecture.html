@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
@@ -2040,7 +2044,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="px4-architectural-overview">PX4 Architectural Overview</h1>
+                                <h1 id="px4-architectural-overview"><a name="px4-architectural-overview" class="plugin-anchor" href="#px4-architectural-overview"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Architectural Overview</h1>
 <p>PX4 consists of two main layers: the <a href="#flight-stack">flight stack</a> is an estimation and flight control system,
 and the <a href="#middleware">middleware</a> is a general robotics layer that can support any type of autonomous robot, providing internal/external communications and hardware integration.</p>
 <p>All PX4 <a href="../airframes/">airframes</a> share a single codebase (this includes other robotic systems like boats, rovers, submarines etc.). The complete system design is <a href="http://www.reactivemanifesto.org" target="_blank">reactive</a>, which means that:</p>
@@ -2049,7 +2053,7 @@ and the <a href="#middleware">middleware</a> is a general robotics layer that ca
 <li>Communication is done by asynchronous message passing</li>
 <li>The system can deal with varying workload</li>
 </ul>
-<h2 id="architecture">High-Level Software Architecture</h2>
+<h2 id="architecture"><a name="architecture" class="plugin-anchor" href="#architecture"><i class="fa fa-link" aria-hidden="true"></i></a>High-Level Software Architecture</h2>
 <p>The diagram below provides a detailed overview of the building blocks of PX4. 
 The top part of the diagram contains middleware blocks, while the lower
 section shows the components of the flight stack.</p>
@@ -2085,7 +2089,7 @@ asynchronous and will update instantly when new data is available</li>
 <p> This architecture allows every single one of these
 blocks to be rapidly and easily replaced, even at runtime.</p>
 </blockquote>
-<h3 id="flight-stack">Flight Stack </h3>
+<h3 id="flight-stack"><a name="flight-stack" class="plugin-anchor" href="#flight-stack"><i class="fa fa-link" aria-hidden="true"></i></a>Flight Stack </h3>
 <p>The flight stack is a collection of guidance, navigation and control algorithms 
 for autonomous drones. 
 It includes controllers for fixed wing, multirotor and VTOL airframes 
@@ -2116,14 +2120,14 @@ individual motor commands, while ensuring that some limits are not
 exceeded. This translation is specific for a vehicle type and depends on various
 factors, such as the motor arrangements with respect to the center of gravity,
 or the vehicle&apos;s rotational inertia.</p>
-<h3 id="middleware">Middleware </h3>
+<h3 id="middleware"><a name="middleware" class="plugin-anchor" href="#middleware"><i class="fa fa-link" aria-hidden="true"></i></a>Middleware </h3>
 <p>The <a href="../middleware/">middleware</a> consists primarily of device drivers
 for embedded sensors, communication with the external world (companion computer,
 GCS, etc.) and the uORB publish-subscribe message bus.</p>
 <p>In addition, the middleware includes a <a href="../simulation/">simulation layer</a> 
 that allows PX4 flight code to run on a desktop operating system and control 
 a computer modeled vehicle in a simulated &quot;world&quot;.</p>
-<h2 id="update-rates">Update Rates</h2>
+<h2 id="update-rates"><a name="update-rates" class="plugin-anchor" href="#update-rates"><i class="fa fa-link" aria-hidden="true"></i></a>Update Rates</h2>
 <p>Since the modules wait for message updates, typically the drivers define how
 fast a module updates. Most of the IMU drivers sample the data at 1kHz,
 integrate it and publish with 250Hz. Other parts of the system, such
@@ -2131,7 +2135,7 @@ as the <code>navigator</code>, don&apos;t need such a high update rate, and thus
 considerably slower.</p>
 <p>The message update rates can be <a href="../middleware/uorb.html#urb-top-command">inspected</a>
 in real-time on the system by running <code>uorb top</code>.</p>
-<h2 id="runtime-environment">Runtime Environment</h2>
+<h2 id="runtime-environment"><a name="runtime-environment" class="plugin-anchor" href="#runtime-environment"><i class="fa fa-link" aria-hidden="true"></i></a>Runtime Environment</h2>
 <p>PX4 runs on various operating systems that provide a POSIX-API
 (such as Linux, macOS, NuttX or QuRT). It should also have some form of
 real-time scheduling (e.g. FIFO).</p>
@@ -2159,7 +2163,7 @@ such as sensor drivers or the land detector.</p>
 <p> Tasks running on a work queue do not show up in <code>top</code> 
 (only the work queues themselves can be seen - e.g. as <code>lpwork</code>).</p>
 </blockquote>
-<h3 id="background-tasks">Background Tasks</h3>
+<h3 id="background-tasks"><a name="background-tasks" class="plugin-anchor" href="#background-tasks"><i class="fa fa-link" aria-hidden="true"></i></a>Background Tasks</h3>
 <p><code>px4_task_spawn_cmd()</code> is used to launch new tasks (NuttX) or threads (POSIX - Linux/macOS) that run independently from the calling (parent) task:</p>
 <pre><code class="lang-cpp">independent_task = px4_task_spawn_cmd(
     <span class="hljs-string">&quot;commander&quot;</span>,                    <span class="hljs-comment">// Process name</span>
@@ -2171,8 +2175,8 @@ such as sensor drivers or the land detector.</p>
                                     <span class="hljs-comment">// (here the commandline arguments).</span>
     );
 </code></pre>
-<h3 id="os-specific-information">OS-Specific Information</h3>
-<h4 id="nuttx">NuttX</h4>
+<h3 id="os-specific-information"><a name="os-specific-information" class="plugin-anchor" href="#os-specific-information"><i class="fa fa-link" aria-hidden="true"></i></a>OS-Specific Information</h3>
+<h4 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX</h4>
 <p><a href="http://nuttx.org/" target="_blank">NuttX</a> is the primary RTOS for running PX4 on a flight-control
 board. It is open source (BSD license), light-weight, efficient and very stable.</p>
 <p>Modules are executed as tasks: they have their own file descriptor lists, but
@@ -2180,7 +2184,7 @@ they share a single address space. A task can still start one or more threads
 that share the file descriptor list.</p>
 <p>Each task/thread has a fixed-size stack, and there is a periodic task which
 checks that all stacks have enough free space left (based on stack coloring).</p>
-<h4 id="linuxmacos">Linux/macOS</h4>
+<h4 id="linuxmacos"><a name="linuxmacos" class="plugin-anchor" href="#linuxmacos"><i class="fa fa-link" aria-hidden="true"></i></a>Linux/macOS</h4>
 <p>On Linux or macOS, PX4 runs in a single process, and the modules run in their own
 threads (there is no distinction between tasks and threads as on NuttX).</p>
 
@@ -2226,7 +2230,7 @@ threads (there is no distinction between tasks and threads as on NuttX).</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"PX4 Architectural Overview","level":"1.3.1","depth":2,"next":{"title":"Controller Diagrams","level":"1.3.1.1","depth":3,"path":"flight_stack/controller_diagrams.md","ref":"flight_stack/controller_diagrams.md","articles":[]},"previous":{"title":"Concepts","level":"1.3","depth":1,"path":"concept/README.md","ref":"concept/README.md","articles":[{"title":"PX4 Architectural Overview","level":"1.3.1","depth":2,"path":"concept/architecture.md","ref":"concept/architecture.md","articles":[{"title":"Controller Diagrams","level":"1.3.1.1","depth":3,"path":"flight_stack/controller_diagrams.md","ref":"flight_stack/controller_diagrams.md","articles":[]}]},{"title":"Dronecode Platform Overview","level":"1.3.2","depth":2,"path":"concept/dronecode_architecture.md","ref":"concept/dronecode_architecture.md","articles":[]},{"title":"Flight Modes","level":"1.3.3","depth":2,"path":"concept/flight_modes.md","ref":"concept/flight_modes.md","articles":[]},{"title":"Mixing and Actuators","level":"1.3.4","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[]},{"title":"PWM limit state machine","level":"1.3.5","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/architecture.md","mtime":"2018-12-03T01:55:40.615Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T01:56:56.396Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"PX4 Architectural Overview","level":"1.3.1","depth":2,"next":{"title":"Controller Diagrams","level":"1.3.1.1","depth":3,"path":"flight_stack/controller_diagrams.md","ref":"flight_stack/controller_diagrams.md","articles":[]},"previous":{"title":"Concepts","level":"1.3","depth":1,"path":"concept/README.md","ref":"concept/README.md","articles":[{"title":"PX4 Architectural Overview","level":"1.3.1","depth":2,"path":"concept/architecture.md","ref":"concept/architecture.md","articles":[{"title":"Controller Diagrams","level":"1.3.1.1","depth":3,"path":"flight_stack/controller_diagrams.md","ref":"flight_stack/controller_diagrams.md","articles":[]}]},{"title":"Dronecode Platform Overview","level":"1.3.2","depth":2,"path":"concept/dronecode_architecture.md","ref":"concept/dronecode_architecture.md","articles":[]},{"title":"Flight Modes","level":"1.3.3","depth":2,"path":"concept/flight_modes.md","ref":"concept/flight_modes.md","articles":[]},{"title":"Mixing and Actuators","level":"1.3.4","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[]},{"title":"PWM limit state machine","level":"1.3.5","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/architecture.md","mtime":"2018-12-03T04:59:06.488Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T05:01:01.522Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

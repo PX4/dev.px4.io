@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
@@ -1917,9 +1921,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="using-the-ecl-ekf">Using the ecl EKF</h1>
+                                <h1 id="using-the-ecl-ekf"><a name="using-the-ecl-ekf" class="plugin-anchor" href="#using-the-ecl-ekf"><i class="fa fa-link" aria-hidden="true"></i></a>Using the ecl EKF</h1>
 <p>This tutorial answers common questions about use of the ECL EKF algorithm.</p>
-<h2 id="what-is-the-ecl-ekf">What is the ecl EKF?</h2>
+<h2 id="what-is-the-ecl-ekf"><a name="what-is-the-ecl-ekf" class="plugin-anchor" href="#what-is-the-ecl-ekf"><i class="fa fa-link" aria-hidden="true"></i></a>What is the ecl EKF?</h2>
 <p>The ECL (Estimation and Control Library) uses an Extended Kalman Filter algorithm to process sensor measurements and provide an estimate of the following states:</p>
 <ul>
 <li>Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame</li>
@@ -1936,66 +1940,66 @@
 <p>Note: The &apos;fusion time horizon&apos; delay and length of the buffers is determined by the largest of the EKF2_*_DELAY parameters. If a sensor is not being used, it is recommended to set its time delay to zero. Reducing the &apos;fusion time horizon&apos; delay reduces errors in the complementary filter used to propagate states forward to current time.</p>
 <p>The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the EKF2_IMU_POS_X,Y,Z parameters.</p>
 <p>The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: <a href="https://github.com/PX4/ecl/blob/master/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m" target="_blank">Matlab Symbolic Derivation</a></p>
-<h2 id="what-sensor-measurements-does-it-use">What sensor measurements does it use?</h2>
+<h2 id="what-sensor-measurements-does-it-use"><a name="what-sensor-measurements-does-it-use" class="plugin-anchor" href="#what-sensor-measurements-does-it-use"><i class="fa fa-link" aria-hidden="true"></i></a>What sensor measurements does it use?</h2>
 <p>The EKF has different modes of operation that allow for different combinations of sensor measurements. On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity,  vertical position, IMU delta angle bias and IMU delta velocity bias estimates.</p>
 <p>This mode requires IMU data, a source of yaw (magnetometer or external vision) and a source of height data. This minimum data set is required for all EKF modes of operation. Other sensor data can then be used to estimate additional states.</p>
-<h3 id="imu">IMU</h3>
+<h3 id="imu"><a name="imu" class="plugin-anchor" href="#imu"><i class="fa fa-link" aria-hidden="true"></i></a>IMU</h3>
 <ul>
 <li>Three axis body fixed Inertial Measurement unit delta angle and delta velocity data at a minimum rate of 100Hz. Note: Coning corrections should be applied to the IMU delta angle data before it is used by the EKF.</li>
 </ul>
-<h3 id="magnetometer">Magnetometer</h3>
+<h3 id="magnetometer"><a name="magnetometer" class="plugin-anchor" href="#magnetometer"><i class="fa fa-link" aria-hidden="true"></i></a>Magnetometer</h3>
 <p>Three axis body fixed magnetometer data (or external vision system pose data) at a minimum rate of 5Hz is required. Magnetometer data can be used in two ways:</p>
 <ul>
 <li>Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination. This yaw angle is then used as an observation by the EKF. This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases. It is the default method used during start-up and on ground.</li>
 <li>The  XYZ magnetometer readings are used as separate observations. This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies. It is the default method when the vehicle is airborne and has climbed past 1.5 m altitude.</li>
 </ul>
 <p>The logic used to select the mode is set by the EKF2_MAG_TYPE parameter.</p>
-<h3 id="height">Height</h3>
+<h3 id="height"><a name="height" class="plugin-anchor" href="#height"><i class="fa fa-link" aria-hidden="true"></i></a>Height</h3>
 <p>A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required. Note: The primary source of height data is controlled by the EKF2_HGT_MODE parameter.</p>
 <p>If these measurements are not present, the EKF will not start. When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment. When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation  enabling use of additional sensor data:</p>
-<h3 id="gps">GPS</h3>
+<h3 id="gps"><a name="gps" class="plugin-anchor" href="#gps"><i class="fa fa-link" aria-hidden="true"></i></a>GPS</h3>
 <p>GPS measurements will be used for position and velocity if the following conditions are met:</p>
 <ul>
 <li>GPS use is enabled via setting of the EKF2_AID_MASK parameter.</li>
 <li>GPS quality checks have passed. These checks are controlled by the EKF2_GPS_CHECK and EKF2_REQ_* parameters.</li>
 <li>GPS height can be used directly by the EKF via setting of the EKF2_HGT_MODE parameter.</li>
 </ul>
-<h3 id="range-finder">Range Finder</h3>
+<h3 id="range-finder"><a name="range-finder" class="plugin-anchor" href="#range-finder"><i class="fa fa-link" aria-hidden="true"></i></a>Range Finder</h3>
 <p>Range finder distance to ground is used a by a single state filter to estimate the vertical position of the terrain relative to the height datum.</p>
 <p>If operating over a flat surface that can be used as a zero height datum, the range finder data can also be used directly by the EKF to estimate height by setting the EKF2_HGT_MODE parameter to 2.</p>
-<h3 id="airspeed">Airspeed</h3>
+<h3 id="airspeed"><a name="airspeed" class="plugin-anchor" href="#airspeed"><i class="fa fa-link" aria-hidden="true"></i></a>Airspeed</h3>
 <p>Equivalent Airspeed (EAS) data can be used to estimate wind velocity and reduce drift when GPS is lost by setting EKF2_ARSP_THR to a positive value. Airspeed data will be used when it exceeds the threshold set by a positive value for EKF2_ARSP_THR and the vehicle type is not rotary wing.</p>
-<h3 id="synthetic-sideslip">Synthetic Sideslip</h3>
+<h3 id="synthetic-sideslip"><a name="synthetic-sideslip" class="plugin-anchor" href="#synthetic-sideslip"><i class="fa fa-link" aria-hidden="true"></i></a>Synthetic Sideslip</h3>
 <p>Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor. This is enabled by setting the EKF2_FUSE_BETA parameter to 1.</p>
-<h3 id="drag-specific-forces">Drag Specific Forces</h3>
+<h3 id="drag-specific-forces"><a name="drag-specific-forces" class="plugin-anchor" href="#drag-specific-forces"><i class="fa fa-link" aria-hidden="true"></i></a>Drag Specific Forces</h3>
 <p>Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity. This is enabled by setting bit position 4 in the EKF2_AID_MASK parameter to true. The relationship between airspeed and specific force (IMU acceleration) along the X and Y body axes is controlled by the the EKF2_BCOEF_X and EKF2_BCOEF_Y parameters which set the ballistic coefficients for flight in the X and Y directions respectively.. The amount of specific force observation noise is set by the EKF2_DRAG_NOISE parameter.</p>
-<h3 id="optical-flow">Optical Flow</h3>
+<h3 id="optical-flow"><a name="optical-flow" class="plugin-anchor" href="#optical-flow"><i class="fa fa-link" aria-hidden="true"></i></a>Optical Flow</h3>
 <p>Optical flow data will be used if the following conditions are met:</p>
 <ul>
 <li>Valid range finder data is available.</li>
 <li>Bit position 1 in the EKF2_AID_MASK parameter is true.</li>
 <li>The quality metric returned by the flow sensor is greater than the minimum requirement set by the EKF2_OF_QMIN parameter</li>
 </ul>
-<h3 id="external-vision-system">External Vision System</h3>
+<h3 id="external-vision-system"><a name="external-vision-system" class="plugin-anchor" href="#external-vision-system"><i class="fa fa-link" aria-hidden="true"></i></a>External Vision System</h3>
 <p>Position and Pose Measurements from an external vision system, eg Vicon, can be used:</p>
 <ul>
 <li>External vision system horizontal position data will be used if bit position 3 in the EKF2_AID_MASK parameter is true.</li>
 <li>External vision system vertical position data will be used if the EKF2_HGT_MODE parameter is set to 3.</li>
 <li>External vision system pose data will be used for yaw estimation if bit position 4 in the EKF2_AID_MASK parameter is true.</li>
 </ul>
-<h2 id="how-do-i-use-the-ecl-library-ekf">How do I use the &apos;ecl&apos; library EKF?</h2>
+<h2 id="how-do-i-use-the-ecl-library-ekf"><a name="how-do-i-use-the-ecl-library-ekf" class="plugin-anchor" href="#how-do-i-use-the-ecl-library-ekf"><i class="fa fa-link" aria-hidden="true"></i></a>How do I use the &apos;ecl&apos; library EKF?</h2>
 <p>Set the SYS_MC_EST_GROUP parameter to 2 to use the ecl EKF.</p>
-<h2 id="what-are-the-advantages-and-disadvantages-of-the-ecl-ekf-over-other-estimators">What are the advantages and disadvantages of the ecl EKF over other estimators?</h2>
+<h2 id="what-are-the-advantages-and-disadvantages-of-the-ecl-ekf-over-other-estimators"><a name="what-are-the-advantages-and-disadvantages-of-the-ecl-ekf-over-other-estimators" class="plugin-anchor" href="#what-are-the-advantages-and-disadvantages-of-the-ecl-ekf-over-other-estimators"><i class="fa fa-link" aria-hidden="true"></i></a>What are the advantages and disadvantages of the ecl EKF over other estimators?</h2>
 <p>Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.</p>
 <p>For this reason, no claims for accuracy relative to the legacy combination of attitude_estimator_q + local_position_estimator have been made and the best choice of estimator will depend on the application and tuning.</p>
-<h3 id="disadvantages">Disadvantages</h3>
+<h3 id="disadvantages"><a name="disadvantages" class="plugin-anchor" href="#disadvantages"><i class="fa fa-link" aria-hidden="true"></i></a>Disadvantages</h3>
 <ul>
 <li>The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.</li>
 <li>The ecl EKF uses more RAM and flash space</li>
 <li>The ecl EKF uses more logging space.</li>
 <li>The ecl EKF has had less flight time</li>
 </ul>
-<h3 id="advantages">Advantages</h3>
+<h3 id="advantages"><a name="advantages" class="plugin-anchor" href="#advantages"><i class="fa fa-link" aria-hidden="true"></i></a>Advantages</h3>
 <ul>
 <li>The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic manoeuvres once time delay parameters are set correctly.</li>
 <li>The ecl EKF is capable of fusing a large range of different sensor types.</li>
@@ -2004,20 +2008,20 @@
 <li>The ecl EKF estimates 3-axis accelerometer bias which improves accuracy for tailsitters and other vehicles that experience large attitude changes between flight phases.</li>
 <li>The federated architecture (combined attitude and position/velocity estimation) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly.</li>
 </ul>
-<h2 id="how-do-i-check-the-ekf-performance">How do I check the EKF performance?</h2>
+<h2 id="how-do-i-check-the-ekf-performance"><a name="how-do-i-check-the-ekf-performance" class="plugin-anchor" href="#how-do-i-check-the-ekf-performance"><i class="fa fa-link" aria-hidden="true"></i></a>How do I check the EKF performance?</h2>
 <p>EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the .ulog file format. To use the .ulog format, set the SYS_LOGGER parameter to 1.</p>
 <p>The .ulog format data can be parsed in python by using the <a href="https://github.com/PX4/pyulog" target="_blank">PX4 pyulog library</a>.</p>
 <p>Most of the EKF data is found in the <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a> and <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a> uORB messages that are logged to the .ulog file.</p>
 <p>A python script that automatically generates analysis plots and metadata can be found <a href="https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/process_logdata_ekf.py" target="_blank">here</a>. To use this script file, cd to the <code>Tools/ecl_ekf</code> directory and enter <code>python process_logdata_ekf.py &lt;log_file.ulg&gt;</code>. This saves performance metadata in a csv file named <code>&lt;log_file&gt;.mdat.csv</code> and plots in a pdf file named <code>&lt;log_file&gt;.pdf</code>.</p>
 <p>Multiple log files in a directory can be analysed using the <a href="https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py" target="_blank">batch_process_logdata_ekf.py</a> script. When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the <a href="https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py" target="_blank">batch_process_metadata_ekf.py</a> script.</p>
-<h3 id="output-data">Output Data</h3>
+<h3 id="output-data"><a name="output-data" class="plugin-anchor" href="#output-data"><i class="fa fa-link" aria-hidden="true"></i></a>Output Data</h3>
 <ul>
 <li>Attitude output data is found in the <a href="https://github.com/PX4/Firmware/blob/master/msg/vehicle_attitude.msg" target="_blank">vehicle_attitude</a> message.</li>
 <li>Local position output data is found in the <a href="https://github.com/PX4/Firmware/blob/master/msg/vehicle_local_position.msg" target="_blank">vehicle_local_position</a> message.</li>
 <li>Global (WGS-84) output data is found in the <a href="https://github.com/PX4/Firmware/blob/master/msg/vehicle_global_position.msg" target="_blank">vehicle_global_position</a> message.</li>
 <li>Wind velocity output data is found in the <a href="https://github.com/PX4/Firmware/blob/master/msg/wind_estimate.msg" target="_blank">wind_estimate</a> message.</li>
 </ul>
-<h3 id="states">States</h3>
+<h3 id="states"><a name="states" class="plugin-anchor" href="#states"><i class="fa fa-link" aria-hidden="true"></i></a>States</h3>
 <p>Refer to states[32] in <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>. The index map for states[32] is as follows:</p>
 <ul>
 <li>[0 ... 3] Quaternions</li>
@@ -2030,7 +2034,7 @@
 <li>[22 ... 23] Wind velocity NE (m/s)</li>
 <li>[24 ... 32] Not Used</li>
 </ul>
-<h3 id="state-variances">State Variances</h3>
+<h3 id="state-variances"><a name="state-variances" class="plugin-anchor" href="#state-variances"><i class="fa fa-link" aria-hidden="true"></i></a>State Variances</h3>
 <p>Refer to covariances[28] in <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>. The index map for covariances[28] is as follows:</p>
 <ul>
 <li>[0 ... 3] Quaternions</li>
@@ -2043,7 +2047,7 @@
 <li>[22 ... 23] Wind velocity NE (m/s)^2</li>
 <li>[24 ... 28] Not Used</li>
 </ul>
-<h3 id="observation-innovations">Observation Innovations</h3>
+<h3 id="observation-innovations"><a name="observation-innovations" class="plugin-anchor" href="#observation-innovations"><i class="fa fa-link" aria-hidden="true"></i></a>Observation Innovations</h3>
 <ul>
 <li>Magnetometer XYZ (gauss) : Refer to mag_innov[3] in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
 <li>Yaw angle (rad) : Refer to heading_innov in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
@@ -2057,7 +2061,7 @@
 <li>Optical flow XY (rad/sec) : Refer to flow_innov in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
 <li>Height above ground (m) : Refer to hagl_innov in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
 </ul>
-<h3 id="observation-innovation-variances">Observation Innovation Variances</h3>
+<h3 id="observation-innovation-variances"><a name="observation-innovation-variances" class="plugin-anchor" href="#observation-innovation-variances"><i class="fa fa-link" aria-hidden="true"></i></a>Observation Innovation Variances</h3>
 <ul>
 <li>Magnetometer XYZ (gauss^2) : Refer to mag_innov_var[3] in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
 <li>Yaw angle (rad^2) : Refer to heading_innov_var in the ekf2_innovations message.</li>
@@ -2071,16 +2075,16 @@
 <li>Optical flow XY (rad/sec)^2 : Refer to flow_innov_var in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
 <li>Height above ground (m^2) : Refer to hagl_innov_var in <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.</li>
 </ul>
-<h3 id="output-complementary-filter">Output Complementary Filter</h3>
+<h3 id="output-complementary-filter"><a name="output-complementary-filter" class="plugin-anchor" href="#output-complementary-filter"><i class="fa fa-link" aria-hidden="true"></i></a>Output Complementary Filter</h3>
 <p>The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to output_tracking_error[3] in the ekf2_innovations message. The index map is as follows:</p>
 <ul>
 <li>[0] Angular tracking error magnitude (rad)</li>
 <li>[1] Velocity tracking error magnitude (m/s). The velocity tracking time constant can be adjusted using the EKF2_TAU_VEL parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.</li>
 <li>[2] Position tracking error magnitude (m). The position tracking time constant can be adjusted using the EKF2_TAU_POS parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.</li>
 </ul>
-<h3 id="ekf-errors">EKF Errors</h3>
+<h3 id="ekf-errors"><a name="ekf-errors" class="plugin-anchor" href="#ekf-errors"><i class="fa fa-link" aria-hidden="true"></i></a>EKF Errors</h3>
 <p>The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter_fault_flags in <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>.</p>
-<h3 id="observation-errors">Observation Errors</h3>
+<h3 id="observation-errors"><a name="observation-errors" class="plugin-anchor" href="#observation-errors"><i class="fa fa-link" aria-hidden="true"></i></a>Observation Errors</h3>
 <p>There are two categories of observation faults:</p>
 <ul>
 <li>Loss of data. An example of this is a range finder failing to provide a return.</li>
@@ -2097,9 +2101,9 @@
 <li>hagl_test_ratio : ratio of the height above ground innovation to the innovation test limit</li>
 </ul>
 <p>For a binary pass/fail summary for each sensor, refer to innovation_check_flags in <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>.</p>
-<h3 id="gps-quality-checks">GPS Quality Checks</h3>
+<h3 id="gps-quality-checks"><a name="gps-quality-checks" class="plugin-anchor" href="#gps-quality-checks"><i class="fa fa-link" aria-hidden="true"></i></a>GPS Quality Checks</h3>
 <p>The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the EKF2_GPS_CHECK and EKF2_REQ_* parameters. The pass/fail status for these checks is logged in the <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>.gps_check_fail_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition gps_check_fail_flags in <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>.</p>
-<h3 id="ekf-numerical-errors">EKF Numerical Errors</h3>
+<h3 id="ekf-numerical-errors"><a name="ekf-numerical-errors" class="plugin-anchor" href="#ekf-numerical-errors"><i class="fa fa-link" aria-hidden="true"></i></a>EKF Numerical Errors</h3>
 <p>The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements. This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.</p>
 <p>To prevent this, every covariance and state update step contains the following error detection and correction steps:</p>
 <ul>
@@ -2114,7 +2118,7 @@
 <li>Symmetry is forced on the covariance matrix.</li>
 </ul>
 <p>After re-tuning the filter, particularly re-tuning that involve reducing the noise variables,  the value of estimator_status.gps_check_fail_flags should be checked to ensure that it remains zero.</p>
-<h2 id="what-should-i-do-if-the-height-estimate-is-diverging">What should I do if the height estimate is diverging?</h2>
+<h2 id="what-should-i-do-if-the-height-estimate-is-diverging"><a name="what-should-i-do-if-the-height-estimate-is-diverging" class="plugin-anchor" href="#what-should-i-do-if-the-height-estimate-is-diverging"><i class="fa fa-link" aria-hidden="true"></i></a>What should I do if the height estimate is diverging?</h2>
 <p>The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data</p>
 <ul>
 <li><a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.vel_pos_innov[3] and  <a href="https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg" target="_blank">ekf2_innovations</a>.vel_pos_innov[5] will both have the same sign.</li>
@@ -2128,7 +2132,7 @@
 <li>Increase the value of EKF2_ACC_NOISE to 0.5 initially. If divergence is still occurring,   increase in further increments of 0.1 but do not go above 1.0</li>
 </ul>
 <p>Note that the effect of these changes will make the EKF more sensitive to errors in GPS vertical velocity and barometric pressure.</p>
-<h2 id="what-should-i-do-if-the-position-estimate-is-diverging">What should I do if the position estimate is diverging?</h2>
+<h2 id="what-should-i-do-if-the-position-estimate-is-diverging"><a name="what-should-i-do-if-the-position-estimate-is-diverging" class="plugin-anchor" href="#what-should-i-do-if-the-position-estimate-is-diverging"><i class="fa fa-link" aria-hidden="true"></i></a>What should I do if the position estimate is diverging?</h2>
 <p>The most common causes of position divergence are:</p>
 <ul>
 <li>High vibration levels.<ul>
@@ -2170,21 +2174,21 @@
 </ul>
 <p>During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:<br><img src="../../assets/ecl/test_ratios_-_successful.png" alt="Position, Velocity, Height and Magnetometer Test Ratios"><br>The following plot shows the EKF vibration metrics for a multirotor with good isolation. The landing shock and the increased vibration during takeoff and landing can be seen. Insufficient data has been gathered with these metrics to provide specific advice on maximum thresholds.<br><img src="../../assets/ecl/vibration_metrics_-_successful.png" alt=""><br>The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency (1 kHz for most boards) will cause  offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.</p>
 <p>In addition to generating large position and velocity test ratios of &gt; 1.0, the different error mechanisms affect the other test ratios in different ways:</p>
-<h3 id="determination-of-excessive-vibration">Determination of Excessive Vibration</h3>
+<h3 id="determination-of-excessive-vibration"><a name="determination-of-excessive-vibration" class="plugin-anchor" href="#determination-of-excessive-vibration"><i class="fa fa-link" aria-hidden="true"></i></a>Determination of Excessive Vibration</h3>
 <p>High vibration levels normally affect vertical position and velocity innovations as well as the horizontal components. Magnetometer test levels are only affected to a small extent.</p>
 <p>(insert example plots showing bad vibration here)</p>
-<h3 id="determination-of-excessive-gyro-bias">Determination of Excessive Gyro Bias</h3>
+<h3 id="determination-of-excessive-gyro-bias"><a name="determination-of-excessive-gyro-bias" class="plugin-anchor" href="#determination-of-excessive-gyro-bias"><i class="fa fa-link" aria-hidden="true"></i></a>Determination of Excessive Gyro Bias</h3>
 <p>Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time time settle before flying . Pre-flight checks performed by the commander should prevent arming if the position is diverging.</p>
 <p>(insert example plots showing bad gyro bias here)</p>
-<h3 id="determination-of-poor-yaw-accuracy">Determination of Poor Yaw Accuracy</h3>
+<h3 id="determination-of-poor-yaw-accuracy"><a name="determination-of-poor-yaw-accuracy" class="plugin-anchor" href="#determination-of-poor-yaw-accuracy"><i class="fa fa-link" aria-hidden="true"></i></a>Determination of Poor Yaw Accuracy</h3>
 <p>Bad yaw alignment causes a velocity test ratio that increases rapidly when the vehicle starts moving due inconsistency in the direction of velocity calculated by the inertial nav and the  GPS measurement. Magnetometer innovations are slightly affected. Height is normally unaffected.</p>
 <p>(insert example plots showing bad yaw alignment here)</p>
-<h3 id="determination-of-poor-gps-accuracy">Determination of Poor GPS Accuracy</h3>
+<h3 id="determination-of-poor-gps-accuracy"><a name="determination-of-poor-gps-accuracy" class="plugin-anchor" href="#determination-of-poor-gps-accuracy"><i class="fa fa-link" aria-hidden="true"></i></a>Determination of Poor GPS Accuracy</h3>
 <p>Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. The rise in <a href="https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg" target="_blank">estimator_status</a>.vel_test_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.</p>
 <p><img src="../../assets/ecl/gps_glitch_-_test_ratios.png" alt=""></p>
 <p>This is accompanied with rise in the GPS receivers reported velocity accuracy which indicates that it was likely a GPS error.<br><img src="../../assets/ecl/gps_glitch_-_reported_receiver_accuracy.png" alt=""></p>
 <p>If we also look at the GPS horizontal velocity innovations and innovation variances, we can see the large spike in North velocity innovation that accompanies this GPS &apos;glitch&apos; event.<br><img src="../../assets/ecl/gps_glitch_-_velocity_innovations.png" alt=""></p>
-<h3 id="determination-of-gps-data-loss">Determination of GPS Data Loss</h3>
+<h3 id="determination-of-gps-data-loss"><a name="determination-of-gps-data-loss" class="plugin-anchor" href="#determination-of-gps-data-loss"><i class="fa fa-link" aria-hidden="true"></i></a>Determination of GPS Data Loss</h3>
 <p>Loss of GPS data will be shown by the velocity and position innvoation test ratios &apos;flat-lining&apos;. If this occurs, check the oher GPS status data in vehicle_gps_position for further information.</p>
 <p>(insert example plots showing loss of GPS data here)</p>
 
@@ -2230,7 +2234,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ecl EKF","level":"1.10.5","depth":2,"next":{"title":"비행전 체크","level":"1.10.6","depth":2,"path":"tutorials/pre_flight_checks.md","ref":"tutorials/pre_flight_checks.md","articles":[]},"previous":{"title":"장거리 비디오 스트리밍","level":"1.10.4","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"tutorials/tuning_the_ecl_ekf.md","mtime":"2018-12-03T01:55:40.631Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T01:56:56.396Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"ecl EKF","level":"1.10.5","depth":2,"next":{"title":"비행전 체크","level":"1.10.6","depth":2,"path":"tutorials/pre_flight_checks.md","ref":"tutorials/pre_flight_checks.md","articles":[]},"previous":{"title":"장거리 비디오 스트리밍","level":"1.10.4","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"tutorials/tuning_the_ecl_ekf.md","mtime":"2018-12-03T04:59:06.508Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T05:01:01.522Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>

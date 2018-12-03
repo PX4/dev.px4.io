@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
@@ -2040,14 +2044,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="uorb-messaging">uORB Messaging</h1>
-<h2 id="introduction">Introduction</h2>
+                                <h1 id="uorb-messaging"><a name="uorb-messaging" class="plugin-anchor" href="#uorb-messaging"><i class="fa fa-link" aria-hidden="true"></i></a>uORB Messaging</h1>
+<h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
 <p>The uORB is an asynchronous <code>publish()</code> / <code>subscribe()</code> messaging API used for
 inter-thread/inter-process communication.</p>
 <p>Look at the <a href="../apps/hello_sky.html">tutorial</a> to learn how to use it in C++.</p>
 <p>uORB is automatically started early on bootup as many applications depend on it.
 It is started with <code>uorb start</code>. Unit tests can be started with <code>uorb_tests</code>.</p>
-<h2 id="adding-a-new-topic">Adding a new topic</h2>
+<h2 id="adding-a-new-topic"><a name="adding-a-new-topic" class="plugin-anchor" href="#adding-a-new-topic"><i class="fa fa-link" aria-hidden="true"></i></a>Adding a new topic</h2>
 <p>New uORB topics can be added either within the main PX4/Firmware repository, or can be added
 in an out-of-tree message definitions. For information on adding out-of-tree uORB message 
 definitions, please see <a href="../advanced/out_of_tree_modules.html#uorb_message_definitions">this section</a>.</p>
@@ -2064,12 +2068,12 @@ is used for the logger, so make sure to fill it in when publishing the message.<
 definition can be used for multiple independent topics:</p>
 <pre><code># TOPICS mission offboard_mission onboard_mission
 </code></pre><p>Then in the code, use them as topic id: <code>ORB_ID(offboard_mission)</code>.</p>
-<h2 id="publishing">Publishing</h2>
+<h2 id="publishing"><a name="publishing" class="plugin-anchor" href="#publishing"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing</h2>
 <p>Publishing a topic can be done from anywhere in the system, including interrupt
 context (functions called by the <code>hrt_call</code> API). However, advertising a topic
 is only possible outside of interrupt context. A topic has to be advertised in
 the same process as it&apos;s later published.</p>
-<h2 id="listing-topics-and-listening-in">Listing Topics and Listening in</h2>
+<h2 id="listing-topics-and-listening-in"><a name="listing-topics-and-listening-in" class="plugin-anchor" href="#listing-topics-and-listening-in"><i class="fa fa-link" aria-hidden="true"></i></a>Listing Topics and Listening in</h2>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The <code>listener</code> command is only available on Pixracer (FMUv4) and Linux / OS X.</p>
 </blockquote>
@@ -2111,7 +2115,7 @@ scaling: 0
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> On NuttX-based systems (Pixhawk, Pixracer, etc) the <code>listener</code> command can be called from within the <em>QGroundControl</em> MAVLink Console to inspect the values of sensors and other topics. This is a powerful debugging tool because it can be used even when QGC is connected over a wireless link (e.g. when the vehicle is flying). For more information see: <a href="../debug/sensor_uorb_topic_debugging.html">Sensor/Topic Debugging</a>.</p>
 </blockquote>
-<h3 id="uorb-top-command">uorb top Command</h3>
+<h3 id="uorb-top-command"><a name="uorb-top-command" class="plugin-anchor" href="#uorb-top-command"><i class="fa fa-link" aria-hidden="true"></i></a>uorb top Command</h3>
 <p>The command <code>uorb top</code> shows the publishing frequency of each topic in real-time:</p>
 <pre><code class="lang-sh">update: 1s, num topics: 77
 TOPIC NAME                        INST <span class="hljs-comment">#SUB #MSG #LOST #QSIZE</span>
@@ -2132,7 +2136,7 @@ sensor_combined                      0    6  242   636 1
 <p>The columns are: topic name, multi-instance index, number of subscribers,
 publishing frequency in Hz, number of lost messages per second (for all subscribers combined), and
 queue size.</p>
-<h2 id="multi-instance">Multi-instance</h2>
+<h2 id="multi-instance"><a name="multi-instance" class="plugin-anchor" href="#multi-instance"><i class="fa fa-link" aria-hidden="true"></i></a>Multi-instance</h2>
 <p>uORB provides a mechanism to publish multiple independent instances of the same
 topic through <code>orb_advertise_multi</code>. It will return an instance index to the
 publisher. A subscriber will then have to choose to which instance to subscribe
@@ -2143,7 +2147,7 @@ sensors of the same type.</p>
 <p>Make sure not to mix <code>orb_advertise_multi</code> and <code>orb_advertise</code> for the same topic.</p>
 <p>The full API is documented in
 <a href="https://github.com/PX4/Firmware/blob/master/src/modules/uORB/uORBManager.hpp" target="_blank">src/modules/uORB/uORBManager.hpp</a>.</p>
-<h2 id="troubleshooting-and-common-pitfalls">Troubleshooting and common Pitfalls</h2>
+<h2 id="troubleshooting-and-common-pitfalls"><a name="troubleshooting-and-common-pitfalls" class="plugin-anchor" href="#troubleshooting-and-common-pitfalls"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting and common Pitfalls</h2>
 <p>The following explains some common pitfalls and corner cases:</p>
 <ul>
 <li>The topic is not published: make sure the <code>ORB_ID()</code>&apos;s of each call match. It
@@ -2203,7 +2207,7 @@ do an unconditional <code>orb_copy()</code> right after <code>orb_subscribe()</c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"uORB Messaging","level":"1.6.1","depth":2,"next":{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},"previous":{"title":"Middleware","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB Messaging","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},{"title":"MAVLink Messaging","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/uorb.md","mtime":"2018-12-03T01:55:40.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T01:56:56.396Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"uORB Messaging","level":"1.6.1","depth":2,"next":{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},"previous":{"title":"Middleware","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB Messaging","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},{"title":"MAVLink Messaging","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/uorb.md","mtime":"2018-12-03T04:59:06.492Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T05:01:01.522Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
