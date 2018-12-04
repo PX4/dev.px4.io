@@ -2055,6 +2055,13 @@
 <ul>
 <li>(All) Board-specific files: <a href="https://github.com/PX4/Firmware/tree/master/boards/px4/fmu-v5" target="_blank">/boards/px4/fmu-v5</a>. </li>
 <li>Build configuration: <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">/boards/px4/fmu-v5/default.cmake</a>.</li>
+<li>Board-specific initialisation file: <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/init/rc.board" target="_blank">/boards/px4/fmu-v5/init/rc.board</a><ul>
+<li>A board-specific initialisation file is automatically included in startup scripts if found under the boards directory at <strong>init/rc.board</strong>.</li>
+<li>The file is used to start sensors (and other things) that only exist on a particular board. 
+It may also be used to set a board&apos;s default parameters, UART mappings, and any other special cases.</li>
+<li>For FMUv5 you can see all the Pixhawk 4 sensors being started, and it also sets a larger LOGGER_BUF, and in AUTOCNF section (fresh setups) it sets the <a href="../advanced/parameter_reference.html#SYS_FMU_TASK">SYS_FMU_TASK</a> parameter.</li>
+</ul>
+</li>
 </ul>
 <p>In addition there are several groups of configuration files for each board located throughout the code base:</p>
 <ul>
@@ -2064,7 +2071,8 @@
 <h2 id="host-operating-system-configuration"><a name="host-operating-system-configuration" class="plugin-anchor" href="#host-operating-system-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Host Operating System Configuration</h2>
 <p>This section describes the purpose and location of the configuration files required for each supported host operating system to port them to new flight controller hardware.</p>
 <h3 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX</h3>
-<p>In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX.  The NuttX project maintains an excellent <a href="http://www.nuttx.org/Documentation/NuttxPortingGuide.html" target="_blank">porting guide</a> for porting NuttX to a new computing platform.</p>
+<p>In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX.
+The NuttX project maintains an excellent <a href="http://www.nuttx.org/Documentation/NuttxPortingGuide.html" target="_blank">porting guide</a> for porting NuttX to a new computing platform.</p>
 <p>For all NuttX based flight controllers (e.g. the Pixhawk series) the OS is loaded as part of the application build.</p>
 <p>The configuration files for all boards, including linker scripts and other required settings, are located under <a href="https://github.com/PX4/Firmware/tree/master/boards/" target="_blank">/boards</a> in a vendor- and board-specific directory (i.e. <strong>boards/<em>VENDOR</em>/<em>MODEL</em>/</strong>)).</p>
 <p>The following example uses FMUv5 as it is a recent <a href="../debug/reference-design.html">reference configuration</a> for NuttX based flight controllers:</p>
@@ -2097,7 +2105,8 @@ sudo make install
 The <code>--enable-mconf</code> and <code>--enable-qconf</code> options will enable the <code>menuconfig</code> and <code>qconfig</code> options respectively.</p>
 <p>To run <code>qconfig</code> you may need to install additional Qt dependencies.</p>
 <h3 id="linux"><a name="linux" class="plugin-anchor" href="#linux"><i class="fa fa-link" aria-hidden="true"></i></a>Linux</h3>
-<p>Linux boards do not include the OS and kernel configuration. These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).</p>
+<p>Linux boards do not include the OS and kernel configuration. 
+These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).</p>
 <ul>
 <li><a href="https://github.com/PX4/Firmware/blob/master/cmake/configs/posix_rpi_cross.cmake" target="_blank">cmake/configs/posix_rpi_cross.cmake</a> - RPI cross-compilation.</li>
 </ul>
@@ -2111,6 +2120,38 @@ The <code>--enable-mconf</code> and <code>--enable-qconf</code> options will ena
 <li>Drivers: <a href="https://github.com/px4/DriverFramework" target="_blank">DriverFramework</a>.</li>
 <li>Reference config: Running <code>make eagle_default</code> builds the Snapdragon Flight reference config.</li>
 </ul>
+<h2 id="rc-uart-wiring-recommendations"><a name="rc-uart-wiring-recommendations" class="plugin-anchor" href="#rc-uart-wiring-recommendations"><i class="fa fa-link" aria-hidden="true"></i></a>RC UART Wiring Recommendations</h2>
+<p>It is generally recommended to connect RC via separate RX and TX pins to the microcontroller. 
+If however RX and TX are connected together, the UART has to be put into singlewire mode to prevent any contention. 
+This is done via board config and manifest files. 
+One example is <a href="https://github.com/PX4/Firmware/blob/master/src/drivers/boards/px4fmu-v5/manifest.c" target="_blank">px4fmu-v5</a>.</p>
+<h2 id="officially-supported-hardware"><a name="officially-supported-hardware" class="plugin-anchor" href="#officially-supported-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Officially Supported Hardware</h2>
+<p>The PX4 project supports and maintains the <a href="../debug/reference-design.html">FMU standard reference hardware</a> and any boards that are compatible with the standard.
+This includes the <a href="https://docs.px4.io/en/flight_controller/pixhawk_series.html" target="_blank">Pixhawk-series</a> (see the user guide for a <a href="https://docs.px4.io/en/flight_controller/" target="_blank">full list of officially supported hardware</a>).</p>
+<p>Every officially supported board benefits from:</p>
+<ul>
+<li>PX4 Port available in the PX4 repository</li>
+<li>Automatic firmware builds that are accessible from <em>QGroundControl</em></li>
+<li>Compatibility with the rest of the ecosystem</li>
+<li>Automated checks via CI - safety remains paramount to this community</li>
+<li><a href="../test_and_ci/test_flights.html">Flight testing</a></li>
+</ul>
+<p>We encourage board manufacturers to aim for full compatibility with the <a href="https://pixhawk.org/" target="_blank">FMU spec</a>.
+With full compatibility you benefit from the ongoing day-to-day development of PX4, but have none of the maintenance costs that come from supporting deviations from the specification.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> Manufacturers should carefully consider the cost of maintenance before deviating from the specification
+  (the cost to the manufacturer is proportional to the level of divergence).</p>
+</blockquote>
+<p>We welcome any individual or company to submit their port for inclusion in our supported hardware, provided they are willing to follow our <a href="../contribute/#code-of-conduct">Code of Conduct</a> and work with the Dev Team to provide a safe and fulfilling PX4 experience to their customers.</p>
+<p>It&apos;s also important to note that the PX4 dev team has a responsibility to release safe software, and as such we require any board manufacturer to commit any resources necessary to keep their port up-to-date, and in a working state.</p>
+<p>If you want to have your board officially supported in PX4:</p>
+<ul>
+<li>Your hardware must be available in the market (i.e. it can be purchased by any developer without restriction).</li>
+<li>Hardware must be made available to the PX4 Dev Team so that they can validate the port (contact <a href="mailto:lorenz@px4.io" target="_blank">lorenz@px4.io</a> for guidance on where to ship hardware for testing).</li>
+<li>The board must pass full <a href="../test_and_ci/">test suite</a> and <a href="../test_and_ci/test_flights.html">flight testing</a>.</li>
+</ul>
+<p><strong>The PX4 project reserves the right to refuse acceptance of new ports (or remove current ports) for failure to meet the requirements set by the project.</strong></p>
+<p>You can reach out to the core developer team and community on the official <a href="../#support">Forums and Chat</a>.</p>
 <h2 id="related-information"><a name="related-information" class="plugin-anchor" href="#related-information"><i class="fa fa-link" aria-hidden="true"></i></a>Related Information</h2>
 <ul>
 <li><a href="../middleware/drivers.html">Device Drivers</a> - How to support new peripheral hardware (device drivers)</li>
@@ -2122,39 +2163,6 @@ The <code>--enable-mconf</code> and <code>--enable-qconf</code> options will ena
 </li>
 <li><a href="https://docs.px4.io/en/peripherals/" target="_blank">Supported Peripherals</a> (PX4 User Guide)</li>
 </ul>
-<h2 id="rc-uart-wiring-recommendations"><a name="rc-uart-wiring-recommendations" class="plugin-anchor" href="#rc-uart-wiring-recommendations"><i class="fa fa-link" aria-hidden="true"></i></a>RC UART Wiring Recommendations</h2>
-<p>It is generally recommended to connect RC via separate RX and TX pins to the microcontroller. 
-If however RX and TX are connected together, the UART has to be put into singlewire mode to prevent any contention. 
-This is done via board config and manifest files. 
-One example is <a href="https://github.com/PX4/Firmware/blob/master/src/drivers/boards/px4fmu-v5/manifest.c" target="_blank">px4fmu-v5</a>.</p>
-<h2 id="officially-supported-hardware"><a name="officially-supported-hardware" class="plugin-anchor" href="#officially-supported-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Officially Supported Hardware</h2>
-<p>The PX4 project supports and maintains the <a href="../debug/reference-design.html">FMU standard reference hardware</a> and any boards that are compatible with the standard.
-This includes the <a href="https://docs.px4.io/en/flight_controller/pixhawk_series.html" target="_blank">Pixhawk-series</a> (see the user guide for a <a href="https://docs.px4.io/en/flight_controller/" target="_blank">full list of officially supported hardware</a>).</p>
-<p> Every officially supported board benefits from:</p>
-<ul>
-<li>PX4 Port available in the PX4 repository</li>
-<li>Automatic firmware builds that are accessible from <em>QGroundControl</em></li>
-<li>Compatibility with the rest of the ecosystem</li>
-<li>Automated checks via CI - safety remains paramount to this community</li>
-<li><p><a href="../test_and_ci/test_flights.html">Flight testing</a></p>
-<p>We encourage board manufacturers to aim for full compatibility with the <a href="https://pixhawk.org/" target="_blank">FMU spec</a>.
-With full compatibility you benefit from the ongoing day-to-day development of PX4, but have none of the maintenance costs that come from supporting deviations from the specification.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Manufacturers should carefully consider the cost of maintenance before deviating from the specification
-(the cost to the manufacturer is proportional to the level of divergence).</p>
-</blockquote>
-</li>
-</ul>
-<p>We welcome any individual or company to submit their port for inclusion in our supported hardware, provided they are willing to follow our <a href="../contribute/#code-of-conduct">Code of Conduct</a> and work with the Dev Team to provide a safe and fulfilling PX4 experience to their customers.</p>
-<p>It&apos;s also important to note that the PX4 dev team has a responsibility to release safe software, and as such we require any board manufacturer to commit any resources necessary to keep their port up-to-date, and in a working state.</p>
-<p>If you want to have your board officially supported in PX4:</p>
-<ul>
-<li>Your hardware must be available in the market (i.e. it can be purchased by any developer without restriction).</li>
-<li>Hardware must be made available to the PX4 Dev Team so that they can validate the port (contact <a href="mailto:lorenz@px4.io" target="_blank">lorenz@px4.io</a> for guidance on where to ship hardware for testing).</li>
-<li>The board must pass full <a href="../test_and_ci/">test suite</a> and <a href="../test_and_ci/test_flights.html">flight testing</a>.</li>
-</ul>
-<p><strong>The PX4 project reserves the right to refuse acceptance of new ports (or remove current ports) for failure to meet the requirements set by the project.</strong></p>
-<p>You can reach out to the core developer team and community on the official <a href="../#support">Forums and Chat</a>.</p>
 
                                 
                                 </section>
@@ -2198,7 +2206,7 @@ With full compatibility you benefit from the ongoing day-to-day development of P
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Flight Controller Porting Guide","level":"1.5.2","depth":2,"next":{"title":"Airframes","level":"1.5.3","depth":2,"path":"airframes/README.md","ref":"airframes/README.md","articles":[{"title":"Airframes Reference","level":"1.5.3.1","depth":3,"path":"airframes/airframe_reference.md","ref":"airframes/airframe_reference.md","articles":[]},{"title":"Adding a New Airframe","level":"1.5.3.2","depth":3,"path":"airframes/adding_a_new_frame.md","ref":"airframes/adding_a_new_frame.md","articles":[]}]},"previous":{"title":"Flight Controller Reference Design","level":"1.5.1","depth":2,"path":"debug/reference-design.md","ref":"debug/reference-design.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"hardware/porting_guide.md","mtime":"2018-12-03T22:57:56.184Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T22:59:19.286Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Flight Controller Porting Guide","level":"1.5.2","depth":2,"next":{"title":"Airframes","level":"1.5.3","depth":2,"path":"airframes/README.md","ref":"airframes/README.md","articles":[{"title":"Airframes Reference","level":"1.5.3.1","depth":3,"path":"airframes/airframe_reference.md","ref":"airframes/airframe_reference.md","articles":[]},{"title":"Adding a New Airframe","level":"1.5.3.2","depth":3,"path":"airframes/adding_a_new_frame.md","ref":"airframes/adding_a_new_frame.md","articles":[]}]},"previous":{"title":"Flight Controller Reference Design","level":"1.5.1","depth":2,"path":"debug/reference-design.md","ref":"debug/reference-design.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"hardware/porting_guide.md","mtime":"2018-12-04T05:58:05.758Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-04T05:59:24.654Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
