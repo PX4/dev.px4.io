@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>S.Bus Driver for Linux · PX4 Developer Guide</title>
+        <title>Translation · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../advanced/" />
+    <link rel="next" href="notation.html" />
     
     
-    <link rel="prev" href="tuning_the_ecl_ekf.html" />
+    <link rel="prev" href="docs.html" />
     
 
     </head>
@@ -1468,9 +1468,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="tutorials.html">
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
             
-                <a href="tutorials.html">
+                <a href="../tutorials/tutorials.html">
             
                     
                     Tutorials
@@ -1521,9 +1521,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.4" data-path="tuning_the_ecl_ekf.html">
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/tuning_the_ecl_ekf.html">
             
-                <a href="tuning_the_ecl_ekf.html">
+                <a href="../tutorials/tuning_the_ecl_ekf.html">
             
                     
                     ecl EKF
@@ -1534,9 +1534,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10.5" data-path="linux_sbus.html">
+        <li class="chapter " data-level="1.10.5" data-path="../tutorials/linux_sbus.html">
             
-                <a href="linux_sbus.html">
+                <a href="../tutorials/linux_sbus.html">
             
                     
                     S.Bus Driver for Linux
@@ -1606,9 +1606,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.3.1" data-path="motion-capture-vicon-optitrack.html">
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
             
-                <a href="motion-capture-vicon-optitrack.html">
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
             
                     
                     Motion Capture (VICON, Optitrack)
@@ -1862,9 +1862,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="../contribute/">
+        <li class="chapter " data-level="1.13" data-path="./">
             
-                <a href="../contribute/">
+                <a href="./">
             
                     
                     Contributing & Dev Call
@@ -1876,9 +1876,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.1" data-path="../contribute/git_examples.html">
+        <li class="chapter " data-level="1.13.1" data-path="git_examples.html">
             
-                <a href="../contribute/git_examples.html">
+                <a href="git_examples.html">
             
                     
                     GIT Examples
@@ -1889,9 +1889,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.2" data-path="../contribute/docs.html">
+        <li class="chapter " data-level="1.13.2" data-path="docs.html">
             
-                <a href="../contribute/docs.html">
+                <a href="docs.html">
             
                     
                     Documentation
@@ -1902,9 +1902,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.3" data-path="../contribute/translation.html">
+        <li class="chapter active" data-level="1.13.3" data-path="translation.html">
             
-                <a href="../contribute/translation.html">
+                <a href="translation.html">
             
                     
                     Translation
@@ -1915,9 +1915,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.4" data-path="../contribute/notation.html">
+        <li class="chapter " data-level="1.13.4" data-path="notation.html">
             
-                <a href="../contribute/notation.html">
+                <a href="notation.html">
             
                     
                     Terminology/Notation
@@ -1928,9 +1928,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.5" data-path="../contribute/licenses.html">
+        <li class="chapter " data-level="1.13.5" data-path="licenses.html">
             
-                <a href="../contribute/licenses.html">
+                <a href="licenses.html">
             
                     
                     Licenses
@@ -2061,7 +2061,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >S.Bus Driver for Linux</a>
+        <a href=".." >Translation</a>
     </h1>
 </div>
 
@@ -2076,55 +2076,53 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sbus-driver-for-linux"><a name="sbus-driver-for-linux" class="plugin-anchor" href="#sbus-driver-for-linux"><i class="fa fa-link" aria-hidden="true"></i></a>S.Bus Driver for Linux</h1>
-<p>The <em>S.Bus Driver for Linux</em> allows a Linux-based autopilot to access up to 16 channels from a <em>Futaba S.Bus receiver</em> via a serial port. The driver should also work with other receivers that use the S.Bus protocol, including as FrSky, RadioLink, and even S.Bus encoders. </p>
-<p>A signal inverter circuit is required (described below) to enable the device serial port to read data from the receiver.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The driver has been tested on Raspberry Pi running Rasbian Linux, when connected to the receiver through the onboard serial port or via a USB to TTY serial cable. It is expected to work on all Linux versions, and through all serial ports.</p>
-</blockquote>
-<h2 id="signal-inverter-circuit"><a name="signal-inverter-circuit" class="plugin-anchor" href="#signal-inverter-circuit"><i class="fa fa-link" aria-hidden="true"></i></a>Signal inverter circuit</h2>
-<p>S.Bus is an <em>inverted</em> UART communication signal. As many serial ports/flight controllers cannot read an inverted UART signal, a signal inverter circuit is required between the receiver and serial port un-invert the signal. This section shows how to create an appropriate circuit.</p>
+                                <h1 id="translation"><a name="translation" class="plugin-anchor" href="#translation"><i class="fa fa-link" aria-hidden="true"></i></a>Translation</h1>
+<p>We&apos;d love your help to translate <em>QGroundControl</em>, and our guides for PX4, <em>QGroundControl</em> and MAVLink!</p>
+<p>Our docs (and <em>QGroundControl</em>) use the <a href="https://crowdin.com" target="_blank">Crowdin</a> online tool for translation.
+Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval).</p>
+<p>Crowdin exports the translated documents back out to Github as a &quot;Pull Request&quot; (which the development team periodically review and accept).
+The exported output contains the source document with any translated and approved text replaced with translated strings (i.e. if a string is not translated/is changed, then it will be displayed in English).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> This circuit is required for Raspberry Pi to read S.Bus remote control signals through the serial port or USB-to-TTY serial converter. It will also be required for many other flight controllers.</p>
-</blockquote>
-<h3 id="required-components"><a name="required-components" class="plugin-anchor" href="#required-components"><i class="fa fa-link" aria-hidden="true"></i></a>Required components</h3>
-<ul>
-<li>1x NPN transistor (e.g. NPN S9014 TO92)  </li>
-<li>1x 10K resistor</li>
-<li>1x 1K resistor</li>
-</ul>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Any type/model of transistor can be used because the current drain is very low.</p>
+<p> You will need a (free) <a href="https://crowdin.com/join" target="_blank">Crowdin account</a> account to join the translation team!</p>
 </blockquote>
 <p><span></span></p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Raspberry Pi only has a single serial port. If this is already being used you can alternatively connect your S.Bus receiver to the RaPi USB port, via a USB to TTY serial cable (e.g. PL2302 USB to TTL serial converter)</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The benefit of this system is that the translation closely tracks the source documents.
+  Readers will not be mislead by old and out of date translations. </p>
 </blockquote>
-<h3 id="circuit-diagramconnections"><a name="circuit-diagramconnections" class="plugin-anchor" href="#circuit-diagramconnections"><i class="fa fa-link" aria-hidden="true"></i></a>Circuit diagram/Connections</h3>
-<p>Connect the components as described below (and shown in the circuit diagram):</p>
-<ul>
-<li>S.Bus signal &#x2192; 1K resistor &#x2192; NPN transistor base</li>
-<li>NPN transistor emit &#x2192; GND</li>
-<li>3.3VCC &#x2192; 10K resistor &#x2192; NPN transistor collection &#x2192; USB-to-TTY rxd</li>
-<li>5.0VCC &#x2192; S.Bus VCC</li>
-<li>GND &#x2192; S.Bus GND</li>
+<h2 id="getting-started"><a name="getting-started" class="plugin-anchor" href="#getting-started"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Started</h2>
+<p>The steps to join our translation tream are:</p>
+<ol>
+<li>Join Crowdin: <a href="https://crowdin.com/join" target="_blank">https://crowdin.com/join</a></li>
+<li>Open the translation project you want to join:<ul>
+<li><a href="https://crowdin.com/project/qgroundcontrol" target="_blank">QGroundControl</a></li>
+<li><a href="https://crowdin.com/project/px4-user-guide" target="_blank">PX4 User Guide</a></li>
+<li><a href="https://crowdin.com/project/px4-developer-guide" target="_blank">PX4 Developer Guide</a></li>
+<li><a href="https://crowdin.com/project/qgroundcontrol-developer-guide" target="_blank">QGroundControl Developer Guide</a></li>
+<li><a href="https://crowdin.com/project/qgroundcontrol-user-guide" target="_blank">QGroundControl User Guide</a></li>
+<li><a href="https://crowdin.com/project/mavlink" target="_blank">MAVLink Guide</a></li>
 </ul>
-<p><img src="../../assets/driver_sbus_signal_inverter_circuit_diagram.png" alt="Signal inverter circuit diagram"></p>
-<h3 id="breadboard-image"><a name="breadboard-image" class="plugin-anchor" href="#breadboard-image"><i class="fa fa-link" aria-hidden="true"></i></a>Breadboard image</h3>
-<p>The image below shows the connections on a breadboard.</p>
-<p><img src="../../assets/driver_sbus_signal_inverter_breadboard.png" alt="Signal inverter breadboard"></p>
-<h2 id="source-code"><a name="source-code" class="plugin-anchor" href="#source-code"><i class="fa fa-link" aria-hidden="true"></i></a>Source code</h2>
-<ul>
-<li><a href="https://github.com/PX4/Firmware/tree/master/src/drivers/linux_sbus" target="_blank">Firmware/src/drivers/linux_sbus</a></li>
-</ul>
-<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h2>
-<p>The command syntax is:</p>
-<pre><code>linux_sbus start|stop|status -d &lt;device&gt; -c &lt;channel&gt;
-</code></pre><p>So for example, to automatically start the driver listening to 8 channels on device <code>/dev/ttyUSB0</code>, you would add the following line to the startup configuration file.</p>
-<pre><code>linux_sbus start -d /dev/ttyUSB0 -c 8
-</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The original configuration files are located in <strong>Firmware/posix-configs</strong>. According to the official documentation, after you finish <code>make upload</code> related operations, all posix related configuration files will be placed in <strong>/home/pi</strong>. You can modify the file you want to use there.</p>
+</li>
+<li>Select the language you want to translate</li>
+<li>Click the <strong>Join</strong> button (next to the text <em>You must join the translators team to be able to participate in this project</em>)<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> You will be notified once your application to join is accepted.</p>
 </blockquote>
+</li>
+<li>Start translating!</li>
+</ol>
+<h2 id="special-notes"><a name="special-notes" class="plugin-anchor" href="#special-notes"><i class="fa fa-link" aria-hidden="true"></i></a>Special Notes</h2>
+<h3 id="do-not-modify-note-tip-warning-text"><a name="do-not-modify-note-tip-warning-text" class="plugin-anchor" href="#do-not-modify-note-tip-warning-text"><i class="fa fa-link" aria-hidden="true"></i></a>Do not modify Note, Tip, Warning Text</h3>
+<p>Gitbook uses special prefix text to indicate Notes, Tips and Warnings (e.g. <code>&gt; **Note**</code>, <code>&gt; **Tip**</code>, <code>&gt; **Warning**</code>).
+This is displayed in Crowdin as shown:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">0</span>&gt;</span>Note<span class="hljs-tag">&lt;/<span class="hljs-name">0</span>&gt;</span> The text for the note.
+</code></pre>
+<p>It is important that you do not translate the text inside the <code>&lt;0&gt;Note&lt;/0&gt;</code> tags as this will stop the note from rendering properly.</p>
+<h2 id="adding-a-new-language"><a name="adding-a-new-language" class="plugin-anchor" href="#adding-a-new-language"><i class="fa fa-link" aria-hidden="true"></i></a>Adding a New Language</h2>
+<p>If the language you want to translate is not presented as an option on the project home page then you will need to request it.</p>
+<p>You can do this by contacting the project owner (there is a contact link on each project&apos;s home page). </p>
+<h2 id="getting-help"><a name="getting-help" class="plugin-anchor" href="#getting-help"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Help</h2>
+<p>The <em>Crowdin</em> interface is self explanatory, but there is plenty of additional information on the <a href="https://support.crowdin.com/" target="_blank">knowledgeable</a> and <a href="https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool" target="_blank">feedback tool</a>.</p>
+<p>You can also ask for help from translators and developers in the Dronecode community using <a href="../#support">our support channels</a>.</p>
 
                                 
                                 </section>
@@ -2152,12 +2150,12 @@
 
             
                 
-                <a href="tuning_the_ecl_ekf.html" class="navigation navigation-prev " aria-label="Previous page: ecl EKF">
+                <a href="docs.html" class="navigation navigation-prev " aria-label="Previous page: Documentation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../advanced/" class="navigation navigation-next " aria-label="Next page: Advanced Topics">
+                <a href="notation.html" class="navigation navigation-next " aria-label="Next page: Terminology/Notation">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2168,7 +2166,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"S.Bus Driver for Linux","level":"1.10.5","depth":2,"next":{"title":"Advanced Topics","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"Parameter Reference","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},{"title":"Installing driver for Intel RealSense R200","level":"1.11.4","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"Switching State Estimators","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"Out-of-Tree Modules","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]}]},"previous":{"title":"ecl EKF","level":"1.10.4","depth":2,"path":"tutorials/tuning_the_ecl_ekf.md","ref":"tutorials/tuning_the_ecl_ekf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"tutorials/linux_sbus.md","mtime":"2018-12-10T01:52:42.642Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T01:54:43.444Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Translation","level":"1.13.3","depth":2,"next":{"title":"Terminology/Notation","level":"1.13.4","depth":2,"path":"contribute/notation.md","ref":"contribute/notation.md","articles":[]},"previous":{"title":"Documentation","level":"1.13.2","depth":2,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"contribute/translation.md","mtime":"2018-12-10T01:52:42.634Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-10T01:54:43.444Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
