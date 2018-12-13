@@ -2133,7 +2133,8 @@ Because ROS2 uses DDS/RTPS as its native communications middleware, you can crea
 This is needed because the first version of ROS does not support RTPS.</p>
 <h2 id="code-generation"><a name="code-generation" class="plugin-anchor" href="#code-generation"><i class="fa fa-link" aria-hidden="true"></i></a>Code generation</h2>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> <a href="../setup/fast-rtps-installation.html">Fast RTPS must be installed</a> in order to generate the required code!</p>
+<p> <a href="../setup/fast-rtps-installation.html">Fast RTPS must be installed</a> in order to generate the required code! 
+<em>Fast RTPS</em> is installed <em>by default</em> if you use the normal installers/scripts for <a href="../setup/dev_env_mac.html">macOS</a>, <a href="../setup/dev_env_windows_cygwin.html">Windows Cygwin</a> or <a href="../setup/dev_env_linux_ubuntu.html">Ubuntu</a>.</p>
 </blockquote>
 <h3 id="ros-independent-applications"><a name="ros-independent-applications" class="plugin-anchor" href="#ros-independent-applications"><i class="fa fa-link" aria-hidden="true"></i></a>ROS-independent applications</h3>
 <p>All the code needed to create, build and use the bridge is automatically generated when the PX4 Firmware is compiled.</p>
@@ -2146,7 +2147,7 @@ The <em>Agent</em> must be separately/manually compiled for the target computer.
 </blockquote>
 <h3 id="px4_ros_com"><a name="px4_ros_com" class="plugin-anchor" href="#px4_ros_com"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2/ROS applications </h3>
 <p>The <a href="https://github.com/PX4/px4_ros_com" target="_blank">px4_ros_com</a> package, when built, generates everything needed to access PX4 uORB messages from a ROS2 node (for ROS you also need <a href="https://github.com/ros2/ros1_bridge" target="_blank">ros1_bridge</a>).
-This includes all the required components of the *PX4 RTPS bridge, including the IDL files (required by the <code>micrortps_agent</code>), the <code>micrortps_agent</code> itself and the sources and headers of the ROS messages.</p>
+This includes all the required components of the <em>PX4 RTPS bridge</em>, including the IDL files (required by the <code>micrortps_agent</code>), the <code>micrortps_agent</code> itself and the sources and headers of the ROS messages.</p>
 <p>The package has two separate branches:</p>
 <ul>
 <li>a <code>master</code> branch, used with ROS2. It contains code to generate all the required ROS2 messages and IDL files to bridge PX4 with ROS2 nodes.</li>
@@ -2264,19 +2265,17 @@ and separately clone the <code>px4_ros_com</code> repo for both the <code>master
 <ol>
 <li><a href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank">Install ROS Melodic</a></li>
 <li><a href="https://index.ros.org/doc/ros2/Linux-Install-Debians/" target="_blank">Install ROS2 Bouncy</a></li>
-<li>Install the following component to ensure that the package properly generates the IDL files (only required if one is using the ROS2 Bouncy release):</li>
-</ol>
+<li><p>Install the following component to ensure that the package properly generates the IDL files (only required if one is using the ROS2 Bouncy release):</p>
 <pre><code class="lang-sh">sudo apt install ros-bouncy-rmw-opensplice-cpp
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The requirement for this package should soon be deprecated, as <code>rosidl_generate_dds_interfaces</code> CMake tools will be used to generate the required IDL files (instead of only using <code>rosidl_generate_interfaces</code>).</p>
 </blockquote>
-<p>The install process should also install the <code>colcon</code> build tools, but in case that doesn&apos;t happen, you can install the tools manually:</p>
+<p>The install process should also install the <em>colcon</em> build tools, but in case that doesn&apos;t happen, you can install the tools manually:</p>
 <pre><code class="lang-sh">sudo apt install python3-colcon-common-extensions
 </code></pre>
-<ol>
-<li><code>setuptools</code> is also required to be installed (using pip or apt):</li>
-</ol>
+</li>
+<li><p><em>setuptools</em> must also be installed (using <em>pip</em> or <em>apt</em>):</p>
 <pre><code class="lang-sh">sudo pip3 install -U setuptools
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2287,6 +2286,8 @@ and separately clone the <code>px4_ros_com</code> repo for both the <code>master
 <p> Do not install the <code>ros1_bridge</code> package through the deb repository.
   The package must be built from source.</p>
 </blockquote>
+</li>
+</ol>
 <h3 id="setting-up-the-workspaces"><a name="setting-up-the-workspaces" class="plugin-anchor" href="#setting-up-the-workspaces"><i class="fa fa-link" aria-hidden="true"></i></a>Setting up the workspaces</h3>
 <p>Since the ROS2 and ROS require different environments you will need a separate workspace for each ROS version.
 As an example:</p>
@@ -2359,11 +2360,13 @@ For more details on the build process, see the build instructions on the <a href
 </li>
 </ol>
 <h3 id="cleaning-the-workspaces"><a name="cleaning-the-workspaces" class="plugin-anchor" href="#cleaning-the-workspaces"><i class="fa fa-link" aria-hidden="true"></i></a>Cleaning the workspaces</h3>
-<p>After building the workspaces, which also does generate some source and message files that are required to build the full pipeline, there are multiple places where the files can only be manually deleted if one wants to do clean fresh build after a change. Also, <code>colcon</code> does not currently have a way of cleaning the generated <code>build</code>, <code>install</code> and <code>log</code> directories, so after a build, and if one wants to clean it, it needs to delete these directories manually.</p>
-<p>In order to ease the process of cleaning a build to the developer, one can use the <code>clean_all.bash</code> script, also in <code>px4_ros_com/scripts</code>. The most common way of using it is by also passing the the ROS(1) workspace directory path (since it&apos;s usually not on the default path):</p>
+<p>After building the workspaces there are many files that must be deleted before you can do a clean/fresh build (for example, after you have changed some code and want to rebuild). 
+Unfortunately <em>colcon</em> does not currently have a way of cleaning the generated <strong>build</strong>, <strong>install</strong> and <strong>log</strong> directories, so these directories must be deleted manually.</p>
+<p>The <strong>clean_all.bash</strong> script (in <strong>px4_ros_com/scripts</strong>) is provided to ease this cleaning process. 
+The most common way of using it is by passing it the ROS(1) workspace directory path (since it&apos;s usually not on the default path):</p>
 <pre><code class="lang-sh">$ <span class="hljs-built_in">source</span> clean_all.bash --ros1_ws_dir &lt;path/to/px4_ros_com_ros1/ws&gt;
 </code></pre>
-<p>If one wants to also delete the cloned <code>ros1_bridge</code> from the workspace, <code>--delete_ros1_bridge</code> argument can be passed as well.</p>
+<p>To also delete the cloned <code>ros1_bridge</code> from the workspace, additionally pass the following argument: <code>--delete_ros1_bridge</code>.</p>
 <h2 id="creating-a-fast-rtps-listener-application"><a name="creating-a-fast-rtps-listener-application" class="plugin-anchor" href="#creating-a-fast-rtps-listener-application"><i class="fa fa-link" aria-hidden="true"></i></a>Creating a Fast RTPS Listener application</h2>
 <p>Once the <em>Client</em> (on the flight controller) and the <em>Agent</em> (on an offboard computer) are running and connected, <em>Fast RTPS</em> applications can publish and subscribe to uORB topics on PX4 using RTPS.</p>
 <p>This example shows how to create a <em>Fast RTPS</em> &quot;listener&quot; application that subscribes to the <code>sensor_combined</code> topic and prints out updates (from PX4).
@@ -2556,8 +2559,8 @@ An example of a ROS listener for <code>sensor_combined</code> messages can be fo
 <h2 id="testing-the-px4-fastrpts-bridge-with-ros2-and-ros"><a name="testing-the-px4-fastrpts-bridge-with-ros2-and-ros" class="plugin-anchor" href="#testing-the-px4-fastrpts-bridge-with-ros2-and-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Testing the PX4-FastRPTS bridge with ROS2 and ROS</h2>
 <p>To quickly test the package (using PX4 SITL with Gazebo):</p>
 <ol>
-<li><p>Start the PX4 SITL with Gazebo using:</p>
-<pre><code class="lang-sh">make px4_sitl_rtps gazebo`
+<li><p>Start PX4 SITL with Gazebo using:</p>
+<pre><code class="lang-sh">make px4_sitl_rtps gazebo
 </code></pre>
 </li>
 <li><p>On one terminal, source the ROS2 environment and workspace and launch the <code>ros1_bridge</code> (this allows ROS2 and ROS nodes to communicate with each other).
@@ -2708,7 +2711,7 @@ Select <strong>NO</strong> for <em>Would you like a login shell to be accessible
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"next":{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink Messaging","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2018-12-13T22:44:34.495Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-13T22:45:48.842Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"next":{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink Messaging","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2018-12-13T23:06:31.669Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-13T23:07:51.303Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
