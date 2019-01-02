@@ -1,0 +1,2285 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>代码编译 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="config_advanced.html" />
+    
+    
+    <link rel="prev" href="fast-rtps-installation.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    项目介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="getting_started.html">
+            
+                <a href="getting_started.html">
+            
+                    
+                    新手上路
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="config_initial.html">
+            
+                <a href="config_initial.html">
+            
+                    
+                    初始设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="dev_env.html">
+            
+                <a href="dev_env.html">
+            
+                    
+                    安装工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="dev_env_mac.html">
+            
+                <a href="dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="dev_env_linux.html">
+            
+                <a href="dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="dev_env_linux_boutique.html">
+            
+                <a href="dev_env_linux_boutique.html">
+            
+                    
+                    Advanced Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="dev_env_windows.html">
+            
+                <a href="dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="fast-rtps-installation.html">
+            
+                <a href="fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="building_px4.html">
+            
+                <a href="building_px4.html">
+            
+                    
+                    代码编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="config_advanced.html">
+            
+                <a href="config_advanced.html">
+            
+                    
+                    高级配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    贡献&  开发者电话会议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT例程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    概念解读
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    飞行模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    结构概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_stack.html">
+            
+                <a href="../concept/flight_stack.html">
+            
+                    
+                    飞行控制栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/middleware.html">
+            
+                <a href="../concept/middleware.html">
+            
+                    
+                    中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    混控和执行器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM限制状态机
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    Hardware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../flight_controller/">
+            
+                <a href="../flight_controller/">
+            
+                    
+                    自驾仪硬件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/debug/porting-guide.html">
+            
+                    
+                    Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    机型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../airframes/architecture.html">
+            
+                <a href="../airframes/architecture.html">
+            
+                    
+                    统一的基础代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    参考机型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    添加一个新的机型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../data_links/">
+            
+                <a href="../data_links/">
+            
+                    
+                    Data Links
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../advanced/telemetry_wifi.html">
+            
+                <a href="../advanced/telemetry_wifi.html">
+            
+                    
+                    Wifi数传
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../tutorials/telemetry.html">
+            
+                <a href="../tutorials/telemetry.html">
+            
+                    
+                    数传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    传感器和执行机构总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1.1" data-path="../sensor/sf1xx_lidar_setup.html">
+            
+                <a href="../sensor/sf1xx_lidar_setup.html">
+            
+                    
+                    SF1XX lidar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 的各种笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../sensor_bus/uart.html">
+            
+                <a href="../sensor_bus/uart.html">
+            
+                    
+                    UART
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.3.1" data-path="../sensor/uart_ulanding_radar.html">
+            
+                <a href="../sensor/uart_ulanding_radar.html">
+            
+                    
+                    uLanding Radar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    设置云台控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    协同电脑
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    仿真
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    基本仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    连接到ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    多机仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    中间件及架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
+            
+                <a href="../middleware/uorb_graph.html">
+            
+                    
+                    uORB Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 Interface
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    Throughput Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    Manually Generate Client/Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../advanced/architecture_daemon.html">
+            
+                <a href="../advanced/architecture_daemon.html">
+            
+                    
+                    守护程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    驱动框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    模块 & 命令
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    Robotics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    用Linux进行外部控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    在RPi上安装ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (ROS上的MAVLink)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS外部控制例程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    外部位置估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    Gazebo Octomap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    Debugging/Logging
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    系统控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    自驾仪调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    仿真调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    发送调试的值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    日志记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    飞行日志分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog文件格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    地面站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../tutorials/tutorial_hello_sky.html">
+            
+                <a href="../tutorials/tutorial_hello_sky.html">
+            
+                    
+                    编写应用程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    QGC的视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    远距离视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../tutorials/rtk-gps.html">
+            
+                <a href="../tutorials/rtk-gps.html">
+            
+                    
+                    u-blox M8P RTK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../tutorials/tuning_the_ecl_ekf.html">
+            
+                <a href="../tutorials/tuning_the_ecl_ekf.html">
+            
+                    
+                    ecl EKF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../tutorials/pre_flight_checks.html">
+            
+                <a href="../tutorials/pre_flight_checks.html">
+            
+                    
+                    飞行前检查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../tutorials/land_detector.html">
+            
+                <a href="../tutorials/land_detector.html">
+            
+                    
+                    着陆检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    Linux系统下使用S.Bus驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    系统启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    参数&配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    参考参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    安装Intel RealSense R200的驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    切换状态估计器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    外部模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    测试和持续集成
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/test_and_ci/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins持续集成环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    综合测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    维护
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl开发指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink开发指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://sdk.dronecode.org/en/">
+            
+                    
+                    Dronecode SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >代码编译</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="building-px4-software"><a name="building-px4-software" class="plugin-anchor" href="#building-px4-software"><i class="fa fa-link" aria-hidden="true"></i></a>Building PX4 Software</h1>
+<p>PX4 can be built on the console or in an IDE, for both simulated and hardware targets. </p>
+<h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>Downloading PX4 Source Code </h2>
+<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. We recommend that you <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository (creating a copy associated with your own Github account), and then <a href="https://help.github.com/articles/cloning-a-repository/" target="_blank">clone</a> the source to your local computer.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> Forking the repository allows you to better manage your custom code. Later on you will be able to use <em>git</em> to share changes with the main project.</p>
+</blockquote>
+<p>The steps to fork and clone the project source code are:</p>
+<ol>
+<li><a href="https://github.com/" target="_blank">Sign up</a> to Github.</li>
+<li><p>Go to the <a href="https://github.com/PX4/Firmware" target="_blank">Firmware</a> repository and click the <strong>Fork</strong> button near the upper right corner.
+This will create and open the forked repository.</p>
+<p><img src="../../assets/toolchain/github_fork.png" alt="Github Fork button"></p>
+</li>
+<li><p>Copy the repository URL for your <em>Firmware</em> repository fork. The easiest way to do this is to click the <strong>Clone or download</strong> button and then copy the URL:</p>
+<p><img src="../../assets/toolchain/github_clone_or_download.png" alt="Github Clone or download button"></p>
+</li>
+<li>Open a command prompt/terminal on your computer<ul>
+<li>On OS X, hit &#x2318;-space and search for &apos;terminal&apos;. </li>
+<li>On Ubuntu, click the launch bar and search for &apos;terminal&apos;. </li>
+<li>On Windows, find the PX4 folder in the start menu and click on &apos;PX4 Console&apos;. </li>
+</ul>
+</li>
+<li><p>Clone the repository fork using the copied URL. This will look something like:</p>
+<pre><code>git clone https://github.com/&lt;youraccountname&gt;/Firmware.git
+</code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> If you&apos;re just experimenting (and don&apos;t want to make any sort of permanent changes) you can simply clone the main Firmware repository as shown:</p>
+<pre><code class="lang-sh"> git <span class="hljs-built_in">clone</span> https://github.com/PX4/Firmware.git
+</code></pre>
+</blockquote>
+<p>Windows users <a href="https://help.github.com/desktop/guides/getting-started-with-github-desktop/installing-github-desktop/" target="_blank">refer to the Github help</a>. 
+You can use a <em>git</em> command line client as above or instead perform the same actions with the <em>Github for Windows</em> app.</p>
+</li>
+</ol>
+<p><span id="specific_version_source"></span>
+This will copy <em>most</em> of the <em>very latest</em> version of PX4 source code onto your computer 
+(the rest of the code is automatically fetched from other <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> when you build PX4).</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> To get the source for a <em>specific older release</em>, you could then:</p>
+<pre><code class="lang-sh"> <span class="hljs-comment"># Navigate into Firmware directory</span>
+ <span class="hljs-built_in">cd</span> Firmware
+
+ <span class="hljs-comment"># list the releases (tags)</span>
+ git tag <span class="hljs-_">-l</span>
+
+ <span class="hljs-comment"># Checkout code for particular tag (e.g. for tag 1.7.4beta)</span>
+ git checkout v1.7.4beta
+</code></pre>
+</blockquote>
+<h2 id="jmavsim_build"><a name="jmavsim_build" class="plugin-anchor" href="#jmavsim_build"><i class="fa fa-link" aria-hidden="true"></i></a>First Build (Using the jMAVSim Simulator) </h2>
+<p>For the first build we&apos;ll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
+<p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
+<pre><code class="lang-sh">make px4_sitl jmavsim
+</code></pre>
+<p>This will bring up the PX4 console below:</p>
+<p><img src="../../assets/console_jmavsim.png" alt="PX4 Console (jMAVSim)"></p>
+<p>The drone can be flown by typing:</p>
+<pre><code class="lang-sh">pxh&gt; commander takeoff
+</code></pre>
+<p><img src="../../assets/jmavsim_first_takeoff.png" alt="jMAVSim UI"></p>
+<p>The drone can be landed by typing <code>commander land</code> and the whole simulation can be stopped by doing <strong>CTRL+C</strong> (or by entering <code>shutdown</code>). </p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The simulation setup is documented in full detail here: <a href="../simulation/jmavsim.html">jMAVSim Simulation</a>.</p>
+</blockquote>
+<p>Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.</p>
+<p><img src="../../assets/qgc_goto.jpg" alt="QGroundControl GoTo"></p>
+<h2 id="nuttx--pixhawk-based-boards"><a name="nuttx--pixhawk-based-boards" class="plugin-anchor" href="#nuttx--pixhawk-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards</h2>
+<h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>Building </h3>
+<p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board. </p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> In the example below the first part of the build target <code>px4_fmu-v4</code> is the autopilot hardware version and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). All PX4 build targets follow this logic).</p>
+</blockquote>
+<p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+make px4_fmu-v4_default
+</code></pre>
+<p>A successful run will end with similar output to:</p>
+<pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
+[954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
+</code></pre>
+<p>The following list shows the build commands for common boards:</p>
+<ul>
+<li>Pixhawk 4: <code>make px4_fmu-v5_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixracer.html" target="_blank">Pixracer</a>: <code>make px4_fmu-v4_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk3_pro.html" target="_blank">Pixhawk 3 Pro</a>: <code>make px4_fmu-v4pro_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk_mini.html" target="_blank">Pixhawk Mini</a>: <code>make px4_fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk-2.html" target="_blank">Pixhawk 2</a>: <code>make px4_fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mro_pixhawk.html" target="_blank">mRo Pixhawk</a>: <code>make px4_fmu-v3_default</code> (supports 2MB Flash)</li>
+<li><a href="https://docs.px4.io/en/flight_controller/HKPilot32.html" target="_blank">HKPilot32</a>: <code>make px4_fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixfalcon.html" target="_blank">Pixfalcon</a>: <code>make px4_fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/dropix.html" target="_blank">Dropix</a>: <code>make px4_fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mindpx.html" target="_blank">MindPX</a>/<a href="https://docs.px4.io/en/flight_controller/mindracer.html" target="_blank">MindRacer</a>: <code>make airmind_mindpx-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mro_x2.1.html" target="_blank">mRo X-2.1</a>: <code>make auav_x21_default</code> </li>
+<li><a href="https://docs.px4.io/en/flight_controller/crazyflie2.html" target="_blank">Crazyflie 2.0</a>: <code>make bitcraze_crazyflie_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/intel_aero.html" target="_blank">Intel&#xAE; Aero Ready to Fly Drone</a>: <code>make intel_aerofc-v1_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk.html" target="_blank">Pixhawk 1</a>: <code>make px4_fmu-v2_default</code><blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> You <strong>must</strong> use a <a href="dev_env_linux_ubuntu.md#nuttx-based-hardware">supported version of GCC</a> to build this board (e.g. the same as used by <a href="../test_and_ci/docker.html">CI/docker</a>) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board&apos;s 1MB flash limit.</p>
+</blockquote>
+</li>
+<li>Pixhawk 1 with 2 MB flash: <code>make px4_fmu-v3_default</code></li>
+</ul>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Generally the <code>_default</code> suffix is optional (i.e. you can also build using <code>make px4_fmu-v4</code>, <code>make bitcraze_crazyflie</code>, etc.).</p>
+</blockquote>
+<h3 id="uploading-firmware-flashing-the-board"><a name="uploading-firmware-flashing-the-board" class="plugin-anchor" href="#uploading-firmware-flashing-the-board"><i class="fa fa-link" aria-hidden="true"></i></a>Uploading Firmware (Flashing the board)</h3>
+<p>Append <code>upload</code> to the make commands to upload the compiled binary to the autopilot hardware via USB. For example</p>
+<pre><code class="lang-sh">make px4_fmu-v4_default upload
+</code></pre>
+<p>A successful run will end with this output:</p>
+<pre><code class="lang-sh">Erase  : [====================] 100.0%
+Program: [====================] 100.0%
+Verify : [====================] 100.0%
+Rebooting.
+
+[100%] Built target upload
+</code></pre>
+<h2 id="other-boards"><a name="other-boards" class="plugin-anchor" href="#other-boards"><i class="fa fa-link" aria-hidden="true"></i></a>Other Boards</h2>
+<p>The following boards have more complicated build and/or deployment instructions.</p>
+<h3 id="raspberry-pi-23-boards"><a name="raspberry-pi-23-boards" class="plugin-anchor" href="#raspberry-pi-23-boards"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3 Boards</h3>
+<p>The command below builds the target for <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2</a>.</p>
+<h4 id="cross-compiler-build"><a name="cross-compiler-build" class="plugin-anchor" href="#cross-compiler-build"><i class="fa fa-link" aria-hidden="true"></i></a>Cross-compiler Build</h4>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+make emlid_navio2_cross <span class="hljs-comment"># for cross-compiler build</span>
+</code></pre>
+<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_cross/</strong>.
+Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
+<p>Then set the IP (or hostname) of your RPi using:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">export</span> AUTOPILOT_HOST=192.168.X.X
+</code></pre>
+<p>And upload it with:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+make emlid_navio2_cross upload <span class="hljs-comment"># for cross-compiler build</span>
+</code></pre>
+<p>Then, connect over ssh and run it with (as root):</p>
+<pre><code class="lang-sh">sudo ./bin/px4 <span class="hljs-_">-s</span> px4.config
+</code></pre>
+<h4 id="native-build"><a name="native-build" class="plugin-anchor" href="#native-build"><i class="fa fa-link" aria-hidden="true"></i></a>Native Build</h4>
+<p>If you&apos;re building <em>directly</em> on the Pi, you will want the native build target (emlid_navio2_native).</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+make emlid_navio2_native <span class="hljs-comment"># for native build</span>
+</code></pre>
+<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_native/</strong>.
+Run it directly with:</p>
+<pre><code class="lang-sh">sudo ./build/emlid_navio2_native/px4 ./posix-configs/rpi/px4.config
+</code></pre>
+<p>A successful build followed by executing px4 will give you something like this:</p>
+<pre><code class="lang-sh">
+______  __   __    ___
+| ___ \ \ \ / /   /   |
+| |_/ /  \ V /   / /| |
+|  __/   /   \  / /_| |
+| |     / /^\ \ \___  |
+\_|     \/   \/     |_/
+
+px4 starting.
+
+
+pxh&gt;
+</code></pre>
+<h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
+<p>To autostart px4, add the following to the file <strong>/etc/rc.local</strong> (adjust it
+accordingly if you use native build), right before the <code>exit 0</code> line:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/pi &amp;&amp; ./bin/px4 <span class="hljs-_">-d</span> <span class="hljs-_">-s</span> px4.config &gt; px4.log
+</code></pre>
+<h3 id="parrot-bebop"><a name="parrot-bebop" class="plugin-anchor" href="#parrot-bebop"><i class="fa fa-link" aria-hidden="true"></i></a>Parrot Bebop</h3>
+<p>Support for the <a href="https://docs.px4.io/en/flight_controller/bebop.html" target="_blank">Parrot Bebop</a> is at an early stage and should be used very carefully.</p>
+<h4 id="build"><a name="build" class="plugin-anchor" href="#build"><i class="fa fa-link" aria-hidden="true"></i></a>Build</h4>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+make parrot_bebop_default
+</code></pre>
+<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi. 
+Then, press the power button
+four times to enable ADB and to start the telnet daemon.</p>
+<pre><code class="lang-sh">make parrot_bebop_default upload
+</code></pre>
+<p>This will upload the PX4 mainapp into /data/ftp/internal_000/ and create the file /home/root/parameters if not already
+present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
+<h4 id="run"><a name="run" class="plugin-anchor" href="#run"><i class="fa fa-link" aria-hidden="true"></i></a>Run</h4>
+<p>Connect to the Bebop&apos;s wifi and press the power button four times. 
+Next,
+connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
+<pre><code class="lang-sh">telnet 192.168.42.1
+</code></pre>
+<p>Kill the Bebop&apos;s proprietary driver with</p>
+<pre><code class="lang-sh">kk
+</code></pre>
+<p>and start the PX4 mainapp with:</p>
+<pre><code class="lang-sh">/data/ftp/internal_000/px4 <span class="hljs-_">-s</span> /home/root/px4.config
+</code></pre>
+<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both,
+the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors
+and setup your joystick device.</p>
+<h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
+<p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>. Comment the following line:</p>
+<pre><code>DragonStarter.sh -out2null &amp;
+</code></pre><p>Replace it with:</p>
+<pre><code>echo 1 &gt; /sys/class/gpio/gpio85/value # enables the fan
+/data/ftp/internal_000/px4 -d -s /home/root/px4.config &gt; /home/root/px4.log &amp;
+</code></pre><p>Enable adb server by pressing the power button 4 times and connect to adb server as described before:</p>
+<pre><code class="lang-sh">adb connect 192.168.42.1:9050
+</code></pre>
+<p>Re-mount the system partition as writeable:</p>
+<pre><code class="lang-sh">adb shell mount -o remount,rw /
+</code></pre>
+<p>In order to avoid editing the file manually, you can use this one : <a href="https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e" target="_blank">https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e</a></p>
+<p>Save the original one and push this one to the Bebop</p>
+<pre><code class="lang-sh">adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
+adb push rcS_mode_default /etc/init.d/
+</code></pre>
+<p>Sync and reboot:</p>
+<pre><code class="lang-sh">adb shell sync
+adb shell reboot
+</code></pre>
+<h3 id="ocpoc-zynq-mini"><a name="ocpoc-zynq-mini" class="plugin-anchor" href="#ocpoc-zynq-mini"><i class="fa fa-link" aria-hidden="true"></i></a>OcPoC-Zynq Mini</h3>
+<p>Build instructions for the <a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html" target="_blank">OcPoC-Zynq Mini</a> are covered in:</p>
+<ul>
+<li><a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq" target="_blank">Aerotenna OcPoC-Zynq Mini Flight Controller &gt; Building PX4 for OcPoC-Zynq</a> (PX4 User Guide)</li>
+<li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 Setup Page</a></li>
+</ul>
+<h3 id="qurt--snapdragon-based-boards"><a name="qurt--snapdragon-based-boards" class="plugin-anchor" href="#qurt--snapdragon-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>QuRT / Snapdragon Based Boards</h3>
+<p>This section shows how to build for the <a href="https://docs.px4.io/en/flight_controller/snapdragon_flight.html" target="_blank">Qualcomm Snapdragon Flight</a>.</p>
+<h4 id="build"><a name="build" class="plugin-anchor" href="#build"><i class="fa fa-link" aria-hidden="true"></i></a>Build</h4>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> If you use the <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC board</a> (UART-based), then please follow their instructions <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">here</a>. If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.</p>
+</blockquote>
+<p>The commands below build the targets for the Linux and the DSP side. Both executables communicate via <a href="../middleware/uorb.html">muORB</a>.</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+make atlflight_eagle_default
+</code></pre>
+<p>To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:</p>
+<pre><code class="lang-sh">adb shell
+</code></pre>
+<p>Go back to previous terminal and upload:</p>
+<pre><code class="lang-sh">make atlflight_eagle_default upload
+</code></pre>
+<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle. </p>
+<p>The mixer currently needs to be copied manually:</p>
+<pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
+</code></pre>
+<h4 id="run"><a name="run" class="plugin-anchor" href="#run"><i class="fa fa-link" aria-hidden="true"></i></a>Run</h4>
+<p>Run the DSP debug monitor:</p>
+<pre><code class="lang-sh"><span class="hljs-variable">${HEXAGON_SDK_ROOT}</span>/tools/debug/mini-dm/Linux_Debug/mini-dm
+</code></pre>
+<p>Note: alternatively, especially on Mac, you can also use <a href="https://github.com/kevinmehall/nano-dm" target="_blank">nano-dm</a>.</p>
+<p>Go back to ADB shell and run px4:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/linaro
+./px4 mainapp.config
+</code></pre>
+<p>Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.</p>
+<h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
+<p>To run the px4 as soon as the Snapdragon has booted, you can add the startup to <code>rc.local</code>:</p>
+<p>Either edit the file <code>/etc/rc.local</code> directly on the Snapdragon:</p>
+<pre><code class="lang-sh">adb shell
+vim /etc/rc.local
+</code></pre>
+<p>Or copy the file to your computer, edit it locally, and copy it back:</p>
+<pre><code class="lang-sh">adb pull /etc/rc.local
+gedit rc.local
+adb push rc.local /etc/rc.local
+</code></pre>
+<p>For the auto-start, add the following line before <code>exit 0</code>:</p>
+<pre><code class="lang-sh">(<span class="hljs-built_in">cd</span> /home/linaro &amp;&amp; ./px4 mainapp.config &gt; mainapp.log)
+
+<span class="hljs-built_in">exit</span> 0
+</code></pre>
+<p>Make sure that the <code>rc.local</code> is executable:</p>
+<pre><code class="lang-sh">adb shell
+chmod +x /etc/rc.local
+</code></pre>
+<p>Then reboot the Snapdragon:</p>
+<pre><code class="lang-sh">adb reboot
+</code></pre>
+<h2 id="compiling-in-a-graphical-ide"><a name="compiling-in-a-graphical-ide" class="plugin-anchor" href="#compiling-in-a-graphical-ide"><i class="fa fa-link" aria-hidden="true"></i></a>Compiling in a Graphical IDE</h2>
+<p>The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a> and a <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a> in the source tree.</p>
+<p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Bkk8zttWxEI"></iframe></div></p>
+<h2 id="qt-creator-functionality"><a name="qt-creator-functionality" class="plugin-anchor" href="#qt-creator-functionality"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator Functionality</h2>
+<p>Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.</p>
+<p><img src="../../assets/toolchain/qtcreator.png" alt=""></p>
+<h3 id="qt-creator-on-linux"><a name="qt-creator-on-linux" class="plugin-anchor" href="#qt-creator-on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Linux</h3>
+<p>Before starting Qt Creator, the <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a> needs to be created:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
+mkdir ../Firmware-build
+<span class="hljs-built_in">cd</span> ../Firmware-build
+cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
+</code></pre>
+<p>Then load the CMakeLists.txt in the root firmware folder via <strong>File &gt; Open File or Project</strong> (Select the CMakeLists.txt file).</p>
+<p>After loading, the <strong>play</strong> button can be configured to run the project by selecting &apos;custom executable&apos; in the run target configuration and entering &apos;make&apos; as executable and &apos;upload&apos; as argument.</p>
+<h3 id="qt-creator-on-windows"><a name="qt-creator-on-windows" class="plugin-anchor" href="#qt-creator-on-windows"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Windows</h3>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Windows has not been tested for PX4 development with Qt Creator.</p>
+</blockquote>
+<h3 id="qt-creator-on-mac-os"><a name="qt-creator-on-mac-os" class="plugin-anchor" href="#qt-creator-on-mac-os"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Mac OS</h3>
+<p>Before starting Qt Creator, the <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a> needs to be created:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
+mkdir -p build/creator
+<span class="hljs-built_in">cd</span> build/creator
+cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
+</code></pre>
+<p>That&apos;s it! Start <em>Qt Creator</em>, then complete the steps in the video below to set up the project to build.</p>
+<p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/0pa0gS30zNw"></iframe></div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="fast-rtps-installation.html" class="navigation navigation-prev " aria-label="Previous page: Fast RTPS installation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="config_advanced.html" class="navigation navigation-next " aria-label="Next page: 高级配置">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"代码编译","level":"1.2.4","depth":2,"next":{"title":"高级配置","level":"1.2.5","depth":2,"path":"setup/config_advanced.md","ref":"setup/config_advanced.md","articles":[]},"previous":{"title":"Fast RTPS installation","level":"1.2.3","depth":2,"path":"setup/fast-rtps-installation.md","ref":"setup/fast-rtps-installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-01-02T01:46:26.230Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-02T01:48:08.327Z"},"basePath":"..","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
