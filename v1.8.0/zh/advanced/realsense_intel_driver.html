@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>安装Intel RealSense R200的驱动 · PX4 Developer Guide</title>
+        <title>安装Intel RealSense R200的驱动 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,7 +1869,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="installing-driver-on-ubuntu-for-intel-realsense-r200">Installing driver on Ubuntu for Intel RealSense R200</h1>
+                                <h1 id="installing-driver-on-ubuntu-for-intel-realsense-r200"><a name="installing-driver-on-ubuntu-for-intel-realsense-r200" class="plugin-anchor" href="#installing-driver-on-ubuntu-for-intel-realsense-r200"><i class="fa fa-link" aria-hidden="true"></i></a>Installing driver on Ubuntu for Intel RealSense R200</h1>
 <p>This tutorial aims to give instructions on how to install the camera driver of the Intel RealSense R200 camera head in Linux environment such that the gathered images can be accessed via the Robot Operation System (ROS). The RealSense R200 camera head is depicted below:</p>
 <p><img src="../../assets/realsense_intel/realsense.png" alt=""> </p>
 <p>The installation of the driver package is executed on a Ubuntu operation system (OS) that runs as a guest OS in a Virtual Box. The specifications of the host computer where the Virtual Box is running, the Virtual Box  and the guest system are given below:</p>
@@ -1877,7 +1885,7 @@
 <li>Virtual Box (VB): Program that runs different Virtual Machines. In this case the Oracle VM.</li>
 <li>Virtual Machine (VM): The operation system that runs in the Virtual Box as a guest system. In this case Ubuntu.</li>
 </ul>
-<h2 id="installing-ubuntu-14043-lts-in-virtual-box">Installing Ubuntu 14.04.3 LTS in Virtual Box</h2>
+<h2 id="installing-ubuntu-14043-lts-in-virtual-box"><a name="installing-ubuntu-14043-lts-in-virtual-box" class="plugin-anchor" href="#installing-ubuntu-14043-lts-in-virtual-box"><i class="fa fa-link" aria-hidden="true"></i></a>Installing Ubuntu 14.04.3 LTS in Virtual Box</h2>
 <ul>
 <li>Create a new Virtual Machine (VM): Linux 64-Bit.</li>
 <li>Download the iso file of Ubuntu 14.04.3 LTS: (<a href="http://www.ubuntu.com/download/desktop" target="_blank">ubuntu-14.04.3-desktop-amd64.iso</a>).</li>
@@ -1903,7 +1911,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="installing-ros-indigo">Installing ROS Indigo</h2>
+<h2 id="installing-ros-indigo"><a name="installing-ros-indigo" class="plugin-anchor" href="#installing-ros-indigo"><i class="fa fa-link" aria-hidden="true"></i></a>Installing ROS Indigo</h2>
 <ul>
 <li>Follow instructions given at <a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank">ROS indigo installation guide</a>:<ul>
 <li>Install Desktop-Full version.</li>
@@ -1911,7 +1919,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="installing-camera-driver">Installing camera driver</h2>
+<h2 id="installing-camera-driver"><a name="installing-camera-driver" class="plugin-anchor" href="#installing-camera-driver"><i class="fa fa-link" aria-hidden="true"></i></a>Installing camera driver</h2>
 <ul>
 <li>Install git:<pre><code class="lang-bash">sudo apt-get install git
 </code></pre>
@@ -2000,7 +2008,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/advanced/realsense_intel_driver.md","translated_sha":"NOT TRANSLATED","title":"安装Intel RealSense R200的驱动","level":"1.11.4","depth":2,"next":{"title":"切换状态估计器","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},"previous":{"title":"参考参数","level":"1.11.3","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"advanced/realsense_intel_driver.md","mtime":"2019-01-03T18:32:47.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/advanced/realsense_intel_driver.md","translated_sha":"NOT TRANSLATED","title":"安装Intel RealSense R200的驱动","level":"1.11.4","depth":2,"next":{"title":"切换状态估计器","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},"previous":{"title":"参考参数","level":"1.11.3","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"advanced/realsense_intel_driver.md","mtime":"2019-01-03T23:23:50.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2029,6 +2037,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

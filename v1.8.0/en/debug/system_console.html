@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>System Console · PX4 Developer Guide</title>
+        <title>System Console · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,9 +2038,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="px4-system-console">PX4 System Console</h1>
+                                <h1 id="px4-system-console"><a name="px4-system-console" class="plugin-anchor" href="#px4-system-console"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 System Console</h1>
 <p>The system console allows low-level access to the system, debug output and analysis of the system boot process. The most convenient way to connect it is by using a <a href="https://shop.titaneliteinc.com/index.php?route=product/product&amp;product_id=1294" target="_blank">Dronecode probe</a>, but a plain FTDI cable can be used as well.</p>
-<h2 id="system-console-vs-shells">System Console vs. Shells</h2>
+<h2 id="system-console-vs-shells"><a name="system-console-vs-shells" class="plugin-anchor" href="#system-console-vs-shells"><i class="fa fa-link" aria-hidden="true"></i></a>System Console vs. Shells</h2>
 <p>There is just one <em>System Console</em>, which runs on one specific UART (the debug port, as configured in NuttX), and is commonly attached via FTDI cable.</p>
 <ul>
 <li>Used for <em>low-level debugging/development</em>: bootup, NuttX, startup scripts, board bringup, development on central parts of PX4 (e.g. uORB).</li>
@@ -2046,9 +2054,9 @@
 </ul>
 <p>There can be several shells, either running on a dedicated UART, or via MAVLink.
 Since MAVLink provides more flexibility, the shell is nowadays only used <a href="#mavlink_shell">via MAVLink</a>.</p>
-<h2 id="snapdragon-flight-wiring-the-console">Snapdragon Flight: Wiring the Console</h2>
+<h2 id="snapdragon-flight-wiring-the-console"><a name="snapdragon-flight-wiring-the-console" class="plugin-anchor" href="#snapdragon-flight-wiring-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Snapdragon Flight: Wiring the Console</h2>
 <p>The developer kit comes with a breakout board with three pins to access the console. Connect the bundled FTDI cable to the header and the breakout board to the expansion connector.</p>
-<h2 id="pixracer--pixhawk-v3-wiring-the-console">Pixracer / Pixhawk v3: Wiring the Console</h2>
+<h2 id="pixracer--pixhawk-v3-wiring-the-console"><a name="pixracer--pixhawk-v3-wiring-the-console" class="plugin-anchor" href="#pixracer--pixhawk-v3-wiring-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Pixracer / Pixhawk v3: Wiring the Console</h2>
 <p>Connect the 6-pos JST SH 1:1 cable to the Dronecode probe or connect the individual pins of the cable to a FTDI cable like this:</p>
 <table>
 <thead>
@@ -2098,12 +2106,12 @@ Since MAVLink provides more flexibility, the shell is nowadays only used <a href
 </tr>
 </tbody>
 </table>
-<h2 id="pixhawk-v1-wiring-the-console">Pixhawk v1: Wiring the Console</h2>
+<h2 id="pixhawk-v1-wiring-the-console"><a name="pixhawk-v1-wiring-the-console" class="plugin-anchor" href="#pixhawk-v1-wiring-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk v1: Wiring the Console</h2>
 <p>The system console can be accessed through the Dronecode probe or an FTDI cable. Both options are explained in the section below.</p>
-<h3 id="connecting-via-dronecode-probe">Connecting via Dronecode Probe</h3>
+<h3 id="connecting-via-dronecode-probe"><a name="connecting-via-dronecode-probe" class="plugin-anchor" href="#connecting-via-dronecode-probe"><i class="fa fa-link" aria-hidden="true"></i></a>Connecting via Dronecode Probe</h3>
 <p>Connect the 6-pos DF13 1:1 cable on the <a href="http://nicadrone.com/index.php?id_product=61&amp;controller=product" target="_blank">Dronecode probe</a> to the SERIAL4/5 port of Pixhawk.</p>
 <p><img src="../../assets/console/dronecode_probe.jpg" alt=""></p>
-<h3 id="connecting-via-ftdi-33v-cable">Connecting via FTDI 3.3V Cable</h3>
+<h3 id="connecting-via-ftdi-33v-cable"><a name="connecting-via-ftdi-33v-cable" class="plugin-anchor" href="#connecting-via-ftdi-33v-cable"><i class="fa fa-link" aria-hidden="true"></i></a>Connecting via FTDI 3.3V Cable</h3>
 <p>If no Dronecode probe is at hand an FTDI 3.3V (Digi-Key: <a href="http://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393" target="_blank">768-1015-ND</a>) will do as well.</p>
 <table>
 <thead>
@@ -2157,9 +2165,9 @@ Since MAVLink provides more flexibility, the shell is nowadays only used <a href
 <p><img src="../../assets/console/console_connector.jpg" alt="Console Connector"></p>
 <p>The complete wiring is shown below.</p>
 <p><img src="../../assets/console/console_debug.jpg" alt="Console Debug"></p>
-<h2 id="opening-the-console">Opening the Console</h2>
+<h2 id="opening-the-console"><a name="opening-the-console" class="plugin-anchor" href="#opening-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Opening the Console</h2>
 <p>After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:</p>
-<h3 id="linux--mac-os-screen">Linux / Mac OS: Screen</h3>
+<h3 id="linux--mac-os-screen"><a name="linux--mac-os-screen" class="plugin-anchor" href="#linux--mac-os-screen"><i class="fa fa-link" aria-hidden="true"></i></a>Linux / Mac OS: Screen</h3>
 <p>Install screen on Ubuntu (Mac OS already has it installed):</p>
 <pre><code class="lang-bash">sudo apt-get install screen
 </code></pre>
@@ -2170,7 +2178,7 @@ Since MAVLink provides more flexibility, the shell is nowadays only used <a href
 <p>Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use <code>ls /dev/tty*</code> and watch what changes when unplugging / replugging the USB device). Common names are <code>/dev/ttyUSB0</code> and <code>/dev/ttyACM0</code> for Linux and <code>/dev/tty.usbserial-ABCBD</code> for Mac OS.</p>
 <pre><code class="lang-bash">screen /dev/ttyXXX BAUDRATE 8N1
 </code></pre>
-<h3 id="windows-putty">Windows: PuTTY</h3>
+<h3 id="windows-putty"><a name="windows-putty" class="plugin-anchor" href="#windows-putty"><i class="fa fa-link" aria-hidden="true"></i></a>Windows: PuTTY</h3>
 <p>Download <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a> and start it.</p>
 <p>Then select &apos;serial connection&apos; and set the port parameters to:</p>
 <ul>
@@ -2178,12 +2186,12 @@ Since MAVLink provides more flexibility, the shell is nowadays only used <a href
 <li>8 data bits</li>
 <li>1 stop bit</li>
 </ul>
-<h2 id="getting-started-on-the-console">Getting Started on the Console</h2>
+<h2 id="getting-started-on-the-console"><a name="getting-started-on-the-console" class="plugin-anchor" href="#getting-started-on-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Started on the Console</h2>
 <p>Type <code>ls</code> to view the local file system, type <code>free</code> to see the remaining free RAM. The console will also display the system boot log when power-cycling the board.</p>
 <pre><code class="lang-bash">nsh&gt; ls
 nsh&gt; free
 </code></pre>
-<h2 id="mavlink_shell">MAVLink Shell</h2>
+<h2 id="mavlink_shell"><a name="mavlink_shell" class="plugin-anchor" href="#mavlink_shell"><i class="fa fa-link" aria-hidden="true"></i></a>MAVLink Shell</h2>
 <p>For NuttX-based systems (Pixhawk, Pixracer, ...), the nsh console can also be
 accessed via MAVLink. This works via serial link (USB/Telemetry) or WiFi (UDP/TCP). Make sure
 that QGC is not running, then start the shell with e.g.
@@ -2194,7 +2202,7 @@ For example <code>./Tools/mavlink_shell.py &lt;IP address&gt;</code> can be used
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> You can also use the nsh shell on <a href="https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html" target="_blank">QGC directly</a>.</p>
 </blockquote>
-<h1 id="snapdragon-dsp-console">Snapdragon DSP Console</h1>
+<h1 id="snapdragon-dsp-console"><a name="snapdragon-dsp-console" class="plugin-anchor" href="#snapdragon-dsp-console"><i class="fa fa-link" aria-hidden="true"></i></a>Snapdragon DSP Console</h1>
 <p>When you are connected to your Snapdragon board via usb you have access to the px4 shell on the posix side of things.
 The interaction with the DSP side (QuRT) is enabled with the <code>qshell</code> posix app and its QuRT companion.</p>
 <p>With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:</p>
@@ -2251,7 +2259,7 @@ The interaction with the DSP side (QuRT) is enabled with the <code>qshell</code>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System Console","level":"1.9.2","depth":2,"next":{"title":"Autopilot Debugging","level":"1.9.3","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"FAQ","level":"1.9.1","depth":2,"path":"debug/faq.md","ref":"debug/faq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2019-01-03T18:32:47.158Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"System Console","level":"1.9.2","depth":2,"next":{"title":"Autopilot Debugging","level":"1.9.3","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"FAQ","level":"1.9.1","depth":2,"path":"debug/faq.md","ref":"debug/faq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2019-01-03T23:23:50.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2280,6 +2288,10 @@ The interaction with the DSP side (QuRT) is enabled with the <code>qshell</code>
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SiK Radio · PX4 Developer Guide</title>
+        <title>SiK Radio · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,10 +1869,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sik-radio">SiK Radio</h1>
+                                <h1 id="sik-radio"><a name="sik-radio" class="plugin-anchor" href="#sik-radio"><i class="fa fa-link" aria-hidden="true"></i></a>SiK Radio</h1>
 <p><a href="https://github.com/LorenzMeier/SiK" target="_blank">SiK radio</a> is a collection of firmware and tools for telemetry radios.</p>
 <p>The hardware for the SiK radio can be obtained from various stores.</p>
-<h3 id="vendors">Vendors</h3>
+<h3 id="vendors"><a name="vendors" class="plugin-anchor" href="#vendors"><i class="fa fa-link" aria-hidden="true"></i></a>Vendors</h3>
 <ul>
 <li>3DR Radio (small) - <a href="https://store.3dr.com/products/915-mhz-telemetry-radio" target="_blank">US (915MHz)</a> / <a href="https://store.3dr.com/products/433-mhz-telemetry-radio" target="_blank">European (433MHz)</a></li>
 <li><a href="http://www.hobbyking.com/hobbyking/store/uh_viewitem.asp?idproduct=55559" target="_blank">HK Radio</a> (small)</li>
@@ -1872,9 +1880,9 @@
 <li><a href="http://rfdesign.com.au/products/rfd900-modem/" target="_blank">RFD900</a> (long range)</li>
 </ul>
 <p><img src="../../assets/sik_radio.jpg" alt=""></p>
-<h2 id="build-instructions">Build Instructions</h2>
+<h2 id="build-instructions"><a name="build-instructions" class="plugin-anchor" href="#build-instructions"><i class="fa fa-link" aria-hidden="true"></i></a>Build Instructions</h2>
 <p>The PX4 toolchain does not install the required 8051 compiler by default.</p>
-<h3 id="mac-os">Mac OS</h3>
+<h3 id="mac-os"><a name="mac-os" class="plugin-anchor" href="#mac-os"><i class="fa fa-link" aria-hidden="true"></i></a>Mac OS</h3>
 <p>Install the toolchain</p>
 <pre><code>brew install sdcc
 </code></pre><p>build the image for the standard SiK Radio / 3DR Radio:</p>
@@ -1884,7 +1892,7 @@ make install
 </code></pre>
 <p>upload it to the radio (<strong>change the serial port name</strong>):</p>
 <pre><code>tools/uploader.py --port /dev/tty.usbserial-CHANGETHIS dst/radio~hm_trp.ihx
-</code></pre><h2 id="configuration-instructions">Configuration Instructions</h2>
+</code></pre><h2 id="configuration-instructions"><a name="configuration-instructions" class="plugin-anchor" href="#configuration-instructions"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration Instructions</h2>
 <p>The radio supports AT commands for configuration.</p>
 <pre><code>screen /dev/tty.usbserial-CHANGETHIS 57600 8N1
 </code></pre><p>Then start command mode:</p>
@@ -1944,7 +1952,7 @@ ATZ
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SiK Radio","level":"1.4.3.1","depth":3,"next":{"title":"Wifi数传","level":"1.4.3.2","depth":3,"path":"advanced/telemetry_wifi.md","ref":"advanced/telemetry_wifi.md","articles":[]},"previous":{"title":"Data Links","level":"1.4.3","depth":2,"path":"data_links/README.md","ref":"data_links/README.md","articles":[{"title":"SiK Radio","level":"1.4.3.1","depth":3,"path":"data_links/sik_radio.md","ref":"data_links/sik_radio.md","articles":[]},{"title":"Wifi数传","level":"1.4.3.2","depth":3,"path":"advanced/telemetry_wifi.md","ref":"advanced/telemetry_wifi.md","articles":[]},{"title":"数传","level":"1.4.3.3","depth":3,"path":"tutorials/telemetry.md","ref":"tutorials/telemetry.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"data_links/sik_radio.md","mtime":"2019-01-03T18:32:47.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"SiK Radio","level":"1.4.3.1","depth":3,"next":{"title":"Wifi数传","level":"1.4.3.2","depth":3,"path":"advanced/telemetry_wifi.md","ref":"advanced/telemetry_wifi.md","articles":[]},"previous":{"title":"Data Links","level":"1.4.3","depth":2,"path":"data_links/README.md","ref":"data_links/README.md","articles":[{"title":"SiK Radio","level":"1.4.3.1","depth":3,"path":"data_links/sik_radio.md","ref":"data_links/sik_radio.md","articles":[]},{"title":"Wifi数传","level":"1.4.3.2","depth":3,"path":"advanced/telemetry_wifi.md","ref":"advanced/telemetry_wifi.md","articles":[]},{"title":"数传","level":"1.4.3.3","depth":3,"path":"tutorials/telemetry.md","ref":"tutorials/telemetry.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"data_links/sik_radio.md","mtime":"2019-01-03T23:23:50.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -1973,6 +1981,10 @@ ATZ
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

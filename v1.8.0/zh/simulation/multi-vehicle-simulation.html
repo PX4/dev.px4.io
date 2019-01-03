@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>多机仿真 · PX4 Developer Guide</title>
+        <title>多机仿真 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,17 +1869,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="multi-vehicle-simulation">Multi-Vehicle Simulation</h1>
+                                <h1 id="multi-vehicle-simulation"><a name="multi-vehicle-simulation" class="plugin-anchor" href="#multi-vehicle-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>Multi-Vehicle Simulation</h1>
 <p>This tutorial explains how to simulate multi UAV in Gazebo. This is a software in the loop (SITL) simulation.</p>
 <p><strong>Note</strong>: This is tested only in Linux.</p>
-<h2 id="required">Required</h2>
+<h2 id="required"><a name="required" class="plugin-anchor" href="#required"><i class="fa fa-link" aria-hidden="true"></i></a>Required</h2>
 <ul>
 <li>ROS indigo or higher </li>
 <li><a href="http://wiki.ros.org/mavros" target="_blank">MAVROS package</a></li>
 <li>Gazebo 7 (see <a href="gazebo.html">Gazebo Simulation</a>)</li>
 <li>a clone of latest <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a></li>
 </ul>
-<h2 id="build-and-test">Build and test</h2>
+<h2 id="build-and-test"><a name="build-and-test" class="plugin-anchor" href="#build-and-test"><i class="fa fa-link" aria-hidden="true"></i></a>Build and test</h2>
 <p>To test an example setup, follow the below steps,</p>
 <ul>
 <li>clone the PX4/Firmware code, then build the SITL code<pre><code>cd Firmware_clone
@@ -1887,7 +1895,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
 <pre><code>roslaunch px4 multi_uav_mavros_sitl.launch
 </code></pre></li>
 </ul>
-<h2 id="whats-happening">What&apos;s happening?</h2>
+<h2 id="whats-happening"><a name="whats-happening" class="plugin-anchor" href="#whats-happening"><i class="fa fa-link" aria-hidden="true"></i></a>What&apos;s happening?</h2>
 <p>For each simulated vehicle, the following is required,</p>
 <ul>
 <li><p><strong>Gazebo model</strong>: This is defined as <code>xacro</code> file in <code>Firmware/Tools/sitl_gazebo/models/rotors_description/urdf/&lt;model&gt;_base.xacro</code> see <a href="https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf" target="_blank">here</a>. Currently, the model <code>xacro</code> file is assumed to end with base.xacro. This model should have an argument called  <code>mavlink_udp_port</code> which defines the UDP port on which gazebo will communicate with PX4 node. The model&apos;s <code>xacro</code> file will be used to generate an <code>sdf</code> model that contains UDP port that you select. To define the UDP port, set the <code>mavlink_udp_port</code> in the launch file, see <a href="https://github.com/PX4/Firmware/blob/master/launch/multi_uav_mavros_sitl.launch#L48" target="_blank">here</a>.<br><strong>NOTE: If you are using the same vehicle model, you don&apos;t need  a separate </strong><code>xacro</code><strong> file for each vehicle. The same </strong><code>xacro</code><strong> file is adequate.                
@@ -2017,7 +2025,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/sitl.md","translated_sha":"b522243efef9deb5e2d3ae7bd03ae9ed0eee3418","title":"多机仿真","level":"1.5.6","depth":2,"next":{"title":"中间件及架构","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB消息机制","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},{"title":"MAVLink消息机制","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]},{"title":"守护程序","level":"1.6.5","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},{"title":"驱动框架","level":"1.6.6","depth":2,"path":"middleware/drivers.md","ref":"middleware/drivers.md","articles":[]}]},"previous":{"title":"AirSim仿真","level":"1.5.5","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2019-01-03T18:32:47.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/sitl.md","translated_sha":"b522243efef9deb5e2d3ae7bd03ae9ed0eee3418","title":"多机仿真","level":"1.5.6","depth":2,"next":{"title":"中间件及架构","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB消息机制","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},{"title":"MAVLink消息机制","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]},{"title":"守护程序","level":"1.6.5","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},{"title":"驱动框架","level":"1.6.6","depth":2,"path":"middleware/drivers.md","ref":"middleware/drivers.md","articles":[]}]},"previous":{"title":"AirSim仿真","level":"1.5.5","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2019-01-03T23:23:50.792Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2046,6 +2054,10 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

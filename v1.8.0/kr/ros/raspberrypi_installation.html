@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>RPi에 ROS 설치 · PX4 Developer Guide</title>
+        <title>RPi에 ROS 설치 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,16 +1921,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="raspberry-pi---ros-&#xC124;&#xCE58;">Raspberry Pi - ROS &#xC124;&#xCE58;</h1>
+                                <h1 id="raspberry-pi---ros-&#xC124;&#xCE58;"><a name="raspberry-pi---ros-&#xC124;&#xCE58;" class="plugin-anchor" href="#raspberry-pi---ros-&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi - ROS &#xC124;&#xCE58;</h1>
 <p>&#xC774; &#xAC00;&#xC774;&#xB4DC;&#xC5D0;&#xC11C; Pixhawk&#xC6A9; &#xCEF4;&#xD328;&#xB2C8;&#xC628; &#xCEF4;&#xD4E8;&#xD130;&#xB85C; &#xB3D9;&#xC791;&#xD560; &#xC218; &#xC788;&#xB294; &#xB77C;&#xC988;&#xBCA0;&#xB9AC;&#xD30C;&#xC774; 2&#xC5D0; ROS-indigo&#xB97C; &#xC124;&#xCE58;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC18C;&#xAC1C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xC120;&#xD589;-&#xC870;&#xAC74;">&#xC120;&#xD589; &#xC870;&#xAC74;</h2>
+<h2 id="&#xC120;&#xD589;-&#xC870;&#xAC74;"><a name="&#xC120;&#xD589;-&#xC870;&#xAC74;" class="plugin-anchor" href="#&#xC120;&#xD589;-&#xC870;&#xAC74;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC120;&#xD589; &#xC870;&#xAC74;</h2>
 <ul>
 <li>&#xBAA8;&#xB2C8;&#xD130;, &#xD0A4;&#xBCF4;&#xB4DC;&#xB098; SSH &#xC5F0;&#xACB0; &#xC124;&#xC815;&#xB41C; &#xB77C;&#xC988;&#xBCA0;&#xB9AC;&#xD30C;&#xC774;</li>
 <li>&#xC5EC;&#xB7EC;&#xBD84;&#xC758; RPi&#xC5D0; Raspbian &quot;JESSIE&quot;&#xAC00; &#xC124;&#xCE58;&#xB418;&#xC5B4; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;. &#xB9CC;&#xC57D; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC740; &#xACBD;&#xC6B0; Raspbian Wheezy&#xC5D0;&#xC11C; Jessie&#xB85C; <a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank">&#xC124;&#xCE58; </a>&#xB098; <a href="http://raspberrypi.stackexchange.com/questions/27858/upgrade-to-raspbian-jessie" target="_blank">&#xC5C5;&#xADF8;&#xB808;&#xC774;&#xB4DC;</a></li>
 </ul>
-<h2 id="&#xC124;&#xCE58;">&#xC124;&#xCE58;</h2>
+<h2 id="&#xC124;&#xCE58;"><a name="&#xC124;&#xCE58;" class="plugin-anchor" href="#&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xCE58;</h2>
 <p><a href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Indigo%20on%20Raspberry%20Pi" target="_blank">&#xC5EC;&#xAE30; &#xAC00;&#xC774;&#xB4DC;</a>&#xB97C; &#xB530;&#xB77C;&#xC11C; ROS Indigo&#xB97C; &#xC124;&#xD569;&#xB2C8;&#xB2E4;. Note: &quot;ROS-Comm&quot; &#xBC84;&#xC804;&#xC744; &#xC124;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;. &#xB370;&#xC2A4;&#xD2B8;&#xD0D1; &#xBC84;&#xC804;&#xC740; &#xB108;&#xBB34; &#xBB34;&#xAC81;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xD328;&#xD0A4;&#xC9C0;&#xB97C;-&#xC124;&#xCE58;&#xD560;-&#xB54C;-&#xC5D0;&#xB7EC;-&#xBC1C;&#xC0DD;">&#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xC124;&#xCE58;&#xD560; &#xB54C; &#xC5D0;&#xB7EC; &#xBC1C;&#xC0DD;</h3>
+<h3 id="&#xD328;&#xD0A4;&#xC9C0;&#xB97C;-&#xC124;&#xCE58;&#xD560;-&#xB54C;-&#xC5D0;&#xB7EC;-&#xBC1C;&#xC0DD;"><a name="&#xD328;&#xD0A4;&#xC9C0;&#xB97C;-&#xC124;&#xCE58;&#xD560;-&#xB54C;-&#xC5D0;&#xB7EC;-&#xBC1C;&#xC0DD;" class="plugin-anchor" href="#&#xD328;&#xD0A4;&#xC9C0;&#xB97C;-&#xC124;&#xCE58;&#xD560;-&#xB54C;-&#xC5D0;&#xB7EC;-&#xBC1C;&#xC0DD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xC124;&#xCE58;&#xD560; &#xB54C; &#xC5D0;&#xB7EC; &#xBC1C;&#xC0DD;</h3>
 <p>&#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xD560;(<code>sudo apt-get install ros-indigo-ros-tutorials</code>)&#xB54C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC5D0;&#xB7EC;&#xAC00; &#xBC1C;&#xC0DD; &#xAC00;&#xB2A5;:
 &quot;unable to locate package ros-indigo-ros-tutorials&quot;</p>
 <p>&#xC774;&#xB7F0; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCC98;&#xB9AC;:
@@ -1986,7 +1994,7 @@ $ catkin_make
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RPi에 ROS 설치","level":"1.8.2.1","depth":3,"next":{"title":"MAVROS (MAVLink on ROS)","level":"1.8.2.2","depth":3,"path":"ros/mavros_installation.md","ref":"ros/mavros_installation.md","articles":[]},"previous":{"title":"ROS","level":"1.8.2","depth":2,"path":"ros/README.md","ref":"ros/README.md","articles":[{"title":"RPi에 ROS 설치","level":"1.8.2.1","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},{"title":"MAVROS (MAVLink on ROS)","level":"1.8.2.2","depth":3,"path":"ros/mavros_installation.md","ref":"ros/mavros_installation.md","articles":[]},{"title":"MAVROS offboard 예제","level":"1.8.2.3","depth":3,"path":"ros/mavros_offboard.md","ref":"ros/mavros_offboard.md","articles":[]},{"title":"외부 Position Estimation","level":"1.8.2.4","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},{"title":"Gazebo Octomap","level":"1.8.2.5","depth":3,"path":"simulation/gazebo_octomap.md","ref":"simulation/gazebo_octomap.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"ros/raspberrypi_installation.md","mtime":"2019-01-03T18:32:47.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"RPi에 ROS 설치","level":"1.8.2.1","depth":3,"next":{"title":"MAVROS (MAVLink on ROS)","level":"1.8.2.2","depth":3,"path":"ros/mavros_installation.md","ref":"ros/mavros_installation.md","articles":[]},"previous":{"title":"ROS","level":"1.8.2","depth":2,"path":"ros/README.md","ref":"ros/README.md","articles":[{"title":"RPi에 ROS 설치","level":"1.8.2.1","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},{"title":"MAVROS (MAVLink on ROS)","level":"1.8.2.2","depth":3,"path":"ros/mavros_installation.md","ref":"ros/mavros_installation.md","articles":[]},{"title":"MAVROS offboard 예제","level":"1.8.2.3","depth":3,"path":"ros/mavros_offboard.md","ref":"ros/mavros_offboard.md","articles":[]},{"title":"외부 Position Estimation","level":"1.8.2.4","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},{"title":"Gazebo Octomap","level":"1.8.2.5","depth":3,"path":"simulation/gazebo_octomap.md","ref":"simulation/gazebo_octomap.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"ros/raspberrypi_installation.md","mtime":"2019-01-03T23:23:50.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2015,6 +2023,10 @@ $ catkin_make
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Writing your First Application · PX4 Developer Guide</title>
+        <title>Writing your First Application · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,12 +2038,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="first-application-tutorial-hello-sky">First Application Tutorial (Hello Sky)</h1>
+                                <h1 id="first-application-tutorial-hello-sky"><a name="first-application-tutorial-hello-sky" class="plugin-anchor" href="#first-application-tutorial-hello-sky"><i class="fa fa-link" aria-hidden="true"></i></a>First Application Tutorial (Hello Sky)</h1>
 <p>This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in <a href="module_template.html">Application/Module Template</a>.</p>
 </blockquote>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h2>
 <p>You will require the following:</p>
 <ul>
 <li><a href="../simulation/">PX4 SITL Simulator</a> <em>or</em> a <a href="https://docs.px4.io/en/flight_controller/#documented-boards" target="_blank">PX4-compatible flight controller</a>.</li>
@@ -2046,7 +2054,7 @@
 <ul>
 <li>Rename (or delete) the <strong>px4_simple_app</strong> directory. </li>
 </ul>
-<h2 id="minimal-application">Minimal Application</h2>
+<h2 id="minimal-application"><a name="minimal-application" class="plugin-anchor" href="#minimal-application"><i class="fa fa-link" aria-hidden="true"></i></a>Minimal Application</h2>
 <p>In this section we create a <em>minimal application</em> that just prints out <code>Hello Sky!</code>. This consists of a single <em>C</em> file and a <em>cmake</em> definition (which tells the toolchain how to build the application). </p>
 <ol>
 <li>Create a new directory <strong>Firmware/src/examples/px4_simple_app</strong>.</li>
@@ -2166,7 +2174,7 @@ The <code>MAIN</code> block lists the name of the module - this registers the co
 </blockquote>
 </li>
 </ol>
-<h2 id="build-the-applicationfirmware">Build the Application/Firmware</h2>
+<h2 id="build-the-applicationfirmware"><a name="build-the-applicationfirmware" class="plugin-anchor" href="#build-the-applicationfirmware"><i class="fa fa-link" aria-hidden="true"></i></a>Build the Application/Firmware</h2>
 <p>The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. Applications are added to the build/firmware in the appropriate board-level <em>cmake</em> file for your target: </p>
 <ul>
 <li>Posix SITL (Simulator): <a href="https://github.com/PX4/Firmware/blob/master/cmake/configs/posix_sitl_default.cmake" target="_blank">Firmware/cmake/configs/posix_sitl_default.cmake</a></li>
@@ -2186,8 +2194,8 @@ The <code>MAIN</code> block lists the name of the module - this registers the co
 <li>Pixhawk v3: <code>make px4fmu-v4_default</code></li>
 <li>Other boards: <a href="../setup/building_px4.html#building_nuttx">Building the Code</a></li>
 </ul>
-<h2 id="test-app-hardware">Test App (Hardware)</h2>
-<h3 id="upload-the-firmware-to-your-board">Upload the firmware to your board</h3>
+<h2 id="test-app-hardware"><a name="test-app-hardware" class="plugin-anchor" href="#test-app-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Test App (Hardware)</h2>
+<h3 id="upload-the-firmware-to-your-board"><a name="upload-the-firmware-to-your-board" class="plugin-anchor" href="#upload-the-firmware-to-your-board"><i class="fa fa-link" aria-hidden="true"></i></a>Upload the firmware to your board</h3>
 <p>Enable the uploader and then reset the board:</p>
 <ul>
 <li>Pixhawk v1/2: <code>make px4fmu-v2_default upload</code></li>
@@ -2204,7 +2212,7 @@ Rebooting.
 
 [100%] Built target upload
 </code></pre>
-<h3 id="connect-the-console">Connect the Console</h3>
+<h3 id="connect-the-console"><a name="connect-the-console" class="plugin-anchor" href="#connect-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Connect the Console</h3>
 <p>Now connect to the <a href="../debug/system_console.html">system console</a> either via serial or USB. Hitting <strong>ENTER</strong> will bring up the shell prompt:</p>
 <pre><code class="lang-sh">nsh&gt;
 </code></pre>
@@ -2234,14 +2242,14 @@ Builtin Apps:
 Hello Sky!
 </code></pre>
 <p>The application is now correctly registered with the system and can be extended to actually perform useful tasks.</p>
-<h2 id="test-app-sitl">Test App (SITL)</h2>
+<h2 id="test-app-sitl"><a name="test-app-sitl" class="plugin-anchor" href="#test-app-sitl"><i class="fa fa-link" aria-hidden="true"></i></a>Test App (SITL)</h2>
 <p>If you&apos;re using SITL the <em>PX4 console</em> is automatically started (see <a href="../setup/building_px4.html#jmavsim_build">Building the Code &gt; First Build (Using the jMAVSim Simulator)</a>). As with the <em>nsh console</em> (see previous section) you can type <code>help</code> to see the list of built-in apps.</p>
 <p>Enter <code>px4_simple_app</code> to run the minimal app.</p>
 <pre><code class="lang-sh">pxh&gt; px4_simple_app
 INFO  [px4_simple_app] Hello Sky!
 </code></pre>
 <p>The application can now be extended to actually perform useful tasks.</p>
-<h2 id="subscribing-to-sensor-data">Subscribing to Sensor Data</h2>
+<h2 id="subscribing-to-sensor-data"><a name="subscribing-to-sensor-data" class="plugin-anchor" href="#subscribing-to-sensor-data"><i class="fa fa-link" aria-hidden="true"></i></a>Subscribing to Sensor Data</h2>
 <p>To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands). </p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.</p>
@@ -2283,7 +2291,7 @@ uORBint poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class
 <p>Compile the app again by entering:</p>
 <pre><code class="lang-sh">make
 </code></pre>
-<h3 id="testing-the-uorb-subscription">Testing the uORB Subscription</h3>
+<h3 id="testing-the-uorb-subscription"><a name="testing-the-uorb-subscription" class="plugin-anchor" href="#testing-the-uorb-subscription"><i class="fa fa-link" aria-hidden="true"></i></a>Testing the uORB Subscription</h3>
 <p>The final step is to start your application as a background process/task by typing the following in the nsh shell:</p>
 <pre><code class="lang-sh">px4_simple_app &amp;
 </code></pre>
@@ -2298,7 +2306,7 @@ uORBint poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> The <a href="module_template.html">Module Template for Full Applications</a> can be used to write background process that can be controlled from the command line.</p>
 </blockquote>
-<h2 id="publishing-data">Publishing Data</h2>
+<h2 id="publishing-data"><a name="publishing-data" class="plugin-anchor" href="#publishing-data"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing Data</h2>
 <p>To use the calculated outputs, the next step is to <em>publish</em> the results. Below we show how to publish the attitude topic.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> We&apos;ve chosen <code>attitude</code> because we know that the <em>mavlink</em> app forwards it to the ground control station - providing an easy way to look at the results.</p>
@@ -2314,7 +2322,7 @@ uORBint poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class
 <p>In the main loop, publish the information whenever its ready:</p>
 <pre><code class="lang-c">orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &amp;att);
 </code></pre>
-<h2 id="full-example-code">Full Example Code</h2>
+<h2 id="full-example-code"><a name="full-example-code" class="plugin-anchor" href="#full-example-code"><i class="fa fa-link" aria-hidden="true"></i></a>Full Example Code</h2>
 <p>The <a href="https://github.com/PX4/Firmware/blob/master/src/examples/px4_simple_app/px4_simple_app.c" target="_blank">complete example code</a> is now:</p>
 <pre><code class="lang-c"><span class="hljs-comment">/****************************************************************************
  *
@@ -2446,12 +2454,12 @@ __<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 }
 </code></pre>
-<h2 id="running-the-complete-example">Running the Complete Example</h2>
+<h2 id="running-the-complete-example"><a name="running-the-complete-example" class="plugin-anchor" href="#running-the-complete-example"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Complete Example</h2>
 <p>And finally run your app:</p>
 <pre><code class="lang-sh">px4_simple_app
 </code></pre>
 <p>If you start <em>QGroundControl</em>, you can check the sensor values in the real time plot (<strong>Widgets &gt; Analyze</strong>).</p>
-<h2 id="wrap-up">Wrap-Up</h2>
+<h2 id="wrap-up"><a name="wrap-up" class="plugin-anchor" href="#wrap-up"><i class="fa fa-link" aria-hidden="true"></i></a>Wrap-Up</h2>
 <p>This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is <a href="https://github.com/PX4/Firmware/tree/master/msg/" target="_blank">available here</a> and that the headers are well documented and serve as reference.</p>
 <p>Further information and troubleshooting/common pitfalls can be found here: <a href="../middleware/uorb.html">uORB</a>.</p>
 <p>The next page presents a template for writing a full application with start and stop functionality.</p>
@@ -2498,7 +2506,7 @@ __<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Writing your First Application","level":"1.2.4","depth":2,"next":{"title":"Application/Module Template","level":"1.2.5","depth":2,"path":"apps/module_template.md","ref":"apps/module_template.md","articles":[]},"previous":{"title":"Building the Code","level":"1.2.3","depth":2,"path":"setup/building_px4.md","ref":"setup/building_px4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"apps/hello_sky.md","mtime":"2019-01-03T18:32:47.158Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Writing your First Application","level":"1.2.4","depth":2,"next":{"title":"Application/Module Template","level":"1.2.5","depth":2,"path":"apps/module_template.md","ref":"apps/module_template.md","articles":[]},"previous":{"title":"Building the Code","level":"1.2.3","depth":2,"path":"setup/building_px4.md","ref":"setup/building_px4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"apps/hello_sky.md","mtime":"2019-01-03T23:23:50.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2527,6 +2535,10 @@ __<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

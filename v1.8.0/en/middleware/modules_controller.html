@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Controllers · PX4 Developer Guide</title>
+        <title>Controllers · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,23 +2038,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="modules-reference-controller">Modules Reference: Controller</h1>
-<h2 id="fwattcontrol">fw_att_control</h2>
+                                <h1 id="modules-reference-controller"><a name="modules-reference-controller" class="plugin-anchor" href="#modules-reference-controller"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Controller</h1>
+<h2 id="fwattcontrol"><a name="fwattcontrol" class="plugin-anchor" href="#fwattcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>fw_att_control</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/fw_att_control" target="_blank">modules/fw_att_control</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>fw_att_control is the fixed wing attitude controller.</p>
-<h3 id="fw_att_control_usage">Usage </h3>
+<h3 id="fw_att_control_usage"><a name="fw_att_control_usage" class="plugin-anchor" href="#fw_att_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>fw_att_control &lt;command&gt; [arguments...]
  Commands:
 
    stop
 
    status        print status info
-</code></pre><h2 id="fwposcontroll1">fw_pos_control_l1</h2>
+</code></pre><h2 id="fwposcontroll1"><a name="fwposcontroll1" class="plugin-anchor" href="#fwposcontroll1"><i class="fa fa-link" aria-hidden="true"></i></a>fw_pos_control_l1</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/fw_pos_control_l1" target="_blank">modules/fw_pos_control_l1</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>fw_pos_control_l1 is the fixed wing position controller.</p>
-<h3 id="fw_pos_control_l1_usage">Usage </h3>
+<h3 id="fw_pos_control_l1_usage"><a name="fw_pos_control_l1_usage" class="plugin-anchor" href="#fw_pos_control_l1_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>fw_pos_control_l1 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2054,9 +2062,9 @@
    stop
 
    status        print status info
-</code></pre><h2 id="mcattcontrol">mc_att_control</h2>
+</code></pre><h2 id="mcattcontrol"><a name="mcattcontrol" class="plugin-anchor" href="#mcattcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>mc_att_control</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/mc_att_control" target="_blank">modules/mc_att_control</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This implements the multicopter attitude and rate controller. It takes attitude
 setpoints (<code>vehicle_attitude_setpoint</code>) or rate setpoints (in acro mode
 via <code>manual_control_setpoint</code> topic) as inputs and outputs actuator control messages.</p>
@@ -2066,9 +2074,9 @@ Nonlinear Quadrocopter Attitude Control (2013)
 by Dario Brescianini, Markus Hehn and Raffaello D&apos;Andrea
 Institute for Dynamic Systems and Control (IDSC), ETH Zurich</p>
 <p><a href="https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf" target="_blank">https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf</a></p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>To reduce control latency, the module directly polls on the gyro topic published by the IMU driver.</p>
-<h3 id="mc_att_control_usage">Usage </h3>
+<h3 id="mc_att_control_usage"><a name="mc_att_control_usage" class="plugin-anchor" href="#mc_att_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>mc_att_control &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2076,18 +2084,18 @@ Institute for Dynamic Systems and Control (IDSC), ETH Zurich</p>
    stop
 
    status        print status info
-</code></pre><h2 id="navigator">navigator</h2>
+</code></pre><h2 id="navigator"><a name="navigator" class="plugin-anchor" href="#navigator"><i class="fa fa-link" aria-hidden="true"></i></a>navigator</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/navigator" target="_blank">modules/navigator</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Module that is responsible for autonomous flight modes. This includes missions (read from dataman),
 takeoff and RTL.
 It is also responsible for geofence violation checking.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>The different internal modes are implemented as separate classes that inherit from a common base class <code>NavigatorMode</code>.
 The member <code>_navigation_mode</code> contains the current active mode.</p>
 <p>Navigator publishes position setpoint triplets (<code>position_setpoint_triplet_s</code>), which are then used by the position
 controller.</p>
-<h3 id="navigator_usage">Usage </h3>
+<h3 id="navigator_usage"><a name="navigator_usage" class="plugin-anchor" href="#navigator_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>navigator &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2142,7 +2150,7 @@ controller.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Controllers","level":"1.7.3","depth":2,"next":{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},"previous":{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_controller.md","mtime":"2019-01-03T18:32:47.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Controllers","level":"1.7.3","depth":2,"next":{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},"previous":{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_controller.md","mtime":"2019-01-03T23:23:50.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2171,6 +2179,10 @@ controller.</p>
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

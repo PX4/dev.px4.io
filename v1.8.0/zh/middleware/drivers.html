@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>驱动框架 · PX4 Developer Guide</title>
+        <title>驱动框架 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,20 +1869,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x9A71;&#x52A8;&#x6846;&#x67B6;">&#x9A71;&#x52A8;&#x6846;&#x67B6;</h1>
+                                <h1 id="&#x9A71;&#x52A8;&#x6846;&#x67B6;"><a name="&#x9A71;&#x52A8;&#x6846;&#x67B6;" class="plugin-anchor" href="#&#x9A71;&#x52A8;&#x6846;&#x67B6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9A71;&#x52A8;&#x6846;&#x67B6;</h1>
 <p>PX4&#x7684;&#x4EE3;&#x7801;&#x5E93;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#xFF0C;&#x7EDF;&#x4E00;&#x7684;&#x9A71;&#x52A8;&#x62BD;&#x8C61;&#x5C42;&#xFF1A;<a href="https://github.com/px4/DriverFramework" target="_blank">DriverFramework</a>. 
 POSIX&#x548C; <a href="https://en.wikipedia.org/wiki/Qualcomm_Hexagon" target="_blank">QuRT</a>&#x7684;&#x9A71;&#x52A8;&#x5199;&#x5165;&#x8FD9;&#x4E2A;&#x9A71;&#x52A8;&#x6846;&#x67B6;&#x5F53;&#x4E2D;&#x3002;</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-bookmark"></strong>
 <p> &#x65E7;&#x7684;NuttX&#x9A71;&#x52A8;&#x662F;&#x57FA;&#x4E8E;<a href="https://github.com/PX4/Firmware/tree/master/src/drivers/device" target="_blank">&#x8BBE;&#x5907;</a> &#x67B6;&#x6784;&#x7684;&#xFF0C;&#x4EE5;&#x540E;&#x5C06;&#x4F1A;&#x79FB;&#x690D;&#x5230;&#x9A71;&#x52A8;&#x6846;&#x67B6;&#x4E4B;&#x4E2D;&#x3002;</p>
 </blockquote>
-<h2 id="&#x6838;&#x5FC3;&#x67B6;&#x6784;">&#x6838;&#x5FC3;&#x67B6;&#x6784;</h2>
+<h2 id="&#x6838;&#x5FC3;&#x67B6;&#x6784;"><a name="&#x6838;&#x5FC3;&#x67B6;&#x6784;" class="plugin-anchor" href="#&#x6838;&#x5FC3;&#x67B6;&#x6784;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6838;&#x5FC3;&#x67B6;&#x6784;</h2>
 <p>PX4 &#x662F;&#x4E00;&#x4E2A;&#x53CD;&#x5E94;&#x5F0F;&#x7CFB;&#x7EDF;<a href="../concept/architecture.html">reactive system</a> &#xFF0C;&#x4F7F;&#x7528;&#x8BA2;&#x9605;/&#x53D1;&#x5E03;&#x6765;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x3002;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x662F;&#x4E0D;&#x88AB;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x6838;&#x5FC3;&#x6240;&#x9700;&#x8981;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x3002;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x4E86;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;API&#xFF1A;</p>
 <ul>
 <li>&#x53D1;&#x5E03;/&#x8BA2;&#x9605;&#x7CFB;&#x7EDF;&#xFF0C;&#x8BE5;&#x7CFB;&#x7EDF;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x7F51;&#x7EDC;&#x6216;&#x8005;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#xFF0C;&#x5176;&#x4F9D;&#x9760;&#x4E8E;PX4&#x540E;&#x53F0;&#x8FD0;&#x884C;&#x3002;</li>
 <li>&#x5168;&#x5C40;&#x9A71;&#x52A8;&#x6CE8;&#x518C;&#x5668;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x679A;&#x4E3E;&#x8BBE;&#x5907;&#x548C;&#x83B7;&#x53D6;/&#x8BBE;&#x7F6E;&#x8FD9;&#x4E9B;&#x8BBE;&#x5907;&#x53C2;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x6216;&#x8005;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5730;&#x56FE;&#x3002;</li>
 </ul>
-<h2 id="&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E73;&#x53F0;">&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E73;&#x53F0;</h2>
-<h3 id="nuttx">NuttX</h3>
+<h2 id="&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E73;&#x53F0;"><a name="&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E73;&#x53F0;" class="plugin-anchor" href="#&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E73;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5E73;&#x53F0;</h2>
+<h3 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX</h3>
 <ul>
 <li>&#x542F;&#x52A8;&#x811A;&#x672C;&#x4F4D;&#x4E8E;<a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common" target="_blank">ROMFS/px4fmu_common</a></li>
 <li>&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E;<a href="https://github.com/PX4/Firmware/tree/master/nuttx-configs" target="_blank">nuttx-configs</a>. &#x4F5C;&#x4E3A;&#x5E94;&#x7528;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x88AB;&#x6784;&#x5EFA;&#x5E76;&#x88AB;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x52A0;&#x8F7D;&#x3002;</li>
@@ -1882,7 +1890,7 @@ POSIX&#x548C; <a href="https://en.wikipedia.org/wiki/Qualcomm_Hexagon" target="_
 <li>&#x9A71;&#x52A8;&#x4F4D;&#x4E8E;<a href="https://github.com/PX4/Firmware/tree/master/src/drivers" target="_blank">src/drivers</a></li>
 <li>&#x53C2;&#x8003;&#x914D;&#x7F6E;:&#x8FD0;&#x884C;&#x4F7F;px4fmu-v4_default&#x6784;&#x5EFA;FMUv4&#x914D;&#x7F6E;,&#x8FD9;&#x662F;&#x5F53;&#x524D;NuttX&#x53C2;&#x8003;&#x914D;&#x7F6E;&#x3002;</li>
 </ul>
-<h3 id="qurt--hexagon">QuRT / Hexagon</h3>
+<h3 id="qurt--hexagon"><a name="qurt--hexagon" class="plugin-anchor" href="#qurt--hexagon"><i class="fa fa-link" aria-hidden="true"></i></a>QuRT / Hexagon</h3>
 <ul>
 <li>&#x542F;&#x52A8;&#x811A;&#x672C;&#x4F4D;&#x4E8E; <a href="https://github.com/PX4/Firmware/tree/master/posix-configs" target="_blank">posix-configs/</a></li>
 <li>&#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6A21;&#x5F0F;&#x4F5C;&#x4E3A;Linux&#x6620;&#x5C04;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF08;&#x5907;&#x6CE8;&#xFF1A;&#x63D0;&#x4F9B; &#x672C;&#x5730;&#x7684;LINUX IMAGE&#x548C;flash&#x6307;&#x4EE4;&#xFF09;</li>
@@ -1890,10 +1898,10 @@ POSIX&#x548C; <a href="https://en.wikipedia.org/wiki/Qualcomm_Hexagon" target="_
 <li>&#x9A71;&#x52A8;&#x4F4D;&#x4E8E;<a href="https://github.com/px4/DriverFramework" target="_blank">DriverFramework</a></li>
 <li>&#x53C2;&#x8003;&#x914D;&#x7F6E;&#xFF1A;&#x8FD0;&#x884C;&apos;make qurt_eagle_release&apos;&#x6784;&#x5EFA;Snapdragon&#x98DE;&#x884C;&#x53C2;&#x8003;&#x914D;&#x7F6E;&#x3002;</li>
 </ul>
-<h2 id="&#x9A71;&#x52A8;id">&#x9A71;&#x52A8;ID</h2>
+<h2 id="&#x9A71;&#x52A8;id"><a name="&#x9A71;&#x52A8;id" class="plugin-anchor" href="#&#x9A71;&#x52A8;id"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9A71;&#x52A8;ID</h2>
 <p>PX4&#x4F7F;&#x7528;&#x9A71;&#x52A8;ID&#x5C06;&#x72EC;&#x7ACB;&#x4F20;&#x611F;&#x5668;&#x8D2F;&#x7A7F;&#x4E8E;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x3002;&#x8FD9;&#x4E9B;ID&#x5B58;&#x50A8;&#x4E8E;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x4E2D;&#xFF0C;&#x7528;&#x4E8E;&#x5339;&#x914D;&#x4F20;&#x611F;&#x5668;&#x6821;&#x6B63;&#x503C;&#xFF0C;&#x4EE5;&#x53CA;&#x51B3;&#x5B9A;&#x54EA;&#x4E9B;&#x4F20;&#x611F;&#x5668;&#x88AB;&#x8BB0;&#x5F55;&#x5230;log&#x4E2D;&#x3002;</p>
 <p>&#x4F20;&#x611F;&#x5668;&#x7684;&#x987A;&#x5E8F;&#xFF08;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x662F;<code>/dev/mag0</code>&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x662F;<code>/dev/mag1</code>&#xFF09;&#x4E8E;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x4E0D;&#x6302;&#x94A9;&#x7684;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x5B9E;&#x9645;&#x662F;&#x5728;&#x53D1;&#x5E03;uORB topic&#x65F6;&#x786E;&#x5B9A;&#x7684;&#x3002;</p>
-<h3 id="&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;">&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;</h3>
+<h3 id="&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;"><a name="&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;" class="plugin-anchor" href="#&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;</h3>
 <p>&#x6709;&#x5173;&#x7CFB;&#x7EDF;&#x4E0A;&#x4E09;&#x4E2A;&#x78C1;&#x529B;&#x8BA1;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x4F7F;&#x7528;&#x98DE;&#x884C;&#x65E5;&#x5FD7;&#xFF08;.px4log&#xFF09;&#x8F6C;&#x5B58;&#x53D8;&#x91CF;&#x3002;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5BF9;&#x4F20;&#x611F;&#x5668;ID&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;MAG_PRIME&#x8BC6;&#x522B;&#x54EA;&#x4E2A;&#x78C1;&#x529B;&#x8BA1;&#x88AB;&#x9009;&#x4E3A;&#x4E3B;&#x4F20;&#x611F;&#x5668;&#x3002;&#x6BCF;&#x4E00;&#x4E2A;MAGx_ID&#x662F;&#x4E00;&#x4E2A;24bit&#x6570;&#x503C;&#xFF0C;&#x5DE6;&#x9762;&#x624B;&#x5DE5;&#x586B;&#x96F6;&#x8865;&#x5145;&#x3002;</p>
 <pre><code>CAL_MAG0_ID = 73225.0
 CAL_MAG1_ID = 66826.0
@@ -1917,7 +1925,7 @@ HMC5883   dev 5   bus 1 SPI
 
 #decodes to:
 MPU9250   dev 4   bus 1 SPI
-</code></pre><h3 id="&#x8BBE;&#x5907;id&#x7F16;&#x7801;">&#x8BBE;&#x5907;ID&#x7F16;&#x7801;</h3>
+</code></pre><h3 id="&#x8BBE;&#x5907;id&#x7F16;&#x7801;"><a name="&#x8BBE;&#x5907;id&#x7F16;&#x7801;" class="plugin-anchor" href="#&#x8BBE;&#x5907;id&#x7F16;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBE;&#x5907;ID&#x7F16;&#x7801;</h3>
 <p>&#x6839;&#x636E;&#x6B64;&#x683C;&#x5F0F;&#xFF0C;&#x8BBE;&#x5907;ID&#x662F;&#x4E00;&#x4E2A;24&#x4F4D;&#x7684;&#x6570;&#x5B57;&#x3002;&#x6CE8;&#x610F;&#xFF0C;&#x7B2C;&#x4E00;&#x5B57;&#x6BB5;&#x662F;&#x4E0A;&#x8FF0;&#x89E3;&#x7801;&#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x6700;&#x4F4E;&#x6709;&#x6548;&#x4F4D;&#x3002;</p>
 <pre><code class="lang-C"><span class="hljs-keyword">struct</span> DeviceStructure {
   <span class="hljs-keyword">enum</span> DeviceBusType bus_type : <span class="hljs-number">3</span>;
@@ -1995,7 +2003,7 @@ MPU9250   dev 4   bus 1 SPI
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/middleware/drivers.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"驱动框架","level":"1.6.6","depth":2,"next":{"title":"模块 & 命令","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"驱动","level":"1.7.3","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},{"title":"系统","level":"1.7.4","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]}]},"previous":{"title":"守护程序","level":"1.6.5","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/drivers.md","mtime":"2019-01-03T18:32:47.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/middleware/drivers.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"驱动框架","level":"1.6.6","depth":2,"next":{"title":"模块 & 命令","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"驱动","level":"1.7.3","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},{"title":"系统","level":"1.7.4","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]}]},"previous":{"title":"守护程序","level":"1.6.5","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/drivers.md","mtime":"2019-01-03T23:23:50.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2024,6 +2032,10 @@ MPU9250   dev 4   bus 1 SPI
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

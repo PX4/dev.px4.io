@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Ubuntu/Debian Linux · PX4 Developer Guide</title>
+        <title>Ubuntu/Debian Linux · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,7 +2038,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="development-environment-on-ubuntu-lts--debian-linux">Development Environment on Ubuntu LTS / Debian Linux</h1>
+                                <h1 id="development-environment-on-ubuntu-lts--debian-linux"><a name="development-environment-on-ubuntu-lts--debian-linux" class="plugin-anchor" href="#development-environment-on-ubuntu-lts--debian-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Development Environment on Ubuntu LTS / Debian Linux</h1>
 <p><a href="https://wiki.ubuntu.com/LTS" target="_blank">Ubuntu Linux LTS</a> (16.04) is the standard/preferred Linux development OS. It allows you to build for <a href="dev_env.html#supported-targets">all PX4 targets</a> (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS).</p>
 <p>The following instructions explain how to <em>manually</em> set up a development environment each of the supported targets.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
@@ -2040,7 +2048,7 @@
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> After setting up the build/simulation toolchain, see <a href="generic_dev_tools.html">Additional Tools</a> for information about other useful tools.</p>
 </blockquote>
-<h2 id="convenience-bash-scripts">Convenience Bash Scripts</h2>
+<h2 id="convenience-bash-scripts"><a name="convenience-bash-scripts" class="plugin-anchor" href="#convenience-bash-scripts"><i class="fa fa-link" aria-hidden="true"></i></a>Convenience Bash Scripts</h2>
 <p>We&apos;ve created a number of bash scripts that you can use to install the Simulators and/or NuttX toolchain. All the scripts install the <em>Qt Creator IDE</em>, <a href="#ninja-build-system">Ninja Build System</a>, <a href="#common-dependencies">Common Dependencies</a>, <a href="#fastrtps-installation">FastRTPS</a>, and also download the PX4 source to your computer (<strong>~/src/Firmware</strong>). </p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> The scripts have been tested on a clean Ubuntu 16.04 LTS installation. They <em>may</em> not work as expected if installed on top of an existing system.</p>
@@ -2065,7 +2073,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="how-to-use-the-scripts">How to use the scripts</h3>
+<h3 id="how-to-use-the-scripts"><a name="how-to-use-the-scripts" class="plugin-anchor" href="#how-to-use-the-scripts"><i class="fa fa-link" aria-hidden="true"></i></a>How to use the scripts</h3>
 <p>To use the scripts:</p>
 <ol>
 <li>Make the user a member of the group &quot;dialout&quot; (this only has to be done once):<ol>
@@ -2080,7 +2088,7 @@
 </code></pre>
 Acknowledge any prompts as the scripts progress.</li>
 </ol>
-<h2 id="permission-setup">Permission Setup</h2>
+<h2 id="permission-setup"><a name="permission-setup" class="plugin-anchor" href="#permission-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Permission Setup</h2>
 <blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
 <p> Never ever fix permission problems by using <code>sudo</code>. It will create more permission problems in the process and require a system re-installation to fix them.</p>
 </blockquote>
@@ -2088,11 +2096,11 @@ Acknowledge any prompts as the scripts progress.</li>
 <pre><code class="lang-sh">sudo usermod <span class="hljs-_">-a</span> -G dialout <span class="hljs-variable">$USER</span>
 </code></pre>
 <p>Then logout and login again (the change is only made after a new login).</p>
-<h2 id="remove-the-modemmanager">Remove the modemmanager</h2>
+<h2 id="remove-the-modemmanager"><a name="remove-the-modemmanager" class="plugin-anchor" href="#remove-the-modemmanager"><i class="fa fa-link" aria-hidden="true"></i></a>Remove the modemmanager</h2>
 <p>Ubuntu comes with a serial modem manager which interferes heavily with any robotics related use of a serial port (or USB serial). It can removed/deinstalled without side effects:</p>
 <pre><code class="lang-sh">sudo apt-get remove modemmanager
 </code></pre>
-<h2 id="common-dependencies">Common Dependencies</h2>
+<h2 id="common-dependencies"><a name="common-dependencies" class="plugin-anchor" href="#common-dependencies"><i class="fa fa-link" aria-hidden="true"></i></a>Common Dependencies</h2>
 <p>Update the package list and install the following dependencies for all PX4 build targets.</p>
 <pre><code class="lang-sh">sudo apt-get update -y
 sudo apt-get install git zip qtcreator cmake \
@@ -2108,7 +2116,7 @@ sudo -H pip install pandas jinja2 pyserial
 <pre><code># optional python tools
 sudo -H pip install pyulog
 </code></pre><!-- import docs ninja build system -->
-<h2 id="ninja-build-system">Ninja Build System</h2>
+<h2 id="ninja-build-system"><a name="ninja-build-system" class="plugin-anchor" href="#ninja-build-system"><i class="fa fa-link" aria-hidden="true"></i></a>Ninja Build System</h2>
 <p><a href="https://ninja-build.org/" target="_blank">Ninja</a> is a faster build system than <em>Make</em> and the PX4 <em>CMake</em> generators support it. </p>
 <p>On Ubuntu Linux you can install this automatically from normal repos.</p>
 <pre><code class="lang-sh">sudo apt-get install ninja-build -y
@@ -2123,7 +2131,7 @@ exportline=<span class="hljs-string">&quot;export PATH=<span class="hljs-variabl
 <span class="hljs-keyword">if</span> grep -Fxq <span class="hljs-string">&quot;<span class="hljs-variable">$exportline</span>&quot;</span> ~/.profile; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> nothing to <span class="hljs-keyword">do</span> ; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$exportline</span> &gt;&gt; ~/.profile; <span class="hljs-keyword">fi</span>
 . ~/.profile
 </code></pre>
-<h2 id="fastrtps-installation">FastRTPS installation</h2>
+<h2 id="fastrtps-installation"><a name="fastrtps-installation" class="plugin-anchor" href="#fastrtps-installation"><i class="fa fa-link" aria-hidden="true"></i></a>FastRTPS installation</h2>
 <p><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/" target="_blank">eProsima Fast RTPS</a> is a C++ implementation of the RTPS (Real Time Publish Subscribe) protocol. FastRTPS is used, via the <a href="../middleware/micrortps.html">RTPS/ROS2 Interface: PX4-FastRTPS Bridge</a>, to allow PX4 uORB topics to be shared with offboard components.</p>
 <p>The following instructions can be used to install the FastRTPS 1.5 binaries to your home directory.</p>
 <pre><code class="lang-sh">wget http://www.eprosima.com/index.php/component/ars/repository/eprosima-fast-rtps/eprosima-fast-rtps-1-5-0/eprosima_fastrtps-1-5-0-linux-tar-gz -O eprosima_fastrtps-1-5-0-linux.tar.gz
@@ -2143,13 +2151,13 @@ rm -rf requiredcomponents eprosima_fastrtps-1-5-0-linux.tar.gz
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> More &quot;generic&quot; instructions, which additionally cover installation from source, can be found here: <a href="fast-rtps-installation.html">Fast RTPS installation</a>.</p>
 </blockquote>
-<h2 id="simulation-dependencies">Simulation Dependencies</h2>
+<h2 id="simulation-dependencies"><a name="simulation-dependencies" class="plugin-anchor" href="#simulation-dependencies"><i class="fa fa-link" aria-hidden="true"></i></a>Simulation Dependencies</h2>
 <p>The dependencies for the Gazebo and jMAVSim simulators listed below. You should minimally install jMAVSim to make it easy to test the installation. Additional information about these and other supported simulators is covered in: <a href="../simulation/">Simulation</a>.</p>
-<h3 id="jmavsim">jMAVSim</h3>
+<h3 id="jmavsim"><a name="jmavsim" class="plugin-anchor" href="#jmavsim"><i class="fa fa-link" aria-hidden="true"></i></a>jMAVSim</h3>
 <p>Install the dependencies for <a href="../simulation/jmavsim.html">jMAVSim Simulation</a>.</p>
 <pre><code># jMAVSim simulator
 sudo apt-get install ant openjdk-8-jdk openjdk-8-jre -y
-</code></pre><h3 id="gazebo">Gazebo</h3>
+</code></pre><h3 id="gazebo"><a name="gazebo" class="plugin-anchor" href="#gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> If you&apos;re going work with ROS then follow the <a href="#rosgazebo">ROS/Gazebo</a> instructions in the following section (these install Gazebo automatically, as part of the ROS installation).</p>
 </blockquote>
@@ -2171,7 +2179,7 @@ sudo apt-get install libgazebo9-dev -y
 <!-- these dependencies left over when I separated the dependencies. These appear to both be for using Clang. MOve them down?
 sudo apt-get install clang-3.5 lldb-3.5 -y
 -->
-<h3 id="rosgazebo">ROS/Gazebo</h3>
+<h3 id="rosgazebo"><a name="rosgazebo" class="plugin-anchor" href="#rosgazebo"><i class="fa fa-link" aria-hidden="true"></i></a>ROS/Gazebo</h3>
 <p>Install the dependencies for <a href="../ros/">ROS/Gazebo</a> (&quot;Kinetic&quot;). These include Gazebo7 (at time of writing, the default version that comes with ROS). The instructions come from the ROS Wiki <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu" target="_blank">Ubuntu page</a>.</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># ROS Kinetic/Gazebo</span>
 <span class="hljs-comment">## Gazebo dependencies</span>
@@ -2231,7 +2239,7 @@ catkin_ws_<span class="hljs-built_in">source</span>=<span class="hljs-string">&q
 <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$catkin_ws_source</span>&quot;</span> &gt;&gt; ~/.bashrc; <span class="hljs-keyword">fi</span>
 <span class="hljs-built_in">source</span> ~/.bashrc
 </code></pre>
-<h2 id="nuttx-based-hardware">NuttX-based Hardware</h2>
+<h2 id="nuttx-based-hardware"><a name="nuttx-based-hardware" class="plugin-anchor" href="#nuttx-based-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX-based Hardware</h2>
 <p>Install the following dependencies to build for NuttX based hardware: Pixhawk, Pixfalcon, Pixracer, Pixhawk 3, Intel&#xAE; Aero Ready to Fly Drone.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Packages with specified versions should be installed with the specified package version.</p>
@@ -2266,14 +2274,14 @@ Copyright (C) 2017 Free Software Foundation, Inc.
 This is free software; see the <span class="hljs-built_in">source</span> <span class="hljs-keyword">for</span> copying conditions.  There is NO
 warranty; not even <span class="hljs-keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 </code></pre>
-<h2 id="snapdragon-flight">Snapdragon Flight</h2>
+<h2 id="snapdragon-flight"><a name="snapdragon-flight" class="plugin-anchor" href="#snapdragon-flight"><i class="fa fa-link" aria-hidden="true"></i></a>Snapdragon Flight</h2>
 <p>Setup instructions for Snapdragon Flight are provided in the <em>PX4 User Guide</em>:</p>
 <ul>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_dev_environment_installation.html" target="_blank">Development Environment</a></li>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_software_installation.html" target="_blank">Software Installation</a></li>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_configuration.html" target="_blank">Configuration</a></li>
 </ul>
-<h2 id="raspberry-pi-hardware">Raspberry Pi Hardware</h2>
+<h2 id="raspberry-pi-hardware"><a name="raspberry-pi-hardware" class="plugin-anchor" href="#raspberry-pi-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi Hardware</h2>
 <p>Developers working on Raspberry Pi hardware need to download a ARMv7 cross-compiler, either GCC or clang.
 The current recommended toolchain for raspbian can be cloned from <code>https://github.com/raspberrypi/tools.git</code> (at time of writing 4.9.3).
 The <code>PATH</code> environmental variable should include the path to the gcc cross-compiler collection of tools (e.g. gcc, g++, strip) prefixed with <code>arm-linux-gnueabihf-</code>.</p>
@@ -2288,7 +2296,7 @@ The <code>PATH</code> environmental variable should include the path to the gcc 
 <span class="hljs-comment"># update PATH variable only for this session</span>
 <span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$HOME</span>/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
 </code></pre>
-<h3 id="clang">clang</h3>
+<h3 id="clang"><a name="clang" class="plugin-anchor" href="#clang"><i class="fa fa-link" aria-hidden="true"></i></a>clang</h3>
 <p>In order to use clang, you also need GCC.</p>
 <p>Download clang for your specific distribution from <a href="http://releases.llvm.org/download.html" target="_blank">LLVM Download page</a> and unpack it.
 Assuming that you&apos;ve unpacked clang to <code>CLANG_DIR</code>, and <code>clang</code> binary is available in <code>CLANG_DIR/bin</code>, and you have the GCC cross-compiler in <code>GCC_DIR</code>, you will need to setup the symlinks for clang in the <code>GCC_DIR</code> bin dir, and add <code>GCC_DIR/bin</code> to <code>PATH</code>.</p>
@@ -2307,17 +2315,17 @@ cmake \
 -DCMAKE_CXX_COMPILER=clang++ \
 ..
 </code></pre>
-<h3 id="native-builds">Native Builds</h3>
+<h3 id="native-builds"><a name="native-builds" class="plugin-anchor" href="#native-builds"><i class="fa fa-link" aria-hidden="true"></i></a>Native Builds</h3>
 <p>Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here: <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2 Autopilot</a>.</p>
-<h2 id="parrot-bebop">Parrot Bebop</h2>
+<h2 id="parrot-bebop"><a name="parrot-bebop" class="plugin-anchor" href="#parrot-bebop"><i class="fa fa-link" aria-hidden="true"></i></a>Parrot Bebop</h2>
 <p>Developers working with the Parrot Bebop should install the RPi Linux Toolchain. Follow the
 description under <a href="#raspberry-pi-hardware">Raspberry Pi hardware</a>.</p>
 <p>Next, install ADB.</p>
 <pre><code class="lang-sh">sudo apt-get install android-tools-adb -y
 </code></pre>
-<h2 id="additional-tools">Additional Tools</h2>
+<h2 id="additional-tools"><a name="additional-tools" class="plugin-anchor" href="#additional-tools"><i class="fa fa-link" aria-hidden="true"></i></a>Additional Tools</h2>
 <p>After setting up the build/simulation toolchain, see <a href="generic_dev_tools.html">Additional Tools</a> for information about other useful tools.</p>
-<h2 id="next-steps">Next Steps</h2>
+<h2 id="next-steps"><a name="next-steps" class="plugin-anchor" href="#next-steps"><i class="fa fa-link" aria-hidden="true"></i></a>Next Steps</h2>
 <p>Once you have finished setting up the environment, continue to the <a href="building_px4.html">build instructions</a>.</p>
 
                                 
@@ -2362,7 +2370,7 @@ description under <a href="#raspberry-pi-hardware">Raspberry Pi hardware</a>.</p
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"next":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"previous":{"title":"Linux","level":"1.2.2.2","depth":3,"path":"setup/dev_env_linux.md","ref":"setup/dev_env_linux.md","articles":[{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_linux_arch.md","ref":"setup/dev_env_linux_arch.md","articles":[]},{"title":"Advanced Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_linux_ubuntu.md","mtime":"2019-01-03T18:32:47.166Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"next":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"previous":{"title":"Linux","level":"1.2.2.2","depth":3,"path":"setup/dev_env_linux.md","ref":"setup/dev_env_linux.md","articles":[{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_linux_arch.md","ref":"setup/dev_env_linux_arch.md","articles":[]},{"title":"Advanced Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_linux_ubuntu.md","mtime":"2019-01-03T23:23:50.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2391,6 +2399,10 @@ description under <a href="#raspberry-pi-hardware">Raspberry Pi hardware</a>.</p
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

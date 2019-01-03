@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>비행전 체크 · PX4 Developer Guide</title>
+        <title>비행전 체크 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,7 +1921,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xBE44;&#xD589;&#xC804;-&#xC13C;&#xC11C;&#xC640;-ekf-&#xCCB4;&#xD06C;">&#xBE44;&#xD589;&#xC804; &#xC13C;&#xC11C;&#xC640; EKF &#xCCB4;&#xD06C;</h1>
+                                <h1 id="&#xBE44;&#xD589;&#xC804;-&#xC13C;&#xC11C;&#xC640;-ekf-&#xCCB4;&#xD06C;"><a name="&#xBE44;&#xD589;&#xC804;-&#xC13C;&#xC11C;&#xC640;-ekf-&#xCCB4;&#xD06C;" class="plugin-anchor" href="#&#xBE44;&#xD589;&#xC804;-&#xC13C;&#xC11C;&#xC640;-ekf-&#xCCB4;&#xD06C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE44;&#xD589;&#xC804; &#xC13C;&#xC11C;&#xC640; EKF &#xCCB4;&#xD06C;</h1>
 <p>commander &#xBAA8;&#xB4C8;&#xC774; &#xB9CE;&#xC740; &#xBE44;&#xD589;&#xC804; &#xC13C;&#xC11C; &#xD488;&#xC9C8;&#xACFC; EKF &#xCCB4;&#xD06C;&#xB97C; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. COM_ARM&lt;&gt; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB85C; &#xC81C;&#xC5B4;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xCCB4;&#xD06C;&#xB4E4;&#xC774; &#xC2E4;&#xD328;&#xD558;&#xBA74; &#xBAA8;&#xD130;&#xB294; arming&#xC744; &#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xC5D0;&#xB7EC;&#xAC00; &#xB098;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;:</p>
 <ul>
 <li>PREFLIGHT FAIL: EKF HGT ERROR<ul>
@@ -1963,23 +1971,23 @@
 </ul>
 </li>
 </ul>
-<h2 id="comarmwogps">COM_ARM_WO_GPS</h2>
+<h2 id="comarmwogps"><a name="comarmwogps" class="plugin-anchor" href="#comarmwogps"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_WO_GPS</h2>
 <p>The COM_ARM_WO_GPS parameter controls whether arming is allowed without a GPS signal. This parameter must be set to 0 to allow arming when there is no GPS signal present. Arming without GPS is only allowed if the flight mode selected does not require GPS.</p>
-<h2 id="comarmekfpos">COM_ARM_EKF_POS</h2>
+<h2 id="comarmekfpos"><a name="comarmekfpos" class="plugin-anchor" href="#comarmekfpos"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_EKF_POS</h2>
 <p>The COM_ARM_EKF_POS parameter controls the maximum allowed inconsistency between the EKF inertial measurements and position reference (GPS or external vision). The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.</p>
-<h2 id="comarmekfvel">COM_ARM_EKF_VEL</h2>
+<h2 id="comarmekfvel"><a name="comarmekfvel" class="plugin-anchor" href="#comarmekfvel"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_EKF_VEL</h2>
 <p>The COM_ARM_EKF_VEL parameter controls the maximum allowed inconsistency between the EKF inertial measurements and GPS velocity measurements. The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.</p>
-<h2 id="comarmekfhgt">COM_ARM_EKF_HGT</h2>
+<h2 id="comarmekfhgt"><a name="comarmekfhgt" class="plugin-anchor" href="#comarmekfhgt"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_EKF_HGT</h2>
 <p>The COM_ARM_EKF_HGT parameter controls the maximum allowed inconsistency between the EKF inertial measurements and height measurement (Baro, GPS, range finder or external vision). The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.</p>
-<h2 id="comarmekfyaw">COM_ARM_EKF_YAW</h2>
+<h2 id="comarmekfyaw"><a name="comarmekfyaw" class="plugin-anchor" href="#comarmekfyaw"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_EKF_YAW</h2>
 <p>The COM_ARM_EKF_YAW parameter controls the maximum allowed inconsistency between the EKF inertial measurements and yaw measurement (magnetometer or external vision). The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.</p>
-<h2 id="comarmekfab">COM_ARM_EKF_AB</h2>
+<h2 id="comarmekfab"><a name="comarmekfab" class="plugin-anchor" href="#comarmekfab"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_EKF_AB</h2>
 <p>The COM_ARM_EKF_AB parameter controls the maximum allowed EKF estimated IMU accelerometer bias. The default value of 0.005 allows for up to 0.5 m/s/s of accelerometer bias.</p>
-<h2 id="comarmekfgb">COM_ARM_EKF_GB</h2>
+<h2 id="comarmekfgb"><a name="comarmekfgb" class="plugin-anchor" href="#comarmekfgb"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_EKF_GB</h2>
 <p>The COM_ARM_EKF_GB parameter controls the maximum allowed EKF estimated IMU gyro bias. The default value of 0.00087 allows for up to 5 deg/sec of switch on gyro bias.</p>
-<h2 id="comarmimuacc">COM_ARM_IMU_ACC</h2>
+<h2 id="comarmimuacc"><a name="comarmimuacc" class="plugin-anchor" href="#comarmimuacc"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_IMU_ACC</h2>
 <p>The COM_ARM_IMU_ACC parameter controls the maximum allowed inconsistency in acceleration measurements between the default IMU used for flight control and other IMU units if fitted.</p>
-<h2 id="comarmimugyr">COM_ARM_IMU_GYR</h2>
+<h2 id="comarmimugyr"><a name="comarmimugyr" class="plugin-anchor" href="#comarmimugyr"><i class="fa fa-link" aria-hidden="true"></i></a>COM_ARM_IMU_GYR</h2>
 <p>The COM_ARM_IMU_GYR parameter controls the maximum allowed inconsistency in angular rate measurements between the default IMU used for flight control and other IMU units if fitted.</p>
 
                                 
@@ -2024,7 +2032,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"비행전 체크","level":"1.10.6","depth":2,"next":{"title":"착륙 감지기","level":"1.10.7","depth":2,"path":"tutorials/land_detector.md","ref":"tutorials/land_detector.md","articles":[]},"previous":{"title":"ecl EKF","level":"1.10.5","depth":2,"path":"tutorials/tuning_the_ecl_ekf.md","ref":"tutorials/tuning_the_ecl_ekf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"tutorials/pre_flight_checks.md","mtime":"2019-01-03T18:32:47.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"비행전 체크","level":"1.10.6","depth":2,"next":{"title":"착륙 감지기","level":"1.10.7","depth":2,"path":"tutorials/land_detector.md","ref":"tutorials/land_detector.md","articles":[]},"previous":{"title":"ecl EKF","level":"1.10.5","depth":2,"path":"tutorials/tuning_the_ecl_ekf.md","ref":"tutorials/tuning_the_ecl_ekf.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"tutorials/pre_flight_checks.md","mtime":"2019-01-03T23:23:50.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2053,6 +2061,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

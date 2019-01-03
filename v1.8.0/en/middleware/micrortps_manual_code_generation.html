@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Manually Generate Client/Agent · PX4 Developer Guide</title>
+        <title>Manually Generate Client/Agent · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,14 +2038,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="manually-generate-client-and-agent-code">Manually Generate Client and Agent Code</h1>
+                                <h1 id="manually-generate-client-and-agent-code"><a name="manually-generate-client-and-agent-code" class="plugin-anchor" href="#manually-generate-client-and-agent-code"><i class="fa fa-link" aria-hidden="true"></i></a>Manually Generate Client and Agent Code</h1>
 <p>This topic shows how to manually generate the code for the client and the agent (instead of <a href="micrortps.html">automatically generating</a> it when the PX4 Firmware is compiled). </p>
 <p>The code is generated using the python script: <strong>/Tools/generate_microRTPS_bridge.py</strong>.</p>
-<h2 id="disable-automatic-bridge-code-generation">Disable automatic bridge code generation</h2>
+<h2 id="disable-automatic-bridge-code-generation"><a name="disable-automatic-bridge-code-generation" class="plugin-anchor" href="#disable-automatic-bridge-code-generation"><i class="fa fa-link" aria-hidden="true"></i></a>Disable automatic bridge code generation</h2>
 <p>First disable automatic generation of bridge code. Set the variable <code>GENERATE_RTPS_BRIDGE</code> to <em>off</em> in the <strong>.cmake</strong> file for the target platform:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">set</span>(GENERATE_RTPS_BRIDGE off)
 </code></pre>
-<h2 id="using-generatemicrortpsbridgepy">Using generate_microRTPS_bridge.py</h2>
+<h2 id="using-generatemicrortpsbridgepy"><a name="using-generatemicrortpsbridgepy" class="plugin-anchor" href="#using-generatemicrortpsbridgepy"><i class="fa fa-link" aria-hidden="true"></i></a>Using generate_microRTPS_bridge.py</h2>
 <p>The <em>generate_microRTPS_bridge</em> tool&apos;s command syntax is shown below:</p>
 <pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> /path/to/PX4/Firmware/msg/tools
 $ python generate_microRTPS_bridge.py -h
@@ -2079,25 +2087,25 @@ optional arguments:
 <pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> /path/to/PX4/Firmware
 $ python Tools/generate_microRTPS_bridge.py <span class="hljs-_">-s</span> msg/sensor_baro.msg -r msg/sensor_combined.msg
 </code></pre>
-<h2 id="generated-code">Generated code</h2>
+<h2 id="generated-code"><a name="generated-code" class="plugin-anchor" href="#generated-code"><i class="fa fa-link" aria-hidden="true"></i></a>Generated code</h2>
 <p>Code is generated for the <em>Client</em>, <em>Agent</em>, <em>CDR serialization/deserialization</em> of uORB messages, and the definition of the associated RTPS messages (IDL files). </p>
 <p>Manually generated code for the bridge can be found here (by default):</p>
 <ul>
 <li><em>Client</em>: <strong>src/modules/micrortps_bridge/micrortps_client/</strong></li>
 <li><em>Agent</em>: <strong>src/modules/micrortps_bridge/micrortps_agent/</strong></li>
 </ul>
-<h3 id="uorb-serialization-code">uORB serialization code</h3>
+<h3 id="uorb-serialization-code"><a name="uorb-serialization-code" class="plugin-anchor" href="#uorb-serialization-code"><i class="fa fa-link" aria-hidden="true"></i></a>uORB serialization code</h3>
 <p>Serialization functions are generated for all the uORB topics as part of the normal PX4 compilation process (and also for manual generation). For example, the following functions would be generated for the <em>sensor_combined.msg</em>:</p>
 <pre><code class="lang-sh">void serialize_sensor_combined(const struct sensor_combined_s *input, char *output, uint32_t *length, struct microCDR *microCDRWriter);
 void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, struct microCDR *microCDRReader);
 </code></pre>
-<h3 id="rtps-message-idl-files">RTPS message IDL files</h3>
+<h3 id="rtps-message-idl-files"><a name="rtps-message-idl-files" class="plugin-anchor" href="#rtps-message-idl-files"><i class="fa fa-link" aria-hidden="true"></i></a>RTPS message IDL files</h3>
 <p>IDL files are generated from the uORB <strong>.msg</strong> files (<a href="micrortps.html#supported-uorb-messages">for selected uORB topics</a>) in the generation of the bridge. These can be found in: <strong>src/modules/micrortps_bridge/micrortps_agent/idl/</strong></p>
 <p><em>FastRTSP</em> uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the <em>Agent</em>, and <em>FastRTSP</em> applications that need to publish/subscribe to uORB topics.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> IDL files are compiled to C++ by the <em>fastrtpsgen</em> tool.</p>
 </blockquote>
-<h2 id="verify-code-generation">Verify code generation</h2>
+<h2 id="verify-code-generation"><a name="verify-code-generation" class="plugin-anchor" href="#verify-code-generation"><i class="fa fa-link" aria-hidden="true"></i></a>Verify code generation</h2>
 <p>You can verify successful code generation by checking that the output directories match the listing shown below (On Linux, the <code>tree</code> command can be used for listing the file structure).</p>
 <p>Agent directory:</p>
 <pre><code class="lang-sh">$ tree src/modules/micrortps_bridge/micrortps_agent
@@ -2137,7 +2145,7 @@ src/modules/micrortps_bridge/micrortps_client
 &#x2514;&#x2500;&#x2500; microRTPS_transport.h
  0 directories, 4 files
 </code></pre>
-<h2 id="build-and-use-the-code">Build and use the code</h2>
+<h2 id="build-and-use-the-code"><a name="build-and-use-the-code" class="plugin-anchor" href="#build-and-use-the-code"><i class="fa fa-link" aria-hidden="true"></i></a>Build and use the code</h2>
 <p>The manually generated <em>Client</em> code is built and used in <em>exactly</em> the same way as <a href="micrortps.html#client-px4-firmware">automatically generated Client code</a>.</p>
 <p>Specifically, once manually generated, the <em>Client</em> source code is compiled and built into the PX4 firmware as part of the normal build process. For example, to compile the code and include it in firmware for NuttX/Pixhawk targets: </p>
 <pre><code class="lang-sh">make px4fmu-v4_default upload
@@ -2189,7 +2197,7 @@ src/modules/micrortps_bridge/micrortps_client
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"next":{"title":"Modules & Commands","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"Commands","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},{"title":"Estimators","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"System","level":"1.7.6","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.7","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"previous":{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/micrortps_manual_code_generation.md","mtime":"2019-01-03T18:32:47.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"next":{"title":"Modules & Commands","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"Commands","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},{"title":"Estimators","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"System","level":"1.7.6","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.7","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"previous":{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/micrortps_manual_code_generation.md","mtime":"2019-01-03T23:23:50.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2218,6 +2226,10 @@ src/modules/micrortps_bridge/micrortps_client
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

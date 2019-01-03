@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Drivers · PX4 Developer Guide</title>
+        <title>Drivers · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,15 +2038,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="modules-reference-driver">Modules Reference: Driver</h1>
-<h2 id="battsmbus">batt_smbus</h2>
+                                <h1 id="modules-reference-driver"><a name="modules-reference-driver" class="plugin-anchor" href="#modules-reference-driver"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Driver</h1>
+<h2 id="battsmbus"><a name="battsmbus" class="plugin-anchor" href="#battsmbus"><i class="fa fa-link" aria-hidden="true"></i></a>batt_smbus</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus" target="_blank">drivers/batt_smbus</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Smart battery driver for the BQ40Z50 fuel gauge IC.</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN</p>
 <pre><code>batt_smbus -X write_flash 19069 2 27 0
-</code></pre><h3 id="batt_smbus_usage">Usage </h3>
+</code></pre><h3 id="batt_smbus_usage"><a name="batt_smbus_usage" class="plugin-anchor" href="#batt_smbus_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>batt_smbus &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2092,9 +2100,9 @@
      [command code] The SMbus command code.
      [number of bytes] Number of bytes to send.
      [data[0]...data[n]] One byte of data at a time separated by spaces.
-</code></pre><h2 id="fmu">fmu</h2>
+</code></pre><h2 id="fmu"><a name="fmu" class="plugin-anchor" href="#fmu"><i class="fa fa-link" aria-hidden="true"></i></a>fmu</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu" target="_blank">drivers/px4fmu</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip
 (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
 px4io driver is used for main ones.</p>
@@ -2103,13 +2111,13 @@ px4io driver is used for main ones.</p>
 By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder
 driver. Alternatively, the fmu can be started in one of the capture modes, and then drivers can register a capture
 callback with ioctl calls.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread,
 specified via start flag -t, to reduce latency.
 When running on the work queue, it schedules at a fixed frequency, and the pwm rate limits the update rate of
 the actuator_controls topics. In case of running in its own thread, the module polls on the actuator_controls topic.
 Additionally the pwm rate defines the lower-level IO timer rates.</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>It is typically started with:</p>
 <pre><code>fmu mode_pwm
 </code></pre><p>To drive all available pins.</p>
@@ -2119,7 +2127,7 @@ Additionally the pwm rate defines the lower-level IO timer rates.</p>
 <pre><code>fmu test
 </code></pre><p>Use the <code>pwm</code> command for further configurations (PWM rate, levels, ...), and the <code>mixer</code> command to load
 mixer files.</p>
-<h3 id="fmu_usage">Usage </h3>
+<h3 id="fmu_usage"><a name="fmu_usage" class="plugin-anchor" href="#fmu_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>fmu &lt;command&gt; [arguments...]
  Commands:
    start         Start the task (without any mode set, use any of the mode_*
@@ -2163,43 +2171,43 @@ mixer files.</p>
    stop
 
    status        print status info
-</code></pre><h2 id="gpioled">gpio_led</h2>
+</code></pre><h2 id="gpioled"><a name="gpioled" class="plugin-anchor" href="#gpioled"><i class="fa fa-link" aria-hidden="true"></i></a>gpio_led</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/gpio_led" target="_blank">modules/gpio_led</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module is responsible for drving a single LED on one of the FMU AUX pins.</p>
 <p>It listens on the vehicle_status and battery_status topics and provides visual annunciation on the LED.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>The module runs on the work queue. It schedules at a fixed frequency or 5 Hz</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>It is started with:</p>
 <pre><code> gpio_led start
 </code></pre><p>To drive an LED connected AUX1 pin.</p>
 <p>OR with any of the avaliabel AUX pins</p>
 <pre><code> gpio_led start -p 5
 </code></pre><p>To drive an LED connected AUX5 pin.</p>
-<h3 id="gpio_led_usage">Usage </h3>
+<h3 id="gpio_led_usage"><a name="gpio_led_usage" class="plugin-anchor" href="#gpio_led_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>gpio_led &lt;command&gt; [arguments...]
  Commands:
    start         annunciation on AUX OUT pin
      [-p]        Use specified AUX OUT pin number (default: 1)
 
    stop
-</code></pre><h2 id="gps">gps</h2>
+</code></pre><h2 id="gps"><a name="gps" class="plugin-anchor" href="#gps"><i class="fa fa-link" aria-hidden="true"></i></a>gps</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/gps" target="_blank">drivers/gps</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>GPS driver module that handles the communication with the device and publishes the position via uORB.
 It supports multiple protocols (device vendors) and by default automatically selects the correct one.</p>
 <p>The module supports a secondary GPS device, specified via <code>-e</code> parameter. The position will be published
 on the second uORB topic instance, but it&apos;s currently not used by the rest of the system (however the
 data will be logged, so that it can be used for comparisons).</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks
 so that they can be used in other projects as well (eg. QGroundControl uses them too).</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>For testing it can be useful to fake a GPS signal (it will signal the system that it has a valid position):</p>
 <pre><code>gps stop
 gps start -f
-</code></pre><h3 id="gps_usage">Usage </h3>
+</code></pre><h3 id="gps_usage"><a name="gps_usage" class="plugin-anchor" href="#gps_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>gps &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2217,17 +2225,17 @@ gps start -f
    stop
 
    status        print status info
-</code></pre><h2 id="pga460">pga460</h2>
+</code></pre><h2 id="pga460"><a name="pga460" class="plugin-anchor" href="#pga460"><i class="fa fa-link" aria-hidden="true"></i></a>pga460</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460" target="_blank">drivers/distance_sensor/pga460</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>This driver is implented as a NuttX task. This Implementation was chosen due to the need for polling on a message
 via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is
 running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve
 the quality of data that is being published. The driver will not publish data at all if it deems the sensor data
 to be invalid or unstable.</p>
-<h3 id="pga460_usage">Usage </h3>
+<h3 id="pga460_usage"><a name="pga460_usage" class="plugin-anchor" href="#pga460_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>pga460 &lt;command&gt; [arguments...]
  Commands:
    start &lt;device_path&gt;
@@ -2238,15 +2246,15 @@ to be invalid or unstable.</p>
    stop
 
    help
-</code></pre><h2 id="pwmoutsim">pwm_out_sim</h2>
+</code></pre><h2 id="pwmoutsim"><a name="pwmoutsim" class="plugin-anchor" href="#pwmoutsim"><i class="fa fa-link" aria-hidden="true"></i></a>pwm_out_sim</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim" target="_blank">drivers/pwm_out_sim</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Driver for simulated PWM outputs.</p>
 <p>Its only function is to take <code>actuator_control</code> uORB messages,
 mix them with any loaded mixer and output the result to the
 <code>actuator_output</code> uORB topic.</p>
 <p>It is used in SITL and HITL.</p>
-<h3 id="pwm_out_sim_usage">Usage </h3>
+<h3 id="pwm_out_sim_usage"><a name="pwm_out_sim_usage" class="plugin-anchor" href="#pwm_out_sim_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>pwm_out_sim &lt;command&gt; [arguments...]
  Commands:
    start         Start the task in mode_pwm16
@@ -2260,9 +2268,9 @@ mix them with any loaded mixer and output the result to the
    stop
 
    status        print status info
-</code></pre><h2 id="rcinput">rc_input</h2>
+</code></pre><h2 id="rcinput"><a name="rcinput" class="plugin-anchor" href="#rcinput"><i class="fa fa-link" aria-hidden="true"></i></a>rc_input</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input" target="_blank">drivers/rc_input</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module does the RC input parsing and auto-selecting the method. Supported methods are:</p>
 <ul>
 <li>PPM</li>
@@ -2272,11 +2280,11 @@ mix them with any loaded mixer and output the result to the
 <li>ST24</li>
 <li>TBS Crossfire (CRSF)</li>
 </ul>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread,
 specified via start flag -t, to reduce latency.
 When running on the work queue, it schedules at a fixed frequency.</p>
-<h3 id="rc_input_usage">Usage </h3>
+<h3 id="rc_input_usage"><a name="rc_input_usage" class="plugin-anchor" href="#rc_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>rc_input &lt;command&gt; [arguments...]
  Commands:
    start         Start the task (without any mode set, use any of the mode_*
@@ -2288,18 +2296,18 @@ When running on the work queue, it schedules at a fixed frequency.</p>
    stop
 
    status        print status info
-</code></pre><h2 id="tapesc">tap_esc</h2>
+</code></pre><h2 id="tapesc"><a name="tapesc" class="plugin-anchor" href="#tapesc"><i class="fa fa-link" aria-hidden="true"></i></a>tap_esc</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc" target="_blank">drivers/tap_esc</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module controls the TAP_ESC hardware via UART. It listens on the
 actuator_controls topics, does the mixing and writes the PWM outputs.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>Currently the module is implementd as a threaded version only, meaning that it
 runs in its own thread instead of on the work queue.</p>
-<h3 id="example">Example</h3>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
 <p>The module is typically started with:
 tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
-<h3 id="tap_esc_usage">Usage </h3>
+<h3 id="tap_esc_usage"><a name="tap_esc_usage" class="plugin-anchor" href="#tap_esc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>tap_esc &lt;command&gt; [arguments...]
  Commands:
    start         Start the task
@@ -2307,21 +2315,21 @@ tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
                  values: &lt;device&gt;
      [-n &lt;val&gt;]  Number of ESCs
                  default: 4
-</code></pre><h2 id="vmount">vmount</h2>
+</code></pre><h2 id="vmount"><a name="vmount" class="plugin-anchor" href="#vmount"><i class="fa fa-link" aria-hidden="true"></i></a>vmount</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/vmount" target="_blank">drivers/vmount</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured
 output (eg. AUX channels or MAVLink).</p>
 <p>Documentation how to use it is on the <a href="https://dev.px4.io/en/advanced/gimbal_control.html" target="_blank">gimbal_control</a> page.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>Each method is implemented in its own class, and there is a common base class for inputs and outputs.
 They are connected via an API, defined by the <code>ControlData</code> data structure. This makes sure that each input method
 can be used with each output method and new inputs/outputs can be added with minimal effort.</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Test the output by setting a fixed yaw angle (and the other axes to 0):</p>
 <pre><code>vmount stop
 vmount test yaw 30
-</code></pre><h3 id="vmount_usage">Usage </h3>
+</code></pre><h3 id="vmount_usage"><a name="vmount_usage" class="plugin-anchor" href="#vmount_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>vmount &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2376,7 +2384,7 @@ vmount test yaw 30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Drivers","level":"1.7.4","depth":2,"next":{"title":"Estimators","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},"previous":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2019-01-03T18:32:47.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Drivers","level":"1.7.4","depth":2,"next":{"title":"Estimators","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},"previous":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2019-01-03T23:23:50.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2405,6 +2413,10 @@ vmount test yaw 30
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

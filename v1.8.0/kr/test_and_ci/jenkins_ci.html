@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Jenkins 지속 통합 · PX4 Developer Guide</title>
+        <title>Jenkins 지속 통합 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,24 +1921,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="jenkins-ci">Jenkins CI</h1>
+                                <h1 id="jenkins-ci"><a name="jenkins-ci" class="plugin-anchor" href="#jenkins-ci"><i class="fa fa-link" aria-hidden="true"></i></a>Jenkins CI</h1>
 <p><a href="http://sitl01.dronetest.io/" target="_blank">SITL01</a>&#xC8FC;&#xC18C;&#xC758; Jenkins&#xC758; &#xC9C0;&#xC18D;&#xD1B5;&#xD569; &#xC11C;&#xBC84;&#xB294; PX4 SITL &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xD1B5;&#xD569; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xAC1C;&#xC694;">&#xAC1C;&#xC694;</h2>
+<h2 id="&#xAC1C;&#xC694;"><a name="&#xAC1C;&#xC694;" class="plugin-anchor" href="#&#xAC1C;&#xC694;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC1C;&#xC694;</h2>
 <ul>
 <li>&#xAD00;&#xB828; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;: Jenkins, Docker, PX4 POSIX SITL</li>
 <li><a href="docker.html">Docker Containers</a> &#xB0B4;&#xBD80;&#xC5D0;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8; &#xC218;&#xD589;</li>
 <li>Jenkins&#xAC00; &#xC218;&#xD589;&#xD558;&#xB294; 2&#xAC1C; &#xC791;&#xC5C5; : master&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xAC01; PR&#xB97C; &#xAC80;&#xC0AC;, master&#xB85C; &#xB4E4;&#xC5B4;&#xC624;&#xB294; &#xBAA8;&#xB4E0; push&#xB97C; &#xAC80;&#xC0AC;</li>
 </ul>
-<h2 id="test-&#xC2E4;&#xD589;">Test &#xC2E4;&#xD589;</h2>
+<h2 id="test-&#xC2E4;&#xD589;"><a name="test-&#xC2E4;&#xD589;" class="plugin-anchor" href="#test-&#xC2E4;&#xD589;"><i class="fa fa-link" aria-hidden="true"></i></a>Test &#xC2E4;&#xD589;</h2>
 <p>Jenkins&#xB294; <a href="https://github.com/PX4/Firmware/blob/master/integrationtests/run_container.bash" target="_blank">run_container.bash</a>&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; container&#xB97C; &#xC2DC;&#xC791;&#xD558;&#xACE0; &#xC774; container&#xB294; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xACE0; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xCC28;&#xB840;&#xB85C; <a href="https://github.com/PX4/Firmware/blob/master/integrationtests/run_tests.bash" target="_blank">run_tests.bash</a>&#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xB9CC;&#xC57D; Docker&#xAC00; &#xC124;&#xCE58;&#xB418;&#xC5B4; &#xC788;&#xB2E4;&#xBA74; &#xB3D9;&#xC77C;&#xD55C; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xB85C;&#xCEEC;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> &lt;directory_<span class="hljs-built_in">where</span>_firmware_is_cloned&gt;
 sudo WORKSPACE=$(<span class="hljs-built_in">pwd</span>) ./Firmware/integrationtests/run_container.bash
 </code></pre>
-<h2 id="server-&#xC14B;&#xC5C5;">Server &#xC14B;&#xC5C5;</h2>
-<h3 id="&#xC124;&#xCE58;">&#xC124;&#xCE58;</h3>
+<h2 id="server-&#xC14B;&#xC5C5;"><a name="server-&#xC14B;&#xC5C5;" class="plugin-anchor" href="#server-&#xC14B;&#xC5C5;"><i class="fa fa-link" aria-hidden="true"></i></a>Server &#xC14B;&#xC5C5;</h2>
+<h3 id="&#xC124;&#xCE58;"><a name="&#xC124;&#xCE58;" class="plugin-anchor" href="#&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xCE58;</h3>
 <p>Jenkins&#xC758; &#xC124;&#xCE58;&#xC640; &#xC720;&#xC9C0;&#xBCF4;&#xC218;&#xD558;&#xB294; &#xC0C1;&#xC138;&#xD55C; &#xBC29;&#xBC95;&#xC740; <a href="https://github.com/PX4/containers/tree/master/scripts/jenkins" target="_blank">script/log</a> &#xC14B;&#xC5C5;&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
-<h3 id="&#xC124;&#xC815;">&#xC124;&#xC815;</h3>
+<h3 id="&#xC124;&#xC815;"><a name="&#xC124;&#xC815;" class="plugin-anchor" href="#&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xC815;</h3>
 <ul>
 <li>Jenkins &#xBCF4;&#xC548; &#xAE30;&#xB2A5; &#xC0AC;&#xC6A9;</li>
 <li>&#xC124;&#xCE58;&#xB41C; plugins<ul>
@@ -1987,7 +1995,7 @@ sudo WORKSPACE=$(<span class="hljs-built_in">pwd</span>) ./Firmware/integrationt
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Jenkins 지속 통합","level":"1.12.3","depth":2,"next":{"title":"통합 테스팅","level":"1.12.4","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"previous":{"title":"지속 통합","level":"1.12.2","depth":2,"path":"test_and_ci/continous_integration.md","ref":"test_and_ci/continous_integration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"test_and_ci/jenkins_ci.md","mtime":"2019-01-03T18:32:47.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"Jenkins 지속 통합","level":"1.12.3","depth":2,"next":{"title":"통합 테스팅","level":"1.12.4","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"previous":{"title":"지속 통합","level":"1.12.2","depth":2,"path":"test_and_ci/continous_integration.md","ref":"test_and_ci/continous_integration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"test_and_ci/jenkins_ci.md","mtime":"2019-01-03T23:23:50.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2016,6 +2024,10 @@ sudo WORKSPACE=$(<span class="hljs-built_in">pwd</span>) ./Firmware/integrationt
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Companion Computers · PX4 Developer Guide</title>
+        <title>Companion Computers · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,9 +2038,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="companion-computer-for-pixhawk-class">Companion Computer for Pixhawk class</h1>
+                                <h1 id="companion-computer-for-pixhawk-class"><a name="companion-computer-for-pixhawk-class" class="plugin-anchor" href="#companion-computer-for-pixhawk-class"><i class="fa fa-link" aria-hidden="true"></i></a>Companion Computer for Pixhawk class</h1>
 <p>Interfacing a companion computer (Raspberry Pi, Odroid, Tegra K1) to Pixhawk-family boards always works the same way: They are interfaced using a serial port to <code>TELEM2</code>, the port intended for this purpose. The message format on this link is <a href="https://mavlink.io/en/" target="_blank">MAVLink</a>.</p>
-<h2 id="pixhawk-setup">Pixhawk setup</h2>
+<h2 id="pixhawk-setup"><a name="pixhawk-setup" class="plugin-anchor" href="#pixhawk-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk setup</h2>
 <p>Set the <code>SYS_COMPANION</code> parameter (in the System group) to one of these values.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
 <p> Changing this parameter requires an autopilot reboot to become active.</p>
@@ -2044,14 +2052,14 @@
 <li><code>157600</code> to enable MAVLink in <em>OSD</em> mode at 57600 baud</li>
 <li><code>257600</code> to enable MAVLink in listen-only mode at 57600 baud</li>
 </ul>
-<h2 id="companion-computer-setup">Companion computer setup</h2>
+<h2 id="companion-computer-setup"><a name="companion-computer-setup" class="plugin-anchor" href="#companion-computer-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Companion computer setup</h2>
 <p>In order to receive MAVLink, the companion computer needs to run some software talking to the serial port. The most common options are:</p>
 <ul>
 <li><a href="../ros/mavros_installation.html">MAVROS</a> to communicate to ROS nodes</li>
 <li><a href="https://github.com/mavlink/c_uart_interface_example" target="_blank">C/C++ example code</a> to connect custom code</li>
 <li><a href="http://mavproxy.org" target="_blank">MAVProxy</a> to route MAVLink between serial and UDP</li>
 </ul>
-<h2 id="hardware-setup">Hardware setup</h2>
+<h2 id="hardware-setup"><a name="hardware-setup" class="plugin-anchor" href="#hardware-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Hardware setup</h2>
 <p>Wire the serial port according to the instructions below. All Pixhawk serial ports operate at 3.3V and are 5V level compatible.</p>
 <blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
 <p> Many modern companion computers only support 1.8V levels on their hardware UART and can be damaged by 3.3V levels. Use a level shifter. In most cases the accessible hardware serial ports already have some function (modem or console) associated with them and need to be <em>reconfigured in Linux</em> before they can be used.</p>
@@ -2118,7 +2126,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="software-setup-on-linux">Software setup on Linux</h2>
+<h2 id="software-setup-on-linux"><a name="software-setup-on-linux" class="plugin-anchor" href="#software-setup-on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Software setup on Linux</h2>
 <p>On Linux the default name of a USB FTDI would be like <code>\dev\ttyUSB0</code>. If you have a second FTDI linked on the USB or an Arduino, it will registered as <code>\dev\ttyUSB1</code>. To avoid the confusion between the first plugged and the second plugged, we recommend you to create a symlink from <code>ttyUSBx</code> to a friendly name, depending on the Vendor and Product ID of the USB device. </p>
 <p>Using <code>lsusb</code> we can get the vendor and product IDs.</p>
 <pre><code class="lang-sh">$ lsusb
@@ -2195,7 +2203,7 @@ usermod <span class="hljs-_">-a</span> -G dialout ros-user
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Companion Computers","level":"1.5.9","depth":2,"next":{"title":"Middleware","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB Messaging","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},{"title":"MAVLink Messaging","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]}]},"previous":{"title":"Gimbal (Mount) Control Setup","level":"1.5.8","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"companion_computer/pixhawk_companion.md","mtime":"2019-01-03T18:32:47.158Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Companion Computers","level":"1.5.9","depth":2,"next":{"title":"Middleware","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB Messaging","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"uORB Graph","level":"1.6.2","depth":2,"path":"middleware/uorb_graph.md","ref":"middleware/uorb_graph.md","articles":[]},{"title":"MAVLink Messaging","level":"1.6.3","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 Interface","level":"1.6.4","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput Test","level":"1.6.4.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"Manually Generate Client/Agent","level":"1.6.4.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]}]},"previous":{"title":"Gimbal (Mount) Control Setup","level":"1.5.8","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"companion_computer/pixhawk_companion.md","mtime":"2019-01-03T23:23:50.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2224,6 +2232,10 @@ usermod <span class="hljs-_">-a</span> -G dialout ros-user
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

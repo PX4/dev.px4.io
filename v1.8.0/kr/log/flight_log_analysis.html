@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>비행 로그 분석 · PX4 Developer Guide</title>
+        <title>비행 로그 분석 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,11 +1921,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xBE44;&#xD589;-&#xB85C;&#xADF8;-&#xBD84;&#xC11D;">&#xBE44;&#xD589; &#xB85C;&#xADF8; &#xBD84;&#xC11D;</h1>
+                                <h1 id="&#xBE44;&#xD589;-&#xB85C;&#xADF8;-&#xBD84;&#xC11D;"><a name="&#xBE44;&#xD589;-&#xB85C;&#xADF8;-&#xBD84;&#xC11D;" class="plugin-anchor" href="#&#xBE44;&#xD589;-&#xB85C;&#xADF8;-&#xBD84;&#xC11D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE44;&#xD589; &#xB85C;&#xADF8; &#xBD84;&#xC11D;</h1>
 <p>PX4 &#xBE44;&#xD589; &#xB85C;&#xADF8;&#xB97C; &#xBD84;&#xC11D;&#xD558;&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC544;&#xB798;&#xC5D0;&#xC11C; &#xC18C;&#xAC1C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xBE44;&#xD589;-&#xB9AC;&#xD3EC;&#xD305;">&#xBE44;&#xD589; &#xB9AC;&#xD3EC;&#xD305;</h2>
+<h2 id="&#xBE44;&#xD589;-&#xB9AC;&#xD3EC;&#xD305;"><a name="&#xBE44;&#xD589;-&#xB9AC;&#xD3EC;&#xD305;" class="plugin-anchor" href="#&#xBE44;&#xD589;-&#xB9AC;&#xD3EC;&#xD305;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE44;&#xD589; &#xB9AC;&#xD3EC;&#xD305;</h2>
 <p>PX4 &#xC0AC;&#xC6A9;&#xC790; &#xAC00;&#xC774;&#xB4DC;&#xC758; <a href="https://docs.px4.io/en/flight-reporting.html" target="_blank">how to report a flight</a> &#xD639;&#xC740; &#xBE44;&#xD589; &#xAD00;&#xB828; &#xC774;&#xC288;&#xC5D0;&#xC11C; &#xC0C1;&#xC138;&#xD558;&#xAC8C; &#xC18C;&#xAC1C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xAD6C;&#xC870;&#xD654;&#xB41C;-&#xBD84;&#xC11D;">&#xAD6C;&#xC870;&#xD654;&#xB41C; &#xBD84;&#xC11D;</h2>
+<h2 id="&#xAD6C;&#xC870;&#xD654;&#xB41C;-&#xBD84;&#xC11D;"><a name="&#xAD6C;&#xC870;&#xD654;&#xB41C;-&#xBD84;&#xC11D;" class="plugin-anchor" href="#&#xAD6C;&#xC870;&#xD654;&#xB41C;-&#xBD84;&#xC11D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xC870;&#xD654;&#xB41C; &#xBD84;&#xC11D;</h2>
 <p>&#xBE44;&#xD589; &#xB85C;&#xADF8;&#xB97C; &#xBD84;&#xC11D;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xCF58;&#xD14D;&#xC2A4;&#xD2B8;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xAC83;&#xC774; &#xD575;&#xC2EC; :</p>
 <ul>
 <li>&#xC624;&#xC791;&#xB3D9; &#xC774;&#xD6C4;&#xC5D0; &#xBD84;&#xC11D;&#xC744; &#xD55C;&#xB2E4;&#xBA74;, &#xD574;&#xB2F9; &#xB85C;&#xADF8;&#xAC00; crash&#xB098; &#xCEA1;&#xCCD0;&#xD588;&#xAC70;&#xB098; &#xACF5;&#xC911;&#xC5D0;&#xC11C; &#xBA48;&#xCDC4;&#xC744;&#xAE4C;?</li>
@@ -1925,38 +1933,38 @@
 <li>&#xC13C;&#xC11C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xBCF4;&#xC774;&#xB294;&#xAC00;? &#xAC15;&#xD55C; &#xC9C4;&#xB3D9;&#xC774; &#xC788;&#xC5C8;&#xB294;&#xAC00;? (&#xAC15;&#xD55C; &#xC9C4;&#xB3D9;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC801;&#xC808;&#xD55C; &#xD55C;&#xACC4;&#xCE58;&#xB294; 2-3 m/s/s &#xC774;&#xC0C1;&#xC758; peak-to-peak)</li>
 <li>&#xBE44;&#xD589;&#xCCB4;&#xC5D0; &#xAD6C;&#xCCB4;&#xC801;&#xC778; &#xADFC;&#xBCF8; &#xC6D0;&#xC778;&#xC774; &#xC5C6;&#xB2E4;&#xBA74;, <a href="https://github.com/px4/firmware/issues/new" target="_blank">PX4 issue tracker</a>&#xC5D0; log &#xD30C;&#xC77C;&#xC5D0; &#xB300;&#xD55C; &#xB9C1;&#xD06C;&#xB97C; &#xB9AC;&#xD3EC;&#xD305;&#xD558;&#xC138;&#xC694;.</li>
 </ul>
-<h2 id="&#xC804;&#xC6D0;-&#xBB38;&#xC81C;-&#xC81C;&#xC678;&#xD558;&#xAE30;">&#xC804;&#xC6D0; &#xBB38;&#xC81C; &#xC81C;&#xC678;&#xD558;&#xAE30;</h2>
+<h2 id="&#xC804;&#xC6D0;-&#xBB38;&#xC81C;-&#xC81C;&#xC678;&#xD558;&#xAE30;"><a name="&#xC804;&#xC6D0;-&#xBB38;&#xC81C;-&#xC81C;&#xC678;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC804;&#xC6D0;-&#xBB38;&#xC81C;-&#xC81C;&#xC678;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC804;&#xC6D0; &#xBB38;&#xC81C; &#xC81C;&#xC678;&#xD558;&#xAE30;</h2>
 <p>&#xB85C;&#xADF8; &#xD30C;&#xC77C;&#xC774; &#xBE44;&#xD589;&#xC911;&#xC5D0; &#xB05D;&#xB098;&#xBC84;&#xB838;&#xB2E4;&#xBA74;, 2&#xAC1C;&#xC758; &#xC8FC;&#xC694; &#xC6D0;&#xC778;&#xC744; &#xC0DD;&#xAC01;&#xD574; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. : &#xC804;&#xC6D0; &#xBB38;&#xC81C; &#xC544;&#xB2C8;&#xBA74; &#xC6B4;&#xC601;&#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xBB38;&#xC81C;&#xC785;&#xB2C8;&#xB2E4;. <a href="http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169" target="_blank">STM32 </a>&#xC2DC;&#xB9AC;&#xC988;&#xB97C; &#xAE30;&#xBC18;&#xC73C;&#xB85C;&#xD558;&#xB294; autopilot&#xC758; &#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xBB38;&#xC81C;&#xB294; SD &#xCE74;&#xB4DC;&#xC5D0; &#xAE30;&#xB85D;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC774;&#xB294; SD &#xCE74;&#xB4DC;&#xC758; &#xC0C1;&#xB2E8;&#xBD80;&#xC5D0; &#xC704;&#xCE58;&#xD558;&#xBA70; <strong>fault_2017_04_03_00_26_05.log</strong> &#xC640; &#xAC19;&#xC774; <em> fault_date.log</em> &#xAC19;&#xC740; &#xD615;&#xD0DC;&#xC785;&#xB2C8;&#xB2E4;. &#xBE44;&#xD589; &#xB85C;&#xADF8;&#xAC00; &#xAC11;&#xC790;&#xAE30; &#xC885;&#xB8CC;&#xB418;&#xB294; &#xACBD;&#xC6B0;&#xB77C;&#xBA74; &#xD56D;&#xC0C1; &#xC774; &#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xACA8;&#xB418;&#xC5C8;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="flight-review-&#xB9AC;&#xBDF0;-&#xC628;&#xB77C;&#xC778;-&#xD234;"><a href="http://logs.px4.io" target="_blank">Flight Review &#xB9AC;&#xBDF0; &#xC628;&#xB77C;&#xC778; &#xD234;</a></h2>
+<h2 id="flight-review-&#xB9AC;&#xBDF0;-&#xC628;&#xB77C;&#xC778;-&#xD234;"><a name="flight-review-&#xB9AC;&#xBDF0;-&#xC628;&#xB77C;&#xC778;-&#xD234;" class="plugin-anchor" href="#flight-review-&#xB9AC;&#xBDF0;-&#xC628;&#xB77C;&#xC778;-&#xD234;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://logs.px4.io" target="_blank">Flight Review &#xB9AC;&#xBDF0; &#xC628;&#xB77C;&#xC778; &#xD234;</a></h2>
 <p>Flight Review&#xB294; Log Muncher&#xC758; &#xB2E4;&#xC74C; &#xBC84;&#xC804;&#xC73C;&#xB85C; &#xC0C8;&#xB85C;&#xC6B4; ULog &#xB85C;&#xAE45; &#xD3EC;&#xB9F7;&#xACFC; &#xACB0;&#xD569;&#xD558;&#xC5EC; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<h3 id="&#xC608;&#xC81C;"><a name="&#xC608;&#xC81C;" class="plugin-anchor" href="#&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC81C;</h3>
 <p><img src="../../assets/flight_log_analysis/flight-review-example.png" alt=""></p>
-<h3 id="&#xAC15;&#xC810;">&#xAC15;&#xC810;</h3>
+<h3 id="&#xAC15;&#xC810;"><a name="&#xAC15;&#xC810;" class="plugin-anchor" href="#&#xAC15;&#xC810;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC15;&#xC810;</h3>
 <ul>
 <li>&#xC6F9; &#xAE30;&#xBC18;, &#xC5D4;&#xB4DC;&#xC720;&#xC800;&#xC5D0;&#xAC8C; &#xD6A8;&#xACFC;&#xC801;</li>
 <li>&#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC5C5;&#xB85C;&#xB4DC; &#xAC00;&#xB2A5;&#xD558;&#xBA70; &#xB9AC;&#xD3EC;&#xD2B8;&#xB97C; &#xB2E4;&#xB978; &#xC0AC;&#xB78C;&#xB4E4;&#xACFC; &#xACF5;&#xC720; &#xAC00;&#xB2A5;</li>
 <li>&#xC778;&#xD130;&#xB809;&#xD2F0;&#xBE0C; &#xADF8;&#xB798;&#xD504;</li>
 </ul>
-<h2 id="flightplot-&#xB370;&#xC2A4;&#xD06C;&#xD0D1;-&#xD234;"><a href="https://github.com/PX4/FlightPlot" target="_blank">FlightPlot &#xB370;&#xC2A4;&#xD06C;&#xD0D1; &#xD234;</a></h2>
+<h2 id="flightplot-&#xB370;&#xC2A4;&#xD06C;&#xD0D1;-&#xD234;"><a name="flightplot-&#xB370;&#xC2A4;&#xD06C;&#xD0D1;-&#xD234;" class="plugin-anchor" href="#flightplot-&#xB370;&#xC2A4;&#xD06C;&#xD0D1;-&#xD234;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/PX4/FlightPlot" target="_blank">FlightPlot &#xB370;&#xC2A4;&#xD06C;&#xD0D1; &#xD234;</a></h2>
 <p><img src="https://pixhawk.org/_media/dev/flightplot-0.2.16-screenshot.png" alt=""></p>
 <ul>
 <li><a href="https://github.com/PX4/FlightPlot/releases" target="_blank">FlightPlot &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;</a></li>
 </ul>
-<h3 id="&#xAC15;&#xC810;">&#xAC15;&#xC810;</h3>
+<h3 id="&#xAC15;&#xC810;"><a name="&#xAC15;&#xC810;" class="plugin-anchor" href="#&#xAC15;&#xC810;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC15;&#xC810;</h3>
 <ul>
 <li>java&#xAE30;&#xBC18;, &#xD06C;&#xB85C;&#xC2A4; &#xD50C;&#xB7AB;&#xD3FC;</li>
 <li>&#xC9C1;&#xAD00;&#xC801;&#xC778; GUI, &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC9C0;&#xC2DD;&#xC5C6;&#xC774; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;</li>
 </ul>
-<h2 id="px4tools"><a href="https://github.com/dronecrew/px4tools" target="_blank">PX4Tools</a></h2>
+<h2 id="px4tools"><a name="px4tools" class="plugin-anchor" href="#px4tools"><i class="fa fa-link" aria-hidden="true"></i></a><a href="https://github.com/dronecrew/px4tools" target="_blank">PX4Tools</a></h2>
 <p><img src="../../assets/flight_log_analysis/px4tools.png" alt=""></p>
-<h3 id="&#xC124;&#xCE58;">&#xC124;&#xCE58;</h3>
+<h3 id="&#xC124;&#xCE58;"><a name="&#xC124;&#xCE58;" class="plugin-anchor" href="#&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xCE58;</h3>
 <ul>
 <li>&#xCD94;&#xCC9C;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC740; anaconda3&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC0C1;&#xC138; &#xB0B4;&#xC6A9;&#xC740; <a href="https://github.com/dronecrew/px4tools" target="_blank">px4tools github page</a>&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</li>
 </ul>
 <pre><code class="lang-bash">conda install -c https://conda.anaconda.org/dronecrew px4tools
 </code></pre>
-<h3 id="&#xAC15;&#xC810;">&#xAC15;&#xC810;</h3>
+<h3 id="&#xAC15;&#xC810;"><a name="&#xAC15;&#xC810;" class="plugin-anchor" href="#&#xAC15;&#xC810;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC15;&#xC810;</h3>
 <ul>
 <li>&#xACF5;&#xC720;&#xD558;&#xAE30; &#xC27D;&#xACE0;, &#xC0AC;&#xC6A9;&#xC790;&#xB294; github&#xC5D0;&#xC11C; notebooks&#xC5D0; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. (&#xC608;&#xC81C; <a href="https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb" target="_blank">https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb</a>)</li>
 <li>python &#xAE30;&#xBC18;, &#xD06C;&#xB85C;&#xC2A4; &#xD50C;&#xB7AB;&#xD3FC;, anaconda2&#xC640; anaconda3&#xC640; &#xB3D9;&#xC791;</li>
@@ -2006,7 +2014,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"비행 로그 분석","level":"1.9.10","depth":2,"next":{"title":"ULog 파일 포맷","level":"1.9.11","depth":2,"path":"log/ulog_file_format.md","ref":"log/ulog_file_format.md","articles":[]},"previous":{"title":"로깅","level":"1.9.9","depth":2,"path":"log/logging.md","ref":"log/logging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"log/flight_log_analysis.md","mtime":"2019-01-03T18:32:47.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"비행 로그 분석","level":"1.9.10","depth":2,"next":{"title":"ULog 파일 포맷","level":"1.9.11","depth":2,"path":"log/ulog_file_format.md","ref":"log/ulog_file_format.md","articles":[]},"previous":{"title":"로깅","level":"1.9.9","depth":2,"path":"log/logging.md","ref":"log/logging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"log/flight_log_analysis.md","mtime":"2019-01-03T23:23:50.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2035,6 +2043,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

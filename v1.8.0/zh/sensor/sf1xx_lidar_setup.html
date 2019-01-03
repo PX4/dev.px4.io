@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SF1XX lidar · PX4 Developer Guide</title>
+        <title>SF1XX lidar · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,7 +1869,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="lightware-sf1xx-&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;">Lightware SF1XX &#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;</h1>
+                                <h1 id="lightware-sf1xx-&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;"><a name="lightware-sf1xx-&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;" class="plugin-anchor" href="#lightware-sf1xx-&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>Lightware SF1XX &#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;</h1>
 <hr>
 <p>&#x672C;&#x9875;&#x9762;&#x5411;&#x4F60;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x53BB;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6FC0;&#x5149;&#x96F7;&#x8FBE;:</p>
 <ol>
@@ -1876,11 +1884,11 @@
 </ol>
 <p>&#x786C;&#x4EF6;&#x9A71;&#x52A8;&#x4EC5;&#x9002;&#x5408;&#x4E8E;&#x98DE;&#x63A7;&#x677F;&#x4E0A;I2C&#x7684;&#x8FDE;&#x63A5;&#x65B9;&#x5F0F;&#x3002;</p>
 <p><img src="../../assets/hardware/sf1xx_i2c.jpg" alt=""></p>
-<h2 id="&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;">&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;</h2>
+<h2 id="&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;"><a name="&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;" class="plugin-anchor" href="#&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x8BBE;&#x7F6E;</h2>
 <hr>
 <p>&#x9996;&#x5148;&#x901A;&#x8FC7;USB&#x8FDE;&#x63A5;&#x4F20;&#x611F;&#x5668;&#xFF08;&#x5185;&#x542B;USB&#x8F6C;&#x4E32;&#x53E3;&#xFF09;&#xFF0C;&#x8FD0;&#x884C;&#x7EC8;&#x7AEF;&#xFF0C;&#x5E76;&#x6309;&#x7A7A;&#x683C;&#x952E;&#x68C0;&#x67E5;I2C&#x5730;&#x5740;&#x662F;&#x5426;&#x7B49;&#x4E8E;<code>0x66</code>&#x3002;</p>
 <p>&#x65B0;&#x7248;&#x672C;&#x98DE;&#x63A7;&#x677F;&#x5DF2;&#x7ECF;&#x9884;&#x5148;&#x8BBE;&#x7F6E;&#x4E3A;<code>0x66</code>&#xFF0C;&#x800C;&#x8001;&#x7248;&#x672C;&#x8BBE;&#x7F6E;&#x7684;<code>0x55</code>&#x5730;&#x5740;&#x4E0E; <code>rgbled</code> &#x6A21;&#x5757;&#x5730;&#x5740;&#x76F8;&#x51B2;&#x7A81;&#x3002;</p>
-<h2 id="px4&#x8BBE;&#x7F6E;">PX4&#x8BBE;&#x7F6E;</h2>
+<h2 id="px4&#x8BBE;&#x7F6E;"><a name="px4&#x8BBE;&#x7F6E;" class="plugin-anchor" href="#px4&#x8BBE;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4&#x8BBE;&#x7F6E;</h2>
 <hr>
 <p>&#x901A;&#x8FC7; <code>SENS_EN_SF1XX</code> &#x53C2;&#x6570;&#x9009;&#x62E9;&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x6A21;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x542F;&#x3002;&#x53C2;&#x6570;SENS_EN_SF1XX&#x5177;&#x4F53;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
 <ul>
@@ -1938,7 +1946,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/sensor/sf1xx_lidar_setup.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"SF1XX lidar","level":"1.4.4.1.1","depth":4,"next":{"title":"UAVCAN总线","level":"1.4.4.2","depth":3,"path":"uavcan/README.md","ref":"uavcan/README.md","articles":[{"title":"UAVCAN Bootloader","level":"1.4.4.2.1","depth":4,"path":"uavcan/bootloader_installation.md","ref":"uavcan/bootloader_installation.md","articles":[]},{"title":"UAVCAN固件升级","level":"1.4.4.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},{"title":"UAVCAN配置","level":"1.4.4.2.3","depth":4,"path":"uavcan/node_enumeration.md","ref":"uavcan/node_enumeration.md","articles":[]},{"title":"UAVCAN 的各种笔记","level":"1.4.4.2.4","depth":4,"path":"uavcan/notes.md","ref":"uavcan/notes.md","articles":[]}]},"previous":{"title":"I2C总线","level":"1.4.4.1","depth":3,"path":"sensor_bus/i2c.md","ref":"sensor_bus/i2c.md","articles":[{"title":"SF1XX lidar","level":"1.4.4.1.1","depth":4,"path":"sensor/sf1xx_lidar_setup.md","ref":"sensor/sf1xx_lidar_setup.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"sensor/sf1xx_lidar_setup.md","mtime":"2019-01-03T18:32:47.186Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/sensor/sf1xx_lidar_setup.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"SF1XX lidar","level":"1.4.4.1.1","depth":4,"next":{"title":"UAVCAN总线","level":"1.4.4.2","depth":3,"path":"uavcan/README.md","ref":"uavcan/README.md","articles":[{"title":"UAVCAN Bootloader","level":"1.4.4.2.1","depth":4,"path":"uavcan/bootloader_installation.md","ref":"uavcan/bootloader_installation.md","articles":[]},{"title":"UAVCAN固件升级","level":"1.4.4.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},{"title":"UAVCAN配置","level":"1.4.4.2.3","depth":4,"path":"uavcan/node_enumeration.md","ref":"uavcan/node_enumeration.md","articles":[]},{"title":"UAVCAN 的各种笔记","level":"1.4.4.2.4","depth":4,"path":"uavcan/notes.md","ref":"uavcan/notes.md","articles":[]}]},"previous":{"title":"I2C总线","level":"1.4.4.1","depth":3,"path":"sensor_bus/i2c.md","ref":"sensor_bus/i2c.md","articles":[{"title":"SF1XX lidar","level":"1.4.4.1.1","depth":4,"path":"sensor/sf1xx_lidar_setup.md","ref":"sensor/sf1xx_lidar_setup.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"sensor/sf1xx_lidar_setup.md","mtime":"2019-01-03T23:23:50.792Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -1967,6 +1975,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

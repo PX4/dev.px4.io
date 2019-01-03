@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>GIT例程 · PX4 Developer Guide</title>
+        <title>GIT例程 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,8 +1869,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="git-examples">GIT Examples</h1>
-<h2 id="contributing-code-to-px4">Contributing code to PX4</h2>
+                                <h1 id="git-examples"><a name="git-examples" class="plugin-anchor" href="#git-examples"><i class="fa fa-link" aria-hidden="true"></i></a>GIT Examples</h1>
+<h2 id="contributing-code-to-px4"><a name="contributing-code-to-px4" class="plugin-anchor" href="#contributing-code-to-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Contributing code to PX4</h2>
 <p>Adding a feature to PX4 follows a defined workflow. In order to share your contributions on PX4, you can follow this example.</p>
 <ul>
 <li><a href="https://github.com/join" target="_blank">Sign up</a> for github if you haven&apos;t already</li>
@@ -1908,9 +1916,9 @@ There you should see the message that a new branch has been pushed to your forke
 <li>Now it&apos;s time to create a pull request (PR). On the right hand side of the &quot;new branch message&quot; (see one step before), you should see a green button saying &quot;Compare &amp; Create Pull Request&quot;. Then it should list your changes and you can (must) add a meaningful title (in case of a one commit PR, it&apos;s usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check <a href="https://github.com/PX4/Firmware/pulls" target="_blank">other pull requests</a> for comparison)</li>
 <li>You&apos;re done! Responsible members of PX4 will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.</li>
 </ul>
-<h2 id="update-submodule">Update Submodule</h2>
+<h2 id="update-submodule"><a name="update-submodule" class="plugin-anchor" href="#update-submodule"><i class="fa fa-link" aria-hidden="true"></i></a>Update Submodule</h2>
 <p>There are several ways to update a submodule. Either you clone the repository or you go in the submodule directory and follow the same procedure as in <a href="#Contributing-code-to-PX4">Contributing code to PX4</a>.</p>
-<h2 id="do-a-pr-for-a-submodule-update">Do a PR for a submodule update</h2>
+<h2 id="do-a-pr-for-a-submodule-update"><a name="do-a-pr-for-a-submodule-update" class="plugin-anchor" href="#do-a-pr-for-a-submodule-update"><i class="fa fa-link" aria-hidden="true"></i></a>Do a PR for a submodule update</h2>
 <p>This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current master of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 </code></pre>
@@ -1932,7 +1940,7 @@ git push upstream pr-some-fix
 </code></pre>
 </li>
 </ul>
-<h2 id="checkout-pull-requests">Checkout pull requests</h2>
+<h2 id="checkout-pull-requests"><a name="checkout-pull-requests" class="plugin-anchor" href="#checkout-pull-requests"><i class="fa fa-link" aria-hidden="true"></i></a>Checkout pull requests</h2>
 <p>You can test someone&apos;s pull request (changes are not yet merged) even if the branch to merge only exists on the fork from that person. Do the following</p>
 <pre><code class="lang-sh">git fetch upstream  pull/&lt;PR ID&gt;/head:&lt;branch name&gt;
 </code></pre>
@@ -1942,14 +1950,14 @@ git push upstream pr-some-fix
 <p>Then switch to that branch</p>
 <pre><code class="lang-sh">git checkout &lt;branch name&gt;
 </code></pre>
-<h2 id="common-pitfalls">Common pitfalls</h2>
-<h3 id="force-push-to-forked-repository">Force push to forked repository</h3>
+<h2 id="common-pitfalls"><a name="common-pitfalls" class="plugin-anchor" href="#common-pitfalls"><i class="fa fa-link" aria-hidden="true"></i></a>Common pitfalls</h2>
+<h3 id="force-push-to-forked-repository"><a name="force-push-to-forked-repository" class="plugin-anchor" href="#force-push-to-forked-repository"><i class="fa fa-link" aria-hidden="true"></i></a>Force push to forked repository</h3>
 <p>After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/master. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push:</p>
 <pre><code class="lang-sh">git push --force-with-lease origin &lt;your feature branch name&gt;
 </code></pre>
-<h3 id="rebase-merge-conflicts">Rebase merge conflicts</h3>
+<h3 id="rebase-merge-conflicts"><a name="rebase-merge-conflicts" class="plugin-anchor" href="#rebase-merge-conflicts"><i class="fa fa-link" aria-hidden="true"></i></a>Rebase merge conflicts</h3>
 <p>If a conflict occurs during a <code>git rebase</code>, please refer to <a href="https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/" target="_blank">this guide</a>.</p>
-<h3 id="pull-merge-conflicts">Pull merge conflicts</h3>
+<h3 id="pull-merge-conflicts"><a name="pull-merge-conflicts" class="plugin-anchor" href="#pull-merge-conflicts"><i class="fa fa-link" aria-hidden="true"></i></a>Pull merge conflicts</h3>
 <p>If a conflict occurs during a <code>git pull</code>, please refer to <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts" target="_blank">this guide</a>.</p>
 
                                 
@@ -1994,7 +2002,7 @@ git push upstream pr-some-fix
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/contribute/git_examples.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"GIT例程","level":"1.2.6.1","depth":3,"next":{"title":"Documentation","level":"1.2.6.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"previous":{"title":"贡献&  开发者电话会议","level":"1.2.6","depth":2,"path":"contribute/README.md","ref":"contribute/README.md","articles":[{"title":"GIT例程","level":"1.2.6.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},{"title":"Documentation","level":"1.2.6.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/git_examples.md","mtime":"2019-01-03T18:32:47.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/contribute/git_examples.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"GIT例程","level":"1.2.6.1","depth":3,"next":{"title":"Documentation","level":"1.2.6.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"previous":{"title":"贡献&  开发者电话会议","level":"1.2.6","depth":2,"path":"contribute/README.md","ref":"contribute/README.md","articles":[{"title":"GIT例程","level":"1.2.6.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},{"title":"Documentation","level":"1.2.6.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/git_examples.md","mtime":"2019-01-03T23:23:50.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2023,6 +2031,10 @@ git push upstream pr-some-fix
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

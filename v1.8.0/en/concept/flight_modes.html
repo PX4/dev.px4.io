@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Flight Modes · PX4 Developer Guide</title>
+        <title>Flight Modes · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2030,12 +2038,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="flight-modes">Flight Modes</h1>
+                                <h1 id="flight-modes"><a name="flight-modes" class="plugin-anchor" href="#flight-modes"><i class="fa fa-link" aria-hidden="true"></i></a>Flight Modes</h1>
 <p><em>Flight Modes</em> define how the autopilot responds to user input and controls vehicle movement. They are loosely grouped into <em>manual</em>, <em>assisted</em> and <em>auto</em> modes, based on the level/type of control provided by the autopilot. The pilot transitions between flight modes using switches on the remote control or with a <a href="../qgc/">ground control station</a>.</p>
 <p>Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types (as described below). Finally, some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). The system will not allow transitions to those modes until the right conditions are met.</p>
 <p>The sections below provide an overview of the modes, followed by a <a href="#flight-mode-evaluation-diagram">flight mode evaluation diagram</a> that shows the conditions under which PX4 will transition into a new mode.</p>
-<h2 id="flight-mode-summary">Flight Mode Summary</h2>
-<h3 id="manual-flight-modes">Manual flight modes</h3>
+<h2 id="flight-mode-summary"><a name="flight-mode-summary" class="plugin-anchor" href="#flight-mode-summary"><i class="fa fa-link" aria-hidden="true"></i></a>Flight Mode Summary</h2>
+<h3 id="manual-flight-modes"><a name="manual-flight-modes" class="plugin-anchor" href="#manual-flight-modes"><i class="fa fa-link" aria-hidden="true"></i></a>Manual flight modes</h3>
 <p>&quot;Manual&quot; modes are those where the user has direct control over the vehicle via the RC control (or joystick). Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.</p>
 <ul>
 <li><p><strong>Fixed wing aircraft/ rovers / boats:</strong> </p>
@@ -2058,7 +2066,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="assisted-flight-modes">Assisted flight modes</h3>
+<h3 id="assisted-flight-modes"><a name="assisted-flight-modes" class="plugin-anchor" href="#assisted-flight-modes"><i class="fa fa-link" aria-hidden="true"></i></a>Assisted flight modes</h3>
 <p>&quot;Assisted&quot; modes are also user controlled but offer some level of &quot;automatic&quot; assistance - for example, automatically holding position/direction, against wind. Assisted modes often make it much easier to gain or restore controlled flight.</p>
 <ul>
 <li><strong>ALTCTL</strong> (Altitude Control)<ul>
@@ -2072,7 +2080,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="auto-flight-modes">Auto flight modes</h3>
+<h3 id="auto-flight-modes"><a name="auto-flight-modes" class="plugin-anchor" href="#auto-flight-modes"><i class="fa fa-link" aria-hidden="true"></i></a>Auto flight modes</h3>
 <p>&quot;Auto&quot; modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).</p>
 <ul>
 <li><strong>AUTO_LOITER</strong> (Loiter)<ul>
@@ -2092,7 +2100,7 @@ In this mode the position, velocity or attitude reference / target / setpoint is
 </ul>
 </li>
 </ul>
-<h2 id="flight-mode-evaluation-diagram">Flight Mode Evaluation Diagram</h2>
+<h2 id="flight-mode-evaluation-diagram"><a name="flight-mode-evaluation-diagram" class="plugin-anchor" href="#flight-mode-evaluation-diagram"><i class="fa fa-link" aria-hidden="true"></i></a>Flight Mode Evaluation Diagram</h2>
 <p><img src="../../assets/diagrams/commander-flow-diagram.png" alt=""></p>
 
                                 
@@ -2137,7 +2145,7 @@ In this mode the position, velocity or attitude reference / target / setpoint is
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Flight Modes","level":"1.3.3","depth":2,"next":{"title":"Mixing and Actuators","level":"1.3.4","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[]},"previous":{"title":"Dronecode Platform Overview","level":"1.3.2","depth":2,"path":"concept/dronecode_architecture.md","ref":"concept/dronecode_architecture.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/flight_modes.md","mtime":"2019-01-03T18:32:47.158Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Flight Modes","level":"1.3.3","depth":2,"next":{"title":"Mixing and Actuators","level":"1.3.4","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[]},"previous":{"title":"Dronecode Platform Overview","level":"1.3.2","depth":2,"path":"concept/dronecode_architecture.md","ref":"concept/dronecode_architecture.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/flight_modes.md","mtime":"2019-01-03T23:23:50.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2166,6 +2174,10 @@ In this mode the position, velocity or attitude reference / target / setpoint is
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

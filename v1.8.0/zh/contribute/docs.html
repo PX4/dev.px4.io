@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Documentation · PX4 Developer Guide</title>
+        <title>Documentation · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,13 +1869,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="contributing-to-documentation">Contributing to Documentation</h1>
+                                <h1 id="contributing-to-documentation"><a name="contributing-to-documentation" class="plugin-anchor" href="#contributing-to-documentation"><i class="fa fa-link" aria-hidden="true"></i></a>Contributing to Documentation</h1>
 <p>Contributions to the Dronecode guides, including the PX4 developer and user guides are very welcome!
 This article explains how you can make changes, add content, and create translations.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> You will need a (free) <a href="http://github.com" target="_blank">Github</a> account to contribute to the guide.</p>
 </blockquote>
-<h2 id="quick-changes">Quick Changes</h2>
+<h2 id="quick-changes"><a name="quick-changes" class="plugin-anchor" href="#quick-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Quick Changes</h2>
 <p>Fixing typos or editing an <em>existing page</em> is easy:</p>
 <ol>
 <li><p>Click the <strong>Edit</strong> toolbar icon at the top of the relevant page in the guide.</p>
@@ -1880,8 +1888,8 @@ guided to submit a <em>pull request</em>.</li>
 </ol>
 <p>The documentation team reviews submitted pull requests and will either merge
 it or work with you to update it.</p>
-<h2 id="adding-new-content---big-changes">Adding New Content - Big Changes</h2>
-<h3 id="what-goes-where">What Goes Where?</h3>
+<h2 id="adding-new-content---big-changes"><a name="adding-new-content---big-changes" class="plugin-anchor" href="#adding-new-content---big-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Adding New Content - Big Changes</h2>
+<h3 id="what-goes-where"><a name="what-goes-where" class="plugin-anchor" href="#what-goes-where"><i class="fa fa-link" aria-hidden="true"></i></a>What Goes Where?</h3>
 <p>The <em>Developer Guide</em> is for documentation that is relevant to <em>software developers</em>.
 This includes users who need to: </p>
 <ul>
@@ -1899,7 +1907,7 @@ This includes users who need to: </p>
 <p> For example, detailed information about how to build/configure an existing airframe are in the User Guide, 
 while instructions for defining a <em>new</em> airframe are in the Developer Guide.</p>
 </blockquote>
-<h3 id="gitbook-documentation-toolchain">Gitbook Documentation Toolchain</h3>
+<h3 id="gitbook-documentation-toolchain"><a name="gitbook-documentation-toolchain" class="plugin-anchor" href="#gitbook-documentation-toolchain"><i class="fa fa-link" aria-hidden="true"></i></a>Gitbook Documentation Toolchain</h3>
 <p>The guide uses the <a href="https://www.gitbook.com/about" target="_blank">Gitbook</a> toolchain. 
 Change requests can be either done on the Gitbook website using the <a href="https://gitbookio.gitbooks.io/documentation/content/editor/index.html" target="_blank">Gitbook editor</a>
 or locally (more flexible, but less user-friendly). </p>
@@ -1914,7 +1922,7 @@ Pages for each language are stored in the folder named for the associated langua
 <li>A file named <strong>book.json</strong> defines any dependencies of the build.</li>
 <li>A web hook is used to track whenever files are merged into the master branch on this repository, causing the book to rebuild.</li>
 </ul>
-<h2 id="style-guide">Style guide</h2>
+<h2 id="style-guide"><a name="style-guide" class="plugin-anchor" href="#style-guide"><i class="fa fa-link" aria-hidden="true"></i></a>Style guide</h2>
 <ol>
 <li><p>Files/file names</p>
 <ul>
@@ -1942,7 +1950,7 @@ as this precise text is required to render the note properly.</li>
 </ul>
 </li>
 </ol>
-<h2 id="translation">Translations </h2>
+<h2 id="translation"><a name="translation" class="plugin-anchor" href="#translation"><i class="fa fa-link" aria-hidden="true"></i></a>Translations </h2>
 <p>We have recently started adding translated versions of all the PX4/Dronecode guides! 
 If you would like to help, contact us on <a href="../#support">our support channels</a>. </p>
 <p>Gitbook supports translation <a href="https://toolchain.gitbook.com/languages.html" target="_blank">as described here</a>:</p>
@@ -1964,7 +1972,7 @@ If you would like to help, contact us on <a href="../#support">our support chann
 <li>Translation changes are submitted to the repo in the same way as any other changes (fork the repo, make a branch for your changes, and create PRs of the branches to submit them into this repo).</li>
 <li>Translation teams can organise themselves however they like as long as PRs are submitted using the above approach.</li>
 </ul>
-<h3 id="starting-a-new-language-translation">Starting a new language translation</h3>
+<h3 id="starting-a-new-language-translation"><a name="starting-a-new-language-translation" class="plugin-anchor" href="#starting-a-new-language-translation"><i class="fa fa-link" aria-hidden="true"></i></a>Starting a new language translation</h3>
 <p>The process straightforward:</p>
 <ol>
 <li>Fork the documentation repo.</li>
@@ -1990,9 +1998,9 @@ git push origin add_translation_language_yourlanguagename
 <li><p>On the Github interface, create a PR to submit your branch back to the master repo (a banner appears on Github that you can click when you visit the repo).</p>
 </li>
 </ol>
-<h3 id="updating-translations">Updating translations</h3>
+<h3 id="updating-translations"><a name="updating-translations" class="plugin-anchor" href="#updating-translations"><i class="fa fa-link" aria-hidden="true"></i></a>Updating translations</h3>
 <p>Translations can be updated like any other change to documentation: fork the repo, create a branch for your changes in your fork, then submit them back to the main repo as PRs.</p>
-<h3 id="tracking-changes">Tracking changes</h3>
+<h3 id="tracking-changes"><a name="tracking-changes" class="plugin-anchor" href="#tracking-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Tracking changes</h3>
 <p>We hope that translation owners will track changes in the English version and propagate them through to their translations.</p>
 <p>Git/Github have excellent mechanisms for tracking changes. We recommend that when you add <a href="https://toolchain.gitbook.com/pages.html#front-matter" target="_blank">document front matter</a> to your translation with the commit information for the page you translated. This allows anyone to go back later and find out whether the text has changed since it was last translated. For example:</p>
 <pre><code class="lang-md">---
@@ -2004,7 +2012,7 @@ translated_sha: 95b39d747851dd01c1fe5d36b24e59ec865e323e
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The <em>translated_sha</em> is the full SHA of the commit that you translated. Find this by opening the source page on github, press the <strong>History</strong> button. Find the commit of the document you are translating from (ideally the most recent) and press the &quot;Copy the full SHA&quot; icon associated with that commit.</p>
 </blockquote>
-<h2 id="licence">Licence</h2>
+<h2 id="licence"><a name="licence" class="plugin-anchor" href="#licence"><i class="fa fa-link" aria-hidden="true"></i></a>Licence</h2>
 <p>All PX4/Dronecode documentation is free to use and modify under terms of the permissive 
 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> licence.</p>
 
@@ -2050,7 +2058,7 @@ translated_sha: 95b39d747851dd01c1fe5d36b24e59ec865e323e
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.2.6.2","depth":3,"next":{"title":"Licenses","level":"1.2.7","depth":2,"path":"contribute/licenses.md","ref":"contribute/licenses.md","articles":[]},"previous":{"title":"GIT例程","level":"1.2.6.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/docs.md","mtime":"2019-01-03T18:32:47.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.2.6.2","depth":3,"next":{"title":"Licenses","level":"1.2.7","depth":2,"path":"contribute/licenses.md","ref":"contribute/licenses.md","articles":[]},"previous":{"title":"GIT例程","level":"1.2.6.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/docs.md","mtime":"2019-01-03T23:23:50.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2079,6 +2087,10 @@ translated_sha: 95b39d747851dd01c1fe5d36b24e59ec865e323e
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

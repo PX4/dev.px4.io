@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>프로파일링 · PX4 Developer Guide</title>
+        <title>프로파일링 · PX4 v1.8.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,16 +1921,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="poor-mans-sampling-profiler">Poor Man&apos;s Sampling Profiler</h1>
+                                <h1 id="poor-mans-sampling-profiler"><a name="poor-mans-sampling-profiler" class="plugin-anchor" href="#poor-mans-sampling-profiler"><i class="fa fa-link" aria-hidden="true"></i></a>Poor Man&apos;s Sampling Profiler</h1>
 <p>&#xC774; &#xC139;&#xC158;&#xC5D0;&#xC11C;&#xB294; profiling&#xC744; &#xD1B5;&#xD574;&#xC11C; PX4 &#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xC131;&#xB2A5;&#xC744; &#xC54C;&#xC544;&#xBCF4;&#xB294; &#xBC29;&#xBC95;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC54C;&#xC544;&#xBD05;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC774; &#xC544;&#xC774;&#xB514;&#xC5B4;&#xB294; <a href="https://dom.as/2009/02/15/poor-mans-contention-profiling/" target="_blank">Mark Callaghan and Domas Mituzas</a>&#xAC00; &#xC81C;&#xC548;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xC811;&#xADFC;&#xBC95;">&#xC811;&#xADFC;&#xBC95;</h2>
+<h2 id="&#xC811;&#xADFC;&#xBC95;"><a name="&#xC811;&#xADFC;&#xBC95;" class="plugin-anchor" href="#&#xC811;&#xADFC;&#xBC95;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC811;&#xADFC;&#xBC95;</h2>
 <p>PMSP&#xB294; &#xC258; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB85C; &#xD604;&#xC7AC; stack trace&#xC744; &#xC0D8;&#xD50C;&#xB9C1;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xD38C;&#xC6E8;&#xC5B4; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xC778;&#xD130;&#xB7FD;&#xD2B8;&#xB97C; &#xAC70;&#xB294; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC0D8;&#xD50C;&#xB9C1;&#xD55C; stack trace&#xB294; text &#xD30C;&#xC77C;&#xC5D0; &#xCD94;&#xAC00;&#xB429;&#xB2C8;&#xB2E4;.
 &#xC77C;&#xB2E8; &#xC0D8;&#xD50C;&#xB9C1;&#xC774; &#xB05D;&#xB098;&#xBA74;(&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; 1&#xC2DC;&#xAC04; &#xC774;&#xC0C1; &#xAC78;&#xB9BC;), &#xC218;&#xC9D1;&#xD55C; stack trace&#xB97C; <em>folded</em> &#xD569;&#xB2C8;&#xB2E4;.
 <em>folding</em> &#xD55C; &#xACB0;&#xACFC;&#xB85C; &#xB3D9;&#xC77C;&#xD55C; stack trace&#xB97C; &#xD3EC;&#xD568;&#xD558;&#xB294; &#xCD94;&#xAC00; text &#xD30C;&#xC77C;&#xC774; &#xC0DD;&#xAE41;&#xB2C8;&#xB2E4;. &#xBAA8;&#xB4E0; &#xC720;&#xC0AC;&#xD55C; stack trace(&#xC608;&#xB85C; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB0B4;&#xC5D0;&#xC11C; &#xB3D9;&#xC77C;&#xD55C; &#xC9C0;&#xC810;&#xC5D0;&#xC11C; &#xC5BB;&#xC5C8;&#xB358; &#xAC83;&#xB4E4;)&#xAC00; &#xAC19;&#xC774; &#xD569;&#xCCD0;&#xC9C0;&#xACE0; &#xBC1C;&#xC0DD;&#xD55C; &#xD69F;&#xC218;&#xAC00; &#xAE30;&#xB85D;&#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC740; &#xC81C;&#xC678;&#xB429;&#xB2C8;&#xB2E4;
 folded stack&#xC740; &#xC2DC;&#xAC01;&#xD654; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC758; &#xC785;&#xB825;&#xC73C;&#xB85C; &#xB4E4;&#xC5B4;&#xAC00;&#xB294;&#xB370; &#xC5EC;&#xAE30;&#xC11C;&#xB294; <a href="http://www.brendangregg.com/flamegraphs.html" target="_blank">FlameGraph - &#xC624;&#xD508;&#xC18C;&#xC2A4; stack trace visualizer</a>&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xAD6C;&#xD604;">&#xAD6C;&#xD604;</h2>
+<h2 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h2>
 <p>&#xD574;&#xB2F9; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; <code>Debug/poor-mans-profiler.sh</code>&#xC5D0; &#xC704;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC77C;&#xB2E8; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xC9C0;&#xC815;&#xD55C; &#xC2DC;&#xAC04; &#xAD6C;&#xAC04;&#xC73C;&#xB85C; &#xC9C0;&#xC815;&#xD55C; &#xD69F;&#xC218;&#xB9CC;&#xD07C; &#xC0D8;&#xD50C;&#xB9C1;&#xC744; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC218;&#xC9D1;&#xD55C; &#xC0D8;&#xD50C;&#xC740; system &#xC784;&#xC2DC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;(&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; <code>/tmp</code>)&#xC5D0; &#xC788;&#xB294; text &#xD30C;&#xC77C;&#xC5D0; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.
@@ -1943,11 +1951,11 @@ stack&#xC774; &#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; folded&#xB418;&#xBA74; &#
 </code></pre>
 <p><code>--append</code>&#xC744; <code>--nsamples=0</code>&#xC640; &#xD568;&#xAED8; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xD0C0;&#xAC9F;&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xC9C0; &#xC54A;&#xACE0; SVG&#xB97C; &#xB2E4;&#xC2DC; &#xC0DD;&#xC131;&#xD558;&#xB77C;&#xB294; &#xBA85;&#xB839;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC5B4;&#xB5BB;&#xAC8C; &#xB3D9;&#xC791;&#xD558;&#xB294;&#xC9C0; &#xAE4A;&#xAC8C; &#xC774;&#xD574;&#xD558;&#xACE0;&#xC790; &#xD55C;&#xB2E4;&#xBA74; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC77D;&#xC5B4;&#xBCF4;&#xC138;&#xC694;.</p>
-<h2 id="&#xCD9C;&#xB825;-&#xC774;&#xD574;&#xD558;&#xAE30;">&#xCD9C;&#xB825; &#xC774;&#xD574;&#xD558;&#xAE30;</h2>
+<h2 id="&#xCD9C;&#xB825;-&#xC774;&#xD574;&#xD558;&#xAE30;"><a name="&#xCD9C;&#xB825;-&#xC774;&#xD574;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xCD9C;&#xB825;-&#xC774;&#xD574;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCD9C;&#xB825; &#xC774;&#xD574;&#xD558;&#xAE30;</h2>
 <p>&#xC608;&#xC81C; &#xCD9C;&#xB825;&#xC758; &#xD654;&#xBA74;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.(&#xC5EC;&#xAE30;&#xC11C;&#xB294; &#xC0C1;&#xD638;&#xC791;&#xC6A9;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;) :</p>
 <p><img src="../../assets/flamegraph-example.png" alt="FlameGraph &#xC608;&#xC81C;"></p>
 <p>flame &#xADF8;&#xB798;&#xD504;&#xC5D0;&#xC11C; &#xC218;&#xD3C9; &#xB808;&#xBCA8;&#xC740; stack frame&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xBA70; &#xAC01; frame&#xC758; &#xD3ED;&#xC740; &#xC0D8;&#xD50C;&#xB9C1;&#xD558;&#xB294; &#xD69F;&#xC218;&#xC5D0; &#xBE44;&#xB840;&#xD569;&#xB2C8;&#xB2E4;. &#xACB0;&#xAD6D; &#xD2B9;&#xC815; &#xD568;&#xC218;&#xAC00; &#xC0D8;&#xD50C;&#xB9C1;&#xC744; &#xC885;&#xB8CC;&#xD560;&#xB54C; &#xC2E4;&#xD589; &#xC2DC;&#xAC04; &#xBE48;&#xB3C4;&#xC5D0; &#xBE44;&#xB840;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xAC00;&#xB2A5;&#xD55C;-&#xC774;&#xC288;&#xB4E4;">&#xAC00;&#xB2A5;&#xD55C; &#xC774;&#xC288;&#xB4E4;</h2>
+<h2 id="&#xAC00;&#xB2A5;&#xD55C;-&#xC774;&#xC288;&#xB4E4;"><a name="&#xAC00;&#xB2A5;&#xD55C;-&#xC774;&#xC288;&#xB4E4;" class="plugin-anchor" href="#&#xAC00;&#xB2A5;&#xD55C;-&#xC774;&#xC288;&#xB4E4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC00;&#xB2A5;&#xD55C; &#xC774;&#xC288;&#xB4E4;</h2>
 <p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xC784;&#xC2DC; &#xBC29;&#xD3B8;&#xC73C;&#xB85C; &#xAC1C;&#xBC1C;&#xB418;&#xC5B4;&#xC11C; &#xC774;&#xC288;&#xAC00; &#xBC1C;&#xC0DD;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xB3D9;&#xC548; &#xC798; &#xAD00;&#xCC30;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
 <ul>
@@ -2009,7 +2017,7 @@ stack&#xC774; &#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; folded&#xB418;&#xBA74; &#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"프로파일링","level":"1.9.7","depth":2,"next":{"title":"디버거 값 보내기","level":"1.9.8","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"previous":{"title":"시스템 수준 Replay","level":"1.9.6","depth":2,"path":"debug/system_wide_replay.md","ref":"debug/system_wide_replay.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"debug/profiling.md","mtime":"2019-01-03T18:32:47.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:34:15.560Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"프로파일링","level":"1.9.7","depth":2,"next":{"title":"디버거 값 보내기","level":"1.9.8","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"previous":{"title":"시스템 수준 Replay","level":"1.9.6","depth":2,"path":"debug/system_wide_replay.md","ref":"debug/system_wide_replay.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.0:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.0 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"debug/profiling.md","mtime":"2019-01-03T23:23:50.784Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:25:10.346Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2038,6 +2046,10 @@ stack&#xC774; &#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; folded&#xB418;&#xBA74; &#
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         
