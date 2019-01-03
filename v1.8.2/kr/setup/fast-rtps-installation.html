@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Fast RTPS 설치 · PX4 Developer Guide</title>
+        <title>Fast RTPS 설치 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,19 +1921,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="fast-rtps-&#xC124;&#xCE58;-">Fast RTPS &#xC124;&#xCE58; <img src="../../assets/fastrtps/eprosima_logo.png" alt=""></h1>
+                                <h1 id="fast-rtps-&#xC124;&#xCE58;-"><a name="fast-rtps-&#xC124;&#xCE58;-" class="plugin-anchor" href="#fast-rtps-&#xC124;&#xCE58;-"><i class="fa fa-link" aria-hidden="true"></i></a>Fast RTPS &#xC124;&#xCE58; <img src="../../assets/fastrtps/eprosima_logo.png" alt=""></h1>
 <p><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/" target="_blank"><em>eprosima Fast RTPS</em></a> RTPS (Real Time Publish Subscribe) &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; C++&#xB85C; &#xAD6C;&#xD604;&#xD55C; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. UDP&#xCC98;&#xB7FC; &#xC2E0;&#xB8B0;&#xC131;&#xC774; &#xB0AE;&#xC740; &#xD2B8;&#xB79C;&#xC2A4;&#xD3EC;&#xD2B8; &#xC0C1;&#xC5D0;&#xC11C; publisher-subscriber &#xD1B5;&#xC2E0;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB85C; OMG(Object Management Group) &#xCEE8;&#xC18C;&#xC2DC;&#xC5C4;&#xC5D0;&#xC11C; &#xC815;&#xC758; &#xBC0F; &#xAD00;&#xB9AC;&#xD558;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. RTPS&#xB294; DDS &#xD45C;&#xC900;&#xC744; &#xC704;&#xD574; OMG&#xAC00; &#xC815;&#xC758;&#xD55C; &#xC720;&#xC120; &#xC0C1;&#xD638;&#xC6B4;&#xC601; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC774;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><strong>NOTE</strong>: &#xC5EC;&#xAE30; &#xC815;&#xBCF4;&#xB294; <a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/" target="_blank"><em>eprosima Fast RTPS</em> documentation</a>&#xC5D0;&#xC11C; &#xBC1C;&#xCDCC;&#xD55C; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xC694;&#xAD6C;&#xC0AC;&#xD56D;"><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/requirements.html#requirements" target="_blank">&#xC694;&#xAD6C;&#xC0AC;&#xD56D;</a></h2>
+<h2 id="&#xC694;&#xAD6C;&#xC0AC;&#xD56D;"><a name="&#xC694;&#xAD6C;&#xC0AC;&#xD56D;" class="plugin-anchor" href="#&#xC694;&#xAD6C;&#xC0AC;&#xD56D;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/requirements.html#requirements" target="_blank">&#xC694;&#xAD6C;&#xC0AC;&#xD56D;</a></h2>
 <p><em>eProsima Fast RTPS</em> &#xAC00; &#xB3D9;&#xC791;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="run-dependencies">Run Dependencies</h3>
-<h4 id="java">Java</h4>
+<h3 id="run-dependencies"><a name="run-dependencies" class="plugin-anchor" href="#run-dependencies"><i class="fa fa-link" aria-hidden="true"></i></a>Run Dependencies</h3>
+<h4 id="java"><a name="java" class="plugin-anchor" href="#java"><i class="fa fa-link" aria-hidden="true"></i></a>Java</h4>
 <p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank">Java JDK 8</a> &#xC124;&#xCE58;&#xB97C; &#xCD94;&#xCC9C;&#xD569;&#xB2C8;&#xB2E4;. Java&#xB294; &#xBE4C;&#xD2B8;&#xC778; &#xCF54;&#xB4DC; &#xC0DD;&#xC131; &#xB3C4;&#xAD6C;&#xC778; <em>fastrtpsgen</em>&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="windows-7-32-bit&#xC640;-64-bit">Windows 7 32-bit&#xC640; 64-bit</h3>
-<h4 id="visual-c-2013-&#xD639;&#xC740;-2015-redistributable-&#xD328;&#xD0A4;&#xC9C0;">Visual C++ 2013 &#xD639;&#xC740; 2015 Redistributable &#xD328;&#xD0A4;&#xC9C0;</h4>
+<h3 id="windows-7-32-bit&#xC640;-64-bit"><a name="windows-7-32-bit&#xC640;-64-bit" class="plugin-anchor" href="#windows-7-32-bit&#xC640;-64-bit"><i class="fa fa-link" aria-hidden="true"></i></a>Windows 7 32-bit&#xC640; 64-bit</h3>
+<h4 id="visual-c-2013-&#xD639;&#xC740;-2015-redistributable-&#xD328;&#xD0A4;&#xC9C0;"><a name="visual-c-2013-&#xD639;&#xC740;-2015-redistributable-&#xD328;&#xD0A4;&#xC9C0;" class="plugin-anchor" href="#visual-c-2013-&#xD639;&#xC740;-2015-redistributable-&#xD328;&#xD0A4;&#xC9C0;"><i class="fa fa-link" aria-hidden="true"></i></a>Visual C++ 2013 &#xD639;&#xC740; 2015 Redistributable &#xD328;&#xD0A4;&#xC9C0;</h4>
 <p><em>eProsima Fast RTPS</em>&#xB294; &#xC124;&#xCE58; &#xBC0F; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xB294; &#xB3D9;&#xC548; Visual C++ Redistributable &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xC778;&#xC2A4;&#xD1A8;&#xB7EC;&#xAC00; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC; &#xBC0F; &#xC124;&#xCE58;&#xC5D0; &#xAD00;&#xD55C; &#xC635;&#xC158;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><strong>NOTE</strong>: &#xC0C1;&#xC138; &#xC815;&#xBCF4;&#xB294; <a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/requirements.html#requirements" target="_blank">&#xC694;&#xAD6C;&#xC0AC;&#xD56D;</a>&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
-<h2 id="&#xC18C;&#xC2A4;&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/sources.html#installation-from-sources" target="_blank">&#xC18C;&#xC2A4;&#xC5D0;&#xC11C; &#xC124;&#xCE58;&#xD558;&#xAE30;</a></h2>
+<h2 id="&#xC18C;&#xC2A4;&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a name="&#xC18C;&#xC2A4;&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC18C;&#xC2A4;&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/sources.html#installation-from-sources" target="_blank">&#xC18C;&#xC2A4;&#xC5D0;&#xC11C; &#xC124;&#xCE58;&#xD558;&#xAE30;</a></h2>
 <p>Github&#xC5D0;&#xC11C; &#xD504;&#xB85C;&#xC81D;&#xD2B8; clone :</p>
 <pre><code class="lang-sh">$ git <span class="hljs-built_in">clone</span> https://github.com/eProsima/Fast-RTPS
 $ mkdir Fast-RTPS/build &amp;&amp; <span class="hljs-built_in">cd</span> Fast-RTPS/build
@@ -1942,18 +1950,18 @@ $ sudo make install
 <p>&#xC608;&#xC81C;&#xB97C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xB824;&#xBA74;, CMake&#xB97C; &#xD638;&#xCD9C;&#xD560;&#xB54C; <code>-DCOMPILE_EXAMPLES=ON</code> &#xC778;&#xC790;&#xB97C; &#xCD94;&#xAC00;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC131;&#xB2A5; &#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC6D0;&#xD558;&#xBA74;, CMake&#xB97C; &#xD638;&#xCD9C;&#xD560;&#xB54C; <code>-DPERFORMANCE_TESTS=ON</code> &#xC778;&#xC790;&#xB97C; &#xCD94;&#xAC00;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><strong>NOTE</strong>: &#xC0C1;&#xC138; &#xC815;&#xBCF4;&#xB294; <a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/sources.html#installation-from-sources" target="_blank">&#xC18C;&#xC2A4;&#xC5D0;&#xC11C; &#xC124;&#xCE58;</a>&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
-<h2 id="&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB85C;-&#xC124;&#xCE58;"><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/binaries.html#installation-from-binaries" target="_blank">&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB85C; &#xC124;&#xCE58;</a></h2>
+<h2 id="&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB85C;-&#xC124;&#xCE58;"><a name="&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB85C;-&#xC124;&#xCE58;" class="plugin-anchor" href="#&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB85C;-&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a><a href="http://eprosima-fast-rtps.readthedocs.io/en/latest/binaries.html#installation-from-binaries" target="_blank">&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB85C; &#xC124;&#xCE58;</a></h2>
 <p><a href="http://www.eprosima.com/" target="_blank">&#xC0AC;&#xC774;&#xD2B8;</a>&#xC5D0;&#xC11C; <em>eProsima Fast RTPS</em>&#xC758; &#xCD5C;&#xC2E0; &#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB97C; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="windows-7-32-bit&#xC640;-64-bit">Windows 7 32-bit&#xC640; 64-bit</h3>
+<h3 id="windows-7-32-bit&#xC640;-64-bit"><a name="windows-7-32-bit&#xC640;-64-bit" class="plugin-anchor" href="#windows-7-32-bit&#xC640;-64-bit"><i class="fa fa-link" aria-hidden="true"></i></a>Windows 7 32-bit&#xC640; 64-bit</h3>
 <p>&#xC778;&#xC2A4;&#xD1A8;&#xB7EC;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC9C0;&#xC2DC;&#xB97C; &#xB530;&#xB985;&#xB2C8;&#xB2E4;. &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xAC00; &#xB098;&#xC624;&#xBA74; &#xC54C;&#xB9DE;&#xB294; Visual Studio &#xBC84;&#xC804;&#xC744; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xD658;&#xACBD;&#xBCC0;&#xC218;">&#xD658;&#xACBD;&#xBCC0;&#xC218;</h4>
+<h4 id="&#xD658;&#xACBD;&#xBCC0;&#xC218;"><a name="&#xD658;&#xACBD;&#xBCC0;&#xC218;" class="plugin-anchor" href="#&#xD658;&#xACBD;&#xBCC0;&#xC218;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD658;&#xACBD;&#xBCC0;&#xC218;</h4>
 <p><em>eProsima Fast RTPS</em>&#xB294; &#xC62C;&#xBC14;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xD658;&#xACBD;&#xBCC0;&#xC218; &#xC14B;&#xC5C5;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
 <ul>
 <li>FASTRTPSHOME: <em>eProsima Fast RTPS</em>&#xAC00; &#xC124;&#xCE58;&#xB418;&#xB294; root &#xD3F4;&#xB354;.</li>
 <li>PATH&#xC5D0; &#xCD94;&#xAC00;: /bin &#xD3F4;&#xB354;&#xC640; &#xC120;&#xD0DD;&#xD55C; Visual Studio &#xBC84;&#xC804;&#xC758; &#xC11C;&#xBE0C;&#xD3F4;&#xB354;&#xB97C; PATH&#xC5D0; &#xCD94;&#xAC00;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</li>
 </ul>
 <p>&#xC774; &#xBCC0;&#xC218;&#xB4E4;&#xC740; &#xC124;&#xCE58;&#xD558;&#xB294; &#xB3D9;&#xC548; &#xAD00;&#xB828; &#xBC15;&#xC2A4;&#xB97C; &#xCCB4;&#xD06C;&#xD558;&#xBA74; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<h3 id="linux">Linux</h3>
+<h3 id="linux"><a name="linux" class="plugin-anchor" href="#linux"><i class="fa fa-link" aria-hidden="true"></i></a>Linux</h3>
 <p>&#xD328;&#xD0A4;&#xC9C0;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xCD94;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC5D0;&#xB294; <em>eProsima Fast RTPS</em>&#xC640; <em>eProsima Fast CDR</em>&#xAC00; &#xD3EC;&#xD568;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB450;&#xAC1C; &#xD328;&#xD0A4;&#xC9C0;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xB3D9;&#xC77C;&#xD55C; &#xC808;&#xCC28;&#xB97C; &#xB530;&#xB974;&#xBA74; &#xBA3C;&#xC800; <em>Fast CDR</em>&#xB85C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xCEF4;&#xD30C;&#xC77C; &#xC124;&#xC815;:</p>
 <pre><code class="lang-sh">$ ./configure --libdir=/usr/lib
@@ -2008,7 +2016,7 @@ $ sudo make install
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fast RTPS 설치","level":"1.2.2.4","depth":3,"next":{"title":"코드 빌드하기","level":"1.2.3","depth":2,"path":"setup/building_px4.md","ref":"setup/building_px4.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/fast-rtps-installation.md","mtime":"2019-01-03T18:30:41.361Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"Fast RTPS 설치","level":"1.2.2.4","depth":3,"next":{"title":"코드 빌드하기","level":"1.2.3","depth":2,"path":"setup/building_px4.md","ref":"setup/building_px4.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/fast-rtps-installation.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2037,6 +2045,10 @@ $ sudo make install
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

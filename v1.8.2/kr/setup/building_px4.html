@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>코드 빌드하기 · PX4 Developer Guide</title>
+        <title>코드 빌드하기 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,9 +1921,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;">PX4 Software &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h1>
+                                <h1 id="px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Software &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h1>
 <p>PX4&#xB294; &#xCF58;&#xC194;&#xC774;&#xB098; IDE &#xAC1C;&#xBC1C;&#xD658;&#xACBD;&#xC5D0;&#xC11C; &#xBE4C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;">&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640; &#xCC98;&#xC74C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h2>
+<h2 id="&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640; &#xCC98;&#xC74C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h2>
 <p>&#xCF58;&#xC194; &#xD658;&#xACBD;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xD2B8; &#xD0C0;&#xAC9F;&#xC6A9;&#xC73C;&#xB85C; &#xCC98;&#xC74C; &#xBE4C;&#xB4DC;&#xB97C; &#xD574;&#xBD05;&#xC2DC;&#xB2E4;. &#xC2E4;&#xC81C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB098; IDE&#xC5D0;&#xC11C; &#xC9C4;&#xD589;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xC2DC;&#xC2A4;&#xD15C; &#xC14B;&#xC5C5;&#xC774; &#xC81C;&#xB300;&#xB85C; &#xB418;&#xC5C8;&#xB294;&#xC9C0;&#xB97C; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p>&#xBA3C;&#xC800; &#xD130;&#xBBF8;&#xB110; &#xB744;&#xC6B0;&#xAE30;</p>
 <ul>
@@ -1939,8 +1947,8 @@ make posix jmavsim
 <p><strong>CTRL-C</strong> &#xB97C; &#xB204;&#xB974;&#xBA74; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xACFC; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xB418;&#xB294; flight code&#xAC00; &#xBA48;&#xCD94;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xC14B;&#xC5C5;&#xC758; &#xC0C1;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; &#xB2E4;&#xC74C;&#xC744; &#xCC38;&#xACE0; : <a href="../simulation/jmavsim.html">jMAVSim Simulation</a>.</p>
 <p>&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xCEE8;&#xD2B8;&#xB864; &#xC2A4;&#xD14C;&#xC774;&#xC158;&#xC73C;&#xB85C; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xBE44;&#xD589;&#xC740; &#xC2E4;&#xC81C; &#xBE44;&#xD589;&#xCCB4;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xC720;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;. &#xBE44;&#xD589;&#xCCB4;&#xAC00; &#xBE44;&#xD589; &#xC911;&#xC77C;&#xB54C; &#xC9C0;&#xB3C4;&#xC5D0;&#xC11C; &#xC704;&#xCE58;&#xB97C; &#xD074;&#xB9AD;&#xD558;&#xACE0; &#xC2AC;&#xB77C;&#xC774;&#xB354;&#xB97C; &#xD65C;&#xC131;&#xD654;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; &#xBE44;&#xD589;&#xCCB4;&#xAC00; &#xC774;&#xB3D9;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <p><img src="../../assets/qgc_goto.jpg" alt=""></p>
-<h2 id="nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;">NuttX / Pixhawk &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;</h2>
-<h3 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;">&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h3>
+<h2 id="nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><a name="nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;</h2>
+<h3 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h3>
 <p>NuttX- &#xB098; Pixhawk- &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;&#xC6A9;&#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; <strong>Firmware</strong> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xAC00;&#xC11C; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xAC00;&#xC9C4; &#xBCF4;&#xB4DC;&#xC5D0; &#xC801;&#xD569;&#xD55C; &#xBE4C;&#xB4DC;&#xB97C; &#xC704;&#xD574;&#xC11C; <code>make</code>&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> &#xC544;&#xB798; &#xC608;&#xC81C;&#xC5D0;&#xC11C; &#xBE4C;&#xB4DC; &#xD0C0;&#xAC9F; <code>px4fmu-v2</code>&#xC758; &#xCCAB;&#xBC88;&#xC9F8; &#xBD80;&#xBD84;&#xC740; autopilot &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xBC84;&#xC804;&#xC774;&#xACE0; <code>default</code>&#xB294; &#xC124;&#xC815; &#xC774;&#xB984;&#xC785;&#xB2C8;&#xB2E4;.(&#xC774;&#xACBD;&#xC6B0; &quot;default&quot; &#xC124;&#xC815;) PX4&#xC758; &#xBAA8;&#xB4E0; &#xBE4C;&#xB4DC; &#xD0C0;&#xAC9F;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xB85C;&#xC9C1;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
@@ -1973,7 +1981,7 @@ Scanning dependencies of target build/firmware_px4fmu-v2
 <li>Pixhawk 4: <code>make px4fmu-v5_default</code></li>
 <li><a href="https://docs.px4.io/en/flight_controller/auav_x2.html" target="_blank">AUAV-X2 (Discontinued)</a>: <code>make px4fmu-v2_default</code></li>
 </ul>
-<h3 id="&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash">&#xD38C;&#xC6E8;&#xC5B4; &#xC5C5;&#xB85C;&#xB4DC; (&#xBCF4;&#xB4DC;&#xC5D0; flash)</h3>
+<h3 id="&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash"><a name="&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash" class="plugin-anchor" href="#&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD38C;&#xC6E8;&#xC5B4; &#xC5C5;&#xB85C;&#xB4DC; (&#xBCF4;&#xB4DC;&#xC5D0; flash)</h3>
 <p>&#xCEF4;&#xD30C;&#xC77C;&#xB41C; &#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB97C; USB&#xB85C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC5D0; &#xC5C5;&#xB85C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574; <code>upload</code>&#xB97C; make &#xBA85;&#xB839;&#xC5D0; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">make px4fmu-v2_default upload
 </code></pre>
@@ -1985,11 +1993,11 @@ Rebooting.
 
 [100%] Built target upload
 </code></pre>
-<h2 id="&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;">&#xAE30;&#xD0C0; &#xBCF4;&#xB4DC;&#xB4E4;</h2>
+<h2 id="&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;"><a name="&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;" class="plugin-anchor" href="#&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAE30;&#xD0C0; &#xBCF4;&#xB4DC;&#xB4E4;</h2>
 <p>&#xB2E4;&#xC74C; &#xBCF4;&#xB4DC;&#xB4E4;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xBE4C;&#xB4DC;&#xC640; &#xBC30;&#xD3EC;&#xB294; &#xC880;&#xB354; &#xBCF5;&#xC7A1;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="raspberry-pi-23-&#xBCF4;&#xB4DC;">Raspberry Pi 2/3 &#xBCF4;&#xB4DC;</h3>
+<h3 id="raspberry-pi-23-&#xBCF4;&#xB4DC;"><a name="raspberry-pi-23-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#raspberry-pi-23-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3 &#xBCF4;&#xB4DC;</h3>
 <p>&#xC544;&#xB798; &#xBA85;&#xB839;&#xC740; Raspbian&#xC6A9;&#xC73C;&#xB85C; &#xD0C0;&#xAC9F;&#xC744; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;">&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC; &#xBE4C;&#xB4DC;</h4>
+<h4 id="&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;"><a name="&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;" class="plugin-anchor" href="#&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC; &#xBE4C;&#xB4DC;</h4>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make posix_rpi_cross <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
@@ -2005,7 +2013,7 @@ make posix_rpi_cross upload <span class="hljs-comment"># for cross-compiler buil
 <p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; ssh&#xC5D0;&#xC11C; &#xC5F0;&#xACB0;&#xD558;&#xACE0; root &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC2E4;&#xD589; :</p>
 <pre><code class="lang-sh">sudo ./px4 px4.config
 </code></pre>
-<h4 id="native-build">Native build</h4>
+<h4 id="native-build"><a name="native-build" class="plugin-anchor" href="#native-build"><i class="fa fa-link" aria-hidden="true"></i></a>Native build</h4>
 <p>Pi&#xC5D0;&#xC11C; <em>&#xC9C1;&#xC811;</em> &#xBE4C;&#xB4DC;&#xB97C; &#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0; native build target(posix_rpi_native)&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make posix_rpi_native <span class="hljs-comment"># for native build</span>
@@ -2028,12 +2036,12 @@ px4 starting.
 
 pxh&gt;
 </code></pre>
-<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;">&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
+<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><a name="&#xC790;&#xB3D9;&#xC2DC;&#xC791;" class="plugin-anchor" href="#&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
 <p>px4 &#xC790;&#xB3D9;&#xAD6C;&#xB3D9;&#xC2DC;&#xD0A4;&#xB824;&#xBA74; <code>/etc/rc.local</code> &#xD30C;&#xC77C;&#xC5D0; &#xB2E4;&#xC74C;&#xC744; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.(native build&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xBA74; &#xC801;&#xC808;&#xD788; &#xC218;&#xC815;) &#xC704;&#xCE58;&#xB294; <code>exit 0</code> &#xBC14;&#xB85C; &#xC9C1;&#xC804;&#xC785;&#xB2C8;&#xB2E4;. :</p>
 <pre><code>cd /home/pi &amp;&amp; ./px4 -d px4.config &gt; px4.log
-</code></pre><h3 id="&#xD328;&#xB86F;-&#xBE44;&#xBC25;">&#xD328;&#xB86F; &#xBE44;&#xBC25;</h3>
+</code></pre><h3 id="&#xD328;&#xB86F;-&#xBE44;&#xBC25;"><a name="&#xD328;&#xB86F;-&#xBE44;&#xBC25;" class="plugin-anchor" href="#&#xD328;&#xB86F;-&#xBE44;&#xBC25;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD328;&#xB86F; &#xBE44;&#xBC25;</h3>
 <p>Bebop &#xC9C0;&#xC6D0;&#xC740; &#xC544;&#xC9C1; &#xCD08;&#xAE30; &#xB2E8;&#xACC4;&#xB85C; &#xC8FC;&#xC758;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;">&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h4>
+<h4 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h4>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make posix_bebop_default
 </code></pre>
@@ -2046,7 +2054,7 @@ adb push ROMFS/px4fmu_common/mixers/bebop.main.mix /home/root
 adb push posix-configs/bebop/px4.config /home/root
 adb disconnect
 </code></pre>
-<h4 id="&#xC2E4;&#xD589;&#xD558;&#xAE30;">&#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
+<h4 id="&#xC2E4;&#xD589;&#xD558;&#xAE30;"><a name="&#xC2E4;&#xD589;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC2E4;&#xD589;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
 <p>Bebop&#xC758; wifi&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xACE0; &#xD30C;&#xC6CC; &#xBC84;&#xD2BC;&#xC744; 4&#xBC88; &#xB204;&#xB985;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xC73C;&#xB85C; Bebop&#xC5D0; telnet&#xC774;&#xB098; adb sehll&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xACE0; &#xC544;&#xB798; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">telnet 192.168.42.1
 </code></pre>
@@ -2057,7 +2065,7 @@ adb disconnect
 <pre><code class="lang-sh">px4 /home/root/px4.config
 </code></pre>
 <p>Bebop&#xC744; &#xB0A0;&#xB9AC;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xD638;&#xC2A4;&#xD2B8; &#xBA38;&#xC2E0;&#xC5D0; &#xC870;&#xC774;&#xC2A4;&#xD2F1; &#xC7A5;&#xCE58;&#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xACE0; QGroundControl&#xB97C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;. Bebop&#xACFC; &#xC870;&#xC774;&#xC2A4;&#xD2F1; &#xB458;&#xB2E4; &#xC778;&#xC2DD;&#xB418;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC2DC;&#xB97C; &#xB530;&#xB77C;&#xC11C; &#xC13C;&#xC11C;&#xB97C; &#xCE7C;&#xB9AC;&#xBE0C;&#xB808;&#xC774;&#xC158;&#xD558;&#xACE0; &#xC870;&#xC774;&#xC2A4;&#xD2F1; &#xC7A5;&#xCE58;&#xB97C; &#xC14B;&#xC5C5;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;">&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
+<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><a name="&#xC790;&#xB3D9;&#xC2DC;&#xC791;" class="plugin-anchor" href="#&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
 <p>&#xBE44;&#xBC25;&#xC5D0;&#xC11C; &#xBD80;&#xD305;&#xC2DC;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; PX4&#xB97C; &#xC2DC;&#xC791;&#xB418;&#xAC8C; &#xD558;&#xB824;&#xBA74;, init &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; <code>/etc/init.d/rcS_mode_default</code>&#xB97C; &#xC218;&#xC815;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C; &#xB77C;&#xC778;&#xC744; &#xCEE4;&#xB9E8;&#xD2B8; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4; :</p>
 <pre><code>DragonStarter.sh -out2null &amp;
 </code></pre><p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; &#xAD50;&#xCCB4;&#xD569;&#xB2C8;&#xB2E4;:</p>
@@ -2077,14 +2085,14 @@ adb push rcS_mode_default /etc/init.d/
 <pre><code class="lang-sh">adb shell sync
 adb shell reboot
 </code></pre>
-<h3 id="ocpoc-zynq-mini">OcPoC-Zynq Mini</h3>
+<h3 id="ocpoc-zynq-mini"><a name="ocpoc-zynq-mini" class="plugin-anchor" href="#ocpoc-zynq-mini"><i class="fa fa-link" aria-hidden="true"></i></a>OcPoC-Zynq Mini</h3>
 <p><a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html" target="_blank">OcPoC-Zynq Mini</a>&#xC5D0; &#xAD00;&#xB828;&#xB41C; &#xBE4C;&#xB4DC; :</p>
 <ul>
 <li><a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq" target="_blank">Aerotenna OcPoC-Zynq Mini Flight Controller &gt; Building PX4 for OcPoC-Zynq</a> (PX4 &#xC0AC;&#xC6A9;&#xC790; &#xAC00;&#xC774;&#xB4DC;)</li>
 <li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 Setup &#xD398;&#xC774;&#xC9C0;</a></li>
 </ul>
-<h3 id="qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;">QuRT / Snapdragon &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;</h3>
-<h4 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;">&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h4>
+<h3 id="qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><a name="qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>QuRT / Snapdragon &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;</h3>
+<h4 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h4>
 <p>NOTE: <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC &#xBCF4;&#xB4DC;</a> (UART-&#xAE30;&#xBC18;)&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xBA74;, <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">&#xC5EC;&#xAE30;</a> &#xC9C0;&#xC2DC;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;. &#xC77C;&#xBC18; PWM &#xAE30;&#xBC18; ESC &#xBCF4;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC774; &#xD398;&#xC774;&#xC9C0;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xACC4;&#xC18D; &#xB530;&#xB77C;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC544;&#xB798; &#xBA85;&#xB839;&#xC73C;&#xB85C; Linux&#xC640; DSP&#xCABD;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xD0C0;&#xAC9F;&#xC744; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;. &#xC2E4;&#xD589;&#xB418;&#xBA74; <a href="../middleware/uorb.html">muORB</a>&#xB97C; &#xD1B5;&#xD574; &#xC11C;&#xB85C; &#xD1B5;&#xC2E0;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
@@ -2100,7 +2108,7 @@ make eagle_default
 <p>&#xBBF9;&#xC11C;&#xB294; &#xD604;&#xC7AC; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xBCF5;&#xC0AC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 </code></pre>
-<h4 id="&#xC2E4;&#xD589;&#xD558;&#xAE30;">&#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
+<h4 id="&#xC2E4;&#xD589;&#xD558;&#xAE30;"><a name="&#xC2E4;&#xD589;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC2E4;&#xD589;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
 <p>DSP &#xB514;&#xBC84;&#xADF8; &#xBAA8;&#xB2C8;&#xD130; &#xC2E4;&#xD589;:</p>
 <pre><code class="lang-sh"><span class="hljs-variable">${HEXAGON_SDK_ROOT}</span>/tools/debug/mini-dm/Linux_Debug/mini-dm
 </code></pre>
@@ -2110,7 +2118,7 @@ make eagle_default
 ./px4 mainapp.config
 </code></pre>
 <p>px4&#xB294; USB &#xCF00;&#xC774;&#xBE14; &#xC5F0;&#xACB0;&#xC744; &#xB04A;&#xC790;&#xB9C8;&#xC790; &#xBA48;&#xCD94;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.(&#xD639;&#xC740; ssh &#xC138;&#xC158;&#xC774; &#xC885;&#xB8CC;&#xB418;&#xAC70;&#xB098;) &#xBE44;&#xD589;&#xC744; &#xC704;&#xD574;&#xC11C; px4&#xAC00; &#xBD80;&#xD305;&#xB4A4;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC2DC;&#xC791;&#xB418;&#xB3C4;&#xB85D; &#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;">&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
+<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><a name="&#xC790;&#xB3D9;&#xC2DC;&#xC791;" class="plugin-anchor" href="#&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
 <p>Snapdragon&#xAC00; &#xBD80;&#xD305;&#xB418;&#xACE0; px4&#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB824;&#xBA74; <code>rc.local</code>&#xC5D0; &#xC2DC;&#xC791;&#xC2DC;&#xD0A4;&#xB294; &#xBD80;&#xBD84;&#xC744; &#xCD94;&#xAC00;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; :</p>
 <p>&#xC544;&#xB2C8;&#xBA74; Snapdragon&#xC5D0; &#xC9C1;&#xC811; <code>/etc/rc.local</code>&#xC744; &#xC218;&#xC815;:</p>
 <pre><code class="lang-sh">adb shell
@@ -2133,13 +2141,13 @@ chmod +x /etc/rc.local
 <p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; Snapdragon&#xC744; &#xB9AC;&#xBD80;&#xD305;:</p>
 <pre><code class="lang-sh">adb reboot
 </code></pre>
-<h2 id="ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;">IDE&#xC5D0;&#xC11C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;</h2>
+<h2 id="ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;"><a name="ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;" class="plugin-anchor" href="#ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>IDE&#xC5D0;&#xC11C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;</h2>
 <p>PX4 &#xC2DC;&#xC2A4;&#xD15C;&#xC740; Qt Creator, Eclipse, Sublime Text&#xB97C; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;. Qt Creator&#xAC00; &#xAC00;&#xC7A5; &#xC0AC;&#xC6A9;&#xC790;&#xB97C; &#xC704;&#xD55C; &#xAE30;&#xB2A5;&#xC774; &#xB9CE;&#xC544;&#xC11C; &#xC720;&#xC77C;&#xD558;&#xAC8C; &#xACF5;&#xC2DD;&#xC801;&#xC73C;&#xB85C; &#xC9C0;&#xC6D0;&#xD558;&#xB294; IDE&#xC785;&#xB2C8;&#xB2E4;. Eclipse&#xC640; Sublime&#xC758; &#xACBD;&#xC6B0; &#xC804;&#xBB38;&#xAC00;&#xAC00; &#xC544;&#xB2C8;&#xB77C;&#xBA74; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC27D;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xB4DC;&#xCF54;&#xC5B4; &#xC0AC;&#xC6A9;&#xC790;&#xB294; <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a>&#xC640; <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a>&#xB97C; &#xC18C;&#xC2A4; &#xD2B8;&#xB9AC;&#xC5D0;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Bkk8zttWxEI"></iframe></div></p>
-<h2 id="qt-creator-&#xAE30;&#xB2A5;">Qt Creator &#xAE30;&#xB2A5;</h2>
+<h2 id="qt-creator-&#xAE30;&#xB2A5;"><a name="qt-creator-&#xAE30;&#xB2A5;" class="plugin-anchor" href="#qt-creator-&#xAE30;&#xB2A5;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator &#xAE30;&#xB2A5;</h2>
 <p>Qt creator&#xB294; &#xD074;&#xB9AD;&#xAC00;&#xB2A5;&#xD55C; &#xC2EC;&#xBCFC;, &#xC790;&#xB3D9;&#xC644;&#xC131;&#xAE30;&#xB2A5;, &#xBE4C;&#xB4DC;, &#xD38C;&#xC6E8;&#xC5B4; flash &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><img src="../../assets/toolchain/qtcreator.png" alt=""></p>
-<h3 id="qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;">Qt Creator (&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;)</h3>
+<h3 id="qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;"><a name="qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;" class="plugin-anchor" href="#qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator (&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;)</h3>
 <p>Qt Creator&#xB97C; &#xC2DC;&#xC791;&#xD558;&#xAE30; &#xC804;&#xC5D0;, <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a>&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
 mkdir ../Firmware-build
@@ -2148,11 +2156,11 @@ cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles
 </code></pre>
 <p>File -&gt; Open File&#xB098; Project -&gt; Select CMakeLists.txt&#xB97C; &#xD1B5;&#xD574;&#xC11C; root &#xD38C;&#xC6E8;&#xC5B4; &#xD3F4;&#xB354;&#xC5D0; &#xC788;&#xB294; CMakeLists.txt &#xD30C;&#xC77C;&#xC744; &#xB85C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xB85C;&#xB529;&#xC744; &#xB9C8;&#xCE58;&#xBA74; &apos;play&apos; &#xBC84;&#xD2BC;&#xC73C;&#xB85C; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xB3C4;&#xB85D; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC124;&#xC815;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740; run target configuration&#xC5D0;&#xC11C; &apos;custom executable&apos;&#xC744; &#xC120;&#xD0DD;&#xD558;&#xACE0; &apos;make&apos;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74;&#xC11C; &apos;upload&apos;&#xC744; &#xC778;&#xC790;&#xB85C; &#xC785;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;">Qt Creator (&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;)</h3>
+<h3 id="qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;"><a name="qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;" class="plugin-anchor" href="#qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator (&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;)</h3>
 <blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
 <p></p>
 </blockquote>
-<h3 id="qt-creator-mac-os&#xC5D0;&#xC11C;">Qt Creator (Mac OS&#xC5D0;&#xC11C;)</h3>
+<h3 id="qt-creator-mac-os&#xC5D0;&#xC11C;"><a name="qt-creator-mac-os&#xC5D0;&#xC11C;" class="plugin-anchor" href="#qt-creator-mac-os&#xC5D0;&#xC11C;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator (Mac OS&#xC5D0;&#xC11C;)</h3>
 <p>Qt Creator&#xB97C; &#xC2DC;&#xC791;&#xD558;&#xAE30; &#xC804;&#xC5D0;, <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a>&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
 mkdir build/creator
@@ -2204,7 +2212,7 @@ cmake .. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"코드 빌드하기","level":"1.2.3","depth":2,"next":{"title":"고급 설정","level":"1.2.4","depth":2,"path":"setup/config_advanced.md","ref":"setup/config_advanced.md","articles":[]},"previous":{"title":"Fast RTPS 설치","level":"1.2.2.4","depth":3,"path":"setup/fast-rtps-installation.md","ref":"setup/fast-rtps-installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"코드 빌드하기","level":"1.2.3","depth":2,"next":{"title":"고급 설정","level":"1.2.4","depth":2,"path":"setup/config_advanced.md","ref":"setup/config_advanced.md","articles":[]},"previous":{"title":"Fast RTPS 설치","level":"1.2.2.4","depth":3,"path":"setup/fast-rtps-installation.md","ref":"setup/fast-rtps-installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2233,6 +2241,10 @@ cmake .. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</s
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

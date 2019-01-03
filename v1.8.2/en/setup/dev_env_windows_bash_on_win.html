@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Bash on Windows Toolchain · PX4 Developer Guide</title>
+        <title>Bash on Windows Toolchain · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,7 +2044,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="bash-on-windows-toolchain">Bash on Windows Toolchain</h1>
+                                <h1 id="bash-on-windows-toolchain"><a name="bash-on-windows-toolchain" class="plugin-anchor" href="#bash-on-windows-toolchain"><i class="fa fa-link" aria-hidden="true"></i></a>Bash on Windows Toolchain</h1>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The <a href="dev_env_windows_cygwin.html">Windows Cygwin Toolchain</a> is the (only) officially supported toolchain for Windows development.</p>
 </blockquote>
@@ -2048,7 +2056,7 @@
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> This mechanism only works on Windows 10. It essentially runs the toolchain in a virtual machine, and is relatively slow compared to other solutions.</p>
 </blockquote>
-<h3 id="setup-environment">Setup Environment</h3>
+<h3 id="setup-environment"><a name="setup-environment" class="plugin-anchor" href="#setup-environment"><i class="fa fa-link" aria-hidden="true"></i></a>Setup Environment</h3>
 <p>The easiest way to setup the environment is to use the <strong><a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank" download="">windows_bash_nuttx.sh</a></strong> script (details for script are <a href="#build_script_details">given below</a>).</p>
 <p>To setup the development environment:</p>
 <ol>
@@ -2060,7 +2068,7 @@
 </code></pre>
 </li>
 </ol>
-<h3 id="build-firmware">Build Firmware</h3>
+<h3 id="build-firmware"><a name="build-firmware" class="plugin-anchor" href="#build-firmware"><i class="fa fa-link" aria-hidden="true"></i></a>Build Firmware</h3>
 <p>To build the firmware (i.e. for px4fmu-v4):</p>
 <ol>
 <li><p>Enter the following commands in the bash shell:</p>
@@ -2074,7 +2082,7 @@ make px4fmu-v4_default
 <li><p>You can flash the custom firmware on Windows using <em>QGroundControl</em> or <em>Mission Planner</em> (it is not possible to directly flash the firmware from within the bash shell using the <code>upload</code> command).</p>
 </li>
 </ol>
-<h3 id="simulation-jmavsim">Simulation (JMAVSim)</h3>
+<h3 id="simulation-jmavsim"><a name="simulation-jmavsim" class="plugin-anchor" href="#simulation-jmavsim"><i class="fa fa-link" aria-hidden="true"></i></a>Simulation (JMAVSim)</h3>
 <p>Bash on Windows does not include support for UI libraries. In order to display the jMAVSim UI you will first need to install an X-Window application like <a href="https://sourceforge.net/projects/xming/" target="_blank">XMing</a> into Windows.</p>
 <p>To run JMAVSim:</p>
 <ol>
@@ -2099,7 +2107,7 @@ make px4fmu-v4_default
   make posix gazebo
 </code></pre>
 </blockquote>
-<h3 id="build_script_details">Build Script Details </h3>
+<h3 id="build_script_details"><a name="build_script_details" class="plugin-anchor" href="#build_script_details"><i class="fa fa-link" aria-hidden="true"></i></a>Build Script Details </h3>
 <p>The <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/windows_bash_nuttx.sh" target="_blank">windows_bash_nuttx.sh</a> build script modifies the Ubuntu build instructions to remove Ubuntu-specific and UI-dependent components, including the <em>Qt Creator</em> IDE and the simulators. </p>
 <p>In addition, it uses a <a href="https://github.com/SolinGuo/arm-none-eabi-bash-on-win10-.git" target="_blank">64 bit arm-none-eabi compiler</a> 
 since BashOnWindows doesn&apos;t run 32 bit ELF programs (and the default compiler from <code>https://launchpad.net/gcc-arm-embedded</code> is 32 bit).</p>
@@ -2158,7 +2166,7 @@ This will unpack the arm gcc cross-compiler to:<pre><code>gcc-arm-none-eabi-5_4-
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Bash on Windows Toolchain","level":"1.2.2.3.3","depth":4,"next":{"title":"Msys Toolchain","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]},"previous":{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_windows_bash_on_win.md","mtime":"2019-01-03T18:30:41.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Bash on Windows Toolchain","level":"1.2.2.3.3","depth":4,"next":{"title":"Msys Toolchain","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]},"previous":{"title":"Virtual Machine Toolchain","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_windows_bash_on_win.md","mtime":"2019-01-03T23:27:43.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2187,6 +2195,10 @@ This will unpack the arm gcc cross-compiler to:<pre><code>gcc-arm-none-eabi-5_4-
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

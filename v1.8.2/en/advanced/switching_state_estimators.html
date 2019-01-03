@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Switching State Estimators · PX4 Developer Guide</title>
+        <title>Switching State Estimators · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,12 +2044,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="switching-state-estimators">Switching State Estimators</h1>
+                                <h1 id="switching-state-estimators"><a name="switching-state-estimators" class="plugin-anchor" href="#switching-state-estimators"><i class="fa fa-link" aria-hidden="true"></i></a>Switching State Estimators</h1>
 <p>This page shows you which state estimators are available and how you can switch between them.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> EKF2 is highly recommended for all purposes (LPE is no longer maintained). </p>
 </blockquote>
-<h2 id="available-estimators">Available Estimators</h2>
+<h2 id="available-estimators"><a name="available-estimators" class="plugin-anchor" href="#available-estimators"><i class="fa fa-link" aria-hidden="true"></i></a>Available Estimators</h2>
 <p>The available estimators are: </p>
 <ul>
 <li><strong>Q attitude estimator</strong> - The attitude Q estimator is a very simple, quaternion based complementary filter for attitude.</li>
@@ -2049,7 +2057,7 @@
 <li><strong>LPE position estimator</strong> - The LPE position estimator is an extended kalman filter for 3D position and velocity states.</li>
 <li><strong>EKF2 attitude, position and wind states estimator</strong> - EKF2 is an extended kalman filter estimating attitude, 3D position / velocity and wind states.</li>
 </ul>
-<h2 id="how-to-enable-different-estimators">How to Enable Different Estimators</h2>
+<h2 id="how-to-enable-different-estimators"><a name="how-to-enable-different-estimators" class="plugin-anchor" href="#how-to-enable-different-estimators"><i class="fa fa-link" aria-hidden="true"></i></a>How to Enable Different Estimators</h2>
 <p>For multirotors and VTOL use the parameter <a href="parameter_reference.html#SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</a> to choose between the following configurations (LPE is not supported for Fixed Wing).</p>
 <table>
 <thead>
@@ -2131,7 +2139,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Switching State Estimators","level":"1.11.4","depth":2,"next":{"title":"Out-of-Tree Modules","level":"1.11.5","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},"previous":{"title":"Installing driver for Intel RealSense R200","level":"1.11.3","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/switching_state_estimators.md","mtime":"2019-01-03T18:30:41.337Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Switching State Estimators","level":"1.11.4","depth":2,"next":{"title":"Out-of-Tree Modules","level":"1.11.5","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},"previous":{"title":"Installing driver for Intel RealSense R200","level":"1.11.3","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/switching_state_estimators.md","mtime":"2019-01-03T23:27:43.071Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2160,6 +2168,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

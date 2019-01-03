@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>通信 · PX4 Developer Guide</title>
+        <title>通信 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,23 +1869,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x901A;&#x4FE1;">&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x901A;&#x4FE1;</h1>
-<h2 id="mavlink">mavlink</h2>
+                                <h1 id="&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x901A;&#x4FE1;"><a name="&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x901A;&#x4FE1;" class="plugin-anchor" href="#&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x901A;&#x4FE1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x901A;&#x4FE1;</h1>
+<h2 id="mavlink"><a name="mavlink" class="plugin-anchor" href="#mavlink"><i class="fa fa-link" aria-hidden="true"></i></a>mavlink</h2>
 <p>&#x6E90;&#x4EE3;&#x7801;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/mavlink" target="_blank">modules/mavlink</a></p>
-<h3 id="&#x8BF4;&#x660E;">&#x8BF4;&#x660E;</h3>
+<h3 id="&#x8BF4;&#x660E;"><a name="&#x8BF4;&#x660E;" class="plugin-anchor" href="#&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BF4;&#x660E;</h3>
 <p>&#x8BE5;&#x6A21;&#x5757;&#x5B9E;&#x73B0;MAVLink&#x534F;&#x8BAE;&#xFF0C;&#x8BE5;&#x534F;&#x8BAE;&#x53EF;&#x4EE5;&#x5728;&#x4E32;&#x884C;&#x94FE;&#x8DEF;&#x6216;UDP&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x4E0A;&#x4F7F;&#x7528;&#x3002;&#x5B83;&#x901A;&#x8FC7;uORB&#x4E0E;&#x7CFB;&#x7EDF;&#x901A;&#x4FE1;&#xFF1A;&#x4E00;&#x4E9B;&#x6D88;&#x606F;&#x76F4;&#x63A5;&#x5728;&#x6A21;&#x5757;&#x4E2D;&#x5904;&#x7406;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4EFB;&#x52A1;&#x534F;&#x8BAE;&#xFF09;&#xFF0C;&#x5176;&#x4ED6;&#x5219;&#x901A;&#x8FC7;uORB&#x53D1;&#x5E03;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;vehicle_command&#xFF09;&#x3002;</p>
 <p>&#x6D41;&#x7528;&#x4E8E;&#x53D1;&#x9001;&#x6307;&#x5B9A;&#x901F;&#x7387;&#x7684;&#x5468;&#x671F;&#x6D88;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#x59FF;&#x6001;&#x4FE1;&#x606F;&#x3002;&#x542F;&#x52A8;mavlink&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x7EC4;&#x53EF;&#x7528;&#x7684;&#x6D41;&#x4EE5;&#x53CA;&#x5BF9;&#x5E94;&#x7684;&#x901F;&#x7387;&#x3002;</p>
 <p>&#x5BF9;&#x4E8E;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x6D41;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>mavlink stream</code>&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;</p>
 <p>&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x6BCF;&#x4E2A;&#x5B9E;&#x4F8B;&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x4E32;&#x884C;&#x8BBE;&#x5907;&#x6216;&#x7F51;&#x7EDC;&#x7AEF;&#x53E3;&#x3002;</p>
-<h3 id="&#x5B9E;&#x73B0;">&#x5B9E;&#x73B0;</h3>
+<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0;</h3>
 <p>&#x8BE5;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;2&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E00;&#x4E2A;&#x53D1;&#x9001;&#x548C;&#x4E00;&#x4E2A;&#x63A5;&#x6536;&#x3002; &#x53D1;&#x9001;&#x7EBF;&#x7A0B;&#x4EE5;&#x56FA;&#x5B9A;&#x7684;&#x901F;&#x7387;&#x8FD0;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x6DF7;&#x5408;&#x5E26;&#x5BBD;&#x9AD8;&#x4E8E;&#x914D;&#x7F6E;&#x7684;&#x901F;&#x7387;&#xFF08;<code>-r</code>&#xFF09;&#x6216;&#x8005;&#x7269;&#x7406;&#x94FE;&#x8DEF;&#x9971;&#x548C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x52A8;&#x6001;&#x5730;&#x964D;&#x4F4E;&#x6D41;&#x7684;&#x901F;&#x7387;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x7528;<code>mavlink status</code>&#x68C0;&#x67E5;&#xFF0C;&#x67E5;&#x770B;<code>rate mult</code>&#x662F;&#x5426;&#x5C0F;&#x4E8E;1&#x3002;</p>
-<h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
+<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
 <p>&#x5728;ttyS1&#x4E32;&#x53E3;&#x4E0A;&#x542F;&#x52A8;mavlink&#xFF0C;&#x6CE2;&#x7279;&#x7387;&#x4E3A;921600&#xFF0C;&#x6700;&#x5927;&#x53D1;&#x9001;&#x901F;&#x7387;&#x4E3A;80kB / s&#xFF1A;</p>
 <pre><code>mavlink start -d /dev/ttyS1 -b 921600 -m onboard -r 80000
 </code></pre><p>&#x5728;UDP 14556&#x7AEF;&#x53E3;&#x4E0A;&#x542F;&#x52A8;mavlink&#xFF0C;&#x5E76;&#x4EE5;50Hz&#x7684;&#x901F;&#x7387;&#x53D1;&#x9001;HIGHRES_IMU&#x6D88;&#x606F;&#xFF1A;</p>
 <pre><code>mavlink start -u 14556 -r 1000000
 mavlink stream -u 14556 -s HIGHRES_IMU -r 50
-</code></pre><h3 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h3>
+</code></pre><h3 id="&#x7528;&#x6CD5;"><a name="&#x7528;&#x6CD5;" class="plugin-anchor" href="#&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5;</h3>
 <pre><code>mavlink &lt;&#x547D;&#x4EE4;&gt; [&#x53C2;&#x6570;...]
  &#x547D;&#x4EE4;:
    start         &#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;
@@ -1914,21 +1922,21 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
      -r &lt;val&gt;    &#x901F;&#x7387;&#xFF0C;&#x5355;&#x4F4D;Hz (&#x503C;&#x4E3A;0&#x4EE3;&#x8868;&#x5173;&#x95ED;&#x6D41;)
 
    boot_complete &#x542F;&#x7528;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x3002;&#xFF08;&#x5FC5;&#x987B;&#xFF09;&#x5728;&#x542F;&#x52A8;&#x811A;&#x672C;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B65;&#x8C03;&#x7528;&#x3002;
-</code></pre><h2 id="uorb">uorb</h2>
+</code></pre><h2 id="uorb"><a name="uorb" class="plugin-anchor" href="#uorb"><i class="fa fa-link" aria-hidden="true"></i></a>uorb</h2>
 <p>&#x6E90;&#x4EE3;&#x7801;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/uORB" target="_blank">modules/uORB</a></p>
-<h3 id="&#x8BF4;&#x660E;">&#x8BF4;&#x660E;</h3>
+<h3 id="&#x8BF4;&#x660E;"><a name="&#x8BF4;&#x660E;" class="plugin-anchor" href="#&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BF4;&#x660E;</h3>
 <p>uORB&#x662F;&#x5185;&#x90E8;&#x53D1;&#x5E03;-&#x8BA2;&#x9605;&#x6D88;&#x606F;&#x7CFB;&#x7EDF;&#xFF0C;&#x7528;&#x4E8E;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x3002;</p>
 <p>&#x5B83;&#x901A;&#x5E38;&#x4F5C;&#x4E3A;&#x524D;&#x671F;&#x6A21;&#x5757;&#x4E4B;&#x4E00;&#x542F;&#x52A8;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x3002;</p>
-<h3 id="&#x5B9E;&#x73B0;">&#x5B9E;&#x73B0;</h3>
+<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0;</h3>
 <p>&#x4E0D;&#x9700;&#x8981;&#x7EBF;&#x7A0B;&#x6216;&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x542F;&#x52A8;&#x53EA;&#x9700;&#x8981;&#x786E;&#x4FDD;&#x521D;&#x59CB;&#x5316;&#x5171;&#x4EAB;&#x5168;&#x5C40;&#x72B6;&#x6001;&#x3002;&#x901A;&#x8FC7;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;&#x8BE5;&#x5B9E;&#x73B0;&#x662F;&#x5F02;&#x6B65;&#x548C;&#x65E0;&#x9501;&#x7684;&#xFF0C;&#x5373;&#xFF0C;&#x53D1;&#x5E03;&#x8005;&#x4E0D;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x8BA2;&#x9605;&#x8005;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;&#x8FD9;&#x901A;&#x8FC7;&#x5728;&#x53D1;&#x5E03;&#x8005;&#x548C;&#x8BA2;&#x9605;&#x8005;&#x4E4B;&#x95F4;&#x8BBE;&#x7F6E;&#x5355;&#x72EC;&#x7684;&#x7F13;&#x51B2;&#x5668;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
 <p>&#x4EE3;&#x7801;&#x7ECF;&#x8FC7;&#x4F18;&#x5316;&#xFF0C;&#x4F7F;&#x5F97;&#x5185;&#x5B58;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x6700;&#x5C0F;&#x4EE5;&#x53CA;&#x6D88;&#x606F;&#x4EA4;&#x6362;&#x5EF6;&#x8FDF;&#x6700;&#x4F4E;&#x3002;</p>
 <p>&#x8BE5;&#x63A5;&#x53E3;&#x57FA;&#x4E8E;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#xFF1A;&#x5185;&#x90E8;&#x4F7F;&#x7528;<code>read</code>&#xFF0C;<code>write</code>&#x548C;<code>ioctl</code>&#x3002;&#x9664;&#x4E86;&#x53D1;&#x5E03;&#x8005;&#xFF0C;&#x5176;&#x4F7F;&#x7528;<code>orb_advert_t</code>&#x5904;&#x7406;&#xFF0C;&#x4EE5;&#x4FBF;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x4E2D;&#x65AD;&#x4F7F;&#x7528;&#xFF08;&#x5728;NuttX&#x4E0A;&#xFF09;&#x3002;</p>
 <p>&#x6D88;&#x606F;&#x5728;<code>/msg</code>&#x76EE;&#x5F55;&#x4E2D;&#x5B9A;&#x4E49;&#x3002; &#x5B83;&#x4EEC;&#x5728;&#x6784;&#x5EFA;&#x65F6;&#x88AB;&#x8F6C;&#x6362;&#x6210;C/C ++&#x4EE3;&#x7801;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x4F7F;&#x7528;ORB_USE_PUBLISHER_RULES&#x7F16;&#x8BD1;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5177;&#x6709;uORB&#x53D1;&#x5E03;&#x89C4;&#x5219;&#x7684;&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x54EA;&#x4E2A;&#x6A21;&#x5757;&#x5141;&#x8BB8;&#x53D1;&#x5E03;&#x54EA;&#x4E9B;&#x4E3B;&#x9898;&#x3002;&#x8FD9;&#x7528;&#x4E8E;&#x7CFB;&#x7EDF;&#x8303;&#x56F4;&#x7684;&#x91CD;&#x64AD;&#x3002;</p>
-<h3 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h3>
+<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
 <p>&#x76D1;&#x63A7;&#x4E3B;&#x9898;&#x53D1;&#x5E03;&#x901F;&#x7387;&#x3002;&#x9664;&#x4E86;<code>top</code>&#xFF0C;&#x5B83;&#x540C;&#x6837;&#x662F;&#x4E00;&#x822C;&#x7CFB;&#x7EDF;&#x68C0;&#x67E5;&#x7684;&#x91CD;&#x8981;&#x547D;&#x4EE4;&#xFF1A;</p>
 <pre><code>uorb top
-</code></pre><h3 id="&#x7528;&#x6CD5;">&#x7528;&#x6CD5;</h3>
+</code></pre><h3 id="&#x7528;&#x6CD5;"><a name="&#x7528;&#x6CD5;" class="plugin-anchor" href="#&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5;</h3>
 <pre><code>uorb &lt;&#x547D;&#x4EE4;&gt; [&#x53C2;&#x6570;...]
  &#x547D;&#x4EE4;:
    start
@@ -1981,7 +1989,7 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"通信","level":"1.7.2","depth":2,"next":{"title":"驱动","level":"1.7.3","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},"previous":{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_communication.md","mtime":"2019-01-03T18:30:41.369Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"通信","level":"1.7.2","depth":2,"next":{"title":"驱动","level":"1.7.3","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[]},"previous":{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_communication.md","mtime":"2019-01-03T23:27:43.103Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2010,6 +2018,10 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

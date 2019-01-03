@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>컴패니온 컴퓨터 · PX4 Developer Guide</title>
+        <title>컴패니온 컴퓨터 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,9 +1921,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pixhawk-&#xACC4;&#xC5F4;&#xC6A9;-companion-computer">Pixhawk &#xACC4;&#xC5F4;&#xC6A9; Companion Computer</h1>
+                                <h1 id="pixhawk-&#xACC4;&#xC5F4;&#xC6A9;-companion-computer"><a name="pixhawk-&#xACC4;&#xC5F4;&#xC6A9;-companion-computer" class="plugin-anchor" href="#pixhawk-&#xACC4;&#xC5F4;&#xC6A9;-companion-computer"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk &#xACC4;&#xC5F4;&#xC6A9; Companion Computer</h1>
 <p>companion computer(Raspberry Pi, Odroid, Tegra K1)&#xB97C; Pixhawk &#xACC4;&#xC5F4; &#xBCF4;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xC740; &#xD56D;&#xC0C1; &#xB3D9;&#xC77C;&#xD55C; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;. &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8; <code>TELEM2</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB9C1;&#xD06C;&#xC5D0;&#xC11C; &#xBA54;&#xC2DC;&#xC9C0; &#xD3EC;&#xB9F7;&#xC740; <a href="https://mavlink.io/en/" target="_blank">MAVLink</a>&#xC785;&#xB2C8;&#xB2E4;.</p>
-<h2 id="pixhawk-&#xC14B;&#xC5C5;">Pixhawk &#xC14B;&#xC5C5;</h2>
+<h2 id="pixhawk-&#xC14B;&#xC5C5;"><a name="pixhawk-&#xC14B;&#xC5C5;" class="plugin-anchor" href="#pixhawk-&#xC14B;&#xC5C5;"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk &#xC14B;&#xC5C5;</h2>
 <p><code>SYS_COMPANION</code> &#xD30C;&#xB77C;&#xBBF8;&#xD130;(System group &#xB0B4;&#xC5D0;&#xC11C;)&#xB97C; &#xC544;&#xB798; &#xAC12; &#xC911;&#xC5D0; &#xD558;&#xB098;&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
 <p> &#xC774; &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xBA74; &#xB9AC;&#xBD80;&#xD305; &#xD6C4; &#xC124;&#xC815;&#xC774; &#xBC18;&#xC601;&#xB41C;&#xB2E4;.</p>
@@ -1927,14 +1935,14 @@
 <li><code>157600</code> <em>OSD</em> mode&#xC5D0;&#xC11C; 57600 baud&#xB85C; MAVLink &#xD65C;&#xC131;&#xD654;</li>
 <li><code>257600</code> listen-only mode&#xC5D0;&#xC11C; 57600 baud&#xB85C; MAVLink &#xD65C;&#xC131;&#xD654;</li>
 </ul>
-<h2 id="companion-computer-&#xC14B;&#xC5C5;">Companion computer &#xC14B;&#xC5C5;</h2>
+<h2 id="companion-computer-&#xC14B;&#xC5C5;"><a name="companion-computer-&#xC14B;&#xC5C5;" class="plugin-anchor" href="#companion-computer-&#xC14B;&#xC5C5;"><i class="fa fa-link" aria-hidden="true"></i></a>Companion computer &#xC14B;&#xC5C5;</h2>
 <p>MAVLink&#xB97C; &#xC218;&#xC2E0;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;, companion computer&#xB294; &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xB85C; &#xD1B5;&#xC2E0;&#xD558;&#xB294; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB97C; &#xC2E4;&#xD589;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xAC00;&#xC7A5; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xC635;&#xC158;&#xC740; :</p>
 <ul>
 <li><a href="../ros/mavros_installation.html">MAVROS</a> ROS node&#xB85C; &#xD1B5;&#xC2E0;</li>
 <li><a href="https://github.com/mavlink/c_uart_interface_example" target="_blank">C/C++ example code</a> &#xCEE4;&#xC2A4;&#xD140; &#xCF54;&#xB4DC;&#xB85C; &#xC5F0;&#xACB0;</li>
 <li><a href="http://mavproxy.org" target="_blank">MAVProxy</a> &#xC2DC;&#xB9AC;&#xC5BC;&#xACFC; UDP&#xC0AC;&#xC774;&#xC5D0; MAVLink&#xB97C; &#xB77C;&#xC6B0;&#xD305;</li>
 </ul>
-<h2 id="hardware-&#xC14B;&#xC5C5;">Hardware &#xC14B;&#xC5C5;</h2>
+<h2 id="hardware-&#xC14B;&#xC5C5;"><a name="hardware-&#xC14B;&#xC5C5;" class="plugin-anchor" href="#hardware-&#xC14B;&#xC5C5;"><i class="fa fa-link" aria-hidden="true"></i></a>Hardware &#xC14B;&#xC5C5;</h2>
 <p>&#xC544;&#xB798; &#xC9C0;&#xC2DC;&#xC5D0; &#xB530;&#xB77C;&#xC11C; &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xC5D0; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;. &#xBAA8;&#xB4E0; Pixhawk &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xB294; 3.3V&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xBA70; 5V&#xAE4C;&#xC9C0; &#xD638;&#xD658;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
 <p> &#xCD5C;&#xADFC; &#xB9CE;&#xC740; companion computer&#xC758; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; UART&#xB294; 1.8V&#xB9CC; &#xC9C0;&#xC6D0;&#xD574;&#xC11C; 3.3V&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0; &#xBB38;&#xC81C;&#xAC00; &#xC0DD;&#xAE38; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB7F0; &#xACBD;&#xC6B0; &#xB808;&#xBCA8; &#xC26C;&#xD504;&#xD130;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xC5D0;&#xB294; &#xC774;&#xBBF8; &#xAD00;&#xB828; &#xAE30;&#xB2A5;(modem &#xC774;&#xB098; console)&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xC5B4;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC804;&#xC5D0; <em>Linux&#xC5D0;&#xC11C; &#xC7AC;&#xC124;&#xC815;</em> &#xC774; &#xD544;&#xC694;&#xD560; &#xC218; &#xC788;&#xB2E4;.</p>
@@ -2001,7 +2009,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="linux&#xC5D0;&#xC11C;-software-&#xC14B;&#xC5C5;">Linux&#xC5D0;&#xC11C; Software &#xC14B;&#xC5C5;</h2>
+<h2 id="linux&#xC5D0;&#xC11C;-software-&#xC14B;&#xC5C5;"><a name="linux&#xC5D0;&#xC11C;-software-&#xC14B;&#xC5C5;" class="plugin-anchor" href="#linux&#xC5D0;&#xC11C;-software-&#xC14B;&#xC5C5;"><i class="fa fa-link" aria-hidden="true"></i></a>Linux&#xC5D0;&#xC11C; Software &#xC14B;&#xC5C5;</h2>
 <p>Linux&#xC5D0;&#xC11C; USB FTDI&#xC758; &#xAE30;&#xBCF8; &#xC774;&#xB984;&#xC740; <code>\dev\ttyUSB0</code>&#xC640; &#xAC19;&#xC740; &#xD615;&#xD0DC;&#xC785;&#xB2C8;&#xB2E4;. USB&#xB098; Arduino&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xB450;&#xBC88;&#xC9F8; FTDI&#xAC00; &#xC788;&#xB294; &#xACBD;&#xC6B0;&#xB77C;&#xBA74;, <code>\dev\ttyUSB1</code>&#xB85C; &#xB4F1;&#xB85D;&#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xCCAB;&#xBC88;&#xC9F8;&#xC640; &#xB450;&#xBC88;&#xC9F8; &#xC5F0;&#xACB0; &#xC0AC;&#xC774;&#xC5D0; &#xD5F7;&#xAC08;&#xB9AC;&#xB294; &#xAC83;&#xC744; &#xD53C;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; <code>ttyUSBx</code> &#xB300;&#xC2E0; USB &#xC7A5;&#xCE58;&#xC758; Vendor&#xB098; Product ID&#xC5D0; &#xB530;&#xB77C; &#xCE5C;&#xADFC;&#xD55C; &#xC774;&#xB984;&#xC758; symlink&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xAC83;&#xC744; &#xCD94;&#xCC9C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><code>lsusb</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; vendor&#xC640; product ID &#xC815;&#xBCF4;&#xB97C; &#xC5BB;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">$ lsusb
@@ -2078,7 +2086,7 @@ usermod <span class="hljs-_">-a</span> -G dialout ros-user
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"컴패니온 컴퓨터","level":"1.5.7","depth":2,"next":{"title":"미들웨어와 아키텍쳐","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB 메시징","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput 테스트","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"수동 Client/Agent 생성","level":"1.6.3.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]},{"title":"데몬","level":"1.6.4","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},{"title":"Driver 프레임워크","level":"1.6.5","depth":2,"path":"middleware/drivers.md","ref":"middleware/drivers.md","articles":[]}]},"previous":{"title":"짐벌 (마운트) 제어 셋업","level":"1.5.6","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"companion_computer/pixhawk_companion.md","mtime":"2019-01-03T18:30:41.353Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"컴패니온 컴퓨터","level":"1.5.7","depth":2,"next":{"title":"미들웨어와 아키텍쳐","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB 메시징","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput 테스트","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"수동 Client/Agent 생성","level":"1.6.3.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]},{"title":"데몬","level":"1.6.4","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},{"title":"Driver 프레임워크","level":"1.6.5","depth":2,"path":"middleware/drivers.md","ref":"middleware/drivers.md","articles":[]}]},"previous":{"title":"짐벌 (마운트) 제어 셋업","level":"1.5.6","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"companion_computer/pixhawk_companion.md","mtime":"2019-01-03T23:27:43.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2107,6 +2115,10 @@ usermod <span class="hljs-_">-a</span> -G dialout ros-user
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

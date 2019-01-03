@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Gimbal (Mount) Control Setup · PX4 Developer Guide</title>
+        <title>Gimbal (Mount) Control Setup · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,7 +2044,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gimbal-control-setup">Gimbal Control Setup</h1>
+                                <h1 id="gimbal-control-setup"><a name="gimbal-control-setup" class="plugin-anchor" href="#gimbal-control-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Gimbal Control Setup</h1>
 <p>If you want to control a gimbal with a camera (or any other payload) attached to
 the vehicle, you need to configure how you want to control it and how PX4 can
 command it. This page explains the setup.</p>
@@ -2046,7 +2054,7 @@ MAVLink commands (for example in missions or surveys). The output defines how
 the gimbal is connected: some support MAVLink commands, others use PWM
 (described as AUX output in the following). Any input method can be selected to
 drive any output. Both have to be configured via parameters.</p>
-<h2 id="parameters">Parameters</h2>
+<h2 id="parameters"><a name="parameters" class="plugin-anchor" href="#parameters"><i class="fa fa-link" aria-hidden="true"></i></a>Parameters</h2>
 <p><a href="parameter_reference.html#mount">These parameters</a> are used to setup
 the mount driver. The most
 important ones are the input (<code>MNT_MODE_IN</code>) and the output (<code>MNT_MODE_OUT</code>)
@@ -2055,7 +2063,7 @@ selecting the input mode, reboot the vehicle so that the mount driver starts.</p
 <p>If the input mode is set to <code>AUTO</code>, the mode will automatically be
 switched based on the latest input. To switch from mavlink to RC, a large stick
 motion is required.</p>
-<h2 id="aux-output">AUX output</h2>
+<h2 id="aux-output"><a name="aux-output" class="plugin-anchor" href="#aux-output"><i class="fa fa-link" aria-hidden="true"></i></a>AUX output</h2>
 <p>If the output mode is set to <code>AUX</code>, a mixer file is required to define the
 mapping for the output pins and the
 <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/mount.aux.mix" target="_blank">mount mixer</a>
@@ -2068,7 +2076,7 @@ airframe configuration).</p>
 <li><strong>AUX3</strong>: Yaw</li>
 <li><strong>AUX4</strong>: Shutter/retract</li>
 </ul>
-<h3 id="customizing-the-mixer-configuration">Customizing the mixer configuration</h3>
+<h3 id="customizing-the-mixer-configuration"><a name="customizing-the-mixer-configuration" class="plugin-anchor" href="#customizing-the-mixer-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Customizing the mixer configuration</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Read <a href="../concept/mixing.html">Mixing and Actuators</a> for an explanation
 of how mixers work and the format of the mixer file.</p>
@@ -2091,13 +2099,13 @@ S: 2 1  10000  10000      0 -10000  10000
 M: 1
 O:      10000  10000      0 -10000  10000
 S: 2 2  10000  10000      0 -10000  10000
-</code></pre><h2 id="sitl">SITL</h2>
+</code></pre><h2 id="sitl"><a name="sitl" class="plugin-anchor" href="#sitl"><i class="fa fa-link" aria-hidden="true"></i></a>SITL</h2>
 <p>The Typhoon H480 model comes with a preconfigured simulated gimbal. To run it,
 use:</p>
 <pre><code>make posix gazebo_typhoon_h480
 </code></pre><p>To just test the mount driver on other models or simulators, make sure the
 driver runs, using <code>vmount start</code>, then configure its parameters.</p>
-<h2 id="testing">Testing</h2>
+<h2 id="testing"><a name="testing" class="plugin-anchor" href="#testing"><i class="fa fa-link" aria-hidden="true"></i></a>Testing</h2>
 <p>The driver provides a simple test command - it needs to be stopped first with <code>vmount stop</code>. The following describes testing in SITL, but the commands also work on a real device.</p>
 <p>Start the simulation with (no parameter needs to be changed for that):</p>
 <pre><code>make posix gazebo_typhoon_h480
@@ -2148,7 +2156,7 @@ driver runs, using <code>vmount start</code>, then configure its parameters.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Gimbal (Mount) Control Setup","level":"1.5.8","depth":2,"next":{"title":"Companion Computers","level":"1.5.9","depth":2,"path":"companion_computer/pixhawk_companion.md","ref":"companion_computer/pixhawk_companion.md","articles":[]},"previous":{"title":"RTK GPS","level":"1.5.7","depth":2,"path":"advanced/rtk_gps.md","ref":"advanced/rtk_gps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/gimbal_control.md","mtime":"2019-01-03T18:30:41.333Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Gimbal (Mount) Control Setup","level":"1.5.8","depth":2,"next":{"title":"Companion Computers","level":"1.5.9","depth":2,"path":"companion_computer/pixhawk_companion.md","ref":"companion_computer/pixhawk_companion.md","articles":[]},"previous":{"title":"RTK GPS","level":"1.5.7","depth":2,"path":"advanced/rtk_gps.md","ref":"advanced/rtk_gps.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/gimbal_control.md","mtime":"2019-01-03T23:27:43.071Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2177,6 +2185,10 @@ driver runs, using <code>vmount start</code>, then configure its parameters.</p>
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

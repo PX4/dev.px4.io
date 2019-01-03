@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>시스템 수준 Replay · PX4 Developer Guide</title>
+        <title>시스템 수준 Replay · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,16 +1921,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xC2DC;&#xC2A4;&#xD15C;-&#xC218;&#xC900;&#xC5D0;&#xC11C;-replay">&#xC2DC;&#xC2A4;&#xD15C; &#xC218;&#xC900;&#xC5D0;&#xC11C; Replay</h1>
+                                <h1 id="&#xC2DC;&#xC2A4;&#xD15C;-&#xC218;&#xC900;&#xC5D0;&#xC11C;-replay"><a name="&#xC2DC;&#xC2A4;&#xD15C;-&#xC218;&#xC900;&#xC5D0;&#xC11C;-replay" class="plugin-anchor" href="#&#xC2DC;&#xC2A4;&#xD15C;-&#xC218;&#xC900;&#xC5D0;&#xC11C;-replay"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2DC;&#xC2A4;&#xD15C; &#xC218;&#xC900;&#xC5D0;&#xC11C; Replay</h1>
 <p>ORB &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC14;&#xD0D5;&#xC73C;&#xB85C; &#xC2DC;&#xC2A4;&#xD15C; &#xD2B9;&#xC815; &#xBD80;&#xBD84;&#xC758; &#xB3D9;&#xC791;&#xC744; &#xAE30;&#xB85D;&#xD558;&#xACE0; &#xC774;&#xB97C; &#xC7AC;&#xC5F0;&#xD558;&#xB294; &#xAC83;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C; &#xAC00;&#xB2A5;&#xD558;&#xAC8C; &#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC0C8;&#xB85C;&#xC6B4; logger&#xB97C; &#xD65C;&#xC131;&#xD654;&#xC2DC;&#xCF1C;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.(<code>SYS_LOGGER</code>&#xB97C; 1&#xB85C; &#xC124;&#xC815;)</p>
 <p>&#xC7AC;&#xC5F0;&#xC740; &#xC2E4;&#xC81C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xB2E4;&#xB978; &#xD30C;&#xB77C;&#xBBF8;&#xD130; &#xAC12;&#xC758; &#xC601;&#xD5A5;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xB294;&#xB370; &#xD6A8;&#xACFC;&#xC801;&#xC785;&#xB2C8;&#xB2E4;. &#xB2E4;&#xB978; estimator&#xB4E4;&#xC744; &#xBE44;&#xAD50;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xC804;&#xC81C;-&#xC870;&#xAC74;">&#xC804;&#xC81C; &#xC870;&#xAC74;</h2>
+<h2 id="&#xC804;&#xC81C;-&#xC870;&#xAC74;"><a name="&#xC804;&#xC81C;-&#xC870;&#xAC74;" class="plugin-anchor" href="#&#xC804;&#xC81C;-&#xC870;&#xAC74;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC804;&#xC81C; &#xC870;&#xAC74;</h2>
 <p>&#xAC00;&#xC7A5; &#xBA3C;&#xC800; &#xD574;&#xC57C;&#xD558;&#xB294; &#xC77C;&#xC740; replay&#xD574;&#xC57C; &#xD558;&#xB294; &#xBAA8;&#xB4C8;&#xC744; &#xAD6C;&#xBCC4;&#xD574;&#xB0B4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
 &#xB2E4;&#xC74C;&#xC73C;&#xB85C; &#xC774; &#xBAA8;&#xB4C8;&#xB85C; &#xB4E4;&#xC5B4;&#xC624;&#xB294; &#xBAA8;&#xB4E0; &#xC785;&#xB825;(&#xC608;&#xB85C; subscribed ORB topic)&#xC744; &#xC544;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC2DC;&#xC2A4;&#xD15C; &#xC218;&#xC900;&#xC5D0;&#xC11C; replay&#xB97C; &#xC704;&#xD574;&#xC11C;&#xB294; &#xBAA8;&#xB4E0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC785;&#xB825;&#xC740; &#xC989; &#xC13C;&#xC11C;, RC &#xC785;&#xB825;, mavlink &#xBA85;&#xB839;, &#xD30C;&#xC77C; &#xC2DC;&#xC2A4;&#xD15C;&#xC73C;&#xB85C; &#xAD6C;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>&#xAD6C;&#xBCC4;&#xAC00;&#xB2A5;&#xD55C; &#xBAA8;&#xB4E0; topic&#xB4E4;&#xC740; &#xCD5C;&#xB300; rate&#xB85C; &#xB85C;&#xADF8;&#xB97C; &#xB0A8;&#xACA8;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.(<a href="../log/logging.html">logging</a> &#xCC38;&#xACE0;) <code>ekf2</code> &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC774;&#xBBF8; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xAD00;&#xB828; topic&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xB85C;&#xADF8;&#xB97C; &#xB0A8;&#xAE30;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC7AC;&#xC5F0;&#xD558;&#xB294; &#xBAA8;&#xB4E0; topic&#xC740; &#xB2E8;&#xC77C; timestamp&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC911;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. <code>timestamp</code> &#xD544;&#xB4DC;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;. &#xB354; &#xB9CE;&#xC740; timestamp&#xAC00; &#xC788;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;&#xBA74;, main timestamp&#xC640; &#xAD00;&#xB828;&#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xC81C;&#xB85C; <a href="https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg" target="_blank">sensor_combined.msg</a>&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.
 &#xC774;&#xC5D0; &#xB300;&#xD55C; &#xC774;&#xC720;&#xB294; &#xC544;&#xB798;&#xC5D0;&#xC11C; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="&#xC0AC;&#xC6A9;">&#xC0AC;&#xC6A9;</h2>
+<h2 id="&#xC0AC;&#xC6A9;"><a name="&#xC0AC;&#xC6A9;" class="plugin-anchor" href="#&#xC0AC;&#xC6A9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;</h2>
 <ul>
 <li>&#xBA3C;&#xC800; &#xC7AC;&#xC5F0;&#xD560; &#xD30C;&#xC77C;&#xC744; &#xC120;&#xD0DD;&#xD558;&#xACE0; &#xD0C0;&#xAC9F;(Firmware &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xB0B4;&#xC5D0; &#xC788;&#xB294;)&#xC744; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;:<pre><code class="lang-sh"><span class="hljs-built_in">export</span> replay=&lt;absolute_path_to_<span class="hljs-built_in">log</span>_file.ulg&gt;
 make posix_sitl_default
@@ -1960,13 +1968,13 @@ ignore_others: true
 </code></pre>
 </li>
 </ul>
-<h3 id="important-notes">Important Notes</h3>
+<h3 id="important-notes"><a name="important-notes" class="plugin-anchor" href="#important-notes"><i class="fa fa-link" aria-hidden="true"></i></a>Important Notes</h3>
 <ul>
 <li>replay&#xB97C; &#xD558;&#xB294; &#xB3D9;&#xC548; log &#xD30C;&#xC77C;&#xC5D0; &#xC788;&#xB294; &#xBAA8;&#xB4E0; dropout&#xC744; &#xB9AC;&#xD3EC;&#xD305;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB807;&#xAC8C;&#xD558;&#xBA74; replay&#xC5D0; &#xBD80;&#xC815;&#xC801;&#xC778; &#xC601;&#xD5A5;&#xC744; &#xBBF8;&#xCE58;&#xBBC0;&#xB85C; recording&#xC2DC;&#xC5D0;&#xB294; dropout&#xC774; &#xB418;&#xC9C0; &#xC54A;&#xB3C4;&#xB85D; &#xC2E0;&#xACBD;&#xC368;&#xC57C;&#xB9CC; &#xD569;&#xB2C8;&#xB2E4;.</li>
 <li>&#xD604;&#xC7AC; &apos;&#xC2E4;&#xC2DC;&#xAC04;&apos;&#xC73C;&#xB85C; replay&#xB9CC; &#xAC00;&#xB2A5;&#xD574;&#xC11C; recording&#xB9CC;&#xD07C; &#xBE60;&#xB974;&#xAC8C; &#xC218;&#xD589;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xAE30;&#xB2A5;&#xC740; &#xD5A5;&#xD6C4; &#xD655;&#xC7A5;&#xB420; &#xC608;&#xC815;&#xC785;&#xB2C8;&#xB2E4;.</li>
 <li>timestamp&#xAC00; 0&#xC778; message&#xB294; &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xAC83;&#xC73C;&#xB85C; &#xAC04;&#xC8FC;&#xD558;&#xBA70; replay&#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
 </ul>
-<h2 id="ekf2-replay">EKF2 Replay</h2>
+<h2 id="ekf2-replay"><a name="ekf2-replay" class="plugin-anchor" href="#ekf2-replay"><i class="fa fa-link" aria-hidden="true"></i></a>EKF2 Replay</h2>
 <p>&#xC774;&#xAC83;&#xC740; &#xBE60;&#xB978; EKF2 replay&#xB97C; &#xC704;&#xD574; &#xC2DC;&#xC2A4;&#xD15C; &#xC218;&#xC900;&#xC758; replay&#xB97C; &#xD2B9;&#xD654;&#xC2DC;&#xD0A8; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xC790;&#xB3D9;&#xC73C;&#xB85C; ORB publisher rule&#xC744; &#xC0DD;&#xC131;&#xD558;&#xACE0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4; :</p>
 <ul>
 <li>&#xC120;&#xD0DD;&#xC801;&#xC73C;&#xB85C; <code>SDLOG_MODE</code>&#xB97C; 1&#xB85C; &#xC124;&#xC815;&#xD574;&#xC11C; &#xBD80;&#xD2B8;&#xC5D0;&#xC11C; &#xB85C;&#xAE45;&#xC744; &#xC2DC;&#xC791;&#xC2DC;&#xD0B4;</li>
@@ -1984,7 +1992,7 @@ make posix none
 <p>&#xC0DD;&#xC131;&#xD55C; &#xB85C;&#xADF8;&#xC758; &#xC704;&#xCE58;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xD568;&#xAED8; &#xCD9C;&#xB825; :</p>
 <pre><code>INFO  [logger] Opened log file: rootfs/fs/microsd/log/2017-03-01/13_30_51_replayed.ulg
 </code></pre><p>&#xC885;&#xB8CC;&#xD560; &#xB54C;, replay &#xBAA8;&#xB4DC;&#xB97C; &#xBE60;&#xC838;&#xB098;&#xAC00;&#xAE30; &#xC704;&#xD574; <code>unset replay; unset replay_mode</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h2 id="behind-the-scenes">Behind the Scenes</h2>
+<h2 id="behind-the-scenes"><a name="behind-the-scenes" class="plugin-anchor" href="#behind-the-scenes"><i class="fa fa-link" aria-hidden="true"></i></a>Behind the Scenes</h2>
 <p>Replay&#xB294; 3&#xAC1C; &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xB85C; &#xBD84;&#xB9AC; :</p>
 <ul>
 <li>replay &#xBAA8;&#xB4C8;</li>
@@ -2037,7 +2045,7 @@ make posix none
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"시스템 수준 Replay","level":"1.9.6","depth":2,"next":{"title":"프로파일링","level":"1.9.7","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"previous":{"title":"Simulation 디버깅","level":"1.9.5","depth":2,"path":"debug/simulation_debugging.md","ref":"debug/simulation_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"debug/system_wide_replay.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"시스템 수준 Replay","level":"1.9.6","depth":2,"next":{"title":"프로파일링","level":"1.9.7","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"previous":{"title":"Simulation 디버깅","level":"1.9.5","depth":2,"path":"debug/simulation_debugging.md","ref":"debug/simulation_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"debug/system_wide_replay.md","mtime":"2019-01-03T23:27:43.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2066,6 +2074,10 @@ make posix none
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

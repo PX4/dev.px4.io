@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Parameters & Configs · PX4 Developer Guide</title>
+        <title>Parameters & Configs · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,16 +2044,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="parameters--configurations">Parameters &amp; Configurations</h1>
+                                <h1 id="parameters--configurations"><a name="parameters--configurations" class="plugin-anchor" href="#parameters--configurations"><i class="fa fa-link" aria-hidden="true"></i></a>Parameters &amp; Configurations</h1>
 <p>PX4 uses the <em>param subsystem</em> (a flat table of <code>float</code> and <code>int32_t</code> values) and text files (for mixers and startup scripts) to store its configuration.</p>
 <p>This section discusses the <em>param</em> subsystem in detail.
 It covers how to list, save and load parameters, and how to define them.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> <a href="../concept/system_startup.html">System startup</a> and the way that <a href="../airframes/adding_a_new_frame.html">airframe configurations</a> work are detailed on other pages. </p>
 </blockquote>
-<h2 id="command-line-usage">Command Line Usage</h2>
+<h2 id="command-line-usage"><a name="command-line-usage" class="plugin-anchor" href="#command-line-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Command Line Usage</h2>
 <p>The PX4 <a href="../debug/system_console.html">system console</a> offers the <a href="../middleware/modules_command.html#param">param</a> tool, which can be used to set parameters, read their value, save them, and export and restore to/from files.</p>
-<h3 id="getting-and-setting-parameters">Getting and Setting Parameters</h3>
+<h3 id="getting-and-setting-parameters"><a name="getting-and-setting-parameters" class="plugin-anchor" href="#getting-and-setting-parameters"><i class="fa fa-link" aria-hidden="true"></i></a>Getting and Setting Parameters</h3>
 <p>The <code>param show</code> command lists all system parameters:</p>
 <pre><code class="lang-sh">param show
 </code></pre>
@@ -2062,7 +2070,7 @@ x   RC_MAP_ACRO_SW [375,514] : 0
 <p>You can use the <code>-c</code> flag to show all parameters that have changed (from their defaults):</p>
 <pre><code class="lang-sh">param show -c
 </code></pre>
-<h3 id="exporting-and-loading-parameters">Exporting and Loading Parameters</h3>
+<h3 id="exporting-and-loading-parameters"><a name="exporting-and-loading-parameters" class="plugin-anchor" href="#exporting-and-loading-parameters"><i class="fa fa-link" aria-hidden="true"></i></a>Exporting and Loading Parameters</h3>
 <p>You can save any parameters that have been <em>touched</em> since all parameters were last reset to their firmware-defined defaults (this includes any parameters that have changed been changed, even if they have been changed back to their default).</p>
 <p>The standard <code>param save</code> command will store the parameters in the current default file:</p>
 <pre><code class="lang-sh">param save
@@ -2087,11 +2095,11 @@ param save
 <pre><code class="lang-sh"><span class="hljs-comment"># Merge the saved parameters with current parameters</span>
 param import /fs/microsd/vtol_param_backup
 </code></pre>
-<h2 id="parameter-names">Parameter Names</h2>
+<h2 id="parameter-names"><a name="parameter-names" class="plugin-anchor" href="#parameter-names"><i class="fa fa-link" aria-hidden="true"></i></a>Parameter Names</h2>
 <p>Parameter names must be no more than 16 ASCII characters.</p>
 <p>By convention, every parameter in a group should share the same (meaningful) string prefix followed by an underscore, and <code>MC_</code> and <code>FW_</code> are used for parameters related specifically to Multicopter or Fixed wing systems. This convention is not enforced.</p>
 <p>The name must match in both code and <a href="#parameter_metadata">parameter metadata</a> to correctly associate the parameter with its metadata (including default value in Firmware).</p>
-<h2 id="c--c-api">C / C++ API</h2>
+<h2 id="c--c-api"><a name="c--c-api" class="plugin-anchor" href="#c--c-api"><i class="fa fa-link" aria-hidden="true"></i></a>C / C++ API</h2>
 <p>There are separate C and C++ APIs that can be used to access parameter values from within PX4 modules and drivers.</p>
 <p>One important difference between the APIs is that the C++ version has a more efficient standardized mechanism to synchronize with changes to parameter values (i.e. from a GCS).</p>
 <p>Synchronization is important because a parameter can be changed to another value at any time.
@@ -2099,7 +2107,7 @@ Your code should <em>always</em> use the current value from the parameter store.
 If getting the latest version is not possible, then a reboot will be required after the parameter is changed (set this requirement using the <code>@reboot_required</code> metadata).</p>
 <p>In addition, the C++ version has also better type-safety and less overhead in terms of RAM. 
 The drawback is that the parameter name must be known at compile-time, while the C API can take a dynamically created name as a string.</p>
-<h3 id="c-api">C++ API</h3>
+<h3 id="c-api"><a name="c-api" class="plugin-anchor" href="#c-api"><i class="fa fa-link" aria-hidden="true"></i></a>C++ API</h3>
 <p>The C++ API provides macros to declare parameters as <em>class attributes</em>. 
 You add some &quot;boilerplate&quot; code to regularly listen for changes in the <a href="../middleware/uorb.html">uORB Topic</a> associated with <em>any</em> parameter update.
 Framework code then (invisibly) handles tracking uORB messages that affect your parameter attributes and keeping them in sync. 
@@ -2174,7 +2182,7 @@ If you had other values that needed to be set up a common pattern is to include 
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> The <a href="../apps/module_template.html">Application/Module Template</a> uses the new-style C++ API but does not include <a href="#parameter_metadata">parameter metadata</a>.</p>
 </blockquote>
-<h3 id="c-api">C API</h3>
+<h3 id="c-api"><a name="c-api" class="plugin-anchor" href="#c-api"><i class="fa fa-link" aria-hidden="true"></i></a>C API</h3>
 <p>The C API can be used within both modules and drivers.</p>
 <p>First include the parameter API:</p>
 <pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;parameters/param.h&gt;</span></span>
@@ -2197,7 +2205,7 @@ my_param_handle = param_find(<span class="hljs-string">&quot;PARAM_NAME&quot;</s
 <span class="hljs-keyword">int32_t</span> my_param = <span class="hljs-number">0</span>;
 param_get(my_param_handle, &amp;my_param);
 </code></pre>
-<h2 id="parameter_metadata">Parameter Meta Data </h2>
+<h2 id="parameter_metadata"><a name="parameter_metadata" class="plugin-anchor" href="#parameter_metadata"><i class="fa fa-link" aria-hidden="true"></i></a>Parameter Meta Data </h2>
 <p>PX4 uses an extensive parameter metadata system to drive the user-facing presentation of parameters, and to set the default value for each parameter in firmware.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> Correct meta data is critical for good user experience in a ground station.</p>
@@ -2291,7 +2299,7 @@ The purpose of each line is given below (for more detail see <a href="https://gi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"next":{"title":"Parameter Reference","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"previous":{"title":"Advanced Topics","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"Parameter Reference","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"Installing driver for Intel RealSense R200","level":"1.11.3","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"Switching State Estimators","level":"1.11.4","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"Out-of-Tree Modules","level":"1.11.5","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.6","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameters_and_configurations.md","mtime":"2019-01-03T18:30:41.337Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"next":{"title":"Parameter Reference","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"previous":{"title":"Advanced Topics","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"Parameter Reference","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"Installing driver for Intel RealSense R200","level":"1.11.3","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"Switching State Estimators","level":"1.11.4","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"Out-of-Tree Modules","level":"1.11.5","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.6","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameters_and_configurations.md","mtime":"2019-01-03T23:27:43.071Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2320,6 +2328,10 @@ The purpose of each line is given below (for more detail see <a href="https://gi
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

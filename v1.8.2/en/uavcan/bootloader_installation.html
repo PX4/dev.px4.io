@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>UAVCAN Bootloader · PX4 Developer Guide</title>
+        <title>UAVCAN Bootloader · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,27 +2044,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="uavcan-bootloader-installation">UAVCAN Bootloader Installation</h1>
+                                <h1 id="uavcan-bootloader-installation"><a name="uavcan-bootloader-installation" class="plugin-anchor" href="#uavcan-bootloader-installation"><i class="fa fa-link" aria-hidden="true"></i></a>UAVCAN Bootloader Installation</h1>
 <blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
 <p> UAVCAN devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.</p>
 </blockquote>
-<h2 id="overview">Overview</h2>
+<h2 id="overview"><a name="overview" class="plugin-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>Overview</h2>
 <p>The PX4 project includes a standard UAVCAN bootloader for STM32 devices.</p>
 <p>The bootloader occupies the first 8&#x2013;16 KB of flash, and is the first code executed on power-up. Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.</p>
 <p>This process ensures that a UAVCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.</p>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h2>
 <p>Installing or updating the UAVCAN bootloader requires:</p>
 <ul>
 <li>An SWD or JTAG interface (depending on device), for example the <a href="http://www.blacksphere.co.nz/main/blackmagic" target="_blank">BlackMagic Probe</a> or the <a href="http://www.st.com/internet/evalboard/product/251168.jsp" target="_blank">ST-Link v2</a>;</li>
 <li>An adapter cable to connect your SWD or JTAG interface to the UAVCAN device&apos;s debugging port;</li>
 <li>A <a href="../setup/dev_env.html">supported ARM toolchain</a>.</li>
 </ul>
-<h2 id="device-preparation">Device Preparation</h2>
+<h2 id="device-preparation"><a name="device-preparation" class="plugin-anchor" href="#device-preparation"><i class="fa fa-link" aria-hidden="true"></i></a>Device Preparation</h2>
 <p>If you are unable to connect to your device using the instructions below, it&apos;s possible that firmware already on the device has disabled the MCU&apos;s debug pins. To recover from this, you will need to connect your interface&apos;s NRST or nSRST pin (pin 15 on the standard ARM 20-pin connector) to your MCU&apos;s NRST pin. Obtain your device schematics and PCB layout or contact the manufacturer for details.</p>
-<h2 id="installation">Installation</h2>
+<h2 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>Installation</h2>
 <p>After compiling or obtaining a bootloader image for your device (refer to device documentation for details), the bootloader must be copied to the beginning of the device&apos;s flash memory.</p>
 <p>The process for doing this depends on the SWD or JTAG interface used.</p>
-<h2 id="blackmagic-probe">BlackMagic Probe</h2>
+<h2 id="blackmagic-probe"><a name="blackmagic-probe" class="plugin-anchor" href="#blackmagic-probe"><i class="fa fa-link" aria-hidden="true"></i></a>BlackMagic Probe</h2>
 <p>Ensure your BlackMagic Probe <a href="https://github.com/blacksphere/blackmagic/wiki/Hacking" target="_blank">firmware is up to date</a>.</p>
 <p>Connect the probe to your UAVCAN device, and connect the probe to your computer.</p>
 <p>Identify the probe&apos;s device name. This will typically be <code>/dev/ttyACM&lt;x&gt;</code> or <code>/dev/ttyUSB&lt;x&gt;</code>.</p>
@@ -2073,7 +2081,7 @@ load
 run
 </code></pre>
 <p>If <code>monitor swdp_scan</code> returns an error, ensure your wiring is correct, and that you have an up-to-date version of the BlackMagic firmware.</p>
-<h2 id="st-link-v2">ST-Link v2</h2>
+<h2 id="st-link-v2"><a name="st-link-v2" class="plugin-anchor" href="#st-link-v2"><i class="fa fa-link" aria-hidden="true"></i></a>ST-Link v2</h2>
 <p>Ensure you have a recent version&#x2014;at least 0.9.0&#x2014;of <a href="http://openocd.org" target="_blank">OpenOCD</a>.</p>
 <p>Connect the ST-Link to your UAVCAN device, and connect the ST-Link to your computer.</p>
 <p>Power up your UAVCAN device, and run:</p>
@@ -2087,7 +2095,7 @@ set mem inaccessible-by-default off
 load
 run
 </code></pre>
-<h2 id="segger-j-link-debugger">Segger J-Link Debugger</h2>
+<h2 id="segger-j-link-debugger"><a name="segger-j-link-debugger" class="plugin-anchor" href="#segger-j-link-debugger"><i class="fa fa-link" aria-hidden="true"></i></a>Segger J-Link Debugger</h2>
 <p>Connect the JLink Debugger to your UAVCAN device, and connect the JLink Debugger to your computer.</p>
 <p>Power up your UAVCAN device, and run:</p>
 <pre><code>JLinkGDBServer -select USB=0 -device STM32F446RE -if SWD-DP -speed 20000 -vd
@@ -2096,7 +2104,7 @@ run
 </code></pre><p>At the <code>gdb</code> prompt, run:</p>
 <pre><code>tar ext :2331
 load
-</code></pre><h2 id="erasing-flash-with-segger-jlink-debugger">Erasing Flash with SEGGER JLink Debugger</h2>
+</code></pre><h2 id="erasing-flash-with-segger-jlink-debugger"><a name="erasing-flash-with-segger-jlink-debugger" class="plugin-anchor" href="#erasing-flash-with-segger-jlink-debugger"><i class="fa fa-link" aria-hidden="true"></i></a>Erasing Flash with SEGGER JLink Debugger</h2>
 <p>As a recovery method it may be useful to erase flash to factory defaults such that the firmware is using the default parameters. Go to the directory of your SEGGER installation and launch JLinkExe, then run:</p>
 <pre><code>device &lt;name-of-device&gt;
 erase
@@ -2144,7 +2152,7 @@ erase
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"UAVCAN Bootloader","level":"1.5.6.2.1","depth":4,"next":{"title":"UAVCAN Firmware Upgrades","level":"1.5.6.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},"previous":{"title":"UAVCAN Bus","level":"1.5.6.2","depth":3,"path":"uavcan/README.md","ref":"uavcan/README.md","articles":[{"title":"UAVCAN Bootloader","level":"1.5.6.2.1","depth":4,"path":"uavcan/bootloader_installation.md","ref":"uavcan/bootloader_installation.md","articles":[]},{"title":"UAVCAN Firmware Upgrades","level":"1.5.6.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},{"title":"UAVCAN Configuration","level":"1.5.6.2.3","depth":4,"path":"uavcan/node_enumeration.md","ref":"uavcan/node_enumeration.md","articles":[]},{"title":"UAVCAN Various Notes","level":"1.5.6.2.4","depth":4,"path":"uavcan/notes.md","ref":"uavcan/notes.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"uavcan/bootloader_installation.md","mtime":"2019-01-03T18:30:41.349Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"UAVCAN Bootloader","level":"1.5.6.2.1","depth":4,"next":{"title":"UAVCAN Firmware Upgrades","level":"1.5.6.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},"previous":{"title":"UAVCAN Bus","level":"1.5.6.2","depth":3,"path":"uavcan/README.md","ref":"uavcan/README.md","articles":[{"title":"UAVCAN Bootloader","level":"1.5.6.2.1","depth":4,"path":"uavcan/bootloader_installation.md","ref":"uavcan/bootloader_installation.md","articles":[]},{"title":"UAVCAN Firmware Upgrades","level":"1.5.6.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},{"title":"UAVCAN Configuration","level":"1.5.6.2.3","depth":4,"path":"uavcan/node_enumeration.md","ref":"uavcan/node_enumeration.md","articles":[]},{"title":"UAVCAN Various Notes","level":"1.5.6.2.4","depth":4,"path":"uavcan/notes.md","ref":"uavcan/notes.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"uavcan/bootloader_installation.md","mtime":"2019-01-03T23:27:43.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2173,6 +2181,10 @@ erase
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

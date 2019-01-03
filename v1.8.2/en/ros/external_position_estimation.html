@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>External Position Estimation · PX4 Developer Guide</title>
+        <title>External Position Estimation · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,7 +2044,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="using-vision-or-motion-capture-systems">Using Vision or Motion Capture Systems</h1>
+                                <h1 id="using-vision-or-motion-capture-systems"><a name="using-vision-or-motion-capture-systems" class="plugin-anchor" href="#using-vision-or-motion-capture-systems"><i class="fa fa-link" aria-hidden="true"></i></a>Using Vision or Motion Capture Systems</h1>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
 <p> Before following the instructions below, ensure that your autopilot has a firmware version with the LPE modules enabled. The LPE version of the PX4 firmware can be found inside the zip file of the latest PX4 release or it can be built from source using a build command such as <code>make px4fmu-v2_lpe</code>. See <a href="../setup/building_px4.html">Building the Code</a> for more details.</p>
 </blockquote>
@@ -2046,20 +2054,20 @@
 <p>For vision, the MAVLink message used to send the pose data is <a href="https://mavlink.io/en/messages/common.html#VISION_POSITION_ESTIMATE" target="_blank">VISION_POSITION_ESTIMATE</a> and the message for all motion capture systems is <a href="https://mavlink.io/en/messages/common.html#ATT_POS_MOCAP" target="_blank">ATT_POS_MOCAP</a> messages.</p>
 <p>The mavros ROS-MAVLink interface has default implementations to send these messages. They can also be sent using pure C/C++ code and direct use of the MAVLink library. The ROS topics are: <code>mocap_pose_estimate</code> for mocap systems and <code>vision_pose_estimate</code> for vision. Check <a href="http://wiki.ros.org/mavros_extras" target="_blank">mavros_extras</a> for further info.</p>
 <p><strong>This feature has only been tested to work with the LPE estimator.</strong></p>
-<h2 id="lpe-tuning-for-vision-or-mocap">LPE Tuning for Vision or Mocap</h2>
-<h3 id="enabling-external-pose-input">Enabling external pose input</h3>
+<h2 id="lpe-tuning-for-vision-or-mocap"><a name="lpe-tuning-for-vision-or-mocap" class="plugin-anchor" href="#lpe-tuning-for-vision-or-mocap"><i class="fa fa-link" aria-hidden="true"></i></a>LPE Tuning for Vision or Mocap</h2>
+<h3 id="enabling-external-pose-input"><a name="enabling-external-pose-input" class="plugin-anchor" href="#enabling-external-pose-input"><i class="fa fa-link" aria-hidden="true"></i></a>Enabling external pose input</h3>
 <p>You need to set a few parameters (from QGroundControl or the NSH shell) to enable or disable vision/mocap usage in the system.</p>
 <p>Set the system parameter <code>ATT_EXT_HDG_M</code> to 1 or 2 to enable external heading integration. Setting it to 1 will cause vision to be used, while 2 enables mocap heading use. </p>
 <p>Vision integration is enabled by default in LPE. You can control this using the<code>LPE_FUSION</code> parameter in QGroundControl. Make sure that &quot;fuse vision position&quot; is checked.</p>
-<h4 id="disabling-barometer-fusion">Disabling barometer fusion</h4>
+<h4 id="disabling-barometer-fusion"><a name="disabling-barometer-fusion" class="plugin-anchor" href="#disabling-barometer-fusion"><i class="fa fa-link" aria-hidden="true"></i></a>Disabling barometer fusion</h4>
 <p>If a highly accurate altitude is already available from vision or mocap information, it may be useful to disable the baro correction in LPE to reduce drift on the Z axis.</p>
 <p>There is a bit field for this in the parameter <code>LPE_FUSION</code>, which you can set from QGroundControl. Just uncheck &quot;fuse baro&quot;.</p>
-<h4 id="tuning-noise-parameters">Tuning Noise Parameters</h4>
+<h4 id="tuning-noise-parameters"><a name="tuning-noise-parameters" class="plugin-anchor" href="#tuning-noise-parameters"><i class="fa fa-link" aria-hidden="true"></i></a>Tuning Noise Parameters</h4>
 <p>If your vision or mocap data is highly accurate, and you just want the estimator to track it tightly, you should reduce the standard deviation parameters, <code>LPE_VIS_XY</code> and <code>LPE_VIS_Z</code> (for vision) or <code>LPE_VIC_P</code> (for motion capture). Reducing them will cause the estimator to trust the incoming pose estimate more. You may need to set them lower than the allowed minimum and force-save. </p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p>If performance is still poor, try increasing the <code>LPE_PN_V</code> parameter. This will cause the estimator to trust measurements more during velocity estimation..</p>
 </blockquote>
-<h2 id="asserting-on-reference-frames">Asserting on Reference Frames</h2>
+<h2 id="asserting-on-reference-frames"><a name="asserting-on-reference-frames" class="plugin-anchor" href="#asserting-on-reference-frames"><i class="fa fa-link" aria-hidden="true"></i></a>Asserting on Reference Frames</h2>
 <p>This section shows how to setup the system with the proper reference frames. There are various representations but we will use two of them: ENU and NED. </p>
 <ul>
 <li><p>ENU has a ground-fixed frame where <em>x</em> axis points East, <em>y</em> points North and <em>z</em> up. Robot frame is <em>x</em> towards the front, <em>z</em> up and <em>y</em> accordingly.</p>
@@ -2073,9 +2081,9 @@
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
 <p> When creating the rigid body in the mocap software, remember to first align the robot&apos;s local <em>x</em> axis with the world <em>x</em> axis otherwise yaw estimation will have an initial offset.</p>
 </blockquote>
-<h3 id="using-mavros">Using Mavros</h3>
+<h3 id="using-mavros"><a name="using-mavros" class="plugin-anchor" href="#using-mavros"><i class="fa fa-link" aria-hidden="true"></i></a>Using Mavros</h3>
 <p>With MAVROS this operation is straightforward. ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. If you have an Optitrack system you can use <a href="https://github.com/ros-drivers/mocap_optitrack" target="_blank">mocap_optitrack</a> node which streams the object pose on a ROS topic already in ENU. With a remapping you can directly publish it on <code>mocap_pose_estimate</code> as it is without any transformation and mavros will take care of NED conversions.</p>
-<h3 id="without-mavros">Without Mavros</h3>
+<h3 id="without-mavros"><a name="without-mavros" class="plugin-anchor" href="#without-mavros"><i class="fa fa-link" aria-hidden="true"></i></a>Without Mavros</h3>
 <p>If you do not use MAVROS or ROS in general, you need to stream data over MAVLink with <code>ATT_POS_MOCAP</code> message. In this case you will need to apply a custom transformation depending on the system in order to obtain NED convention.</p>
 <p>Let us take as an example the Optitrack framework; in this case the local frame has <script type="math/tex; ">x</script> and <script type="math/tex; ">z</script> on the horizontal plane (<em>x</em> front and <em>z</em> right) while <em>y</em> axis is vertical and pointing up. A simple trick is swapping axis in order to obtained NED convention. </p>
 <p>We call <em>x_{mav}</em>, <em>y_{mav}</em> and <em>z_{mav}</em> the coordinates that are sent through MAVLink as position feedback, then we obtain:</p>
@@ -2083,7 +2091,7 @@
 <em>y_{mav}</em> = <em>z_{mocap}</em>
 <em>z_{mav}</em> = - <em>y_{mocap}</em></p>
 <p>Regarding the orientation, keep the scalar part <em>w</em> of the quaternion the same and swap the vector part <em>x</em>, <em>y</em> and <em>z</em> in the same way. You can apply this trick with every system; you need to obtain a NED frame, look at your mocap output and swap axis accordingly.</p>
-<h2 id="first-flight">First Flight</h2>
+<h2 id="first-flight"><a name="first-flight" class="plugin-anchor" href="#first-flight"><i class="fa fa-link" aria-hidden="true"></i></a>First Flight</h2>
 <p>At this point, if you followed those steps, you are ready to test your setup. </p>
 <p>Be sure to perform the following checks:</p>
 <ul>
@@ -2146,7 +2154,7 @@ put it back to the middle right after. Check if it is able to keep its position.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"External Position Estimation","level":"1.8.2.6","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"ROS Installation on RPi","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2019-01-03T18:30:41.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"External Position Estimation","level":"1.8.2.6","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"ROS Installation on RPi","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2019-01-03T23:27:43.079Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2175,6 +2183,10 @@ put it back to the middle right after. Check if it is able to keep its position.
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

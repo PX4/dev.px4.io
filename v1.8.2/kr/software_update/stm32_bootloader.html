@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>STM32 부트로더 · PX4 Developer Guide</title>
+        <title>STM32 부트로더 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,9 +1921,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="stm32-bootloader">STM32 Bootloader</h1>
+                                <h1 id="stm32-bootloader"><a name="stm32-bootloader" class="plugin-anchor" href="#stm32-bootloader"><i class="fa fa-link" aria-hidden="true"></i></a>STM32 Bootloader</h1>
 <p>PX4 bootloader &#xCF54;&#xB4DC;&#xB294; Github <a href="https://github.com/px4/bootloader" target="_blank">Bootloader</a> repository&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC138;&#xC694;.</p>
-<h2 id="&#xC9C0;&#xC6D0;-&#xBCF4;&#xB4DC;">&#xC9C0;&#xC6D0; &#xBCF4;&#xB4DC;</h2>
+<h2 id="&#xC9C0;&#xC6D0;-&#xBCF4;&#xB4DC;"><a name="&#xC9C0;&#xC6D0;-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#&#xC9C0;&#xC6D0;-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC9C0;&#xC6D0; &#xBCF4;&#xB4DC;</h2>
 <ul>
 <li>FMUv1 (PX4FMU, STM32F4)</li>
 <li>FMUv2 (Pixhawk 1, STM32F4)</li>
@@ -1925,13 +1933,13 @@
 <li>TAPv1 (TBA, STM32F4)</li>
 <li>ASCv1 (TBA, STM32F4)</li>
 </ul>
-<h2 id="bootloader-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;">Bootloader &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h2>
+<h2 id="bootloader-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="bootloader-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#bootloader-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>Bootloader &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h2>
 <pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/PX4/Bootloader.git
 <span class="hljs-built_in">cd</span> Bootloader
 make
 </code></pre>
 <p>&#xC774; &#xACFC;&#xC815;&#xC774; &#xC9C0;&#xB098;&#xBA74; &#xBAA8;&#xB4E0; &#xC9C0;&#xC6D0; &#xBCF4;&#xB4DC;&#xC5D0; &#xB300;&#xD55C; elf &#xD30C;&#xC77C;&#xB4E4;&#xC774; Bootloader &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xB098;&#xD0C0;&#xB0A9;&#xB2C8;&#xB2E4;.</p>
-<h2 id="bootloader&#xB97C;-&#xD50C;&#xB798;&#xC26C;">Bootloader&#xB97C; &#xD50C;&#xB798;&#xC26C;</h2>
+<h2 id="bootloader&#xB97C;-&#xD50C;&#xB798;&#xC26C;"><a name="bootloader&#xB97C;-&#xD50C;&#xB798;&#xC26C;" class="plugin-anchor" href="#bootloader&#xB97C;-&#xD50C;&#xB798;&#xC26C;"><i class="fa fa-link" aria-hidden="true"></i></a>Bootloader&#xB97C; &#xD50C;&#xB798;&#xC26C;</h2>
 <blockquote>
 <p>IMPORTANT: JTAG / SWD &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD55C; &#xC77C;&#xBD80; &#xBCF4;&#xB4DC;&#xC5D0;&#xC11C;&#xB294; &#xC815;&#xD655;&#xD55C; &#xC804;&#xC6D0; &#xC21C;&#xC11C;&#xAC00; &#xC911;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xC544;&#xB798; &#xB0B4;&#xC6A9;&#xC740; Blackmagic / Dronecode probe&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC720;&#xD6A8;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xB978; JTAG probe&#xB294; &#xBE44;&#xC2B7;&#xD558;&#xC9C0;&#xB9CC; &#xB2E4;&#xB97C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. bootloader&#xB97C; &#xD50C;&#xB798;&#xC26C;&#xD558;&#xB294; &#xAC1C;&#xBC1C;&#xC790;&#xB294; &#xAD00;&#xB828; &#xC9C0;&#xC2DD;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xC5B4;&#xB5BB;&#xAC8C; &#xD558;&#xB294;&#xC9C0; &#xBAA8;&#xB978;&#xB2E4;&#xBA74; bootloader&#xB97C; &#xBCC0;&#xACBD;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC2E4;&#xC81C;&#xB85C; &#xD544;&#xC694;&#xD55C; &#xAC83;&#xC778;&#xC9C0; &#xB2E4;&#xC2DC; &#xC0DD;&#xAC01;&#xD574;&#xBCF4;&#xC138;&#xC694;.</p>
 </blockquote>
@@ -1940,8 +1948,8 @@ make
 <li>USB &#xD30C;&#xC6CC; &#xCF00;&#xC774;&#xBE14; &#xC5F0;&#xACB0;</li>
 <li>JTAG &#xCF00;&#xC774;&#xBE14; &#xC5F0;&#xACB0;&#xD558;&#xAE30;</li>
 </ul>
-<h3 id="black-magic--dronecode-probe">Black Magic / Dronecode Probe</h3>
-<h4 id="&#xC2DC;&#xB9AC;&#xC5BC;-&#xD3EC;&#xD2B8;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">&#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h4>
+<h3 id="black-magic--dronecode-probe"><a name="black-magic--dronecode-probe" class="plugin-anchor" href="#black-magic--dronecode-probe"><i class="fa fa-link" aria-hidden="true"></i></a>Black Magic / Dronecode Probe</h3>
+<h4 id="&#xC2DC;&#xB9AC;&#xC5BC;-&#xD3EC;&#xD2B8;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;"><a name="&#xC2DC;&#xB9AC;&#xC5BC;-&#xD3EC;&#xD2B8;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC2DC;&#xB9AC;&#xC5BC;-&#xD3EC;&#xD2B8;-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8; &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h4>
 <ul>
 <li>LINUX: <code>/dev/serial/by-id/usb-Black_Sphere_XXX-if00</code></li>
 <li>MAC OS: tty.xxx port&#xAC00; &#xC544;&#xB2C8;&#xB77C; cu.xxx port&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778; : <code>tar ext /dev/tty.usbmodemDDEasdf</code></li>
@@ -1957,23 +1965,23 @@ make
         Transfer rate: 17 KB/sec, 828 bytes/write.
   (gdb) <span class="hljs-built_in">kill</span>
 </code></pre>
-<h3 id="j-link">J-Link</h3>
+<h3 id="j-link"><a name="j-link" class="plugin-anchor" href="#j-link"><i class="fa fa-link" aria-hidden="true"></i></a>J-Link</h3>
 <p><a href="https://www.segger.com/jlink-gdb-server.html" target="_blank">J-Link GDB server</a>&#xC5D0; &#xB300;&#xD55C; &#xC124;&#xBA85;</p>
-<h4 id="&#xC804;&#xC81C;-&#xC870;&#xAC74;">&#xC804;&#xC81C; &#xC870;&#xAC74;</h4>
+<h4 id="&#xC804;&#xC81C;-&#xC870;&#xAC74;"><a name="&#xC804;&#xC81C;-&#xC870;&#xAC74;" class="plugin-anchor" href="#&#xC804;&#xC81C;-&#xC870;&#xAC74;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC804;&#xC81C; &#xC870;&#xAC74;</h4>
 <p>Segger &#xC0AC;&#xC774;&#xD2B8;&#xC5D0;&#xC11C; <a href="https://www.segger.com/downloads/jlink" target="_blank">J-Link &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;</a>&#xD558;&#xACE0; &#xC9C0;&#xC2DC;&#xC5D0; &#xB530;&#xB77C; &#xC124;&#xCE58;&#xD558;&#xAE30;</p>
-<h4 id="jlink-gdb-server-&#xC2E4;&#xD589;&#xD558;&#xAE30;">JLink GDB server &#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
+<h4 id="jlink-gdb-server-&#xC2E4;&#xD589;&#xD558;&#xAE30;"><a name="jlink-gdb-server-&#xC2E4;&#xD589;&#xD558;&#xAE30;" class="plugin-anchor" href="#jlink-gdb-server-&#xC2E4;&#xD589;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>JLink GDB server &#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
 <p>FMUv1:</p>
 <pre><code class="lang-bash">JLinkGDBServer -select USB=0 -device STM32F405RG -if SWD-DP -speed 20000
 </code></pre>
 <p>AeroFC:</p>
 <pre><code class="lang-bash">JLinkGDBServer -select USB=0 -device STM32F429AI -if SWD-DP -speed 20000
 </code></pre>
-<h4 id="gdb-&#xC5F0;&#xACB0;&#xD558;&#xAE30;">GDB &#xC5F0;&#xACB0;&#xD558;&#xAE30;</h4>
+<h4 id="gdb-&#xC5F0;&#xACB0;&#xD558;&#xAE30;"><a name="gdb-&#xC5F0;&#xACB0;&#xD558;&#xAE30;" class="plugin-anchor" href="#gdb-&#xC5F0;&#xACB0;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>GDB &#xC5F0;&#xACB0;&#xD558;&#xAE30;</h4>
 <pre><code class="lang-bash">arm-none-eabi-gdb
   (gdb) tar ext :2331
   (gdb) load aerofcv1_bl.elf
 </code></pre>
-<h3 id="&#xBB38;&#xC81C;&#xD574;&#xACB0;">&#xBB38;&#xC81C;&#xD574;&#xACB0;</h3>
+<h3 id="&#xBB38;&#xC81C;&#xD574;&#xACB0;"><a name="&#xBB38;&#xC81C;&#xD574;&#xACB0;" class="plugin-anchor" href="#&#xBB38;&#xC81C;&#xD574;&#xACB0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBB38;&#xC81C;&#xD574;&#xACB0;</h3>
 <p>&#xC704;&#xC5D0; &#xBA85;&#xB839;&#xC744; &#xCC3E;&#xC744; &#xC218; &#xC5C6;&#xB2E4;&#xBA74; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774; Blackmagic&#xC774; &#xC544;&#xB2C8;&#xAC70;&#xB098; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xAC00; &#xC608;&#xC804; &#xBC84;&#xC804;&#xC77C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xBA3C;&#xC800; on-probe &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;&#xB97C; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xC138;&#xC694;.</p>
 <p>&#xB9CC;&#xC57D; &#xC5D0;&#xB7EC; &#xBA54;&#xC2DC;&#xC9C0; &#xBC1C;&#xC0DD;:
 <code>Error erasing flash with vFlashErase packet</code></p>
@@ -2027,7 +2035,7 @@ load tapv1_bl.elf
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"STM32 부트로더","level":"1.11.7","depth":2,"next":{"title":"테스팅과 CI","level":"1.12","depth":1,"path":"test_and_ci/README.md","ref":"test_and_ci/README.md","articles":[{"title":"Unit Tests","level":"1.12.1","depth":2,"url":"https://dev.px4.io/en/test_and_ci/unit_tests.html","ref":"https://dev.px4.io/en/test_and_ci/unit_tests.html","articles":[]},{"title":"지속 통합","level":"1.12.2","depth":2,"path":"test_and_ci/continous_integration.md","ref":"test_and_ci/continous_integration.md","articles":[]},{"title":"Jenkins 지속 통합","level":"1.12.3","depth":2,"path":"test_and_ci/jenkins_ci.md","ref":"test_and_ci/jenkins_ci.md","articles":[]},{"title":"통합 테스팅","level":"1.12.4","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},{"title":"Docker 컨테이너","level":"1.12.5","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},{"title":"유지보수","level":"1.12.6","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]}]},"previous":{"title":"Out-of-tree 모듈","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"software_update/stm32_bootloader.md","mtime":"2019-01-03T18:30:41.361Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"STM32 부트로더","level":"1.11.7","depth":2,"next":{"title":"테스팅과 CI","level":"1.12","depth":1,"path":"test_and_ci/README.md","ref":"test_and_ci/README.md","articles":[{"title":"Unit Tests","level":"1.12.1","depth":2,"url":"https://dev.px4.io/en/test_and_ci/unit_tests.html","ref":"https://dev.px4.io/en/test_and_ci/unit_tests.html","articles":[]},{"title":"지속 통합","level":"1.12.2","depth":2,"path":"test_and_ci/continous_integration.md","ref":"test_and_ci/continous_integration.md","articles":[]},{"title":"Jenkins 지속 통합","level":"1.12.3","depth":2,"path":"test_and_ci/jenkins_ci.md","ref":"test_and_ci/jenkins_ci.md","articles":[]},{"title":"통합 테스팅","level":"1.12.4","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},{"title":"Docker 컨테이너","level":"1.12.5","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},{"title":"유지보수","level":"1.12.6","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]}]},"previous":{"title":"Out-of-tree 모듈","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"software_update/stm32_bootloader.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2056,6 +2064,10 @@ load tapv1_bl.elf
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

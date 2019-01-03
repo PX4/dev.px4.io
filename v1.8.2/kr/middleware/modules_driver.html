@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>드라이버 · PX4 Developer Guide</title>
+        <title>드라이버 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,10 +1921,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="modules-&#xB808;&#xD37C;&#xB7F0;&#xC2A4;-driver">Modules &#xB808;&#xD37C;&#xB7F0;&#xC2A4;: Driver</h1>
-<h2 id="fmu">fmu</h2>
+                                <h1 id="modules-&#xB808;&#xD37C;&#xB7F0;&#xC2A4;-driver"><a name="modules-&#xB808;&#xD37C;&#xB7F0;&#xC2A4;-driver" class="plugin-anchor" href="#modules-&#xB808;&#xD37C;&#xB7F0;&#xC2A4;-driver"><i class="fa fa-link" aria-hidden="true"></i></a>Modules &#xB808;&#xD37C;&#xB7F0;&#xC2A4;: Driver</h1>
+<h2 id="fmu"><a name="fmu" class="plugin-anchor" href="#fmu"><i class="fa fa-link" aria-hidden="true"></i></a>fmu</h2>
 <p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu" target="_blank">drivers/px4fmu</a></p>
-<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
 <p>&#xC774; &#xBAA8;&#xB4C8;&#xC740; &#xCD9C;&#xB825;&#xC744; &#xC720;&#xB3C4;&#xD558;&#xACE0; &#xC785;&#xB825; &#xD540;&#xC744; &#xC77D;&#xB294; &#xC5ED;&#xD560;&#xC744; &#xB2F4;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xB3C5;&#xB9BD;&#xB41C; IO &#xCE69; &#xC5C6;&#xC774; &#xBCF4;&#xB4DC;&#xC5D0;(Pixracer) &#xB300;&#xD574;&#xC11C; &#xBA54;&#xC778; &#xCC44;&#xB110;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. IO &#xCE69;&#xC744; &#xAC00;&#xC9C4; &#xBCF4;&#xB4DC;(Pixhawk)&#xC5D0;&#xC11C;&#xB294; AUX &#xCC44;&#xB110;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA70; px4io driver&#xAC00; &#xBA54;&#xC778;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>actuator_controls topic&#xC744; listen&#xD558;&#xACE0; &#xBBF9;&#xC2F1;&#xACFC; PWM &#xCD9C;&#xB825;&#xC744; &#xB0B4;&#xB294; &#xC77C;&#xC744; &#xD569;&#xB2C8;&#xB2E4;.
 &#xCD94;&#xAC00;&#xB85C; RC &#xC785;&#xB825;&#xC744; &#xD30C;&#xC2F1;&#xD558;&#xACE0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xBC29;&#xC2DD;&#xC744; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC740; :</p>
@@ -1929,10 +1937,10 @@
 </ul>
 <p>mode_* commands&#xB97C; &#xD1B5;&#xD574;&#xC11C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xAC00; &#xC0AC;&#xC6A9;&#xD560; &#xCC98;&#xC74C; N&#xAC1C; &#xD540;&#xC774; &#xC5B4;&#xB5A4; &#xAC83;&#xC778;&#xC9C0;&#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.
 &#xC608;&#xC81C;&#xB85C; mode_pwm4&#xC744; &#xC0AC;&#xC6A9;&#xD568;&#xC73C;&#xB85C; pins 5&#xC640; 6&#xC740; &#xCE74;&#xBA54;&#xB77C; &#xD2B8;&#xB9AC;&#xAC70; &#xB4DC;&#xB77C;&#xC774;&#xBC84;sk PWM rangefinder &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC120;&#xD0DD;&#xC801;&#xC73C;&#xB85C; fmu&#xB294; &#xCEA1;&#xCCD0; &#xBAA8;&#xB4DC; &#xC911;&#xC5D0; &#xD558;&#xB098;&#xB85C; &#xC2DC;&#xC791;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC73C;&#xBA70; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB294; ioctl &#xD638;&#xCD9C;&#xB85C; &#xCEA1;&#xCCD0; &#xCF5C;&#xBC31;&#xC744; &#xB4F1;&#xB85D;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xAD6C;&#xD604;">&#xAD6C;&#xD604;</h3>
+<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
 <p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBAA8;&#xB4C8;&#xC740; work queue&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xC5B4; RAM &#xC0AC;&#xC6A9;&#xC744; &#xC904;&#xC785;&#xB2C8;&#xB2E4;. &#xC790;&#xC2E0;&#xC758; thread&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB420; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xACBD;&#xC6B0; &#xC2DC;&#xC791; flag&#xB97C; -t &#xB85C; &#xC9C0;&#xC815;&#xD574;&#xC57C;&#xD558;&#xBA70; &#xC9C0;&#xC5F0;&#xC2DC;&#xAC04;&#xC744; &#xC904;&#xC774;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. work queue&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xACBD;&#xC6B0;, &#xACE0;&#xC815; frequency&#xB85C; &#xC2A4;&#xCE90;&#xC974;&#xB418;&#xBA70; pwm rate&#xB294;  actuator_controls topics&#xC758; &#xAC31;&#xC2E0; rate&#xB97C; &#xC81C;&#xD55C;&#xD569;&#xB2C8;&#xB2E4;. &#xC790;&#xC2E0;&#xC758; thread&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xACBD;&#xC6B0;, &#xD574;&#xB2F9; &#xBAA8;&#xB4C8;&#xC740; actuator_controls topic&#xC744; poll&#xD569;&#xB2C8;&#xB2E4;.
 &#xCD94;&#xAC00;&#xB85C; pwm rate&#xB294; lower-level IO &#xD0C0;&#xC774;&#xBA38; rate&#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<h3 id="&#xC608;&#xC81C;"><a name="&#xC608;&#xC81C;" class="plugin-anchor" href="#&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC81C;</h3>
 <p>&#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xAD6C;&#xB3D9;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;:</p>
 <pre><code>fmu mode_pwm
 </code></pre><p>&#xC720;&#xD6A8;&#xD55C; &#xBAA8;&#xB4E0; pin&#xC744; &#xC720;&#xB3C4;.</p>
@@ -1941,7 +1949,7 @@
 </code></pre><p>&#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; 4&#xBC88;&#xC9F8; &#xD540;&#xC758; &#xCEA1;&#xCCD0;&#xB97C; &#xD65C;&#xC131;&#xD654; &#xC2DC;&#xD0B4;. &#xB2E4;&#xC74C;&#xC73C;&#xB85C; :</p>
 <pre><code>fmu test
 </code></pre><p>&#xCD94;&#xAC00; &#xC124;&#xC815;(PWM rate, levels, ...)&#xC744; &#xC704;&#xD574;&#xC11C; <code>pwm</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA70; &#xBBF9;&#xC11C; &#xD30C;&#xC77C;&#xC744; &#xB85C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; <code>mixer</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+<h3 id="&#xC0AC;&#xC6A9;&#xBC95;"><a name="&#xC0AC;&#xC6A9;&#xBC95;" class="plugin-anchor" href="#&#xC0AC;&#xC6A9;&#xBC95;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95;</h3>
 <pre><code>fmu &lt;command&gt; [arguments...]
  Commands:
    start         Start the task (without any mode set, use any of the mode_*
@@ -1995,18 +2003,18 @@
    stop
 
    status        print status info
-</code></pre><h2 id="gps">gps</h2>
+</code></pre><h2 id="gps"><a name="gps" class="plugin-anchor" href="#gps"><i class="fa fa-link" aria-hidden="true"></i></a>gps</h2>
 <p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/gps" target="_blank">drivers/gps</a></p>
-<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
 <p>GPS &#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xBAA8;&#xB4C8;&#xC740; &#xC7A5;&#xCE58;&#xC640; &#xD1B5;&#xC2E0;&#xC744; &#xCC98;&#xB9AC;&#xD558;&#xACE0; uORB&#xB97C; &#xD1B5;&#xD574; &#xC704;&#xCE58;&#xB97C; publish&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC591;&#xD55C; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;(&#xC7A5;&#xCE58; &#xBCA4;&#xB354;)&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xBA70; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC54C;&#xB9DE;&#xB294; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; &#xC120;&#xD0DD;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xC774; &#xBAA8;&#xB4C8;&#xC740; 2&#xBC88;&#xC9F8; &#xCD94;&#xAC00; GPS &#xC7A5;&#xCE58;&#xB97C; &#xC9C0;&#xC6D0;&#xD558;&#xBA70; <code>-e</code> &#xD30C;&#xB77C;&#xBBF8;&#xD130;&#xB85C; &#xC9C0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. &#xC704;&#xCE58;&#xB294; &#xB450;&#xBC88;&#xC9F8; uORB topic &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB85C; publish&#xB418;&#xBA70; &#xD604;&#xC7AC;&#xB294; &#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xB2E4;&#xB978; &#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0;&#xB294; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.(&#xD558;&#xC9C0;&#xB9CC; &#xB370;&#xC774;&#xD130;&#xB294; &#xB85C;&#xAE45;&#xB418;&#xBBC0;&#xB85C; &#xBE44;&#xAD50;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC74C;)</p>
-<h3 id="&#xAD6C;&#xD604;">&#xAD6C;&#xD604;</h3>
+<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
 <p>&#xB370;&#xC774;&#xD130;&#xB97C; &#xAC01; &#xC7A5;&#xCE58;&#xAC00; polling&#xD558;&#xAE30; &#xC704;&#xD55C; thread&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. GPS &#xD504;&#xB85C;&#xD1A0;&#xCF5C; &#xD074;&#xB798;&#xC2A4;&#xB294; &#xCF5C;&#xBC31;&#xC73C;&#xB85C; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC11C; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xC11C;&#xB3C4; &#xC0AC;&#xC6A9;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.(&#xC608;&#xB85C; QGroundControl&#xB3C4; &#xC774;&#xB97C; &#xC0AC;&#xC6A9;)</p>
-<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<h3 id="&#xC608;&#xC81C;"><a name="&#xC608;&#xC81C;" class="plugin-anchor" href="#&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC81C;</h3>
 <p>&#xAC00;&#xC9DC; GPS &#xC2E0;&#xD638;&#xB294; &#xD14C;&#xC2A4;&#xD305;&#xC5D0; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. (&#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC720;&#xD6A8;&#xD55C; &#xC704;&#xCE58;&#xC815;&#xBCF4;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;&#xACE0; &#xC54C;&#xB9BC;):</p>
 <pre><code>gps stop
 gps start -f
-</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;"><a name="&#xC0AC;&#xC6A9;&#xBC95;" class="plugin-anchor" href="#&#xC0AC;&#xC6A9;&#xBC95;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95;</h3>
 <pre><code>gps &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2024,18 +2032,18 @@ gps start -f
    stop
 
    status        print status info
-</code></pre><h2 id="vmount">vmount</h2>
+</code></pre><h2 id="vmount"><a name="vmount" class="plugin-anchor" href="#vmount"><i class="fa fa-link" aria-hidden="true"></i></a>vmount</h2>
 <p>&#xC18C;&#xC2A4;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/vmount" target="_blank">drivers/vmount</a></p>
-<h3 id="&#xC124;&#xBA85;">&#xC124;&#xBA85;</h3>
+<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
 <p>&#xB9C8;&#xC6B4;&#xD2B8;(&#xC9D0;&#xBC8C;) &#xC81C;&#xC5B4; &#xB4DC;&#xB77C;&#xC774;&#xBC84;. &#xC5EC;&#xB7EC; &#xB2E4;&#xB978; &#xC785;&#xB825; &#xBC29;&#xC2DD;&#xC744;(&#xC608;&#xB85C; RC&#xB098; MAVLink) &#xC124;&#xC815;&#xD55C; &#xCD9C;&#xB825;&#xC5D0;(&#xC608;&#xB85C; AUX &#xCC44;&#xB110;&#xC774;&#xB098; MAVLink) &#xB9E4;&#xD551;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><a href="https://dev.px4.io/en/advanced/gimbal_control.html" target="_blank">gimbal_control</a> &#xBB38;&#xC11C;&#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC18C;&#xAC1C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xAD6C;&#xD604;">&#xAD6C;&#xD604;</h3>
+<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
 <p>&#xAC01; &#xBC29;&#xC2DD;&#xC740; &#xC790;&#xAE30; &#xD074;&#xB798;&#xC2A4;&#xC5D0; &#xAD6C;&#xD604;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC785;&#xB825;&#xACFC; &#xCD9C;&#xB825;&#xC5D0; &#xB300;&#xD55C; &#xACF5;&#xC6A9; base &#xD074;&#xB798;&#xC2A4;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. API&#xB97C; &#xD1B5;&#xD574; &#xC5F0;&#xACB0;&#xB418;&#xACE0; <code>ControlData</code> &#xC790;&#xB8CC; &#xAD6C;&#xC870;&#xC5D0;&#xC11C; &#xC815;&#xC758;&#xB429;&#xB2C8;&#xB2E4;. &#xAC01; &#xC785;&#xB825; &#xBC29;&#xC2DD;&#xC740; &#xAC01; &#xCD9C;&#xB825; &#xBC29;&#xC2DD;&#xACFC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xC0C8;&#xB85C;&#xC6B4; &#xC785;&#xB825;/&#xCD9C;&#xB825;&#xC740; &#xC801;&#xC740; &#xB178;&#xB825;&#xC73C;&#xB85C; &#xCD94;&#xAC00;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xC608;&#xC81C;">&#xC608;&#xC81C;</h3>
+<h3 id="&#xC608;&#xC81C;"><a name="&#xC608;&#xC81C;" class="plugin-anchor" href="#&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC81C;</h3>
 <p>&#xACE0;&#xC815; yaw angle&#xC744; &#xC124;&#xC815;&#xD574;&#xC11C; &#xCD9C;&#xB825;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD569;&#xB2C8;&#xB2E4;.(&#xADF8;&#xB9AC;&#xACE0; &#xB2E4;&#xB978; &#xCD95;&#xC740; 0&#xC73C;&#xB85C;):</p>
 <pre><code>vmount stop
 vmount test yaw 30
-</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;">&#xC0AC;&#xC6A9;&#xBC95;</h3>
+</code></pre><h3 id="&#xC0AC;&#xC6A9;&#xBC95;"><a name="&#xC0AC;&#xC6A9;&#xBC95;" class="plugin-anchor" href="#&#xC0AC;&#xC6A9;&#xBC95;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95;</h3>
 <pre><code>vmount &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2090,7 +2098,7 @@ vmount test yaw 30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"드라이버","level":"1.7.3","depth":2,"next":{"title":"Estimators","level":"1.7.4","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},"previous":{"title":"통신","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"드라이버","level":"1.7.3","depth":2,"next":{"title":"Estimators","level":"1.7.4","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},"previous":{"title":"통신","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2119,6 +2127,10 @@ vmount test yaw 30
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

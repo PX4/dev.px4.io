@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Linux · PX4 Developer Guide</title>
+        <title>Linux · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,13 +2044,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="development-environment-on-linux">Development Environment on Linux</h1>
+                                <h1 id="development-environment-on-linux"><a name="development-environment-on-linux" class="plugin-anchor" href="#development-environment-on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Development Environment on Linux</h1>
 <p>Linux allows you to build for <a href="dev_env.html#supported-targets">all PX4 targets</a> (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> We have standardized on Debian / <a href="https://wiki.ubuntu.com/LTS" target="_blank">Ubuntu Linux LTS</a> (16.04) as the supported Linux distribution. Instructions are also provided for <a href="dev_env_linux_centos.html">CentOS</a> and <a href="dev_env_linux_arch.html">Arch Linux</a>.</p>
 </blockquote>
 <p>The following instructions explain how to set up a development environment on Ubuntu LTS using convenience bash scripts. Instructions for <em>manually installing</em> these and additional targets can be found in <a href="dev_env_linux_ubuntu.html">Ubuntu/Debian Linux</a>.</p>
-<h2 id="development-toolchain">Development Toolchain</h2>
+<h2 id="development-toolchain"><a name="development-toolchain" class="plugin-anchor" href="#development-toolchain"><i class="fa fa-link" aria-hidden="true"></i></a>Development Toolchain</h2>
 <p>The instructions below show how you can use our <a href="dev_env_linux_ubuntu.html#convenience-bash-scripts">convenience bash scripts</a> to setup the developer toolchain on Ubuntu LTS. All the scripts install the <em>Qt Creator IDE</em>, <a href="https://ninja-build.org/" target="_blank">Ninja Build System</a>, <a href="dev_env_linux_ubuntu.html#common-dependencies">Common Dependencies</a>, <a href="dev_env_linux_ubuntu.html#fastrtps-installation">FastRTPS</a>, and also download the PX4 source to your computer (<strong>~/src/Firmware</strong>).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> The scripts have been tested on a clean Ubuntu LTS 16.04 installation. They <em>may</em> not work as expected if installed on top of an existing system or on another Ubuntu release. If you have any problems then follow the <a href="dev_env_linux_ubuntu.html">manual installation instructions</a>.</p>
@@ -2055,7 +2063,7 @@
 <li>Logout and login again (the change is only made after a new login).</li>
 </ol>
 <p>Then follow the instructions for your development target in the sections below.</p>
-<h3 id="pixhawknuttx-and-jmavsim">Pixhawk/NuttX (and jMAVSim)</h3>
+<h3 id="pixhawknuttx-and-jmavsim"><a name="pixhawknuttx-and-jmavsim" class="plugin-anchor" href="#pixhawknuttx-and-jmavsim"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk/NuttX (and jMAVSim)</h3>
 <p>To install the development toolchain:</p>
 <ol>
 <li>Download <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download="">ubuntu_sim_nuttx.sh</a>.</li>
@@ -2064,14 +2072,14 @@
 You may need to acknowledge some prompts as the script progresses.</li>
 <li>Restart the computer on completion.</li>
 </ol>
-<h3 id="snapdragon-flight">Snapdragon Flight</h3>
+<h3 id="snapdragon-flight"><a name="snapdragon-flight" class="plugin-anchor" href="#snapdragon-flight"><i class="fa fa-link" aria-hidden="true"></i></a>Snapdragon Flight</h3>
 <p>Setup instructions for Snapdragon Flight are provided in the <em>PX4 User Guide</em>:</p>
 <ul>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_dev_environment_installation.html" target="_blank">Development Environment</a></li>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_software_installation.html" target="_blank">Software Installation</a></li>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_configuration.html" target="_blank">Configuration</a></li>
 </ul>
-<h3 id="raspberry-pi">Raspberry Pi</h3>
+<h3 id="raspberry-pi"><a name="raspberry-pi" class="plugin-anchor" href="#raspberry-pi"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi</h3>
 <p>To install the development toolchain:</p>
 <ol>
 <li>Download <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_common_deps.sh" target="_blank" download="">ubuntu_sim_common_deps.sh</a> (this contains the jMAVSim simulator and common toolchain dependencies).</li>
@@ -2080,9 +2088,9 @@ You may need to acknowledge some prompts as the script progresses.</li>
 You may need to acknowledge some prompts as the script progresses.</li>
 <li>Follow setup instructions in <a href="dev_env_linux_ubuntu.html">Ubuntu/Debian Linux</a> for <a href="dev_env_linux_ubuntu.html#raspberry-pi-hardware">Raspberry Pi</a>.</li>
 </ol>
-<h3 id="parrot-bepop">Parrot Bepop</h3>
+<h3 id="parrot-bepop"><a name="parrot-bepop" class="plugin-anchor" href="#parrot-bepop"><i class="fa fa-link" aria-hidden="true"></i></a>Parrot Bepop</h3>
 <p>Follow the (manual) instructions here: <a href="dev_env_linux_ubuntu.html#raspberry-pi-hardware">Ubuntu/Debian Linux &gt; Parrot Bebop</a>.</p>
-<h3 id="jmavsimgazebo-simulation">jMAVSim/Gazebo Simulation</h3>
+<h3 id="jmavsimgazebo-simulation"><a name="jmavsimgazebo-simulation" class="plugin-anchor" href="#jmavsimgazebo-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>jMAVSim/Gazebo Simulation</h3>
 <p>To install the Gazebo and jMAVSim simulators:</p>
 <ol>
 <li>Download <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim.sh" target="_blank" download="">ubuntu_sim.sh</a>.</li>
@@ -2097,7 +2105,7 @@ You may need to acknowledge some prompts as the script progresses.</li>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> PX4 works with Gazebo 7, 8, and 9. The script installs Gazebo 9.</p>
 </blockquote>
-<h3 id="gazebo-with-ros">Gazebo with ROS</h3>
+<h3 id="gazebo-with-ros"><a name="gazebo-with-ros" class="plugin-anchor" href="#gazebo-with-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo with ROS</h3>
 <p>To install the development toolchain:</p>
 <ol>
 <li>Download <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_gazebo.sh" target="_blank" download="">ubuntu_sim_ros_gazebo.sh</a>.</li>
@@ -2110,9 +2118,9 @@ You may need to acknowledge some prompts as the script progresses.</li>
 <li>ROS is installed with Gazebo7 by default (we have chosen to use the default rather than Gazebo8 or Gazebo9 to simplify ROS development).</li>
 <li>Your catkin (ROS build system) workspace is created at <strong>~/catkin_ws/</strong>.</li>
 </ul>
-<h2 id="additional-tools">Additional Tools</h2>
+<h2 id="additional-tools"><a name="additional-tools" class="plugin-anchor" href="#additional-tools"><i class="fa fa-link" aria-hidden="true"></i></a>Additional Tools</h2>
 <p>After setting up the build/simulation toolchain, see <a href="generic_dev_tools.html">Additional Tools</a> for information about other useful tools.</p>
-<h2 id="next-steps">Next Steps</h2>
+<h2 id="next-steps"><a name="next-steps" class="plugin-anchor" href="#next-steps"><i class="fa fa-link" aria-hidden="true"></i></a>Next Steps</h2>
 <p>Once you have finished setting up the environment, continue to the <a href="building_px4.html">build instructions</a>.</p>
 
                                 
@@ -2157,7 +2165,7 @@ You may need to acknowledge some prompts as the script progresses.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.2.2","depth":3,"next":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},"previous":{"title":"Mac OS","level":"1.2.2.1","depth":3,"path":"setup/dev_env_mac.md","ref":"setup/dev_env_mac.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_linux.md","mtime":"2019-01-03T18:30:41.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.2.2","depth":3,"next":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},"previous":{"title":"Mac OS","level":"1.2.2.1","depth":3,"path":"setup/dev_env_mac.md","ref":"setup/dev_env_mac.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_linux.md","mtime":"2019-01-03T23:27:43.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2186,6 +2194,10 @@ You may need to acknowledge some prompts as the script progresses.</li>
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

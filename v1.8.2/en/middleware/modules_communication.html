@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Communication · PX4 Developer Guide</title>
+        <title>Communication · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,11 +2044,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="modules-reference-communication">Modules Reference: Communication</h1>
-<h2 id="frskytelemetry">frsky_telemetry</h2>
+                                <h1 id="modules-reference-communication"><a name="modules-reference-communication" class="plugin-anchor" href="#modules-reference-communication"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Communication</h1>
+<h2 id="frskytelemetry"><a name="frskytelemetry" class="plugin-anchor" href="#frskytelemetry"><i class="fa fa-link" aria-hidden="true"></i></a>frsky_telemetry</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/frsky_telemetry" target="_blank">drivers/telemetry/frsky_telemetry</a></p>
 <p>FrSky Telemetry support. Auto-detects D or S.PORT protocol.</p>
-<h3 id="frsky_telemetry_usage">Usage </h3>
+<h3 id="frsky_telemetry_usage"><a name="frsky_telemetry_usage" class="plugin-anchor" href="#frsky_telemetry_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>frsky_telemetry &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2054,9 +2062,9 @@
    stop
 
    status
-</code></pre><h2 id="mavlink">mavlink</h2>
+</code></pre><h2 id="mavlink"><a name="mavlink" class="plugin-anchor" href="#mavlink"><i class="fa fa-link" aria-hidden="true"></i></a>mavlink</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/mavlink" target="_blank">modules/mavlink</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module implements the MAVLink protocol, which can be used on a Serial link or UDP network connection.
 It communicates with the system via uORB: some messages are directly handled in the module (eg. mission
 protocol), others are published via uORB (eg. vehicle_command).</p>
@@ -2064,19 +2072,19 @@ protocol), others are published via uORB (eg. vehicle_command).</p>
 When starting the mavlink instance, a mode can be specified, which defines the set of enabled streams with their rates.
 For a running instance, streams can be configured via <code>mavlink stream</code> command.</p>
 <p>There can be multiple independent instances of the module, each connected to one serial device or network port.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>The implementation uses 2 threads, a sending and a receiving thread. The sender runs at a fixed rate and dynamically
 reduces the rates of the streams if the combined bandwidth is higher than the configured rate (<code>-r</code>) or the
 physical link becomes saturated. This can be checked with <code>mavlink status</code>, see if <code>rate mult</code> is less than 1.</p>
 <p><strong>Careful</strong>: some of the data is accessed and modified from both threads, so when changing code or extend the
 functionality, this needs to be take into account, in order to avoid race conditions and corrupt data.</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Start mavlink on ttyS1 serial with baudrate 921600 and maximum sending rate of 80kB/s:</p>
 <pre><code>mavlink start -d /dev/ttyS1 -b 921600 -m onboard -r 80000
 </code></pre><p>Start mavlink on UDP port 14556 and enable the HIGHRES_IMU message with 50Hz:</p>
 <pre><code>mavlink start -u 14556 -r 1000000
 mavlink stream -u 14556 -s HIGHRES_IMU -r 50
-</code></pre><h3 id="mavlink_usage">Usage </h3>
+</code></pre><h3 id="mavlink_usage"><a name="mavlink_usage" class="plugin-anchor" href="#mavlink_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>mavlink &lt;command&gt; [arguments...]
  Commands:
    start         Start a new instance
@@ -2122,9 +2130,9 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
 
    boot_complete Enable sending of messages. (Must be) called as last step in
                  startup script.
-</code></pre><h2 id="micrortpsclient">micrortps_client</h2>
+</code></pre><h2 id="micrortpsclient"><a name="micrortpsclient" class="plugin-anchor" href="#micrortpsclient"><i class="fa fa-link" aria-hidden="true"></i></a>micrortps_client</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/micrortps_bridge/micrortps_client" target="_blank">modules/micrortps_bridge/micrortps_client</a></p>
-<h3 id="micrortps_client_usage">Usage </h3>
+<h3 id="micrortps_client_usage"><a name="micrortps_client_usage" class="plugin-anchor" href="#micrortps_client_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>micrortps_client &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2152,12 +2160,12 @@ mavlink stream -u 14556 -s HIGHRES_IMU -r 50
    stop
 
    status
-</code></pre><h2 id="uorb">uorb</h2>
+</code></pre><h2 id="uorb"><a name="uorb" class="plugin-anchor" href="#uorb"><i class="fa fa-link" aria-hidden="true"></i></a>uorb</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/uORB" target="_blank">modules/uORB</a></p>
-<h3 id="description">Description</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>uORB is the internal pub-sub messaging system, used for communication between modules.</p>
 <p>It is typically started as one of the very first modules and most other modules depend on it.</p>
-<h3 id="implementation">Implementation</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>No thread or work queue is needed, the module start only makes sure to initialize the shared global state.
 Communication is done via shared memory.
 The implementation is asynchronous and lock-free, ie. a publisher does not wait for a subscriber and vice versa.
@@ -2168,10 +2176,10 @@ publications, which use <code>orb_advert_t</code> handles, so that they can be u
 <p>Messages are defined in the <code>/msg</code> directory. They are converted into C/C++ code at build-time.</p>
 <p>If compiled with ORB_USE_PUBLISHER_RULES, a file with uORB publication rules can be used to configure which
 modules are allowed to publish which topics. This is used for system-wide replay.</p>
-<h3 id="examples">Examples</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Monitor topic publication rates. Besides <code>top</code>, this is an important command for general system inspection:</p>
 <pre><code>uorb top
-</code></pre><h3 id="uorb_usage">Usage </h3>
+</code></pre><h3 id="uorb_usage"><a name="uorb_usage" class="plugin-anchor" href="#uorb_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>uorb &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2224,7 +2232,7 @@ modules are allowed to publish which topics. This is used for system-wide replay
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Communication","level":"1.7.2","depth":2,"next":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"previous":{"title":"Commands","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_communication.md","mtime":"2019-01-03T18:30:41.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Communication","level":"1.7.2","depth":2,"next":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"previous":{"title":"Commands","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_communication.md","mtime":"2019-01-03T23:27:43.079Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2253,6 +2261,10 @@ modules are allowed to publish which topics. This is used for system-wide replay
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

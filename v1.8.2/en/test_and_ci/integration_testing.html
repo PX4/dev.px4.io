@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Integration Testing · PX4 Developer Guide</title>
+        <title>Integration Testing · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,16 +2044,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="integration-testing">Integration Testing</h1>
+                                <h1 id="integration-testing"><a name="integration-testing" class="plugin-anchor" href="#integration-testing"><i class="fa fa-link" aria-hidden="true"></i></a>Integration Testing</h1>
 <p>This is about end to end integration testing. Tests are executed automatically (<a href="jenkins_ci.html">Jenkins CI</a>)</p>
-<h2 id="ros--mavros-tests">ROS / MAVROS Tests</h2>
+<h2 id="ros--mavros-tests"><a name="ros--mavros-tests" class="plugin-anchor" href="#ros--mavros-tests"><i class="fa fa-link" aria-hidden="true"></i></a>ROS / MAVROS Tests</h2>
 <p>Prerequisites:</p>
 <ul>
 <li><a href="../simulation/jmavsim.html">jMAVSim Simulator</a></li>
 <li><a href="../simulation/gazebo.html">Gazebo Simulator</a></li>
 <li><a href="../simulation/ros_interface.html">ROS and MAVROS</a></li>
 </ul>
-<h3 id="execute-tests">Execute Tests</h3>
+<h3 id="execute-tests"><a name="execute-tests" class="plugin-anchor" href="#execute-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Execute Tests</h3>
 <p>To run the complete MAVROS test suite:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> &lt;Firmware_<span class="hljs-built_in">clone</span>&gt;
 <span class="hljs-built_in">source</span> integrationtests/setup_gazebo_ros.bash $(<span class="hljs-built_in">pwd</span>)
@@ -2054,11 +2062,11 @@ rostest px4 mavros_posix_tests_iris.launch
 <p>Or with GUI to see what&apos;s happening:</p>
 <pre><code class="lang-sh">rostest px4 mavros_posix_tests_iris.launch gui:=<span class="hljs-literal">true</span> headless:=<span class="hljs-literal">false</span>
 </code></pre>
-<h3 id="write-a-new-mavros-test-python">Write a new MAVROS test (Python)</h3>
+<h3 id="write-a-new-mavros-test-python"><a name="write-a-new-mavros-test-python" class="plugin-anchor" href="#write-a-new-mavros-test-python"><i class="fa fa-link" aria-hidden="true"></i></a>Write a new MAVROS test (Python)</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Currently in early stages, more streamlined support for testing (helper classes/methods etc.) to come.</p>
 </blockquote>
-<h4 id="1-create-a-new-test-script">1.) Create a new test script</h4>
+<h4 id="1-create-a-new-test-script"><a name="1-create-a-new-test-script" class="plugin-anchor" href="#1-create-a-new-test-script"><i class="fa fa-link" aria-hidden="true"></i></a>1.) Create a new test script</h4>
 <p>Test scripts are located in <code>integrationtests/python_src/px4_it/mavros/</code>. See other existing scripts for examples. Also please consult the official ROS documentation on how to use <a href="http://wiki.ros.org/unittest" target="_blank">unittest</a>.</p>
 <p>Empty test skeleton:</p>
 <pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env python</span>
@@ -2110,7 +2118,7 @@ PKG = <span class="hljs-string">&apos;px4&apos;</span>
     <span class="hljs-keyword">import</span> rostest
     rostest.rosrun(PKG, <span class="hljs-string">&apos;mavros_new_test&apos;</span>, MavrosNewTest)
 </code></pre>
-<h4 id="2-run-the-new-test-only">2.) Run the new test only</h4>
+<h4 id="2-run-the-new-test-only"><a name="2-run-the-new-test-only" class="plugin-anchor" href="#2-run-the-new-test-only"><i class="fa fa-link" aria-hidden="true"></i></a>2.) Run the new test only</h4>
 <pre><code class="lang-sh"><span class="hljs-comment"># Start simulation</span>
 <span class="hljs-built_in">cd</span> &lt;Firmware_<span class="hljs-built_in">clone</span>&gt;
 <span class="hljs-built_in">source</span> integrationtests/setup_gazebo_ros.bash $(<span class="hljs-built_in">pwd</span>)
@@ -2121,7 +2129,7 @@ roslaunch px4 mavros_posix_sitl.launch
 <span class="hljs-built_in">source</span> integrationtests/setup_gazebo_ros.bash $(<span class="hljs-built_in">pwd</span>)
 rosrun px4 mavros_new_test.py
 </code></pre>
-<h4 id="3-add-new-test-node-to-launch-file">3.) Add new test node to launch file</h4>
+<h4 id="3-add-new-test-node-to-launch-file"><a name="3-add-new-test-node-to-launch-file" class="plugin-anchor" href="#3-add-new-test-node-to-launch-file"><i class="fa fa-link" aria-hidden="true"></i></a>3.) Add new test node to launch file</h4>
 <p>In <code>launch/mavros_posix_tests_irisl.launch</code> add new entry in test group:</p>
 <pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">group</span> <span class="hljs-attr">ns</span>=<span class="hljs-string">&quot;$(arg ns)&quot;</span>&gt;</span>
         [...]
@@ -2172,7 +2180,7 @@ rosrun px4 mavros_new_test.py
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Integration Testing","level":"1.12.5","depth":2,"next":{"title":"Docker Containers","level":"1.12.6","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},"previous":{"title":"Jenkins Continuous Integration","level":"1.12.4","depth":2,"path":"test_and_ci/jenkins_ci.md","ref":"test_and_ci/jenkins_ci.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"test_and_ci/integration_testing.md","mtime":"2019-01-03T18:30:41.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Integration Testing","level":"1.12.5","depth":2,"next":{"title":"Docker Containers","level":"1.12.6","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},"previous":{"title":"Jenkins Continuous Integration","level":"1.12.4","depth":2,"path":"test_and_ci/jenkins_ci.md","ref":"test_and_ci/jenkins_ci.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"test_and_ci/integration_testing.md","mtime":"2019-01-03T23:27:43.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2201,6 +2209,10 @@ rosrun px4 mavros_new_test.py
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

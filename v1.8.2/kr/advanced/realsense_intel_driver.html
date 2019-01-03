@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Intel RealSense R200 드라이버 설치 · PX4 Developer Guide</title>
+        <title>Intel RealSense R200 드라이버 설치 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,7 +1921,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="intel-realsense-r200&#xC6A9;-ubuntu-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;">Intel RealSense R200&#xC6A9; Ubuntu &#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xC124;&#xCE58;&#xD558;&#xAE30;</h1>
+                                <h1 id="intel-realsense-r200&#xC6A9;-ubuntu-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a name="intel-realsense-r200&#xC6A9;-ubuntu-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;" class="plugin-anchor" href="#intel-realsense-r200&#xC6A9;-ubuntu-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>Intel RealSense R200&#xC6A9; Ubuntu &#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xC124;&#xCE58;&#xD558;&#xAE30;</h1>
 <p>&#xC5EC;&#xAE30;&#xC11C;&#xB294; Linux &#xD658;&#xACBD;&#xC5D0;&#xC11C; Intel RealSense R200 &#xCE74;&#xBA54;&#xB77C;&#xC758; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB97C; &#xC124;&#xCE58;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;. ROS(Robot Operation System)&#xB97C; &#xD1B5;&#xD574; &#xC218;&#xC9D1;&#xD55C; &#xC774;&#xBBF8;&#xC9C0;&#xC5D0; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. RealSense R200 &#xCE74;&#xBA54;&#xB77C;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
 <p><img src="../../assets/realsense_intel/realsense.png" alt=""></p>
 <p>&#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xD328;&#xD0A4;&#xC9C0;&#xC758; &#xC124;&#xCE58;&#xB294; Virtual Box&#xC5D0;&#xC11C; &#xAC8C;&#xC2A4;&#xD2B8; OS&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xB294; Ubuntu &#xC6B4;&#xC601;&#xCCB4;&#xC81C;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;. Virtual Box&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xD638;&#xC2A4;&#xD2B8; &#xCEF4;&#xD4E8;&#xD130;&#xC758; &#xC2A4;&#xD399;, Virtual Box&#xC640; &#xAC8C;&#xC2A4;&#xD2B8; &#xC2DC;&#xC2A4;&#xD15C;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4; :</p>
@@ -1929,7 +1937,7 @@
 <li>Virtual Box (VB): &#xB2E4;&#xB978; &#xAC00;&#xC0C1;&#xBA38;&#xC2E0;&#xC744; &#xC2E4;&#xD589;&#xD574;&#xC8FC;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8;. &#xC5EC;&#xAE30;&#xC11C;&#xB294; Oracle VM&#xC785;&#xB2C8;&#xB2E4;.</li>
 <li>Virtual Machine (VM): Virtual Box&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xC6B4;&#xC601;&#xCCB4;&#xC81C;&#xB97C; &#xAC8C;&#xC2A4;&#xD2B8; &#xC2DC;&#xC2A4;&#xD15C;&#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C;&#xB294; Ubuntu&#xC785;&#xB2C8;&#xB2E4;.</li>
 </ul>
-<h2 id="ubuntu-14043-lts&#xB97C;-virtual-box&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;">Ubuntu 14.04.3 LTS&#xB97C; Virtual Box&#xC5D0;&#xC11C; &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
+<h2 id="ubuntu-14043-lts&#xB97C;-virtual-box&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a name="ubuntu-14043-lts&#xB97C;-virtual-box&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;" class="plugin-anchor" href="#ubuntu-14043-lts&#xB97C;-virtual-box&#xC5D0;&#xC11C;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>Ubuntu 14.04.3 LTS&#xB97C; Virtual Box&#xC5D0;&#xC11C; &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
 <ul>
 <li>&#xC0C8;&#xB85C;&#xC6B4; Virtual Machine (VM) &#xC0DD;&#xC131;: Linux 64-Bit.</li>
 <li>Ubuntu 14.04.3 LTS iso &#xD30C;&#xC77C; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;: (<a href="http://www.ubuntu.com/download/desktop" target="_blank">ubuntu-14.04.3-desktop-amd64.iso</a>).</li>
@@ -1955,7 +1963,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="ros-indigo-&#xC124;&#xCE58;&#xD558;&#xAE30;">ROS Indigo &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
+<h2 id="ros-indigo-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a name="ros-indigo-&#xC124;&#xCE58;&#xD558;&#xAE30;" class="plugin-anchor" href="#ros-indigo-&#xC124;&#xCE58;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS Indigo &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
 <ul>
 <li><a href="http://wiki.ros.org/indigo/Installation/Ubuntu" target="_blank">ROS indigo &#xC124;&#xCE58; &#xAC00;&#xC774;&#xB4DC;</a>&#xC758; &#xC9C0;&#xC2DC; &#xB530;&#xB974;&#xAE30;:<ul>
 <li>Desktop-Full &#xBC84;&#xC804; &#xC124;&#xCE58;</li>
@@ -1963,7 +1971,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="&#xCE74;&#xBA54;&#xB77C;-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;">&#xCE74;&#xBA54;&#xB77C; &#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
+<h2 id="&#xCE74;&#xBA54;&#xB77C;-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a name="&#xCE74;&#xBA54;&#xB77C;-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xCE74;&#xBA54;&#xB77C;-&#xB4DC;&#xB77C;&#xC774;&#xBC84;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCE74;&#xBA54;&#xB77C; &#xB4DC;&#xB77C;&#xC774;&#xBC84; &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
 <ul>
 <li>git &#xC124;&#xCE58;:<pre><code class="lang-bash">sudo apt-get install git
 </code></pre>
@@ -2052,7 +2060,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Intel RealSense R200 드라이버 설치","level":"1.11.4","depth":2,"next":{"title":"State Estimators 스위칭","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},"previous":{"title":"파라미터 레퍼런스 (English)","level":"1.11.3","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"advanced/realsense_intel_driver.md","mtime":"2019-01-03T18:30:41.353Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"Intel RealSense R200 드라이버 설치","level":"1.11.4","depth":2,"next":{"title":"State Estimators 스위칭","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},"previous":{"title":"파라미터 레퍼런스 (English)","level":"1.11.3","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"advanced/realsense_intel_driver.md","mtime":"2019-01-03T23:27:43.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2081,6 +2089,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

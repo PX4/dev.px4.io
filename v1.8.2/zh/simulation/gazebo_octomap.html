@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Gazebo Octomap · PX4 Developer Guide</title>
+        <title>Gazebo Octomap · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,9 +1869,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="octomap-3d-models-with-rosgazebo">OctoMap 3D Models with ROS/Gazebo</h1>
+                                <h1 id="octomap-3d-models-with-rosgazebo"><a name="octomap-3d-models-with-rosgazebo" class="plugin-anchor" href="#octomap-3d-models-with-rosgazebo"><i class="fa fa-link" aria-hidden="true"></i></a>OctoMap 3D Models with ROS/Gazebo</h1>
 <p><a href="http://octomap.github.io/" target="_blank">OctoMap&#x5E93;</a>&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x4E09;&#x7EF4;&#x5360;&#x636E;&#x6805;&#x683C;&#x5730;&#x56FE;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5728;<a href="https://github.com/ethz-asl/rotors_simulator/wiki/RotorS-Simulator" target="_blank">RotorS&#x4EFF;&#x771F;</a>&#x4E2D;&#x4F7F;&#x7528;&#x5B83;&#x3002;</p>
-<h2 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h2>
+<h2 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h2>
 <p>&#x9700;&#x8981;&#x9884;&#x5148;&#x5B89;&#x88C5;ROS&#xFF0C;Gazebo&#x548C;Rotors Simulator&#x63D2;&#x4EF6;&#xFF0C;&#x6309;&#x7167;Rotors Simulator&#x4E2D;&#x7684;<a href="https://github.com/ethz-asl/rotors_simulator" target="_blank">&#x6307;&#x5357;</a>&#x5B89;&#x88C5;&#x8FD9;&#x4E9B;&#x3002;</p>
 <p>&#x63A5;&#x7740;&#xFF0C;&#x5B89;&#x88C5;OctoMap&#x5E93;</p>
 <pre><code class="lang-sh">    sudo apt-get install ros-indigo-octomap ros-indigo-octomap-mapping
@@ -1896,7 +1904,7 @@
     ...
     &lt;remap from=<span class="hljs-string">&quot;cloud_in&quot;</span> to=<span class="hljs-string">&quot;/firefly/vi_sensor/camera_depth/depth/points&quot;</span> /&gt;
 </code></pre>
-<h2 id="&#x8FD0;&#x884C;&#x4EFF;&#x771F;">&#x8FD0;&#x884C;&#x4EFF;&#x771F;</h2>
+<h2 id="&#x8FD0;&#x884C;&#x4EFF;&#x771F;"><a name="&#x8FD0;&#x884C;&#x4EFF;&#x771F;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x4EFF;&#x771F;</h2>
 <p>&#x73B0;&#x5728;&#xFF0C;&#x5728;&#x4E09;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#x4E2D;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x4E09;&#x884C;&#x3002;&#x8FD9;&#x5C06;&#x6253;&#x5F00;Gazebo&#xFF0C;Rviz&#x548C;octomap&#x670D;&#x52A1;&#x5668;&#x3002;</p>
 <pre><code class="lang-sh">    roslaunch rotors_gazebo mav_hovering_example_with_vi_sensor.launch  mav_name:=firefly
     rviz
@@ -1949,7 +1957,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/gazebo_octomap.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"Gazebo Octomap","level":"1.8.2.5","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"外部位置估计","level":"1.8.2.4","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/gazebo_octomap.md","mtime":"2019-01-03T18:30:41.369Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/gazebo_octomap.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"Gazebo Octomap","level":"1.8.2.5","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"外部位置估计","level":"1.8.2.4","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/gazebo_octomap.md","mtime":"2019-01-03T23:27:43.103Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -1978,6 +1986,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

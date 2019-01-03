@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>GIT 예제 · PX4 Developer Guide</title>
+        <title>GIT 예제 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,8 +1921,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="git-&#xC608;&#xC81C;">GIT &#xC608;&#xC81C;</h1>
-<h2 id="contributing-code-to-px4">PX4 code&#xC5D0; &#xAE30;&#xC5EC;&#xD558;&#xAE30; </h2>
+                                <h1 id="git-&#xC608;&#xC81C;"><a name="git-&#xC608;&#xC81C;" class="plugin-anchor" href="#git-&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>GIT &#xC608;&#xC81C;</h1>
+<h2 id="contributing-code-to-px4"><a name="contributing-code-to-px4" class="plugin-anchor" href="#contributing-code-to-px4"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 code&#xC5D0; &#xAE30;&#xC5EC;&#xD558;&#xAE30; </h2>
 <p>PX4&#xC5D0; &#xC0C8;&#xB85C;&#xC6B4; &#xAE30;&#xB2A5;&#xC744; &#xCD94;&#xAC00;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xC815;&#xD574;&#xB193;&#xC740; &#xC6CC;&#xD06C;&#xD50C;&#xB85C;&#xC6B0;&#xB97C; &#xB530;&#xB77C;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. PX4&#xC5D0; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xAE30;&#xC5EC;&#xD55C; &#xCF54;&#xB4DC;&#xB97C; &#xACF5;&#xC720;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC740; &#xC608;&#xC81C;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
 <ul>
 <li><a href="https://github.com/join" target="_blank">Sign up</a> github &#xACC4;&#xC815;&#xC774; &#xC5C6;&#xB294; &#xACBD;&#xC6B0; &#xACC4;&#xC815;&#xC744; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</li>
@@ -1959,9 +1967,9 @@ GUI&#xB85C; &#xD30C;&#xC77C;&#xC744; &#xCD94;&#xAC00;&#xD558;&#xAE30; &#xC704;&#
 <li>&#xC774;&#xC81C; PR(pull request)&#xB97C; &#xC0DD;&#xC131;&#xD560; &#xCC28;&#xB840;&#xC785;&#xB2C8;&#xB2E4;. &#xC774;&#xC804; &#xB2E8;&#xACC4;&#xC5D0;&#xC11C; &#xBD24;&#xB358; &quot;new branch message&quot;&#xC758; &#xC624;&#xB978;&#xCABD;&#xC5D0;, &quot;Compare &amp; Create Pull Request&quot; &#xB179;&#xC0C9; &#xBC84;&#xD2BC;&#xC774; &#xC788;&#xC744; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;. &#xBCC0;&#xACBD; &#xB0B4;&#xC6A9;&#xC744; &#xBCF4;&#xC5EC;&#xC8FC;&#xACE0; &#xC758;&#xBBF8;&#xC788;&#xB294; title&#xACFC; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;. title&#xC740; commit PR&#xC774; &#xD558;&#xB098;&#xC778; &#xACBD;&#xC6B0; &#xBCF4;&#xD1B5; commit &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. &#xBA54;&#xC2DC;&#xC9C0;&#xB294; <span style="color:orange">&#xBB34;&#xC2A8; &#xC774;&#xC720;&#xB85C; &#xC774;&#xB807;&#xAC8C; &#xD588;&#xB294;&#xC9C0; &#xC124;&#xBA85;</span> &#xD569;&#xB2C8;&#xB2E4;. <a href="https://github.com/PX4/Firmware/pulls" target="_blank">other pull requests</a>&#xB97C; &#xBCF4;&#xACE0; &#xBE44;&#xAD50;&#xD574; &#xBCF4;&#xC138;&#xC694;.</li>
 <li>&#xC790; &#xC774;&#xC81C; &#xB05D;&#xB0AC;&#xC2B5;&#xB2C8;&#xB2E4;! PX4&#xC758; &#xBA64;&#xBC84;&#xAC00; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xC791;&#xC131;&#xD55C; &#xCF54;&#xB4DC;&#xB974;&#xB974; &#xC0B4;&#xD3B4;&#xBCF4;&#xACE0; &#xD1B5;&#xD569;&#xC2DC;&#xD0AC;&#xC9C0; &#xC5EC;&#xBD80;&#xB97C; &#xACB0;&#xC815;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D;&#xC5D0; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xBCC0;&#xACBD;&#xD55C; &#xBD80;&#xBD84;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xC9C8;&#xBB38;&#xC774; &#xC788;&#xC744; &#xC218; &#xC788;&#xC73C;&#xB2C8; &#xD655;&#xC778;&#xD574; &#xC8FC;&#xC138;&#xC694;.</li>
 </ul>
-<h2 id="submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;">submodule &#xC5C5;&#xB370;&#xC774;&#xD2B8;</h2>
+<h2 id="submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;"><a name="submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;" class="plugin-anchor" href="#submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;"><i class="fa fa-link" aria-hidden="true"></i></a>submodule &#xC5C5;&#xB370;&#xC774;&#xD2B8;</h2>
 <p>submodule &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xB294; &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; &#xBC29;&#xC2DD;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. repository&#xB97C; clone&#xD558;&#xAC70;&#xB098; submodule &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xAC00;&#xC11C; <a href="#contributing-code-to-px4">Contributing code to PX4</a>&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xC808;&#xCC28;&#xB97C; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
-<h2 id="submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C;-&#xC704;&#xD55C;-pr">submodule &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C; &#xC704;&#xD55C; PR</h2>
+<h2 id="submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C;-&#xC704;&#xD55C;-pr"><a name="submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C;-&#xC704;&#xD55C;-pr" class="plugin-anchor" href="#submodule-&#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C;-&#xC704;&#xD55C;-pr"><i class="fa fa-link" aria-hidden="true"></i></a>submodule &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C; &#xC704;&#xD55C; PR</h2>
 <p>&#xC774; &#xACFC;&#xC815;&#xC740; submodle X repository&#xC5D0; &#xB300;&#xD574;&#xC11C; PR&#xB97C; &#xD55C; &#xD6C4;&#xC5D0; &#xD544;&#xC694;&#xD558;&#xBA70; buf-fix / feature-add&#xB294; submodule X&#xC758; &#xD604;&#xC7AC; master&#xC5D0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. Firmware&#xB294; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD558;&#xAE30; &#xC804;&#xC758; commit&#xB97C; &#xAC00;&#xB9AC;&#xD0A4;&#xBBC0;&#xB85C;, Firmware&#xAC00; &#xC0AC;&#xC6A9;&#xD55C; submodule&#xC774; &#xAC00;&#xB9AC;&#xD0A4;&#xB294; &#xC0C8;&#xB85C;&#xC6B4; commit&#xCC98;&#xB7FC; submodule pull request&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 </code></pre>
@@ -1983,7 +1991,7 @@ git push upstream pr-some-fix
 </code></pre>
 </li>
 </ul>
-<h2 id="checkout-pull-requests">Checkout pull requests</h2>
+<h2 id="checkout-pull-requests"><a name="checkout-pull-requests" class="plugin-anchor" href="#checkout-pull-requests"><i class="fa fa-link" aria-hidden="true"></i></a>Checkout pull requests</h2>
 <p>&#xC544;&#xC9C1; merge&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xBCC0;&#xACBD;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB3C4; &#xB2E4;&#xB978; &#xC0AC;&#xB78C;&#xC758; pull request&#xB97C; &#xD14C;&#xC2A4;&#xD2B8;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD2B9;&#xC815; &#xC0AC;&#xB78C;&#xC758; fork&#xC5D0;&#xB9CC; &#xC874;&#xC7AC;&#xD558;&#xB354;&#xB77C;&#xB3C4; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xB530;&#xB77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">git fetch upstream  pull/&lt;PR ID&gt;/head:&lt;branch name&gt;
 </code></pre>
@@ -1993,14 +2001,14 @@ git push upstream pr-some-fix
 <p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; &#xD574;&#xB2F9; branch&#xB85C; &#xC804;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">git checkout &lt;branch name&gt;
 </code></pre>
-<h2 id="&#xD754;&#xD788;-&#xD558;&#xB294;-&#xC2E4;&#xC218;">&#xD754;&#xD788; &#xD558;&#xB294; &#xC2E4;&#xC218;</h2>
-<h3 id="fork&#xD55C;-repository&#xC5D0;-force-push-&#xD558;&#xAE30;">fork&#xD55C; repository&#xC5D0; force push &#xD558;&#xAE30;</h3>
+<h2 id="&#xD754;&#xD788;-&#xD558;&#xB294;-&#xC2E4;&#xC218;"><a name="&#xD754;&#xD788;-&#xD558;&#xB294;-&#xC2E4;&#xC218;" class="plugin-anchor" href="#&#xD754;&#xD788;-&#xD558;&#xB294;-&#xC2E4;&#xC218;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD754;&#xD788; &#xD558;&#xB294; &#xC2E4;&#xC218;</h2>
+<h3 id="fork&#xD55C;-repository&#xC5D0;-force-push-&#xD558;&#xAE30;"><a name="fork&#xD55C;-repository&#xC5D0;-force-push-&#xD558;&#xAE30;" class="plugin-anchor" href="#fork&#xD55C;-repository&#xC5D0;-force-push-&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>fork&#xD55C; repository&#xC5D0; force push &#xD558;&#xAE30;</h3>
 <p>&#xCC98;&#xC74C; PR&#xC744; &#xD558;&#xACE0;&#xB098;&#xC11C;, PX4 &#xCEE4;&#xBBA4;&#xB2C8;&#xD2F0;&#xC5D0;&#xC11C; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xBCC0;&#xACBD;&#xD55C; &#xB0B4;&#xC6A9;&#xC744; &#xB9AC;&#xBDF0;&#xD569;&#xB2C8;&#xB2E4;. &#xB300;&#xBD80;&#xBD84; &#xACBD;&#xC6B0; &#xB9AC;&#xBDF0;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC5EC; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; local branch&#xB97C; &#xC218;&#xC815;&#xD574;&#xC57C;&#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;. &#xD30C;&#xC77C;&#xC744; &#xBCC0;&#xACBD;&#xD55C; &#xD6C4;&#xC5D0;, &#xAC00;&#xC7A5; &#xCD5C;&#xC2E0;&#xC758; upstream/master&#xC73C;&#xB85C; feature branch&#xB97C; &#xB2E4;&#xC2DC; rebase&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; rebase &#xD6C4;&#xC5D0;, &#xC9C1;&#xC811; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; fork&#xD55C; repository&#xB85C; feature branch&#xB97C; push&#xD560; &#xC218; &#xC5C6;&#xC73C;&#xBBC0;&#xB85C; &#xB300;&#xC2E0; force push&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. :</p>
 <pre><code class="lang-sh">git push --force-with-lease origin &lt;your feature branch name&gt;
 </code></pre>
-<h3 id="rebase-merge-&#xCDA9;&#xB3CC;">Rebase merge &#xCDA9;&#xB3CC;</h3>
+<h3 id="rebase-merge-&#xCDA9;&#xB3CC;"><a name="rebase-merge-&#xCDA9;&#xB3CC;" class="plugin-anchor" href="#rebase-merge-&#xCDA9;&#xB3CC;"><i class="fa fa-link" aria-hidden="true"></i></a>Rebase merge &#xCDA9;&#xB3CC;</h3>
 <p><code>git rebase</code> &#xD560;&#xB54C; conflict&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;. <a href="https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/" target="_blank">this guide</a>.</p>
-<h3 id="pull-merge-conflicts">Pull merge conflicts</h3>
+<h3 id="pull-merge-conflicts"><a name="pull-merge-conflicts" class="plugin-anchor" href="#pull-merge-conflicts"><i class="fa fa-link" aria-hidden="true"></i></a>Pull merge conflicts</h3>
 <p><code>git pull</code> &#xD560;&#xB54C; conflict&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;. <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts" target="_blank">this guide</a>.</p>
 
                                 
@@ -2045,7 +2053,7 @@ git push upstream pr-some-fix
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GIT 예제","level":"1.2.5.1","depth":3,"next":{"title":"Documentation","level":"1.2.5.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"previous":{"title":"기여하기","level":"1.2.5","depth":2,"path":"contribute/README.md","ref":"contribute/README.md","articles":[{"title":"GIT 예제","level":"1.2.5.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},{"title":"Documentation","level":"1.2.5.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"contribute/git_examples.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"GIT 예제","level":"1.2.5.1","depth":3,"next":{"title":"Documentation","level":"1.2.5.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"previous":{"title":"기여하기","level":"1.2.5","depth":2,"path":"contribute/README.md","ref":"contribute/README.md","articles":[{"title":"GIT 예제","level":"1.2.5.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},{"title":"Documentation","level":"1.2.5.2","depth":3,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"contribute/git_examples.md","mtime":"2019-01-03T23:27:43.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2074,6 +2082,10 @@ git push upstream pr-some-fix
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

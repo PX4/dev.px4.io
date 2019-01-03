@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>MAVLink 메시징 · PX4 Developer Guide</title>
+        <title>MAVLink 메시징 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,12 +1921,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mavlink-messaging">MAVLink Messaging</h1>
+                                <h1 id="mavlink-messaging"><a name="mavlink-messaging" class="plugin-anchor" href="#mavlink-messaging"><i class="fa fa-link" aria-hidden="true"></i></a>MAVLink Messaging</h1>
 <p>&#xC804;&#xCCB4; &#xBA54;&#xC2DC;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xAC1C;&#xC694;&#xB294; &#xB2E4;&#xC74C; &#xB9C1;&#xD06C;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;. <a href="https://mavlink.io/en/messages/" target="_blank">&#xC5EC;&#xAE30;</a>.</p>
-<h2 id="&#xCEE4;&#xC2A4;&#xD140;-mavlink-messages-&#xC0DD;&#xC131;">&#xCEE4;&#xC2A4;&#xD140; MAVLink Messages &#xC0DD;&#xC131;</h2>
+<h2 id="&#xCEE4;&#xC2A4;&#xD140;-mavlink-messages-&#xC0DD;&#xC131;"><a name="&#xCEE4;&#xC2A4;&#xD140;-mavlink-messages-&#xC0DD;&#xC131;" class="plugin-anchor" href="#&#xCEE4;&#xC2A4;&#xD140;-mavlink-messages-&#xC0DD;&#xC131;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCEE4;&#xC2A4;&#xD140; MAVLink Messages &#xC0DD;&#xC131;</h2>
 <p>&#xC5EC;&#xAE30; &#xD29C;&#xD130;&#xB9AC;&#xC5BC;&#xC5D0;&#xC11C;&#xB294; <code>msg/ca_trajectory.msg</code>&#xC5D0; &#xC788;&#xB294; <a href="uorb.html">custom uORB</a> <code>ca_trajectory</code>&#xC640; <code>mavlink/include/mavlink/v1.0/custom_messages/mavlink_msg_ca_trajectory.h</code>&#xC5D0; &#xC788;&#xB294; &#xCEE4;&#xC2A4;&#xD140; mavlink <code>ca_trajectory</code> &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB2E4;&#xACE0; &#xAC00;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. (
 <a href="http://qgroundcontrol.org/mavlink/create_new_mavlink_message" target="_blank">&#xC5EC;&#xAE30;</a>&#xC5D0;&#xC11C; &#xCEE4;&#xC2A4;&#xD140; mavlink &#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xD5E4;&#xB354; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xCC38;&#xACE0;).</p>
-<h2 id="&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xBCF4;&#xB0B4;&#xAE30;">&#xCEE4;&#xC2A4;&#xD140; MAVLink Message &#xBCF4;&#xB0B4;&#xAE30;</h2>
+<h2 id="&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xBCF4;&#xB0B4;&#xAE30;"><a name="&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xBCF4;&#xB0B4;&#xAE30;" class="plugin-anchor" href="#&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xBCF4;&#xB0B4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCEE4;&#xC2A4;&#xD140; MAVLink Message &#xBCF4;&#xB0B4;&#xAE30;</h2>
 <p>&#xC774; &#xC139;&#xC158;&#xC5D0;&#xC11C;&#xB294; &#xCEE4;&#xC2A4;&#xD140; uORB &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xACFC; &#xC774;&#xB97C; mavlink &#xBA54;&#xC2DC;&#xC9C0;&#xB85C; &#xBCF4;&#xB0B4;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>mavlink&#xC758; &#xD5E4;&#xB354;&#xC640; uorb &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; <a href="https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_messages.cpp" target="_blank">mavlink_messages.cpp</a>&#xC5D0; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/ca_trajectory.h&gt;</span></span>
@@ -1990,7 +1998,7 @@ protected:
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; stream&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; startup &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xC5D0; &#xB2E4;&#xC74C; &#xD55C; &#xC904;&#xC744; &#xCD94;&#xAC00;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. (<code>-r</code>&#xC740; streaming rate&#xB97C; &#xC124;&#xC815;&#xD558;&#xBA70; <code>-u</code>&#xC740; UDP port 14556&#xB85C; mavlink channel&#xC744; &#xC2DD;&#xBCC4;&#xD568;) :</p>
 <pre><code>mavlink stream -r 50 -s CA_TRAJECTORY -u 14556
-</code></pre><h2 id="&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xC218;&#xC2E0;&#xD558;&#xAE30;">&#xCEE4;&#xC2A4;&#xD140; MAVLink Message &#xC218;&#xC2E0;&#xD558;&#xAE30;</h2>
+</code></pre><h2 id="&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xC218;&#xC2E0;&#xD558;&#xAE30;"><a name="&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xC218;&#xC2E0;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xCEE4;&#xC2A4;&#xD140;-mavlink-message-&#xC218;&#xC2E0;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCEE4;&#xC2A4;&#xD140; MAVLink Message &#xC218;&#xC2E0;&#xD558;&#xAE30;</h2>
 <p>&#xC774; &#xC139;&#xC158;&#xC5D0;&#xC11C;&#xB294; mavlink&#xB85C; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC1B;&#xACE0; &#xC774;&#xB97C; uORB&#xB85C; publish&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xB4E4;&#xC5B4;&#xC624;&#xB294; mavlink &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xD568;&#xC218;&#xB97C; <a href="https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.h#L77" target="_blank">mavlink_receiver.h</a>&#xC5D0; &#xCD94;&#xAC00;</p>
 <pre><code class="lang-C"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/ca_trajectory.h&gt;</span></span>
@@ -2039,7 +2047,7 @@ MavlinkReceiver::handle_message_ca_trajectory_msg(<span class="hljs-keyword">mav
         ...
      }
 </code></pre>
-<h2 id="alternative-to-creating-custom-mavlink-messages">Alternative to Creating Custom MAVLink Messages</h2>
+<h2 id="alternative-to-creating-custom-mavlink-messages"><a name="alternative-to-creating-custom-mavlink-messages" class="plugin-anchor" href="#alternative-to-creating-custom-mavlink-messages"><i class="fa fa-link" aria-hidden="true"></i></a>Alternative to Creating Custom MAVLink Messages</h2>
 <p>Sometimes there is the need for a custom MAVLink message with content that is not fully defined.</p>
 <p>For example when using MAVLink to interface PX4 with an embedded device, the messages that are exchanged between the autopilot and the device may go through several iterations before they are stabilized.
 In this case, it can be time-consumming and error-prone to regenerate the MAVLink headers, and make sure both devices use the same version of the protocol.</p>
@@ -2049,8 +2057,8 @@ See <a href="../debug/debug_values.html">this tutorial</a>. for an example usage
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> This solution is not efficient as it sends character string over the network and involves comparison of strings. It should be used for development only!</p>
 </blockquote>
-<h2 id="&#xC77C;&#xBC18;">&#xC77C;&#xBC18;</h2>
-<h3 id="streaming-rate-&#xC124;&#xC815;">streaming rate &#xC124;&#xC815;</h3>
+<h2 id="&#xC77C;&#xBC18;"><a name="&#xC77C;&#xBC18;" class="plugin-anchor" href="#&#xC77C;&#xBC18;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC77C;&#xBC18;</h2>
+<h3 id="streaming-rate-&#xC124;&#xC815;"><a name="streaming-rate-&#xC124;&#xC815;" class="plugin-anchor" href="#streaming-rate-&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>streaming rate &#xC124;&#xC815;</h3>
 <p>&#xAC00;&#xB054;&#xC740; &#xAC1C;&#xBCC4; topic&#xC758; streaming rate&#xB97C; &#xC62C;&#xB9AC;&#xB294; &#xAC83;&#xC774; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. (&#xC608;&#xB85C; QGC&#xC5D0;&#xC11C; inspection&#xC6A9;&#xB3C4;&#xB85C;) &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xB77C;&#xC778;&#xC73C;&#xB85C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">mavlink stream -u &lt;port number&gt; <span class="hljs-_">-s</span> &lt;mavlink topic name&gt; -r &lt;rate&gt;
 </code></pre>
@@ -2100,7 +2108,7 @@ See <a href="../debug/debug_values.html">this tutorial</a>. for an example usage
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"next":{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput 테스트","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"수동 Client/Agent 생성","level":"1.6.3.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]},"previous":{"title":"uORB 메시징","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/mavlink.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"next":{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"Throughput 테스트","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"수동 Client/Agent 생성","level":"1.6.3.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]},"previous":{"title":"uORB 메시징","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/mavlink.md","mtime":"2019-01-03T23:27:43.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2129,6 +2137,10 @@ See <a href="../debug/debug_values.html">this tutorial</a>. for an example usage
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

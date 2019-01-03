@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Linux系统下使用S.Bus驱动 · PX4 Developer Guide</title>
+        <title>Linux系统下使用S.Bus驱动 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,20 +1869,20 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="linux&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;sbus&#x9A71;&#x52A8;">Linux&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;S.Bus&#x9A71;&#x52A8;</h1>
+                                <h1 id="linux&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;sbus&#x9A71;&#x52A8;"><a name="linux&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;sbus&#x9A71;&#x52A8;" class="plugin-anchor" href="#linux&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;sbus&#x9A71;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>Linux&#x7CFB;&#x7EDF;&#x4E0B;&#x4F7F;&#x7528;S.Bus&#x9A71;&#x52A8;</h1>
 <p>&#x8FD9;&#x4E2A;&#x9A71;&#x52A8;&#x53EF;&#x4EE5;&#x4F7F;&#x98DE;&#x63A7;&#x901A;&#x8FC7;&#x4E32;&#x53E3;&#x8BFB;&#x53D6;Sbus&#x63A5;&#x6536;&#x673A;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x5927;&#x652F;&#x6301;16&#x901A;&#x9053;&#x3002;<br>&#x517C;&#x5BB9;&#x5E02;&#x9762;&#x4E0A;&#x7684;&#x5E38;&#x89C1;&#x63A5;&#x6536;&#x673A;&#xFF0C;&#x8BF8;&#x5982;frsky&#xFF0C;&#x4E50;&#x8FEA;&#xFF0C;&#x751A;&#x81F3;sbus&#x7F16;&#x7801;&#x5668;&#x3002;<br>&#x677F;&#x8F7D;&#x4E32;&#x53E3;&#x3001;USB&#x4E32;&#x53E3;&#x3001;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x4E32;&#x53E3;&#x5747;&#x53EF;&#x652F;&#x6301;&#x3002;<br>&#x4EC5;&#x652F;&#x6301;linux&#x5E73;&#x53F0;&#x3002; 
 &#x8FD9;&#x4E2A;&#x9A71;&#x52A8;&#x4F4D;&#x4E8E; drivers/linux_sbus &#x4E0B;</p>
-<h2 id="&#x5FC5;&#x8981;&#x7EC4;&#x4EF6;">&#x5FC5;&#x8981;&#x7EC4;&#x4EF6;</h2>
+<h2 id="&#x5FC5;&#x8981;&#x7EC4;&#x4EF6;"><a name="&#x5FC5;&#x8981;&#x7EC4;&#x4EF6;" class="plugin-anchor" href="#&#x5FC5;&#x8981;&#x7EC4;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5FC5;&#x8981;&#x7EC4;&#x4EF6;</h2>
 <ul>
 <li>NPN &#x4E09;&#x6781;&#x7BA1; * 1  </li>
 <li>10K &#x7535;&#x963B; * 1  </li>
 <li>1K &#x7535;&#x963B; * 1  </li>
 </ul>
 <p><strong>&#x6CE8;&#x610F;&#xFF1A;</strong>&#x4E0A;&#x8FF0;&#x5668;&#x4EF6;&#x578B;&#x53F7;&#x4E0D;&#x9650;,&#x53EF;&#x4ECE;&#x6DD8;&#x5B9D;&#x4E0A;&#x4EFB;&#x610F;&#x8D2D;&#x4E70;&#xFF0C;&#x56E0;&#x4E3A;&#x63A5;&#x6536;&#x673A;&#x7684;&#x7535;&#x6D41;&#x8F83;&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;&#x4E09;&#x6781;&#x7BA1;&#x7684;&#x578B;&#x53F7;&#x4EFB;&#x610F;&#x3002;  </p>
-<h2 id="&#x53EF;&#x9009;&#x7EC4;&#x4EF6;">&#x53EF;&#x9009;&#x7EC4;&#x4EF6;</h2>
+<h2 id="&#x53EF;&#x9009;&#x7EC4;&#x4EF6;"><a name="&#x53EF;&#x9009;&#x7EC4;&#x4EF6;" class="plugin-anchor" href="#&#x53EF;&#x9009;&#x7EC4;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x9009;&#x7EC4;&#x4EF6;</h2>
 <p>usb&#x8F6C;ttl *1  ,&#x63A8;&#x8350;PL2302</p>
 <p>&#x4E0A;&#x8FF0;&#x7EC4;&#x4EF6;&#x4E5F;&#x53EF;&#x4ECE;&#x6DD8;&#x5B9D;&#x8D2D;&#x4E70;,&#x82E5;&#x4E0D;&#x8D2D;&#x4E70;,&#x5219;&#x53EF;&#x4F7F;&#x7528;&#x677F;&#x8F7D;&#x4E32;&#x53E3;&#x66FF;&#x4EE3;&#x3002;  </p>
-<h2 id="&#x7EC4;&#x88C5;">&#x7EC4;&#x88C5;</h2>
+<h2 id="&#x7EC4;&#x88C5;"><a name="&#x7EC4;&#x88C5;" class="plugin-anchor" href="#&#x7EC4;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7EC4;&#x88C5;</h2>
 <p>&#x8BF7;&#x5B89;&#x4E0B;&#x5217;&#x65B9;&#x5F0F;&#x5BF9;&#x5668;&#x4EF6;&#x8FDB;&#x884C;&#x8FDE;&#x7EBF;  </p>
 <ul>
 <li>S.bus&#x4FE1;&#x53F7;&#x7EBF; &#x2192; 1K&#x7535;&#x963B; &#x2192; NPN&#x4E09;&#x6781;&#x7BA1;&#x57FA;&#x7EA7;  </li>
@@ -1883,12 +1891,12 @@
 <li>5.0v  VCC &#x2192; S.Bus vcc  </li>
 <li>GND &#x2192; S.Bus GND  </li>
 </ul>
-<h2 id="&#x7535;&#x8DEF;&#x56FE;">&#x7535;&#x8DEF;&#x56FE;</h2>
+<h2 id="&#x7535;&#x8DEF;&#x56FE;"><a name="&#x7535;&#x8DEF;&#x56FE;" class="plugin-anchor" href="#&#x7535;&#x8DEF;&#x56FE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7535;&#x8DEF;&#x56FE;</h2>
 <p><img src="../../assets/driver_sbus_signal_inverter_circuit_diagram.png" alt="Signal inverter circuit diagram">
 &#x8FD9;&#x4E2A;&#x7535;&#x8DEF;&#x662F;&#x4E2A;&#x5012;&#x76F8;&#x5668;&#xFF0C;&#x6811;&#x8393;&#x6D3E;&#x8FD9;&#x7C7B;&#x8BBE;&#x5907;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x8BFB;&#x53D6;S.bus&#x4FE1;&#x53F7;&#xFF0C;&#x5FC5;&#x987B;&#x501F;&#x52A9;&#x5012;&#x76F8;&#x5668;&#x8F85;&#x52A9;&#xFF0C;&#x5C06;&#x4FE1;&#x53F7;&#x8FDB;&#x884C;&#x53CD;&#x8F6C;&#xFF0C;&#x624D;&#x53EF;&#x8BFB;&#x53D6;&#x3002;</p>
-<h2 id="&#x5B89;&#x88C5;&#x5B9E;&#x4F8B;">&#x5B89;&#x88C5;&#x5B9E;&#x4F8B;</h2>
+<h2 id="&#x5B89;&#x88C5;&#x5B9E;&#x4F8B;"><a name="&#x5B89;&#x88C5;&#x5B9E;&#x4F8B;" class="plugin-anchor" href="#&#x5B89;&#x88C5;&#x5B9E;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;&#x5B9E;&#x4F8B;</h2>
 <p><img src="../../assets/driver_sbus_signal_inverter_breadboard.png" alt="Signal inverter breadboard"></p>
-<h2 id="&#x542F;&#x52A8;">&#x542F;&#x52A8;</h2>
+<h2 id="&#x542F;&#x52A8;"><a name="&#x542F;&#x52A8;" class="plugin-anchor" href="#&#x542F;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;</h2>
 <p>&#x628A; <code>linux_sbus start -d /dev/ttyUSB0 -c 8</code> &#x52A0;&#x5165;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5373;&#x53EF;&#x81EA;&#x52A8;&#x8FD0;&#x884C;,&#x5E76;&#x901A;&#x8FC7;<code>/dev/ttyUSBO</code>&#x76D1;&#x542C;8&#x4E2A;&#x901A;&#x9053;<br>&#x539F;&#x59CB;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E;Firmware&#x4E0B;&#x7684;posix-configs&#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6309;&#x7167;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x7F16;&#x8BD1;&#xFF0C;&#x505A;&#x4E86;make upload&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x6587;&#x4EF6;&#x4F1A;&#x5B58;&#x653E;&#x5728;
 &#x76EE;&#x6807;&#x673A;&#x7684;<code>/home/pi</code>&#x76EE;&#x5F55;&#x4E2D;,&#x4FEE;&#x6539;&#x4F60;&#x4F7F;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x5373;&#x53EF;&#x3002;</p>
 
@@ -1934,7 +1942,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux系统下使用S.Bus驱动","level":"1.10.9","depth":2,"next":{"title":"Advanced Topics","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"系统启动","level":"1.11.1","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},{"title":"参数&配置","level":"1.11.2","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"参考参数","level":"1.11.3","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"安装Intel RealSense R200的驱动","level":"1.11.4","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"切换状态估计器","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"外部模块","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]}]},"previous":{"title":"着陆检测","level":"1.10.8","depth":2,"path":"tutorials/land_detector.md","ref":"tutorials/land_detector.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"tutorials/linux_sbus.md","mtime":"2019-01-03T18:30:41.369Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Linux系统下使用S.Bus驱动","level":"1.10.9","depth":2,"next":{"title":"Advanced Topics","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"系统启动","level":"1.11.1","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},{"title":"参数&配置","level":"1.11.2","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"参考参数","level":"1.11.3","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"安装Intel RealSense R200的驱动","level":"1.11.4","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"切换状态估计器","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"外部模块","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]}]},"previous":{"title":"着陆检测","level":"1.10.8","depth":2,"path":"tutorials/land_detector.md","ref":"tutorials/land_detector.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"tutorials/linux_sbus.md","mtime":"2019-01-03T23:27:43.107Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -1963,6 +1971,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

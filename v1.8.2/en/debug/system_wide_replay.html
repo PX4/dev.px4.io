@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>System-wide Replay · PX4 Developer Guide</title>
+        <title>System-wide Replay · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,12 +2044,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="system-wide-replay">System-wide Replay</h1>
+                                <h1 id="system-wide-replay"><a name="system-wide-replay" class="plugin-anchor" href="#system-wide-replay"><i class="fa fa-link" aria-hidden="true"></i></a>System-wide Replay</h1>
 <p>Based on ORB messages, it&apos;s possible to record and replay arbitrary parts of the
 system.</p>
 <p>Replay is useful to test the effect of different parameter values based on real
 data, compare different estimators, etc.</p>
-<h2 id="prerequisites">Prerequisites</h2>
+<h2 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h2>
 <p>The first thing that needs to be done is to identify the module or modules that
 should be replayed. Then, identify all the inputs to these modules, i.e. subscribed ORB
 topics. For system-wide replay, this consists of all hardware input: sensors, RC
@@ -2055,7 +2063,7 @@ be more timestamps, then they must be relative with respect to the main
 timestamp. For an example, see
 <a href="https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg" target="_blank">sensor_combined.msg</a>.
 Reasons for this are given below.</p>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h2>
 <ul>
 <li>First, choose the file to replay, and build the target (from within the
 Firmware directory):<pre><code class="lang-sh"><span class="hljs-built_in">export</span> replay=&lt;absolute_path_to_<span class="hljs-built_in">log</span>_file.ulg&gt;
@@ -2114,7 +2122,7 @@ are used again:</p>
 </code></pre>
 </li>
 </ul>
-<h3 id="important-notes">Important Notes</h3>
+<h3 id="important-notes"><a name="important-notes" class="plugin-anchor" href="#important-notes"><i class="fa fa-link" aria-hidden="true"></i></a>Important Notes</h3>
 <ul>
 <li>During replay, all dropouts in the log file are reported. These have a
 negative effect on replay and thus it should be taken care that dropouts are
@@ -2124,7 +2132,7 @@ recording was done. This is planned to be extended in the future.</li>
 <li>A message that has a timestamp of 0 will be considered invalid and not be
 replayed.</li>
 </ul>
-<h2 id="ekf2-replay">EKF2 Replay</h2>
+<h2 id="ekf2-replay"><a name="ekf2-replay" class="plugin-anchor" href="#ekf2-replay"><i class="fa fa-link" aria-hidden="true"></i></a>EKF2 Replay</h2>
 <p>This is a specialization of the system-wide replay for fast EKF2 replay. It will
 automatically create the ORB publisher rules and works as following:</p>
 <ul>
@@ -2145,7 +2153,7 @@ with <code>make posix none</code>. This will create a new log file.</p>
 <p>The location of the generated log is printed with a message like this:</p>
 <pre><code>INFO  [logger] Opened log file: rootfs/fs/microsd/log/2017-03-01/13_30_51_replayed.ulg
 </code></pre><p>When finished, use <code>unset replay; unset replay_mode</code> to exit the replay mode.</p>
-<h2 id="behind-the-scenes">Behind the Scenes</h2>
+<h2 id="behind-the-scenes"><a name="behind-the-scenes" class="plugin-anchor" href="#behind-the-scenes"><i class="fa fa-link" aria-hidden="true"></i></a>Behind the Scenes</h2>
 <p>Replay is split into 3 components:</p>
 <ul>
 <li>a replay module</li>
@@ -2206,7 +2214,7 @@ described above. They are only compiled for the posix SITL targets.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System-wide Replay","level":"1.9.7","depth":2,"next":{"title":"Profiling","level":"1.9.8","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"previous":{"title":"Sending Debug Values","level":"1.9.6","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_wide_replay.md","mtime":"2019-01-03T18:30:41.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"System-wide Replay","level":"1.9.7","depth":2,"next":{"title":"Profiling","level":"1.9.8","depth":2,"path":"debug/profiling.md","ref":"debug/profiling.md","articles":[]},"previous":{"title":"Sending Debug Values","level":"1.9.6","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_wide_replay.md","mtime":"2019-01-03T23:27:43.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2235,6 +2243,10 @@ described above. They are only compiled for the posix SITL targets.</p>
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

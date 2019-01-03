@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Linux · PX4 Developer Guide</title>
+        <title>Linux · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,13 +1921,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xB9AC;&#xB205;&#xC2A4;-&#xAC1C;&#xBC1C;&#xD658;&#xACBD;">&#xB9AC;&#xB205;&#xC2A4; &#xAC1C;&#xBC1C;&#xD658;&#xACBD;</h1>
+                                <h1 id="&#xB9AC;&#xB205;&#xC2A4;-&#xAC1C;&#xBC1C;&#xD658;&#xACBD;"><a name="&#xB9AC;&#xB205;&#xC2A4;-&#xAC1C;&#xBC1C;&#xD658;&#xACBD;" class="plugin-anchor" href="#&#xB9AC;&#xB205;&#xC2A4;-&#xAC1C;&#xBC1C;&#xD658;&#xACBD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB9AC;&#xB205;&#xC2A4; &#xAC1C;&#xBC1C;&#xD658;&#xACBD;</h1>
 <p>&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;&#xB294; <a href="dev_env.html#supported-targets">&#xBAA8;&#xB4E0; PX4 &#xD0C0;&#xAC9F;&#xB4E4;</a> (NuttX based hardware, Qualcomm Snapdragon Flight hardware, Linux-based hardware, Simulation, ROS)&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xBE4C;&#xB4DC;&#xAC00; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xB9AC;&#xB205;&#xC2A4; &#xBC30;&#xD3EC;&#xD310;&#xC73C;&#xB85C; Debian / <a href="https://wiki.ubuntu.com/LTS" target="_blank">Ubuntu Linux LTS</a> (16.04)&#xC744; &#xD45C;&#xC900;&#xC73C;&#xB85C; &#xD569;&#xB2C8;&#xB2E4;. <a href="dev_env_linux_boutique.html">boutique &#xBC30;&#xD3EC;&#xD310;</a> (Cent OS and Arch Linux)&#xC5D0; &#xAD00;&#xB828;&#xB41C; &#xC124;&#xCE58;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB3C4; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
 <p>&#xB2E4;&#xC74C;&#xC740; Ubuntu LTS&#xC5D0;&#xC11C; &#xAC04;&#xD3B8;&#xD558;&#xAC8C; bash &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xAC1C;&#xBC1C;&#xD658;&#xACBD; &#xC14B;&#xC5C5;&#xBC29;&#xBC95;&#xC744; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;. <em>&#xC218;&#xB3D9; &#xC124;&#xCE58;</em> &#xC640; &#xCD94;&#xAC00; &#xD0C0;&#xAC9F;&#xC5D0; &#xAD00;&#xB828;&#xB41C; &#xB0B4;&#xC6A9;&#xC740; <a href="dev_env_linux_ubuntu.html">Ubuntu/Debian Linux</a>&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
-<h2 id="&#xAC1C;&#xBC1C;-&#xD234;&#xCCB4;&#xC778;">&#xAC1C;&#xBC1C; &#xD234;&#xCCB4;&#xC778;</h2>
+<h2 id="&#xAC1C;&#xBC1C;-&#xD234;&#xCCB4;&#xC778;"><a name="&#xAC1C;&#xBC1C;-&#xD234;&#xCCB4;&#xC778;" class="plugin-anchor" href="#&#xAC1C;&#xBC1C;-&#xD234;&#xCCB4;&#xC778;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC1C;&#xBC1C; &#xD234;&#xCCB4;&#xC778;</h2>
 <p>&#xC544;&#xB798;&#xC5D0;&#xC11C;&#xB294; Ubuntu LTS&#xC5D0;&#xC11C; bash &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xAC1C;&#xBC1C; &#xD234;&#xCCB4;&#xC778;&#xC744; &#xC124;&#xCE58;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;. &#xBAA8;&#xB4E0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; <em>Qt Creator IDE</em>, <a href="https://ninja-build.org/" target="_blank">Ninja Build System</a>, <a href="dev_env_linux_ubuntu.html#common-dependencies">Common Dependencies</a>, <a href="dev_env_linux_ubuntu.html#fastrtps-installation">FastRTPS</a> &#xB97C; &#xD3EC;&#xD568;&#xD558;&#xBA70; &#xC5EC;&#xB7EC;&#xBD84; &#xCEF4;&#xD4E8;&#xD130;&#xC758; (<strong>~/src/Firmware</strong>)&#xC5D0; PX4 &#xC18C;&#xC2A4;&#xCF54;&#xB4DC;&#xB97C; &#xB2E4;&#xC6B4;&#xBC1B;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; Ubuntu LTS 16.04 &#xC124;&#xCE58;&#xC5D0;&#xC11C; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xB2E4;&#xB978; Ubuntu &#xB9B4;&#xB9AC;&#xC988; &#xBC84;&#xC804;&#xC744; &#xC124;&#xCE58;&#xD588;&#xB2E4;&#xBA74; &#xB3D9;&#xC791;&#xD558;&#xC9C0; &#xC54A;&#xC744; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xBB38;&#xC81C;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74; <a href="dev_env_linux_ubuntu.html">&#xC218;&#xB3D9; &#xC124;&#xCE58;</a>&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
@@ -1932,7 +1940,7 @@
 <li>&#xB85C;&#xADF8;&#xC544;&#xC6C3; &#xD6C4; &#xB2E4;&#xC2DC; &#xB85C;&#xADF8;&#xC778; (&#xC0C8;&#xB85C; &#xB85C;&#xADF8;&#xC778;&#xC744; &#xD574;&#xC57C; &#xBCC0;&#xACBD;&#xB0B4;&#xC6A9;&#xC774; &#xC801;&#xC6A9;&#xB428;).</li>
 </ol>
 <p>&#xC544;&#xB798; &#xC139;&#xC158;&#xC5D0;&#xC11C;&#xB294; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xAC1C;&#xBC1C; &#xD0C0;&#xAC9F;&#xC5D0; &#xB530;&#xB77C; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="pixhawknuttx&#xC640;-jmavsimgazebo-&#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;">Pixhawk/NuttX&#xC640; jMAVSim/Gazebo &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;</h3>
+<h3 id="pixhawknuttx&#xC640;-jmavsimgazebo-&#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;"><a name="pixhawknuttx&#xC640;-jmavsimgazebo-&#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;" class="plugin-anchor" href="#pixhawknuttx&#xC640;-jmavsimgazebo-&#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk/NuttX&#xC640; jMAVSim/Gazebo &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;</h3>
 <p>&#xAC1C;&#xBC1C; &#xD234;&#xCCB4;&#xC778; &#xC124;&#xCE58;&#xD558;&#xAE30;:</p>
 <ol>
 <li><a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank" download="">ubuntu_sim_nuttx.sh</a> &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;.</li>
@@ -1941,14 +1949,14 @@
 &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC9C4;&#xD589;&#xB418;&#xBA74;&#xC11C; &#xD504;&#xB86C;&#xD504;&#xD2B8;&#xAC00; &#xB098;&#xD0C0;&#xB0A0; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
 <li>&#xC644;&#xB8CC;&#xB418;&#xBA74; &#xCEF4;&#xD4E8;&#xD130;&#xB97C; &#xC7AC;&#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</li>
 </ol>
-<h3 id="snapdragon-flight">Snapdragon Flight</h3>
+<h3 id="snapdragon-flight"><a name="snapdragon-flight" class="plugin-anchor" href="#snapdragon-flight"><i class="fa fa-link" aria-hidden="true"></i></a>Snapdragon Flight</h3>
 <p>Setup instructions for Snapdragon Flight are provided in the <em>PX4 User Guide</em>:</p>
 <ul>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_dev_environment_installation.html" target="_blank">Development Environment</a></li>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_software_installation.html" target="_blank">Software Installation</a></li>
 <li><a href="https://docs.px4.io/en/flight_controller/snapdragon_flight_configuration.html" target="_blank">Configuration</a></li>
 </ul>
-<h3 id="raspberry-pi">Raspberry Pi</h3>
+<h3 id="raspberry-pi"><a name="raspberry-pi" class="plugin-anchor" href="#raspberry-pi"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi</h3>
 <p>&#xAC1C;&#xBC1C; &#xD234;&#xCCB4;&#xC778; &#xC124;&#xCE58;&#xD558;&#xAE30;:</p>
 <ol>
 <li><a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim.sh" target="_blank" download="">ubuntu_sim.sh</a> &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC; (&#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xD130;&#xC640; &#xACF5;&#xD1B5; &#xD234;&#xCCB4;&#xC778; &#xAD00;&#xB828; &#xB0B4;&#xC6A9;&#xC774; &#xD3EC;&#xD568;).</li>
@@ -1960,9 +1968,9 @@
 </ul>
 </li>
 </ol>
-<h3 id="parrot-bepop">Parrot Bepop</h3>
+<h3 id="parrot-bepop"><a name="parrot-bepop" class="plugin-anchor" href="#parrot-bepop"><i class="fa fa-link" aria-hidden="true"></i></a>Parrot Bepop</h3>
 <p>(&#xC218;&#xB3D9;) &#xC808;&#xCC28;&#xB294; &#xB2E4;&#xC74C;&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;: <a href="dev_env_linux_ubuntu.html#raspberry-pi-hardware">Ubuntu/Debian Linux &gt; Parrot Bebop</a></p>
-<h3 id="ros&#xC758;-gazebo">ROS&#xC758; Gazebo</h3>
+<h3 id="ros&#xC758;-gazebo"><a name="ros&#xC758;-gazebo" class="plugin-anchor" href="#ros&#xC758;-gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>ROS&#xC758; Gazebo</h3>
 <p>&#xAC1C;&#xBC1C; &#xD234;&#xCCB4;&#xC778; &#xC124;&#xCE58;&#xD558;&#xAE30;:</p>
 <ol>
 <li><a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_gazebo.sh" target="_blank" download="">ubuntu_sim_ros_gazebo.sh</a> &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;.</li>
@@ -1976,10 +1984,10 @@
 <li>&#xC5EC;&#xB7EC;&#xBD84;&#xC758; catkin (ROS &#xBE4C;&#xB4DC; &#xC2DC;&#xC2A4;&#xD15C;) workspace&#xB294; <strong>~/catkin_ws/</strong>&#xC5D0; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</li>
 </ul>
 <!-- Additional DevTools Common to all Platforms -->
-<h2 id="ground-control-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;">Ground Control &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;</h2>
+<h2 id="ground-control-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;"><a name="ground-control-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;" class="plugin-anchor" href="#ground-control-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;"><i class="fa fa-link" aria-hidden="true"></i></a>Ground Control &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;</h2>
 <p><a href="https://docs.qgroundcontrol.com/en/releases/daily_builds.html" target="_blank">QGroundControl Daily Build</a>&#xC744; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC; &#xBC1B;&#xACE0; &#xC124;&#xCE58;&#xD558;&#xAE30;</p>
 <p><img src="../../assets/qgc_goto.jpg" alt="QGroundControl"></p>
-<h2 id="&#xD3B8;&#xC9D1;&#xAE30;--ide">&#xD3B8;&#xC9D1;&#xAE30; / IDE</h2>
+<h2 id="&#xD3B8;&#xC9D1;&#xAE30;--ide"><a name="&#xD3B8;&#xC9D1;&#xAE30;--ide" class="plugin-anchor" href="#&#xD3B8;&#xC9D1;&#xAE30;--ide"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD3B8;&#xC9D1;&#xAE30; / IDE</h2>
 <p>&#xAC1C;&#xBC1C;&#xD300;&#xC774; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD658;&#xACBD;:</p>
 <ul>
 <li><a href="https://www.sublimetext.com" target="_blank">Sublime Text</a>: &#xBE60;&#xB974;&#xACE0; &#xAC00;&#xBCBC;&#xC6B4; &#xD3B8;&#xC9D1;&#xAE30;</li>
@@ -1988,7 +1996,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="&#xB2E4;&#xC74C;-&#xB2E8;&#xACC4;">&#xB2E4;&#xC74C; &#xB2E8;&#xACC4;</h2>
+<h2 id="&#xB2E4;&#xC74C;-&#xB2E8;&#xACC4;"><a name="&#xB2E4;&#xC74C;-&#xB2E8;&#xACC4;" class="plugin-anchor" href="#&#xB2E4;&#xC74C;-&#xB2E8;&#xACC4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB2E4;&#xC74C; &#xB2E8;&#xACC4;</h2>
 <p>&#xC77C;&#xB2E8; &#xD658;&#xACBD;&#xC124;&#xC815;&#xC744; &#xB9C8;&#xCE58;&#xBA74;, <a href="building_px4.html">build &#xBC29;&#xBC95;</a>&#xC73C;&#xB85C; &#xB118;&#xC5B4;&#xAC00;&#xC138;&#xC694;.</p>
 
                                 
@@ -2033,7 +2041,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.2.2","depth":3,"next":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},"previous":{"title":"Mac OS","level":"1.2.2.1","depth":3,"path":"setup/dev_env_mac.md","ref":"setup/dev_env_mac.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/dev_env_linux.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.2.2.2","depth":3,"next":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},"previous":{"title":"Mac OS","level":"1.2.2.1","depth":3,"path":"setup/dev_env_mac.md","ref":"setup/dev_env_mac.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/dev_env_linux.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2062,6 +2070,10 @@
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

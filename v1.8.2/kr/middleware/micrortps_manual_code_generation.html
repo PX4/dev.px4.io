@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>수동 Client/Agent 생성 · PX4 Developer Guide</title>
+        <title>수동 Client/Agent 생성 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,14 +1921,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xC218;&#xB3D9;&#xC73C;&#xB85C;-client&#xC640;-agent-&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;">&#xC218;&#xB3D9;&#xC73C;&#xB85C; Client&#xC640; Agent &#xCF54;&#xB4DC; &#xC0DD;&#xC131;</h1>
+                                <h1 id="&#xC218;&#xB3D9;&#xC73C;&#xB85C;-client&#xC640;-agent-&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;"><a name="&#xC218;&#xB3D9;&#xC73C;&#xB85C;-client&#xC640;-agent-&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;" class="plugin-anchor" href="#&#xC218;&#xB3D9;&#xC73C;&#xB85C;-client&#xC640;-agent-&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC218;&#xB3D9;&#xC73C;&#xB85C; Client&#xC640; Agent &#xCF54;&#xB4DC; &#xC0DD;&#xC131;</h1>
 <p>&#xC5EC;&#xAE30;&#xC11C;&#xB294; &#xC218;&#xB3D9;&#xC73C;&#xB85C; client&#xC640; agent&#xC5D0; &#xB300;&#xD55C; &#xCF54;&#xB4DC;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC744; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.(PX4 &#xD38C;&#xC6E8;&#xC5B4;&#xAC00; &#xCEF4;&#xD30C;&#xC77C;&#xB420; &#xB54C; <a href="micrortps.html">&#xC790;&#xB3D9; &#xC0DD;&#xC131;</a>&#xB429;&#xB2C8;&#xB2E4;.)</p>
 <p>&#xC0DD;&#xC131;&#xB41C; &#xCF54;&#xB4DC;&#xB294; &#xD30C;&#xC774;&#xC36C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4; : <strong>/Tools/generate_microRTPS_bridge.py</strong></p>
-<h2 id="disable-automatic-bridge-code-generation">&#xC790;&#xB3D9; &#xBE0C;&#xB9AC;&#xC9C0; &#xCF54;&#xB4DC; &#xC0DD;&#xC131; &#xBE44;&#xD65C;&#xC131;&#xD654; </h2>
+<h2 id="disable-automatic-bridge-code-generation"><a name="disable-automatic-bridge-code-generation" class="plugin-anchor" href="#disable-automatic-bridge-code-generation"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9; &#xBE0C;&#xB9AC;&#xC9C0; &#xCF54;&#xB4DC; &#xC0DD;&#xC131; &#xBE44;&#xD65C;&#xC131;&#xD654; </h2>
 <p>&#xBA3C;&#xC800; &#xBE0C;&#xB9AC;&#xC9C0; &#xCF54;&#xB4DC;&#xC758; &#xC790;&#xB3D9; &#xC0DD;&#xC131;&#xC744; &#xBE44;&#xD65C;&#xC131;&#xD654; &#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;. &#xD0C0;&#xAC9F; &#xD50C;&#xB7AB;&#xD3FC;&#xC5D0; &#xB300;&#xD574;&#xC11C; <strong>.cmake</strong> &#xD30C;&#xC77C;&#xC5D0; &#xC788;&#xB294; <code>GENERATE_RTPS_BRIDGE</code> &#xBCC0;&#xC218;&#xB97C; <em>off</em> &#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">set</span>(GENERATE_RTPS_BRIDGE off)
 </code></pre>
-<h2 id="generatemicrortpsbridgepy-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;">generate_microRTPS_bridge.py &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h2>
+<h2 id="generatemicrortpsbridgepy-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;"><a name="generatemicrortpsbridgepy-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;" class="plugin-anchor" href="#generatemicrortpsbridgepy-&#xC0AC;&#xC6A9;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>generate_microRTPS_bridge.py &#xC0AC;&#xC6A9;&#xD558;&#xAE30;</h2>
 <p><em>generate_microRTPS_bridge</em> &#xD234;&#xC758; &#xBA85;&#xB839; &#xBB38;&#xBC95;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> /path/to/PX4/Firmware/Tools
 $ python generate_microRTPS_bridge.py -h
@@ -1962,25 +1970,25 @@ optional arguments:
 <pre><code class="lang-sh">$ <span class="hljs-built_in">cd</span> /path/to/PX4/Firmware
 $ python Tools/generate_microRTPS_bridge.py <span class="hljs-_">-s</span> msg/sensor_baro.msg -r msg/sensor_combined.msg
 </code></pre>
-<h2 id="&#xC0DD;&#xC131;&#xB41C;-&#xCF54;&#xB4DC;">&#xC0DD;&#xC131;&#xB41C; &#xCF54;&#xB4DC;</h2>
+<h2 id="&#xC0DD;&#xC131;&#xB41C;-&#xCF54;&#xB4DC;"><a name="&#xC0DD;&#xC131;&#xB41C;-&#xCF54;&#xB4DC;" class="plugin-anchor" href="#&#xC0DD;&#xC131;&#xB41C;-&#xCF54;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0DD;&#xC131;&#xB41C; &#xCF54;&#xB4DC;</h2>
 <p><em>Client</em>, <em>Agent</em>, uORB messages&#xC758; <em>CDR serialization/deserialization</em> &#xADF8;&#xB9AC;&#xACE0; RTPS &#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xC815;&#xC758;(IDL &#xD30C;&#xC77C;)&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xCF54;&#xB4DC;&#xAC00; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>&#xBE0C;&#xB9AC;&#xC9C0;&#xB97C; &#xC704;&#xD574;&#xC11C; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xB41C; &#xCF54;&#xB4DC;&#xB294; &#xB2E4;&#xC74C;&#xC5D0;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.(&#xAE30;&#xBCF8; &#xC124;&#xC815;) :</p>
 <ul>
 <li><em>Client</em>: <strong>src/modules/micrortps_bridge/micrortps_client/</strong></li>
 <li><em>Agent</em>: <strong>src/modules/micrortps_bridge/micrortps_agent/</strong></li>
 </ul>
-<h3 id="uorb-serialization-&#xCF54;&#xB4DC;">uORB serialization &#xCF54;&#xB4DC;</h3>
+<h3 id="uorb-serialization-&#xCF54;&#xB4DC;"><a name="uorb-serialization-&#xCF54;&#xB4DC;" class="plugin-anchor" href="#uorb-serialization-&#xCF54;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>uORB serialization &#xCF54;&#xB4DC;</h3>
 <p>Serialization functions are generated for all the uORB topics as part of the normal PX4 compilation process (and also for manual generation). For example, the following functions would be generated for the <em>sensor_combined.msg</em>:</p>
 <pre><code class="lang-sh">void serialize_sensor_combined(const struct sensor_combined_s *input, char *output, uint32_t *length, struct microCDR *microCDRWriter);
 void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, struct microCDR *microCDRReader);
 </code></pre>
-<h3 id="rtps-message-idl-files">RTPS message IDL files</h3>
+<h3 id="rtps-message-idl-files"><a name="rtps-message-idl-files" class="plugin-anchor" href="#rtps-message-idl-files"><i class="fa fa-link" aria-hidden="true"></i></a>RTPS message IDL files</h3>
 <p>IDL &#xD30C;&#xC77C;&#xC740; (<a href="micrortps.html#supported-uorb-messages">&#xC120;&#xD0DD;&#xD55C; uORB topics</a>)&#xC5D0; &#xB300;&#xD574;&#xC11C; uORB <strong>.msg</strong> &#xD30C;&#xC77C;&#xB85C;&#xBD80;&#xD130; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xC5D0;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. : <strong>src/modules/micrortps_bridge/micrortps_agent/idl/</strong></p>
 <p><em>FastRTSP</em> IDL &#xD30C;&#xC77C;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; RTPS &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xAD6C;&#xC870;&#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.(&#xC774; &#xACBD;&#xC6B0; uORB topic&#xC73C;&#xB85C; RTPS &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB9E4;&#xD551;) uORB topic&#xC5D0; publish/subsribe&#xC5D0; &#xD544;&#xC694;&#xD55C; <em>Agent</em>&#xC640; <em>FastRTSP</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xC704;&#xD55C; &#xCF54;&#xB4DC;&#xB97C; &#xC0DD;&#xC131;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> IDL &#xD30C;&#xC77C;&#xC740; <em>fastrtpsgen</em> &#xD234;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; C++&#xB85C; &#xCEF4;&#xD30C;&#xC77C;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h2 id="&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;-&#xAC80;&#xC99D;">&#xCF54;&#xB4DC; &#xC0DD;&#xC131; &#xAC80;&#xC99D;</h2>
+<h2 id="&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;-&#xAC80;&#xC99D;"><a name="&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;-&#xAC80;&#xC99D;" class="plugin-anchor" href="#&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;-&#xAC80;&#xC99D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCF54;&#xB4DC; &#xC0DD;&#xC131; &#xAC80;&#xC99D;</h2>
 <p>&#xACB0;&#xACFC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xAC80;&#xC0AC;&#xD574;&#xC11C; &#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; &#xCF54;&#xB4DC;&#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5C8;&#xB294;&#xC9C0;&#xB97C; &#xAC80;&#xC99D;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. (Linux&#xC5D0;&#xC11C; <code>tree</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C; &#xD30C;&#xC77C; &#xAD6C;&#xC870;&#xB97C; &#xC0B4;&#xD3B4;&#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.)</p>
 <p>Agent &#xB514;&#xB809;&#xD1A0;&#xB9AC;:</p>
 <pre><code class="lang-sh">$ tree src/modules/micrortps_bridge/micrortps_agent
@@ -2020,7 +2028,7 @@ src/modules/micrortps_bridge/micrortps_client
 &#x2514;&#x2500;&#x2500; microRTPS_transport.h
  0 directories, 4 files
 </code></pre>
-<h2 id="build-and-use-the-code">&#xBE4C;&#xB4DC;&#xC640; &#xCF54;&#xB4DC; &#xC0AC;&#xC6A9; </h2>
+<h2 id="build-and-use-the-code"><a name="build-and-use-the-code" class="plugin-anchor" href="#build-and-use-the-code"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xC640; &#xCF54;&#xB4DC; &#xC0AC;&#xC6A9; </h2>
 <p>&#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xD55C; <em>Client</em> &#xCF54;&#xB4DC;&#xAC00; &#xBE4C;&#xB4DC;&#xD574;&#xC11C;  <a href="micrortps.html#client-px4-firmware">&#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xD55C; Client code</a>&#xC640; &#xC815;&#xD655;&#xD788; &#xAC19;&#xC740; &#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xD2B9;&#xD788; &#xD55C;&#xBC88; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xC0DD;&#xC131;&#xB418;&#xBA74;, <em>Client</em> &#xC18C;&#xC2A4; &#xCF54;&#xB4DC;&#xAC00; &#xCEF4;&#xD30C;&#xC77C;&#xB418;&#xACE0; &#xC77C;&#xBC18; &#xBE4C;&#xB4DC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB85C; PX4 &#xD38C;&#xC6E8;&#xC5B4;&#xB85C; &#xBE4C;&#xB4DC;&#xB429;&#xB2C8;&#xB2E4;. &#xC608;&#xC81C;&#xB85C; &#xCF54;&#xB4DC;&#xB97C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xB824;&#xBA74; &#xD38C;&#xC6E8;&#xC5B4;&#xC5D0; Nuttx/Pixhawk &#xD0C0;&#xAC9F;&#xC5D0; include&#xD569;&#xB2C8;&#xB2E4;.:</p>
 <pre><code class="lang-sh">make px4fmu-v4_default upload
@@ -2072,7 +2080,7 @@ src/modules/micrortps_bridge/micrortps_client
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"수동 Client/Agent 생성","level":"1.6.3.2","depth":3,"next":{"title":"데몬","level":"1.6.4","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},"previous":{"title":"Throughput 테스트","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/micrortps_manual_code_generation.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"수동 Client/Agent 생성","level":"1.6.3.2","depth":3,"next":{"title":"데몬","level":"1.6.4","depth":2,"path":"advanced/architecture_daemon.md","ref":"advanced/architecture_daemon.md","articles":[]},"previous":{"title":"Throughput 테스트","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"middleware/micrortps_manual_code_generation.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2101,6 +2109,10 @@ src/modules/micrortps_bridge/micrortps_client
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

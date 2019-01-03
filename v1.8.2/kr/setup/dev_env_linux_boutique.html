@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Arch/CentOS Linux · PX4 Developer Guide</title>
+        <title>Arch/CentOS Linux · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1913,9 +1921,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="arch&#xC640;-centos&#xC5D0;-linux-&#xC124;&#xCE58;-&#xBC29;&#xBC95;">Arch&#xC640; CentOS&#xC5D0; Linux &#xC124;&#xCE58; &#xBC29;&#xBC95;</h1>
+                                <h1 id="arch&#xC640;-centos&#xC5D0;-linux-&#xC124;&#xCE58;-&#xBC29;&#xBC95;"><a name="arch&#xC640;-centos&#xC5D0;-linux-&#xC124;&#xCE58;-&#xBC29;&#xBC95;" class="plugin-anchor" href="#arch&#xC640;-centos&#xC5D0;-linux-&#xC124;&#xCE58;-&#xBC29;&#xBC95;"><i class="fa fa-link" aria-hidden="true"></i></a>Arch&#xC640; CentOS&#xC5D0; Linux &#xC124;&#xCE58; &#xBC29;&#xBC95;</h1>
 <p>!-- import docs ninja build system --&gt;</p>
-<h2 id="ninja-build-system">Ninja Build System</h2>
+<h2 id="ninja-build-system"><a name="ninja-build-system" class="plugin-anchor" href="#ninja-build-system"><i class="fa fa-link" aria-hidden="true"></i></a>Ninja Build System</h2>
 <p><a href="https://ninja-build.org/" target="_blank">Ninja</a> is a faster build system than <em>Make</em> and the PX4 <em>CMake</em> generators support it. To install a recent version, download the binary and add it to your path:</p>
 <pre><code class="lang-sh">mkdir -p <span class="hljs-variable">$HOME</span>/ninja
 <span class="hljs-built_in">cd</span> <span class="hljs-variable">$HOME</span>/ninja
@@ -1926,8 +1934,8 @@ exportline=<span class="hljs-string">&quot;export PATH=<span class="hljs-variabl
 <span class="hljs-keyword">if</span> grep -Fxq <span class="hljs-string">&quot;<span class="hljs-variable">$exportline</span>&quot;</span> ~/.profile; <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> nothing to <span class="hljs-keyword">do</span> ; <span class="hljs-keyword">else</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$exportline</span> &gt;&gt; ~/.profile; <span class="hljs-keyword">fi</span>
 . ~/.profile
 </code></pre>
-<h2 id="&#xD754;&#xD558;&#xC9C0;-&#xC54A;&#xC740;-linux-&#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;-&#xC124;&#xCE58;&#xD558;&#xAE30;">&#xD754;&#xD558;&#xC9C0; &#xC54A;&#xC740; Linux &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
-<h3 id="centos">CentOs</h3>
+<h2 id="&#xD754;&#xD558;&#xC9C0;-&#xC54A;&#xC740;-linux-&#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><a name="&#xD754;&#xD558;&#xC9C0;-&#xC54A;&#xC740;-linux-&#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;-&#xC124;&#xCE58;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xD754;&#xD558;&#xC9C0;-&#xC54A;&#xC740;-linux-&#xC2DC;&#xC2A4;&#xD15C;&#xC5D0;-&#xC124;&#xCE58;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD754;&#xD558;&#xC9C0; &#xC54A;&#xC740; Linux &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC124;&#xCE58;&#xD558;&#xAE30;</h2>
+<h3 id="centos"><a name="centos" class="plugin-anchor" href="#centos"><i class="fa fa-link" aria-hidden="true"></i></a>CentOs</h3>
 <p>&#xBE4C;&#xB4DC;&#xC5D0;  Python 2.7.5&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; Centos 7&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
 (&#xC774;&#xC804; Centos &#xBC30;&#xD3EC;&#xD310;&#xC740; python v2.7.5&#xC640; &#xD568;&#xAED8; &#xC124;&#xCE58;&#xB420; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xC9C0;&#xB9CC; yum&#xC774; &#xB9DE;&#xC9C0; &#xC54A;&#xC744; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xCD94;&#xCC9C;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.)</p>
 <p>EPEL &#xC800;&#xC7A5;&#xC18C;&#xB294; openocd libftdi-devel libftdi-python&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
@@ -1943,7 +1951,7 @@ easy_install pexpect
 yum install openocd libftdi-devel libftdi-python python-argparse flex bison-devel ncurses-devel ncurses-libs autoconf texinfo libtool zlib-devel cmake
 </code></pre>
 <p>Note: python-pip&#xC640; screen &#xC124;&#xCE58;&#xAC00; &#xD544;&#xC694;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h4 id="&#xCD94;&#xAC00;&#xD560;-32bit-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;">&#xCD94;&#xAC00;&#xD560; 32bit &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;</h4>
+<h4 id="&#xCD94;&#xAC00;&#xD560;-32bit-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;"><a name="&#xCD94;&#xAC00;&#xD560;-32bit-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;" class="plugin-anchor" href="#&#xCD94;&#xAC00;&#xD560;-32bit-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCD94;&#xAC00;&#xD560; 32bit &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;</h4>
 <p>arm &#xD234;&#xCCB4;&#xC778;&#xC744; &#xC124;&#xCE58;&#xD558;&#xBA74; &#xC774;&#xB97C; &#xD14C;&#xC2A4;&#xD2B8; &#xD569;&#xB2C8;&#xB2E4;. :</p>
 <div class="host-code"></div>
 
@@ -1962,7 +1970,7 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> ncurses-libs.i686&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xD55C; &#xAC83;&#xB4E4;&#xC740; &#xB2E4;&#xB978; &#xB300;&#xBD80;&#xBD84;&#xC758; 32bit &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC5D0;&#xC11C;&#xB3C4; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. Centos 7&#xC740; &#xCD94;&#xAC00; udev rules &#xC5C6;&#xC774;&#xB3C4; PX4 &#xAD00;&#xB828;&#xB41C; &#xAC70;&#xC758; &#xBAA8;&#xB4E0; &#xC7A5;&#xCE58;&#xB97C; &#xC124;&#xCE58;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xC7A5;&#xCE58;&#xB4E4;&#xC740; &#xBBF8;&#xB9AC; &#xC815;&#xC758;&#xB41C; &apos; dialout&apos; &#xADF8;&#xB8F9;&#xC5D0; &#xC811;&#xADFC;&#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;. &#xB530;&#xB77C;&#xC11C; udev rules &#xCD94;&#xAC00;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xCC38;&#xC870;&#xB294; &#xBB34;&#xC2DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC720;&#xC77C;&#xD558;&#xAC8C; &#xD544;&#xC694;&#xD55C; &#xAC83;&#xC740; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xC0AC;&#xC6A9;&#xC790; &#xACC4;&#xC815;&#xC774; &apos;dial out&apos; &#xADF8;&#xB8F9;&#xC758; &#xBA64;&#xBC84;&#xB85C; &#xB418;&#xC5B4; &#xC788;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h3 id="arch-linux">Arch Linux</h3>
+<h3 id="arch-linux"><a name="arch-linux" class="plugin-anchor" href="#arch-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Arch Linux</h3>
 <div class="host-code"></div>
 
 <p> multilib &#xC800;&#xC7A5;&#xC18C;&#xAC00; &#xC720;&#xD6A8;&#xD55C;&#xC9C0; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;.</p>
@@ -1974,7 +1982,7 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 
 <pre><code class="lang-sh">yaourt -S genromfs python-empy
 </code></pre>
-<h4 id="permissions">Permissions</h4>
+<h4 id="permissions"><a name="permissions" class="plugin-anchor" href="#permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Permissions</h4>
 <p>user&#xB294; &quot;uucp&quot; &#xADF8;&#xB8F9;&#xC5D0; &#xCD94;&#xAC00;:</p>
 <div class="host-code"></div>
 
@@ -1984,7 +1992,7 @@ yum install openocd libftdi-devel libftdi-python python-argparse flex bison-deve
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> &#xBCC0;&#xACBD;&#xD55C; &#xB0B4;&#xC6A9;&#xC774; &#xC801;&#xC6A9;&#xB418;&#xB824;&#xBA74; &#xB85C;&#xADF8;&#xC544;&#xC6C3;&#xACFC; &#xB85C;&#xADF8;&#xC778;&#xC774; &#xD544;&#xC694;! &#xC7A5;&#xCE58;&#xB97C; &#xBE90;&#xB2E4;&#xAC00; &#xB2E4;&#xC2DC; &#xAF42;&#xB294; &#xAC83;&#xB3C4;!</p>
 </blockquote>
-<h3 id="gcc-&#xD234;&#xCCB4;&#xC778;-&#xC124;&#xCE58;">GCC &#xD234;&#xCCB4;&#xC778; &#xC124;&#xCE58;</h3>
+<h3 id="gcc-&#xD234;&#xCCB4;&#xC778;-&#xC124;&#xCE58;"><a name="gcc-&#xD234;&#xCCB4;&#xC778;-&#xC124;&#xCE58;" class="plugin-anchor" href="#gcc-&#xD234;&#xCCB4;&#xC778;-&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a>GCC &#xD234;&#xCCB4;&#xC778; &#xC124;&#xCE58;</h3>
 <!-- import GCC toolchain common documentation -->
 <!-- GCC toolchain documentation used for all Linux platforms to build NuttX -->
 <p>Execute the script below to install 5.4:</p>
@@ -2062,7 +2070,7 @@ arm-none-eabi-gcc: No such file or directory
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Arch/CentOS Linux","level":"1.2.2.2.2","depth":4,"next":{"title":"고급 Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]},"previous":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/dev_env_linux_boutique.md","mtime":"2019-01-03T18:30:41.357Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"Arch/CentOS Linux","level":"1.2.2.2.2","depth":4,"next":{"title":"고급 Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]},"previous":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/dev_env_linux_boutique.md","mtime":"2019-01-03T23:27:43.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
@@ -2091,6 +2099,10 @@ arm-none-eabi-gcc: No such file or directory
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

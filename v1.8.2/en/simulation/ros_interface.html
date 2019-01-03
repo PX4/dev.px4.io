@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ROS with Gazebo Simulation · PX4 Developer Guide</title>
+        <title>ROS with Gazebo Simulation · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -2036,14 +2044,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ros-with-gazebo-simulation">ROS with Gazebo Simulation</h1>
+                                <h1 id="ros-with-gazebo-simulation"><a name="ros-with-gazebo-simulation" class="plugin-anchor" href="#ros-with-gazebo-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>ROS with Gazebo Simulation</h1>
 <p><a href="../ros/">ROS</a> (Robot Operating System) can be used with PX4 and the <a href="gazebo.html">Gazebo simulator</a>. It uses the <a href="../ros/mavros_installation.html">MAVROS</a> MAVLink node to communicate with PX4.</p>
 <p>The ROS/Gazebo integration with PX4 follows the pattern in the diagram below (this shows the <em>generic</em> <a href="./#sitl-simulation-environment">PX4 simulation environment</a>). PX4 communicates with the simulator (e.g. Gazebo) to receive sensor data from the simulated world and send motor and actuator values. It communicates with the GCS and an Offboard API (e.g. ROS) to send telemetry from the simulated environment and receive commands. </p>
 <p><img src="../../assets/simulation/px4_sitl_overview.png" alt="PX4 SITL overview"></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The only <em>slight</em> difference to &quot;normal behaviour&quot; is that ROS initiates the connection on port 14557, while it is more typical for an offboard API to listen for connections on UDP port 14540. </p>
 </blockquote>
-<h2 id="installing-ros-and-gazebo">Installing ROS and Gazebo</h2>
+<h2 id="installing-ros-and-gazebo"><a name="installing-ros-and-gazebo" class="plugin-anchor" href="#installing-ros-and-gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>Installing ROS and Gazebo</h2>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> <em>ROS</em> is only supported on Linux (not macOS or Windows).</p>
 </blockquote>
@@ -2051,7 +2059,7 @@
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The script follows the <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu" target="_blank">standard ROS &quot;Kinetic&quot; installation instructions</a>, which include Gazebo 7. Installation of ROS Kinetic for other platforms is covered in the <a href="http://wiki.ros.org/kinetic/Installation" target="_blank">ROS Wiki here</a>.</p>
 </blockquote>
-<h2 id="launching-rossimulation">Launching ROS/Simulation</h2>
+<h2 id="launching-rossimulation"><a name="launching-rossimulation" class="plugin-anchor" href="#launching-rossimulation"><i class="fa fa-link" aria-hidden="true"></i></a>Launching ROS/Simulation</h2>
 <p>The command below can be used to launch the simulation and connect ROS to it via <a href="../ros/mavros_installation.html">MAVROS</a>, where <code>fcu_url</code> is the IP / port of the computer running the simulation:</p>
 <pre><code class="lang-sh">roslaunch mavros px4.launch fcu_url:=<span class="hljs-string">&quot;udp://:14540@192.168.1.36:14557&quot;</span>
 </code></pre>
@@ -2063,7 +2071,7 @@
 <pre><code class="lang-sh">  roslaunch mavros px4.launch fcu_url:=<span class="hljs-string">&quot;udp://:14540@127.0.0.1:14557&quot;</span>
 </code></pre>
 </blockquote>
-<h2 id="launching-gazebo-with-ros-wrappers">Launching Gazebo with ROS Wrappers</h2>
+<h2 id="launching-gazebo-with-ros-wrappers"><a name="launching-gazebo-with-ros-wrappers" class="plugin-anchor" href="#launching-gazebo-with-ros-wrappers"><i class="fa fa-link" aria-hidden="true"></i></a>Launching Gazebo with ROS Wrappers</h2>
 <p>The Gazebo simulation can be modified to integrate sensors publishing directly to ROS topics e.g. the Gazebo ROS laser plugin. To support this feature, Gazebo must be launched with the appropriate ROS wrappers.</p>
 <p>There are ROS launch scripts available to run the simulation wrapped in ROS:</p>
 <ul>
@@ -2081,7 +2089,7 @@ make posix_sitl_default gazebo
 roslaunch px4 posix_sitl.launch
 </code></pre>
 <p>Include one of the above mentioned launch files in your own launch file to run your ROS application in the simulation.</p>
-<h2 id="whats-happening-behind-the-scenes">What&apos;s Happening Behind the Scenes</h2>
+<h2 id="whats-happening-behind-the-scenes"><a name="whats-happening-behind-the-scenes" class="plugin-anchor" href="#whats-happening-behind-the-scenes"><i class="fa fa-link" aria-hidden="true"></i></a>What&apos;s Happening Behind the Scenes</h2>
 <p>This section shows how the <em>roslaunch</em> instructions provided previously actually work (you can follow them to manually launch the simulation and ROS).</p>
 <p>First start the simulator using the command below: </p>
 <pre><code class="lang-sh">no_sim=1 make posix_sitl_default gazebo
@@ -2158,7 +2166,7 @@ INFO  Waiting <span class="hljs-keyword">for</span> initial data on UDP. Please 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ROS with Gazebo Simulation","level":"1.8.2.3","depth":3,"next":{"title":"OctoMap Models with ROS","level":"1.8.2.4","depth":3,"path":"simulation/gazebo_octomap.md","ref":"simulation/gazebo_octomap.md","articles":[]},"previous":{"title":"MAVROS Offboard Example","level":"1.8.2.2","depth":3,"path":"ros/mavros_offboard.md","ref":"ros/mavros_offboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/ros_interface.md","mtime":"2019-01-03T18:30:41.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"ROS with Gazebo Simulation","level":"1.8.2.3","depth":3,"next":{"title":"OctoMap Models with ROS","level":"1.8.2.4","depth":3,"path":"simulation/gazebo_octomap.md","ref":"simulation/gazebo_octomap.md","articles":[]},"previous":{"title":"MAVROS Offboard Example","level":"1.8.2.2","depth":3,"path":"ros/mavros_offboard.md","ref":"ros/mavros_offboard.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/ros_interface.md","mtime":"2019-01-03T23:27:43.083Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2187,6 +2195,10 @@ INFO  Waiting <span class="hljs-keyword">for</span> initial data on UDP. Please 
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>连接到ROS · PX4 Developer Guide</title>
+        <title>连接到ROS · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -21,11 +21,19 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
                 
             
                 
@@ -1861,9 +1869,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ros&#x4EFF;&#x771F;&#x63A5;&#x53E3;">ROS&#x4EFF;&#x771F;&#x63A5;&#x53E3;</h1>
+                                <h1 id="ros&#x4EFF;&#x771F;&#x63A5;&#x53E3;"><a name="ros&#x4EFF;&#x771F;&#x63A5;&#x53E3;" class="plugin-anchor" href="#ros&#x4EFF;&#x771F;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS&#x4EFF;&#x771F;&#x63A5;&#x53E3;</h1>
 <p>&#x6A21;&#x62DF;&#x81EA;&#x9A7E;&#x4EEA;&#x4F1A;&#x5728;&#x7AEF;&#x53E3;14557&#x5F00;&#x653E;&#x7B2C;&#x4E8C;&#x4E2A;MAVLink&#x63A5;&#x53E3;&#x3002;&#x5C06;MAVROS&#x8FDE;&#x63A5;&#x5230;&#x8FD9;&#x4E2A;&#x7AEF;&#x53E3;&#x5C06;&#x4F1A;&#x63A5;&#x6536;&#x5230;&#x5B9E;&#x9645;&#x98DE;&#x884C;&#x4E2D;&#x53D1;&#x51FA;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x3002;</p>
-<h2 id="&#x542F;&#x52A8;mavros">&#x542F;&#x52A8;MAVROS</h2>
+<h2 id="&#x542F;&#x52A8;mavros"><a name="&#x542F;&#x52A8;mavros" class="plugin-anchor" href="#&#x542F;&#x52A8;mavros"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x52A8;MAVROS</h2>
 <p>&#x5982;&#x679C;&#x9700;&#x8981;ROS&#x63A5;&#x53E3;&#xFF0C;&#x90A3;&#x4E48;&#x5DF2;&#x7ECF;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x6B21;&#x7EA7;(secondary)MAVLink&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<a href="../ros/mavros_offboard.html">mavros</a>&#x8FDE;&#x63A5;&#x5230;ROS&#x3002;&#x82E5;&#x8981;&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;IP(<code>fcu_url</code>&#x662F;SITL&#x7684;IP/&#x7AEF;&#x53E3;)&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;&#x7684;URL:</p>
 <div class="host-code"></div>
 
@@ -1874,14 +1882,14 @@
 
 <pre><code class="lang-sh">roslaunch mavros px4.launch fcu_url:=<span class="hljs-string">&quot;udp://:14540@127.0.0.1:14557&quot;</span>
 </code></pre>
-<h2 id="&#x4E3A;ros&#x5B89;&#x88C5;gazebo">&#x4E3A;ROS&#x5B89;&#x88C5;Gazebo</h2>
+<h2 id="&#x4E3A;ros&#x5B89;&#x88C5;gazebo"><a name="&#x4E3A;ros&#x5B89;&#x88C5;gazebo" class="plugin-anchor" href="#&#x4E3A;ros&#x5B89;&#x88C5;gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3A;ROS&#x5B89;&#x88C5;Gazebo</h2>
 <p>Gazebo ROS SITL&#x4EFF;&#x771F;&#x53EF;&#x4EE5;&#x5728;Gazebo 6&#x548C;Gazebo 7&#x4E0A;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x65B9;&#x5F0F;&#x5B89;&#x88C5;&#xFF1A;</p>
 <pre><code class="lang-sh">sudo apt-get install ros-$(ROS_DISTRO)-gazebo7-ros-pkgs    //Recommended
 </code></pre>
 <p>&#x6216;&#x8005;</p>
 <pre><code class="lang-sh">sudo apt-get install ros-$(ROS_DISTRO)-gazebo6-ros-pkgs
 </code></pre>
-<h2 id="&#x4F7F;&#x7528;ros&#x88C5;&#x9970;&#x5668;&#x542F;&#x52A8;gazebo">&#x4F7F;&#x7528;ROS&#x88C5;&#x9970;&#x5668;&#x542F;&#x52A8;Gazebo</h2>
+<h2 id="&#x4F7F;&#x7528;ros&#x88C5;&#x9970;&#x5668;&#x542F;&#x52A8;gazebo"><a name="&#x4F7F;&#x7528;ros&#x88C5;&#x9970;&#x5668;&#x542F;&#x52A8;gazebo" class="plugin-anchor" href="#&#x4F7F;&#x7528;ros&#x88C5;&#x9970;&#x5668;&#x542F;&#x52A8;gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;ROS&#x88C5;&#x9970;&#x5668;&#x542F;&#x52A8;Gazebo</h2>
 <p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x4FEE;&#x6539;Gazebo&#x4EFF;&#x771F;&#xFF0C;&#x4F7F;&#x5176;&#x80FD;&#x591F;&#x5C06;&#x989D;&#x5916;&#x7684;&#x4F20;&#x611F;&#x5668;&#x4FE1;&#x606F;&#x76F4;&#x63A5;&#x53D1;&#x5E03;&#x5230;ROS&#x4E3B;&#x9898;&#xFF0C;&#x4F8B;&#x5982;Gazebo ROS&#x6FC0;&#x5149;&#x4F20;&#x611F;&#x5668;&#x4FE1;&#x606F;&#xFF0C;&#x90A3;&#x4E48;&#x5FC5;&#x987B;&#x901A;&#x8FC7;&#x9002;&#x5F53;&#x7684;ROS&#x5305;&#x88C5;&#x5668;&#x6765;&#x542F;&#x52A8;Gazebo&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x53EF;&#x7528;&#x7684;ROS&#x542F;&#x52A8;&#x811A;&#x672C;&#xFF0C;&#x8FD9;&#x4E9B;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x5728;ROS&#x4E2D;&#x8FD0;&#x884C;&#x5305;&#x88C5;&#x8FC7;&#x7684;&#x4EFF;&#x771F;&#x3002;</p>
 <ul>
@@ -1898,7 +1906,7 @@ make posix_sitl_default
 roslaunch px4 posix_sitl.launch
 </code></pre>
 <p>&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x4EFF;&#x771F;&#x4E2D;&#x8FD0;&#x884C;&#x81EA;&#x5DF1;&#x7684;ROS&#x5E94;&#x7528;&#x3002;</p>
-<h3 id="&#x80CC;&#x540E;&#x7684;&#x7EC6;&#x8282;">&#x80CC;&#x540E;&#x7684;&#x7EC6;&#x8282;</h3>
+<h3 id="&#x80CC;&#x540E;&#x7684;&#x7EC6;&#x8282;"><a name="&#x80CC;&#x540E;&#x7684;&#x7EC6;&#x8282;" class="plugin-anchor" href="#&#x80CC;&#x540E;&#x7684;&#x7EC6;&#x8282;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x80CC;&#x540E;&#x7684;&#x7EC6;&#x8282;</h3>
 <p>(&#x6216;&#x8005;&#x5982;&#x4F55;&#x624B;&#x52A8;&#x8FD0;&#x884C;)</p>
 <pre><code class="lang-sh">no_sim=1 make posix_sitl_default gazebo
 </code></pre>
@@ -1980,7 +1988,7 @@ INFO  Waiting <span class="hljs-keyword">for</span> initial data on UDP. Please 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/ros_interface.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"连接到ROS","level":"1.5.4","depth":2,"next":{"title":"AirSim仿真","level":"1.5.5","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"HITL仿真","level":"1.5.3","depth":2,"path":"simulation/hitl.md","ref":"simulation/hitl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes","collapsible-menu","-anchors","page-toc-button","mermaid","-mermaid-2","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/ros_interface.md","mtime":"2019-01-03T18:30:41.369Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T18:32:33.253Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/simulation/ros_interface.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"连接到ROS","level":"1.5.4","depth":2,"next":{"title":"AirSim仿真","level":"1.5.5","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"HITL仿真","level":"1.5.3","depth":2,"path":"simulation/hitl.md","ref":"simulation/hitl.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/ros_interface.md","mtime":"2019-01-03T23:27:43.103Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-03T23:32:33.771Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
@@ -2009,6 +2017,10 @@ INFO  Waiting <span class="hljs-keyword">for</span> initial data on UDP. Please 
     
         
         <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
         
     
         
