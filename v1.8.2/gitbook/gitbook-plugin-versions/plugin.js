@@ -1,11 +1,13 @@
 require(['gitbook', 'jQuery'], function (gitbook, $) {
     var versions = [],
         current  = undefined,
+        c1  = undefined,
         pluginConfig = {};
 
     // Update the select with a list of versions
     function updateVersions(_versions) {
         versions = _versions || versions;
+        c2 = $('.versions-select select').val()
         current  = $('.versions-select select').val() || current;
 
         // Cleanup existing selector
@@ -23,7 +25,7 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
             var $option = $('<option>', {
                 'selected': (current === undefined ? version.selected : (current === version.value)),
                 'value': version.value,
-                'text': version.text
+                'text': version.text+"c1"+current+"c2"+c2+"z"
             });
 
             $option.appendTo($select);
