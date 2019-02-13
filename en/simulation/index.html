@@ -33,7 +33,7 @@
                 
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions/plugin.css">
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
                 
             
                 
@@ -624,7 +624,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="hitl.html">
+        <li class="chapter " data-level="1.4.6" data-path="failsafes.html">
+            
+                <a href="failsafes.html">
+            
+                    
+                    Simulate Failsafes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="hitl.html">
             
                 <a href="hitl.html">
             
@@ -1118,6 +1131,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../middleware/modules_driver_distance_sensor.html">
+            
+                <a href="../middleware/modules_driver_distance_sensor.html">
+            
+                    
+                    Distance Sensor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
@@ -1521,20 +1553,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.4" data-path="../tutorials/tuning_the_ecl_ekf.html">
-            
-                <a href="../tutorials/tuning_the_ecl_ekf.html">
-            
-                    
-                    ecl EKF
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.10.5" data-path="../tutorials/linux_sbus.html">
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
             
                 <a href="../tutorials/linux_sbus.html">
             
@@ -1867,7 +1886,7 @@
                 <a href="../contribute/">
             
                     
-                    Contributing & Dev Call
+                    Contribution (&Dev Call)
             
                 </a>
             
@@ -1876,7 +1895,34 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.1" data-path="../contribute/git_examples.html">
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    Dev Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    Source Code Management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
             
                 <a href="../contribute/git_examples.html">
             
@@ -1889,7 +1935,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.2" data-path="../contribute/docs.html">
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
             
                 <a href="../contribute/docs.html">
             
@@ -1902,7 +1953,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.3" data-path="../contribute/translation.html">
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
             
                 <a href="../contribute/translation.html">
             
@@ -1915,7 +1966,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.4" data-path="../contribute/notation.html">
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
             
                 <a href="../contribute/notation.html">
             
@@ -1928,7 +1979,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.5" data-path="../contribute/licenses.html">
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
             
                 <a href="../contribute/licenses.html">
             
@@ -1943,6 +1994,19 @@
     
 
             </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    Support
+            
+                </a>
+            
+
             
         </li>
     
@@ -2082,7 +2146,7 @@
 <p> Simulation is a quick, easy, and most importantly, <em>safe</em> way to test changes to PX4 code before attempting to fly in the real world. It is also a good way to start flying with PX4 when you haven&apos;t yet got a vehicle to experiment with.</p>
 </blockquote>
 <p>PX4 supports both <em>Software In the Loop (SITL)</em> simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and <em>Hardware In the Loop (HITL)</em> simulation using a simulation firmware on a real flight controller board.</p>
-<p>Information about available simulators and how to set them up are provided in the next section. The other sections provide general information about how the simulator works, and are not required to <em>use</em> the simulators. </p>
+<p>Information about available simulators and how to set them up are provided in the next section. The other sections provide general information about how the simulator works, and are not required to <em>use</em> the simulators.</p>
 <h2 id="supported-simulators"><a name="supported-simulators" class="plugin-anchor" href="#supported-simulators"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Simulators</h2>
 <p>The following simulators work with PX4 for HITL and/or SITL simulation.</p>
 <table>
@@ -2095,7 +2159,7 @@
 <tbody>
 <tr>
 <td><a href="gazebo.html">Gazebo</a></td>
-<td><p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a> and is commonly used with <a href="ros_interface.html">ROS</a>, a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>), Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine (coming soon!) </p> </td>
+<td><p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a> and is commonly used with <a href="ros_interface.html">ROS</a>, a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>), Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine (coming soon!) </p></td>
 </tr>
 <tr>
 <td><a href="jmavsim.html">jMAVSim</a></td>
@@ -2170,17 +2234,17 @@
 <h2 id="default-px4-mavlink-udp-ports"><a name="default-px4-mavlink-udp-ports" class="plugin-anchor" href="#default-px4-mavlink-udp-ports"><i class="fa fa-link" aria-hidden="true"></i></a>Default PX4 MAVLink UDP Ports</h2>
 <p>By default, PX4 uses commonly established UDP ports for MAVLink communication with ground control stations (e.g. <em>QGroundControl</em>), Offboard APIs (e.g. Dronecode SDK, MAVROS) and simulator APIs (e.g. Gazebo). These ports are:</p>
 <ul>
-<li>Port <strong>14540</strong> is used for communication with offboard APIs. Offboard APIs are expected to listen for connections on this port.</li>
-<li>Port <strong>14550</strong> is used for communication with ground control stations. GCS are expected to listen for connections on this port. <em>QGroundControl</em> listens to this port by default.</li>
-<li>Port <strong>14560</strong> is used for communication with simulators. PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.</li>
+<li>UDP Port <strong>14540</strong> is used for communication with offboard APIs. Offboard APIs are expected to listen for connections on this port.</li>
+<li>UDP Port <strong>14550</strong> is used for communication with ground control stations. GCS are expected to listen for connections on this port. <em>QGroundControl</em> listens to this port by default.</li>
+<li>TCP Port <strong>4560</strong> is used for communication with simulators. PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.</li>
 </ul>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The ports for the GCS and offboard APIs are set in configuration files, while the simulator broadcast port is hard-coded in the simulation MAVLink module. </p>
+<p> The ports for the GCS and offboard APIs are set in configuration files, while the simulator broadcast port is hard-coded in the simulation MAVLink module.</p>
 </blockquote>
 <h2 id="sitl-simulation-environment"><a name="sitl-simulation-environment" class="plugin-anchor" href="#sitl-simulation-environment"><i class="fa fa-link" aria-hidden="true"></i></a>SITL Simulation Environment</h2>
 <p>The diagram below shows a typical SITL simulation environment for any of the supported simulators. The different parts of the system connect via UDP, and can be run on either the same computer or another computer on the same network.</p>
 <ul>
-<li>PX4 uses a simulation-specific module to listen on UDP port 14560. Simulators connect to this port, then exchange information using the <a href="#simulator-mavlink-api">Simulator MAVLink API</a> described above. PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.</li>
+<li>PX4 uses a simulation-specific module to listen on TCP port 4560. Simulators connect to this port, then exchange information using the <a href="#simulator-mavlink-api">Simulator MAVLink API</a> described above. PX4 on SITL and the simulator can run on either the same computer or different computers on the same network.</li>
 <li>PX4 uses the normal MAVLink module to connect to GroundStations (which listen on port 14550) and external developer APIs like Dronecode SDK or ROS (which listen on port 14540).</li>
 <li>A serial connection is used to connect Joystick/Gamepad hardware via <em>QGroundControl</em>.</li>
 </ul>
@@ -2204,11 +2268,29 @@ make px4_sitl jmavsim
 <p>The simulation can be further configured via environment variables:</p>
 <ul>
 <li><code>PX4_ESTIMATOR</code>: This variable configures which estimator to use.
-Possible options are: <code>ekf2</code> (default), <code>lpe</code>, <code>inav</code>. 
+Possible options are: <code>ekf2</code> (default), <code>lpe</code>, <code>inav</code>.
 It can be set via <code>export PX4_ESTIMATOR=lpe</code> before running the simulation.</li>
 </ul>
-<p>The syntax described here is simplified, and there are many other options that you can configure via <em>make</em> - for example, to set that you wish to connect to an IDE or debugger. For more information see: 
+<p>The syntax described here is simplified, and there are many other options that you can configure via <em>make</em> - for example, to set that you wish to connect to an IDE or debugger. For more information see:
 <a href="../setup/building_px4.html#make_targets">Building the Code &gt; PX4 Make Build Targets</a>.</p>
+<h3 id="simulation_speed"><a name="simulation_speed" class="plugin-anchor" href="#simulation_speed"><i class="fa fa-link" aria-hidden="true"></i></a>Run Simulation Faster than Realtime </h3>
+<p>SITL can be run faster or slower than realtime when using jMAVSim or Gazebo.</p>
+<p>The speed factor is set using the environment variable <code>PX4_SIM_SPEED_FACTOR</code>.
+For example, to run the jMAVSim simulation at 2 times the real time speed:</p>
+<pre><code>PX4_SIM_SPEED_FACTOR=2 make px4_sitl jmavsim
+</code></pre><p>To run at half real-time:</p>
+<pre><code>PX4_SIM_SPEED_FACTOR=0.5 make px4_sitl jmavsim
+</code></pre><p>You can apply the factor to all SITL runs in the current session using <code>EXPORT</code>:</p>
+<pre><code>export PX4_SIM_SPEED_FACTOR=2
+make px4_sitl jmavsim
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> At some point IO or CPU will limit the speed that is possible on your machine and it will be slowed down &quot;automatically&quot;.
+Powerful desktop machines can usually run the simulation at around 6-10x, for notebooks the achieved rates can be around 3-4x.</p>
+</blockquote>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> To avoid PX4 detecting data link timeouts, increase the value of param <a href="../advanced/parameter_reference.html#COM_DL_LOSS_T">COM_DL_LOSS_T</a> proportional to the simulation rate. For example, if <code>COM_DL_LOSS_T</code> is 10 in realtime, at 10x simulation rate increase to 100.</p>
+</blockquote>
 <h3 id="scripts"><a name="scripts" class="plugin-anchor" href="#scripts"><i class="fa fa-link" aria-hidden="true"></i></a>Startup Scripts </h3>
 <p>Scripts are used to control which parameter settings to use or which modules to start.
 They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d-posix" target="_blank">ROMFS/px4fmu_common/init.d-posix</a> directory, the <code>rcS</code> file is the main entry point. See <a href="../concept/system_startup.html">System Startup</a> for more information.</p>
@@ -2237,6 +2319,42 @@ They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROM
 </li>
 </ol>
 <p>The same approach can be used by other simulators to implement camera support.</p>
+<h2 id="running-simulation-on-a-remote-server"><a name="running-simulation-on-a-remote-server" class="plugin-anchor" href="#running-simulation-on-a-remote-server"><i class="fa fa-link" aria-hidden="true"></i></a>Running Simulation on a Remote Server</h2>
+<p>It is possible to run the simulator on one computer, and access it from another computer on the same network (or on another network with appropriate routing).
+This might be useful, for example, if you want to test a drone application running on real companion computer hardware running against a simulated vehicle.</p>
+<p>This does not work &quot;out of the box&quot; because PX4 does not route packets to external interfaces by default (in order to avoid spamming the network and different simulations interfering with each other). Instead it routes traffic internally - to &quot;localhost&quot;.</p>
+<p>There are a number of ways to make the UDP packets available on external interfaces, as outlined below.</p>
+<h3 id="enable-mavbroadcast"><a name="enable-mavbroadcast" class="plugin-anchor" href="#enable-mavbroadcast"><i class="fa fa-link" aria-hidden="true"></i></a>Enable MAV_BROADCAST</h3>
+<p>Enable <a href="../advanced/parameter_reference.html#MAV_BROADCAST">MAV_BROADCAST</a> to broadcast heartbeats on the local network.</p>
+<p>A remote computer can then connect to the simulator by listening to the appropriate port (i.e. 14550 for <em>QGroundControl</em>).</p>
+<h3 id="use-mavlink-router"><a name="use-mavlink-router" class="plugin-anchor" href="#use-mavlink-router"><i class="fa fa-link" aria-hidden="true"></i></a>Use MAVLink Router</h3>
+<p>The <a href="https://github.com/intel/mavlink-router" target="_blank">mavlink-router</a> can be used to route  packets from localhost to an external interface.</p>
+<h3 id="modify-configuration-for-external-broadcasting"><a name="modify-configuration-for-external-broadcasting" class="plugin-anchor" href="#modify-configuration-for-external-broadcasting"><i class="fa fa-link" aria-hidden="true"></i></a>Modify Configuration for External Broadcasting</h3>
+<p>The <a href="../middleware/modules_communication.html#mavlink_usage">mavlink</a> module routes to <em>localhost</em> by default, but you can specify an external IP address to broadcast to using its <code>-t</code> option.</p>
+<p>This should be done in various configuration files where <code>mavlink start</code> is called. For example: <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS" target="_blank">/ROMFS/px4fmu_common/init.d-posix/rcS</a>.</p>
+<h3 id="ssh-tunneling"><a name="ssh-tunneling" class="plugin-anchor" href="#ssh-tunneling"><i class="fa fa-link" aria-hidden="true"></i></a>SSH Tunneling</h3>
+<p>SSH tunneling is a flexible option because the simulation computer and the system using it need not be on the same network.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> You might similarly use VPN to provide a tunnel to an external interface (on the same network or another network).</p>
+</blockquote>
+<p>One way to create the tunnel is to use SSH tunneling options.
+The tunnel itself can be created by running the following command on <em>localhost</em>, where <code>remote.local</code> is the name of a remote computer:</p>
+<pre><code>ssh -C -fR 14551:localhost:14551 remote.local
+</code></pre><p>The UDP packets need to be translated to TCP packets so they can be routed over SSH.
+The <a href="https://en.wikipedia.org/wiki/Netcat" target="_blank">netcat</a> utility can be used on both sides of the tunnel - first to convert packets from UDP to TCP, and then back to UDP at the other end.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> QGC must be running before executing <em>netcat</em>.</p>
+</blockquote>
+<p>On the <em>QGroundControl</em> computer, UDP packet translation may be implemented by running following commands:</p>
+<pre><code>mkfifo /tmp/tcp2udp
+netcat -lvp 14551 &lt; /tmp/tcp2udp | netcat -u localhost 14550 &gt; /tmp/tcp2udp
+</code></pre><p>On the simulator side of the SSH tunnel, the command is:</p>
+<pre><code>mkfifo /tmp/udp2tcp
+netcat -lvup 14550 &lt; /tmp/udp2tcp | netcat localhost 14551 &gt; /tmp/udp2tcp
+</code></pre><p>The port number <code>14550</code> is valid for connecting to QGroundControl or another GCS, but should be adjusted for other endpoints (e.g. developer APIs etc.).</p>
+<p>The tunnel may in theory run indefinitely, but <em>netcat</em> connections may need to be restarted if there is a problem.</p>
+<p>The <a href="https://raw.githubusercontent.com/ThunderFly-aerospace/sitl_gazebo/autogyro-sitl/scripts/QGC_remote_connect.bash" target="_blank">QGC_remote_connect.bash</a> script can be run on the QGC computer to automatically setup/run the above instructions.
+The simulation must already be running on the remote server, and you must be able to SSH into that server.</p>
 
                                 
                                 </section>
@@ -2280,7 +2398,7 @@ They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROM
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"language-redirect":{"baseurl":"https://dev.px4.io/"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"type":"branches","gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"Master","selected":true}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2019-01-01T16:10:42.489Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-01T16:12:01.842Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"System Startup","level":"1.3.6","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2019-02-13T20:07:08.799Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T20:08:38.827Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
@@ -2312,7 +2430,7 @@ They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROM
         
     
         
-        <script src="../../gitbook/gitbook-plugin-versions/plugin.js"></script>
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
         
     
         

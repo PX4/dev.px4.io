@@ -20,7 +20,9 @@ sudo apt-get remove modemmanager -y
 # Common dependencies
 echo "Installing common dependencies"
 sudo apt-get update -y
-sudo apt-get install git zip qtcreator cmake build-essential genromfs ninja-build exiftool vim-common -y
+sudo apt-get install git zip qtcreator cmake build-essential genromfs ninja-build exiftool astyle -y
+# make sure xxd is installed, dedicated xxd package since Ubuntu 18.04 but was squashed into vim-common before
+which xxd || sudo apt install xxd -y || sudo apt-get install vim-common --no-install-recommends -y
 # Required python packages
 sudo apt-get install python-argparse python-empy python-toml python-numpy python-dev python-pip -y
 sudo -H pip install --upgrade pip
@@ -42,10 +44,8 @@ else
     tar -xzf eprosima_fastrtps-1-5-0-linux.tar.gz requiredcomponents
     tar -xzf requiredcomponents/eProsima_FastCDR-1.0.7-Linux.tar.gz
     cpucores=$(( $(lscpu | grep Core.*per.*socket | awk -F: '{print $2}') * $(lscpu | grep Socket\(s\) | awk -F: '{print $2}') ))
-    cd eProsima_FastCDR-1.0.7-Linux; ./configure --libdir=/usr/lib; make -j$cpucores; sudo make install
-    cd ..
-    cd eProsima_FastRTPS-1.5.0-Linux; ./configure --libdir=/usr/lib; make -j$cpucores; sudo make install
-    cd ..
+    (cd eProsima_FastCDR-1.0.7-Linux && ./configure --libdir=/usr/lib && make -j$cpucores && sudo make install)
+    (cd eProsima_FastRTPS-1.5.0-Linux && ./configure --libdir=/usr/lib && make -j$cpucores && sudo make install)
     rm -rf requiredcomponents eprosima_fastrtps-1-5-0-linux.tar.gz
     popd
 fi
