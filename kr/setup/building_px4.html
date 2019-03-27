@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>코드 빌드하기 · PX4 Developer Guide</title>
+        <title>코드 빌드하기 · PX4 v1.8.2 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -1921,115 +1921,71 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="building-px4-software"><a name="building-px4-software" class="plugin-anchor" href="#building-px4-software"><i class="fa fa-link" aria-hidden="true"></i></a>Building PX4 Software</h1>
-<p>PX4 can be built on the console or in an IDE, for both simulated and hardware targets. </p>
-<h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>Downloading PX4 Source Code </h2>
-<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. We recommend that you <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository (creating a copy associated with your own Github account), and then <a href="https://help.github.com/articles/cloning-a-repository/" target="_blank">clone</a> the source to your local computer.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Forking the repository allows you to better manage your custom code. Later on you will be able to use <em>git</em> to share changes with the main project.</p>
-</blockquote>
-<p>The steps to fork and clone the project source code are:</p>
-<ol>
-<li><a href="https://github.com/" target="_blank">Sign up</a> to Github.</li>
-<li><p>Go to the <a href="https://github.com/PX4/Firmware" target="_blank">Firmware</a> repository and click the <strong>Fork</strong> button near the upper right corner.
-This will create and open the forked repository.</p>
-<p><img src="../../assets/toolchain/github_fork.png" alt="Github Fork button"></p>
-</li>
-<li><p>Copy the repository URL for your <em>Firmware</em> repository fork. The easiest way to do this is to click the <strong>Clone or download</strong> button and then copy the URL:</p>
-<p><img src="../../assets/toolchain/github_clone_or_download.png" alt="Github Clone or download button"></p>
-</li>
-<li>Open a command prompt/terminal on your computer<ul>
-<li>On OS X, hit &#x2318;-space and search for &apos;terminal&apos;. </li>
-<li>On Ubuntu, click the launch bar and search for &apos;terminal&apos;. </li>
-<li>On Windows, find the PX4 folder in the start menu and click on &apos;PX4 Console&apos;. </li>
+                                <h1 id="px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#px4-software-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Software &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h1>
+<p>PX4&#xB294; &#xCF58;&#xC194;&#xC774;&#xB098; IDE &#xAC1C;&#xBC1C;&#xD658;&#xACBD;&#xC5D0;&#xC11C; &#xBE4C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640;-&#xCC98;&#xC74C;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xC640; &#xCC98;&#xC74C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h2>
+<p>&#xCF58;&#xC194; &#xD658;&#xACBD;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xD2B8; &#xD0C0;&#xAC9F;&#xC6A9;&#xC73C;&#xB85C; &#xCC98;&#xC74C; &#xBE4C;&#xB4DC;&#xB97C; &#xD574;&#xBD05;&#xC2DC;&#xB2E4;. &#xC2E4;&#xC81C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB098; IDE&#xC5D0;&#xC11C; &#xC9C4;&#xD589;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xC2DC;&#xC2A4;&#xD15C; &#xC14B;&#xC5C5;&#xC774; &#xC81C;&#xB300;&#xB85C; &#xB418;&#xC5C8;&#xB294;&#xC9C0;&#xB97C; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBA3C;&#xC800; &#xD130;&#xBBF8;&#xB110; &#xB744;&#xC6B0;&#xAE30;</p>
+<ul>
+<li>OS X&#xC758; &#xACBD;&#xC6B0; &#x2318;-space&#xB97C; &#xB204;&#xB974;&#xACE0; &apos;terminal&apos; &#xCC3E;&#xAE30;</li>
+<li>Ubuntu&#xC758; &#xACBD;&#xC6B0;, &#xB7F0;&#xCE58;&#xBC14;&#xB97C; &#xD074;&#xB9AD;&#xD558;&#xACE0; &apos;terminal&apos; &#xCC3E;&#xAE30;</li>
+<li>Windows&#xC758; &#xACBD;&#xC6B0;, &#xC2DC;&#xC791; &#xBA54;&#xB274;&#xC5D0;&#xC11C; PX4 &#xD3F4;&#xB354; &#xCC3E;&#xC740; &#xD6C4;&#xC5D0; &apos;PX4 Console&apos; &#xD074;&#xB9AD;&#xD558;&#xAE30;</li>
 </ul>
-</li>
-<li><p>Clone the repository fork using the copied URL. This will look something like:</p>
-<pre><code>git clone https://github.com/&lt;youraccountname&gt;/Firmware.git
-</code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> If you&apos;re just experimenting (and don&apos;t want to make any sort of permanent changes) you can simply clone the main Firmware repository as shown:</p>
-<pre><code class="lang-sh"> git <span class="hljs-built_in">clone</span> https://github.com/PX4/Firmware.git
+<p>PX4/Firmware &#xC800;&#xC7A5;&#xC18C;&#xB97C; clone&#xD558;&#xACE0; jMAVSim &#xD0C0;&#xAC9F;&#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;. &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC219;&#xB828;&#xB41C; &#xAC1C;&#xBC1C;&#xC790;&#xB294; <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">&#xC790;&#xC2E0;&#xC758; fork</a>&#xB97C; clone&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">mkdir -p ~/src
+<span class="hljs-built_in">cd</span> ~/src
+git <span class="hljs-built_in">clone</span> https://github.com/PX4/Firmware.git
+<span class="hljs-built_in">cd</span> Firmware
+make posix jmavsim
 </code></pre>
-</blockquote>
-<p>Windows users <a href="https://help.github.com/desktop/guides/getting-started-with-github-desktop/installing-github-desktop/" target="_blank">refer to the Github help</a>. 
-You can use a <em>git</em> command line client as above or instead perform the same actions with the <em>Github for Windows</em> app.</p>
-</li>
-</ol>
-<p><span id="specific_version_source"></span>
-This will copy <em>most</em> of the <em>very latest</em> version of PX4 source code onto your computer 
-(the rest of the code is automatically fetched from other <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> when you build PX4).</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> To get the source for a <em>specific older release</em>, you could then:</p>
-<pre><code class="lang-sh"> <span class="hljs-comment"># Navigate into Firmware directory</span>
- <span class="hljs-built_in">cd</span> Firmware
-
- <span class="hljs-comment"># list the releases (tags)</span>
- git tag <span class="hljs-_">-l</span>
-
- <span class="hljs-comment"># Checkout code for particular tag (e.g. for tag 1.7.4beta)</span>
- git checkout v1.7.4beta
-</code></pre>
-</blockquote>
-<h2 id="jmavsim_build"><a name="jmavsim_build" class="plugin-anchor" href="#jmavsim_build"><i class="fa fa-link" aria-hidden="true"></i></a>First Build (Using the jMAVSim Simulator) </h2>
-<p>For the first build we&apos;ll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
-<p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
-<pre><code class="lang-sh">make px4_sitl jmavsim
-</code></pre>
-<p>This will bring up the PX4 console below:</p>
-<p><img src="../../assets/console_jmavsim.png" alt="PX4 Console (jMAVSim)"></p>
-<p>The drone can be flown by typing:</p>
+<p>&#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; PX4 &#xCF58;&#xC194;&#xC774; &#xB728;&#xACE0;:</p>
+<p><img src="../../assets/console_jmavsim.png" alt=""></p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC785;&#xB825;&#xD558;&#xBA74; &#xB4DC;&#xB860;&#xC774; &#xC774;&#xB959;:</p>
 <pre><code class="lang-sh">pxh&gt; commander takeoff
 </code></pre>
-<p><img src="../../assets/jmavsim_first_takeoff.png" alt="jMAVSim UI"></p>
-<p>The drone can be landed by typing <code>commander land</code> and the whole simulation can be stopped by doing <strong>CTRL+C</strong> (or by entering <code>shutdown</code>). </p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The simulation setup is documented in full detail here: <a href="../simulation/jmavsim.html">jMAVSim Simulation</a>.</p>
-</blockquote>
-<p>Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.</p>
-<p><img src="../../assets/qgc_goto.jpg" alt="QGroundControl GoTo"></p>
-<h2 id="nuttx--pixhawk-based-boards"><a name="nuttx--pixhawk-based-boards" class="plugin-anchor" href="#nuttx--pixhawk-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards</h2>
-<h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>Building </h3>
-<p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board. </p>
+<p><img src="../../assets/jmavsim_first_takeoff.png" alt=""></p>
+<p><strong>CTRL-C</strong> &#xB97C; &#xB204;&#xB974;&#xBA74; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xACFC; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xB418;&#xB294; flight code&#xAC00; &#xBA48;&#xCD94;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xC14B;&#xC5C5;&#xC758; &#xC0C1;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; &#xB2E4;&#xC74C;&#xC744; &#xCC38;&#xACE0; : <a href="../simulation/jmavsim.html">jMAVSim Simulation</a>.</p>
+<p>&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xCEE8;&#xD2B8;&#xB864; &#xC2A4;&#xD14C;&#xC774;&#xC158;&#xC73C;&#xB85C; &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158; &#xBE44;&#xD589;&#xC740; &#xC2E4;&#xC81C; &#xBE44;&#xD589;&#xCCB4;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xB294; &#xAC83;&#xACFC; &#xC720;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;. &#xBE44;&#xD589;&#xCCB4;&#xAC00; &#xBE44;&#xD589; &#xC911;&#xC77C;&#xB54C; &#xC9C0;&#xB3C4;&#xC5D0;&#xC11C; &#xC704;&#xCE58;&#xB97C; &#xD074;&#xB9AD;&#xD558;&#xACE0; &#xC2AC;&#xB77C;&#xC774;&#xB354;&#xB97C; &#xD65C;&#xC131;&#xD654;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; &#xBE44;&#xD589;&#xCCB4;&#xAC00; &#xC774;&#xB3D9;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p><img src="../../assets/qgc_goto.jpg" alt=""></p>
+<h2 id="nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><a name="nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#nuttx--pixhawk-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;</h2>
+<h3 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h3>
+<p>NuttX- &#xB098; Pixhawk- &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;&#xC6A9;&#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; <strong>Firmware</strong> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xAC00;&#xC11C; &#xC5EC;&#xB7EC;&#xBD84;&#xC774; &#xAC00;&#xC9C4; &#xBCF4;&#xB4DC;&#xC5D0; &#xC801;&#xD569;&#xD55C; &#xBE4C;&#xB4DC;&#xB97C; &#xC704;&#xD574;&#xC11C; <code>make</code>&#xB97C; &#xD638;&#xCD9C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> In the example below the first part of the build target <code>px4_fmu-v4</code> is the autopilot hardware version and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). All PX4 build targets follow this logic).</p>
+<p> &#xC544;&#xB798; &#xC608;&#xC81C;&#xC5D0;&#xC11C; &#xBE4C;&#xB4DC; &#xD0C0;&#xAC9F; <code>px4fmu-v2</code>&#xC758; &#xCCAB;&#xBC88;&#xC9F8; &#xBD80;&#xBD84;&#xC740; autopilot &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xBC84;&#xC804;&#xC774;&#xACE0; <code>default</code>&#xB294; &#xC124;&#xC815; &#xC774;&#xB984;&#xC785;&#xB2C8;&#xB2E4;.(&#xC774;&#xACBD;&#xC6B0; &quot;default&quot; &#xC124;&#xC815;) PX4&#xC758; &#xBAA8;&#xB4E0; &#xBE4C;&#xB4DC; &#xD0C0;&#xAC9F;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xB85C;&#xC9C1;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
+<p>&#xC608;&#xC81C;&#xB85C; <em>Pixhawk 1</em> &#xC6A9;&#xC73C;&#xB85C; &#xBE4C;&#xB4DC;&#xD558;&#xB294; &#xACBD;&#xC6B0; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make px4_fmu-v4_default
+make px4fmu-v2_default
 </code></pre>
-<p>A successful run will end with similar output to:</p>
-<pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
-[954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
+<p>&#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCD9C;&#xB825;:</p>
+<pre><code class="lang-sh">[100%] Linking CXX executable firmware_nuttx
+[100%] Built target firmware_nuttx
+Scanning dependencies of target build/firmware_px4fmu-v2
+[100%] Generating nuttx-px4fmu-v2-default.px4
+[100%] Built target build/firmware_px4fmu-v2
 </code></pre>
-<p>The following list shows the build commands for common boards:</p>
+<p>&#xBCF4;&#xB4DC;&#xB4E4;&#xC5D0; &#xB300;&#xD55C; &#xBE4C;&#xB4DC; &#xBA85;&#xB839; &#xBAA9;&#xB85D;:</p>
 <ul>
-<li>Pixhawk 4: <code>make px4_fmu-v5_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixracer.html" target="_blank">Pixracer</a>: <code>make px4_fmu-v4_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk3_pro.html" target="_blank">Pixhawk 3 Pro</a>: <code>make px4_fmu-v4pro_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk_mini.html" target="_blank">Pixhawk Mini</a>: <code>make px4_fmu-v3_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk-2.html" target="_blank">Pixhawk 2</a>: <code>make px4_fmu-v3_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mro_pixhawk.html" target="_blank">mRo Pixhawk</a>: <code>make px4_fmu-v3_default</code> (supports 2MB Flash)</li>
-<li><a href="https://docs.px4.io/en/flight_controller/HKPilot32.html" target="_blank">HKPilot32</a>: <code>make px4_fmu-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixfalcon.html" target="_blank">Pixfalcon</a>: <code>make px4_fmu-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/dropix.html" target="_blank">Dropix</a>: <code>make px4_fmu-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mindpx.html" target="_blank">MindPX</a>/<a href="https://docs.px4.io/en/flight_controller/mindracer.html" target="_blank">MindRacer</a>: <code>make airmind_mindpx-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mro_x2.1.html" target="_blank">mRo X-2.1</a>: <code>make auav_x21_default</code> </li>
-<li><a href="https://docs.px4.io/en/flight_controller/crazyflie2.html" target="_blank">Crazyflie 2.0</a>: <code>make bitcraze_crazyflie_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/intel_aero.html" target="_blank">Intel&#xAE; Aero Ready to Fly Drone</a>: <code>make intel_aerofc-v1_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/pixhawk.html" target="_blank">Pixhawk 1</a>: <code>make px4_fmu-v2_default</code><blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
-<p> You <strong>must</strong> use a <a href="dev_env_linux_ubuntu.html#nuttx-based-hardware">supported version of GCC</a> to build this board (e.g. the same as used by <a href="../test_and_ci/docker.html">CI/docker</a>) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board&apos;s 1MB flash limit.</p>
-</blockquote>
-</li>
-<li>Pixhawk 1 with 2 MB flash: <code>make px4_fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk.html" target="_blank">Pixhawk 1</a>: <code>make px4fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/HKPilot32.html" target="_blank">HKPilot32</a>: <code>make px4fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixfalcon.html" target="_blank">Pixfalcon</a>: <code>make px4fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/dropix.html" target="_blank">Dropix</a>: <code>make px4fmu-v2_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mro_pixhawk.html" target="_blank">mRo Pixhawk</a>: <code>make px4fmu-v3_default</code> (supports 2MB Flash)</li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk-2.html" target="_blank">Pixhawk 2</a>: <code>make px4fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixracer.html" target="_blank">Pixracer</a>: <code>make px4fmu-v4_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/mindpx.html" target="_blank">MindPX</a>/<a href="https://docs.px4.io/en/flight_controller/mindracer.html" target="_blank">MindRacer</a>: <code>make px4fmu-v4_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk_mini.html" target="_blank">Pixhawk Mini</a>: <code>make px4fmu-v3_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/pixhawk3_pro.html" target="_blank">Pixhawk 3 Pro</a>: <code>make px4fmu-v4pro_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/crazyflie2.html" target="_blank">Crazyflie 2.0</a>: <code>make crazyflie_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/intel_aero.html" target="_blank">Intel&#xAE; Aero Ready to Fly Drone</a>: <code>make aerofc-v1_default</code></li>
+<li>Pixhawk 4: <code>make px4fmu-v5_default</code></li>
+<li><a href="https://docs.px4.io/en/flight_controller/auav_x2.html" target="_blank">AUAV-X2 (Discontinued)</a>: <code>make px4fmu-v2_default</code></li>
 </ul>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Generally the <code>_default</code> suffix is optional (i.e. you can also build using <code>make px4_fmu-v4</code>, <code>make bitcraze_crazyflie</code>, etc.).</p>
-</blockquote>
-<h3 id="uploading-firmware-flashing-the-board"><a name="uploading-firmware-flashing-the-board" class="plugin-anchor" href="#uploading-firmware-flashing-the-board"><i class="fa fa-link" aria-hidden="true"></i></a>Uploading Firmware (Flashing the board)</h3>
-<p>Append <code>upload</code> to the make commands to upload the compiled binary to the autopilot hardware via USB. For example</p>
-<pre><code class="lang-sh">make px4_fmu-v4_default upload
+<h3 id="&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash"><a name="&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash" class="plugin-anchor" href="#&#xD38C;&#xC6E8;&#xC5B4;-&#xC5C5;&#xB85C;&#xB4DC;-&#xBCF4;&#xB4DC;&#xC5D0;-flash"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD38C;&#xC6E8;&#xC5B4; &#xC5C5;&#xB85C;&#xB4DC; (&#xBCF4;&#xB4DC;&#xC5D0; flash)</h3>
+<p>&#xCEF4;&#xD30C;&#xC77C;&#xB41C; &#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB97C; USB&#xB85C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC5D0; &#xC5C5;&#xB85C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574; <code>upload</code>&#xB97C; make &#xBA85;&#xB839;&#xC5D0; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">make px4fmu-v2_default upload
 </code></pre>
-<p>A successful run will end with this output:</p>
+<p>&#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCD9C;&#xB825;:</p>
 <pre><code class="lang-sh">Erase  : [====================] 100.0%
 Program: [====================] 100.0%
 Verify : [====================] 100.0%
@@ -2037,36 +1993,36 @@ Rebooting.
 
 [100%] Built target upload
 </code></pre>
-<h2 id="other-boards"><a name="other-boards" class="plugin-anchor" href="#other-boards"><i class="fa fa-link" aria-hidden="true"></i></a>Other Boards</h2>
-<p>The following boards have more complicated build and/or deployment instructions.</p>
-<h3 id="raspberry-pi-23-boards"><a name="raspberry-pi-23-boards" class="plugin-anchor" href="#raspberry-pi-23-boards"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3 Boards</h3>
-<p>The command below builds the target for <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2</a>.</p>
-<h4 id="cross-compiler-build"><a name="cross-compiler-build" class="plugin-anchor" href="#cross-compiler-build"><i class="fa fa-link" aria-hidden="true"></i></a>Cross-compiler Build</h4>
+<h2 id="&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;"><a name="&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;" class="plugin-anchor" href="#&#xAE30;&#xD0C0;-&#xBCF4;&#xB4DC;&#xB4E4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAE30;&#xD0C0; &#xBCF4;&#xB4DC;&#xB4E4;</h2>
+<p>&#xB2E4;&#xC74C; &#xBCF4;&#xB4DC;&#xB4E4;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xBE4C;&#xB4DC;&#xC640; &#xBC30;&#xD3EC;&#xB294; &#xC880;&#xB354; &#xBCF5;&#xC7A1;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="raspberry-pi-23-&#xBCF4;&#xB4DC;"><a name="raspberry-pi-23-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#raspberry-pi-23-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3 &#xBCF4;&#xB4DC;</h3>
+<p>&#xC544;&#xB798; &#xBA85;&#xB839;&#xC740; Raspbian&#xC6A9;&#xC73C;&#xB85C; &#xD0C0;&#xAC9F;&#xC744; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h4 id="&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;"><a name="&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;" class="plugin-anchor" href="#&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC;-&#xBE4C;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD06C;&#xB85C;&#xC2A4;-&#xCEF4;&#xD30C;&#xC77C;&#xB7EC; &#xBE4C;&#xB4DC;</h4>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make emlid_navio2_cross <span class="hljs-comment"># for cross-compiler build</span>
+make posix_rpi_cross <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
-<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_cross/</strong>.
-Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
-<p>Then set the IP (or hostname) of your RPi using:</p>
+<p>build/posix_rpi_cross/src/firmware/posix &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC2E4;&#xD589;&#xAC00;&#xB2A5;&#xD55C; &quot;px4&quot; &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+RPi&#xB97C; ssh&#xB85C; &#xC5F0;&#xACB0;&#xD560; &#xC218; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;. <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">RPi&#xC5D0; &#xC811;&#xADFC;&#xD558;&#xB294; &#xBC29;&#xBC95;</a>&#xB97C; &#xCC38;&#xACE0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; RPi&#xC758; IP(&#xD639;&#xC740; hostname)&#xB97C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC124;&#xC815; :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">export</span> AUTOPILOT_HOST=192.168.X.X
 </code></pre>
-<p>And upload it with:</p>
+<p>&#xADF8;&#xB9AC;&#xACE0; upload :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make emlid_navio2_cross upload <span class="hljs-comment"># for cross-compiler build</span>
+make posix_rpi_cross upload <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
-<p>Then, connect over ssh and run it with (as root):</p>
-<pre><code class="lang-sh">sudo ./bin/px4 <span class="hljs-_">-s</span> px4.config
+<p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; ssh&#xC5D0;&#xC11C; &#xC5F0;&#xACB0;&#xD558;&#xACE0; root &#xAD8C;&#xD55C;&#xC73C;&#xB85C; &#xC2E4;&#xD589; :</p>
+<pre><code class="lang-sh">sudo ./px4 px4.config
 </code></pre>
-<h4 id="native-build"><a name="native-build" class="plugin-anchor" href="#native-build"><i class="fa fa-link" aria-hidden="true"></i></a>Native Build</h4>
-<p>If you&apos;re building <em>directly</em> on the Pi, you will want the native build target (emlid_navio2_native).</p>
+<h4 id="native-build"><a name="native-build" class="plugin-anchor" href="#native-build"><i class="fa fa-link" aria-hidden="true"></i></a>Native build</h4>
+<p>Pi&#xC5D0;&#xC11C; <em>&#xC9C1;&#xC811;</em> &#xBE4C;&#xB4DC;&#xB97C; &#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0; native build target(posix_rpi_native)&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make emlid_navio2_native <span class="hljs-comment"># for native build</span>
+make posix_rpi_native <span class="hljs-comment"># for native build</span>
 </code></pre>
-<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_native/</strong>.
-Run it directly with:</p>
-<pre><code class="lang-sh">sudo ./build/emlid_navio2_native/px4 ./posix-configs/rpi/px4.config
+<p>build/posix_rpi_native/src/firmware/posix &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC2E4;&#xD589;&#xAC00;&#xB2A5;&#xD55C; &quot;px4&quot; &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC9C1;&#xC811; &#xC2E4;&#xD589;&#xD558;&#xAE30; :</p>
+<pre><code class="lang-sh">sudo ./build/posix_rpi_native/src/firmware/posix/px4 ./posix-configs/rpi/px4.config
 </code></pre>
-<p>A successful build followed by executing px4 will give you something like this:</p>
+<p>px4 &#xC2E4;&#xD589;&#xC774; &#xC131;&#xACF5;&#xC801;&#xC73C;&#xB85C; &#xB418;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xB098;&#xC635;&#xB2C8;&#xB2E4; :</p>
 <pre><code class="lang-sh">
 ______  __   __    ___
 | ___ \ \ \ / /   /   |
@@ -2080,53 +2036,48 @@ px4 starting.
 
 pxh&gt;
 </code></pre>
-<h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
-<p>To autostart px4, add the following to the file <strong>/etc/rc.local</strong> (adjust it
-accordingly if you use native build), right before the <code>exit 0</code> line:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/pi &amp;&amp; ./bin/px4 <span class="hljs-_">-d</span> <span class="hljs-_">-s</span> px4.config &gt; px4.log
-</code></pre>
-<h3 id="parrot-bebop"><a name="parrot-bebop" class="plugin-anchor" href="#parrot-bebop"><i class="fa fa-link" aria-hidden="true"></i></a>Parrot Bebop</h3>
-<p>Support for the <a href="https://docs.px4.io/en/flight_controller/bebop.html" target="_blank">Parrot Bebop</a> is at an early stage and should be used very carefully.</p>
-<h4 id="build"><a name="build" class="plugin-anchor" href="#build"><i class="fa fa-link" aria-hidden="true"></i></a>Build</h4>
+<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><a name="&#xC790;&#xB3D9;&#xC2DC;&#xC791;" class="plugin-anchor" href="#&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
+<p>px4 &#xC790;&#xB3D9;&#xAD6C;&#xB3D9;&#xC2DC;&#xD0A4;&#xB824;&#xBA74; <code>/etc/rc.local</code> &#xD30C;&#xC77C;&#xC5D0; &#xB2E4;&#xC74C;&#xC744; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4;.(native build&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xBA74; &#xC801;&#xC808;&#xD788; &#xC218;&#xC815;) &#xC704;&#xCE58;&#xB294; <code>exit 0</code> &#xBC14;&#xB85C; &#xC9C1;&#xC804;&#xC785;&#xB2C8;&#xB2E4;. :</p>
+<pre><code>cd /home/pi &amp;&amp; ./px4 -d px4.config &gt; px4.log
+</code></pre><h3 id="&#xD328;&#xB86F;-&#xBE44;&#xBC25;"><a name="&#xD328;&#xB86F;-&#xBE44;&#xBC25;" class="plugin-anchor" href="#&#xD328;&#xB86F;-&#xBE44;&#xBC25;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD328;&#xB86F; &#xBE44;&#xBC25;</h3>
+<p>Bebop &#xC9C0;&#xC6D0;&#xC740; &#xC544;&#xC9C1; &#xCD08;&#xAE30; &#xB2E8;&#xACC4;&#xB85C; &#xC8FC;&#xC758;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<h4 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h4>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make parrot_bebop_default
+make posix_bebop_default
 </code></pre>
-<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi. 
-Then, press the power button
-four times to enable ADB and to start the telnet daemon.</p>
-<pre><code class="lang-sh">make parrot_bebop_default upload
+<p>Bebop&#xC744; &#xCF1C;&#xACE0; &#xD638;&#xC2A4;&#xD2B8; &#xBA38;&#xC2E0;&#xC744; Bebop&#xC758; wifi&#xC640; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xC73C;&#xB85C; &#xD30C;&#xC6CC; &#xBC84;&#xD2BC;&#xC744; 4&#xBC88; &#xB20C;&#xB7EC;&#xC11C; ADB&#xB97C; &#xD65C;&#xC131;&#xD654; &#xC2DC;&#xD0A4;&#xACE0; telnet daemon&#xC744; &#xAD6C;&#xB3D9;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">make posix_bebop_default upload
 </code></pre>
-<p>This will upload the PX4 mainapp into /data/ftp/internal_000/ and create the file /home/root/parameters if not already
-present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
-<h4 id="run"><a name="run" class="plugin-anchor" href="#run"><i class="fa fa-link" aria-hidden="true"></i></a>Run</h4>
-<p>Connect to the Bebop&apos;s wifi and press the power button four times. 
-Next,
-connect with the Bebop via telnet or adb shell and run the commands bellow.</p>
+<p>&#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; PX4 mainapp&#xC744; /usr/bin&#xC5D0; &#xC5C5;&#xB85C;&#xB4DC;&#xC2DC;&#xD0A4;&#xACE0; /home/root/parameters&#xAC00; &#xC5C6;&#xB2E4;&#xBA74; &#xC774;&#xB97C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. &#xCD94;&#xAC00;&#xB85C; Bebop&#xC758; mixer &#xD30C;&#xC77C;&#xACFC; px4.config&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xD604;&#xC7AC; &#xC774; &#xB450; &#xD30C;&#xC77C;&#xC740; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xD1B5;&#xD574; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xBCF5;&#xC0AC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">adb connect 192.168.42.1:9050
+adb push ROMFS/px4fmu_common/mixers/bebop.main.mix /home/root
+adb push posix-configs/bebop/px4.config /home/root
+adb disconnect
+</code></pre>
+<h4 id="&#xC2E4;&#xD589;&#xD558;&#xAE30;"><a name="&#xC2E4;&#xD589;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC2E4;&#xD589;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
+<p>Bebop&#xC758; wifi&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xACE0; &#xD30C;&#xC6CC; &#xBC84;&#xD2BC;&#xC744; 4&#xBC88; &#xB204;&#xB985;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C;&#xC73C;&#xB85C; Bebop&#xC5D0; telnet&#xC774;&#xB098; adb sehll&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xACE0; &#xC544;&#xB798; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">telnet 192.168.42.1
 </code></pre>
-<p>Kill the Bebop&apos;s proprietary driver with</p>
+<p>Bebop&#xC758; &#xC6D0;&#xB798; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB97C; kill &#xD558;&#xAE30; :</p>
 <pre><code class="lang-sh">kk
 </code></pre>
-<p>and start the PX4 mainapp with:</p>
-<pre><code class="lang-sh">/data/ftp/internal_000/px4 <span class="hljs-_">-s</span> /home/root/px4.config
+<p>&#xADF8;&#xB9AC;&#xACE0; PX4 mainapp&#xC744; &#xAD6C;&#xB3D9;&#xC2DC;&#xD0A4;&#xAE30; :</p>
+<pre><code class="lang-sh">px4 /home/root/px4.config
 </code></pre>
-<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both,
-the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors
-and setup your joystick device.</p>
-<h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
-<p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>. Comment the following line:</p>
+<p>Bebop&#xC744; &#xB0A0;&#xB9AC;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xD638;&#xC2A4;&#xD2B8; &#xBA38;&#xC2E0;&#xC5D0; &#xC870;&#xC774;&#xC2A4;&#xD2F1; &#xC7A5;&#xCE58;&#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xACE0; QGroundControl&#xB97C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;. Bebop&#xACFC; &#xC870;&#xC774;&#xC2A4;&#xD2F1; &#xB458;&#xB2E4; &#xC778;&#xC2DD;&#xB418;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xC9C0;&#xC2DC;&#xB97C; &#xB530;&#xB77C;&#xC11C; &#xC13C;&#xC11C;&#xB97C; &#xCE7C;&#xB9AC;&#xBE0C;&#xB808;&#xC774;&#xC158;&#xD558;&#xACE0; &#xC870;&#xC774;&#xC2A4;&#xD2F1; &#xC7A5;&#xCE58;&#xB97C; &#xC14B;&#xC5C5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><a name="&#xC790;&#xB3D9;&#xC2DC;&#xC791;" class="plugin-anchor" href="#&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
+<p>&#xBE44;&#xBC25;&#xC5D0;&#xC11C; &#xBD80;&#xD305;&#xC2DC;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; PX4&#xB97C; &#xC2DC;&#xC791;&#xB418;&#xAC8C; &#xD558;&#xB824;&#xBA74;, init &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; <code>/etc/init.d/rcS_mode_default</code>&#xB97C; &#xC218;&#xC815;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC74C; &#xB77C;&#xC778;&#xC744; &#xCEE4;&#xB9E8;&#xD2B8; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4; :</p>
 <pre><code>DragonStarter.sh -out2null &amp;
-</code></pre><p>Replace it with:</p>
-<pre><code>echo 1 &gt; /sys/class/gpio/gpio85/value # enables the fan
-/data/ftp/internal_000/px4 -d -s /home/root/px4.config &gt; /home/root/px4.log &amp;
-</code></pre><p>Enable adb server by pressing the power button 4 times and connect to adb server as described before:</p>
+</code></pre><p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; &#xAD50;&#xCCB4;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<pre><code>px4 -d /home/root/px4.config &gt; /home/root/px4.log
+</code></pre><p>&#xC704;&#xC5D0;&#xC11C; &#xC124;&#xBA85;&#xD55C; &#xAC83;&#xCC98;&#xB7FC; &#xD30C;&#xC6CC; &#xBC84;&#xD2BC;&#xC744; 4&#xBC88; &#xB20C;&#xB7EC;&#xC11C; adb server&#xB97C; &#xD65C;&#xC131;&#xD654;&#xC2DC;&#xD0A4;&#xACE0; adb server&#xC5D0; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;. :</p>
 <pre><code class="lang-sh">adb connect 192.168.42.1:9050
 </code></pre>
-<p>Re-mount the system partition as writeable:</p>
+<p>&#xC4F0;&#xAE30;&#xAC00; &#xAC00;&#xB2A5;&#xD558;&#xB3C4;&#xB85D; &#xC2DC;&#xC2A4;&#xD15C; &#xD30C;&#xD2F0;&#xC158;&#xC744; &#xB2E4;&#xC2DC; &#xB9C8;&#xC6B4;&#xD2B8;&#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4; :</p>
 <pre><code class="lang-sh">adb shell mount -o remount,rw /
 </code></pre>
-<p>In order to avoid editing the file manually, you can use this one : <a href="https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e" target="_blank">https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e</a></p>
-<p>Save the original one and push this one to the Bebop</p>
+<p>&#xD30C;&#xC77C;&#xC744; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xC218;&#xC815;&#xD558;&#xB294; &#xAC83;&#xC744; &#xB9C9;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xB2E4;&#xC74C;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;: <a href="https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8" target="_blank">https://gist.github.com/mhkabir/b0433f0651f006e3c7ac4e1cbd83f1e8</a></p>
+<p>&#xC6D0;&#xBCF8;&#xC744; &#xC800;&#xC7A5;&#xD558;&#xACE0; &#xBE44;&#xBC25;&#xC5D0; &#xC9D1;&#xC5B4; &#xB123;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh">adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
 adb push rcS_mode_default /etc/init.d/
 </code></pre>
@@ -2135,91 +2086,88 @@ adb push rcS_mode_default /etc/init.d/
 adb shell reboot
 </code></pre>
 <h3 id="ocpoc-zynq-mini"><a name="ocpoc-zynq-mini" class="plugin-anchor" href="#ocpoc-zynq-mini"><i class="fa fa-link" aria-hidden="true"></i></a>OcPoC-Zynq Mini</h3>
-<p>Build instructions for the <a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html" target="_blank">OcPoC-Zynq Mini</a> are covered in:</p>
+<p><a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html" target="_blank">OcPoC-Zynq Mini</a>&#xC5D0; &#xAD00;&#xB828;&#xB41C; &#xBE4C;&#xB4DC; :</p>
 <ul>
-<li><a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq" target="_blank">Aerotenna OcPoC-Zynq Mini Flight Controller &gt; Building PX4 for OcPoC-Zynq</a> (PX4 User Guide)</li>
-<li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 Setup Page</a></li>
+<li><a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq" target="_blank">Aerotenna OcPoC-Zynq Mini Flight Controller &gt; Building PX4 for OcPoC-Zynq</a> (PX4 &#xC0AC;&#xC6A9;&#xC790; &#xAC00;&#xC774;&#xB4DC;)</li>
+<li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 Setup &#xD398;&#xC774;&#xC9C0;</a></li>
 </ul>
-<h3 id="qurt--snapdragon-based-boards"><a name="qurt--snapdragon-based-boards" class="plugin-anchor" href="#qurt--snapdragon-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>QuRT / Snapdragon Based Boards</h3>
-<p>This section shows how to build for the <a href="https://docs.px4.io/en/flight_controller/snapdragon_flight.html" target="_blank">Qualcomm Snapdragon Flight</a>.</p>
-<h4 id="build"><a name="build" class="plugin-anchor" href="#build"><i class="fa fa-link" aria-hidden="true"></i></a>Build</h4>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> If you use the <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC board</a> (UART-based), then please follow their instructions <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">here</a>. If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.</p>
-</blockquote>
-<p>The commands below build the targets for the Linux and the DSP side. Both executables communicate via <a href="../middleware/uorb.html">muORB</a>.</p>
+<h3 id="qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><a name="qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;" class="plugin-anchor" href="#qurt--snapdragon-&#xAE30;&#xBC18;-&#xBCF4;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>QuRT / Snapdragon &#xAE30;&#xBC18; &#xBCF4;&#xB4DC;</h3>
+<h4 id="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h4>
+<p>NOTE: <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC &#xBCF4;&#xB4DC;</a> (UART-&#xAE30;&#xBC18;)&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB2E4;&#xBA74;, <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">&#xC5EC;&#xAE30;</a> &#xC9C0;&#xC2DC;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;. &#xC77C;&#xBC18; PWM &#xAE30;&#xBC18; ESC &#xBCF4;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC774; &#xD398;&#xC774;&#xC9C0;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xACC4;&#xC18D; &#xB530;&#xB77C;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC544;&#xB798; &#xBA85;&#xB839;&#xC73C;&#xB85C; Linux&#xC640; DSP&#xCABD;&#xC5D0; &#xB300;&#xD574;&#xC11C; &#xD0C0;&#xAC9F;&#xC744; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;. &#xC2E4;&#xD589;&#xB418;&#xBA74; <a href="../middleware/uorb.html">muORB</a>&#xB97C; &#xD1B5;&#xD574; &#xC11C;&#xB85C; &#xD1B5;&#xC2E0;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make atlflight_eagle_default
+make eagle_default
 </code></pre>
-<p>To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:</p>
+<p>&#xC7A5;&#xCE58;&#xC5D0; SW&#xB97C; &#xB85C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C; USB &#xCF00;&#xC774;&#xBE14;&#xC744; &#xC5F0;&#xACB0;&#xD558;&#xACE0; &#xC7A5;&#xCE58;&#xAC00; &#xBD80;&#xD305;&#xB418;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;. &#xC0C8;&#xB85C;&#xC6B4; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xC774;&#xB97C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4; :</p>
 <pre><code class="lang-sh">adb shell
 </code></pre>
-<p>Go back to previous terminal and upload:</p>
-<pre><code class="lang-sh">make atlflight_eagle_default upload
+<p>&#xC774;&#xC804; &#xD130;&#xBBF8;&#xB110;&#xB85C; &#xB3CC;&#xC544;&#xAC00;&#xC11C; &#xC5C5;&#xB85C;&#xB4DC; :</p>
+<pre><code class="lang-sh">make eagle_default upload
 </code></pre>
-<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle. </p>
-<p>The mixer currently needs to be copied manually:</p>
+<p><a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> &#xC640; <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> 2&#xAC1C; &#xC124;&#xC815; &#xD30C;&#xC77C;&#xC744; &#xC7A5;&#xCE58;&#xB85C; &#xBCF5;&#xC0AC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC7A5;&#xCE58;&#xC5D0; &#xC788;&#xB294; &#xC2DC;&#xC791; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC9C1;&#xC811; &#xC218;&#xC815;&#xD558;&#xACE0;&#xC790; &#xD55C;&#xB2E4;&#xBA74; &#xC774; &#xD30C;&#xC77C;&#xB4E4;&#xC740; /usr/share/data/adsp/px4.config &#xC640; /home/linaro/mainapp.config &#xB0B4;&#xC5D0; &#xAC01;&#xAC01; &#xC800;&#xC7A5;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBBF9;&#xC11C;&#xB294; &#xD604;&#xC7AC; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xBCF5;&#xC0AC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;:</p>
 <pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 </code></pre>
-<h4 id="run"><a name="run" class="plugin-anchor" href="#run"><i class="fa fa-link" aria-hidden="true"></i></a>Run</h4>
-<p>Run the DSP debug monitor:</p>
+<h4 id="&#xC2E4;&#xD589;&#xD558;&#xAE30;"><a name="&#xC2E4;&#xD589;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC2E4;&#xD589;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2E4;&#xD589;&#xD558;&#xAE30;</h4>
+<p>DSP &#xB514;&#xBC84;&#xADF8; &#xBAA8;&#xB2C8;&#xD130; &#xC2E4;&#xD589;:</p>
 <pre><code class="lang-sh"><span class="hljs-variable">${HEXAGON_SDK_ROOT}</span>/tools/debug/mini-dm/Linux_Debug/mini-dm
 </code></pre>
-<p>Note: alternatively, especially on Mac, you can also use <a href="https://github.com/kevinmehall/nano-dm" target="_blank">nano-dm</a>.</p>
-<p>Go back to ADB shell and run px4:</p>
+<p>Note: Mac&#xC5D0;&#xC11C;&#xB294; <a href="https://github.com/kevinmehall/nano-dm" target="_blank">nano-dm</a>&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>ADB &#xC258;&#xB85C; &#xB3CC;&#xC544;&#xAC00;&#xC11C; px4&#xB97C; &#xC2E4;&#xD589;:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/linaro
 ./px4 mainapp.config
 </code></pre>
-<p>Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.</p>
-<h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
-<p>To run the px4 as soon as the Snapdragon has booted, you can add the startup to <code>rc.local</code>:</p>
-<p>Either edit the file <code>/etc/rc.local</code> directly on the Snapdragon:</p>
+<p>px4&#xB294; USB &#xCF00;&#xC774;&#xBE14; &#xC5F0;&#xACB0;&#xC744; &#xB04A;&#xC790;&#xB9C8;&#xC790; &#xBA48;&#xCD94;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.(&#xD639;&#xC740; ssh &#xC138;&#xC158;&#xC774; &#xC885;&#xB8CC;&#xB418;&#xAC70;&#xB098;) &#xBE44;&#xD589;&#xC744; &#xC704;&#xD574;&#xC11C; px4&#xAC00; &#xBD80;&#xD305;&#xB4A4;&#xC5D0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC2DC;&#xC791;&#xB418;&#xB3C4;&#xB85D; &#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<h4 id="&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><a name="&#xC790;&#xB3D9;&#xC2DC;&#xC791;" class="plugin-anchor" href="#&#xC790;&#xB3D9;&#xC2DC;&#xC791;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC790;&#xB3D9;&#xC2DC;&#xC791;</h4>
+<p>Snapdragon&#xAC00; &#xBD80;&#xD305;&#xB418;&#xACE0; px4&#xB97C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB824;&#xBA74; <code>rc.local</code>&#xC5D0; &#xC2DC;&#xC791;&#xC2DC;&#xD0A4;&#xB294; &#xBD80;&#xBD84;&#xC744; &#xCD94;&#xAC00;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; :</p>
+<p>&#xC544;&#xB2C8;&#xBA74; Snapdragon&#xC5D0; &#xC9C1;&#xC811; <code>/etc/rc.local</code>&#xC744; &#xC218;&#xC815;:</p>
 <pre><code class="lang-sh">adb shell
 vim /etc/rc.local
 </code></pre>
-<p>Or copy the file to your computer, edit it locally, and copy it back:</p>
+<p>&#xC774; &#xD30C;&#xC77C;&#xC744; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0; &#xBCF5;&#xC0AC;&#xD558;&#xACE0; &#xC218;&#xC815;&#xD55C; &#xD6C4;&#xC5D0; &#xB2E4;&#xC2DC; &#xBCF5;&#xC0AC;:</p>
 <pre><code class="lang-sh">adb pull /etc/rc.local
 gedit rc.local
 adb push rc.local /etc/rc.local
 </code></pre>
-<p>For the auto-start, add the following line before <code>exit 0</code>:</p>
+<p>&#xC790;&#xB3D9; &#xC2DC;&#xC791;&#xC744; &#xC704;&#xD574;&#xC11C; <code>exit 0</code>&#xC804;&#xC5D0; &#xB2E4;&#xC74C; &#xB77C;&#xC778;&#xC744; &#xCD94;&#xAC00;&#xD569;&#xB2C8;&#xB2E4; :</p>
 <pre><code class="lang-sh">(<span class="hljs-built_in">cd</span> /home/linaro &amp;&amp; ./px4 mainapp.config &gt; mainapp.log)
 
 <span class="hljs-built_in">exit</span> 0
 </code></pre>
-<p>Make sure that the <code>rc.local</code> is executable:</p>
+<p><code>rc.local</code>&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xB294;&#xC9C0; &#xD655;&#xC778;:</p>
 <pre><code class="lang-sh">adb shell
 chmod +x /etc/rc.local
 </code></pre>
-<p>Then reboot the Snapdragon:</p>
+<p>&#xB2E4;&#xC74C;&#xC73C;&#xB85C; Snapdragon&#xC744; &#xB9AC;&#xBD80;&#xD305;:</p>
 <pre><code class="lang-sh">adb reboot
 </code></pre>
-<h2 id="compiling-in-a-graphical-ide"><a name="compiling-in-a-graphical-ide" class="plugin-anchor" href="#compiling-in-a-graphical-ide"><i class="fa fa-link" aria-hidden="true"></i></a>Compiling in a Graphical IDE</h2>
-<p>The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a> and a <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a> in the source tree.</p>
+<h2 id="ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;"><a name="ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;" class="plugin-anchor" href="#ide&#xC5D0;&#xC11C;-&#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>IDE&#xC5D0;&#xC11C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xAE30;</h2>
+<p>PX4 &#xC2DC;&#xC2A4;&#xD15C;&#xC740; Qt Creator, Eclipse, Sublime Text&#xB97C; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;. Qt Creator&#xAC00; &#xAC00;&#xC7A5; &#xC0AC;&#xC6A9;&#xC790;&#xB97C; &#xC704;&#xD55C; &#xAE30;&#xB2A5;&#xC774; &#xB9CE;&#xC544;&#xC11C; &#xC720;&#xC77C;&#xD558;&#xAC8C; &#xACF5;&#xC2DD;&#xC801;&#xC73C;&#xB85C; &#xC9C0;&#xC6D0;&#xD558;&#xB294; IDE&#xC785;&#xB2C8;&#xB2E4;. Eclipse&#xC640; Sublime&#xC758; &#xACBD;&#xC6B0; &#xC804;&#xBB38;&#xAC00;&#xAC00; &#xC544;&#xB2C8;&#xB77C;&#xBA74; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC27D;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xB4DC;&#xCF54;&#xC5B4; &#xC0AC;&#xC6A9;&#xC790;&#xB294; <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a>&#xC640; <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a>&#xB97C; &#xC18C;&#xC2A4; &#xD2B8;&#xB9AC;&#xC5D0;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Bkk8zttWxEI"></iframe></div></p>
-<h2 id="qt-creator-functionality"><a name="qt-creator-functionality" class="plugin-anchor" href="#qt-creator-functionality"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator Functionality</h2>
-<p>Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.</p>
+<h2 id="qt-creator-&#xAE30;&#xB2A5;"><a name="qt-creator-&#xAE30;&#xB2A5;" class="plugin-anchor" href="#qt-creator-&#xAE30;&#xB2A5;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator &#xAE30;&#xB2A5;</h2>
+<p>Qt creator&#xB294; &#xD074;&#xB9AD;&#xAC00;&#xB2A5;&#xD55C; &#xC2EC;&#xBCFC;, &#xC790;&#xB3D9;&#xC644;&#xC131;&#xAE30;&#xB2A5;, &#xBE4C;&#xB4DC;, &#xD38C;&#xC6E8;&#xC5B4; flash &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><img src="../../assets/toolchain/qtcreator.png" alt=""></p>
-<h3 id="qt-creator-on-linux"><a name="qt-creator-on-linux" class="plugin-anchor" href="#qt-creator-on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Linux</h3>
-<p>Before starting Qt Creator, the <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a> needs to be created:</p>
+<h3 id="qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;"><a name="qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;" class="plugin-anchor" href="#qt-creator-&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator (&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C;)</h3>
+<p>Qt Creator&#xB97C; &#xC2DC;&#xC791;&#xD558;&#xAE30; &#xC804;&#xC5D0;, <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a>&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
 mkdir ../Firmware-build
 <span class="hljs-built_in">cd</span> ../Firmware-build
 cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
 </code></pre>
-<p>Then load the CMakeLists.txt in the root firmware folder via <strong>File &gt; Open File or Project</strong> (Select the CMakeLists.txt file).</p>
-<p>After loading, the <strong>play</strong> button can be configured to run the project by selecting &apos;custom executable&apos; in the run target configuration and entering &apos;make&apos; as executable and &apos;upload&apos; as argument.</p>
-<h3 id="qt-creator-on-windows"><a name="qt-creator-on-windows" class="plugin-anchor" href="#qt-creator-on-windows"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Windows</h3>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Windows has not been tested for PX4 development with Qt Creator.</p>
+<p>File -&gt; Open File&#xB098; Project -&gt; Select CMakeLists.txt&#xB97C; &#xD1B5;&#xD574;&#xC11C; root &#xD38C;&#xC6E8;&#xC5B4; &#xD3F4;&#xB354;&#xC5D0; &#xC788;&#xB294; CMakeLists.txt &#xD30C;&#xC77C;&#xC744; &#xB85C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB85C;&#xB529;&#xC744; &#xB9C8;&#xCE58;&#xBA74; &apos;play&apos; &#xBC84;&#xD2BC;&#xC73C;&#xB85C; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xB3C4;&#xB85D; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC124;&#xC815;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740; run target configuration&#xC5D0;&#xC11C; &apos;custom executable&apos;&#xC744; &#xC120;&#xD0DD;&#xD558;&#xACE0; &apos;make&apos;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74;&#xC11C; &apos;upload&apos;&#xC744; &#xC778;&#xC790;&#xB85C; &#xC785;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;"><a name="qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;" class="plugin-anchor" href="#qt-creator-&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator (&#xC708;&#xB3C4;&#xC6B0;&#xC988;&#xC5D0;&#xC11C;)</h3>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p></p>
 </blockquote>
-<h3 id="qt-creator-on-mac-os"><a name="qt-creator-on-mac-os" class="plugin-anchor" href="#qt-creator-on-mac-os"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Mac OS</h3>
-<p>Before starting Qt Creator, the <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a> needs to be created:</p>
+<h3 id="qt-creator-mac-os&#xC5D0;&#xC11C;"><a name="qt-creator-mac-os&#xC5D0;&#xC11C;" class="plugin-anchor" href="#qt-creator-mac-os&#xC5D0;&#xC11C;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator (Mac OS&#xC5D0;&#xC11C;)</h3>
+<p>Qt Creator&#xB97C; &#xC2DC;&#xC791;&#xD558;&#xAE30; &#xC804;&#xC5D0;, <a href="https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator" target="_blank">project file</a>&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
-mkdir -p build/creator
+mkdir build/creator
 <span class="hljs-built_in">cd</span> build/creator
-cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
+cmake .. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
 </code></pre>
-<p>That&apos;s it! Start <em>Qt Creator</em>, then complete the steps in the video below to set up the project to build.</p>
+<p>&#xC774;&#xAC8C; &#xB05D;&#xB0AC;&#xC2B5;&#xB2C8;&#xB2E4;! Qt Creator&#xB97C; &#xAD6C;&#xB3D9;&#xC2DC;&#xD0A4;&#xACE0; &#xC544;&#xB798; &#xBE44;&#xB514;&#xC624;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC5EC; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xB2E8;&#xACC4;&#xB97C; &#xC644;&#xB8CC;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/0pa0gS30zNw"></iframe></div></p>
 
                                 
@@ -2264,7 +2212,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"코드 빌드하기","level":"1.2.3","depth":2,"next":{"title":"고급 설정","level":"1.2.4","depth":2,"path":"setup/config_advanced.md","ref":"setup/config_advanced.md","articles":[]},"previous":{"title":"Fast RTPS 설치","level":"1.2.2.4","depth":3,"path":"setup/fast-rtps-installation.md","ref":"setup/fast-rtps-installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-02-13T20:07:08.807Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-13T20:08:38.827Z"},"basePath":"..","book":{"language":"kr"}});
+            gitbook.page.hasChanged({"page":{"title":"코드 빌드하기","level":"1.2.3","depth":2,"next":{"title":"고급 설정","level":"1.2.4","depth":2,"path":"setup/config_advanced.md","ref":"setup/config_advanced.md","articles":[]},"previous":{"title":"Fast RTPS 설치","level":"1.2.2.4","depth":3,"path":"setup/fast-rtps-installation.md","ref":"setup/fast-rtps-installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"kr","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-01-09T22:39:23.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-09T22:40:46.510Z"},"basePath":"..","book":{"language":"kr"}});
         });
     </script>
 </div>
