@@ -2146,9 +2146,11 @@
 <p> Before following these instructions you must first install the <a href="dev_env.html">Developer Toolchain</a> for your host operating system and target hardware.</p>
 </blockquote>
 <h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>Downloading PX4 Source Code </h2>
-<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. We recommend that you <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository (creating a copy associated with your own Github account), and then <a href="https://help.github.com/articles/cloning-a-repository/" target="_blank">clone</a> the source to your local computer.</p>
+<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository.
+We recommend that you <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository (creating a copy associated with your own Github account), and then <a href="https://help.github.com/articles/cloning-a-repository/" target="_blank">clone</a> the source to your local computer.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Forking the repository allows you to better manage your custom code. Later on you will be able to use <em>git</em> to share changes with the main project.</p>
+<p> Forking the repository allows you to better manage your custom code.
+  Later on you will be able to use <em>git</em> to share changes with the main project.</p>
 </blockquote>
 <p>The steps to fork and clone the project source code are:</p>
 <ol>
@@ -2157,13 +2159,14 @@
 This will create and open the forked repository.</p>
 <p><img src="../../assets/toolchain/github_fork.png" alt="Github Fork button"></p>
 </li>
-<li><p>Copy the repository URL for your <em>Firmware</em> repository fork. The easiest way to do this is to click the <strong>Clone or download</strong> button and then copy the URL:</p>
+<li><p>Copy the repository URL for your <em>Firmware</em> repository fork.
+The easiest way to do this is to click the <strong>Clone or download</strong> button and then copy the URL:</p>
 <p><img src="../../assets/toolchain/github_clone_or_download.png" alt="Github Clone or download button"></p>
 </li>
 <li>Open a command prompt/terminal on your computer<ul>
-<li>On OS X, hit &#x2318;-space and search for &apos;terminal&apos;. </li>
-<li>On Ubuntu, click the launch bar and search for &apos;terminal&apos;. </li>
-<li>On Windows, find the PX4 folder in the start menu and click on &apos;PX4 Console&apos;. </li>
+<li>On OS X, hit &#x2318;-space and search for &apos;terminal&apos;.</li>
+<li>On Ubuntu, click the launch bar and search for &apos;terminal&apos;.</li>
+<li>On Windows, find the PX4 folder in the start menu and click on &apos;PX4 Console&apos;.</li>
 </ul>
 </li>
 <li><p>Clone the repository fork using the copied URL. This will look something like:</p>
@@ -2195,7 +2198,8 @@ You can use a <em>git</em> command line client as above or instead perform the s
 </li>
 </ol>
 <h2 id="jmavsim_build"><a name="jmavsim_build" class="plugin-anchor" href="#jmavsim_build"><i class="fa fa-link" aria-hidden="true"></i></a>First Build (Using the jMAVSim Simulator) </h2>
-<p>For the first build we&apos;ll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
+<p>For the first build we&apos;ll build for a simulated target using a console environment.
+This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
 <p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
 <pre><code class="lang-sh">make px4_sitl jmavsim
 </code></pre>
@@ -2205,8 +2209,9 @@ You can use a <em>git</em> command line client as above or instead perform the s
 <pre><code class="lang-sh">pxh&gt; commander takeoff
 </code></pre>
 <p><img src="../../assets/jmavsim_first_takeoff.png" alt="jMAVSim UI"></p>
-<p>The drone can be landed by typing <code>commander land</code> and the whole simulation can be stopped by doing <strong>CTRL+C</strong> (or by entering <code>shutdown</code>). </p>
-<p>Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. This will reposition the vehicle.</p>
+<p>The drone can be landed by typing <code>commander land</code> and the whole simulation can be stopped by doing <strong>CTRL+C</strong> (or by entering <code>shutdown</code>).</p>
+<p>Flying the simulation with the ground control station is closer to the real operation of the vehicle. Click on a location in the map while the vehicle is flying (takeoff flight mode) and enable the slider. 
+This will reposition the vehicle.</p>
 <p><img src="../../assets/qgc_goto.jpg" alt="QGroundControl GoTo"></p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> PX4 can be used with a number of other <a href="../simulation/">Simulators</a>, including <a href="../simulation/gazebo.html">Gazebo Simulation</a> and <a href="../simulation/airsim.html">AirSim Simulation</a>. 
@@ -2215,13 +2220,13 @@ You can use a <em>git</em> command line client as above or instead perform the s
 </code></pre></blockquote>
 <h2 id="nuttx--pixhawk-based-boards"><a name="nuttx--pixhawk-based-boards" class="plugin-anchor" href="#nuttx--pixhawk-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards</h2>
 <h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>Building </h3>
-<p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board. </p>
+<p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board.</p>
 <p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make px4_fmu-v4_default
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> In the example above the first part of the build target <code>px4_fmu-v4</code> is the firmware for a particular flight controller hardware and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). 
+<p> In the example above the first part of the build target <code>px4_fmu-v4</code> is the firmware for a particular flight controller hardware and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration).
   The <code>default</code> is optional so you could instead do: </p>
 <pre><code>  make px4_fmu-v4
 </code></pre></blockquote>
@@ -2254,7 +2259,8 @@ make px4_fmu-v4_default
 <p> Generally the <code>_default</code> suffix is optional (i.e. you can also build using <code>make px4_fmu-v4</code>, <code>make bitcraze_crazyflie</code>, etc.).</p>
 </blockquote>
 <h3 id="uploading-firmware-flashing-the-board"><a name="uploading-firmware-flashing-the-board" class="plugin-anchor" href="#uploading-firmware-flashing-the-board"><i class="fa fa-link" aria-hidden="true"></i></a>Uploading Firmware (Flashing the board)</h3>
-<p>Append <code>upload</code> to the make commands to upload the compiled binary to the autopilot hardware via USB. For example</p>
+<p>Append <code>upload</code> to the make commands to upload the compiled binary to the autopilot hardware via USB.
+For example</p>
 <pre><code class="lang-sh">make px4_fmu-v4_default upload
 </code></pre>
 <p>A successful run will end with this output:</p>
@@ -2319,15 +2325,15 @@ accordingly if you use native build), right before the <code>exit 0</code> line:
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make parrot_bebop_default
 </code></pre>
-<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi. 
-Then, press the power button
-four times to enable ADB and to start the telnet daemon.</p>
+<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi.
+Then, press the power button four times to enable ADB and to start the telnet daemon.</p>
 <pre><code class="lang-sh">make parrot_bebop_default upload
 </code></pre>
 <p>This will upload the PX4 mainapp into /data/ftp/internal_000/ and create the file /home/root/parameters if not already
-present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
+present.
+This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
 <h4 id="run"><a name="run" class="plugin-anchor" href="#run"><i class="fa fa-link" aria-hidden="true"></i></a>Run</h4>
-<p>Connect to the Bebop&apos;s wifi and press the power button four times. 
+<p>Connect to the Bebop&apos;s wifi and press the power button four times.
 Next, connect with the Bebop via telnet or adb shell and run the commands below.</p>
 <pre><code class="lang-sh">telnet 192.168.42.1
 </code></pre>
@@ -2337,8 +2343,8 @@ Next, connect with the Bebop via telnet or adb shell and run the commands below.
 <p>and start the PX4 mainapp with:</p>
 <pre><code class="lang-sh">/data/ftp/internal_000/px4 <span class="hljs-_">-s</span> /home/root/px4.config
 </code></pre>
-<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. 
-Both the Bebop and the joystick should be recognized. 
+<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl.
+Both the Bebop and the joystick should be recognized.
 Follow the instructions to calibrate the sensors and setup your joystick device.</p>
 <h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
 <p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>.
@@ -2353,7 +2359,7 @@ Comment the following line:</p>
 <p>Re-mount the system partition as writeable:</p>
 <pre><code class="lang-sh">adb shell mount -o remount,rw /
 </code></pre>
-<p>In order to avoid editing the file manually, you can use this one : <a href="https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e" target="_blank">https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e</a></p>
+<p>In order to avoid editing the file manually, you can use this one: <a href="https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e" target="_blank">https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e</a></p>
 <p>Save the original one and push this one to the Bebop</p>
 <pre><code class="lang-sh">adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
 adb push rcS_mode_default /etc/init.d/
@@ -2372,19 +2378,22 @@ adb shell reboot
 <p>This section shows how to build for the <a href="https://docs.px4.io/en/flight_controller/snapdragon_flight.html" target="_blank">Qualcomm Snapdragon Flight</a>.</p>
 <h4 id="build"><a name="build" class="plugin-anchor" href="#build"><i class="fa fa-link" aria-hidden="true"></i></a>Build</h4>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> If you use the <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC board</a> (UART-based), then please follow their instructions <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">here</a>. If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.</p>
+<p> If you use the <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC board</a> (UART-based), then please follow their instructions <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">here</a>. 
+  If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.</p>
 </blockquote>
 <p>The commands below build the targets for the Linux and the DSP side. Both executables communicate via <a href="../middleware/uorb.html">muORB</a>.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make atlflight_eagle_default
 </code></pre>
-<p>To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:</p>
+<p>To load the SW on the device, connect via USB cable and make sure the device is booted.
+Run this in a new terminal window:</p>
 <pre><code class="lang-sh">adb shell
 </code></pre>
 <p>Go back to previous terminal and upload:</p>
 <pre><code class="lang-sh">make atlflight_eagle_default upload
 </code></pre>
-<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle. </p>
+<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device.
+Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.</p>
 <p>The mixer currently needs to be copied manually:</p>
 <pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 </code></pre>
@@ -2397,7 +2406,8 @@ make atlflight_eagle_default
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/linaro
 ./px4 <span class="hljs-_">-s</span> mainapp.config
 </code></pre>
-<p>Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.</p>
+<p>Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). 
+To fly, you should make the px4 auto-start after boot.</p>
 <h4 id="autostart"><a name="autostart" class="plugin-anchor" href="#autostart"><i class="fa fa-link" aria-hidden="true"></i></a>Autostart</h4>
 <p>To run the px4 as soon as the Snapdragon has booted, you can add the startup to <code>rc.local</code>:</p>
 <p>Either edit the file <code>/etc/rc.local</code> directly on the Snapdragon:</p>
@@ -2422,7 +2432,10 @@ chmod +x /etc/rc.local
 <pre><code class="lang-sh">adb reboot
 </code></pre>
 <h2 id="compiling-in-a-graphical-ide"><a name="compiling-in-a-graphical-ide" class="plugin-anchor" href="#compiling-in-a-graphical-ide"><i class="fa fa-link" aria-hidden="true"></i></a>Compiling in a Graphical IDE</h2>
-<p>The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a> and a <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a> in the source tree.</p>
+<p>The PX4 system supports Qt Creator, Eclipse and Sublime Text.
+Qt Creator is the most user-friendly variant and hence the only officially supported IDE.
+Unless an expert in Eclipse or Sublime, their use is discouraged.
+Hardcore users can find an <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a> and a <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a> in the source tree.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Bkk8zttWxEI"></iframe></div></p>
 <h2 id="qt-creator-functionality"><a name="qt-creator-functionality" class="plugin-anchor" href="#qt-creator-functionality"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator Functionality</h2>
 <p>Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.</p>
@@ -2482,11 +2495,11 @@ For more information see <a href="../debug/simulation_debugging.html">Simulation
 </blockquote>
 <p>Notes:</p>
 <ul>
-<li>Most of the values in the <code>CONFIGURATION_TARGET</code> and <code>VIEWER_MODEL_DEBUGGER</code> have defaults, and are hence optional. 
-For example, <code>gazebo</code> is equivalent to <code>gazebo_iris</code> or <code>gazebo_iris_none</code>. </li>
-<li>You can use three underscores if you want to specify a default value between two other settings. 
+<li>Most of the values in the <code>CONFIGURATION_TARGET</code> and <code>VIEWER_MODEL_DEBUGGER</code> have defaults, and are hence optional.
+For example, <code>gazebo</code> is equivalent to <code>gazebo_iris</code> or <code>gazebo_iris_none</code>.</li>
+<li>You can use three underscores if you want to specify a default value between two other settings.
 For example, <code>gazebo___gdb</code> is equivalent to <code>gazebo_iris_gdb</code>.</li>
-<li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator. 
+<li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator.
 For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh -l</code>.</li>
 </ul>
 <p>The <code>VENDOR_MODEL_VARIANT</code> options map to particular <em>cmake</em> configuration files in the PX4 source tree under the <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">/boards</a> directory.
@@ -2494,7 +2507,7 @@ Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <str
 (e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
 <p>Additional make targets are discussed in the following sections (list is not exhaustive):</p>
 <h3 id="bloaty_compare_master"><a name="bloaty_compare_master" class="plugin-anchor" href="#bloaty_compare_master"><i class="fa fa-link" aria-hidden="true"></i></a>Binary Size Profiling </h3>
-<p>The <code>bloaty_compare_master</code> build target allows you to get a better understanding of the impact of changes on code size 
+<p>The <code>bloaty_compare_master</code> build target allows you to get a better understanding of the impact of changes on code size.
 When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the <a href="https://github.com/google/bloaty" target="_blank">bloaty</a> size profiler for binaries).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> This can help analyse changes that (may) cause <code>px4_fmu-v2_default</code> to hit the 1MB flash limit.</p>
@@ -2587,7 +2600,7 @@ It also shows the sizes of different pieces of the <em>mpu9250</em> driver.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"stable (v1.8.2)"},{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-03-27T22:15:27.126Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-27T22:17:36.286Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.5","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"stable (v1.8.2)"},{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-03-28T23:36:27.712Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-28T23:38:31.053Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
