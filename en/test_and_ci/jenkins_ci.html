@@ -2042,39 +2042,15 @@
 <div id="book-search-results">
     <div class="search-noresults">
     
-                                <section class="normal markdown-section">
+                                                                <section class="normal markdown-section">
                                 
                                 <h1 id="jenkins-ci"><a name="jenkins-ci" class="plugin-anchor" href="#jenkins-ci"><i class="fa fa-link" aria-hidden="true"></i></a>Jenkins CI</h1>
 <p>Jenkins continuous integration server on <a href="http://ci.px4.io/" target="_blank">ci.px4.io</a> is used to automatically run integration tests against PX4 SITL.</p>
-<h2 id="overview"><a name="overview" class="plugin-anchor" href="#overview"><i class="fa fa-link" aria-hidden="true"></i></a>Overview</h2>
-<ul>
-<li>Involved components: Jenkins, Docker, PX4 POSIX SITL</li>
-<li>Tests run inside <a href="docker.html">Docker Containers</a></li>
-<li>Jenkins executes 2 jobs: one to check each PR against master, and the other to check every push on master</li>
-</ul>
-<h2 id="test-execution"><a name="test-execution" class="plugin-anchor" href="#test-execution"><i class="fa fa-link" aria-hidden="true"></i></a>Test Execution</h2>
-<p>Jenkins uses <a href="https://github.com/PX4/Firmware/blob/master/integrationtests/run_container.bash" target="_blank">run_container.bash</a> to start the container which in turn executes <a href="https://github.com/PX4/Firmware/blob/master/integrationtests/run_tests.bash" target="_blank">run_tests.bash</a> to compile and run the tests.</p>
-<p>If Docker is installed the same method can be used locally:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> &lt;directory_<span class="hljs-built_in">where</span>_firmware_is_cloned&gt;
-sudo WORKSPACE=$(<span class="hljs-built_in">pwd</span>) ./Firmware/integrationtests/run_container.bash
-</code></pre>
-<h2 id="server-setup"><a name="server-setup" class="plugin-anchor" href="#server-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Server Setup</h2>
-<h3 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>Installation</h3>
-<p>See setup <a href="https://github.com/PX4/containers/tree/master/scripts/jenkins" target="_blank">script/log</a> for details on how Jenkins got installed and maintained.</p>
-<h3 id="configuration"><a name="configuration" class="plugin-anchor" href="#configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration</h3>
-<ul>
-<li>Jenkins security enabled</li>
-<li>Installed plugins<ul>
-<li>github</li>
-<li>github pull request builder</li>
-<li>embeddable build status plugin</li>
-<li>s3 plugin</li>
-<li>notification plugin</li>
-<li>collapsing console sections</li>
-<li>postbuildscript</li>
-</ul>
-</li>
-</ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> Test processes/tools change over time. 
+  Current information <a href="https://dev.px4.io/master/en/test_and_ci/" target="_blank">can be found in the head revision/master docs</a>!
+ <!-- END: details above displayed only in master --></p>
+</blockquote>
 
                                 
                                 </section>
