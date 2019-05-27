@@ -1,0 +1,2135 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>远距离视频流 · PX4 v1.9.0 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tutorials/rtk-gps.html" />
+    
+    
+    <link rel="prev" href="video_streaming.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    项目介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    新手上路
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    初始设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    安装工具链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_boutique.html">
+            
+                <a href="../setup/dev_env_linux_boutique.html">
+            
+                    
+                    Advanced Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    代码编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../setup/config_advanced.html">
+            
+                <a href="../setup/config_advanced.html">
+            
+                    
+                    高级配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    贡献&  开发者电话会议
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.6.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT例程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6.2" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    概念解读
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    飞行模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    结构概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_stack.html">
+            
+                <a href="../concept/flight_stack.html">
+            
+                    
+                    飞行控制栈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/middleware.html">
+            
+                <a href="../concept/middleware.html">
+            
+                    
+                    中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    混控和执行器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM限制状态机
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    Hardware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../flight_controller/">
+            
+                <a href="../flight_controller/">
+            
+                    
+                    自驾仪硬件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/debug/porting-guide.html">
+            
+                    
+                    Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    机型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../airframes/architecture.html">
+            
+                <a href="../airframes/architecture.html">
+            
+                    
+                    统一的基础代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    参考机型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    添加一个新的机型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../data_links/">
+            
+                <a href="../data_links/">
+            
+                    
+                    Data Links
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../advanced/telemetry_wifi.html">
+            
+                <a href="../advanced/telemetry_wifi.html">
+            
+                    
+                    Wifi数传
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../tutorials/telemetry.html">
+            
+                <a href="../tutorials/telemetry.html">
+            
+                    
+                    数传
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    传感器和执行机构总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1.1" data-path="../sensor/sf1xx_lidar_setup.html">
+            
+                <a href="../sensor/sf1xx_lidar_setup.html">
+            
+                    
+                    SF1XX lidar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 的各种笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.3" data-path="../sensor_bus/uart.html">
+            
+                <a href="../sensor_bus/uart.html">
+            
+                    
+                    UART
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.3.1" data-path="../sensor/uart_ulanding_radar.html">
+            
+                <a href="../sensor/uart_ulanding_radar.html">
+            
+                    
+                    uLanding Radar
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4.4" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    设置云台控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    协同电脑
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    仿真
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    基本仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    连接到ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    多机仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    中间件及架构
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
+            
+                <a href="../middleware/uorb_graph.html">
+            
+                    
+                    uORB Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink消息机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 Interface
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    Throughput Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    Manually Generate Client/Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../advanced/architecture_daemon.html">
+            
+                <a href="../advanced/architecture_daemon.html">
+            
+                    
+                    守护程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    驱动框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    模块 & 命令
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    Robotics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    用Linux进行外部控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    在RPi上安装ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (ROS上的MAVLink)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS外部控制例程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    外部位置估计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    Gazebo Octomap
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    Debugging/Logging
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    系统控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    自驾仪调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    仿真调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    发送调试的值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    日志记录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    飞行日志分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog文件格式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    地面站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../tutorials/tutorial_hello_sky.html">
+            
+                <a href="../tutorials/tutorial_hello_sky.html">
+            
+                    
+                    编写应用程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="video_streaming.html">
+            
+                <a href="video_streaming.html">
+            
+                    
+                    QGC的视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.4" data-path="video_streaming_wifi_broadcast.html">
+            
+                <a href="video_streaming_wifi_broadcast.html">
+            
+                    
+                    远距离视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../tutorials/rtk-gps.html">
+            
+                <a href="../tutorials/rtk-gps.html">
+            
+                    
+                    u-blox M8P RTK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../tutorials/tuning_the_ecl_ekf.html">
+            
+                <a href="../tutorials/tuning_the_ecl_ekf.html">
+            
+                    
+                    ecl EKF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../tutorials/pre_flight_checks.html">
+            
+                <a href="../tutorials/pre_flight_checks.html">
+            
+                    
+                    飞行前检查
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../tutorials/land_detector.html">
+            
+                <a href="../tutorials/land_detector.html">
+            
+                    
+                    着陆检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    Linux系统下使用S.Bus驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    系统启动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    参数&配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    参考参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    安装Intel RealSense R200的驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    切换状态估计器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    外部模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    测试和持续集成
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" >
+            
+                <a target="_blank" href="https://dev.px4.io/en/test_and_ci/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins持续集成环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    综合测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    维护
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl开发指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink开发指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://sdk.dronecode.org/en/">
+            
+                    
+                    Dronecode SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >远距离视频流</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5728;qgroundcontrol&#x8F6F;&#x4EF6;&#x4E2D;&#x5B9E;&#x73B0;&#x8FDC;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;"><a name="&#x5728;qgroundcontrol&#x8F6F;&#x4EF6;&#x4E2D;&#x5B9E;&#x73B0;&#x8FDC;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;" class="plugin-anchor" href="#&#x5728;qgroundcontrol&#x8F6F;&#x4EF6;&#x4E2D;&#x5B9E;&#x73B0;&#x8FDC;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;QGroundControl&#x8F6F;&#x4EF6;&#x4E2D;&#x5B9E;&#x73B0;&#x8FDC;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;</h1>
+<p>&#x672C;&#x9875;&#x9762;&#x5411;&#x60A8;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x7528;&#x4E00;&#x53F0;&#x673A;&#x8F7D;&#x5361;&#x7247;&#x7535;&#x8111;&#xFF08;&#x672C;&#x9875;&#x9762;&#x7528;Odroid C1&#x6216;C0&#x8FDB;&#x884C;&#x6F14;&#x793A;&#xFF09;&#x5C06;&#x6444;&#x50CF;&#x5934;&#xFF08;&#x672C;&#x9875;&#x9762;&#x7528;&#x7F57;&#x6280; C920&#x6444;&#x50CF;&#x5934;&#x8FDB;&#x884C;&#x6F14;&#x793A;&#xFF09;&#x6355;&#x6349;&#x7684;&#x89C6;&#x9891;&#x901A;&#x8FC7;WIFI&#x5B9E;&#x65F6;&#x4F20;&#x8F93;&#x5230;&#x53E6;&#x4E00;&#x53F0;&#x8054;&#x7F51;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x5E76;&#x8FD0;&#x884C;QGroundControl&#x8F6F;&#x4EF6;&#x3002;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x901A;&#x8FC7;&#x5904;&#x4E8E;unconnected (broadcast)&#x6A21;&#x5F0F;&#x7684;WIFI&#x6765;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x60F3;&#x6CD5;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x5217;&#x51FA;&#x4E86;&#x6240;&#x6709;&#x7684;&#x9700;&#x8981;&#x7684;&#x786C;&#x4EF6;&#xFF1A;</p>
+<p>TX&#x53D1;&#x9001;&#x7AEF;&#xFF08;&#x65E0;&#x4EBA;&#x673A;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>Odroid C1&#x5361;&#x7247;&#x7535;&#x8111;</li>
+<li>&#x7F57;&#x6280; C920 &#x6444;&#x50CF;&#x5934;</li>
+<li>ALPHA AWUS051NH v2&#x65E0;&#x7EBF;&#x6A21;&#x5757;</li>
+</ul>
+<p>RX&#x63A5;&#x6536;&#x7AEF;&#xFF08;&#x5730;&#x9762;&#x7AD9;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>&#x4EFB;&#x4F55;&#x8FD0;&#x884C;Linux&#x7CFB;&#x7EDF;&#x7684;&#x8BA1;&#x7B97;&#x673A;</li>
+<li>ALPHA AWUS051NH v2&#x65E0;&#x7EBF;&#x6A21;&#x5757;</li>
+</ul>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x666E;&#x901A;&#x7684;wifi&#x534F;&#x8BAE;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x957F;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;&#xFF1F;"><a name="&#x4E3A;&#x4EC0;&#x4E48;&#x666E;&#x901A;&#x7684;wifi&#x534F;&#x8BAE;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x957F;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;&#xFF1F;" class="plugin-anchor" href="#&#x4E3A;&#x4EC0;&#x4E48;&#x666E;&#x901A;&#x7684;wifi&#x534F;&#x8BAE;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x957F;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3A;&#x4EC0;&#x4E48;&#x666E;&#x901A;&#x7684;Wifi&#x534F;&#x8BAE;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x957F;&#x8DDD;&#x79BB;&#x89C6;&#x9891;&#x4F20;&#x8F93;&#xFF1F;</h2>
+<p>&#x91C7;&#x7528;&#x666E;&#x901A;Wifi&#x534F;&#x8BAE;&#x6709;&#x5982;&#x4E0B;&#x5F0A;&#x7AEF;&#xFF1A;</p>
+<ul>
+<li>&#x201C;&#x5173;&#x8054;&#x6027;&#x201D;&#x8FC7;&#x5F3A;&#xFF1A;&#x89C6;&#x9891;&#x53D1;&#x9001;&#x65B9;&#x548C;&#x63A5;&#x6536;&#x65B9;&#x9700;&#x8981;&#x5EFA;&#x7ACB;&#x5173;&#x8054;&#x5173;&#x7CFB;&#x3002;&#x5982;&#x679C;&#x4EFB;&#x610F;&#x4E00;&#x65B9;&#x8BBE;&#x5907;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#xFF08;&#x4F8B;&#x5982;&#x4EC5;&#x56E0;&#x63A5;&#x6536;&#x65B9;&#x7F51;&#x7EDC;&#x4FE1;&#x53F7;&#x8D28;&#x91CF;&#x8FC7;&#x5DEE;&#xFF09;&#x89C6;&#x9891;&#x4F20;&#x8F93;&#x5C31;&#x4F1A;&#x7ACB;&#x5373;&#x505C;&#x6B62;&#x3002;</li>
+<li>&#x8981;&#x6C42;&#x201C;&#x65E0;&#x9519;&#x4F20;&#x8F93;&#x201D;&#xFF1A;&#x666E;&#x901A;Wifi&#x534F;&#x8BAE;&#x4EC5;&#x63A5;&#x6536;&#x6B63;&#x786E;&#x7684;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x82E5;&#x53D1;&#x73B0;&#x6570;&#x636E;&#x6709;&#x5DEE;&#x9519;&#x5219;&#x4E0D;&#x4E88;&#x7406;&#x4F1A;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5728;&#x8FDB;&#x884C;FPV&#x89C6;&#x9891;&#x4F20;&#x8F93;&#x65F6;&#xFF0C;&#x4E00;&#x4E01;&#x70B9;&#x6570;&#x636E;&#x7684;&#x9519;&#x8BEF;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x4E22;&#x5305;&#x3002;&#x867D;&#x7136;&#x6570;&#x636E;&#x7684;&#x6B63;&#x786E;&#x6027;&#x5F97;&#x5230;&#x4E86;&#x4E25;&#x683C;&#x4FDD;&#x8BC1;&#xFF0C;&#x4F46;&#x8FD9;&#x6837;&#x4E25;&#x683C;&#x7684;&#x6570;&#x636E;&#x6821;&#x9A8C;&#x4F1A;&#x5BFC;&#x81F4;&#x89C6;&#x9891;&#x5361;&#x987F;&#x3002;</li>
+<li>&#x901A;&#x4FE1;&#x7684;&#x201C;&#x53CC;&#x5411;&#x6027;&#x201D;&#xFF1A;&#x5373;&#x4FBF;&#x60A8;&#x53EA;&#x53D1;&#x9001;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x666E;&#x901A;Wifi&#x4E5F;&#x8981;&#x6C42;&#x63A5;&#x6536;&#x65B9;&#x5728;&#x6536;&#x5230;&#x6570;&#x636E;&#x540E;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x201C;&#x56DE;&#x5E94;&#x201D;&#x4EE5;&#x786E;&#x8BA4;&#x63A5;&#x6536;&#x65B9;&#x786E;&#x5B9E;&#x6536;&#x5230;&#x4E86;&#x6570;&#x636E;&#x5305;&#x3002;&#x5982;&#x679C;&#x53D1;&#x9001;&#x65B9;&#x6CA1;&#x6709;&#x6536;&#x5230;&#x63A5;&#x6536;&#x65B9;&#x7684;&#x201C;&#x56DE;&#x5E94;&#x201D;&#xFF0C;&#x5B83;&#x5C31;&#x5C06;&#x5173;&#x95ED;&#x8FDE;&#x63A5;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x666E;&#x901A;Wifi&#x534F;&#x8BAE;&#xFF0C;&#x60A8;&#x5C31;&#x5FC5;&#x987B;&#x5728;&#x65E0;&#x4EBA;&#x673A;&#x548C;&#x5730;&#x9762;&#x7AD9;&#x8BBE;&#x7F6E;&#x914D;&#x7F6E;&#x540C;&#x89C4;&#x683C;&#x7684;&#x8BBE;&#x5907;&#x548C;&#x5929;&#x7EBF;&#x3002;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x666E;&#x901A;Wifi&#x534F;&#x8BAE;&#xFF0C;&#x60A8;&#x5C31;&#x4E0D;&#x53EF;&#x4EE5;&#x5728;&#x65E0;&#x4EBA;&#x673A;&#x4E0A;&#x4F7F;&#x7528;&#x5168;&#x5411;&#x5929;&#x7EBF;&#xFF0C;&#x800C;&#x5728;&#x5730;&#x9762;&#x7AD9;&#x4F7F;&#x7528;&#x9AD8;&#x589E;&#x76CA;&#x7684;&#x5B9A;&#x5411;&#x5929;&#x7EBF;&#x4E86;&#x3002;<ul>
+<li>&#x81EA;&#x9002;&#x5E94;&#x4F20;&#x8F93;&#x901F;&#x7387;: &#x666E;&#x901A;Wifi&#x8FDE;&#x63A5;&#x4F1A;&#x5728;&#x4FE1;&#x53F7;&#x5F31;&#x65F6;&#x81EA;&#x52A8;&#x5207;&#x6362;&#x5230;&#x8F83;&#x4F4E;&#x7684;&#x4F20;&#x8F93;&#x901F;&#x7387;&#xFF0C;&#x800C;&#x534F;&#x8BAE;&#x81EA;&#x52A8;&#x9009;&#x62E9;&#x7684;&#x8F83;&#x4F4E;&#x7684;&#x4F20;&#x8F93;&#x901F;&#x7387;&#x4E0D;&#x4E00;&#x5B9A;&#x5C31;&#x9002;&#x5408;&#x89C6;&#x9891;&#x7684;&#x4F20;&#x9001;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0D;&#x53EF;&#x9884;&#x6599;&#x7684;&#x5EF6;&#x8FDF;&#xFF0C;&#x9AD8;&#x8FBE;&#x6570;&#x79D2;&#x4E4B;&#x4E45;&#x3002;</li>
+<li>&#x70B9;&#x5BF9;&#x70B9;&#x4F20;&#x8F93;&#xFF1A;&#x666E;&#x901A;Wifi&#x534F;&#x8BAE;&#x89C4;&#x5B9A;&#x6570;&#x636E;&#x53EA;&#x80FD;&#x70B9;&#x5BF9;&#x70B9;&#x4F20;&#x8F93;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9664;&#x975E;&#x60A8;&#x4F7F;&#x7528;&#x5E7F;&#x64AD;&#x5E27;&#xFF08; broadcast frames&#xFF09;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x7C7B;&#x4F3C;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x65C1;&#x89C2;&#x8005;&#x65E0;&#x6CD5;&#x50CF;&#x6536;&#x770B;&#x4F9D;&#x8D56;&#x6A21;&#x62DF;&#x4FE1;&#x53F7;&#x4F20;&#x8F93;&#x7684;&#x89C6;&#x9891;&#xFF08;analog video transmission&#xFF09;&#x4E00;&#x6837;&#x5BB9;&#x6613;&#x5730;&#x770B;&#x5230;&#x60A8;&#x6240;&#x770B;&#x5230;&#x7684;&#x56FE;&#x50CF;&#x3002;</li>
+<li>&#x53D7;&#x9650;&#x7684;&#x591A;&#x6837;&#x6027;&#xFF1A;&#x666E;&#x901A;Wifi&#x534F;&#x8BAE;&#x4F1A;&#x9650;&#x5236;&#x7F51;&#x5361;&#x63D0;&#x4F9B;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x6D41;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;wifibroadcast&#xFF09;&#x7684;&#x4F18;&#x52BF;"><a name="wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;wifibroadcast&#xFF09;&#x7684;&#x4F18;&#x52BF;" class="plugin-anchor" href="#wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;wifibroadcast&#xFF09;&#x7684;&#x4F18;&#x52BF;"><i class="fa fa-link" aria-hidden="true"></i></a>Wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;WifiBroadcast&#xFF09;&#x7684;&#x4F18;&#x52BF;</h2>
+<p>Wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;WifiBroadcast&#xFF09;&#x4F1A;&#x8BA9;&#x65E0;&#x7EBF;&#x7F51;&#x5361;&#x5904;&#x4E8E;&#x76D1;&#x542C;&#x6A21;&#x5F0F;&#x3002;&#x76D1;&#x542C;&#x6A21;&#x5F0F;&#x5141;&#x8BB8;&#x7F51;&#x5361;&#x63A5;&#x6536;&#x4EFB;&#x610F;&#x5230;&#x6765;&#x7684;&#x6570;&#x636E;&#x5305;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x9A8C;&#x8BC1;&#x6570;&#x636E;&#x5305;&#x6765;&#x6E90;&#xFF08;&#x4E0D;&#x7528;&#x9A8C;&#x8BC1;&#x5173;&#x8054;&#x6027;&#xFF09;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x5141;&#x8BB8;&#x63A5;&#x6536;&#x6821;&#x9A8C;&#x5931;&#x8D25;&#x7684;&#x5E27;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x5EFA;&#x7ACB;&#x4E86;&#x4E00;&#x4E2A;&#x771F;&#x5355;&#x5411;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5B83;&#x5177;&#x5907;&#x4E86;&#x548C;&#x6A21;&#x62DF;&#x4FE1;&#x53F7;&#x4E00;&#x6837;&#x7684;&#x4F18;&#x52BF;&#x3002;
+&#x4EE5;&#x4E0B;&#x662F;&#x91C7;&#x7528;Wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;WifiBroadcast&#xFF09;&#x7684;&#x4F18;&#x52BF;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x65B9;&#x4E0D;&#x8BBA;&#x63A5;&#x6536;&#x65B9;&#x662F;&#x5426;&#x5B58;&#x5728;&#x90FD;&#x5C06;&#x5E7F;&#x64AD;&#x6570;&#x636E;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x63A5;&#x6536;&#x65B9;&#x5931;&#x53BB;&#x8FDE;&#x63A5;&#x800C;&#x5BFC;&#x81F4;&#x89C6;&#x9891;&#x4E2D;&#x65AD;&#x3002;</li>
+<li>&#x53EA;&#x8981;&#x5728;&#x53D1;&#x9001;&#x65B9;&#x7684;&#x4FE1;&#x53F7;&#x8986;&#x76D6;&#x5185;&#xFF0C;&#x63A5;&#x6536;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x56FE;&#x50CF;&#x3002;&#x5C31;&#x7B97;&#x662F;&#x4FE1;&#x53F7;&#x4E0D;&#x597D;&#xFF0C;&#x89C6;&#x9891;&#x56FE;&#x50CF;&#x4E0A;&#x4E5F;&#x53EA;&#x662F;&#x4F1A;&#x663E;&#x793A;&#x5E72;&#x6270;&#x800C;&#x4E0D;&#x4F1A;&#x7EC8;&#x6B62;&#x4F20;&#x9001;&#x3002;</li>
+<li>&#x5B9E;&#x73B0;&#x4E86;&#x201C;&#x5355;&#x53D1;&#x9001; &#x2013; &#x591A;&#x63A5;&#x6536;&#x201D;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x4ED6;&#x4EBA;&#x60F3;&#x8981;&#x89C2;&#x770B;&#x60A8;&#x7684;&#x89C6;&#x9891;&#x6D41;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5207;&#x6362;&#x5230;&#x6B63;&#x786E;&#x7684;&#x9891;&#x9053;&#x5373;&#x53EF;&#x3002;<ul>
+<li>Wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;WifiBroadcast&#xFF09;&#x5141;&#x8BB8;&#x4F60;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5EC9;&#x4EF7;&#x63A5;&#x6536;&#x5668;&#x5E76;&#x5C06;&#x63A5;&#x6536;&#x5230;&#x7684;&#x6570;&#x636E;&#x7EC4;&#x5408;&#x8D77;&#x6765;&#x4EE5;&#x589E;&#x52A0;&#x6570;&#x636E;&#x6B63;&#x786E;&#x7684;&#x6982;&#x7387;&#x3002;&#x8FD9;&#x79CD;&#x534F;&#x8BAE;&#x4E0A;&#x7684;&#x652F;&#x6301;&#x5141;&#x8BB8;&#x4F60;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x63A5;&#x6536;&#x5668;&#xFF08;&#x6BD4;&#x5982;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5168;&#x5411;&#x5929;&#x7EBF;&#x63A5;&#x6536;&#x5668;&#x518D;&#x52A0;&#x4E0A;&#x51E0;&#x4E2A;&#x5B9A;&#x5411;&#x5929;&#x7EBF;&#x63A5;&#x6536;&#x5668;&#x534F;&#x540C;&#x5DE5;&#x4F5C;&#x6765;&#x589E;&#x52A0;&#x4F20;&#x8F93;&#x8DDD;&#x79BB;&#xFF09;&#x6765;&#x83B7;&#x5F97;&#x66F4;&#x597D;&#x7684;&#x4F20;&#x8F93;&#x8D28;&#x91CF;&#x3002;</li>
+</ul>
+</li>
+<li>Wifi&#x5E7F;&#x64AD;&#x6280;&#x672F;&#xFF08;WifiBroadcast&#xFF09;&#x4F7F;&#x7528;&#x524D;&#x5411;&#x7EA0;&#x9519;&#x6280;&#x672F;&#xFF08;Forward Error Correction&#xFF09; &#xFF0C;&#x80FD;&#x591F;&#x5728;&#x4F4E;&#x5E26;&#x5BBD;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x63D0;&#x9AD8;&#x4F20;&#x8F93;&#x53EF;&#x9760;&#x6027;&#xFF0C;&#x5B83;&#x80FD;&#x4FEE;&#x590D;&#x4E00;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x9519;&#x8BEF;&#x3002;</li>
+</ul>
+<h2 id="&#x786C;&#x4EF6;&#x6539;&#x88C5;"><a name="&#x786C;&#x4EF6;&#x6539;&#x88C5;" class="plugin-anchor" href="#&#x786C;&#x4EF6;&#x6539;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x786C;&#x4EF6;&#x6539;&#x88C5;</h2>
+<p>Alpha WUS051NH &#x7F51;&#x5361;&#x5728;&#x53D1;&#x5C04;&#x65F6;&#x7684;&#x529F;&#x7387;&#x4F1A;&#x8F83;&#x9AD8;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7528;USB&#x76F4;&#x63A5;&#x63D2;&#x63A5;&#x5728;Odroid C1/C0&#x5361;&#x7247;&#x7535;&#x8111;&#x4E0A;&#xFF0C;&#x5C31;&#x4F1A;&#x5E26;&#x8D70;&#x66F4;&#x591A;&#x7535;&#x6D41;&#x5BFC;&#x81F4;&#x9690;&#x60A3;&#x3002;&#x56E0;&#x6B64;&#x4F60;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x7528;5V BEC&#x4F9B;&#x7535;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x505A;&#x5230;:</p>
+<ol>
+<li>&#x81EA;&#x5DF1;&#x505A;&#x4E00;&#x6839;USB&#x7EBF;</li>
+<li>&#x5728;Odroid&#x5361;&#x7247;&#x7535;&#x8111;&#x7684;PCB&#x677F;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x76F4;&#x63A5;&#x5C06;&#x4F9B;&#x7535;&#x8FDE;&#x63A5;&#x5230;BEC
+&#x6211;&#x5EFA;&#x8BAE;&#x5728;&#x7535;&#x6E90;&#x548C;&#x5730;&#x4E4B;&#x95F4;&#x52A0;&#x4E00;&#x4E2A;470uF&#x7684;&#x4F4E;&#x5BB9;&#x91CF;&#x7535;&#x5BB9;(&#x50CF;ESC&#x4E00;&#x6837;)&#x6765;&#x6EE4;&#x9664;&#x7535;&#x538B;&#x5CF0;&#x503C;&#x3002;</li>
+</ol>
+<h2 id="&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;"><a name="&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;</h2>
+<p>&#x4E0B;&#x8F7D;Wifibroadcast <a href="https://github.com/svpcom/wifibroadcast" target="_blank">sources</a>.</p>
+<p>&#x60A8;&#x9700;&#x8981;&#x6253;&#x51E0;&#x4E2A;Linux&#x5185;&#x6838;&#x8865;&#x4E01;&#x6765;:</p>
+<ol>
+<li>&#x6253;&#x5F00;TX&#x901F;&#x7387;&#x9501;&#xFF08;TX rate lock&#xFF09;&#xFF0C;&#x8BF7;&#x5B89;&#x88C5;<code>mac80211-radiotap-bitrate_mcs_rtscts.linux-4.4.patch</code>&#x8865;&#x4E01;&#x3002;&#x5426;&#x5219;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x56FA;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x5305;&#xFF08;injected radiotap packets&#xFF09;&#x7684;&#x53D1;&#x9001;&#x901F;&#x7387;&#x3002;</li>
+<li>&#x6253;&#x5F00;TX&#x7535;&#x6E90;&#x9501;&#xFF08;TX power lock&#xFF09;&#xFF0C;&#x8BF7;&#x5B89;&#x88C5; <code>ez-wifibroadcast-1.4-kernel-4.4-patches.diff</code>&#x8865;&#x4E01;&#x3002;&#x8FD9;&#x4F1A;&#x9501;&#x5B9A;&#x7F51;&#x5361;&#x5728;&#x652F;&#x6301;&#x7684;&#x6700;&#x5927;&#x53D1;&#x9001;&#x7535;&#x538B;&#xFF08;maximum tx power&#xFF09;&#x3002;</li>
+<li>&#x8BA9;&#x53D1;&#x9001;&#x65B9;&#x7684;&#x6570;&#x636E;&#x5305;&#x6821;&#x9A8C;&#x5931;&#x6548;&#xFF0C;&#x8BF7;&#x5B89;&#x88C5; <code>ez-wifibroadcast-1.4-kernel-4.4-patches.diff</code>&#x8865;&#x4E01;&#x3002;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x53EF;&#x4EE5;&#x4E0D;&#x505A;&#xFF0C;&#x76EE;&#x524D;&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x9700;&#x8981;&#x3002;</li>
+</ol>
+<p>&#x8FD9;&#x6837;&#x4F60;&#x5C06;&#x53EA;&#x80FD;&#x5728;TX&#x53D1;&#x9001;&#x7AEF;&#x6253;&#x8865;&#x4E01;&#x4E86;&#x3002;</p>
+<h3 id="&#x5728;tx&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;"><a name="&#x5728;tx&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;" class="plugin-anchor" href="#&#x5728;tx&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;TX&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;:</h3>
+<ol>
+<li>&#x914D;&#x7F6E;&#x76F8;&#x673A;&#x8F93;&#x51FA;RPT&#x6D41;:<pre><code>gst-launch-1.0 uvch264src device=/dev/video0 initial-bitrate=6000000 average-bitrate=6000000 iframe-period=1000 name=src auto-start=true \
+            src.vidsrc ! queue ! video/x-h264,width=1920,height=1080,framerate=30/1 ! h264parse ! rtph264pay ! udpsink host=localhost port=5600
+</code></pre><ol>
+<li>&#x5C06;Wifibroadcast&#x8BBE;&#x7F6E;&#x6210;TX&#x53D1;&#x9001;&#x6A21;&#x5F0F;:</li>
+</ol>
+</li>
+</ol>
+<pre><code>git clone https://github.com/svpcom/wifibroadcast
+cd wifibroadcast
+make
+ifconfig wlan1 down    #&#x5047;&#x8BBE;&#x53D1;&#x9001;&#x7F51;&#x5361;&#x662F;wlan1
+iw reg set BO          #&#x533A;&#x57DF;&#x8BBE;&#x7F6E;&#x4E3A;B0&#xFF0C;&#x4EE5;&#x6700;&#x5927;&#x529F;&#x7387;&#x53D1;&#x9001;
+iw dev wlan1 set monitor otherbss fcsfail
+ifconfig wlan1 up
+iwconfig wlan1 channel 149
+./tx -r 24 wlan1
+</code></pre><p>&#x8FD9;&#x5C06;&#x4F1A;&#x5C06;Wifibroadcast&#x8BBE;&#x7F6E;&#x6210;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x901F;&#x7387;24Mbit/s&#x3001;WIFI&#x901A;&#x9053;&#xFF08;wifi channel&#xFF09;149&#x3001;5GHz &#x9891;&#x6BB5;&#x5E76;&#x4E14;&#x76D1;&#x542C;5600&#x7AEF;&#x53E3;&#x3002;</p>
+<h3 id="&#x5728;rx&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;"><a name="&#x5728;rx&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;" class="plugin-anchor" href="#&#x5728;rx&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728;RX&#x53D1;&#x9001;&#x7AEF;&#x60A8;&#x9700;&#x8981;:</h3>
+<ol>
+<li>&#x5C06;Wifibroadcast&#x8BBE;&#x7F6E;&#x4E3A;RX&#x6A21;&#x5F0F;:<pre><code>git clone https://github.com/svpcom/wifibroadcast
+cd wifibroadcast
+make
+ifconfig wlan1 down    #&#x5047;&#x8BBE;&#x53D1;&#x9001;&#x7F51;&#x5361;&#x662F;wlan1
+iw reg set BO          #Region&#x548C;TX&#x53D1;&#x9001;&#x65B9;&#x4E00;&#x6837;&#xFF0C;&#x786E;&#x4FDD;&#x53EF;&#x4EE5;&#x76D1;&#x542C;
+iw dev wlan1 set monitor otherbss fcsfail
+ifconfig wlan1 up
+iwconfig wlan1 channel 149
+./rx wlan1
+</code></pre></li>
+<li>&#x8FD0;&#x884C;Q Groundcontrol&#x8F6F;&#x4EF6;&#x6216;&#x8005;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x89E3;&#x7801;&#x89C6;&#x9891;&#xFF1A;<pre><code>gst-launch-1.0 udpsrc port=5600 caps=&apos;application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264&apos; \
+         ! rtph264depay ! avdec_h264 ! clockoverlay valignment=bottom ! autovideosink fps-update-interval=1000 sync=false
+</code></pre></li>
+</ol>
+<h2 id="faq"><a name="faq" class="plugin-anchor" href="#faq"><i class="fa fa-link" aria-hidden="true"></i></a>FAQ</h2>
+<p>Q: &#x8FD9;&#x6837;&#x505A;&#x548C;&#x4F20;&#x7EDF;&#x7684;Wifi&#x5E7F;&#x64AD;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;?</p>
+<p>A:&#x539F;&#x6765;&#x7684;&#x7248;&#x672C;&#x4F7F;&#x7528;&#x5355;&#x5B57;&#x8282;&#x8F93;&#x5165;&#xFF0C;&#x5E76;&#x5C06;UDP&#x6570;&#x636E;&#x5305;&#x5206;&#x5272;&#x6210;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#xFF08;&#x9ED8;&#x8BA4;1024&#x5B57;&#x8282;&#xFF09;&#x901A;&#x8FC7;&#x65E0;&#x7EBF;&#x7535;&#x5206;&#x522B;&#x53D1;&#x9001;&#x3002;&#x5982;&#x679C;&#x65E0;&#x7EBF;&#x7535;&#x6570;&#x636E;&#x5305;&#x4E22;&#x5931;&#x6216;&#x8005;&#x6CA1;&#x6709;&#x88AB;FEC&#x4FEE;&#x590D;&#xFF0C;&#x4F60;&#x4F1A;&#x5F97;&#x5230;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x6570;&#x636E;&#x6D41;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x6570;&#x636E;&#x4E0A;&#x9762;&#x51FA;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x7834;&#x6D1E;&#xFF09;&#x3002;&#x8FD9;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x4E0D;&#x5E0C;&#x671B;&#x6570;&#x636E;&#x5305;&#x4E22;&#x5931;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x534F;&#x8BAE;&#x6765;&#x8BF4;&#x662F;&#x5F88;&#x5927;&#x7684;&#x9690;&#x60A3;&#x3002; &#x56E0;&#x6B64;&#x6211;&#x91CD;&#x5199;&#x4E86;&#x4EE3;&#x7801;&#xFF0C;&#x5C06;&#x4E00;&#x4E2A;UDP&#x6570;&#x636E;&#x5305;&#x5B8C;&#x6574;&#x7684;&#x653E;&#x5165;&#x4E00;&#x4E2A;&#x65E0;&#x7EBF;&#x7535;&#x6570;&#x636E;&#x5305;&#x4E2D;&#x53D1;&#x9001;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x8BA9;&#x65E0;&#x7EBF;&#x7535;&#x6570;&#x636E;&#x5305;&#x6839;&#x636E;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5C3A;&#x5BF8;&#x4E86;&#xFF0C;&#x8FD9;&#x5927;&#x5927;&#x964D;&#x4F4E;&#x4E86;&#x5EF6;&#x8FDF;&#x3002;</p>
+<p>Q: &#x4EC0;&#x4E48;&#x6837;&#x7684;&#x6570;&#x636E;&#x9002;&#x5408;&#x7528;wifibroadcast&#x4F20;&#x8F93;&#x5462;?</p>
+<p>A: &#x4EFB;&#x4F55;&#x5C0F;&#x4E8E;1466&#x5B57;&#x8282;&#x7684;UDP&#x5305;&#xFF0C;&#x6BD4;&#x5982;RTP&#x548C;Mavlink&#x4E2D;&#x7684;x264&#x7F16;&#x7801;&#x3002;</p>
+<p>Q: &#x5982;&#x4F55;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x7684;&#x51C6;&#x786E;&#x6027;&#xFF1F;</p>
+<p>A: Wifibrodcast&#x4F7F;&#x7528;FEC (forward error correction) &#xFF0C;&#x9ED8;&#x8BA4;&#x53EF;&#x4EE5;&#x4ECE;12&#x4E2A;&#x6570;&#x636E;&#x5757;&#x4E2D;&#x6062;&#x590D;&#x51FA;4&#x4E2A;&#x4E22;&#x5931;&#x7684;&#x6570;&#x636E;&#x5305;&#x3002;
+   &#x4F60;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8C03;&#x6574;TX&#x53D1;&#x9001;&#x7AEF;&#x548C;RX&#x63A5;&#x6536;&#x7AEF;&#x6765;&#x6EE1;&#x8DB3;&#x81EA;&#x5DF1;&#x7684;&#x9700;&#x6C42;&#x3002;</p>
+<p>Q: &#x6211;&#x78B0;&#x5230;&#x4E86;&#x5F88;&#x591A;&#x4E22;&#x5E27;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5E76;&#x770B;&#x5230;&#x4E86; <code>XX packets lost</code>&#x8FD9;&#x6837;&#x7684;&#x63D0;&#x793A;&#xFF0C;&#x8FD9;&#x662F;&#x600E;&#x4E48;&#x56DE;&#x4E8B;?</p>
+<p>A: &#x8FD9;&#x662F;&#x7531;&#x4E8E;:</p>
+<ol>
+<li>&#x4FE1;&#x53F7;&#x8D28;&#x91CF;&#x8FC7;&#x5DEE;&#xFF0C;&#x5C1D;&#x8BD5;&#x66F4;&#x9AD8;&#x529F;&#x7387;&#x7684;&#x7F51;&#x5361;&#xFF0C;&#x6216;&#x8005;&#x66F4;&#x9AD8;&#x589E;&#x76CA;&#x7684;&#x5929;&#x7EBF;&#x3002;&#x5728;&#x63A5;&#x6536;&#x7AEF;&#x4F7F;&#x7528;&#x5B9A;&#x5411;&#x5929;&#x7EBF;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x66F4;&#x591A;&#x7F51;&#x5361;</li>
+<li>&#x4FE1;&#x53F7;&#x529F;&#x7387;&#x8FC7;&#x9AD8;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5F53;&#x5728;&#x5BA4;&#x5185;&#x4F7F;&#x7528;30dBm&#x7684;&#x53D1;&#x9001;&#x7684;&#x65F6;&#x5019;&#x3002;&#x5C1D;&#x8BD5;&#x51CF;&#x5C0F;&#x53D1;&#x9001;&#x529F;&#x7387;(&#x6BD4;&#x5982;&#x4FEE;&#x6539;&#x5185;&#x6838;&#x4E2D;&#x7684;CRDA&#x6570;&#x636E;&#x5E93;&#x5E76;&#x4E14;&#x5C06;&#x67D0;&#x4E9B;&#x533A;&#x57DF;&#xFF08;regions&#xFF09;&#x7684;&#x529F;&#x7387;&#x8BBE;&#x7F6E;&#x5728;10dBm&#x5230;20dBm&#x4E4B;&#x95F4;)</li>
+<li>&#x6536;&#x5230;&#x4E86;&#x5176;&#x4ED6;Wifi&#x7684;&#x5E72;&#x6270;&#x3002;&#x5C1D;&#x8BD5;&#x66F4;&#x6362;Wifi&#x9891;&#x9053;&#x6216;&#x8005;WIFI&#x9891;&#x6BB5;&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x4E0D;&#x8981;&#x5728;&#x65E0;&#x4EBA;&#x673A;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6216;&#x8005;&#x9009;&#x7528;&#x5408;&#x9002;&#x7684;RTL&#x4EE5;&#x514D;&#x5F04;&#x4E22;&#x98DE;&#x673A;&#xFF01; 
+&#x60A8;&#x53EF;&#x4EE5;&#x589E;&#x52A0;FEC&#x5757;&#x5728;&#x6570;&#x636E;&#x5305;&#x4E2D;&#x7684;&#x6BD4;&#x4F8B;&#xFF08;&#x521D;&#x59CB;&#x503C;&#x4E3A;8/12&#xFF08;8&#x4E2A;&#x6570;&#x636E;&#x5757;&#xFF0C;4&#x4E2A;FEC&#x5757;&#xFF09;&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#x503C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5EF6;&#x8FDF;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x66F4;&#x591A;RX&#x63A5;&#x6536;&#x7F51;&#x5361;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x8BBE;&#x7F6E;&#x3002;</li>
+</ol>
+<h2 id="todo"><a name="todo" class="plugin-anchor" href="#todo"><i class="fa fa-link" aria-hidden="true"></i></a>TODO</h2>
+<ol>
+<li>&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x5929;&#x7EBF;/&#x7F51;&#x5361;&#x8FDB;&#x884C;&#x98DE;&#x884C;&#x6D4B;&#x8BD5;</li>
+<li>&#x7814;&#x7A76;&#x4E00;&#x4E0B;&#x4E0D;&#x7528;&#x4FEE;&#x6539;CRDA&#x5C31;&#x80FD;&#x8BBE;&#x7F6E;TX&#x53D1;&#x9001;&#x529F;&#x7387;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x5C06;FEC&#x8C03;&#x6574;&#x5230;&#x5408;&#x9002;&#x7684;&#x5EF6;&#x8FDF;/&#x5197;&#x4F59;.</li>
+</ol>
+<h2 id="&#x5DF2;&#x77E5;&#x53EF;&#x7528;&#x7684;wifi&#x7F51;&#x5361;"><a name="&#x5DF2;&#x77E5;&#x53EF;&#x7528;&#x7684;wifi&#x7F51;&#x5361;" class="plugin-anchor" href="#&#x5DF2;&#x77E5;&#x53EF;&#x7528;&#x7684;wifi&#x7F51;&#x5361;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5DF2;&#x77E5;&#x53EF;&#x7528;&#x7684;Wifi&#x7F51;&#x5361;:</h2>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;Atheros&#x82AF;&#x7247;&#x7684;&#x5747;&#x53EF;:</p>
+<ul>
+<li>Atheros AR9271, Atheros AR9280, Atheros AR9287</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;Ralink&#x82AF;&#x7247;&#x7684;&#x5747;&#x53EF;:</p>
+<ul>
+<li>RT2070, RT2770, RT2870, RT3070, RT3071, RT3072, RT3370, RT3572, RT5370, RT5372, RT5572</li>
+</ul>
+<p>&#x4F46;&#x662F;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x56E0;&#x4E3A;&#x4E00;&#x4E9B;&#x539F;&#x56E0;&#x5BFC;&#x81F4;&#x67D0;&#x4E9B;&#x7F51;&#x5361;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x56E0;&#x6B64;&#x63A8;&#x8350;&#x60A8;&#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x8FC7;&#x7684;&#x7F51;&#x5361;&#x6765;&#x4FDD;&#x8BC1;&#x7EDD;&#x5BF9;&#x53EF;&#x7528;&#x3002;&#xFF1A;</p>
+<ul>
+<li>CSL 300Mbit Stick (2.4/5Ghz, Diversity, RT5572 chipset)</li>
+<li>Alfa AWUS036NHA (2.3/2.4Ghz, high power, Atheros AR9271 chipset)</li>
+<li>TPLink TL-WN722N (2.3/2.4Ghz, Atheros AR9271 chipset)</li>
+<li>ALFA AWUS051NH v2 (2.4Ghz/5Ghz, high power, Ralink RT3572 chipset)</li>
+<li>ALFA AWUS052NH v2 (2.4Ghz/5Ghz, Diversity, high power, Ralink chipset)</li>
+<li>TP-Link-TL-WDN3200 (2.4/5Ghz, Diversity, RT5572 chipset)</li>
+<li>Ralink RT5572 (2.4/5Ghz, Diversity???, RT5572 chipset)</li>
+</ul>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x6BCF;&#x4E2A;&#x4EBA;&#x90FD;&#x7528;&#x76F8;&#x540C;&#x7684;&#x7F51;&#x5361;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x77E5;&#x9053;&#x8FD8;&#x6709;&#x54EA;&#x4E9B;&#x7F51;&#x5361;&#x53EF;&#x4EE5;&#x5DE5;&#x4F5C;&#x4E86;&#x3002;&#x4E2D;&#x56FD;&#x7684;&#x5382;&#x5546;&#x6709;&#x63D0;&#x4F9B;RT5370&#x8FD9;&#x6B3E;&#x5C0F;&#x800C;&#x8F7B;&#x7684;&#x7F51;&#x5361;&#xFF0C;&#x552E;&#x4EF7;&#x5728;4&#x7F8E;&#x5143;&#x4EE5;&#x4E0B;&#x3002;Aliexpress&#x4E0A;&#x4E5F;&#x6709;&#x5F88;&#x591A;&#x5EC9;&#x4EF7;&#x7684;&#x7F51;&#x5361;&#x3002;&#x5982;&#x679C;&#x4F60;&#x53D1;&#x73B0;&#x4E86;&#x4E0A;&#x9762;&#x6CA1;&#x6709;&#x5217;&#x51FA;&#x7684;&#x7F51;&#x5361;&#x4E5F;&#x80FD;&#x7528;&#xFF0C;&#x8BF7;&#x544A;&#x8BC9;&#x6211;&#x4EEC;~</p>
+<ul>
+<li>AWUS036NHA &#x8FD9;&#x6B3E;&#x9002;&#x914D;&#x5668;&#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x5927;&#x7EA6;280mW&#x7684;&#x529F;&#x7387;&#x8F93;&#x51FA;&#x3002;&#x6709;&#x4EBA;&#x5C1D;&#x8BD5;&#x7528;&#x5438;&#x76D8;&#x5929;&#x7EBF;&#x8FBE;&#x5230;&#x8FC7;&#x51E0;&#x516C;&#x91CC;&#x7684;&#x8303;&#x56F4;&#x3002;</li>
+<li><p>TL-WN722N &#x8FD9;&#x6B3E;&#x9002;&#x914D;&#x5668;&#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x5927;&#x7EA6;60mW&#x7684;&#x529F;&#x7387;&#x8F93;&#x51FA;&#x3002;&#x4F7F;&#x7528;2.1dbi  &#x53EF;&#x4EE5;&#x6253;&#x5230;&#x5927;&#x7EA6;800-1000m&#x7684;&#x8DDD;&#x79BB;&#x3002;
+&#x91CD;&#x8981;&#x4E8B;&#x9879;&#xFF1A;&#x5728;&#x7279;&#x5B9A;&#x60C5;&#x5F62;&#x4E0B;&#xFF0C;PCB&#x677F;&#x4E0A;&#x7684;&#x7B2C;&#x4E8C;&#x6839;&#x5929;&#x7EBF;&#x4F1A;&#x5F71;&#x54CD;&#x63A5;&#x6536;&#x4FE1;&#x53F7;&#x8D28;&#x91CF;&#x3002;&#x8BF7;&#x50CF;&#x4E0B;&#x9762;&#x4E00;&#x6837;&#x79FB;&#x9664;PCB&#x677F;&#x540E;&#x9762;&#x7684;&#x767D;&#x8272;&#x7EC4;&#x4EF6;&#x3002;&#xFF08;&#x5728;&#x56FE;&#x7247;&#x4E2D;&#xFF0C;&#x7EC4;&#x4EF6;&#x88AB;&#x710A;&#x63A5;&#x5230;&#x4E0A;&#x9762;&#x7684;&#x677F;&#x5B50;&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x5982;&#x679C;&#x540E;&#x6094;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x6539;&#x56DE;&#x53BB;&#xFF09;</p>
+</li>
+<li><p>CSL 300Mbit stick &#x8FD9;&#x6B3E;&#x9002;&#x914D;&#x5668;&#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x5927;&#x7EA6;30mw&#x7684;&#x529F;&#x7387;&#x8F93;&#x51FA;&#x3002; &#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;5Ghz&#x7684;&#x9891;&#x7387;&#xFF0C;&#x5B83;&#x7684;&#x4F20;&#x8F93;&#x8DDD;&#x79BB;&#x4E0D;&#x662F;&#x5F88;&#x957F;&#x5728;200-300m&#x5DE6;&#x53F3;&#x3002;&#x7531;&#x4E8E;&#x5438;&#x76D8;&#x5929;&#x7EBF;&#x662F;2.4Ghz 2.1dbi&#x957F;&#x8896;&#x5076;&#x6781;&#xFF08;sleeved-dipole&#xFF09;&#x5929;&#x7EBF;&#xFF0C;&#x5B83;&#x4E0D;&#x80FD;&#x7528;&#x5728;5Ghz&#x7684;&#x9891;&#x7387;&#x4E0A;&#x3002;</p>
+</li>
+</ul>
+<p>&#x5F53;&#x88AB;&#x7528;&#x4F5C;Rx&#x63A5;&#x6536;&#x7AEF;&#x65F6;&#xFF0C;&#x4FE1;&#x53F7;&#x5F3A;&#x5EA6;&#x5927;&#x4E8E;-20dbm&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x9020;&#x6210;&#x6570;&#x636E;&#x5728;&#x4F20;&#x8F93;&#x8FC7;&#x7A0B;&#x4E2D;&#x635F;&#x574F;&#x3002;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x589E;&#x52A0;&#x591A;&#x4E2A;&#x9002;&#x914D;&#x5668;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x6307;&#x5411;&#x4E0D;&#x540C;&#x65B9;&#x5411;&#x6216;&#x504F;&#x632F;&#x7684;&#x5929;&#x7EBF;&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
+<ul>
+<li><p>AWUS051NH &#x8FD9;&#x6B3E;&#x9002;&#x914D;&#x5668;&#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x5927;&#x7EA6;330mw&#x7684;&#x529F;&#x7387;&#x8F93;&#x51FA;&#x3002;&#x5728;5GHZ&#x9891;&#x7387;&#x4E0B;&#x5927;&#x6982;&#x4F20;&#x8F93;&#x8DDD;&#x79BB;&#x5728;800-1000m&#x5DE6;&#x53F3;&#x3002;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x5438;&#x76D8;&#x5929;&#x7EBF;&#xFF0C;&#x56E0;&#x4E3A;&#x5438;&#x76D8;&#x5929;&#x7EBF;&#x6709;5dbi&#x7684;&#x589E;&#x76CA;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x8FC7;&#x4E8E;&#x5E73;&#x5766;&#x7684;&#x6563;&#x5C04;&#x6A21;&#x5F0F;&#xFF08;too-flat radiation pattern&#xFF09;&#x3002;</p>
+</li>
+<li><p>AWUS052NH &#x8FD9;&#x6B3E;&#x9002;&#x914D;&#x5668;&#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x5927;&#x7EA6;330mw&#x7684;&#x529F;&#x7387;&#x8F93;&#x51FA;&#x3002;&#x5B83;&#x548C;051NH&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x662F;&#x6CA1;&#x6709;&#x4E24;&#x6761;TX&#x94FE;&#xFF08;TX chains&#xFF09;&#x3002;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x5438;&#x76D8;&#x5929;&#x7EBF;&#xFF0C;&#x56E0;&#x4E3A;&#x5438;&#x76D8;&#x5929;&#x7EBF;&#x6709;5dbi&#x7684;&#x589E;&#x76CA;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x8FC7;&#x4E8E;&#x5E73;&#x5766;&#x7684;&#x6563;&#x5C04;&#x6A21;&#x5F0F;&#xFF08;too-flat radiation pattern&#xFF09;&#x3002;</p>
+</li>
+</ul>
+<h2 id="&#x76F8;&#x5173;&#x94FE;&#x63A5;"><a name="&#x76F8;&#x5173;&#x94FE;&#x63A5;" class="plugin-anchor" href="#&#x76F8;&#x5173;&#x94FE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x76F8;&#x5173;&#x94FE;&#x63A5;:</h2>
+<ul>
+<li><a href="https://befinitiv.wordpress.com/wifibroadcast-analog-like-transmission-of-live-video-data/" target="_blank">Original version</a> of wifibroadcast</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="video_streaming.html" class="navigation navigation-prev " aria-label="Previous page: QGC的视频流">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tutorials/rtk-gps.html" class="navigation navigation-next " aria-label="Next page: u-blox M8P RTK">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/qgc/video_streaming_wifi_broadcast.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"远距离视频流","level":"1.10.4","depth":2,"next":{"title":"u-blox M8P RTK","level":"1.10.5","depth":2,"path":"tutorials/rtk-gps.md","ref":"tutorials/rtk-gps.md","articles":[]},"previous":{"title":"QGC的视频流","level":"1.10.3","depth":2,"path":"qgc/video_streaming.md","ref":"qgc/video_streaming.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"stable (v1.8.2)"},{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"v1.9.0"},"title":"PX4 v1.9.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"qgc/video_streaming_wifi_broadcast.md","mtime":"2019-05-27T08:00:51.658Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-27T08:02:41.178Z"},"basePath":"..","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
