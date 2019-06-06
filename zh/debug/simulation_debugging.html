@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>仿真调试 · PX4 v1.8.2 Developer Guide</title>
+        <title>仿真调试 · PX4 v1.9.0 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -1874,7 +1874,7 @@
 <h2 id="clang-address-sanitizer-mac-os-linux"><a name="clang-address-sanitizer-mac-os-linux" class="plugin-anchor" href="#clang-address-sanitizer-mac-os-linux"><i class="fa fa-link" aria-hidden="true"></i></a>CLANG Address Sanitizer (Mac OS, Linux)</h2>
 <p>The Clang address sanitizer can help to find alignment (bus) errors and other memory faults like segmentation faults. The command below sets the right compile options.</p>
 <pre><code class="lang-sh">make clean <span class="hljs-comment"># only required on first address sanitizer run after a normal build</span>
-PX4_ASAN=1 make posix jmavsim
+PX4_ASAN=1 make px4_sitl jmavsim
 </code></pre>
 <h2 id="valgrind"><a name="valgrind" class="plugin-anchor" href="#valgrind"><i class="fa fa-link" aria-hidden="true"></i></a>Valgrind</h2>
 <pre><code class="lang-sh">brew install valgrind
@@ -1887,21 +1887,13 @@ PX4_ASAN=1 make posix jmavsim
 </blockquote>
 <h2 id="start-combinations"><a name="start-combinations" class="plugin-anchor" href="#start-combinations"><i class="fa fa-link" aria-hidden="true"></i></a>Start combinations</h2>
 <p>SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo as simulation backend. This results in the start options below:</p>
-<pre><code class="lang-sh">make posix_sitl_default jmavsim
-make posix_sitl_default jmavsim___gdb
-make posix_sitl_default jmavsim___lldb
+<pre><code class="lang-sh">make px4_sitl_default jmavsim
+make px4_sitl_default jmavsim___gdb
+make px4_sitl_default jmavsim___lldb
 
-make posix_sitl_default gazebo
-make posix_sitl_default gazebo___gdb
-make posix_sitl_default gazebo___lldb
-
-make posix_sitl_lpe jmavsim
-make posix_sitl_lpe jmavsim___gdb
-make posix_sitl_lpe jmavsim___lldb
-
-make posix_sitl_lpe gazebo
-make posix_sitl_lpe gazebo___gdb
-make posix_sitl_lpe gazebo___lldb
+make px4_sitl_default gazebo
+make px4_sitl_default gazebo___gdb
+make px4_sitl_default gazebo___lldb
 </code></pre>
 <p>where the last parameter is the &lt;viewer_model_debugger&gt; triplet (using three underscores implies the default &apos;iris&apos; model).
 This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit <code>CTRL-C</code>:</p>
@@ -1922,11 +1914,11 @@ libsystem_kernel.dylib`__read_nocancel:
 <pre><code>(gdb) handle SIGCONT noprint nostop
 </code></pre><p>After that the The lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.</p>
 <p>The last parameter, the &lt;viewer_model_debugger&gt; triplet, is actually passed to make in the build directory, so</p>
-<pre><code class="lang-sh">make posix_sitl_lpe jmavsim___gdb
+<pre><code class="lang-sh">make px4_sitl_default jmavsim___gdb
 </code></pre>
 <p>is equivalent with</p>
-<pre><code class="lang-sh">make posix_sitl_lpe    <span class="hljs-comment"># Configure with cmake</span>
-make -C build/posix_sitl_lpe jmavsim___gdb
+<pre><code class="lang-sh">make px4_sitl_default    <span class="hljs-comment"># Configure with cmake</span>
+make -C build/px4_sitl_default jmavsim___gdb
 </code></pre>
 <p>A full list of the available make targets in the build directory can
 be obtained with:</p>
@@ -1996,7 +1988,7 @@ printed with the command:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/debug/simulation_debugging.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"仿真调试","level":"1.9.5","depth":2,"next":{"title":"System-wide Replay","level":"1.9.6","depth":2,"path":"debug/system_wide_replay.md","ref":"debug/system_wide_replay.md","articles":[]},"previous":{"title":"Sensor/Topic Debugging","level":"1.9.4","depth":2,"path":"debug/sensor_uorb_topic_debugging.md","ref":"debug/sensor_uorb_topic_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json"},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bugv1.8.2:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png"},"title":"PX4 v1.8.2 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/simulation_debugging.md","mtime":"2019-01-09T22:39:23.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-09T22:40:46.510Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"translated_page":"https://github.com/PX4/Devguide/blob/master/en/debug/simulation_debugging.md","translated_sha":"95b39d747851dd01c1fe5d36b24e59ec865e323e","title":"仿真调试","level":"1.9.5","depth":2,"next":{"title":"System-wide Replay","level":"1.9.6","depth":2,"path":"debug/system_wide_replay.md","ref":"debug/system_wide_replay.md","articles":[]},"previous":{"title":"Sensor/Topic Debugging","level":"1.9.4","depth":2,"path":"debug/sensor_uorb_topic_debugging.md","ref":"debug/sensor_uorb_topic_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"stable (v1.8.2)"},{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"v1.9.0"},"title":"PX4 v1.9.0 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/simulation_debugging.md","mtime":"2019-05-28T02:20:35.242Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T02:22:17.119Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
