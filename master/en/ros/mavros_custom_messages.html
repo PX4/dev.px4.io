@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Writing your First Application · PX4 Developer Guide</title>
+        <title>Sending Custom Messages from MAVROS · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="module_template.html" />
+    <link rel="next" href="../robotics/dronekit.html" />
     
     
-    <link rel="prev" href="../setup/building_px4.html" />
+    <link rel="prev" href="external_position_estimation.html" />
     
 
     </head>
@@ -398,9 +398,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.4" data-path="hello_sky.html">
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
             
-                <a href="hello_sky.html">
+                <a href="../apps/hello_sky.html">
             
                     
                     Writing your First Application
@@ -411,9 +411,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="module_template.html">
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
             
-                <a href="module_template.html">
+                <a href="../apps/module_template.html">
             
                     
                     Application/Module Template
@@ -1236,9 +1236,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+        <li class="chapter " data-level="1.8.1" data-path="offboard_control.html">
             
-                <a href="../ros/offboard_control.html">
+                <a href="offboard_control.html">
             
                     
                     Offboard Control from Linux
@@ -1249,9 +1249,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+        <li class="chapter " data-level="1.8.2" data-path="./">
             
-                <a href="../ros/">
+                <a href="./">
             
                     
                     ROS
@@ -1263,9 +1263,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+        <li class="chapter " data-level="1.8.2.1" data-path="mavros_installation.html">
             
-                <a href="../ros/mavros_installation.html">
+                <a href="mavros_installation.html">
             
                     
                     MAVROS (MAVLink on ROS)
@@ -1276,9 +1276,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+        <li class="chapter " data-level="1.8.2.2" data-path="mavros_offboard.html">
             
-                <a href="../ros/mavros_offboard.html">
+                <a href="mavros_offboard.html">
             
                     
                     MAVROS Offboard Example
@@ -1315,9 +1315,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+        <li class="chapter " data-level="1.8.2.5" data-path="raspberrypi_installation.html">
             
-                <a href="../ros/raspberrypi_installation.html">
+                <a href="raspberrypi_installation.html">
             
                     
                     ROS Installation on RPi
@@ -1328,9 +1328,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+        <li class="chapter " data-level="1.8.2.6" data-path="external_position_estimation.html">
             
-                <a href="../ros/external_position_estimation.html">
+                <a href="external_position_estimation.html">
             
                     
                     External Position Estimation (Vision/Motion based)
@@ -1341,9 +1341,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+        <li class="chapter active" data-level="1.8.2.7" data-path="mavros_custom_messages.html">
             
-                <a href="../ros/mavros_custom_messages.html">
+                <a href="mavros_custom_messages.html">
             
                     
                     Sending Custom Messages from MAVROS
@@ -2164,7 +2164,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Writing your First Application</a>
+        <a href=".." >Sending Custom Messages from MAVROS</a>
     </h1>
 </div>
 
@@ -2179,437 +2179,318 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="first-application-tutorial-hello-sky"><a name="first-application-tutorial-hello-sky" class="plugin-anchor" href="#first-application-tutorial-hello-sky"><i class="fa fa-link" aria-hidden="true"></i></a>First Application Tutorial (Hello Sky)</h1>
-<p>This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in <a href="module_template.html">Application/Module Template</a>.</p>
+                                <h1 id="sending-custom-message-from-mavros-to-px4"><a name="sending-custom-message-from-mavros-to-px4" class="plugin-anchor" href="#sending-custom-message-from-mavros-to-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Sending Custom Message from MAVROS to PX4</h1>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> This article is not compatible with current development environment/stable versions. 
+  It has been tested against:</p>
+<ul>
+<li><strong>Ubuntu:</strong> 14.04</li>
+<li><strong>ROS:</strong> Kinetic</li>
+<li><strong>PX4 Firmware:</strong> 1.6.2 dev, px4fmu-v2_default</li>
+</ul>
 </blockquote>
-<h2 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h2>
-<p>You will require the following:</p>
-<ul>
-<li><a href="../simulation/">PX4 SITL Simulator</a> <em>or</em> a <a href="https://docs.px4.io/en/flight_controller/#documented-boards" target="_blank">PX4-compatible flight controller</a>.</li>
-<li><a href="../setup/dev_env.html">PX4 Development Toolchain</a> for the desired target.</li>
-<li><a href="../setup/building_px4.html#get_px4_code">Download the PX4 Source Code</a> from Github</li>
-</ul>
-<p>The source code <a href="https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app" target="_blank">Firmware/src/examples/px4_simple_app</a> directory contains a completed version of this tutorial that you can review if you get stuck. </p>
-<ul>
-<li>Rename (or delete) the <strong>px4_simple_app</strong> directory. </li>
-</ul>
-<h2 id="minimal-application"><a name="minimal-application" class="plugin-anchor" href="#minimal-application"><i class="fa fa-link" aria-hidden="true"></i></a>Minimal Application</h2>
-<p>In this section we create a <em>minimal application</em> that just prints out <code>Hello Sky!</code>. This consists of a single <em>C</em> file and a <em>cmake</em> definition (which tells the toolchain how to build the application). </p>
+<!-- Content reproduced with permission from @JoonmoAhn in https://github.com/JoonmoAhn/Sending-Custom-Message-from-MAVROS-to-PX4/issues/1 -->
+<h2 id="mavros-installation"><a name="mavros-installation" class="plugin-anchor" href="#mavros-installation"><i class="fa fa-link" aria-hidden="true"></i></a>MAVROS Installation</h2>
+<p>Follow <em>Source Installation</em> instructions from <a href="https://github.com/mavlink/mavros/blob/master/mavros/README.md" target="_blank">mavlink/mavros</a> to install &quot;ROS Kinetic&quot;.</p>
+<h2 id="mavros-changes"><a name="mavros-changes" class="plugin-anchor" href="#mavros-changes"><i class="fa fa-link" aria-hidden="true"></i></a>MAVROS Changes</h2>
 <ol>
-<li>Create a new directory <strong>Firmware/src/examples/px4_simple_app</strong>.</li>
-<li><p>Create a new C file in that directory named <strong>px4_simple_app.c</strong>:</p>
-<ul>
-<li><p>Copy in the default header to the top of the page. This should be present in all contributed files!</p>
-<pre><code class="lang-c"><span class="hljs-comment">/****************************************************************************
- *
- *   Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
- *    the documentation and/or other materials provided with the
- *    distribution.
- * 3. Neither the name PX4 nor the names of its contributors may be
- *    used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
- * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- *
- ****************************************************************************/</span>
-</code></pre>
-</li>
-<li><p>Copy the following code below the default header. This code style should be used for all files.</p>
-<pre><code class="lang-c"><span class="hljs-comment">/**
- * @file px4_simple_app.c
- * Minimal application example for PX4 autopilot
- *
- * @author Example User &lt;mail@example.com&gt;
- */</span>
+<li><p>Create <strong>keyboard_command.cpp</strong> as a mavros plugin (in <strong>workspace/src/mavros/mavros_extras/src/plugins</strong>) and copy in the code below.
+The code subscribes a &apos;char&apos; message from ROS topic <code>/mavros/keyboard_command/keyboard_sub</code> and sends it as a MAVLink message.</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;mavros/mavros_plugin.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;pluginlib/class_list_macros.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;std_msgs/Char.h&gt;</span></span>
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_log.h&gt;</span></span>
+<span class="hljs-keyword">namespace</span> mavplugin {
 
-__<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>;
+<span class="hljs-keyword">class</span> KeyboardCommandPlugin : <span class="hljs-keyword">public</span> MavRosPlugin {
+<span class="hljs-keyword">public</span>:
+    KeyboardCommandPlugin() :
+        nh(<span class="hljs-string">&quot;~keyboard_command&quot;</span>),
+        uas(<span class="hljs-literal">nullptr</span>)
+    { };
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    PX4_INFO(<span class="hljs-string">&quot;Hello Sky!&quot;</span>);
-    <span class="hljs-keyword">return</span> OK;
-}
-</code></pre>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The main function must be named <code>&lt;module_name&gt;_main</code> and exported from the module as shown.</p>
-</blockquote>
-<p><span></span></p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> <code>PX4_INFO</code> is the equivalent of <code>printf</code> for the PX4 shell (included from <strong>px4_log.h</strong>). There are different log levels: <code>PX4_INFO</code>, <code>PX4_WARN</code>, <code>PX4_ERR</code>, <code>PX4_DEBUG</code>. Warnings and errors are additionally added to the <a href="../log/ulog_file_format.html">ULog</a> and shown on <a href="https://logs.px4.io/" target="_blank">Flight Review</a>.</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>Create and open a new <em>cmake</em> definition file named <strong>CMakeLists.txt</strong>. 
-Copy in the text below:</p>
-<pre><code class="lang-cmake"><span class="hljs-comment">############################################################################</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment">#   Copyright (c) 2015 PX4 Development Team. All rights reserved.</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># Redistribution and use in source and binary forms, with or without</span>
-<span class="hljs-comment"># modification, are permitted provided that the following conditions</span>
-<span class="hljs-comment"># are met:</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># 1. Redistributions of source code must retain the above copyright</span>
-<span class="hljs-comment">#    notice, this list of conditions and the following disclaimer.</span>
-<span class="hljs-comment"># 2. Redistributions in binary form must reproduce the above copyright</span>
-<span class="hljs-comment">#    notice, this list of conditions and the following disclaimer in</span>
-<span class="hljs-comment">#    the documentation and/or other materials provided with the</span>
-<span class="hljs-comment">#    distribution.</span>
-<span class="hljs-comment"># 3. Neither the name PX4 nor the names of its contributors may be</span>
-<span class="hljs-comment">#    used to endorse or promote products derived from this software</span>
-<span class="hljs-comment">#    without specific prior written permission.</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
-<span class="hljs-comment"># &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
-<span class="hljs-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</span>
-<span class="hljs-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</span>
-<span class="hljs-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</span>
-<span class="hljs-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</span>
-<span class="hljs-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS</span>
-<span class="hljs-comment"># OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED</span>
-<span class="hljs-comment"># AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</span>
-<span class="hljs-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</span>
-<span class="hljs-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
-<span class="hljs-comment"># POSSIBILITY OF SUCH DAMAGE.</span>
-<span class="hljs-comment">#</span>
-<span class="hljs-comment">############################################################################</span>
-px4_add_module(
-    MODULE examples__px4_simple_app
-    MAIN px4_simple_app
-    STACK_MAIN <span class="hljs-number">2000</span>
-    SRCS
-        px4_simple_app.c
-    DEPENDS
-    )
-</code></pre>
-<p>The <code>px4_add_module()</code> method builds a static library from a module description. 
-The <code>MAIN</code> block lists the name of the module - this registers the command with NuttX so that it can be called from the PX4 shell or SITL console.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The <code>px4_add_module()</code> format is documented in <a href="https://github.com/PX4/Firmware/blob/master/cmake/px4_add_module.cmake" target="_blank">Firmware/cmake/px4_add_module.cmake</a>.</p>
-<p><strong>Note</strong>
-If you specify <code>DYNAMIC</code> as an option to <code>px4_add_module</code>, a <em>shared library</em> is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code).
-Your app will not become a builtin command, but ends up in a separate file called <code>examples__px4_simple_app.px4mod</code>.
-You can then run your command by loading the file at runtime using the <code>dyn</code> command: <code>dyn ./examples__px4_simple_app.px4mod</code></p>
-</blockquote>
-</li>
-</ol>
-<h2 id="build-the-applicationfirmware"><a name="build-the-applicationfirmware" class="plugin-anchor" href="#build-the-applicationfirmware"><i class="fa fa-link" aria-hidden="true"></i></a>Build the Application/Firmware</h2>
-<p>The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. 
-Applications are added to the build/firmware in the appropriate board-level <em>cmake</em> file for your target: </p>
-<ul>
-<li>PX4 SITL (Simulator): <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake" target="_blank">Firmware/boards/px4/sitl/default.cmake</a></li>
-<li>Pixhawk v1/2: <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake" target="_blank">Firmware/boards/px4/fmu-v2/default.cmake</a></li>
-<li>Pixracer (px4/fmu-v4): <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v4/default.cmake" target="_blank">Firmware/boards/px4/fmu-v4/default.cmake</a></li>
-<li><em>cmake</em> files for other boards can be found in <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">Firmware/boards/</a></li>
-</ul>
-<p>To enable the compilation of the application into the firmware create a new line for your application somewhere in the <em>cmake</em> file:</p>
-<pre><code>examples/px4_simple_app
-</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The line will already be present for most files, because the examples are included in firmware by default.</p>
-</blockquote>
-<p>Build the example using the board-specific command:</p>
-<ul>
-<li>jMAVSim Simulator: <code>make px4_sitl_default jmavsim</code></li>
-<li>Pixhawk v1/2: <code>make px4_fmu-v2_default</code> (or just <code>make px4_fmu-v2</code>)</li>
-<li>Pixhawk v3: <code>make px4_fmu-v4_default</code></li>
-<li>Other boards: <a href="../setup/building_px4.html#building_nuttx">Building the Code</a></li>
-</ul>
-<h2 id="test-app-hardware"><a name="test-app-hardware" class="plugin-anchor" href="#test-app-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Test App (Hardware)</h2>
-<h3 id="upload-the-firmware-to-your-board"><a name="upload-the-firmware-to-your-board" class="plugin-anchor" href="#upload-the-firmware-to-your-board"><i class="fa fa-link" aria-hidden="true"></i></a>Upload the firmware to your board</h3>
-<p>Enable the uploader and then reset the board:</p>
-<ul>
-<li>Pixhawk v1/2: <code>make px4_fmu-v2_default upload</code></li>
-<li>Pixhawk v3: <code>make px4_fmu-v4_default upload</code></li>
-</ul>
-<p>It should print before you reset the board a number of compile messages and at the end:</p>
-<pre><code class="lang-sh">Loaded firmware <span class="hljs-keyword">for</span> X,X, waiting <span class="hljs-keyword">for</span> the bootloader...
-</code></pre>
-<p>Once the board is reset, and uploads, it prints:</p>
-<pre><code class="lang-sh">Erase  : [====================] 100.0%
-Program: [====================] 100.0%
-Verify : [====================] 100.0%
-Rebooting.
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(UAS &amp;uas_)</span>
+    </span>{
+        uas = &amp;uas_;
+        keyboard_sub = nh.subscribe(<span class="hljs-string">&quot;keyboard_sub&quot;</span>, <span class="hljs-number">10</span>, &amp;KeyboardCommandPlugin::keyboard_cb, <span class="hljs-keyword">this</span>);
+    };
 
-[100%] Built target upload
-</code></pre>
-<h3 id="connect-the-console"><a name="connect-the-console" class="plugin-anchor" href="#connect-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Connect the Console</h3>
-<p>Now connect to the <a href="../debug/system_console.html">system console</a> either via serial or USB. 
-Hitting <strong>ENTER</strong> will bring up the shell prompt:</p>
-<pre><code class="lang-sh">nsh&gt;
-</code></pre>
-<p>Type &apos;&apos;help&apos;&apos; and hit ENTER</p>
-<pre><code class="lang-sh">nsh&gt; <span class="hljs-built_in">help</span>
-  <span class="hljs-built_in">help</span> usage:  <span class="hljs-built_in">help</span> [-v] [&lt;cmd&gt;]
+    <span class="hljs-function"><span class="hljs-keyword">const</span> message_map <span class="hljs-title">get_rx_handlers</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> {<span class="hljs-comment">/* RX disabled */</span> };
+    }
 
-  [           df          <span class="hljs-built_in">kill</span>        mkfifo      ps          sleep       
-  ?           <span class="hljs-built_in">echo</span>        losetup     mkrd        <span class="hljs-built_in">pwd</span>         <span class="hljs-built_in">test</span>        
-  cat         <span class="hljs-built_in">exec</span>        ls          mh          rm          umount      
-  <span class="hljs-built_in">cd</span>          <span class="hljs-built_in">exit</span>        mb          mount       rmdir       <span class="hljs-built_in">unset</span>       
-  cp          free        mkdir       mv          <span class="hljs-built_in">set</span>         usleep      
-  dd          <span class="hljs-built_in">help</span>        mkfatfs     mw          sh          xd          
+<span class="hljs-keyword">private</span>:
+    ros::NodeHandle nh;
+    UAS *uas;
+    ros::Subscriber keyboard_sub;
 
-Builtin Apps:
-  reboot
-  perf
-  top
-  ..
-  px4_simple_app
-  ..
-  sercon
-  serdis
-</code></pre>
-<p>Note that <code>px4_simple_app</code> is now part of the available commands. Start it by typing <code>px4_simple_app</code> and ENTER:</p>
-<pre><code class="lang-sh">nsh&gt; px4_simple_app
-Hello Sky!
-</code></pre>
-<p>The application is now correctly registered with the system and can be extended to actually perform useful tasks.</p>
-<h2 id="test-app-sitl"><a name="test-app-sitl" class="plugin-anchor" href="#test-app-sitl"><i class="fa fa-link" aria-hidden="true"></i></a>Test App (SITL)</h2>
-<p>If you&apos;re using SITL the <em>PX4 console</em> is automatically started (see <a href="../setup/building_px4.html#jmavsim_build">Building the Code &gt; First Build (Using the jMAVSim Simulator)</a>). 
-As with the <em>nsh console</em> (see previous section) you can type <code>help</code> to see the list of built-in apps.</p>
-<p>Enter <code>px4_simple_app</code> to run the minimal app.</p>
-<pre><code class="lang-sh">pxh&gt; px4_simple_app
-INFO  [px4_simple_app] Hello Sky!
-</code></pre>
-<p>The application can now be extended to actually perform useful tasks.</p>
-<h2 id="subscribing-to-sensor-data"><a name="subscribing-to-sensor-data" class="plugin-anchor" href="#subscribing-to-sensor-data"><i class="fa fa-link" aria-hidden="true"></i></a>Subscribing to Sensor Data</h2>
-<p>To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands). </p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.</p>
-</blockquote>
-<p>Individual message channels between applications are called <a href="../middleware/uorb.html">topics</a>. For this tutorial, we are interested in the <a href="https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg" target="_blank">sensor_combined</a> topic, which holds the synchronized sensor data of the complete system.</p>
-<p>Subscribing to a topic is straightforward:</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/sensor_combined.h&gt;</span></span>
-..
-<span class="hljs-keyword">int</span> sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-</code></pre>
-<p>The <code>sensor_sub_fd</code> is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the <a href="http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html" target="_blank">poll()</a> POSIX system call.</p>
-<p>Adding <code>poll()</code> to the subscription looks like (<em>pseudocode, look for the full implementation below</em>):</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;poll.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/sensor_combined.h&gt;</span></span>
-..
-<span class="hljs-keyword">int</span> sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">send_to_pixhawk</span><span class="hljs-params">(<span class="hljs-keyword">char</span> cmd)</span>
+    </span>{
+        <span class="hljs-keyword">mavlink_message_t</span> msg;
+        mavlink_msg_key_command_pack_chan(UAS_PACK_CHAN(uas), &amp;msg, cmd);
+        UAS_FCU(uas)-&gt;send_message(&amp;msg);
+    }
 
-<span class="hljs-comment">/* one could wait for multiple topics with this technique, just using one here */</span>
-<span class="hljs-keyword">px4_pollfd_struct_t</span> fds[] = {
-    { .fd = sensor_sub_fd,   .events = POLLIN },
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">keyboard_cb</span><span class="hljs-params">(<span class="hljs-keyword">const</span> std_msgs::Char::ConstPtr &amp;req)</span>
+    </span>{
+        <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Got Char : &quot;</span> &lt;&lt; req-&gt;data &lt;&lt;  <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+        send_to_pixhawk(req-&gt;data);
+    }
+};
 };
 
-<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
-    <span class="hljs-comment">/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */</span>
-    <span class="hljs-keyword">int</span> poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);
-    ..
-    <span class="hljs-keyword">if</span> (fds[<span class="hljs-number">0</span>].revents &amp; POLLIN) {
-        <span class="hljs-comment">/* obtained data for the first file descriptor */</span>
-        <span class="hljs-keyword">struct</span> sensor_combined_s raw;
-        <span class="hljs-comment">/* copy sensors raw data into local buffer */</span>
-        orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &amp;raw);
-        PX4_INFO(<span class="hljs-string">&quot;Accelerometer:\t%8.4f\t%8.4f\t%8.4f&quot;</span>,
-                    (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">0</span>],
-                    (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">1</span>],
-                    (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">2</span>]);
+PLUGINLIB_EXPORT_CLASS(mavplugin::KeyboardCommandPlugin, mavplugin::MavRosPlugin)
+</code></pre>
+</li>
+<li><p>Edit <strong>mavros_plugins.xml</strong> (in <strong>workspace/src/mavros/mavros_extras</strong>) and add following lines:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">class</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;keyboard_command&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;mavplugin::KeyboardCommandPlugin&quot;</span> <span class="hljs-attr">base_class_type</span>=<span class="hljs-string">&quot;mavplugin::MavRosPlugin&quot;</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Accepts Keyboard Command <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">class</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Edit <strong>CMakeLists.txt</strong> (in <strong>workspace/src/mavros/mavros_extras</strong>) and add following line in <code>add_library</code>.</p>
+<pre><code class="lang-cmake"><span class="hljs-keyword">add_library</span>( 
+...
+  src/plugins/keyboard_command.cpp 
+)
+</code></pre>
+</li>
+<li><p>Inside <strong>common.xml</strong> in (<strong>workspace/src/mavlink/message_definitions/v1.0</strong>), add your MAVLink message:</p>
+<pre><code class="lang-xml">...
+  <span class="hljs-tag">&lt;<span class="hljs-name">message</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;229&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;KEY_COMMAND&quot;</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span> mavlink message creating test <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;char&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;command&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">message</span>&gt;</span>
+...
+</code></pre>
+</li>
+</ol>
+<h2 id="px4-changes"><a name="px4-changes" class="plugin-anchor" href="#px4-changes"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Changes</h2>
+<ol>
+<li><p>Inside <strong>common.xml</strong> (in <strong>Firmware/mavlink/include/mavlink/v2.0/message_definitions</strong>), add your MAVLink message as following (as for MAVROS section above):</p>
+<pre><code class="lang-xml">...
+  <span class="hljs-tag">&lt;<span class="hljs-name">message</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;229&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;KEY_COMMAND&quot;</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span> mavlink message creating test <span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">field</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;char&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;command&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">field</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">message</span>&gt;</span>
+...
+</code></pre>
+</li>
+<li><p>Remove <em>common</em>, <em>standard</em> directories in (<strong>Firmware/mavlink/include/mavlink/v2.0</strong>).</p>
+<pre><code class="lang-sh">rm -r common
+rm -r standard
+</code></pre>
+</li>
+<li><p>Git clone &quot;mavlink_generator&quot; in your home directory (or any directory you want) and execute it.</p>
+<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/mavlink/mavlink mavlink-generator
+<span class="hljs-built_in">cd</span> mavlink-generator
+python mavgenerate.py
+</code></pre>
+</li>
+<li><p>You will see a &quot;MAVLink Generator&quot; popup:</p>
+<ul>
+<li>For <em>XML</em>, &quot;Browse&quot; to <strong>/Firmware/mavlink/include/mavlink/v2.0/message_definitions/standard.xml</strong>.</li>
+<li>For Out, &quot;Browse&quot; to <strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>.</li>
+<li>Select Language <strong>C</strong></li>
+<li>Select Protocol <strong>2.0</strong></li>
+<li>Check <em>Validate</em></li>
+</ul>
+<p>Then, press <strong>Generate</strong>.
+You will see <em>common</em>, and <em>standard</em> directories created in <strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>.</p>
+</li>
+<li><p>Make your own uORB message file <strong>key_command.msg</strong> in (Firmware/msg). My &quot;key_command.msg&quot; has only the code:</p>
+<pre><code>char cmd
+</code></pre><p>Then, in <strong>CMakeLists.txt</strong> (in <strong>Firmware/msg</strong>), include</p>
+<pre><code class="lang-cmake"><span class="hljs-keyword">set</span>(
+...
+     key_command.msg
+     )
+</code></pre>
+</li>
+<li><p>Edit <strong>mavlink_receiver.h</strong> (in <strong>Firmware/src/modules/mavlink</strong>)</p>
+<pre><code class="lang-cpp">...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/key_command.h&gt;</span></span>
+...
+<span class="hljs-keyword">class</span> MavlinkReceiver
+{
+...
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">handle_message_key_command</span><span class="hljs-params">(mavlink_message_t *msg)</span></span>;
+...
+    <span class="hljs-keyword">orb_advert_t</span> _key_command_pub;
+}
+</code></pre>
+</li>
+<li><p>Edit <strong>mavlink_receiver.cpp</strong> (in <strong>Firmware/src/modules/mavlink</strong>).
+This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.</p>
+<pre><code class="lang-cpp">...
+MavlinkReceiver::MavlinkReceiver(Mavlink *parent) :
+...
+ _key_command_pub(<span class="hljs-literal">nullptr</span>)
+...
+<span class="hljs-keyword">void</span> MavlinkReceiver::handle_message(<span class="hljs-keyword">mavlink_message_t</span> *msg)
+{
+...
+ <span class="hljs-keyword">case</span> MAVLINK_MSG_ID_KEY_COMMAND:
+        handle_message_key_command(msg);
+        <span class="hljs-keyword">break</span>;
+...
+}
+...
+<span class="hljs-keyword">void</span>
+MavlinkReceiver::handle_message_key_command(<span class="hljs-keyword">mavlink_message_t</span> *msg)
+{
+    <span class="hljs-keyword">mavlink_key_command_t</span> man;
+    mavlink_msg_key_command_decode(msg, &amp;man);
+
+<span class="hljs-keyword">struct</span> key_command_s key = {};
+
+    key.timestamp = hrt_absolute_time();
+    key.cmd = man.command;
+
+    <span class="hljs-keyword">if</span> (_key_command_pub == <span class="hljs-literal">nullptr</span>) {
+        _key_command_pub = orb_advertise(ORB_ID(key_command), &amp;key);
+
+    } <span class="hljs-keyword">else</span> {
+        orb_publish(ORB_ID(key_command), _key_command_pub, &amp;key);
     }
 }
 </code></pre>
-<p>Compile the app again by entering:</p>
-<pre><code class="lang-sh">make
+</li>
+<li><p>Make your own uORB topic subscriber just like any example subscriber module. In my case, I made my own module in (/Firmware/src/inrol/key_receiver). 
+In this directory, I have two files <strong>CMakeLists.txt</strong>, <strong>key_receiver.cpp</strong>.
+Each one looks like following.</p>
+<p>-CMakeLists.txt</p>
+<pre><code class="lang-cmake">px4_add_module(
+    MODULE inrol__key_receiver
+    MAIN key_receiver
+    STACK_MAIN <span class="hljs-number">2500</span>
+    STACK_MAX <span class="hljs-number">4000</span>
+    SRCS
+        key_receiver.cpp
+    DEPENDS
+        platforms__common
+
+    )
 </code></pre>
-<h3 id="testing-the-uorb-subscription"><a name="testing-the-uorb-subscription" class="plugin-anchor" href="#testing-the-uorb-subscription"><i class="fa fa-link" aria-hidden="true"></i></a>Testing the uORB Subscription</h3>
-<p>The final step is to start your application as a background process/task by typing the following in the nsh shell:</p>
-<pre><code class="lang-sh">px4_simple_app &amp;
-</code></pre>
-<p>Your app will display 5 sensor values in the console and then exit:</p>
-<pre><code class="lang-sh">[px4_simple_app] Accelerometer:   0.0483          0.0821          0.0332
-[px4_simple_app] Accelerometer:   0.0486          0.0820          0.0336
-[px4_simple_app] Accelerometer:   0.0487          0.0819          0.0327
-[px4_simple_app] Accelerometer:   0.0482          0.0818          0.0323
-[px4_simple_app] Accelerometer:   0.0482          0.0827          0.0331
-[px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
-</code></pre>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The <a href="module_template.html">Module Template for Full Applications</a> can be used to write background process that can be controlled from the command line.</p>
-</blockquote>
-<h2 id="publishing-data"><a name="publishing-data" class="plugin-anchor" href="#publishing-data"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing Data</h2>
-<p>To use the calculated outputs, the next step is to <em>publish</em> the results. Below we show how to publish the attitude topic.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> We&apos;ve chosen <code>attitude</code> because we know that the <em>mavlink</em> app forwards it to the ground control station - providing an easy way to look at the results.</p>
-</blockquote>
-<p>The interface is pretty simple: initialize the <code>struct</code> of the topic to be published and advertise the topic:</p>
-<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/vehicle_attitude.h&gt;</span></span>
-..
-<span class="hljs-comment">/* advertise attitude topic */</span>
-<span class="hljs-keyword">struct</span> vehicle_attitude_s att;
-<span class="hljs-built_in">memset</span>(&amp;att, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(att));
-<span class="hljs-keyword">orb_advert_t</span> att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &amp;att);
-</code></pre>
-<p>In the main loop, publish the information whenever its ready:</p>
-<pre><code class="lang-c">orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &amp;att);
-</code></pre>
-<h2 id="full-example-code"><a name="full-example-code" class="plugin-anchor" href="#full-example-code"><i class="fa fa-link" aria-hidden="true"></i></a>Full Example Code</h2>
-<p>The <a href="https://github.com/PX4/Firmware/blob/master/src/examples/px4_simple_app/px4_simple_app.c" target="_blank">complete example code</a> is now:</p>
-<pre><code class="lang-c"><span class="hljs-comment">/****************************************************************************
- *
- *   Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in
- *    the documentation and/or other materials provided with the
- *    distribution.
- * 3. Neither the name PX4 nor the names of its contributors may be
- *    used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
- * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
- * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
- * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
- * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- *
- ****************************************************************************/</span>
+<p>-key_receiver.cpp</p>
+<pre><code>#include &lt;px4_config.h&gt;
+#include &lt;px4_tasks.h&gt;
+#include &lt;px4_posix.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;poll.h&gt;
+#include &lt;string.h&gt;
+#include &lt;math.h&gt;
 
-<span class="hljs-comment">/**
- * @file px4_simple_app.c
- * Minimal application example for PX4 autopilot
- *
- * @author Example User &lt;mail@example.com&gt;
- */</span>
+#include &lt;uORB/uORB.h&gt;
+#include &lt;uORB/topics/key_command.h&gt;
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_config.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_tasks.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_posix.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;poll.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;math.h&gt;</span></span>
+extern &quot;C&quot; {__EXPORT int key_receiver_main(int argc, char **argv);}
 
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/uORB.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/sensor_combined.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/vehicle_attitude.h&gt;</span></span>
+int key_receiver_main(int argc, char **argv)
+{
+    int key_sub_fd = orb_subscribe(ORB_ID(key_command));
+    orb_set_interval(key_sub_fd, 200); // limit the update rate to 200ms
 
-__<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>;
+    px4_pollfd_struct_t fds[1];
+    fds[0].fd = key_sub_fd, fds[0].events = POLLIN;
 
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
-</span>{
-    PX4_INFO(<span class="hljs-string">&quot;Hello Sky!&quot;</span>);
+    int error_counter = 0;
 
-    <span class="hljs-comment">/* subscribe to sensor_combined topic */</span>
-    <span class="hljs-keyword">int</span> sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
-    <span class="hljs-comment">/* limit the update rate to 5 Hz */</span>
-    orb_set_interval(sensor_sub_fd, <span class="hljs-number">200</span>);
+    while(1)
+    {
+        int poll_ret = px4_poll(fds, 1, 1000);
 
-    <span class="hljs-comment">/* advertise attitude topic */</span>
-    <span class="hljs-keyword">struct</span> vehicle_attitude_s att;
-    <span class="hljs-built_in">memset</span>(&amp;att, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(att));
-    <span class="hljs-keyword">orb_advert_t</span> att_pub = orb_advertise(ORB_ID(vehicle_attitude), &amp;att);
+        if (poll_ret == 0)
+        {
+            PX4_ERR(&quot;Got no data within a second&quot;);
+        }
 
-    <span class="hljs-comment">/* one could wait for multiple topics with this technique, just using one here */</span>
-    <span class="hljs-keyword">px4_pollfd_struct_t</span> fds[] = {
-        { .fd = sensor_sub_fd,   .events = POLLIN },
-        <span class="hljs-comment">/* there could be more file descriptors here, in the form like:
-         * { .fd = other_sub_fd,   .events = POLLIN },
-         */</span>
-    };
-
-    <span class="hljs-keyword">int</span> error_counter = <span class="hljs-number">0</span>;
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
-        <span class="hljs-comment">/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */</span>
-        <span class="hljs-keyword">int</span> poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);
-
-        <span class="hljs-comment">/* handle the poll result */</span>
-        <span class="hljs-keyword">if</span> (poll_ret == <span class="hljs-number">0</span>) {
-            <span class="hljs-comment">/* this means none of our providers is giving us data */</span>
-            PX4_ERR(<span class="hljs-string">&quot;Got no data within a second&quot;</span>);
-
-        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (poll_ret &lt; <span class="hljs-number">0</span>) {
-            <span class="hljs-comment">/* this is seriously bad - should be an emergency */</span>
-            <span class="hljs-keyword">if</span> (error_counter &lt; <span class="hljs-number">10</span> || error_counter % <span class="hljs-number">50</span> == <span class="hljs-number">0</span>) {
-                <span class="hljs-comment">/* use a counter to prevent flooding (and slowing us down) */</span>
-                PX4_ERR(<span class="hljs-string">&quot;ERROR return value from poll(): %d&quot;</span>, poll_ret);
+        else if (poll_ret &lt; 0)
+        {
+            if (error_counter &lt; 10 || error_counter % 50 == 0)
+            {
+                PX4_ERR(&quot;ERROR return value from poll(): %d&quot;, poll_ret);
             }
 
             error_counter++;
+        }
 
-        } <span class="hljs-keyword">else</span> {
-
-            <span class="hljs-keyword">if</span> (fds[<span class="hljs-number">0</span>].revents &amp; POLLIN) {
-                <span class="hljs-comment">/* obtained data for the first file descriptor */</span>
-                <span class="hljs-keyword">struct</span> sensor_combined_s raw;
-                <span class="hljs-comment">/* copy sensors raw data into local buffer */</span>
-                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &amp;raw);
-                PX4_INFO(<span class="hljs-string">&quot;Accelerometer:\t%8.4f\t%8.4f\t%8.4f&quot;</span>,
-                     (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">0</span>],
-                     (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">1</span>],
-                     (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">2</span>]);
-
-                <span class="hljs-comment">/* set att and publish this information for other apps
-                 the following does not have any meaning, it&apos;s just an example
-                */</span>
-                att.q[<span class="hljs-number">0</span>] = raw.accelerometer_m_s2[<span class="hljs-number">0</span>];
-                att.q[<span class="hljs-number">1</span>] = raw.accelerometer_m_s2[<span class="hljs-number">1</span>];
-                att.q[<span class="hljs-number">2</span>] = raw.accelerometer_m_s2[<span class="hljs-number">2</span>];
-
-                orb_publish(ORB_ID(vehicle_attitude), att_pub, &amp;att);
-            }
-
-            <span class="hljs-comment">/* there could be more file descriptors here, in the form like:
-             * if (fds[1..n].revents &amp; POLLIN) {}
-             */</span>
+        else
+        {
+            if (fds[0].revents &amp; POLLIN)
+            {
+                struct key_command_s input;
+                orb_copy(ORB_ID(key_command), key_sub_fd, &amp;input);
+                PX4_INFO(&quot;Recieved Char : %c&quot;, input.cmd);
+             }
         }
     }
-
-    PX4_INFO(<span class="hljs-string">&quot;exiting&quot;</span>);
-
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    return 0;
 }
+</code></pre></li>
+<li><p>Add your module in <strong>nuttx_px4fmu-v2_default.cmake</strong> (in <strong>Firmware/cmake/configs</strong>).</p>
+<pre><code class="lang-cmake"><span class="hljs-keyword">set</span>(config_module_list
+...
+inrol/key_receiver
+)
 </code></pre>
-<h2 id="running-the-complete-example"><a name="running-the-complete-example" class="plugin-anchor" href="#running-the-complete-example"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Complete Example</h2>
-<p>And finally run your app:</p>
-<pre><code class="lang-sh">px4_simple_app
+</li>
+</ol>
+<p>Now you are ready to build all your work!</p>
+<h2 id="building"><a name="building" class="plugin-anchor" href="#building"><i class="fa fa-link" aria-hidden="true"></i></a>Building</h2>
+<h3 id="build-for-ros"><a name="build-for-ros" class="plugin-anchor" href="#build-for-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Build for ROS</h3>
+<ol>
+<li>In your workspace enter: <code>catkin build</code>.</li>
+<li><p>Beforehand, you have to set your &quot;px4.launch&quot; in (/workspace/src/mavros/mavros/launch). 
+Edit &quot;px4.launch&quot; as below.
+If you are using USB to connect your computer with Pixhawk, you have to set &quot;fcu_url&quot; as shown below.
+But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace &quot;ttyACM0&quot; with &quot;ttyUSB0&quot;.
+Modifying &quot;gcs_url&quot; is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.</p>
+</li>
+<li><p>Write your IP address at &quot;xxx.xx.xxx.xxx&quot;</p>
+<pre><code class="lang-xml">...
+  <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;fcu_url&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;/dev/ttyACM0:57600&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gcs_url&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;udp://:14550@xxx.xx.xxx.xxx:14557&quot;</span> /&gt;</span>
+...
 </code></pre>
-<p>If you start <em>QGroundControl</em>, you can check the sensor values in the real time plot (<strong>Widgets &gt; Analyze</strong>).</p>
-<h2 id="wrap-up"><a name="wrap-up" class="plugin-anchor" href="#wrap-up"><i class="fa fa-link" aria-hidden="true"></i></a>Wrap-Up</h2>
-<p>This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is <a href="https://github.com/PX4/Firmware/tree/master/msg/" target="_blank">available here</a> and that the headers are well documented and serve as reference.</p>
-<p>Further information and troubleshooting/common pitfalls can be found here: <a href="../middleware/uorb.html">uORB</a>.</p>
-<p>The next page presents a template for writing a full application with start and stop functionality.</p>
+</li>
+</ol>
+<h3 id="build-for-px4"><a name="build-for-px4" class="plugin-anchor" href="#build-for-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Build for PX4</h3>
+<p>Build PX4 Firmware and upload <a href="../setup/building_px4.html#nuttx--pixhawk-based-boards">in the normal way</a>.</p>
+<p>For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the Firmware directory:</p>
+<pre><code class="lang-sh">make px4fmu-v5_default upload
+</code></pre>
+<h2 id="running-the-code"><a name="running-the-code" class="plugin-anchor" href="#running-the-code"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Code</h2>
+<p>Next test if the MAVROS message is sent to PX4.</p>
+<h3 id="running-ros"><a name="running-ros" class="plugin-anchor" href="#running-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Running ROS</h3>
+<ol>
+<li>In a terminal enter<pre><code class="lang-sh">roslaunch mavros px4.launch
+</code></pre>
+</li>
+<li>In a second terminal run:<pre><code class="lang-sh">rostopic pub -r 10 /mavros/keyboard_<span class="hljs-built_in">command</span>/keyboard_sub std_msgs/Char 97
+</code></pre>
+This means, publish 97 (&apos;a&apos; in ASCII) to ROS topic &quot;/mavros/keyboard_command/keyboard_sub&quot; in message type &quot;std_msgs/Char&quot;. &quot;-r 10&quot; means to publish continuously in &quot;10Hz&quot;.</li>
+</ol>
+<h3 id="running-px4"><a name="running-px4" class="plugin-anchor" href="#running-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Running PX4</h3>
+<ol>
+<li><p>Go into the Pixhawk nutshell through UDP.
+Write your IP at xxx.xx.xxx.xxx.</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware/Tools
+./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
+</code></pre>
+</li>
+<li><p>After few seconds, press <strong>Enter</strong> several times.
+You should see a prompt in the terminal as below:</p>
+<pre><code class="lang-sh">nsh&gt;
+</code></pre>
+<p>Type &quot;key_receiver&quot;, to run your subscriber module.</p>
+<pre><code>nsh&gt; key_receiver
+</code></pre></li>
+</ol>
+<p>Check if it successfully receives <code>a</code> from your ROS topic.</p>
 
                                 
                                 </section>
@@ -2637,12 +2518,12 @@ __<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span
 
             
                 
-                <a href="../setup/building_px4.html" class="navigation navigation-prev " aria-label="Previous page: Building the Code">
+                <a href="external_position_estimation.html" class="navigation navigation-prev " aria-label="Previous page: External Position Estimation (Vision/Motion based)">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="module_template.html" class="navigation navigation-next " aria-label="Next page: Application/Module Template">
+                <a href="../robotics/dronekit.html" class="navigation navigation-next " aria-label="Next page: DroneKit">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2653,7 +2534,7 @@ __<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Writing your First Application","level":"1.2.4","depth":2,"next":{"title":"Application/Module Template","level":"1.2.5","depth":2,"path":"apps/module_template.md","ref":"apps/module_template.md","articles":[]},"previous":{"title":"Building the Code","level":"1.2.3","depth":2,"path":"setup/building_px4.md","ref":"setup/building_px4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"stable (v1.9.0)"},{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9.0"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"apps/hello_sky.md","mtime":"2019-06-06T23:58:09.498Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-07T00:00:21.192Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/en/","text":"stable (v1.9.0)"},{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9.0"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/mavros_custom_messages.md","mtime":"2019-06-06T23:58:09.502Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-07T00:00:21.192Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
