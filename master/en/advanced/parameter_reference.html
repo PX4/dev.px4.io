@@ -2613,7 +2613,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_BUZZER">CBRK_BUZZER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for disabling buzzer</p><p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Circuit breaker for disabling buzzer</p><p><strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 &gt; 782097 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5162,6 +5162,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -5187,6 +5189,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -5369,6 +5373,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -5882,6 +5888,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -5948,6 +5956,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -6014,6 +6024,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -8648,6 +8660,8 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -8673,6 +8687,8 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -12455,11 +12471,34 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Distance Sensor Rotation</p><p><strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> ROTATION_FORWARD_FACING</li> 
+
+<li><strong>2:</strong> ROTATION_RIGHT_FACING</li> 
+
+<li><strong>6:</strong> ROTATION_LEFT_FACING</li> 
+
+<li><strong>12:</strong> ROTATION_BACKWARD_FACING</li> 
+
+<li><strong>24:</strong> ROTATION_UPWARD_FACING</li> 
+
+<li><strong>25:</strong> ROTATION_DOWNWARD_FACING</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -12649,6 +12688,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13274,6 +13315,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13306,6 +13349,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13331,6 +13376,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -13347,6 +13394,33 @@ is less than 50% of this value</p>   </td>
    <tr><th>Name</th><th>Description</th><th>Min &gt; Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="RC_PORT_CONFIG">RC_PORT_CONFIG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Serial Configuration for RC Input Driver</p><p><strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to &apos;Disabled&apos; will use a board-specific default port for RC input.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">300 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS1_BAUD">SER_GPS1_BAUD</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Baudrate for the GPS 1 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
@@ -13411,6 +13485,67 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Baudrate for the GPS 2 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>50:</strong> 50 8N1</li> 
+
+<li><strong>75:</strong> 75 8N1</li> 
+
+<li><strong>110:</strong> 110 8N1</li> 
+
+<li><strong>134:</strong> 134 8N1</li> 
+
+<li><strong>150:</strong> 150 8N1</li> 
+
+<li><strong>200:</strong> 200 8N1</li> 
+
+<li><strong>300:</strong> 300 8N1</li> 
+
+<li><strong>600:</strong> 600 8N1</li> 
+
+<li><strong>1200:</strong> 1200 8N1</li> 
+
+<li><strong>1800:</strong> 1800 8N1</li> 
+
+<li><strong>2400:</strong> 2400 8N1</li> 
+
+<li><strong>4800:</strong> 4800 8N1</li> 
+
+<li><strong>9600:</strong> 9600 8N1</li> 
+
+<li><strong>19200:</strong> 19200 8N1</li> 
+
+<li><strong>38400:</strong> 38400 8N1</li> 
+
+<li><strong>57600:</strong> 57600 8N1</li> 
+
+<li><strong>115200:</strong> 115200 8N1</li> 
+
+<li><strong>230400:</strong> 230400 8N1</li> 
+
+<li><strong>460800:</strong> 460800 8N1</li> 
+
+<li><strong>500000:</strong> 500000 8N1</li> 
+
+<li><strong>921600:</strong> 921600 8N1</li> 
+
+<li><strong>1000000:</strong> 1000000 8N1</li> 
+
+<li><strong>1500000:</strong> 1500000 8N1</li> 
+
+<li><strong>2000000:</strong> 2000000 8N1</li> 
+
+<li><strong>3000000:</strong> 3000000 8N1</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SER_RC_BAUD">SER_RC_BAUD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Baudrate for the Radio Controller Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the Radio Controller Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -14194,6 +14329,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14219,6 +14356,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -15939,7 +16078,7 @@ MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parameter Reference","level":"1.11.2","depth":2,"next":{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},"previous":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameter_reference.md","mtime":"2019-07-14T23:14:33.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-14T23:16:06.862Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Parameter Reference","level":"1.11.2","depth":2,"next":{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},"previous":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameter_reference.md","mtime":"2019-07-16T08:11:49.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-16T08:13:24.237Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
