@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Translation · PX4 Developer Guide</title>
+        <title>Flight Controller Reference Design · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="notation.html" />
+    <link rel="next" href="porting_guide.html" />
     
     
-    <link rel="prev" href="docs.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -127,7 +127,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -150,7 +150,7 @@
                 <a href="../">
             
                     
-                    简介
+                    Introduction
             
                 </a>
             
@@ -163,7 +163,7 @@
                 <a href="../setup/getting_started.html">
             
                     
-                    由此开始
+                    Getting Started
             
                 </a>
             
@@ -177,7 +177,7 @@
                 <a href="../setup/config_initial.html">
             
                     
-                    初始设置
+                    Initial Setup
             
                 </a>
             
@@ -190,7 +190,7 @@
                 <a href="../setup/dev_env.html">
             
                     
-                    工具链安装
+                    Toolchain Installation
             
                 </a>
             
@@ -270,7 +270,7 @@
                 <a href="../setup/dev_env_advanced_linux.html">
             
                     
-                    高级 Linux
+                    Advanced Linux
             
                 </a>
             
@@ -302,7 +302,7 @@
                 <a href="../setup/dev_env_windows_cygwin.html">
             
                     
-                    Cygwin 工具链
+                    Cygwin Toolchain
             
                 </a>
             
@@ -315,7 +315,7 @@
                 <a href="../setup/dev_env_windows_vm.html">
             
                     
-                    Virtual Machine 工具链
+                    Virtual Machine Toolchain
             
                 </a>
             
@@ -328,7 +328,7 @@
                 <a href="../setup/dev_env_windows_bash_on_win.html">
             
                     
-                    Bash on Windows 工具链
+                    Bash on Windows Toolchain
             
                 </a>
             
@@ -341,7 +341,7 @@
                 <a href="../setup/dev_env_windows_msys.html">
             
                     
-                    Msys 工具链
+                    Msys Toolchain
             
                 </a>
             
@@ -359,7 +359,7 @@
                 <a href="../setup/fast-rtps-installation.html">
             
                     
-                    FastRTPS 安装
+                    Fast RTPS installation
             
                 </a>
             
@@ -372,7 +372,7 @@
                 <a href="../setup/generic_dev_tools.html">
             
                     
-                    额外工具
+                    Additional Tools
             
                 </a>
             
@@ -390,7 +390,7 @@
                 <a href="../setup/building_px4.html">
             
                     
-                    构建代码
+                    Building the Code
             
                 </a>
             
@@ -403,7 +403,7 @@
                 <a href="../apps/hello_sky.html">
             
                     
-                    编写您的第一个应用程序
+                    Writing your First Application
             
                 </a>
             
@@ -416,7 +416,7 @@
                 <a href="../apps/module_template.html">
             
                     
-                    应用/模块模板
+                    Application/Module Template
             
                 </a>
             
@@ -434,7 +434,7 @@
                 <a href="../concept/">
             
                     
-                    概念
+                    Concepts
             
                 </a>
             
@@ -448,7 +448,7 @@
                 <a href="../concept/architecture.html">
             
                     
-                    PX4 系统架构概述
+                    PX4 Architectural Overview
             
                 </a>
             
@@ -462,7 +462,7 @@
                 <a href="../flight_stack/controller_diagrams.html">
             
                     
-                    控制器图解
+                    Controller Diagrams
             
                 </a>
             
@@ -480,7 +480,7 @@
                 <a href="../concept/dronecode_architecture.html">
             
                     
-                    Dronecode 平台概述
+                    Dronecode Platform Overview
             
                 </a>
             
@@ -493,7 +493,7 @@
                 <a href="../concept/flight_modes.html">
             
                     
-                    飞行模式
+                    Flight Modes
             
                 </a>
             
@@ -506,7 +506,7 @@
                 <a href="../concept/mixing.html">
             
                     
-                    混控器和执行器
+                    Mixing and Actuators
             
                 </a>
             
@@ -519,7 +519,7 @@
                 <a href="../concept/pwm_limit.html">
             
                     
-                    PWM 限位状态机
+                    PWM limit state machine
             
                 </a>
             
@@ -532,7 +532,7 @@
                 <a href="../concept/system_startup.html">
             
                     
-                    系统启动
+                    System Startup
             
                 </a>
             
@@ -550,7 +550,7 @@
                 <a href="../simulation/">
             
                     
-                    仿真
+                    Simulation
             
                 </a>
             
@@ -564,7 +564,7 @@
                 <a href="../simulation/jmavsim.html">
             
                     
-                    jMAVSim 仿真模拟
+                    jMAVSim Simulation
             
                 </a>
             
@@ -577,7 +577,7 @@
                 <a href="../simulation/gazebo.html">
             
                     
-                    Gazebo 仿真模拟
+                    Gazebo Simulation
             
                 </a>
             
@@ -590,7 +590,7 @@
                 <a href="../simulation/airsim.html">
             
                     
-                    AirSim 仿真
+                    AirSim Simulation
             
                 </a>
             
@@ -603,7 +603,7 @@
                 <a href="../simulation/multi_vehicle_jmavsim.html">
             
                     
-                    使用 JMAVSim 进行多飞行器仿真
+                    Multi-Vehicle Sim with JMAVSim
             
                 </a>
             
@@ -616,7 +616,7 @@
                 <a href="../simulation/multi-vehicle-simulation.html">
             
                     
-                    基于 Gazebo 的多飞行器仿真
+                    Multi-Vehicle Sim with Gazebo
             
                 </a>
             
@@ -668,12 +668,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../hardware/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../hardware/">
+                <a href="./">
             
                     
-                    硬件
+                    Hardware
             
                 </a>
             
@@ -682,12 +682,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../debug/reference-design.html">
+        <li class="chapter active" data-level="1.5.1" data-path="reference_design.html">
             
-                <a href="../debug/reference-design.html">
+                <a href="reference_design.html">
             
                     
-                    飞行控制器参考设计
+                    Flight Controller Reference Design
             
                 </a>
             
@@ -695,12 +695,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+        <li class="chapter " data-level="1.5.2" data-path="porting_guide.html">
             
-                <a href="../hardware/porting_guide.html">
+                <a href="porting_guide.html">
             
                     
-                    飞行控制器移植指南
+                    Flight Controller Porting Guide
             
                 </a>
             
@@ -713,7 +713,7 @@
                 <a href="../airframes/">
             
                     
-                    机架
+                    Airframes
             
                 </a>
             
@@ -727,7 +727,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    机架参考
+                    Airframes Reference
             
                 </a>
             
@@ -740,7 +740,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    增加一个新的机型
+                    Adding a New Airframe
             
                 </a>
             
@@ -758,7 +758,7 @@
                 <a href="../middleware/drivers.html">
             
                     
-                    设备驱动
+                    Device Drivers
             
                 </a>
             
@@ -771,7 +771,7 @@
                 <a href="../data_links/telemetry.html">
             
                     
-                    数传电台
+                    Telemetry Radio
             
                 </a>
             
@@ -785,7 +785,7 @@
                 <a href="../data_links/sik_radio.html">
             
                     
-                    SiK 电台
+                    SiK Radio
             
                 </a>
             
@@ -803,7 +803,7 @@
                 <a href="../sensor_bus/">
             
                     
-                    传感器和执行器 I/O
+                    Sensor and Actuator I/O
             
                 </a>
             
@@ -817,7 +817,7 @@
                 <a href="../sensor_bus/i2c.html">
             
                     
-                    I2C 总线
+                    I2C Bus
             
                 </a>
             
@@ -830,7 +830,7 @@
                 <a href="../uavcan/">
             
                     
-                    UAVCAN 总线
+                    UAVCAN Bus
             
                 </a>
             
@@ -857,7 +857,7 @@
                 <a href="../uavcan/node_firmware.html">
             
                     
-                    UAVCAN 固件升级
+                    UAVCAN Firmware Upgrades
             
                 </a>
             
@@ -870,7 +870,7 @@
                 <a href="../uavcan/node_enumeration.html">
             
                     
-                    UAVCAN 配置
+                    UAVCAN Configuration
             
                 </a>
             
@@ -883,7 +883,7 @@
                 <a href="../uavcan/notes.html">
             
                     
-                    UAVCAN 各种注释
+                    UAVCAN Various Notes
             
                 </a>
             
@@ -901,7 +901,7 @@
                 <a href="../uart/">
             
                     
-                    串行总线
+                    UART/Serial Ports
             
                 </a>
             
@@ -915,7 +915,7 @@
                 <a href="../uart/user_configurable_serial_driver.html">
             
                     
-                    端口-配置串行驱动
+                    Port-Configurable Serial Drivers
             
                 </a>
             
@@ -951,7 +951,7 @@
                 <a href="../advanced/gimbal_control.html">
             
                     
-                    云台（安装）控制设置
+                    Gimbal (Mount) Control Setup
             
                 </a>
             
@@ -964,7 +964,7 @@
                 <a href="../companion_computer/pixhawk_companion.html">
             
                     
-                    机载计算机设置
+                    Companion Computers
             
                 </a>
             
@@ -982,7 +982,7 @@
                 <a href="../middleware/">
             
                     
-                    中间件
+                    Middleware
             
                 </a>
             
@@ -996,7 +996,7 @@
                 <a href="../middleware/uorb.html">
             
                     
-                    uORB 消息
+                    uORB Messaging
             
                 </a>
             
@@ -1009,7 +1009,7 @@
                 <a href="../middleware/uorb_graph.html">
             
                     
-                    uORB 图表
+                    uORB Graph
             
                 </a>
             
@@ -1022,7 +1022,7 @@
                 <a href="../middleware/mavlink.html">
             
                     
-                    MAVLink通讯
+                    MAVLink Messaging
             
                 </a>
             
@@ -1035,7 +1035,7 @@
                 <a href="../middleware/micrortps.html">
             
                     
-                    RTPS/ROS2 接口
+                    RTPS/ROS2 Interface
             
                 </a>
             
@@ -1049,7 +1049,7 @@
                 <a href="../middleware/micrortps_throughput_test.html">
             
                     
-                    输出测试
+                    Throughput Test
             
                 </a>
             
@@ -1062,7 +1062,7 @@
                 <a href="../middleware/micrortps_manual_code_generation.html">
             
                     
-                    手动生成客户端和代理端代码
+                    Manually Generate Client/Agent
             
                 </a>
             
@@ -1085,7 +1085,7 @@
                 <a href="../middleware/modules_main.html">
             
                     
-                    模块 & 命令
+                    Modules & Commands
             
                 </a>
             
@@ -1099,7 +1099,7 @@
                 <a href="../middleware/modules_command.html">
             
                     
-                    命令
+                    Commands
             
                 </a>
             
@@ -1112,7 +1112,7 @@
                 <a href="../middleware/modules_communication.html">
             
                     
-                    通信
+                    Communication
             
                 </a>
             
@@ -1125,7 +1125,7 @@
                 <a href="../middleware/modules_controller.html">
             
                     
-                    控制器
+                    Controllers
             
                 </a>
             
@@ -1138,7 +1138,7 @@
                 <a href="../middleware/modules_driver.html">
             
                     
-                    驱动
+                    Drivers
             
                 </a>
             
@@ -1170,7 +1170,7 @@
                 <a href="../middleware/modules_estimator.html">
             
                     
-                    估计器
+                    Estimators
             
                 </a>
             
@@ -1227,7 +1227,7 @@
                 <a href="../robotics/">
             
                     
-                    机器人技术
+                    Robotics
             
                 </a>
             
@@ -1241,7 +1241,7 @@
                 <a href="../ros/offboard_control.html">
             
                     
-                    Linux 的离板模式控制
+                    Offboard Control from Linux
             
                 </a>
             
@@ -1268,7 +1268,7 @@
                 <a href="../ros/mavros_installation.html">
             
                     
-                    MAVROS \（ROS 上的 MAVLink\）
+                    MAVROS (MAVLink on ROS)
             
                 </a>
             
@@ -1281,7 +1281,7 @@
                 <a href="../ros/mavros_offboard.html">
             
                     
-                    MAVROS 离板例程
+                    MAVROS Offboard Example
             
                 </a>
             
@@ -1294,7 +1294,7 @@
                 <a href="../simulation/ros_interface.html">
             
                     
-                    另见 Gazebo 模拟。
+                    ROS with Gazebo Simulation
             
                 </a>
             
@@ -1307,7 +1307,7 @@
                 <a href="../simulation/gazebo_octomap.html">
             
                     
-                    具有 ROS 的 OctoMap 模型
+                    OctoMap Models with ROS
             
                 </a>
             
@@ -1320,7 +1320,7 @@
                 <a href="../ros/raspberrypi_installation.html">
             
                     
-                    在 RPi 上安装 ROS
+                    ROS Installation on RPi
             
                 </a>
             
@@ -1333,7 +1333,20 @@
                 <a href="../ros/external_position_estimation.html">
             
                     
-                    外部位置估计（基于视觉/运动）
+                    External Position Estimation (Vision/Motion based)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    Sending Custom Messages from MAVROS
             
                 </a>
             
@@ -1369,7 +1382,7 @@
                 <a href="../debug/">
             
                     
-                    调试日志
+                    Debugging/Logging
             
                 </a>
             
@@ -1383,7 +1396,7 @@
                 <a href="../debug/faq.html">
             
                     
-                    常见问题
+                    FAQ
             
                 </a>
             
@@ -1396,7 +1409,7 @@
                 <a href="../debug/system_console.html">
             
                     
-                    系统控制台
+                    System Console
             
                 </a>
             
@@ -1409,7 +1422,7 @@
                 <a href="../debug/gdb_debugging.html">
             
                     
-                    飞控调试
+                    Autopilot Debugging
             
                 </a>
             
@@ -1422,7 +1435,7 @@
                 <a href="../debug/sensor_uorb_topic_debugging.html">
             
                     
-                    传感器/话题调试
+                    Sensor/Topic Debugging
             
                 </a>
             
@@ -1435,7 +1448,7 @@
                 <a href="../debug/simulation_debugging.html">
             
                     
-                    仿真调试
+                    Simulation Debugging
             
                 </a>
             
@@ -1448,7 +1461,7 @@
                 <a href="../debug/debug_values.html">
             
                     
-                    发送调试参数
+                    Sending Debug Values
             
                 </a>
             
@@ -1461,7 +1474,7 @@
                 <a href="../debug/system_wide_replay.html">
             
                     
-                    全系统回放
+                    System-wide Replay
             
                 </a>
             
@@ -1474,7 +1487,7 @@
                 <a href="../debug/profiling.html">
             
                     
-                    剖析
+                    Profiling
             
                 </a>
             
@@ -1487,7 +1500,7 @@
                 <a href="../log/logging.html">
             
                     
-                    日志记录
+                    Logging
             
                 </a>
             
@@ -1500,7 +1513,7 @@
                 <a href="../log/flight_log_analysis.html">
             
                     
-                    飞行日志分析
+                    Flight Log Analysis
             
                 </a>
             
@@ -1513,7 +1526,7 @@
                 <a href="../log/ulog_file_format.html">
             
                     
-                    ULog 文件格式
+                    ULog File Format
             
                 </a>
             
@@ -1531,7 +1544,7 @@
                 <a href="../tutorials/tutorials.html">
             
                     
-                    教程
+                    Tutorials
             
                 </a>
             
@@ -1545,7 +1558,7 @@
                 <a href="../qgc/">
             
                     
-                    地面控制站
+                    Ground Control Station
             
                 </a>
             
@@ -1558,7 +1571,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming in QGC
             
                 </a>
             
@@ -1571,7 +1584,7 @@
                 <a href="../qgc/video_streaming_wifi_broadcast.html">
             
                     
-                    远距离视频流
+                    Long-distance Video Streaming
             
                 </a>
             
@@ -1602,7 +1615,7 @@
                 <a href="../advanced/">
             
                     
-                    高级主题
+                    Advanced Topics
             
                 </a>
             
@@ -1616,7 +1629,7 @@
                 <a href="../advanced/parameters_and_configurations.html">
             
                     
-                    参数 & 配置
+                    Parameters & Configs
             
                 </a>
             
@@ -1629,7 +1642,7 @@
                 <a href="../advanced/parameter_reference.html">
             
                     
-                    参数参照表
+                    Parameter Reference
             
                 </a>
             
@@ -1642,7 +1655,7 @@
                 <a href="../advanced/computer_vision.html">
             
                     
-                    机器视觉
+                    Computer Vision
             
                 </a>
             
@@ -1656,7 +1669,7 @@
                 <a href="../tutorials/motion-capture-vicon-optitrack.html">
             
                     
-                    运动捕获（VICON, Optitrack）
+                    Motion Capture (VICON, Optitrack)
             
                 </a>
             
@@ -1674,7 +1687,7 @@
                 <a href="../advanced/realsense_intel_driver.html">
             
                     
-                    安装英特尔 RealSense R200 的驱动程序
+                    Installing driver for Intel RealSense R200
             
                 </a>
             
@@ -1687,7 +1700,7 @@
                 <a href="../advanced/switching_state_estimators.html">
             
                     
-                    切换状态估计器
+                    Switching State Estimators
             
                 </a>
             
@@ -1700,7 +1713,7 @@
                 <a href="../advanced/out_of_tree_modules.html">
             
                     
-                    树外模块
+                    Out-of-Tree Modules
             
                 </a>
             
@@ -1731,7 +1744,7 @@
                 <a href="../test_and_ci/">
             
                     
-                    平台测试和 CI
+                    Platform Testing and CI
             
                 </a>
             
@@ -1745,7 +1758,7 @@
                 <a href="../test_and_ci/test_flights.html">
             
                     
-                    测试飞行
+                    Test Flights
             
                 </a>
             
@@ -1759,7 +1772,7 @@
                 <a href="../test_cards/mc_01_manual_modes.html">
             
                     
-                    测试 MC_01 - 手动模式
+                    Test MC_01 - Manual Modes
             
                 </a>
             
@@ -1772,7 +1785,7 @@
                 <a href="../test_cards/mc_02_full_autonomous.html">
             
                     
-                    测试 MC_02-完全自主
+                    Test MC_02 - Full Autonomous
             
                 </a>
             
@@ -1785,7 +1798,7 @@
                 <a href="../test_cards/mc_03_auto_manual_mix.html">
             
                     
-                    测试 MC_03 - 自动手动混合
+                    Test MC_03 - Auto Manual Mix
             
                 </a>
             
@@ -1798,7 +1811,7 @@
                 <a href="../test_cards/mc_04_failsafe_testing.html">
             
                     
-                    测试 MC_04 -故障安全测试
+                    Test MC_04 - Failsafe Testing
             
                 </a>
             
@@ -1811,7 +1824,7 @@
                 <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
             
                     
-                    测试 MC_05-室内飞行（手动模式）
+                    Test MC_05 - Indoor Flight (Manual Modes)
             
                 </a>
             
@@ -1829,7 +1842,7 @@
                 <a href="../test_and_ci/unit_tests.html">
             
                     
-                    单元测试
+                    Unit Tests
             
                 </a>
             
@@ -1842,7 +1855,7 @@
                 <a href="../test_and_ci/continous_integration.html">
             
                     
-                    持续集成
+                    Continuous Integration
             
                 </a>
             
@@ -1855,7 +1868,7 @@
                 <a href="../test_and_ci/jenkins_ci.html">
             
                     
-                    Jenkins 持续集成
+                    Jenkins Continuous Integration
             
                 </a>
             
@@ -1868,7 +1881,7 @@
                 <a href="../test_and_ci/integration_testing.html">
             
                     
-                    整合测试
+                    Integration Testing
             
                 </a>
             
@@ -1881,7 +1894,7 @@
                 <a href="../test_and_ci/docker.html">
             
                     
-                    Docker 容器
+                    Docker Containers
             
                 </a>
             
@@ -1894,7 +1907,7 @@
                 <a href="../test_and_ci/maintenance.html">
             
                     
-                    维护
+                    Maintenance
             
                 </a>
             
@@ -1907,9 +1920,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="./">
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
             
-                <a href="./">
+                <a href="../contribute/">
             
                     
                     Contribution (&Dev Call)
@@ -1921,9 +1934,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.1" data-path="dev_call.html">
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
             
-                <a href="dev_call.html">
+                <a href="../contribute/dev_call.html">
             
                     
                     Dev Call
@@ -1934,9 +1947,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.2" data-path="code.html">
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
             
-                <a href="code.html">
+                <a href="../contribute/code.html">
             
                     
                     Source Code Management
@@ -1948,9 +1961,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.13.2.1" data-path="git_examples.html">
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
             
-                <a href="git_examples.html">
+                <a href="../contribute/git_examples.html">
             
                     
                     GIT Examples
@@ -1966,9 +1979,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.3" data-path="docs.html">
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
             
-                <a href="docs.html">
+                <a href="../contribute/docs.html">
             
                     
                     Documentation
@@ -1979,9 +1992,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.13.4" data-path="translation.html">
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
             
-                <a href="translation.html">
+                <a href="../contribute/translation.html">
             
                     
                     Translation
@@ -1992,9 +2005,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.5" data-path="notation.html">
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
             
-                <a href="notation.html">
+                <a href="../contribute/notation.html">
             
                     
                     Terminology/Notation
@@ -2005,9 +2018,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.6" data-path="licenses.html">
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
             
-                <a href="licenses.html">
+                <a href="../contribute/licenses.html">
             
                     
                     Licenses
@@ -2023,9 +2036,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="support.html">
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
             
-                <a href="support.html">
+                <a href="../contribute/support.html">
             
                     
                     Support
@@ -2039,16 +2052,16 @@
 
     
         
-        <li class="header">Dronecode 相关资源</li>
+        <li class="header">Dronecode Shortcuts</li>
         
         
     
         <li class="chapter " data-level="2.1" >
             
-                <a target="_blank" href="https://docs.px4.cc/zh/">
+                <a target="_blank" href="https://docs.px4.io/en/">
             
                     
-                    PX4 用户指南
+                    PX4 User Guide
             
                 </a>
             
@@ -2061,7 +2074,7 @@
                 <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
             
                     
-                    QGroundControl用户指南
+                    QGroundControl User Guide
             
                 </a>
             
@@ -2071,10 +2084,10 @@
     
         <li class="chapter " data-level="2.3" >
             
-                <a target="_blank" href="http://dev.qgc.dimianzhan.com/zh/">
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
             
                     
-                    QGroundControl 开发人员指南
+                    QGroundControl Developer Guide
             
                 </a>
             
@@ -2087,7 +2100,7 @@
                 <a target="_blank" href="https://mavlink.io/en/">
             
                     
-                    MAVLink指南
+                    MAVLink Guide
             
                 </a>
             
@@ -2100,7 +2113,7 @@
                 <a target="_blank" href="https://sdk.dronecode.org/en/">
             
                     
-                    Dronecode SDK
+                    MAVSDK
             
                 </a>
             
@@ -2113,7 +2126,7 @@
                 <a target="_blank" href="https://camera-manager.dronecode.org/en/">
             
                     
-                    Dronecode相机管理器
+                    Dronecode Camera Manager
             
                 </a>
             
@@ -2128,7 +2141,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -2151,7 +2164,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Translation</a>
+        <a href=".." >Flight Controller Reference Design</a>
     </h1>
 </div>
 
@@ -2166,46 +2179,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;"><a name="&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;" class="plugin-anchor" href="#&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1;</h1>
-<p>We&apos;d love your help to translate <em>QGroundControl</em>, and our guides for PX4, <em>QGroundControl</em> and MAVLink!</p>
-<p>Our docs (and <em>QGroundControl</em>) use the <a href="https://crowdin.com" target="_blank">Crowdin</a> online tool for translation. Crowdin automatically imports source topics from Github and presents new and changed strings for translation and/or review (approval).</p>
-<p>Crowdin exports the translated documents back out to Github as a &quot;Pull Request&quot; (which the development team periodically review and accept). The exported output contains the source document with any translated and approved text replaced with translated strings (i.e. if a string is not translated/is changed, then it will be displayed in English).</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You will need a (free) <a href="https://crowdin.com/join" target="_blank">Crowdin account</a> account to join the translation team!</p>
-</blockquote>
-<p><span></span></p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The benefit of this system is that the translation closely tracks the source documents. Readers will not be mislead by old and out of date translations.</p>
-</blockquote>
-<h2 id="&#x7531;&#x6B64;&#x5F00;&#x59CB;"><a name="&#x7531;&#x6B64;&#x5F00;&#x59CB;" class="plugin-anchor" href="#&#x7531;&#x6B64;&#x5F00;&#x59CB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7531;&#x6B64;&#x5F00;&#x59CB;</h2>
-<p>The steps to join our translation tream are:</p>
-<ol>
-<li>&#x6CE8;&#x518C; Crowdin&#xFF1A;<a href="https://crowdin.com/join" target="_blank">https://crowdin.com/join</a></li>
-<li>&#x6253;&#x5F00;&#x8981;&#x52A0;&#x5165;&#x7684;&#x7FFB;&#x8BD1;&#x9879;&#x76EE;&#xFF1A; <ul>
-<li><a href="https://crowdin.com/project/qgroundcontrol" target="_blank">QGroundControl</a></li>
-<li><a href="https://crowdin.com/project/px4-user-guide" target="_blank">PX4 &#x7528;&#x6237;&#x624B;&#x518C;</a></li>
-<li><a href="https://crowdin.com/project/px4-developer-guide" target="_blank">PX4 &#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6307;&#x5357;</a></li>
-<li><a href="https://crowdin.com/project/qgroundcontrol-developer-guide" target="_blank">QGroundControl &#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6307;&#x5357;</a></li>
-<li><a href="https://crowdin.com/project/qgroundcontrol-user-guide" target="_blank">QGroundControl &#x7528;&#x6237;&#x6307;&#x5357;</a></li>
-<li><a href="https://crowdin.com/project/mavlink" target="_blank">MAVLink &#x6307;&#x5357;</a></li>
+                                <h1 id="px4-reference-flight-controller-design"><a name="px4-reference-flight-controller-design" class="plugin-anchor" href="#px4-reference-flight-controller-design"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Reference Flight Controller Design</h1>
+<p>The PX4 reference design is the <a href="https://docs.px4.io/en/flight_controller/pixhawk_series.html" target="_blank">Pixhawk series</a> of flight controllers. First released in 2011, this design is now in its 5th <a href="#reference_design_generations">generation</a> (with the 6th generation board design in progress).</p>
+<h2 id="binary-compatibility"><a name="binary-compatibility" class="plugin-anchor" href="#binary-compatibility"><i class="fa fa-link" aria-hidden="true"></i></a>Binary Compatibility</h2>
+<p>All boards manufactured to a particular design are expected to be binary compatible (i.e. can run the same firmware). From 2018 we will offer a binary compatibility test suite that will allow us to verify and certify this compatibility. </p>
+<p>FMU generations 1-3 were designed as open hardware, while FMU generations 4 and 5 provided only pinout and power supply specifications (schematics were created by individual manufacturers). In order to better ensure compatibility, FMUv6 and onward will return to a complete reference design model.</p>
+<h2 id="reference_design_generations"><a name="reference_design_generations" class="plugin-anchor" href="#reference_design_generations"><i class="fa fa-link" aria-hidden="true"></i></a>Reference Design Generations </h2>
+<ul>
+<li>FMUv1: Development board (STM32F407, 128 KB RAM, 1MB flash, <a href="https://github.com/PX4/Hardware/tree/master/FMUv1" target="_blank">schematics</a>) (no longer supported by PX4)</li>
+<li>FMUv2: Pixhawk (STM32F427, 168 MHz, 192 KB RAM, 1MB flash, <a href="https://github.com/PX4/Hardware/tree/master/FMUv2" target="_blank">schematics</a>)</li>
+<li>FMUv3: Pixhawk variants with 2MB flash (3DR Pixhawk 2 (Solo), Hex Pixhawk 2.1, Holybro Pixfalcon, 3DR Pixhawk Mini, STM32F427, 168 MHz, 256 KB RAM, 2 MB flash, <a href="https://github.com/PX4/Hardware/tree/master/FMUv3_REV_D" target="_blank">schematics</a>)</li>
+<li>FMUv4: Pixracer (STM32F427, 168 MHz, 256 KB RAM, 2 MB flash, <a href="https://docs.google.com/spreadsheets/d/1raRRouNsveQz8cj-EneWG6iW0dqGfRAifI91I2Sr5E0/edit#gid=1585075739" target="_blank">pinout</a>) </li>
+<li>FMUv4 PRO: Drotek Pixhawk 3 PRO (STM32F469, 180 MHz, 384 KB RAM, 2 MB flash, <a href="https://docs.google.com/spreadsheets/d/1raRRouNsveQz8cj-EneWG6iW0dqGfRAifI91I2Sr5E0/edit#gid=1585075739" target="_blank">pinout</a>)</li>
+<li>FMUv5: Holybro Pixhawk 4 (STM32F765, 216 MHz, 512 KB RAM, 2 MB flash, <a href="https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165" target="_blank">pinout</a>)</li>
+<li>FMUv6: work in progress, final name TBD, variant 6s (STM32H7, 400 MHz, 2 MB RAM,  2 MB flash) and variant 6i (i.MX RT1050, 600 MHz, 512 KB RAM, external flash)</li>
 </ul>
-</li>
-<li>Select the language you want to translate</li>
-<li>Click the <strong>Join</strong> button (next to the text <em>You must join the translators team to be able to participate in this project</em>) &gt; <strong>Note</strong> You will be notified once your application to join is accepted.</li>
-<li>Start translating!</li>
-</ol>
-<h2 id="&#x7279;&#x522B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a name="&#x7279;&#x522B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="plugin-anchor" href="#&#x7279;&#x522B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7279;&#x522B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2>
-<h3 id="&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x53E5;&#x9996;&#x7684;-note-tip-warning-&#x5B57;&#x6837;"><a name="&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x53E5;&#x9996;&#x7684;-note-tip-warning-&#x5B57;&#x6837;" class="plugin-anchor" href="#&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x53E5;&#x9996;&#x7684;-note-tip-warning-&#x5B57;&#x6837;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0D;&#x8981;&#x4FEE;&#x6539;&#x53E5;&#x9996;&#x7684; Note, Tip, Warning &#x5B57;&#x6837;</h3>
-<p>Gitbook uses special prefix text to indicate Notes, Tips and Warnings (e.g. <code>&gt; **Note**</code>, <code>&gt; **Tip**</code>, <code>&gt; **Warning**</code>). This is displayed in Crowdin as shown:</p>
-<pre><code class="lang-html">&amp;lt;0&amp;gt;Note&amp;lt;/0&amp;gt; note&#x7684;&#x6587;&#x672C;&#x3002;
-</code></pre>
-<p>It is important that you do not translate the text inside the <code>&lt;0&gt;Note&lt;/0&gt;</code> tags as this will stop the note from rendering properly.</p>
-<h2 id="&#x6DFB;&#x52A0;&#x65B0;&#x8BED;&#x8A00;"><a name="&#x6DFB;&#x52A0;&#x65B0;&#x8BED;&#x8A00;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;&#x65B0;&#x8BED;&#x8A00;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x65B0;&#x8BED;&#x8A00;</h2>
-<p>If the language you want to translate is not presented as an option on the project home page then you will need to request it.</p>
-<p>You can do this by contacting the project owner (there is a contact link on each project&apos;s home page).</p>
-<h2 id="&#x83B7;&#x53D6;&#x5E2E;&#x52A9;"><a name="&#x83B7;&#x53D6;&#x5E2E;&#x52A9;" class="plugin-anchor" href="#&#x83B7;&#x53D6;&#x5E2E;&#x52A9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x5E2E;&#x52A9;</h2>
-<p>The <em>Crowdin</em> interface is self explanatory, but there is plenty of additional information on the <a href="https://support.crowdin.com/" target="_blank">knowledgeable</a> and <a href="https://crowdin.uservoice.com/forums/31787-collaborative-translation-tool" target="_blank">feedback tool</a>.</p>
-<p>You can also ask for help from translators and developers in the Dronecode community using <a href="../#support">our support channels</a>.</p>
 
                                 
                                 </section>
@@ -2233,12 +2221,12 @@
 
             
                 
-                <a href="docs.html" class="navigation navigation-prev " aria-label="Previous page: Documentation">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Hardware">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="notation.html" class="navigation navigation-next " aria-label="Next page: Terminology/Notation">
+                <a href="porting_guide.html" class="navigation navigation-next " aria-label="Next page: Flight Controller Porting Guide">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2249,7 +2237,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Translation","level":"1.13.4","depth":2,"next":{"title":"Terminology/Notation","level":"1.13.5","depth":2,"path":"contribute/notation.md","ref":"contribute/notation.md","articles":[]},"previous":{"title":"Documentation","level":"1.13.3","depth":2,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/translation.md","mtime":"2019-07-22T08:13:55.735Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-22T08:15:30.366Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Flight Controller Reference Design","level":"1.5.1","depth":2,"next":{"title":"Flight Controller Porting Guide","level":"1.5.2","depth":2,"path":"hardware/porting_guide.md","ref":"hardware/porting_guide.md","articles":[]},"previous":{"title":"Hardware","level":"1.5","depth":1,"path":"hardware/README.md","ref":"hardware/README.md","articles":[{"title":"Flight Controller Reference Design","level":"1.5.1","depth":2,"path":"hardware/reference_design.md","ref":"hardware/reference_design.md","articles":[]},{"title":"Flight Controller Porting Guide","level":"1.5.2","depth":2,"path":"hardware/porting_guide.md","ref":"hardware/porting_guide.md","articles":[]},{"title":"Airframes","level":"1.5.3","depth":2,"path":"airframes/README.md","ref":"airframes/README.md","articles":[{"title":"Airframes Reference","level":"1.5.3.1","depth":3,"path":"airframes/airframe_reference.md","ref":"airframes/airframe_reference.md","articles":[]},{"title":"Adding a New Airframe","level":"1.5.3.2","depth":3,"path":"airframes/adding_a_new_frame.md","ref":"airframes/adding_a_new_frame.md","articles":[]}]},{"title":"Device Drivers","level":"1.5.4","depth":2,"path":"middleware/drivers.md","ref":"middleware/drivers.md","articles":[]},{"title":"Telemetry Radio","level":"1.5.5","depth":2,"path":"data_links/telemetry.md","ref":"data_links/telemetry.md","articles":[{"title":"SiK Radio","level":"1.5.5.1","depth":3,"path":"data_links/sik_radio.md","ref":"data_links/sik_radio.md","articles":[]}]},{"title":"Sensor and Actuator I/O","level":"1.5.6","depth":2,"path":"sensor_bus/README.md","ref":"sensor_bus/README.md","articles":[{"title":"I2C Bus","level":"1.5.6.1","depth":3,"path":"sensor_bus/i2c.md","ref":"sensor_bus/i2c.md","articles":[]},{"title":"UAVCAN Bus","level":"1.5.6.2","depth":3,"path":"uavcan/README.md","ref":"uavcan/README.md","articles":[{"title":"UAVCAN Bootloader","level":"1.5.6.2.1","depth":4,"path":"uavcan/bootloader_installation.md","ref":"uavcan/bootloader_installation.md","articles":[]},{"title":"UAVCAN Firmware Upgrades","level":"1.5.6.2.2","depth":4,"path":"uavcan/node_firmware.md","ref":"uavcan/node_firmware.md","articles":[]},{"title":"UAVCAN Configuration","level":"1.5.6.2.3","depth":4,"path":"uavcan/node_enumeration.md","ref":"uavcan/node_enumeration.md","articles":[]},{"title":"UAVCAN Various Notes","level":"1.5.6.2.4","depth":4,"path":"uavcan/notes.md","ref":"uavcan/notes.md","articles":[]}]},{"title":"UART/Serial Ports","level":"1.5.6.3","depth":3,"path":"uart/README.md","ref":"uart/README.md","articles":[{"title":"Port-Configurable Serial Drivers","level":"1.5.6.3.1","depth":4,"path":"uart/user_configurable_serial_driver.md","ref":"uart/user_configurable_serial_driver.md","articles":[]}]}]},{"title":"RTK GPS","level":"1.5.7","depth":2,"path":"advanced/rtk_gps.md","ref":"advanced/rtk_gps.md","articles":[]},{"title":"Gimbal (Mount) Control Setup","level":"1.5.8","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},{"title":"Companion Computers","level":"1.5.9","depth":2,"path":"companion_computer/pixhawk_companion.md","ref":"companion_computer/pixhawk_companion.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"hardware/reference_design.md","mtime":"2019-07-22T08:13:55.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-07-22T08:15:30.366Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
