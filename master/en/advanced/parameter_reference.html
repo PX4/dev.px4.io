@@ -2183,6 +2183,71 @@
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> <strong>This list is auto-generated from the source code</strong> (using <code>make parameters_metadata</code>) and contains the most recent parameter documentation.</p>
 </blockquote>
+<h2 id="airspeed-validator"><a name="airspeed-validator" class="plugin-anchor" href="#airspeed-validator"><i class="fa fa-link" aria-hidden="true"></i></a>Airspeed Validator</h2>
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min &gt; Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed scale (scale from IAS to CAS/EAS)</p><p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.</p>   </td>
+ <td style="vertical-align: top;">0.5 &gt; 1.5 </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for true sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td style="vertical-align: top;">1 &gt; 5 </td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator sideslip measurement noise</p><p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 &gt; 1 </td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">rad</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Automatic airspeed scale estimation on</p><p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed scale process noise</p><p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 &gt; 0.1 </td>
+ <td style="vertical-align: top;">0.0001 </td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for true airspeed fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td style="vertical-align: top;">1 &gt; 5 </td>
+ <td style="vertical-align: top;">3 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed measurement noise</p><p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 &gt; 4 </td>
+ <td style="vertical-align: top;">1.4 </td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator wind process noise</p><p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 &gt; 1 </td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">m/s/s</td>
+</tr>
+</tbody></table>
+
 <h2 id="attitude-q-estimator"><a name="attitude-q-estimator" class="plugin-anchor" href="#attitude-q-estimator"><i class="fa fa-link" aria-hidden="true"></i></a>Attitude Q estimator</h2>
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
@@ -7372,8 +7437,8 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_TRAJ_P">MPC_XY_TRAJ_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Proportional gain for horizontal trajectory position error</p>   </td>
- <td style="vertical-align: top;">0.1 &gt; 5.0 </td>
- <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">0.1 &gt; 1.0 </td>
+ <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -7428,7 +7493,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_TRAJ_P">MPC_Z_TRAJ_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Proportional gain for vertical trajectory position error</p>   </td>
- <td style="vertical-align: top;">0.1 &gt; 5.0 </td>
+ <td style="vertical-align: top;">0.1 &gt; 1.0 </td>
  <td style="vertical-align: top;">0.3 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -15859,65 +15924,6 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 </tr>
 </tbody></table>
 
-<h2 id="wind-estimator"><a name="wind-estimator" class="plugin-anchor" href="#wind-estimator"><i class="fa fa-link" aria-hidden="true"></i></a>Wind Estimator</h2>
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min &gt; Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_BETA_GATE">WEST_BETA_GATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gate size for true sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td style="vertical-align: top;">1 &gt; 5 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;">SD</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_BETA_NOISE">WEST_BETA_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator sideslip measurement noise</p>   </td>
- <td style="vertical-align: top;">0 &gt; 1 </td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;">rad</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_EN">WEST_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable Wind estimator</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator true airspeed scale process noise</p>   </td>
- <td style="vertical-align: top;">0 &gt; 0.1 </td>
- <td style="vertical-align: top;">0.0001 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_TAS_GATE">WEST_TAS_GATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gate size for true airspeed fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td style="vertical-align: top;">1 &gt; 5 </td>
- <td style="vertical-align: top;">3 </td>
- <td style="vertical-align: top;">SD</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_TAS_NOISE">WEST_TAS_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator true airspeed measurement noise</p>   </td>
- <td style="vertical-align: top;">0 &gt; 4 </td>
- <td style="vertical-align: top;">1.4 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_W_P_NOISE">WEST_W_P_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator wind process noise</p>   </td>
- <td style="vertical-align: top;">0 &gt; 1 </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;">m/s/s</td>
-</tr>
-</tbody></table>
-
 <h2 id="miscellaneous"><a name="miscellaneous" class="plugin-anchor" href="#miscellaneous"><i class="fa fa-link" aria-hidden="true"></i></a>Miscellaneous</h2>
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
@@ -16040,7 +16046,7 @@ MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parameter Reference","level":"1.11.2","depth":2,"next":{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},"previous":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameter_reference.md","mtime":"2019-08-09T07:55:35.145Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-09T07:57:13.123Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Parameter Reference","level":"1.11.2","depth":2,"next":{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},"previous":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.1"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameter_reference.md","mtime":"2019-08-09T10:20:51.616Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-09T10:22:24.772Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
