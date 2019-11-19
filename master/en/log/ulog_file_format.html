@@ -2587,6 +2587,84 @@ See above for special treatment of padding fields.</p>
 </tbody>
 </table>
 <ul>
+<li><p>&apos;C&apos;: Tagged Logged string message</p>
+<pre><code>struct message_logging_tagged_s {
+  struct message_header_s header;
+  uint8_t log_level;
+  uint16_t tag;
+  uint64_t timestamp;
+  char message[header.msg_size-9]
+};
+</code></pre><p><code>tag</code>: id representing source of logged message string. It could represent a process, thread or a class depending upon the system architecture.
+For example, a reference implementation for an onboard computer running multiple processes to control different payloads, external disks, serial devices etc can encode these process identifiers using a <code>uint16_t enum</code> into the tag attribute of <code>message_logging_tagged_s</code> struct as follows:</p>
+<pre><code>enum class ulog_tag : uint16_t {
+  unassigned,
+  mavlink_handler,
+  ppk_handler,
+  camera_handler,
+  ptp_handler,
+  serial_handler,
+  watchdog,
+  io_service,
+  cbuf,
+  ulg
+};
+</code></pre><p><code>timestamp</code>: in microseconds
+<code>log_level</code>: same as in the Linux kernel:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Level value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMERG</td>
+<td>&apos;0&apos;</td>
+<td>System is unusable</td>
+</tr>
+<tr>
+<td>ALERT</td>
+<td>&apos;1&apos;</td>
+<td>Action must be taken immediately</td>
+</tr>
+<tr>
+<td>CRIT</td>
+<td>&apos;2&apos;</td>
+<td>Critical conditions</td>
+</tr>
+<tr>
+<td>ERR</td>
+<td>&apos;3&apos;</td>
+<td>Error conditions</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>&apos;4&apos;</td>
+<td>Warning conditions</td>
+</tr>
+<tr>
+<td>NOTICE</td>
+<td>&apos;5&apos;</td>
+<td>Normal but significant condition</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>&apos;6&apos;</td>
+<td>Informational</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>&apos;7&apos;</td>
+<td>Debug-level messages</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li><p>&apos;S&apos;: synchronization message so that a reader can recover from a corrupt message by searching for the next sync message.</p>
 <pre><code>struct message_sync_s {
     struct message_header_s header;
@@ -2689,7 +2767,7 @@ Other than that forward and backward compatibility is given if parsers ignore un
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ULog File Format","level":"1.9.12","depth":2,"next":{"title":"Tutorials","level":"1.10","depth":1,"path":"tutorials/tutorials.md","ref":"tutorials/tutorials.md","articles":[{"title":"Ground Control Station","level":"1.10.1","depth":2,"path":"qgc/README.md","ref":"qgc/README.md","articles":[]},{"title":"Video Streaming in QGC","level":"1.10.2","depth":2,"path":"qgc/video_streaming.md","ref":"qgc/video_streaming.md","articles":[]},{"title":"Long-distance Video Streaming","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},{"title":"S.Bus Driver for Linux","level":"1.10.4","depth":2,"path":"tutorials/linux_sbus.md","ref":"tutorials/linux_sbus.md","articles":[]}]},"previous":{"title":"Flight Log Analysis","level":"1.9.11","depth":2,"path":"log/flight_log_analysis.md","ref":"log/flight_log_analysis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"log/ulog_file_format.md","mtime":"2019-11-19T21:21:30.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-19T21:23:04.094Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"ULog File Format","level":"1.9.12","depth":2,"next":{"title":"Tutorials","level":"1.10","depth":1,"path":"tutorials/tutorials.md","ref":"tutorials/tutorials.md","articles":[{"title":"Ground Control Station","level":"1.10.1","depth":2,"path":"qgc/README.md","ref":"qgc/README.md","articles":[]},{"title":"Video Streaming in QGC","level":"1.10.2","depth":2,"path":"qgc/video_streaming.md","ref":"qgc/video_streaming.md","articles":[]},{"title":"Long-distance Video Streaming","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},{"title":"S.Bus Driver for Linux","level":"1.10.4","depth":2,"path":"tutorials/linux_sbus.md","ref":"tutorials/linux_sbus.md","articles":[]}]},"previous":{"title":"Flight Log Analysis","level":"1.9.11","depth":2,"path":"log/flight_log_analysis.md","ref":"log/flight_log_analysis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"log/ulog_file_format.md","mtime":"2019-11-19T21:26:46.698Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-19T21:27:07.653Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
