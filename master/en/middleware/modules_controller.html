@@ -2232,27 +2232,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="modules-reference-controller"><a name="modules-reference-controller" class="plugin-anchor" href="#modules-reference-controller"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Controller</h1>
-<h2 id="odulenam"><a name="odulenam" class="plugin-anchor" href="#odulenam"><i class="fa fa-link" aria-hidden="true"></i></a>ODULE_NAM</h2>
-<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/mc_rate_control" target="_blank">modules/mc_rate_control</a></p>
-<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
-<p>This implements the multicopter rate controller. It takes rate setpoints (in acro mode
-via <code>manual_control_setpoint</code> topic) as inputs and outputs actuator control messages.</p>
-<p>The controller has a PID loop for angular rate error.</p>
-<h3 id="ODULE_NAM_usage"><a name="ODULE_NAM_usage" class="plugin-anchor" href="#ODULE_NAM_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
-<pre><code>ODULE_NAM &lt;command&gt; [arguments...]
- Commands:
-   start
-
-   stop
-
-   status        print status info
-</code></pre><h2 id="fwattcontrol"><a name="fwattcontrol" class="plugin-anchor" href="#fwattcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>fw_att_control</h2>
+<h2 id="fwattcontrol"><a name="fwattcontrol" class="plugin-anchor" href="#fwattcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>fw_att_control</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/fw_att_control" target="_blank">modules/fw_att_control</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>fw_att_control is the fixed wing attitude controller.</p>
 <h3 id="fw_att_control_usage"><a name="fw_att_control_usage" class="plugin-anchor" href="#fw_att_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>fw_att_control &lt;command&gt; [arguments...]
  Commands:
+   start
+     [vtol]      VTOL mode
 
    stop
 
@@ -2265,6 +2253,7 @@ via <code>manual_control_setpoint</code> topic) as inputs and outputs actuator c
 <pre><code>fw_pos_control_l1 &lt;command&gt; [arguments...]
  Commands:
    start
+     [vtol]      VTOL mode
 
    stop
 
@@ -2284,6 +2273,7 @@ Institute for Dynamic Systems and Control (IDSC), ETH Zurich</p>
 <pre><code>mc_att_control &lt;command&gt; [arguments...]
  Commands:
    start
+     [vtol]      VTOL mode
 
    stop
 
@@ -2300,6 +2290,22 @@ logging.</p>
 <pre><code>mc_pos_control &lt;command&gt; [arguments...]
  Commands:
    start
+     [vtol]      VTOL mode
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="mcratecontrol"><a name="mcratecontrol" class="plugin-anchor" href="#mcratecontrol"><i class="fa fa-link" aria-hidden="true"></i></a>mc_rate_control</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/mc_rate_control" target="_blank">modules/mc_rate_control</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This implements the multicopter rate controller. It takes rate setpoints (in acro mode
+via <code>manual_control_setpoint</code> topic) as inputs and outputs actuator control messages.</p>
+<p>The controller has a PID loop for angular rate error.</p>
+<h3 id="mc_rate_control_usage"><a name="mc_rate_control_usage" class="plugin-anchor" href="#mc_rate_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>mc_rate_control &lt;command&gt; [arguments...]
+ Commands:
+   start
+     [vtol]      VTOL mode
 
    stop
 
@@ -2406,7 +2412,7 @@ rover_pos_control stop
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Controllers","level":"1.7.3","depth":2,"next":{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Distance Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]}]},"previous":{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_controller.md","mtime":"2019-11-29T19:59:45.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-29T20:01:07.695Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Controllers","level":"1.7.3","depth":2,"next":{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Distance Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]}]},"previous":{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_controller.md","mtime":"2019-11-30T20:38:22.554Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-11-30T20:39:51.354Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
