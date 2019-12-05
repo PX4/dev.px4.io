@@ -2239,7 +2239,7 @@ The main difference between them is the frame perspective: </p>
 <li>VIO uses <em>onboard sensors</em> to get pose data from the vehicle&apos;s perspective (see <a href="https://en.wikipedia.org/wiki/Visual_odometry#Egomotion" target="_blank">egomotion</a>).</li>
 <li>MoCap uses a system of <em>off-board cameras</em> to get vehicle pose data in a 3D space (i.e. it is an external system that tells the vehicle its pose).</li>
 </ul>
-<p>Pose data from either type of system can be used to update a PX4-based autopilot&apos;s local position estimate (relative to the local origin) and also can optionally also be fused into the vehicle attitude estimation.</p>
+<p>Pose data from either type of system can be used to update a PX4-based autopilot&apos;s local position estimate (relative to the local origin) and also can optionally also be fused into the vehicle attitude estimation. Additionally, if the external pose system also provides linear velocity measurements, it can be used to improve the state estimate (fusion of linear velocity measurements is only supported by the EKF2).</p>
 <p>This topic explains how to configure a PX4-based system to get data from MoCap/VIO systems (either via ROS or some other MAVLink system) and more specifically how to set up MoCap systems like VICON and Optitrack, and vision-based estimation systems like <a href="https://github.com/ethz-asl/rovio" target="_blank">ROVIO</a>, <a href="https://github.com/uzh-rpg/rpg_svo" target="_blank">SVO</a> and <a href="https://github.com/ethz-asl/ethzasl_ptam" target="_blank">PTAM</a>).</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The instructions differ depending on whether you are using the EKF2 or LPE estimator.</p>
@@ -2259,7 +2259,7 @@ The main difference between them is the frame perspective: </p>
 <td><code>vehicle_visual_odometry</code></td>
 </tr>
 <tr>
-<td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_VISION_NED" target="_blank">MAV_FRAME_VISION_NED</a>)</td>
+<td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD" target="_blank">MAV_FRAME_LOCAL_FRD</a>)</td>
 <td><code>vehicle_visual_odometry</code></td>
 </tr>
 <tr>
@@ -2273,7 +2273,7 @@ The main difference between them is the frame perspective: </p>
 </tbody>
 </table>
 <p>EKF2 only subscribes to <code>vehicle_visual_odometry</code> topics and can hence only process the first two messages
-(a MoCap system must generate these messages to work with EKF2).
+(a MoCap system must generate these messages to work with EKF2). The odometry message is the only message that can send also linear velocities to PX4.
 The LPE estimator subscribes to both topics, and can hence process all the above messages.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> EFK2 is the default estimator used by PX4.
@@ -2285,8 +2285,8 @@ The LPE estimator subscribes to both topics, and can hence process all the above
 <a href="https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE" target="_blank">VISION_SPEED_ESTIMATE</a>, 
 <a href="https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE" target="_blank">VICON_POSITION_ESTIMATE</a></p>
 <h2 id="reference-frames"><a name="reference-frames" class="plugin-anchor" href="#reference-frames"><i class="fa fa-link" aria-hidden="true"></i></a>Reference Frames</h2>
-<p>PX4 uses FRD (X <strong>F</strong>orward, Y <strong>R</strong>ight and Z <strong>D</strong>own) for the local body frame, and NED (X <strong>N</strong>orth, Y <strong>E</strong>ast, Z <strong>D</strong>own) for the local world frame - set in MAVLink using <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_OFFSET_NED" target="_blank">MAV_FRAME_BODY_OFFSET_NED</a> and <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED" target="_blank">MAV_FRAME_LOCAL_NED</a>, respectively.</p>
-<p>Depending on your source your source system reference frame you will need to apply a custom transformation to obtain the appropriate NED convention when sending the MAVLink Vision/MoCap messages.</p>
+<p>PX4 uses FRD (X <strong>F</strong>orward, Y <strong>R</strong>ight and Z <strong>D</strong>own) for the local body frame as well for the reference frame. When using the heading of the magnetometer, the PX4 reference frame x axis will be aligned with north, so therefore it is called NED (X <strong>N</strong>orth, Y <strong>E</strong>ast, Z <strong>D</strong>own). The heading of the reference frame of the PX4 estimator and the one of the external pose estimate will not match in most cases. Therefore the reference frame of the external pose estimate is named differently, it is called <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD" target="_blank">MAV_FRAME_LOCAL_FRD</a>.</p>
+<p>Depending on the source of your reference frame, you will need to apply a custom transformation to the pose estimate before sending the MAVLink Vision/MoCap message. This is necessary to change the orientation of the parent and child frame of the pose estimate, such that it fits the PX4 convention. Have a look at the MAVROS <a href="https://github.com/mavlink/mavros/blob/master/mavros_extras/src/plugins/odom.cpp" target="_blank"><em>odom</em> plugin</a> for the necessary transformations.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> ROS users can find more detailed instructions below in <a href="#ros_reference_frames">Reference Frames and ROS</a>.</p>
 </blockquote>
@@ -2310,7 +2310,7 @@ You can apply this trick with every system - if you need to obtain a NED frame, 
 <tbody>
 <tr>
 <td><a href="../advanced/parameter_reference.html#EKF2_AID_MASK">EKF2_AID_MASK</a></td>
-<td>Set <em>vision position fusion</em> and <em>vision yaw fusion</em></td>
+<td>Set <em>vision position fusion</em>, <em>vision velocity fusion</em>, <em>vision yaw fusion</em> and <em>external vision rotation</em> accoring to your desired fusion model.</td>
 </tr>
 <tr>
 <td><a href="../advanced/parameter_reference.html#EKF2_HGT_MODE">EKF2_HGT_MODE</a></td>
@@ -2404,7 +2404,7 @@ For other systems consult the vendor setup documentation.</p>
 </tr>
 <tr>
 <td>/mavros/odometry/odom</td>
-<td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_VISION_NED" target="_blank">MAV_FRAME_VISION_NED</a>)</td>
+<td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD" target="_blank">MAV_FRAME_LOCAL_FRD</a>)</td>
 <td><code>vehicle_visual_odometry</code></td>
 </tr>
 <tr>
@@ -2445,24 +2445,35 @@ The <code>geometry_msgs/PoseStamped</code> topic is most common as MoCap doesn&a
 </tr>
 <tr>
 <td>World</td>
-<td>ENU (X <strong>E</strong>ast, Y <strong>N</strong>orth and Z Up), with the naming being <code>odom</code> or <code>map</code></td>
-<td>NED (X <strong>N</strong>orth, Y <strong>E</strong>ast, Z <strong>D</strong>own)</td>
+<td>FLU or ENU (X <strong>E</strong>ast, Y <strong>N</strong>orth and Z Up), with the naming being <code>odom</code> or <code>map</code></td>
+<td>FRD or NED (X <strong>N</strong>orth, Y <strong>E</strong>ast, Z <strong>D</strong>own)</td>
 </tr>
 </tbody>
 </table>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> See <a href="http://www.ros.org/reps/rep-0105.html" target="_blank">REP105: Coordinate Frames for Mobile Platforms</a> for more information about ROS frames.</p>
 </blockquote>
-<p>Both frames are shown in the image below (NED on left/ENU on right).</p>
+<p>Both frames are shown in the image below (FLU on left/FRD on right).</p>
 <p><img src="../../assets/lpe/ref_frames.png" alt="Reference frames"></p>
-<p>When using external heading estimation, magnetic North is ignored and faked with a vector corresponding to world <em>x</em> axis (which can be placed freely during Vision/MoCap calibration). Yaw angle is therefore given with respect to local <em>x</em>.</p>
+<p>With EKF2 when using external heading estimation, magnetic north can either be ignored and or the heading offset to magnetic north can be calculated and compensated. Depending on your choice the yaw angle is given with respect to either magnetic north or local <em>x</em>.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> When creating the rigid body in the MoCap software, remember to first align the robot&apos;s local <em>x</em> axis with the world <em>x</em> axis otherwise yaw estimation will have an initial offset.</p>
+<p> When creating the rigid body in the MoCap software, remember to first align the robot&apos;s local <em>x</em> axis with the world <em>x</em> axis otherwise the yaw estimate will have an offset. This can stop the external pose estimate fusion from working properly. Yaw angle should be zero when body and reference frame align.</p>
 </blockquote>
 <p>Using MAVROS, this operation is straightforward. 
 ROS uses ENU frames as convention, therefore position feedback must be provided in ENU. 
 If you have an Optitrack system you can use <a href="https://github.com/ros-drivers/mocap_optitrack" target="_blank">mocap_optitrack</a> node which streams the object pose on a ROS topic already in ENU. 
 With a remapping you can directly publish it on <code>mocap_pose_estimate</code> as it is without any transformation and MAVROS will take care of NED conversions.</p>
+<p>The MAVROS odometry plugin makes it easy to handle the coordinate frames. It uses ROS&apos;s tf package. Your external pose system might have a completely different frame convention that does not match the one of PX4. The body frame of the external pose estimate can depend on how you set the body frame in the MOCAP software or on how you mount the VIO sensor on the drone. The MAVROS odometry plugin needs to know how the external pose&apos;s child frame is oriented with respect to either the airframe&apos;s FRD or FLU body frame known by MAVROS. You therefore have to add the external pose&apos;s body frame to the tf tree. This can be done by including an adapted version of the following line into your ROS launch file.</p>
+<pre><code>  &lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_baseLink_externalPoseChildFrame&quot;
+        args=&quot;0 0 0 &lt;yaw&gt; &lt;pitch&gt; &lt;roll&gt; base_link &lt;external_pose_child_frame&gt; 1000&quot;/&gt;
+</code></pre><p>Make sure that you change the values of yaw, pitch and roll such that it properly attaches the external pose&apos;s body frame to the <code>base_link</code> or <code>base_link_frd</code>. Have a look at the <a href="http://wiki.ros.org/tf#static_transform_publisher" target="_blank">tf package</a> for further help on how to specify the transformation between the frames. You can use rviz to check if you attached the frame right. The name of the <code>external_pose_child_frame</code> has to match the child_frame_id of your <code>nav_msgs/Odometry</code> message.
+The same also applies for the reference frame of the external pose. You have to attach the reference frame of the external pose as child to either the <code>odom</code> or <code>odom_frd</code> frame. Adapt therefore the following code line accordingly.</p>
+<pre><code>  &lt;node pkg=&quot;tf&quot; type=&quot;static_transform_publisher&quot; name=&quot;tf_odom_externalPoseParentFrame&quot;
+        args=&quot;0 0 0 &lt;yaw&gt; &lt;pitch&gt; &lt;roll&gt; odom &lt;external_pose_parent_frame&gt; 1000&quot;/&gt;
+</code></pre><p>If the reference frame has the z axis pointing upwards you can attached it without any rotation (yaw=0, pitch=0, roll=0) to the <code>odom</code> frame. The name of <code>external_pose_parent_frame</code> has to match the frame_id of the odometry message.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> When using the MAVROS <em>odom</em> plugin, it is important that no other node is publishing a transform between the external pose&apos;s reference and child frame. This might break the <em>tf</em> tree.</p>
+</blockquote>
 <h2 id="setup_specific_systems"><a name="setup_specific_systems" class="plugin-anchor" href="#setup_specific_systems"><i class="fa fa-link" aria-hidden="true"></i></a>Specific System Setups </h2>
 <h3 id="optitrack-mocap"><a name="optitrack-mocap" class="plugin-anchor" href="#optitrack-mocap"><i class="fa fa-link" aria-hidden="true"></i></a>OptiTrack MoCap</h3>
 <p>The following steps explain how to feed position estimates from an <a href="https://optitrack.com/motion-capture-robotics/" target="_blank">OptiTrack</a> system to PX4. 
@@ -2497,13 +2508,14 @@ However, it is applicable with LPE.</p>
 <h2 id="first-flight"><a name="first-flight" class="plugin-anchor" href="#first-flight"><i class="fa fa-link" aria-hidden="true"></i></a>First Flight</h2>
 <p>After setting up one of the (specific) systems described above you should now be ready to test.
 The instructions below show how to do so for MoCap and VIO systems </p>
-<h3 id="mocap-first-flight"><a name="mocap-first-flight" class="plugin-anchor" href="#mocap-first-flight"><i class="fa fa-link" aria-hidden="true"></i></a>MoCap First Flight</h3>
-<p>Be sure to perform the following checks:</p>
+<h3 id="check-external-estimate"><a name="check-external-estimate" class="plugin-anchor" href="#check-external-estimate"><i class="fa fa-link" aria-hidden="true"></i></a>Check external estimate</h3>
+<p>Be sure to perform the following checks before your first flight:</p>
 <ul>
-<li><strong>Before</strong> creating the rigid body, align the robot with world x axis.</li>
-<li>Stream over MAVLink and check the MAVLink inspector with <em>QGroundControl</em>, the local pose topic should be in NED.</li>
-<li>Move the robot around by hand and see if the estimated local position is consistent (always in NED).</li>
-<li>Rotate the robot on the vertical axis and check the yaw with the MAVLink inspector.</li>
+<li>Set the PX4 parameter <code>MAV_ODOM_LP</code> to 1. PX4 will therefore stream back the received external pose as MAVLink <a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> messages.</li>
+<li>It is recommended to check these MAVLink messages with e.g. the <em>Analyze</em> Widget of <em>QGroundControl</em>. In order to do this, yaw the vehicle until the quaternion of the ODOMETRY message is very close to a unit quaternion. (w=1, x=y=z=0)</li>
+<li>At this point the body frame is aligned with the reference frame of the external pose system. If you do not manage to get a quaternion close to the unit quaternion without rolling or pitching your vehicle, your frame probably still have a pitch or roll offset. Do not proceed if this is the case and check your coordinate frames again.</li>
+<li>Once aligned you can pick the vehicle up from the ground and you should see the position&apos;s z coordinate decrease. Moving the vehicle in forward direction, should increase the position&apos;s x coordinate. While moving the vehicle to the right should increase the y coordinate. In the case you send also linear velocities from the external pose system, you should also check the linear velocities. Check that the linear velocities are in expressed in the <em>FRD</em> body frame reference frame.</li>
+<li>Set the PX4 parameter <code>MAV_ODOM_LP</code> back to 0. PX4 will stop streaming this message back.</li>
 </ul>
 <p>If those steps are consistent, you can try your first flight.</p>
 <p>Put the robot on the ground and start streaming MoCap feedback.
@@ -2519,7 +2531,6 @@ Same for right stick on x and y. </p>
 put it back to the middle right after. Check if it is able to keep its position.</p>
 <p>If it works, you may want to set up an <a href="offboard_control.html">offboard</a> experiment by sending position-setpoint from a remote ground station.</p>
 <h3 id="vio-first-flight"><a name="vio-first-flight" class="plugin-anchor" href="#vio-first-flight"><i class="fa fa-link" aria-hidden="true"></i></a>VIO First Flight</h3>
-<p>TBD.</p>
 
                                 
                                 </section>
@@ -2563,7 +2574,7 @@ put it back to the middle right after. Check if it is able to keep its position.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"next":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"path":"ros/mavros_custom_messages.md","ref":"ros/mavros_custom_messages.md","articles":[]},"previous":{"title":"ROS Installation on RPi","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2019-12-05T15:54:46.076Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T15:55:57.473Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"next":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"path":"ros/mavros_custom_messages.md","ref":"ros/mavros_custom_messages.md","articles":[]},"previous":{"title":"ROS Installation on RPi","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2019-12-05T23:23:24.740Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T23:24:40.363Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
