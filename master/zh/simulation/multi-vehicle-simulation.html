@@ -514,12 +514,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../concept/mixing.html">
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
             
                 <a href="../concept/mixing.html">
             
                     
-                    混控器和执行器
+                    Mixing and Actuators
             
                 </a>
             
@@ -527,12 +540,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../concept/pwm_limit.html">
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
             
                 <a href="../concept/pwm_limit.html">
             
                     
-                    PWM 限位状态机
+                    PWM limit state machine
             
                 </a>
             
@@ -540,12 +553,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../concept/system_startup.html">
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
             
                 <a href="../concept/system_startup.html">
             
                     
-                    系统启动
+                    System Startup
             
                 </a>
             
@@ -2218,41 +2231,41 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x57FA;&#x4E8E;gazebo&#x7684;&#x591A;&#x98DE;&#x884C;&#x5668;&#x4EFF;&#x771F;"><a name="&#x57FA;&#x4E8E;gazebo&#x7684;&#x591A;&#x98DE;&#x884C;&#x5668;&#x4EFF;&#x771F;" class="plugin-anchor" href="#&#x57FA;&#x4E8E;gazebo&#x7684;&#x591A;&#x98DE;&#x884C;&#x5668;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E;gazebo&#x7684;&#x591A;&#x98DE;&#x884C;&#x5668;&#x4EFF;&#x771F;</h1>
-<p>&#x672C;&#x4E3B;&#x9898;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528; gazebo &#x548C; sitl (&#x4EC5;&#x9650; linux) &#x6A21;&#x62DF;&#x591A;&#x67B6;&#x65E0;&#x4EBA;&#x673A;/&#x8F66;&#x8F86;&#x3002;</p>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
-<p>&#x5982;&#x679C;&#x60A8;&#x4E0D;&#x9700;&#x8981; gazebo &#x6216; ros &#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#xFF0C; <a href="multi_vehicle_jmavsim.html"> jmavsim&#x7684; Multi-&#x8F66;&#x8F86;&#x4EFF;&#x771F;</a>&#x66F4;&#x5BB9;&#x6613;&#x8BBE;&#x7F6E;&#x3002;</p>
+                                <h1 id="gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;"><a name="gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;" class="plugin-anchor" href="#gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo &#x591A;&#x673A;&#x4EFF;&#x771F;</h1>
+<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528; Gazebo &#x4EFF;&#x771F;&#x5668;&#x914D;&#x5408;&#x8F6F;&#x4EF6;&#x5728;&#x73AF;&#x4EFF;&#x771F;&#x8FDB;&#x884C;&#x591A;&#x673A;&#x4EFF;&#x771F;&#xFF08;&#x4EC5;&#x9002;&#x7528;&#x4E8E; Linux &#xFF09;&#x3002;</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x9700;&#x8981; Gazebo &#x6216; ROS &#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#xFF0C; <a href="multi_vehicle_jmavsim.html"> JMAVSim&#x7684;&#x591A;&#x673A;&#x4EFF;&#x771F;</a> &#x66F4;&#x5BB9;&#x6613;&#x8BBE;&#x7F6E;&#x3002;</p>
 </blockquote>
-<p>&#x672C;&#x6587;&#x6F14;&#x793A;&#x4E86;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x8BBE;&#x7F6E;, &#x8BE5;&#x8BBE;&#x7F6E;&#x6253;&#x5F00;&#x4E86; gazebo &#x5BA2;&#x6237;&#x7AEF; &#x754C;&#x9762;, &#x5728;&#x4E00;&#x4E2A;&#x7A7A;&#x65F7;&#x7684;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A;Iris&#x65E0;&#x4EBA;&#x673A;&#x3002; &#x7136;&#x540E;, &#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl&#x5730;&#x9762;&#x7AD9;</em> &#x548C;MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;, &#x5176;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;&#x60A8;&#x63A7;&#x5236;&#x5355;&#x673A;&#x3002;</p>
-<h2 id="&#x8981;&#x6C42;"><a name="&#x8981;&#x6C42;" class="plugin-anchor" href="#&#x8981;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8981;&#x6C42;</h2>
+<p>&#x672C;&#x6587;&#x7ED9;&#x51FA;&#x4E86;&#x6F14;&#x793A;&#x5B9E;&#x4F8B;, &#x6253;&#x5F00;&#x4E86; Gazebo &#x4EFF;&#x771F;&#x5668;&#xFF0C;&#x5728;&#x7A7A;&#x7684;&#x7684;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A; Iris &#x65E0;&#x4EBA;&#x673A;&#x3002; &#x7136;&#x540E;, &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl</em> &#x914D;&#x5408; MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;, &#x5176;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5355;&#x673A;&#x63A7;&#x5236;&#x7C7B;&#x4F3C;&#x3002;</p>
+<h2 id="&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;"><a name="&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;" class="plugin-anchor" href="#&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;</h2>
 <ul>
-<li>Current <a href="../setup/dev_env_linux_ubuntu.html#rosgazebo">PX4 ROS/Gazebo development environment</a> &gt; <strong>Note</strong> At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also <a href="gazebo.html">Gazebo Simulation</a>.</li>
-<li><a href="http://wiki.ros.org/mavros" target="_blank">MAVROS &#x5305;</a></li>
-<li>&#x6700;&#x65B0; <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> &#x7684;&#x514B;&#x9686;</li>
+<li><a href="../setup/dev_env_linux_ubuntu.html#rosgazebo">PX4 ROS/Gazebo &#x5F00;&#x53D1;&#x73AF;&#x5883;</a> <strong>Note</strong> &#x7F16;&#x5199;&#x6B64;&#x6559;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x4E3A; Ubuntu 18.04 &#x548C; ROS &#x7248;&#x672C;&#x4E3A; Melodic &#x4EE5;&#x53CA; Gazebo&#x7248;&#x672C;&#x4E3A; Gazebo 9 &#x3002; &#x4E5F;&#x53EF;&#x4EE5;&#x770B; <a href="gazebo.html">Gazebo &#x4EFF;&#x771F;</a></li>
+<li><a href="http://wiki.ros.org/mavros" target="_blank">MAVROS</a></li>
+<li>&#x514B;&#x9686;&#x6700;&#x65B0;&#x7684; PX4 &#x6E90;&#x7801;&#x56FA;&#x4EF6;&#x3002;</li>
 </ul>
-<h2 id="&#x7F16;&#x8BD1;&#x548C;&#x6D4B;&#x8BD5;"><a name="&#x7F16;&#x8BD1;&#x548C;&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x7F16;&#x8BD1;&#x548C;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x8BD1;&#x548C;&#x6D4B;&#x8BD5;</h2>
-<p>&#x82E5;&#x8981;&#x7F16;&#x8BD1;&#x793A;&#x4F8B;&#x8BBE;&#x7F6E;, &#x8BF7;&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x64CD;&#x4F5C;:</p>
+<h2 id="&#x5F00;&#x59CB;&#x4EFF;&#x771F;"><a name="&#x5F00;&#x59CB;&#x4EFF;&#x771F;" class="plugin-anchor" href="#&#x5F00;&#x59CB;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F00;&#x59CB;&#x4EFF;&#x771F;</h2>
+<p>&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x8BBE;&#x7F6E;, &#x8BF7;&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x64CD;&#x4F5C;:</p>
 <ol>
-<li><p>&#x514B;&#x9686; px4&#x56FA;&#x4EF6;&#x4EE3;&#x7801;, &#x7136;&#x540E;&#x7F16;&#x8BD1; sitl &#x4EE3;&#x7801; 
+<li><p>&#x514B;&#x9686; PX4 &#x56FA;&#x4EF6;&#x6E90;&#x7801;, &#x7136;&#x540E;&#x7F16;&#x8BD1; SITL &#x4EE3;&#x7801; 
    cd Firmware_clone</p>
 <pre><code>git submodule update --init --recursive
 DONT_RUN=1 make px4_sitl_default gazebo
 </code></pre></li>
-<li><p>Source your environment: </p>
+<li><p>&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A; </p>
 <p>   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default</p>
 <pre><code>export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
 </code></pre></li>
-<li><p>Run launch file: <code>roslaunch px4 multi_uav_mavros_sitl.launch</code></p>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
-<p>&#x60A8;&#x53EF;&#x4EE5;&#x5728;&#x4E0A;&#x8FF0; <em>roslaunch</em> &#x4E2D;&#x6307;&#x5B9A; <code>gui:=false</code>, &#x4EE5;&#x4FBF;&#x5728;&#x6CA1;&#x6709; ui &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x542F;&#x52A8; gazebo&#x3002;</p>
+<li><p>&#x542F;&#x52A8; launch &#x6587;&#x4EF6;&#xFF1A; <code>roslaunch px4 multi_uav_mavros_sitl.launch</code></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E0A;&#x8FF0; <em>roslaunch</em> &#x4E2D;&#x6307;&#x5B9A; <code>gui:=false</code> &#xFF0C;&#x4EE5;&#x4FBF;&#x4E0D;&#x542F;&#x52A8;&#x754C;&#x9762;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x542F;&#x52A8; gazebo&#x3002;</p>
 </blockquote>
 </li>
 </ol>
-<p>&#x672C;&#x6307;&#x5357;&#x8BBE;&#x7F6E;&#x6253;&#x5F00;&#x4E86; gazebo &#x5BA2;&#x6237;&#x7AEF;&#x754C;&#x9762;, &#x5728;&#x4E00;&#x4E2A;&#x7A7A;&#x65F7;&#x7684;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A;Iris&#x65E0;&#x4EBA;&#x673A;&#x3002;</p>
-<p>&#x7136;&#x540E;, &#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl&#x5730;&#x9762;&#x7AD9;</em> &#x548C;MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;, &#x5176;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#x4E8E;&#x60A8;&#x63A7;&#x5236;&#x5355;&#x673A;&#x3002;</p>
+<p>&#x672C;&#x6307;&#x5357;&#x8BBE;&#x7F6E;&#x6253;&#x5F00;&#x4E86; Gazebo &#x4EFF;&#x771F;&#x5668;&#x754C;&#x9762;, &#x5728;&#x7A7A;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A; Iris &#x65E0;&#x4EBA;&#x673A;&#x3002;</p>
+<p>&#x7136;&#x540E;, &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl</em> &#x548C; MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;&#xFF0C;&#x63A7;&#x5236;&#x65B9;&#x5F0F;&#x4E0E;&#x5355;&#x673A;&#x7C7B;&#x4F3C;&#x3002;</p>
 <ul>
-<li><em>QGroundControl</em> &#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x62C9;&#x83DC;&#x5355;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5173;&#x6CE8;&#x7684;&#x98DE;&#x884C;&#x5668;&#x3002;</li>
-<li>MAVROS&#x8981;&#x6C42;&#x4F60;&#x5728;topic/servic&#x8DEF;&#x5F84;&#x4E4B;&#x524D;&#x5305;&#x542B;&#x5408;&#x9002;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x4F1A;&#x7528;&#x5230;<em>/uav1/mavros/mission/push</em>&#xFF09;&#x3002;</li>
+<li><em>QGroundControl</em> &#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x62C9;&#x9009;&#x9879;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x6307;&#x5B9A;&#x7684;&#x98DE;&#x884C;&#x5668;&#x3002;</li>
+<li>MAVROS &#x8981;&#x6C42;&#x4F60;&#x5728; topic/service &#x8DEF;&#x5F84;&#x4E4B;&#x524D;&#x5305;&#x542B;&#x5408;&#x9002;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x4F1A;&#x7528;&#x5230; <em>/uav1/mavros/mission/push</em> &#xFF09;&#x3002;</li>
 </ul>
 <h2 id="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"><a name="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;" class="plugin-anchor" href="#&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</h2>
 <p>&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x4EFF;&#x771F;&#x7684;&#x98DE;&#x884C;&#x5668;&#xFF0C;&#x6709;&#x5982;&#x4E0B;&#x8981;&#x6C42;&#xFF1A;</p>
@@ -2407,7 +2420,7 @@ DONT_RUN=1 make px4_sitl_default gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"基于 Gazebo 的多飞行器仿真","level":"1.4.5","depth":2,"next":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"previous":{"title":"使用 JMAVSim 进行多飞行器仿真","level":"1.4.4","depth":2,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2019-12-05T23:23:24.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T23:24:40.363Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"基于 Gazebo 的多飞行器仿真","level":"1.4.5","depth":2,"next":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"previous":{"title":"使用 JMAVSim 进行多飞行器仿真","level":"1.4.4","depth":2,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2019-12-09T21:07:13.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T21:08:24.399Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

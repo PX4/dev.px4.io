@@ -514,12 +514,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../concept/mixing.html">
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
             
                 <a href="../concept/mixing.html">
             
                     
-                    混控器和执行器
+                    Mixing and Actuators
             
                 </a>
             
@@ -527,12 +540,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../concept/pwm_limit.html">
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
             
                 <a href="../concept/pwm_limit.html">
             
                     
-                    PWM 限位状态机
+                    PWM limit state machine
             
                 </a>
             
@@ -540,12 +553,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../concept/system_startup.html">
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
             
                 <a href="../concept/system_startup.html">
             
                     
-                    系统启动
+                    System Startup
             
                 </a>
             
@@ -2218,31 +2231,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="development-environment-on-arch-linux"><a name="development-environment-on-arch-linux" class="plugin-anchor" href="#development-environment-on-arch-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Development Environment on Arch Linux</h1>
-<p>The Firmware repository provides a convenient script to set your Arch installation up for PX4 development: <a href="https://github.com/PX4/Firmware/blob/master/Tools/setup/arch.sh" target="_blank">Tools/setup/arch.sh</a>.</p>
-<p>The script installs (by default) all tools to build PX4 (without RTPS) for NuttX targets and run simulation with <em>jMAVsim</em>. You can additionally install the <em>Gazebo</em> simulator by specifying the command line argument: <code>--gazebo</code>.</p>
-<p><img src="../../assets/gazebo/arch-gazebo.png" alt="Gazebo on Arch"></p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The instructions have been tested on <a href="https://manjaro.org/" target="_blank">Manjaro</a> (Arch based distribution) as it is much easier to set up than Arch Linux.</p>
+                                <h1 id="archlinux&#x4E0A;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x642D;&#x5EFA;"><a name="archlinux&#x4E0A;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x642D;&#x5EFA;" class="plugin-anchor" href="#archlinux&#x4E0A;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x642D;&#x5EFA;"><i class="fa fa-link" aria-hidden="true"></i></a>ArchLinux&#x4E0A;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x642D;&#x5EFA;</h1>
+<p>&#x56FA;&#x4EF6;&#x4ED3;&#x5E93;&#x91CC;&#x5DF2;&#x7ECF;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x811A;&#x672C;<a href="https://github.com/PX4/Firmware/blob/master/Tools/setup/arch.sh" target="_blank">Tools/setup/arch.sh</a>&#x65B9;&#x4FBF;&#x4F60;&#x5FEB;&#x901F;&#x5730;&#x5728;&#x4F60;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#x642D;&#x5EFA;PX4&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x3002;</p>
+<p>&#x8BE5;&#x811A;&#x672C;&#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x6240;&#x6709;&#x5FC5;&#x9700;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x7F16;&#x8BD1;&#x57FA;&#x4E8E;NuttX&#x7684;PX4&#x6E90;&#x7801;(&#x4E0D;&#x5E26;RTPS)&#xFF0C;&#x4EE5;&#x53CA;&#x8FD0;&#x884C;&#x57FA;&#x4E8E;<em>jMAVsim</em>&#x7684;&#x4EFF;&#x771F;&#x5668;&#x3002; &#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x989D;&#x5916;&#x7684;<em>Gazebo</em>&#x4EFF;&#x771F;&#x5668;&#x901A;&#x8FC7;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF1A; <code>--gazebo</code>&#x3002;</p>
+<p><img src="../../assets/gazebo/arch-gazebo.png" alt="Arch&#x4E0A;&#x4F7F;&#x7528;Gazebo"></p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x6240;&#x6709;&#x7684;&#x6307;&#x4EE4;&#x5DF2;&#x7ECF;&#x5728;<a href="https://manjaro.org/" target="_blank">Manjaro</a>(Arch&#x7684;&#x884D;&#x751F;) &#x4E0A;&#x505A;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x6BD4;&#x5728;Arch Linux&#x4E0A;&#x66F4;&#x5BB9;&#x6613;&#x642D;&#x5EFA;&#x3002;</p>
 </blockquote>
-<p>To get and run the scripts, do either of:</p>
+<p>&#x8981;&#x83B7;&#x53D6;&#x5E76;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#xFF0C;&#x6709;&#x4E0B;&#x9762;&#x51E0;&#x79CD;&#x529E;&#x6CD5;&#xFF1A;</p>
 <ul>
-<li><p><a href="building_px4.html">Download PX4 Source Code</a> and run the scripts in place: </p>
+<li><p><a href="building_px4.html">&#x4E0B;&#x8F7D;PX4&#x7684;&#x6E90;&#x7801;&#xFF0C;</a> &#x7136;&#x540E;&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x811A;&#x672C;&#xFF1A; </p>
 <pre><code>  git clone https://github.com/PX4/Firmware.git
   source Firmware/Tools/setup/arch.sh
 </code></pre></li>
-<li><p>Download just the needed scripts and then run them: </p>
+<li><p>&#x53EA;&#x4E0B;&#x8F7D;&#x4F60;&#x6240;&#x9700;&#x7684;&#x811A;&#x672C;&#x5E76;&#x8FD0;&#x884C;&#x4ED6;&#x4EEC;&#xFF1A; </p>
 <pre><code>  sh
   wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/arch.sh
   wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/requirements.txt
   source arch.sh
 </code></pre></li>
 </ul>
-<p>The script takes the following optional parameters:</p>
+<p>&#x8BE5;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x52A0;&#x5165;&#x8FD9;&#x4E9B;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#xFF1A;</p>
 <ul>
-<li><code>--gazebo</code>: Add this parameter parameter to install Gazebo from the <a href="https://aur.archlinux.org/packages/gazebo/" target="_blank">AUR</a>. &gt; <strong>Note</strong> Gazebo gets compiled from source. It takes some time to install and requires entering the <code>sudo</code> password multiple times (for dependencies).</li>
-<li><code>--no-nuttx</code>: Do not install the NuttX/Pixhawk toolchain (i.e. if only using simulation).</li>
-<li><code>--no-sim-tools</code>: Do not install jMAVSim/Gazebo (i.e. if only targeting Pixhawk/NuttX targets)</li>
+<li><code>--gazebo</code>&#xFF1A;&#x6DFB;&#x52A0;&#x6B64;&#x53C2;&#x6570;&#x4ECE;<a href="https://aur.archlinux.org/packages/gazebo/" target="_blank">AUR</a>&#x5B89;&#x88C5;Gazebo&#x4EFF;&#x771F;&#x5668;&#x3002; <strong>&#x6CE8;&#x610F;</strong> Gazebo &#x662F;&#x901A;&#x8FC7;&#x83B7;&#x53D6;&#x6E90;&#x7801;&#x540E;&#x7F16;&#x8BD1;&#x5F97;&#x5230;&#x7684;&#xFF0C; &#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x9700;&#x8981;&#x82B1;&#x8D39;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x6DFB;&#x52A0;<code>sudo</code>&#x5E76;&#x591A;&#x6B21;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#xFF08;&#x5BF9;&#x4E8E;&#x4F9D;&#x8D56;&#x9879;&#xFF09;&#x3002;</li>
+<li><code>--no-nuttx</code>: &#x4E0D;&#x8981;&#x5B89;&#x88C5; NuttX/Pixhawk &#x7684;&#x5DE5;&#x5177;&#x94FE; (&#x6BD4;&#x5982;&#x4F60;&#x53EA;&#x60F3;&#x4F7F;&#x7528;&#x4EFF;&#x771F;&#x5668;&#x7684;&#x529F;&#x80FD;)&#x3002;</li>
+<li><code>--no-sim-tools</code>: &#x4E0D;&#x8981;&#x5B89;&#x88C5; jMAVSim/Gazebo &#x4EFF;&#x771F;&#x5668; (&#x4F8B;&#x5982;&#x4F60;&#x53EA;&#x60F3;&#x4F7F;&#x7528;&#x6216;&#x8005;&#x5F00;&#x53D1;&#x8C03;&#x8BD5; Pixhawk/NuttX)</li>
 </ul>
 
                                 
@@ -2287,7 +2300,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"next":{"title":"高级 Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]},"previous":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/dev_env_linux_arch.md","mtime":"2019-12-05T23:23:24.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T23:24:40.363Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"next":{"title":"高级 Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]},"previous":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/dev_env_linux_arch.md","mtime":"2019-12-09T21:07:13.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T21:08:24.399Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

@@ -514,12 +514,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../concept/mixing.html">
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
             
                 <a href="../concept/mixing.html">
             
                     
-                    混控器和执行器
+                    Mixing and Actuators
             
                 </a>
             
@@ -527,12 +540,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../concept/pwm_limit.html">
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
             
                 <a href="../concept/pwm_limit.html">
             
                     
-                    PWM 限位状态机
+                    PWM limit state machine
             
                 </a>
             
@@ -540,12 +553,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../concept/system_startup.html">
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
             
                 <a href="../concept/system_startup.html">
             
                     
-                    系统启动
+                    System Startup
             
                 </a>
             
@@ -2353,14 +2366,21 @@ Rebooting.
 <h3 id="raspberry-pi-23"><a name="raspberry-pi-23" class="plugin-anchor" href="#raspberry-pi-23"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3</h3>
 <p>The command below builds the target for <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2</a>.</p>
 <h4 id="&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;"><a name="&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;" class="plugin-anchor" href="#&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;</h4>
+<p>Set the IP (or hostname) of your RPi using:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">export</span> AUTOPILOT_HOST=192.168.X.X
+</code></pre>
+<p>or</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">export</span> AUTOPILOT_HOST=pi_hostname.domain
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The value of the environment variable should be set before the build, or <code>make upload</code> will fail to find your RPi.</p>
+</blockquote>
+<p>Build the executable file:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make emlid_navio2_cross <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
 <p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_cross/</strong>. Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
-<p>Then set the IP (or hostname) of your RPi using:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">export</span> AUTOPILOT_HOST=192.168.X.X
-</code></pre>
-<p>And upload it with:</p>
+<p>Then upload it with:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
 make emlid_navio2_cross upload <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
@@ -2439,7 +2459,7 @@ adb shell reboot
 <p>Build instructions for the <a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html" target="_blank">OcPoC-Zynq Mini</a> are covered in:</p>
 <ul>
 <li><a href="https://docs.px4.io/master/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq" target="_blank">Aerotenna OcPoC-Zynq Mini Flight Controller &gt; Building PX4 for OcPoC-Zynq</a> (PX4 User Guide)</li>
-<li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 &#x6784;&#x5EFA;&#x9875;</a></li>
+<li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 Setup Page</a></li>
 </ul>
 <h3 id="&#x57FA;&#x4E8E;-qurt--snapdragon-&#x7684;&#x98DE;&#x63A7;&#x677F;"><a name="&#x57FA;&#x4E8E;-qurt--snapdragon-&#x7684;&#x98DE;&#x63A7;&#x677F;" class="plugin-anchor" href="#&#x57FA;&#x4E8E;-qurt--snapdragon-&#x7684;&#x98DE;&#x63A7;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E; QuRT / Snapdragon &#x7684;&#x98DE;&#x63A7;&#x677F;</h3>
 <p>This section shows how to build for the <a href="https://docs.px4.io/en/flight_controller/snapdragon_flight.html" target="_blank">Qualcomm Snapdragon Flight</a>.</p>
@@ -2529,33 +2549,35 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 </code></pre>
 <p><strong>VENDOR_MODEL_VARIANT</strong>: (also known as <code>CONFIGURATION_TARGET</code>)</p>
 <ul>
-<li><strong>VENDOR:</strong> &#x98DE;&#x63A7;&#x677F;&#x5236;&#x9020;&#x5546;&#xFF1A;<code>px4</code>&#xFF0C;<code>aerotenna</code>&#xFF0C;<code>airmind</code>&#xFF0C;<code>atlflight</code>&#xFF0C;<code>auav</code>&#xFF0C;<code>beaglebone</code>&#xFF0C;<code>intel</code>&#xFF0C;<code>nxp</code>&#xFF0C;<code>parrot</code>&#x7B49;&#x3002; Pixhawk &#x7CFB;&#x5217;&#x98DE;&#x63A7;&#x677F;&#x5BF9;&#x5E94; <code>PX4</code>&#x3002;</li>
-<li><p><strong>MODEL&#xFF1A;</strong> *&#x98DE;&#x63A7;&#x677F;&#x6A21;&#x578B;&lt;/1 &gt;&quot;&#x6A21;&#x578B; &quot;&#xFF1A;<code>sitl</code>&#x3001;<code>fmu-v2</code>&#x3001;<code>fmu-v3</code>&#x3001;<code>fmu-v4</code>&#x3001;<code>fmu-v5</code>&#x3001;<code>navio2</code> &#x7B49;&#x3002;&lt;/li&gt; </p>
-<ul>
-<li><p><strong>VARIANT:</strong>&#x7279;&#x5B9A;&#x914D;&#x7F6E;&#xFF1A;&#x4F8B;&#x5982; <code>rtps</code>&#x3001;<code>lpe</code>&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B; <code>&#x9ED8;&#x8BA4;</code> &#x914D;&#x7F6E;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x7EC4;&#x4EF6;&#x3002; &#x6700;&#x5E38;&#x89C1;&#x7684;&#x662F; <code>default</code>&#xFF0C;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x3002;&lt;/ul&gt; </p>
+<li><strong>VENDOR:</strong> The manufacturer of the board: <code>px4</code>, <code>aerotenna</code>, <code>airmind</code>, <code>atlflight</code>, <code>auav</code>, <code>beaglebone</code>, <code>intel</code>, <code>nxp</code>, <code>parrot</code>, etc. The vendor name for Pixhawk series boards is <code>px4</code>.</li>
+<li><strong>MODEL:</strong> The <em>board model</em> &quot;model&quot;: <code>sitl</code>, <code>fmu-v2</code>, <code>fmu-v3</code>, <code>fmu-v4</code>, <code>fmu-v5</code>, <code>navio2</code>, etc.</li>
+<li><strong>VARIANT:</strong> Indicates particular configurations: e.g. <code>rtps</code>, <code>lpe</code>, which contain components that are not present in the <code>default</code> configuration. Most commonly this is <code>default</code>, and may be omitted.</li>
+</ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> You can get a list of <em>all</em> available <code>CONFIGURATION_TARGET</code> options using the command below: </p>
 <pre><code>sh
   make list_config_targets
 </code></pre></blockquote>
 <p><strong>VIEWER_MODEL_DEBUGGER:</strong></p>
+<ul>
+<li><p><strong>VIEWER:</strong> This is the simulator (&quot;viewer&quot;) to launch and connect: <code>gazebo</code>, <code>jmavsim</code> <!-- , ?airsim --></p>
 </li>
-<li><p><strong>VIEWER:</strong>&#x8FD9;&#x662F;&#x542F;&#x52A8;&#x548C;&#x8FDE;&#x63A5;&#x7684;&#x6A21;&#x62DF;&#x5668;&#xFF08;&quot;&#x67E5;&#x770B;&#x5668;&quot;&#xFF09;&#xFF1A;<code>gazebo</code>, <code>jmavsim</code> <!-- , ?airsim --></p>
+<li><p><strong>MODEL:</strong> The <em>vehicle</em> model to use (e.g. <code>iris</code> (<em>default</em>), <code>rover</code>, <code>tailsitter</code>, etc), which will be loaded by the simulator. The environment variable <code>PX4_SIM_MODEL</code> will be set to the selected model, which is then used in the <a href="../simulation/#scripts">startup script</a> to select appropriate parameters.</p>
 </li>
-<li><p><strong>MODEL:</strong>&#x8981;&#x4F7F;&#x7528;&#x7684; <em>&#x8F7D;&#x5177;</em> &#x6A21;&#x578B;&#xFF08;&#x4F8B;&#x5982; <code>iris</code> (<em>default</em>)&#x3001;<code>rover</code>&#x3001;<code>tailsitter</code> &#x7B49;&#xFF09;&#xFF0C;&#x8BE5;&#x6A21;&#x578B;&#x5C06;&#x7531;&#x6A21;&#x62DF;&#x5668;&#x52A0;&#x8F7D;&#x3002; The environment variable <code>PX4_SIM_MODEL</code> will be set to the selected model, which is then used in the <a href="../simulation/#scripts">startup script</a> to select appropriate parameters.</p>
+<li><p><strong>DEBUGGER:</strong> Debugger to use: <code>none</code> (<em>default</em>), <code>ide</code>, <code>gdb</code>, <code>lldb</code>, <code>ddd</code>, <code>valgrind</code>, <code>callgrind</code>. For more information see <a href="../debug/simulation_debugging.html">Simulation Debugging</a>.</p>
 </li>
-<li><p><strong>DEBUGGER:</strong>&#x8981;&#x4F7F;&#x7528;&#x7684;&#x8C03;&#x8BD5;&#x5668;&#xFF1A;<code>none</code> (<em>default</em>)&#x3001;<code>ide</code>&#x3001;<code>gdb</code>&#x3001;<code>lldb</code>&#x3001;<code>ddd</code>&#x3001;<code>valgrind</code>&#x3001;<code>callgrind</code>&#x3002; &#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; &lt; 0&gt;Simulation &#x8C03;&#x8BD5; &lt;/0 &gt;&#x3002;</p>
+</ul>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> You can get a list of <em>all</em> available <code>VIEWER_MODEL_DEBUGGER</code> options using the command below: </p>
 <pre><code>sh
   make px4_sitl list_vmd_make_targets
 </code></pre></blockquote>
 <p>Notes:</p>
-</li>
-<li><p><code>CONFIGURATION_TARGET</code> &#x548C; <code>VIEWER_MODEL_DEBUGGER</code> &#x4E2D;&#x7684;&#x5927;&#x591A;&#x6570;&#x503C;&#x90FD;&#x6709;&#x9ED8;&#x8BA4;&#x503C;, &#x56E0;&#x6B64;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002; &#x6BD4;&#x5982;&#xFF0C;<code>gazebo</code> &#x76F8;&#x5F53;&#x4E8E; <code>gazebo_iris</code> &#x6216; <code>gazebo_iris_none</code> &#x3002;</p>
-</li>
-<li>&#x5982;&#x679C;&#x8981;&#x5728;&#x5176;&#x4ED6;&#x4E24;&#x4E2A;&#x8BBE;&#x7F6E;&#x4E4B;&#x95F4;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E09;&#x4E2A;&#x4E0B;&#x5212;&#x7EBF;&#x3002; &#x4F8B;&#x5982;&#xFF0C;<code>gazebo___gdb</code> &#x7B49;&#x6548;&#x4E8E; <code>gazebo_iris_gdb</code>&#x3002;</li>
-<li><p>&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>VIEWER_MODEL_DEBUGGER</code> &#x7684; <code>none</code> &#x503C;&#x542F;&#x52A8; PX4 &#x5E76;&#x7B49;&#x5F85;&#x6A21;&#x62DF;&#x5668;&#x3002; For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh -l</code>.</p>
+<ul>
+<li>Most of the values in the <code>CONFIGURATION_TARGET</code> and <code>VIEWER_MODEL_DEBUGGER</code> have defaults, and are hence optional. For example, <code>gazebo</code> is equivalent to <code>gazebo_iris</code> or <code>gazebo_iris_none</code>.</li>
+<li>You can use three underscores if you want to specify a default value between two other settings. For example, <code>gazebo___gdb</code> is equivalent to <code>gazebo_iris_gdb</code>.</li>
+<li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator. For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh -l</code>.</li>
+</ul>
 <p>The <code>VENDOR_MODEL_VARIANT</code> options map to particular <em>cmake</em> configuration files in the PX4 source tree under the <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">/boards</a> directory. Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <strong>boards/VENDOR/MODEL/VARIANT.cmake</strong> (e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
 <p>Additional make targets are discussed in the following sections (list is not exhaustive):</p>
 <h3 id="bloaty_compare_master"><a name="bloaty_compare_master" class="plugin-anchor" href="#bloaty_compare_master"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x5256;&#x6790; </h3>
@@ -2564,17 +2586,11 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 <p> This can help analyse changes that (may) cause <code>px4_fmu-v2_default</code> to hit the 1MB flash limit.</p>
 </blockquote>
 <p><em>Bloaty</em> must be in your path and found at <em>cmake</em> configure time. The PX4 <a href="https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx" target="_blank">docker files</a> install <em>bloaty</em> as shown:</p>
-<p>  git clone --recursive <a href="https://github.com/google/bloaty.git" target="_blank">https://github.com/google/bloaty.git</a> /tmp/bloaty \</p>
-<pre><code>  &amp;&amp; cd /tmp/bloaty &amp;&amp; cmake -GNinja . &amp;&amp; ninja bloaty &amp;&amp; cp bloaty /usr/local/bin/ \
-  &amp;&amp; rm -rf /tmp/*
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<pre><code>The example below shows how you might see the impact of removing the *mpu9250* driver from `px4_fmu-v2_default`. First it locally sets up a build without the driver:
-
-```sh
- % git diff
+<pre><code>git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
+    &amp;&amp; cd /tmp/bloaty &amp;&amp; cmake -GNinja . &amp;&amp; ninja bloaty &amp;&amp; cp bloaty /usr/local/bin/ \
+    &amp;&amp; rm -rf /tmp/*
+</code></pre><p>The example below shows how you might see the impact of removing the <em>mpu9250</em> driver from <code>px4_fmu-v2_default</code>. First it locally sets up a build without the driver:</p>
+<pre><code class="lang-sh"> % git diff
 diff --git a/boards/px4/fmu-v2/default.cmake b/boards/px4/fmu-v2/default.cmake
 index 40d7778..2ce7972 100644
 --- a/boards/px4/fmu-v2/default.cmake
@@ -2585,23 +2601,20 @@ index 40d7778..2ce7972 100644
                 imu/mpu6000
 
 -               imu/mpu9250
-+               #imu/mpu9250
-                #iridiumsbd
-                #irlock
-                #magnetometer # all available magnetometer drivers
-```
-
-Then use the make target, specifying the target build to compare (`px4_fmu-v2_default` in this case):
-
-```sh
-% make px4_fmu-v2_default bloaty_compare_master
++               <span class="hljs-comment">#imu/mpu9250</span>
+                <span class="hljs-comment">#iridiumsbd</span>
+                <span class="hljs-comment">#irlock</span>
+                <span class="hljs-comment">#magnetometer # all available magnetometer drivers</span>
+</code></pre>
+<p>Then use the make target, specifying the target build to compare (<code>px4_fmu-v2_default</code> in this case):</p>
+<pre><code class="lang-sh">% make px4_fmu-v2_default bloaty_compare_master
 ...
 ...
 ...
      VM SIZE                                                                                        FILE SIZE
  --------------                                                                                  --------------
   [DEL]     -52 MPU9250::check_null_data(unsigned int*, unsigned char)                               -52  [DEL]
-  [DEL]     -52 MPU9250::test_error()                                                                -52  [DEL]
+  [DEL]     -52 MPU9250::<span class="hljs-built_in">test</span>_error()                                                                -52  [DEL]
   [DEL]     -52 MPU9250_gyro::MPU9250_gyro(MPU9250*, char const*)                                    -52  [DEL]
   [DEL]     -56 mpu9250::info(MPU9250_BUS)                                                           -56  [DEL]
   [DEL]     -56 mpu9250::regdump(MPU9250_BUS)                                                        -56  [DEL]
@@ -2613,64 +2626,42 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
  -41.3%   -1011 [43 Others]                                                                        -1011 -41.3%
   -1.0% -1.05Ki [Unmapped]                                                                       +24.2Ki  +0.2%
   -1.0% -10.3Ki TOTAL                                                                            +14.9Ki  +0.1%
-```
-
-This shows that removing *mpu9250* from `px4_fmu-v2_default` would save 10.3 kB of flash. It also shows the sizes of different pieces of the *mpu9250* driver.
-
-## Firmware Version &amp; Git Tags {#firmware_version}
-
-The *PX4 Firmware Version* and *Custom Firmware Version* are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the *QGroundControl* **Setup &gt; Summary** airframe panel:
-
-![Firmware info](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
-
-These are extracted at build time from the active *git tag* for your repo tree. The git tag should be formatted as `&lt;PX4-version&gt;-&lt;vendor-version&gt;` (e.g. the tag in the image above was set to `v1.8.1-2.22.1`).
-
-&gt; **Warning** If you use a different git tag format, versions information may not be displayed properly.
-
-## Troubleshooting {#troubleshooting}
-
-### General Build Errors
-
-Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
-
-    git submodule update --recursive
-    make distclean
-
-
-### Flash overflowed by XXX bytes
-
-The `region &apos;flash&apos; overflowed by XXXX bytes` error indicates that the firmware is too large for the target hardware platform. This is common for `make px4_fmu-v2_default` builds, where the flash size is limited to 1MB.
-
-If you&apos;re building the *vanilla* master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the [Developer Toolchain](../setup/dev_env.md) instructions.
-
-If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don&apos;t need from the build.
-
-### macOS: Too many open fileserror {#macos_open_files}
-
-MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.
-
-The build toolchain will then report `Too many open files` for many files, as shown below:
-
-```sh
-/usr/local/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
-```
-
-The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS *Terminal* for each session:
-
-- Run this script [Tools/mac_set_ulimit.sh](https://github.com/PX4/Firmware/blob/master/Tools/mac_set_ulimit.sh), or
-- Enter this command: 
-        sh
-        ulimit -S -n 300
-
-### macOS Catalina: Problem running cmake
-
-As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with *cmake*. If you have build problems on this platform then try run the following command in your terminal:
-
-```sh
-xcode-select --install
-sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
-```
 </code></pre>
+<p>This shows that removing <em>mpu9250</em> from <code>px4_fmu-v2_default</code> would save 10.3 kB of flash. It also shows the sizes of different pieces of the <em>mpu9250</em> driver.</p>
+<h2 id="firmware_version"><a name="firmware_version" class="plugin-anchor" href="#firmware_version"><i class="fa fa-link" aria-hidden="true"></i></a>Firmware Version &amp; Git Tags </h2>
+<p>The <em>PX4 Firmware Version</em> and <em>Custom Firmware Version</em> are published using the MAVLink <a href="https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION" target="_blank">AUTOPILOT_VERSION</a> message, and displayed in the <em>QGroundControl</em> <strong>Setup &gt; Summary</strong> airframe panel:</p>
+<p><img src="../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg" alt="Firmware info"></p>
+<p>These are extracted at build time from the active <em>git tag</em> for your repo tree. The git tag should be formatted as <code>&lt;PX4-version&gt;-&lt;vendor-version&gt;</code> (e.g. the tag in the image above was set to <code>v1.8.1-2.22.1</code>).</p>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> If you use a different git tag format, versions information may not be displayed properly.</p>
+</blockquote>
+<h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting </h2>
+<h3 id="general-build-errors"><a name="general-build-errors" class="plugin-anchor" href="#general-build-errors"><i class="fa fa-link" aria-hidden="true"></i></a>General Build Errors</h3>
+<p>Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a <code>distclean</code> can fix these kinds of errors:</p>
+<pre><code>git submodule update --recursive
+make distclean
+</code></pre><h3 id="flash-overflowed-by-xxx-bytes"><a name="flash-overflowed-by-xxx-bytes" class="plugin-anchor" href="#flash-overflowed-by-xxx-bytes"><i class="fa fa-link" aria-hidden="true"></i></a>Flash overflowed by XXX bytes</h3>
+<p>The <code>region &apos;flash&apos; overflowed by XXXX bytes</code> error indicates that the firmware is too large for the target hardware platform. This is common for <code>make px4_fmu-v2_default</code> builds, where the flash size is limited to 1MB.</p>
+<p>If you&apos;re building the <em>vanilla</em> master branch, the most likely cause is using an unsupported version of GCC. In this case, install the version specified in the <a href="dev_env.html">Developer Toolchain</a> instructions.</p>
+<p>If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. In this case you will need to remove any drivers/modules that you don&apos;t need from the build.</p>
+<h3 id="macos_open_files"><a name="macos_open_files" class="plugin-anchor" href="#macos_open_files"><i class="fa fa-link" aria-hidden="true"></i></a>macOS: Too many open fileserror </h3>
+<p>MacOS allows a default maximum of 256 open files in all running processes. The PX4 build system opens a large number of files, so you may exceed this number.</p>
+<p>The build toolchain will then report <code>Too many open files</code> for many files, as shown below:</p>
+<pre><code class="lang-sh">/usr/<span class="hljs-built_in">local</span>/Cellar/gcc-arm-none-eabi/20171218/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/bin/ld: cannot find NuttX/nuttx/fs/libfs.a: Too many open files
+</code></pre>
+<p>The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS <em>Terminal</em> for each session:</p>
+<ul>
+<li>Run this script <a href="https://github.com/PX4/Firmware/blob/master/Tools/mac_set_ulimit.sh" target="_blank">Tools/mac_set_ulimit.sh</a>, or</li>
+<li>Enter this command: <pre><code>  sh
+  ulimit -S -n 300
+</code></pre></li>
+</ul>
+<h3 id="macos-catalina-problem-running-cmake"><a name="macos-catalina-problem-running-cmake" class="plugin-anchor" href="#macos-catalina-problem-running-cmake"><i class="fa fa-link" aria-hidden="true"></i></a>macOS Catalina: Problem running cmake</h3>
+<p>As of macOS Catalina 10.15.1 there may be problems when trying to build the simulator with <em>cmake</em>. If you have build problems on this platform then try run the following command in your terminal:</p>
+<pre><code class="lang-sh">xcode-select --install
+sudo ln <span class="hljs-_">-s</span> /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/<span class="hljs-built_in">local</span>/include/
+</code></pre>
+
                                 
                                 </section>
                             
@@ -2713,7 +2704,7 @@ sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /us
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-12-05T23:23:24.772Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T23:24:40.363Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2019-12-09T21:07:13.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T21:08:24.399Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

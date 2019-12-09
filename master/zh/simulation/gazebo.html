@@ -514,12 +514,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../concept/mixing.html">
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
             
                 <a href="../concept/mixing.html">
             
                     
-                    混控器和执行器
+                    Mixing and Actuators
             
                 </a>
             
@@ -527,12 +540,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../concept/pwm_limit.html">
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
             
                 <a href="../concept/pwm_limit.html">
             
                     
-                    PWM 限位状态机
+                    PWM limit state machine
             
                 </a>
             
@@ -540,12 +553,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../concept/system_startup.html">
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
             
                 <a href="../concept/system_startup.html">
             
                     
-                    系统启动
+                    System Startup
             
                 </a>
             
@@ -2218,17 +2231,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gazebo-&#x4EFF;&#x771F;&#x6A21;&#x62DF;"><a name="gazebo-&#x4EFF;&#x771F;&#x6A21;&#x62DF;" class="plugin-anchor" href="#gazebo-&#x4EFF;&#x771F;&#x6A21;&#x62DF;"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo &#x4EFF;&#x771F;&#x6A21;&#x62DF;</h1>
+                                <h1 id="gazebo-&#x4EFF;&#x771F;"><a name="gazebo-&#x4EFF;&#x771F;" class="plugin-anchor" href="#gazebo-&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo &#x4EFF;&#x771F;</h1>
 <!-- Check if updates required - ie that following are fixed:
 
 - Gazebo8 not supported and should be: https://github.com/PX4/sitl_gazebo/pull/118#pullrequestreview-86032497
 - Video functionality disabled by default (should be enabled): https://github.com/PX4/Devguide/pull/418#pullrequestreview-86789154
 - Find out actual gstreamer dependencies and update both this doc and build scripts - should be done when the camera plugin is a default.
 -->
-<p><a href="http://gazebosim.org" target="_blank"> Gazebo </a>&#x662F;&#x7528;&#x4E8E;&#x81EA;&#x4E3B;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x5F3A;&#x5927;3D&#x6A21;&#x62DF;&#x73AF;&#x5883;&#xFF0C;&#x5176;&#x7279;&#x522B;&#x9002;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x7269;&#x4F53;&#x907F;&#x969C;&#x548C;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x3002; &#x672C;&#x9875;&#x63CF;&#x8FF0;&#x4E86;&#x5B83;&#x4E0E; SITL &#x548C;&#x5355;&#x4E00;&#x8BBE;&#x5907;&#x7684;&#x4F7F;&#x7528;&#x3002; Gazebo &#x4E5F;&#x53EF;&#x4EE5;&#x4E0E;<a href="hitl.html"> HITL </a>&#x548C;<a href="multi-vehicle-simulation.html">&#x591A;&#x673A;&#x4EFF;&#x771F;</a>&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+<p><a href="http://gazebosim.org" target="_blank"> Gazebo </a>&#x662F;&#x7528;&#x4E8E;&#x81EA;&#x4E3B;&#x673A;&#x5668;&#x4EBA;&#x7684;&#x5F3A;&#x5927;3D&#x6A21;&#x62DF;&#x73AF;&#x5883;&#xFF0C;&#x5176;&#x7279;&#x522B;&#x9002;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x7269;&#x4F53;&#x907F;&#x969C;&#x548C;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x3002; &#x672C;&#x6587;&#x63CF;&#x8FF0;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5B83;&#x6765;&#x8FDB;&#x884C;&#x5355;&#x673A;&#x7684;&#x8F6F;&#x4EF6;&#x5728;&#x73AF;&#x4EFF;&#x771F;&#x3002; Gazebo &#x4E5F;&#x53EF;&#x4EE5;&#x9002;&#x7528;&#x4E8E; <a href="hitl.html">&#x786C;&#x4EF6;&#x5728;&#x73AF;&#x4EFF;&#x771F;</a> &#x548C; <a href="multi-vehicle-simulation.html">&#x591A;&#x673A;&#x4EFF;&#x771F;</a> &#x3002;</p>
 <p><strong>&#x652F;&#x6301;&#x673A;&#x578B;&#xFF1A;</strong>&#x56DB;&#x65CB;&#x7FFC; (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> &#x548C; <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>)&#xFF0C;&#x516D;&#x65CB;&#x7FFC; (Typhoon h480)&#xFF0C;<a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">&#x901A;&#x7528;&#x56DB;&#x65CB;&#x7FFC; delta VTOL &#x65E0;&#x4EBA;&#x673A;</a>&#xFF0C;&#x5C3E;&#x7FFC;&#xFF0C;&#x98DE;&#x673A;&#xFF0C;&#x63A2;&#x6D4B;&#x8F66;&#xFF0C;&#x6F5C;&#x8247;&#xFF08;&#x5373;&#x5C06;&#x63A8;&#x51FA;&#xFF01;&#xFF09;</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Gazebo &#x901A;&#x5E38;&#x4E0E; <a href="../ros/">ROS</a> &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x8BE5; API &#x662F;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x81EA;&#x52A8;&#x8BBE;&#x5907;&#x63A7;&#x5236;&#x7684;&#x5DE5;&#x5177;&#x3002; &#x5982;&#x679C;&#x60A8;&#x8BA1;&#x5212;&#x5C06; PX4 &#x4E0E; ROS &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x5E94;&#x8BE5;<a href="ros_interface.html">follow the instructions here</a>&#x5B89;&#x88C5; Gazebo &#x4F5C;&#x4E3A; ROS &#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF01;</p>
+<p> Gazebo &#x901A;&#x5E38;&#x4E0E; <a href="../ros/">ROS</a> &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x677F;&#x5916;&#x81EA;&#x52A8;&#x98DE;&#x884C;&#x63A7;&#x5236;&#x7684; API &#x5DE5;&#x5177;&#x5305;&#x3002; &#x5982;&#x679C;&#x60A8;&#x8BA1;&#x5212;&#x5C06; PX4 &#x4E0E; ROS &#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x5148;&#x5B89;&#x88C5; Gazebo <a href="ros_interface.html">&#x5728;&#x8FD9;&#x770B;&#x8BF4;&#x660E;&#x6559;&#x7A0B;</a> &#x3002;</p>
 </blockquote>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/qfFF9-0k4KA"></iframe></div></p>
 <p><div id="container" class="mermaid-container">
@@ -2245,14 +2258,14 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 </style><g><g class="output"><g class="clusters"><g class="edgePaths"><g class="edgePath" style="opacity: 1; "><path class="path" d="M94,38L119,38L144,38" marker-end="url(#arrowhead17)" style="stroke: #333; stroke-width: 1.5px;fill:none"/><defs><marker id="arrowhead17" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"/></marker></defs></g><g class="edgePath" style="opacity: 1; "><path class="path" d="M206,38L231,38L256,38" marker-end="url(#arrowhead18)" style="stroke: #333; stroke-width: 1.5px;fill:none"/><defs><marker id="arrowhead18" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"/></marker></defs></g><g class="edgePath" style="opacity: 1; "><path class="path" d="M333,38L358,38L383,38" marker-end="url(#arrowhead19)" style="stroke: #333; stroke-width: 1.5px;fill:none"/><defs><marker id="arrowhead19" viewbox="0 0 10 10" refx="9" refy="5" markerunits="strokeWidth" markerwidth="8" markerheight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" style="fill: #333"/></marker></defs></g></g><g class="edgeLabels"><g class="edgeLabel" style="opacity: 1; " transform=""><g transform="translate(0,0)" class="label"><text><tspan space="preserve" dy="1em" x="1"/></text></g></g><g class="edgeLabel" style="opacity: 1; " transform=""><g transform="translate(0,0)" class="label"><text><tspan space="preserve" dy="1em" x="1"/></text></g></g><g class="edgeLabel" style="opacity: 1; " transform=""><g transform="translate(0,0)" class="label"><text><tspan space="preserve" dy="1em" x="1"/></text></g></g></g><g class="nodes"><g class="node" style="opacity: 1; " id="Gazebo" transform="translate(57,38)"><rect rx="0" ry="0" x="-37" y="-18" width="74" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-27,-8)"><text><tspan space="preserve" dy="1em" x="1">Gazebo</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="Plugin" transform="translate(175,38)"><rect rx="0" ry="0" x="-31" y="-18" width="62" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-21,-8)"><text><tspan space="preserve" dy="1em" x="1">Plugin</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="MAVLink" transform="translate(294.5,38)"><rect rx="0" ry="0" x="-38.5" y="-18" width="77" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-28.5,-8)"><text><tspan space="preserve" dy="1em" x="1">MAVLink</tspan></text></g></g></g><g class="node" style="opacity: 1; " id="SITL" transform="translate(407,38)"><rect rx="0" ry="0" x="-24" y="-18" width="48" height="36"/><g class="label" transform="translate(0,0)"><g transform="translate(-14,-8)"><text><tspan space="preserve" dy="1em" x="1">SITL</tspan></text></g></g></g></g></g></g></g></svg></div></div>
   </div></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p>&#x6709;&#x5173;&#x6A21;&#x62DF;&#x5668;&#xFF0C;&#x6A21;&#x62DF;&#x73AF;&#x5883;&#x548C;&#x53EF;&#x7528;&#x6A21;&#x62DF;&#x914D;&#x7F6E;&#xFF08;&#x4F8B;&#x5982;&#x652F;&#x6301;&#x7684;&#x673A;&#x578B;&#xFF09;&#x7684;&#x4E00;&#x822C;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1;<a href="./">Simulation</a>&#x3002;</p>
+<p> &#x6709;&#x5173;&#x4EFF;&#x771F;&#x5668;&#xFF0C;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x548C;&#x4EFF;&#x771F;&#x53D8;&#x91CF;&#x914D;&#x7F6E;&#xFF08;&#x4F8B;&#x5982;&#x652F;&#x6301;&#x7684;&#x673A;&#x578B;&#xFF09;&#x7684;&#x4E00;&#x822C;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1; <a href="./">&#x4EFF;&#x771F;</a>&#x3002;</p>
 </blockquote>
 <h2 id="&#x5B89;&#x88C5;"><a name="&#x5B89;&#x88C5;" class="plugin-anchor" href="#&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;</h2>
-<p>Gazebo 9 setup is included in our standard build instructions:</p>
+<p>Gazebo 9 &#x7684;&#x5B89;&#x88C5;&#x5728;&#x6807;&#x51C6;&#x7684;&#x73AF;&#x5883;&#x7F16;&#x8BD1;&#x5DF2;&#x6709;&#x8BF4;&#x660E;&#x3002;</p>
 <ul>
 <li><strong> macOS&#xFF1A;</strong> <a href="../setup/dev_env_mac.html"> Mac &#x4E0A;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;</a></li>
-<li><strong>Linux:</strong> <a href="../setup/dev_env_linux_ubuntu.html#sim_nuttx">Development Environment on Linux (Ubuntu 16.04) &gt; jMAVSim/Gazebo Simulation</a></li>
-<li><strong> Windows&#xFF1A;</strong>&#x4E0D;&#x652F;&#x6301;&#x3002;</li>
+<li><strong>Linux:</strong> <a href="../setup/dev_env_linux_ubuntu.html#sim_nuttx">&#x5728;Linux&#xFF08;Ubuntu 16.04&#xFF09;&#x5F00;&#x53D1;&#x73AF;&#x5883; -&gt; jMAVSim/Gazebo &#x4EFF;&#x771F;</a></li>
+<li><strong> Windows&#xFF1A;</strong>&#x8FD8;&#x4E0D;&#x652F;&#x6301;&#x3002;</li>
 </ul>
 <p>&#x5176;&#x4ED6;&#x5B89;&#x88C5;&#x8BF4;&#x660E;&#x53EF;&#x5728; <a href="http://gazebosim.org/tutorials?cat=guided_b&amp;tut=guided_b1" target="_blank">gazebosim.org</a> &#x4E0A;&#x627E;&#x5230;&#x3002;</p>
 <h2 id="&#x8FD0;&#x884C;&#x4EFF;&#x771F;"><a name="&#x8FD0;&#x884C;&#x4EFF;&#x771F;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x4EFF;&#x771F;</h2>
@@ -2280,15 +2293,15 @@ make px4_sitl gazebo
 <pre><code class="lang-sh">make px4_sitl gazebo_plane
 </code></pre>
 <p><img src="../../assets/gazebo/plane.png" alt="&#x98DE;&#x884C;&#x5668;"></p>
-<h3 id="&#x6807;&#x51C6;&#x6784;&#x578B;&#x7684;-vtol"><a name="&#x6807;&#x51C6;&#x6784;&#x578B;&#x7684;-vtol" class="plugin-anchor" href="#&#x6807;&#x51C6;&#x6784;&#x578B;&#x7684;-vtol"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6807;&#x51C6;&#x6784;&#x578B;&#x7684; VTOL</h3>
+<h3 id="&#x6807;&#x51C6;&#x5782;&#x8D77;"><a name="&#x6807;&#x51C6;&#x5782;&#x8D77;" class="plugin-anchor" href="#&#x6807;&#x51C6;&#x5782;&#x8D77;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6807;&#x51C6;&#x5782;&#x8D77;</h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_standard_vtol
 </code></pre>
 <p><img src="../../assets/gazebo/standard_vtol.png" alt="&#x6807;&#x51C6;&#x6784;&#x578B;&#x7684; VTOL"></p>
-<h3 id="&#x5C3E;&#x5EA7;&#x5F0F;-vtol"><a name="&#x5C3E;&#x5EA7;&#x5F0F;-vtol" class="plugin-anchor" href="#&#x5C3E;&#x5EA7;&#x5F0F;-vtol"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C3E;&#x5EA7;&#x5F0F; VTOL</h3>
+<h3 id="&#x5C3E;&#x5EA7;&#x5F0F;&#x5782;&#x8D77;"><a name="&#x5C3E;&#x5EA7;&#x5F0F;&#x5782;&#x8D77;" class="plugin-anchor" href="#&#x5C3E;&#x5EA7;&#x5F0F;&#x5782;&#x8D77;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C3E;&#x5EA7;&#x5F0F;&#x5782;&#x8D77;</h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_tailsitter
 </code></pre>
 <p><img src="../../assets/gazebo/tailsitter.png" alt="&#x5C3E;&#x5EA7;&#x5F0F; VTOL"></p>
-<h3 id="ugv"><a name="ugv" class="plugin-anchor" href="#ugv"><i class="fa fa-link" aria-hidden="true"></i></a>&#x963F;&#x514B;&#x66FC;&#x8F66; &#xFF08;UGV/Rover&#xFF09; </h3>
+<h3 id="ugv"><a name="ugv" class="plugin-anchor" href="#ugv"><i class="fa fa-link" aria-hidden="true"></i></a>Ackerman &#x8F66; &#xFF08;UGV/Rover&#xFF09; </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_rover
 </code></pre>
 <p><img src="../../assets/gazebo/rover.png" alt="&#x63A2;&#x6D4B;&#x8F66;"></p>
@@ -2297,10 +2310,10 @@ make px4_sitl gazebo
 </code></pre>
 <p><img src="../../assets/gazebo/hippocampus.png" alt="&#x6F5C;&#x8247; /UUV"></p>
 <h2 id="&#x6539;&#x53D8;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x4E16;&#x754C;"><a name="&#x6539;&#x53D8;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x4E16;&#x754C;" class="plugin-anchor" href="#&#x6539;&#x53D8;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x4E16;&#x754C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6539;&#x53D8;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x4E16;&#x754C;</h2>
-<p>&#x5F53;&#x524D;&#x7684;&#x9ED8;&#x8BA4;&#x4E16;&#x754C;&#x662F;&#x4F4D;&#x4E8E;&#x76EE;&#x5F55; <a href="https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds" target="_blank">worlds</a> &#x4E2D;&#x7684; <strong>iris.world</strong>&#x3002; <strong>iris.world</strong> &#x4E2D;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x9AD8;&#x7A0B;&#x56FE;&#x751F;&#x6210;&#x5730;&#x9762;&#x666F;&#x7269;&#x3002; &#x8FD9;&#x6837;&#x751F;&#x6210;&#x7684;&#x5730;&#x9762;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4F7F;&#x7528;&#x8DDD;&#x79BB;&#x4F20;&#x611F;&#x5668;&#x65F6;&#x8F83;&#x4E3A;&#x56F0;&#x96BE;&#xFF0C; &#x5982;&#x679C;&#x4F7F;&#x7528;&#x9AD8;&#x7A0B;&#x56FE;&#x4F1A;&#x5BFC;&#x81F4;&#x4EFB;&#x4F55;&#x51FA;&#x4E4E;&#x610F;&#x6599;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x4F60;&#x5C06; <strong>iris.model</strong> &#x4E2D;&#x7684;&#x6A21;&#x578B;&#x8BBE;&#x5B9A;&#x4ECE; <code>uneven_ground</code> &#x6539;&#x4E3A; <code>asphalt_plane</code>.</p>
-<h2 id="&#x628A;&#x98DE;&#x673A;&#x98DE;&#x4E0A;&#x5929;"><a name="&#x628A;&#x98DE;&#x673A;&#x98DE;&#x4E0A;&#x5929;" class="plugin-anchor" href="#&#x628A;&#x98DE;&#x673A;&#x98DE;&#x4E0A;&#x5929;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x628A;&#x98DE;&#x673A;&#x98DE;&#x4E0A;&#x5929;</h2>
+<p>&#x5F53;&#x524D;&#x7684;&#x9ED8;&#x8BA4;&#x4E16;&#x754C;&#x662F;&#x4F4D;&#x4E8E;&#x76EE;&#x5F55; <a href="https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds" target="_blank">worlds</a> &#x4E2D;&#x7684; <strong>iris.world</strong>&#x3002; <strong>iris.world</strong> &#x4E2D;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x9AD8;&#x5EA6;&#x56FE;&#x751F;&#x6210;&#x5730;&#x9762;&#x666F;&#x7269;&#x3002; &#x8FD9;&#x6837;&#x751F;&#x6210;&#x7684;&#x5730;&#x9762;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4F7F;&#x7528;&#x8DDD;&#x79BB;&#x4F20;&#x611F;&#x5668;&#x65F6;&#x8F83;&#x4E3A;&#x56F0;&#x96BE;&#xFF0C; &#x5982;&#x679C;&#x4F7F;&#x7528;&#x9AD8;&#x7A0B;&#x56FE;&#x4F1A;&#x5BFC;&#x81F4;&#x4EFB;&#x4F55;&#x51FA;&#x4E4E;&#x610F;&#x6599;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x4F60;&#x5C06; <strong>iris.model</strong> &#x4E2D;&#x7684;&#x6A21;&#x578B;&#x9ED8;&#x8BA4;&#x8BBE;&#x5B9A;&#x4ECE; <code>uneven_ground</code> &#x6539;&#x4E3A; <code>asphalt_plane</code>.</p>
+<h2 id="&#x7B80;&#x5355;&#x4E0A;&#x5929;"><a name="&#x7B80;&#x5355;&#x4E0A;&#x5929;" class="plugin-anchor" href="#&#x7B80;&#x5355;&#x4E0A;&#x5929;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x5355;&#x4E0A;&#x5929;</h2>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x5982;&#x9047;&#x5230;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#x8BF7;&#x53C2;&#x8003;&#xFF1A; <a href="../setup/dev_env.html">Installing Files and Code</a> &#x3002;</p>
+<p> &#x5982;&#x9047;&#x5230;&#x4EFB;&#x4F55;&#x9519;&#x8BEF;&#x8BF7;&#x53C2;&#x8003;&#xFF1A; <a href="../setup/dev_env.html">&#x5DE5;&#x5177;&#x94FE;&#x5B89;&#x88C5;</a> &#x3002;</p>
 </blockquote>
 <p>&#x8BE5;&#x547D;&#x4EE4;&#x6700;&#x7EC8;&#x5C06;&#x5F97;&#x5230;&#x5982;&#x4E0B; PX4 &#x63A7;&#x5236;&#x53F0;&#x663E;&#x793A;&#x754C;&#x9762;&#xFF1A;</p>
 <pre><code class="lang-sh">[init] shell id: 140735313310464
@@ -2319,15 +2332,15 @@ px4 starting.
 pxh&gt;
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x53F3;&#x952E;&#x5355;&#x51FB;&#x56DB;&#x65CB;&#x7FFC;&#x6A21;&#x578B;&#x5141;&#x8BB8;&#x4ECE;&#x4E0A;&#x4E0B;&#x6587;&#x83DC;&#x5355;&#x542F;&#x7528;&#x8DDF;&#x968F;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5C06;&#x5176;&#x4FDD;&#x6301;&#x5728;&#x89C6;&#x56FE;&#x4E2D;&#x3002;</p>
+<p> &#x5728; gazebo &#x4E2D;&#x53F3;&#x51FB;&#x56DB;&#x65CB;&#x7FFC;&#x6A21;&#x578B;&#x5141;&#x8BB8;&#x4ECE;&#x4E0A;&#x4E0B;&#x6587;&#x83DC;&#x5355;&#x542F;&#x7528;&#x8DDF;&#x968F;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x5730;&#x5C06;&#x5176;&#x4FDD;&#x6301;&#x5728;&#x89C6;&#x56FE;&#x4E2D;&#x3002;</p>
 </blockquote>
 <p><img src="../../assets/simulation/gazebo.png" alt="Gazebo UI"></p>
 <p>&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#x540E;&#x7CFB;&#x7EDF;&#x5C06;&#x8F93;&#x51FA; home &#x70B9;&#x7684;&#x4F4D;&#x7F6E; (<code>telem&gt; home: 55.7533950, 37.6254270, -0.00</code>)&#x3002; &#x73B0;&#x5728;&#x4F60;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x8BA9;&#x98DE;&#x673A;&#x8D77;&#x98DE;&#x4E86;&#xFF1A;</p>
 <pre><code class="lang-sh">pxh&gt; commander takeoff
 </code></pre>
-<h2 id="&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x9009;&#x9879;"><a name="&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x9009;&#x9879;" class="plugin-anchor" href="#&#x4F7F;&#x7528;&#x914D;&#x7F6E;&#x9009;&#x9879;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;/&#x914D;&#x7F6E;&#x9009;&#x9879;</h2>
-<h3 id="headless-&#x6A21;&#x5F0F;"><a name="headless-&#x6A21;&#x5F0F;" class="plugin-anchor" href="#headless-&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>Headless &#x6A21;&#x5F0F;</h3>
-<p>Gazebo &#x53EF;&#x4EE5;&#x5728;<em> headless </em>&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x5176;&#x4E2D; Gazebo UI &#x672A;&#x542F;&#x52A8;&#x3002; &#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x66F4;&#x5FEB;&#x5730;&#x542F;&#x52A8;&#x5E76;&#x4F7F;&#x7528;&#x66F4;&#x5C11;&#x7684;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#xFF08;&#x5373;&#xFF0C;&#x5B83;&#x662F;&#x8FD0;&#x884C;&#x6A21;&#x62DF;&#x7684;&#x66F4;&#x201C;&#x8F7B;&#x91CF;&#x7EA7;&#x201D;&#x65B9;&#x5F0F;&#xFF09;&#x3002;</p>
+<h2 id="&#x53EF;&#x9009;&#x914D;&#x7F6E;"><a name="&#x53EF;&#x9009;&#x914D;&#x7F6E;" class="plugin-anchor" href="#&#x53EF;&#x9009;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x9009;&#x914D;&#x7F6E;</h2>
+<h3 id="&#x65E0;&#x822A;&#x5411;&#x6A21;&#x5F0F;"><a name="&#x65E0;&#x822A;&#x5411;&#x6A21;&#x5F0F;" class="plugin-anchor" href="#&#x65E0;&#x822A;&#x5411;&#x6A21;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x65E0;&#x822A;&#x5411;&#x6A21;&#x5F0F;</h3>
+<p>Gazebo &#x53EF;&#x4EE5;&#x5728;<em> headless </em>&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x5176;&#x4E2D; Gazebo UI &#x754C;&#x9762;&#x672A;&#x542F;&#x52A8;&#x7684;&#x3002; &#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x66F4;&#x5FEB;&#x5730;&#x542F;&#x52A8;&#x5E76;&#x4F7F;&#x7528;&#x66F4;&#x5C11;&#x7684;&#x7CFB;&#x7EDF;&#x8D44;&#x6E90;&#xFF08;&#x5373;&#xFF0C;&#x5B83;&#x662F;&#x8FD0;&#x884C;&#x6A21;&#x62DF;&#x7684;&#x66F4;&#x201C;&#x8F7B;&#x91CF;&#x7EA7;&#x201D;&#x65B9;&#x5F0F;&#xFF09;&#x3002;</p>
 <p>&#x53EA;&#x9700;&#x5728;&#x6B63;&#x5E38;&#x7684;<em> make </em>&#x547D;&#x4EE4;&#x524D;&#x52A0;&#x4E0A;<code>HEADLESS=1</code>&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
 <pre><code class="lang-bash">HEADLESS=1 make px4_sitl gazebo_plane
 </code></pre>
@@ -2340,10 +2353,10 @@ export PX4_HOME_LON=-13.867138
 export PX4_HOME_ALT=28.5
 make px4_sitl gazebo
 </code></pre><h3 id="&#x66F4;&#x6539;&#x4EFF;&#x771F;&#x7684;&#x65F6;&#x95F4;&#x6D41;&#x901F;"><a name="&#x66F4;&#x6539;&#x4EFF;&#x771F;&#x7684;&#x65F6;&#x95F4;&#x6D41;&#x901F;" class="plugin-anchor" href="#&#x66F4;&#x6539;&#x4EFF;&#x771F;&#x7684;&#x65F6;&#x95F4;&#x6D41;&#x901F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x6539;&#x4EFF;&#x771F;&#x7684;&#x65F6;&#x95F4;&#x6D41;&#x901F;</h3>
-<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF; <code>PX4_SIM_SPEED_FACTOR</code> &#x63D0;&#x9AD8;&#x6216;&#x8005;&#x964D;&#x4F4E;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x7684;&#x65F6;&#x95F4;&#x6D41;&#x901F;&#x76F8;&#x5BF9;&#x4E8E;&#x5B9E;&#x9645;&#x65F6;&#x95F4;&#x6D41;&#x901F;&#x7684;&#x5927;&#x5C0F;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF; <code>PX4_SIM_SPEED_FACTOR</code> &#x589E;&#x957F;&#x6216;&#x8005;&#x7F29;&#x77ED;&#x4EFF;&#x771F;&#x73AF;&#x5883;&#x7684;&#x65F6;&#x95F4;&#x6D41;&#x901F;&#x76F8;&#x5BF9;&#x4E8E;&#x5B9E;&#x9645;&#x65F6;&#x95F4;&#x6D41;&#x901F;&#x3002;</p>
 <pre><code>export PX4_SIM_SPEED_FACTOR=2
 make px4_sitl_default gazebo
-</code></pre><p>&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<a href="./#simulation_speed">Simulation &gt; Run Simulation Faster than Realtime</a>&#x3002;</p>
+</code></pre><p>&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<a href="./#simulation_speed">&#x4EFF;&#x771F; &gt; &#x4EFF;&#x771F;&#x901F;&#x5EA6;&#x5FEB;&#x4E8E;&#x5B9E;&#x9645;&#x901F;&#x5EA6;</a>&#x3002;</p>
 <h3 id="&#x4F7F;&#x7528;&#x6E38;&#x620F;&#x624B;&#x67C4;"><a name="&#x4F7F;&#x7528;&#x6E38;&#x620F;&#x624B;&#x67C4;" class="plugin-anchor" href="#&#x4F7F;&#x7528;&#x6E38;&#x620F;&#x624B;&#x67C4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;&#x6E38;&#x620F;&#x624B;&#x67C4;</h3>
 <p>&#x901A;&#x8FC7; <em>QGroundControl</em> &#x53EF;&#x5F15;&#x5165;&#x6E38;&#x620F;&#x624B;&#x67C4;&#x6216;&#x8005;&#x62C7;&#x6307;&#x64CD;&#x7EB5;&#x6746;&#xFF08;<a href="./#joystickgamepad-integration">&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x770B;&#x8FD9;&#x91CC;</a>&#xFF09;&#x3002;</p>
 <h3 id="&#x6A21;&#x62DF;-gps-&#x566A;&#x58F0;"><a name="&#x6A21;&#x62DF;-gps-&#x566A;&#x58F0;" class="plugin-anchor" href="#&#x6A21;&#x62DF;-gps-&#x566A;&#x58F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x62DF; GPS &#x566A;&#x58F0;</h3>
@@ -2384,20 +2397,20 @@ make px4_sitl_default gazebo
 <h3 id="&#x7CFB;&#x7EDF;&#x5FC5;&#x5907;&#x7EC4;&#x4EF6;"><a name="&#x7CFB;&#x7EDF;&#x5FC5;&#x5907;&#x7EC4;&#x4EF6;" class="plugin-anchor" href="#&#x7CFB;&#x7EDF;&#x5FC5;&#x5907;&#x7EC4;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7CFB;&#x7EDF;&#x5FC5;&#x5907;&#x7EC4;&#x4EF6;</h3>
 <p>&#x5B89;&#x88C5;<em> Gstreamer 1.0 </em>&#x53CA;&#x5176;&#x4F9D;&#x8D56;&#x9879;&#xFF1A;</p>
 <pre><code>sudo apt-get install $(apt-cache --names-only search ^gstreamer1.0-* | awk &apos;{ print $1 }&apos; | grep -v gstreamer1.0-hybris) -y
-</code></pre><h3 id="how-to-view-gazebo-video"><a name="how-to-view-gazebo-video" class="plugin-anchor" href="#how-to-view-gazebo-video"><i class="fa fa-link" aria-hidden="true"></i></a>How to View Gazebo Video</h3>
-<p>The easiest way to view the SITL/Gazebo camera video stream is in <em>QGroundControl</em>. Simply open <strong>Settings &gt; General</strong> and set <strong>Video Source</strong> to <em>UDP Video Stream</em> and <strong>UDP Port</strong> to <em>5600</em>:</p>
-<p><img src="../../assets/simulation/qgc_gazebo_video_stream_udp.png" alt="QGC Video Streaming Settings for Gazebo"></p>
-<p>The video from Gazebo should then display in <em>QGroundControl</em> just as it would from a real camera.</p>
-<p>It is also possible to view the video using the <em>Gstreamer Pipeline</em>. Simply enter the following terminal command:</p>
+</code></pre><h3 id="&#x5982;&#x4F55;&#x67E5;&#x770B;-gazebo-&#x89C6;&#x9891;&#x6D41;"><a name="&#x5982;&#x4F55;&#x67E5;&#x770B;-gazebo-&#x89C6;&#x9891;&#x6D41;" class="plugin-anchor" href="#&#x5982;&#x4F55;&#x67E5;&#x770B;-gazebo-&#x89C6;&#x9891;&#x6D41;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5982;&#x4F55;&#x67E5;&#x770B; Gazebo &#x89C6;&#x9891;&#x6D41;</h3>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x5728; <em>QGroundControl</em> &#x4E2D;&#x67E5;&#x770B; Gazebo &#x8F6F;&#x4EF6;&#x5728;&#x73AF;&#x4EFF;&#x771F; &#x89C6;&#x9891;&#x6D41;&#x3002; &#x53EA;&#x9700;&#x6253;&#x5F00; QGroundControl &#x4E2D; <strong>&#x8F6F;&#x4EF6;&#x914D;&#x7F6E;&gt; &#x901A;&#x7528;&#x8BBE;&#x7F6E;</strong> &#x627E;&#x5230; <strong>&#x89C6;&#x9891;&#x6E90;</strong> &#x9009;&#x62E9; <em>UDP &#x89C6;&#x9891;&#x6D41;</em> &#x7136;&#x540E; <strong>UDP &#x7AEF;&#x53E3;&#x53F7;</strong> &#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x4E3A; <em>5600</em>&#xFF1A;</p>
+<p><img src="../../assets/simulation/qgc_gazebo_video_stream_udp.png" alt="QGC &#x89C6;&#x9891;&#x6D41;&#x5728; Gazebo &#x4E2D;&#x7684;&#x8BBE;&#x7F6E;"></p>
+<p>&#x6765;&#x81EA; Gazebo &#x7684;&#x89C6;&#x9891;&#x5E94;&#x8BE5;&#x50CF;&#x4ECE;&#x771F;&#x5B9E;&#x76F8;&#x673A;&#x90A3;&#x6837;&#x663E;&#x793A;&#x5728;<em> QGroundControl </em>&#x4E2D;&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>Gstreamer Pipeline</em> &#x89C2;&#x770B;&#x89C6;&#x9891;&#x3002; &#x53EA;&#x9700;&#x8F93;&#x5165;&#x5982;&#x4E0B;&#x7684;&#x547D;&#x4EE4;&#xFF1A;</p>
 <pre><code>gst-launch-1.0  -v udpsrc port=5600 caps=&apos;application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264&apos; \
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
-</code></pre><h3 id="gazebo-gui-to-startstop-video-streaming"><a name="gazebo-gui-to-startstop-video-streaming" class="plugin-anchor" href="#gazebo-gui-to-startstop-video-streaming"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo GUI to Start/Stop Video Streaming</h3>
+</code></pre><h3 id="&#x5728;-gazebo-&#x754C;&#x9762;&#x4E2D;&#x6253;&#x5F00;&#x505C;&#x6B62;&#x89C6;&#x9891;&#x6D41;&#x3002;"><a name="&#x5728;-gazebo-&#x754C;&#x9762;&#x4E2D;&#x6253;&#x5F00;&#x505C;&#x6B62;&#x89C6;&#x9891;&#x6D41;&#x3002;" class="plugin-anchor" href="#&#x5728;-gazebo-&#x754C;&#x9762;&#x4E2D;&#x6253;&#x5F00;&#x505C;&#x6B62;&#x89C6;&#x9891;&#x6D41;&#x3002;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; Gazebo &#x754C;&#x9762;&#x4E2D;&#x6253;&#x5F00;/&#x505C;&#x6B62;&#x89C6;&#x9891;&#x6D41;&#x3002;</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This feature is supported for Gazebo version 7.</p>
+<p> &#x8BE5;&#x7279;&#x70B9;&#x53EA;&#x652F;&#x6301; Gazebo 7 &#x7248;&#x672C;&#x3002;</p>
 </blockquote>
-<p>Video streaming can be enabled/disabled using the Gazebo UI <em>Video ON/OFF</em> button.</p>
-<p><img src="../../assets/gazebo/sitl_video_stream.png" alt="Video ON/OFF button"></p>
-<p>To enable the button:</p>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Gazebo &#x754C;&#x9762;&#x4E2D;&#x7684; &#x6253;&#x5F00;/&#x5173;&#x95ED; &#x6309;&#x94AE;&#x6765; &#x542F;&#x7528;/&#x7981;&#x7528; &#x89C6;&#x9891;&#x6D41;&#x3002;</p>
+<p><img src="../../assets/gazebo/sitl_video_stream.png" alt="&#x89C6;&#x9891; &#x6253;&#x5F00;/&#x5173;&#x95ED; &#x6309;&#x94AE;"></p>
+<p>&#x5982;&#x4F55;&#x542F;&#x7528;&#x8BE5;&#x6309;&#x94AE;&#xFF1A;</p>
 <ol>
 <li>&#x6253;&#x5F00;&#x8981;&#x4FEE;&#x6539;&#x7684;&#x201C; world &#x201D;&#x6587;&#x4EF6;&#xFF08;&#x4F8B;&#x5982;<a href="https://github.com/PX4/sitl_gazebo/blob/master/worlds/typhoon_h480.world" target="_blank">&lt;Firmware&gt;/Tools/sitl_gazebo/worlds/typhoon_h480.world </a>&#xFF09;&#x3002;</li>
 <li><p>&#x5728;&#x9ED8;&#x8BA4;&#x7684;<code>world name =&#x201C;default&#x201D;</code>&#x90E8;&#x5206;&#x4E2D;&#xFF0C;&#x4E3A;<code>libgazebo_video_stream_widge</code>&#x6DFB;&#x52A0;<code>gui</code>&#x90E8;&#x5206;&#xFF08;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF09;&#xFF1A;</p>
@@ -2417,21 +2430,21 @@ make px4_sitl_default gazebo
 <p> &#x6B64;&#x90E8;&#x5206;&#x51FA;&#x73B0;&#x5728;<strong> typhoon_h480.world </strong>&#x4E2D; - &#x60A8;&#x53EA;&#x9700;&#x8981;&#x53D6;&#x6D88;&#x6CE8;&#x91CA;&#x8BE5;&#x90E8;&#x5206;&#x3002;</p>
 </blockquote>
 </li>
-<li><p>&#x91CD;&#x5EFA; SITL&#xFF1A;</p>
+<li><p>&#x8F6F;&#x4EF6;&#x5728;&#x73AF;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#xFF1A;</p>
 <pre><code> make clean
  make px4_sitl gazebo_typhoon_h480
 </code></pre></li>
 </ol>
 <h2 id="&#x6269;&#x5C55;&#x548C;&#x5B9A;&#x5236;"><a name="&#x6269;&#x5C55;&#x548C;&#x5B9A;&#x5236;" class="plugin-anchor" href="#&#x6269;&#x5C55;&#x548C;&#x5B9A;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5C55;&#x548C;&#x5B9A;&#x5236;</h2>
-<p>To extend or customize the simulation interface, edit the files in the <code>Tools/sitl_gazebo</code> folder. The code is available on the <a href="https://github.com/px4/sitl_gazebo" target="_blank">sitl_gazebo repository</a> on Github.</p>
+<p>&#x82E5;&#x8981;&#x6269;&#x5C55;&#x6216;&#x8005;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x4EFF;&#x771F;&#x63A5;&#x53E3;&#xFF0C;&#x7F16;&#x8F91; <code>Tools/sitl_gazebo</code> &#x6587;&#x4EF6;&#x5939;&#x3002; &#x6E90;&#x7801;&#x4E5F;&#x53EF;&#x4EE5;&#x5728; <a href="https://github.com/px4/sitl_gazebo" target="_blank">sitl_gazebo &#x5E93;</a> &#x4E0A;&#x83B7;&#x53D6;&#x3002;</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.</p>
+<p> &#x7F16;&#x8BD1;&#x7CFB;&#x7EDF;&#x4F1A;&#x5F3A;&#x5236;&#x4F7F;&#x7528;&#x6B63;&#x786E;&#x7684; GIT &#x5B50;&#x6A21;&#x5757;&#xFF0C;&#x5305;&#x62EC;&#x4EFF;&#x771F;&#x5668;&#x3002; &#x4ED6;&#x4E0D;&#x4F1A;&#x8986;&#x76D6;&#x76EE;&#x5F55;&#x4E2D;&#x4FEE;&#x6539;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
 </blockquote>
 <h2 id="&#x4E0E;-ros-&#x5BF9;&#x63A5;&#x4EA4;&#x4E92;"><a name="&#x4E0E;-ros-&#x5BF9;&#x63A5;&#x4EA4;&#x4E92;" class="plugin-anchor" href="#&#x4E0E;-ros-&#x5BF9;&#x63A5;&#x4EA4;&#x4E92;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0E; ROS &#x5BF9;&#x63A5;&#x4EA4;&#x4E92;</h2>
 <p>The simulation can be <a href="ros_interface.html">interfaced to ROS</a> the same way as onboard a real vehicle.</p>
 <h2 id="&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF1A;"><a name="&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF1A;" class="plugin-anchor" href="#&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF1A;</h2>
 <ul>
-<li><a href="ros_interface.html">&#x53E6;&#x89C1; Gazebo &#x6A21;&#x62DF;&#x3002;</a></li>
+<li><a href="ros_interface.html">ROS &#x4E0E; Gazebo &#x4EFF;&#x771F;&#x3002;</a></li>
 <li><a href="gazebo_octomap.html">Gazebo Octomap</a></li>
 </ul>
 
@@ -2477,7 +2490,7 @@ make px4_sitl_default gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Gazebo 仿真模拟","level":"1.4.2","depth":2,"next":{"title":"AirSim 仿真","level":"1.4.3","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"jMAVSim 仿真模拟","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2019-12-05T23:23:24.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T23:24:40.363Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Gazebo 仿真模拟","level":"1.4.2","depth":2,"next":{"title":"AirSim 仿真","level":"1.4.3","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"jMAVSim 仿真模拟","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2019-12-09T21:07:13.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T21:08:24.399Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

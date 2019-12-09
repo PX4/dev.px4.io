@@ -514,12 +514,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../concept/mixing.html">
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
             
                 <a href="../concept/mixing.html">
             
                     
-                    混控器和执行器
+                    Mixing and Actuators
             
                 </a>
             
@@ -527,12 +540,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../concept/pwm_limit.html">
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
             
                 <a href="../concept/pwm_limit.html">
             
                     
-                    PWM 限位状态机
+                    PWM limit state machine
             
                 </a>
             
@@ -540,12 +553,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../concept/system_startup.html">
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
             
                 <a href="../concept/system_startup.html">
             
                     
-                    系统启动
+                    System Startup
             
                 </a>
             
@@ -2313,11 +2326,11 @@ xhost +
 <span class="hljs-comment"># Run docker</span>
 docker run -it --privileged \
     --env=LOCAL_USER_ID=<span class="hljs-string">&quot;<span class="hljs-variable">$(id -u)</span>&quot;</span> \
-    -v &amp;lt;host_src&amp;gt;:&amp;lt;container_src&amp;gt;:rw \
+    -v &lt;host_src&gt;:&lt;container_src&gt;:rw \
     -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
     <span class="hljs-_">-e</span> DISPLAY=:0 \
-    -p 14556:14556/udp \
-    --name=&amp;lt;<span class="hljs-built_in">local</span>_container_name&amp;gt; &amp;lt;container&amp;gt;:&amp;lt;tag&amp;gt; &amp;lt;build_<span class="hljs-built_in">command</span>&amp;gt;
+    -p 14570:14570/udp \
+    --name=&lt;<span class="hljs-built_in">local</span>_container_name&gt; &lt;container&gt;:&lt;tag&gt; &lt;build_<span class="hljs-built_in">command</span>&gt;
 </code></pre>
 <p>&#x4F4D;&#x7F6E;&#xFF1A;</p>
 <ul>
@@ -2337,7 +2350,7 @@ docker run -it --privileged \
 -v ~/src/Firmware:/src/firmware/:rw \
 -v /tmp/.X11-unix:/tmp/.X11-unix:ro \
 <span class="hljs-_">-e</span> DISPLAY=:0 \
--p 14556:14556/udp \
+-p 14570:14570/udp \
 --name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
 </code></pre>
 <p>&#x5982;&#x679C;&#x4E00;&#x5207;&#x987A;&#x5229;&#xFF0C;&#x4F60;&#x73B0;&#x5728;&#x5E94;&#x8BE5;&#x5728;&#x4E00;&#x4E2A;&#x65B0;&#x7684; bash shell &#x4E2D;&#x3002; &#x901A;&#x8FC7;&#x8FD0;&#x884C;&#x9A8C;&#x8BC1;&#x4E00;&#x5207;&#x662F;&#x5426;&#x6B63;&#x5E38;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;SITL&#xFF1A;</p>
@@ -2363,7 +2376,9 @@ docker rm 45eeb98f1dd9
 </code></pre>
 <h3 id="qgroundcontrol"><a name="qgroundcontrol" class="plugin-anchor" href="#qgroundcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>QGroundControl</h3>
 <p>&#x8FD0;&#x884C;&#x6A21;&#x62DF;&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x4F8B;&#x5982;&#x5728; docker &#x5BB9;&#x5668;&#x5185;&#x7684; SITL &#x5E76;&#x901A;&#x8FC7; <em>QGroundControl</em> &#x4ECE;&#x4E3B;&#x673A;&#x63A7;&#x5236;&#x5B83;&#xFF0C;&#x5FC5;&#x987B;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x901A;&#x4FE1;&#x94FE;&#x63A5;&#x3002; <em>QGroundControl</em> &#x7684;&#x81EA;&#x52A8;&#x8FDE;&#x63A5;&#x529F;&#x80FD;&#x5728;&#x6B64;&#x5904;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
-<p>&#x5728; <em>QGroundControl</em> &#x4E2D;&#xFF0C;&#x5BFC;&#x822A;&#x81F3; <a href="https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html" target="_blank">Settings</a> &#x5E76;&#x9009;&#x62E9;&#x201C;&#x901A;&#x4FE1;&#x94FE;&#x63A5;&#x201D;&#x3002; &#x521B;&#x5EFA;&#x4F7F;&#x7528; UDP &#x534F;&#x8BAE;&#x7684;&#x65B0;&#x94FE;&#x63A5;&#x3002; &#x7AEF;&#x53E3;&#x53D6;&#x51B3;&#x4E8E;&#x4F7F;&#x7528;&#x7684; <a href="https://github.com/PX4/Firmware/tree/master/posix-configs/SITL" target="_blank">configuration</a>&#xFF0C;&#x4F8B;&#x5982; &#x7AEF;&#x53E3; 14557 &#x7528;&#x4E8E; SITL iris &#x914D;&#x7F6E;&#x3002; IP &#x5730;&#x5740;&#x662F;&#x60A8;&#x7684; docker &#x5BB9;&#x5668;&#x4E4B;&#x4E00;&#xFF0C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7F51;&#x7EDC;&#x65F6;&#x901A;&#x5E38;&#x4E3A; 172.17.0.1/16&#x3002;</p>
+<p>&#x5728; <em>QGroundControl</em> &#x4E2D;&#xFF0C;&#x5BFC;&#x822A;&#x81F3; <a href="https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html" target="_blank">Settings</a> &#x5E76;&#x9009;&#x62E9;&#x201C;&#x901A;&#x4FE1;&#x94FE;&#x63A5;&#x201D;&#x3002; &#x521B;&#x5EFA;&#x4F7F;&#x7528; UDP &#x534F;&#x8BAE;&#x7684;&#x65B0;&#x94FE;&#x63A5;&#x3002; The port depends on the used <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS" target="_blank">configuration</a> e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is <code>mycontainer</code>):</p>
+<pre><code class="lang-sh">$ docker inspect <span class="hljs-_">-f</span> <span class="hljs-string">&apos;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&apos;</span> mycontainer
+</code></pre>
 <h3 id="&#x6545;&#x969C;&#x5904;&#x7406;"><a name="&#x6545;&#x969C;&#x5904;&#x7406;" class="plugin-anchor" href="#&#x6545;&#x969C;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6545;&#x969C;&#x5904;&#x7406;</h3>
 <h4 id="&#x6743;&#x9650;&#x9519;&#x8BEF;"><a name="&#x6743;&#x9650;&#x9519;&#x8BEF;" class="plugin-anchor" href="#&#x6743;&#x9650;&#x9519;&#x8BEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6743;&#x9650;&#x9519;&#x8BEF;</h4>
 <p>&#x5BB9;&#x5668;&#x6839;&#x636E;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7528;&#x6237;&#x521B;&#x5EFA;&#x6587;&#x4EF6;-&#x901A;&#x5E38;&#x4E3A;&#x201C;root&#x201D;&#x3002; &#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6743;&#x9650;&#x9519;&#x8BEF;&#xFF0C;&#x5176;&#x4E2D;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
@@ -2395,7 +2410,7 @@ c++: internal compiler error: Killed (program cc1plus)
 <pre><code class="lang-sh">DOCKER_OPTS=<span class="hljs-string">&quot;<span class="hljs-variable">${DOCKER_OPTS}</span> -H unix:///var/run/docker.sock -H 0.0.0.0:2375&quot;</span>
 </code></pre>
 <p>&#x7136;&#x540E;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4ECE;&#x4E3B;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A7;&#x5236; docker&#xFF1A;</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">export</span> DOCKER_HOST=tcp://&amp;lt;ip of your VM&amp;gt;:2375
+<pre><code class="lang-sh"><span class="hljs-built_in">export</span> DOCKER_HOST=tcp://&lt;ip of your VM&gt;:2375
 <span class="hljs-comment"># run some docker command to see if it works, e.g. ps</span>
 docker ps
 </code></pre>
@@ -2442,7 +2457,7 @@ docker ps
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker 容器","level":"1.12.6","depth":2,"next":{"title":"维护","level":"1.12.7","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]},"previous":{"title":"整合测试","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"test_and_ci/docker.md","mtime":"2019-12-05T23:23:24.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-05T23:24:40.363Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Docker 容器","level":"1.12.6","depth":2,"next":{"title":"维护","level":"1.12.7","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]},"previous":{"title":"整合测试","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"test_and_ci/docker.md","mtime":"2019-12-09T21:07:13.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T21:08:24.399Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
