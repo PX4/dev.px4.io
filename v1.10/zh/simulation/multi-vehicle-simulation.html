@@ -1,0 +1,2493 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>基于 Gazebo 的多飞行器仿真 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="failsafes.html" />
+    
+    
+    <link rel="prev" href="multi_vehicle_jmavsim.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    由此开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    初始设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    工具链安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    Ubuntu/Debian Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    CentOS Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    高级 Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    Virtual Machine 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    Bash on Windows 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
+            
+                <a href="../setup/dev_env_windows_msys.html">
+            
+                    
+                    Msys 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/vscode.html">
+            
+                <a href="../setup/vscode.html">
+            
+                    
+                    Visual Studio Code IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    Additional Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    构建代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    编写您的第一个应用程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    应用/模块模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 系统架构概述
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    控制器图解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    Dronecode 平台概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    飞行模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    Mixing and Actuators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit state machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    System Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    仿真
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="jmavsim.html">
+            
+                <a href="jmavsim.html">
+            
+                    
+                    jMAVSim 仿真模拟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="gazebo.html">
+            
+                <a href="gazebo.html">
+            
+                    
+                    Gazebo 仿真模拟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="airsim.html">
+            
+                <a href="airsim.html">
+            
+                    
+                    AirSim 仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="multi_vehicle_jmavsim.html">
+            
+                <a href="multi_vehicle_jmavsim.html">
+            
+                    
+                    使用 JMAVSim 进行多飞行器仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.5" data-path="multi-vehicle-simulation.html">
+            
+                <a href="multi-vehicle-simulation.html">
+            
+                    
+                    基于 Gazebo 的多飞行器仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="failsafes.html">
+            
+                <a href="failsafes.html">
+            
+                    
+                    Simulate Failsafes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="hitl.html">
+            
+                <a href="hitl.html">
+            
+                    
+                    HITL Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="simulation-in-hardware.html">
+            
+                <a href="simulation-in-hardware.html">
+            
+                    
+                    Simulation-In-Hardware
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    硬件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    飞行控制器参考设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    飞行控制器移植指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    机架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    机架参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    增加一个新的机型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    设备驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    数传电台
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK 电台
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    传感器和执行器 I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C 总线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN 总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN 固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 各种注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    串行总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    端口-配置串行驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    云台（安装）控制设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    机载计算机设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    中间件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB 消息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
+            
+                <a href="../middleware/uorb_graph.html">
+            
+                    
+                    uORB 图表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink通讯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    输出测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    手动生成客户端和代理端代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    模块 & 命令
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_controller.html">
+            
+                <a href="../middleware/modules_controller.html">
+            
+                    
+                    控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    驱动
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../middleware/modules_driver_distance_sensor.html">
+            
+                <a href="../middleware/modules_driver_distance_sensor.html">
+            
+                    
+                    Distance Sensor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
+            
+                <a href="../middleware/modules_estimator.html">
+            
+                    
+                    估计器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../middleware/modules_simulation.html">
+            
+                <a href="../middleware/modules_simulation.html">
+            
+                    
+                    Simulations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../middleware/modules_template.html">
+            
+                <a href="../middleware/modules_template.html">
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    机器人技术
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    Linux 的离板模式控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS \（ROS 上的 MAVLink\）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS 离板例程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="ros_interface.html">
+            
+                <a href="ros_interface.html">
+            
+                    
+                    另见 Gazebo 模拟。
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="gazebo_octomap.html">
+            
+                <a href="gazebo_octomap.html">
+            
+                    
+                    具有 ROS 的 OctoMap 模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    在 RPi 上安装 ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    外部位置估计（基于视觉/运动）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    Sending Custom Messages from MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    调试日志
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    系统控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    飞控调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink Hardware Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    Simulation Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    Sending Debug Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    Flight Log Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    地面控制站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    QGC 的视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    远距离视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    S.Bus Driver for Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    高级主题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    参数 & 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    参数参照表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    机器视觉
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    运动捕获（VICON, Optitrack）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    安装英特尔 RealSense R200 的驱动程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    切换状态估计器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    树外模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    System Tunes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    平台测试和 CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    测试飞行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    测试 MC_01 - 手动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    测试 MC_02-完全自主
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    测试 MC_03 - 自动手动混合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    测试 MC_04 -故障安全测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    测试 MC_05-室内飞行（手动模式）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins 持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    整合测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    维护
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    Contribution (&Dev Call)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    Dev Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    Source Code Management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    Terminology/Notation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode 相关资源</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.cc/zh/">
+            
+                    
+                    PX4 用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="http://dev.qgc.dimianzhan.com/zh/">
+            
+                    
+                    QGroundControl 开发人员指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode相机管理器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >基于 Gazebo 的多飞行器仿真</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;"><a name="gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;" class="plugin-anchor" href="#gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo &#x591A;&#x673A;&#x4EFF;&#x771F;</h1>
+<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528; Gazebo &#x4EFF;&#x771F;&#x5668;&#x914D;&#x5408;&#x8F6F;&#x4EF6;&#x5728;&#x73AF;&#x4EFF;&#x771F;&#x8FDB;&#x884C;&#x591A;&#x673A;&#x4EFF;&#x771F;&#xFF08;&#x4EC5;&#x9002;&#x7528;&#x4E8E; Linux &#xFF09;&#x3002;</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x9700;&#x8981; Gazebo &#x6216; ROS &#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#xFF0C; <a href="multi_vehicle_jmavsim.html"> JMAVSim&#x7684;&#x591A;&#x673A;&#x4EFF;&#x771F;</a> &#x66F4;&#x5BB9;&#x6613;&#x8BBE;&#x7F6E;&#x3002;</p>
+</blockquote>
+<p>&#x672C;&#x6587;&#x7ED9;&#x51FA;&#x4E86;&#x6F14;&#x793A;&#x5B9E;&#x4F8B;, &#x6253;&#x5F00;&#x4E86; Gazebo &#x4EFF;&#x771F;&#x5668;&#xFF0C;&#x5728;&#x7A7A;&#x7684;&#x7684;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A; Iris &#x65E0;&#x4EBA;&#x673A;&#x3002; &#x7136;&#x540E;, &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl</em> &#x914D;&#x5408; MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;, &#x5176;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5355;&#x673A;&#x63A7;&#x5236;&#x7C7B;&#x4F3C;&#x3002;</p>
+<h2 id="&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;"><a name="&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;" class="plugin-anchor" href="#&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;</h2>
+<ul>
+<li><a href="../setup/dev_env_linux_ubuntu.html#rosgazebo">PX4 ROS/Gazebo &#x5F00;&#x53D1;&#x73AF;&#x5883;</a> <strong>Note</strong> &#x7F16;&#x5199;&#x6B64;&#x6559;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x4E3A; Ubuntu 18.04 &#x548C; ROS &#x7248;&#x672C;&#x4E3A; Melodic &#x4EE5;&#x53CA; Gazebo&#x7248;&#x672C;&#x4E3A; Gazebo 9 &#x3002; &#x4E5F;&#x53EF;&#x4EE5;&#x770B; <a href="gazebo.html">Gazebo &#x4EFF;&#x771F;</a></li>
+<li><a href="http://wiki.ros.org/mavros" target="_blank">MAVROS</a></li>
+<li>&#x514B;&#x9686;&#x6700;&#x65B0;&#x7684; PX4 &#x6E90;&#x7801;&#x56FA;&#x4EF6;&#x3002;</li>
+</ul>
+<h2 id="&#x5F00;&#x59CB;&#x4EFF;&#x771F;"><a name="&#x5F00;&#x59CB;&#x4EFF;&#x771F;" class="plugin-anchor" href="#&#x5F00;&#x59CB;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F00;&#x59CB;&#x4EFF;&#x771F;</h2>
+<p>&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x8BBE;&#x7F6E;, &#x8BF7;&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x64CD;&#x4F5C;:</p>
+<ol>
+<li><p>&#x514B;&#x9686; PX4 &#x56FA;&#x4EF6;&#x6E90;&#x7801;, &#x7136;&#x540E;&#x7F16;&#x8BD1; SITL &#x4EE3;&#x7801; 
+   cd Firmware_clone</p>
+<pre><code>git submodule update --init --recursive
+DONT_RUN=1 make px4_sitl_default gazebo
+</code></pre></li>
+<li><p>&#x914D;&#x7F6E;&#x7CFB;&#x7EDF;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A; </p>
+<p>   source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default</p>
+<pre><code>export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
+</code></pre></li>
+<li><p>&#x542F;&#x52A8; launch &#x6587;&#x4EF6;&#xFF1A; <code>roslaunch px4 multi_uav_mavros_sitl.launch</code></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E0A;&#x8FF0; <em>roslaunch</em> &#x4E2D;&#x6307;&#x5B9A; <code>gui:=false</code> &#xFF0C;&#x4EE5;&#x4FBF;&#x4E0D;&#x542F;&#x52A8;&#x754C;&#x9762;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x542F;&#x52A8; gazebo&#x3002;</p>
+</blockquote>
+</li>
+</ol>
+<p>&#x672C;&#x6307;&#x5357;&#x8BBE;&#x7F6E;&#x6253;&#x5F00;&#x4E86; Gazebo &#x4EFF;&#x771F;&#x5668;&#x754C;&#x9762;, &#x5728;&#x7A7A;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A; Iris &#x65E0;&#x4EBA;&#x673A;&#x3002;</p>
+<p>&#x7136;&#x540E;, &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl</em> &#x548C; MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;&#xFF0C;&#x63A7;&#x5236;&#x65B9;&#x5F0F;&#x4E0E;&#x5355;&#x673A;&#x7C7B;&#x4F3C;&#x3002;</p>
+<ul>
+<li><em>QGroundControl</em> &#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x62C9;&#x9009;&#x9879;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x6307;&#x5B9A;&#x7684;&#x98DE;&#x884C;&#x5668;&#x3002;</li>
+<li>MAVROS &#x8981;&#x6C42;&#x4F60;&#x5728; topic/service &#x8DEF;&#x5F84;&#x4E4B;&#x524D;&#x5305;&#x542B;&#x5408;&#x9002;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x4F1A;&#x7528;&#x5230; <em>/uav1/mavros/mission/push</em> &#xFF09;&#x3002;</li>
+</ul>
+<h2 id="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"><a name="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;" class="plugin-anchor" href="#&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</h2>
+<p>&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x4EFF;&#x771F;&#x7684;&#x98DE;&#x884C;&#x5668;&#xFF0C;&#x6709;&#x5982;&#x4E0B;&#x8981;&#x6C42;&#xFF1A;</p>
+<ul>
+<li><p><strong>Gazebo model</strong>&#xFF1A;&#x5728;&#x8DEF;&#x5F84;<code>Firmware/Tools/sitl_gazebo/models/rotors_description/urdf/&lt;model&gt;_base.xacro</code>&#x4E0B;&#x88AB;&#x5B9A;&#x4E49;&#x6210;<code>xacro</code> &#x6587;&#x4EF6;&#x3002;&#x770B;<a href="https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x76EE;&#x524D;&#xFF0C;&#x6A21;&#x578B; <code>xacro</code>&#x6587;&#x4EF6;&#x8BBE;&#x5B9A;&#x4EE5; base. xacro &#x7ED3;&#x5C3E;&#x3002; &#x6B64;&#x6A21;&#x578B;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>mavlink_udp_port</code> &#x7684;&#x53C2;&#x6570;, &#x8BE5;&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x4E86;&#x4E0E; px4 &#x8282;&#x70B9;&#x901A;&#x4FE1;&#x7684; udp &#x7AEF;&#x53E3;&#x3002; &#x6A21;&#x578B;&#x7684; <code>xacro</code> &#x6587;&#x4EF6;&#x5C06;&#x7528;&#x4E8E;&#x751F;&#x6210;&#x5305;&#x542B;&#x60A8;&#x9009;&#x62E9;&#x7684; udp &#x7AEF;&#x53E3;&#x7684; <code>urdf</code> &#x6A21;&#x578B;&#x3002; &#x82E5;&#x8981;&#x5B9A;&#x4E49; udp &#x7AEF;&#x53E3;&#xFF0C;&#x8BF7;&#x5728;&#x6BCF;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x7684;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E; <code>mavlink_udp_port</code>&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x4F8B;&#x5B50;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37" target="_blank">here</a>&#x3002;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p> &#x5982;&#x679C;&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x6A21;&#x578B;&#xFF0C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;<strong><code>xacro</code></strong>&#x6587;&#x4EF6;&#x3002; &#x76F8;&#x540C;&#x7684; <strong><code>xacro</code></strong> &#x6587;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+</blockquote>
+</li>
+<li><p><strong>PX4 node</strong>: &#x8FD9;&#x662F; sitl px4 &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x5728;Gazebo&#x6A21;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x4E00; udp &#x7AEF;&#x53E3; &#xFF08;&#x5373; <code>mavlink_udp_port</code>&#xFF09;&#x4E0E;&#x6A21;&#x62DF;&#x5668; &#x3001;gazebo &#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002; &#x8981;&#x5728; px4 sitl &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7AEF;&#x8BBE;&#x7F6E; udp &#x7AEF;&#x53E3;, &#x60A8;&#x9700;&#x8981;&#x5728;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E; <code>SITL_UDP_PRT</code> &#x53C2;&#x6570;, &#x4EE5;&#x5339;&#x914D;&#x524D;&#x9762;&#x8BA8;&#x8BBA;&#x7684; <code>mavlink_udp_port</code>, &#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46" target="_blank">here</a>&#x3002; &#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5F00;&#x59CB;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x7531;&#x53C2;&#x6570; <code>vehicle</code>&#x548C;<code>ID</code>&#x4EA7;&#x751F;&#xFF0C;&#x53C2;&#x8003;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x5F00;&#x59CB;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x7684;<code>MAV_SYS_ID</code>&#x53C2;&#x6570;&#x90FD;&#x8981;&#x4E0E;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x7684;<code>ID</code>&#x76F8;&#x5339;&#x914D;&#x3002;&#x53C2;&#x8003;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x8FD9;&#x6837;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x4F60;&#x786E;&#x4FDD;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x548C;&#x5F00;&#x59CB;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x8BBE;&#x7F6E;&#x76F8;&#x540C;&#x3002;</p>
+</li>
+<li><p><strong>MAVROS node</strong>&#xFF08;&#x53EF;&#x9009;&#xFF09;: &#x5982;&#x679C;&#x8981;&#x901A;&#x8FC7; ros &#x63A7;&#x5236;&#x8F66;&#x8F86;, &#x53EF;&#x4EE5;&#x5728;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684; mavros &#x8282;&#x70B9;&#xFF0C; &#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41" target="_blank">here</a>, &#x4EE5;&#x4FBF;&#x8FDE;&#x63A5;&#x5230; px4 sitl &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002; &#x60A8;&#x9700;&#x8981;&#x5728;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x7AEF;&#x53E3;&#x4E0A;&#x542F;&#x52A8; mavlink &#x6D41;, &#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x7AEF;&#x53E3;&#x9700;&#x8981;&#x4E0E;launch&#x6587;&#x4EF6;&#x4E2D;&#x4E3A;MAVROS&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x7684;&#x76F8;&#x7B26;&#x5408;&#x3002;&#x53C2;&#x8003;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002;</p>
+</li>
+</ul>
+<p>&#x542F;&#x52A8;&#x6587;&#x4EF6; <code>multi_uav_mavros_sitl.launch</code>&#x505A;&#x4E86;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;,</p>
+<ul>
+<li><p>loads a world in gazebo, </p>
+<pre><code>&lt;!-- Gazebo sim --&gt;
+  &lt;include file=&quot;$(find gazebo_ros)/launch/empty_world.launch&quot;&gt;
+      &lt;arg name=&quot;gui&quot; value=&quot;$(arg gui)&quot;/&gt;
+      &lt;arg name=&quot;world_name&quot; value=&quot;$(arg world)&quot;/&gt;
+      &lt;arg name=&quot;debug&quot; value=&quot;$(arg debug)&quot;/&gt;
+      &lt;arg name=&quot;verbose&quot; value=&quot;$(arg verbose)&quot;/&gt;
+      &lt;arg name=&quot;paused&quot; value=&quot;$(arg paused)&quot;/&gt;
+  &lt;/include&gt;
+</code></pre></li>
+<li><p>for each vehicle,</p>
+<ul>
+<li><p>creates urdf model from xacro, loads gazebo model and runs PX4 SITL app instance</p>
+<pre><code>  &lt;!-- PX4 SITL and vehicle spawn --&gt;
+  &lt;include file=&quot;$(find px4)/launch/single_vehicle_spawn.launch&quot;&gt;
+      &lt;arg name=&quot;x&quot; value=&quot;0&quot;/&gt;
+      &lt;arg name=&quot;y&quot; value=&quot;0&quot;/&gt;
+      &lt;arg name=&quot;z&quot; value=&quot;0&quot;/&gt;
+      &lt;arg name=&quot;R&quot; value=&quot;0&quot;/&gt;
+      &lt;arg name=&quot;P&quot; value=&quot;0&quot;/&gt;
+      &lt;arg name=&quot;Y&quot; value=&quot;0&quot;/&gt;
+      &lt;arg name=&quot;vehicle&quot; value=&quot;$(arg vehicle)&quot;/&gt;
+      &lt;arg name=&quot;rcS&quot; value=&quot;$(find px4)/posix-configs/SITL/init/$(arg est)/$(arg vehicle)_$(arg ID)&quot;/&gt;
+      &lt;arg name=&quot;mavlink_tcp_port&quot; value=&quot;4560&quot;/&gt;
+      &lt;arg name=&quot;ID&quot; value=&quot;$(arg ID)&quot;/&gt;
+  &lt;/include&gt;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>runs a mavros node</p>
+<pre><code>  &lt;!-- MAVROS --&gt;
+  &lt;include file=&quot;$(find mavros)/launch/px4.launch&quot;&gt;
+      &lt;arg name=&quot;fcu_url&quot; value=&quot;$(arg fcu_url)&quot;/&gt;
+      &lt;arg name=&quot;gcs_url&quot; value=&quot;&quot;/&gt;
+      &lt;arg name=&quot;tgt_system&quot; value=&quot;$(arg ID)&quot;/&gt;
+      &lt;arg name=&quot;tgt_component&quot; value=&quot;1&quot;/&gt;
+  &lt;/include&gt;
+</code></pre></li>
+</ul>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The complete block for each vehicle is enclosed in a set of <code>&lt;group&gt;</code> tags to separate the ROS namespaces of the vehicles.</p>
+</blockquote>
+<p>&#x8981;&#x5728;&#x6B64;&#x6A21;&#x62DF;&#x4E2D;&#x6DFB;&#x52A0;&#x7B2C;&#x4E09;&#x4E2A;iris&#x56DB;&#x65CB;&#x7FFC;, &#x9700;&#x8981;&#x8003;&#x8651;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x90E8;&#x5206;&#xFF1A;</p>
+<ul>
+<li><p>add <code>UAV3</code> to <strong>multi_uav_mavros_sitl.launch</strong> </p>
+<ul>
+<li>duplicate the group of either existing vehicle (<code>UAV1</code> or <code>UAV2</code>)</li>
+<li>increment the <code>ID</code> arg to <code>3</code></li>
+<li>select a different port for <code>mavlink_udp_port</code> arg for communication with Gazebo</li>
+<li>selects ports for MAVROS communication by modifying both port numbers in the <code>fcu_url</code> arg</li>
+</ul>
+</li>
+<li><p>create a startup file, and change the file as follows:</p>
+<ul>
+<li>make a copy of an existing iris rcS startup file (<code>iris_1</code> or <code>iris_2</code>) and rename it <code>iris_3</code></li>
+<li><code>MAV_SYS_ID</code> value to <code>3</code></li>
+<li><code>SITL_UDP_PRT</code> value to match that of the <code>mavlink_udp_port</code> launch file arg</li>
+<li>the first <code>mavlink start</code> port and the <code>mavlink stream</code> port values to the same values, which is to be used for QGC communication</li>
+<li><p>the second <code>mavlink start</code> ports need to match those used in the launch file <code>fcu_url</code> arg</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Be aware of which port is <code>src</code> and <code>dst</code> for the different endpoints.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="multiple-vehicles-using-sdf-models"><a name="multiple-vehicles-using-sdf-models" class="plugin-anchor" href="#multiple-vehicles-using-sdf-models"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicles using SDF Models</h2>
+<p>This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).</p>
+<p>The steps are:</p>
+<ol>
+<li>Install <em>xmlstarlet</em> from your Linux terminal: <code>sudo apt install xmlstarlet</code></li>
+<li><p>Use <em>roslaunch</em> with the <strong>multi_uav_mavros_sitl_sdf.launch</strong> launch file: <code>` roslaunch multi_uav_mavros_sitl_sdf.launch vehicle:=&lt;model_file_name&gt;</code></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> that the vehicle model file name argument is optional (<code>vehicle:=&lt;model_file_name&gt;</code>); if omitted the <a href="https://github.com/PX4/sitl_gazebo/tree/master/models/plane" target="_blank">plane model</a> will be used by default.</p>
+</blockquote>
+</li>
+</ol>
+<p>This method is similar to using the xacro except that the SITL/Gazebo port number is automatically inserted by <em>xmstarlet</em> for each spawned vehicle, and does not need to be specified in the SDF file.</p>
+<p>To add a new vehicle, you need to make sure the model can be found (in order to spawn it in Gazebo), and PX4 needs to have an appropriate corresponding startup script.</p>
+<ol>
+<li>You can choose to do either of: <ul>
+<li>modify the <strong>single_vehicle_spawn_sdf.launch</strong> file to point to the location of your model by changing the line below to point to your model: <code>$(find px4)/Tools/sitl_gazebo/models/$(arg vehicle)/$(arg vehicle).sdf</code> &gt; <strong>Note</strong> Ensure you set the <code>vehicle</code> argument even if you hardcode the path to your model.</li>
+<li>copy your model into the folder indicated above (following the same path convention). </li>
+</ul>
+</li>
+<li>The <code>vehicle</code> argument is used to set the <code>PX4_SIM_MODEL</code> environment variable, which is used by the default rCS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the <strong>Firmware/ROMFS/px4fmu_common/init.d-posix/</strong> directory. For example, here is the plane model&apos;s <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d-posix/1030_plane" target="_blank">startup script</a>. For this to work, the PX4 node in the launch file is passed arguments that specify the <em>rCS</em> file (<strong>etc/init.d/rcS</strong>) and the location of the rootfs directory (<code>$(find px4)/ROMFS/px4fmu_common</code>). For simplicity, it is suggested that the startup file for the model be placed alongside PX4&apos;s in <strong>Firmware/ROMFS/px4fmu_common/init.d-posix/</strong>.</li>
+</ol>
+<h2 id="additional-resources"><a name="additional-resources" class="plugin-anchor" href="#additional-resources"><i class="fa fa-link" aria-hidden="true"></i></a>Additional Resources</h2>
+<ul>
+<li>See <a href="./">Simulation</a> for a description of the UDP port configuration.</li>
+<li>See <a href="http://gazebosim.org/tutorials/?tut=ros_urdf" target="_blank">URDF in Gazebo</a> for more information about spawning the model with xacro.</li>
+<li>See <a href="https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf" target="_blank">RotorS</a> for more xacro models.</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="multi_vehicle_jmavsim.html" class="navigation navigation-prev " aria-label="Previous page: 使用 JMAVSim 进行多飞行器仿真">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="failsafes.html" class="navigation navigation-next " aria-label="Next page: Simulate Failsafes">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"基于 Gazebo 的多飞行器仿真","level":"1.4.5","depth":2,"next":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"previous":{"title":"使用 JMAVSim 进行多飞行器仿真","level":"1.4.4","depth":2,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"v1.10"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2020-01-05T23:56:57.320Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-05T23:58:17.808Z"},"basePath":"..","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
