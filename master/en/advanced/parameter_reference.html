@@ -3213,6 +3213,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_ARM_MAG_STR">COM_ARM_MAG_STR</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable mag strength preflight check</p><p><strong>Comment:</strong> Deny arming if the estimator detects a strong magnetic disturbance (check enabled by EKF2_MAG_CHECK)</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Enabled (1)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_MIS_REQ">COM_ARM_MIS_REQ</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Require valid mission to arm</p><p><strong>Comment:</strong> The default allows to arm the vehicle without a valid mission.</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -3221,14 +3228,9 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_SWISBTN">COM_ARM_SWISBTN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm switch is only a button</p><p><strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Arm switch is a switch that stays on when armed</li> 
-
-<li><strong>1:</strong> Arm switch is a button that only triggers arming and disarming</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;">0 &gt; 1 </td>
- <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"><p>Arm switch is only a button</p><p><strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -3802,6 +3804,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -5697,6 +5701,8 @@ but also ignore less noise</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -5723,6 +5729,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -5907,6 +5915,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -6423,6 +6433,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -6491,6 +6503,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -6558,6 +6572,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -7413,16 +7429,6 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_ESTM">MPC_ACC_HOR_ESTM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Horizontal acceleration in manual modes when te estimator speed limit is removed.
-If full stick is being applied and the estimator stops demanding a speed limit,
-which it had been before (e.g if GPS is gained while flying on optical flow/vision only),
-the vehicle will accelerate at this rate until the normal position control speed is achieved</p>   </td>
- <td style="vertical-align: top;">0.2 &gt; 2.0 (0.1)</td>
- <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m/s/s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Manual mode: Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3. Auto mode: Used with MPC_AUTO_MODE 0 only. For MPC_AUTO_MODE 1, MPC_ACC_HOR is always used.</p>   </td>
  <td style="vertical-align: top;">2.0 &gt; 15.0 (1)</td>
@@ -7521,14 +7527,14 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between &quot;MPC_Z_VEL_MAX&quot; and &quot;MPC_LAND_SPEED&quot; to enable a smooth descent experience Value needs to be higher than &quot;MPC_LAND_ALT2&quot;</p>   </td>
+ <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude: - descending velocity gets limited to a value between &quot;MPC_Z_VEL_MAX&quot; and &quot;MPC_LAND_SPEED&quot; - horizontal velocity gets limited to a value between &quot;MPC_VEL_MANUAL&quot; and &quot;MPC_LAND_VEL_XY&quot; for a smooth descent and landing experience. Value needs to be higher than &quot;MPC_LAND_ALT2&quot;</p>   </td>
  <td style="vertical-align: top;">0 &gt; 122 </td>
  <td style="vertical-align: top;">10.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to &quot;MPC_LAND_SPEED&quot; Value needs to be lower than &quot;MPC_LAND_ALT1&quot;</p>   </td>
+ <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending and horizontal velocities get limited to &quot;MPC_LAND_SPEED&quot; and &quot;MPC_LAND_VEL_XY&quot;, respectively. Value needs to be lower than &quot;MPC_LAND_ALT1&quot;</p>   </td>
  <td style="vertical-align: top;">0 &gt; 122 </td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">m</td>
@@ -7538,6 +7544,14 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
  <td style="vertical-align: top;"><p>Landing descend rate</p>   </td>
  <td style="vertical-align: top;">0.6 &gt; ? </td>
  <td style="vertical-align: top;">0.7</td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity during landing
+Set the value higher than the otherwise expected maximum to disable any slowdown</p>   </td>
+ <td style="vertical-align: top;">0 &gt; ? </td>
+ <td style="vertical-align: top;">2.</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
@@ -9027,6 +9041,8 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -9053,6 +9069,8 @@ default 1.5 turns per second</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -11442,6 +11460,8 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -11736,7 +11756,7 @@ FW_CLMBOUT_DIFF if FW_CLMBOUT_DIFF &gt; 0</p>   </td>
 A taildragger with stearable wheel might need to pitch up
 a little to keep it&apos;s wheel on the ground before airspeed
 to takeoff is reached</p>   </td>
- <td style="vertical-align: top;">0.0 &gt; 20.0 (0.5)</td>
+ <td style="vertical-align: top;">-10.0 &gt; 20.0 (0.5)</td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">deg</td>
 </tr>
@@ -12923,6 +12943,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -13161,6 +13183,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -13789,6 +13813,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -13823,6 +13849,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -13849,6 +13877,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -13885,6 +13915,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -13958,6 +13990,67 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Baudrate for the GPS 2 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>50:</strong> 50 8N1</li> 
+
+<li><strong>75:</strong> 75 8N1</li> 
+
+<li><strong>110:</strong> 110 8N1</li> 
+
+<li><strong>134:</strong> 134 8N1</li> 
+
+<li><strong>150:</strong> 150 8N1</li> 
+
+<li><strong>200:</strong> 200 8N1</li> 
+
+<li><strong>300:</strong> 300 8N1</li> 
+
+<li><strong>600:</strong> 600 8N1</li> 
+
+<li><strong>1200:</strong> 1200 8N1</li> 
+
+<li><strong>1800:</strong> 1800 8N1</li> 
+
+<li><strong>2400:</strong> 2400 8N1</li> 
+
+<li><strong>4800:</strong> 4800 8N1</li> 
+
+<li><strong>9600:</strong> 9600 8N1</li> 
+
+<li><strong>19200:</strong> 19200 8N1</li> 
+
+<li><strong>38400:</strong> 38400 8N1</li> 
+
+<li><strong>57600:</strong> 57600 8N1</li> 
+
+<li><strong>115200:</strong> 115200 8N1</li> 
+
+<li><strong>230400:</strong> 230400 8N1</li> 
+
+<li><strong>460800:</strong> 460800 8N1</li> 
+
+<li><strong>500000:</strong> 500000 8N1</li> 
+
+<li><strong>921600:</strong> 921600 8N1</li> 
+
+<li><strong>1000000:</strong> 1000000 8N1</li> 
+
+<li><strong>1500000:</strong> 1500000 8N1</li> 
+
+<li><strong>2000000:</strong> 2000000 8N1</li> 
+
+<li><strong>3000000:</strong> 3000000 8N1</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SER_GPS3_BAUD">SER_GPS3_BAUD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Baudrate for the GPS 3 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -14795,6 +14888,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -14821,6 +14916,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -16442,7 +16539,7 @@ MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Parameter Reference","level":"1.11.2","depth":2,"next":{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},"previous":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameter_reference.md","mtime":"2019-12-09T21:10:31.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-09T21:11:42.921Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Parameter Reference","level":"1.11.2","depth":2,"next":{"title":"Computer Vision","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"Motion Capture (VICON, Optitrack)","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},"previous":{"title":"Parameters & Configs","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"advanced/parameter_reference.md","mtime":"2020-01-06T00:27:05.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-06T00:28:13.653Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
