@@ -1030,20 +1030,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
-            
-                <a href="../middleware/uorb_graph.html">
-            
-                    
-                    uORB Graph
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/mavlink.html">
             
                 <a href="../middleware/mavlink.html">
             
@@ -1056,7 +1043,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/micrortps.html">
             
                 <a href="../middleware/micrortps.html">
             
@@ -1070,7 +1057,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+        <li class="chapter " data-level="1.6.3.1" data-path="../middleware/micrortps_throughput_test.html">
             
                 <a href="../middleware/micrortps_throughput_test.html">
             
@@ -1083,7 +1070,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+        <li class="chapter " data-level="1.6.3.2" data-path="../middleware/micrortps_manual_code_generation.html">
             
                 <a href="../middleware/micrortps_manual_code_generation.html">
             
@@ -2264,7 +2251,7 @@ It allows you to build for the <a href="dev_env.html#supported-targets">most PX4
 <li>Download <a href="https://github.com/PX4/Firmware/blob/master/Tools/setup/ubuntu.sh" target="_blank">ubuntu.sh</a> and <a href="https://github.com/PX4/Firmware/blob/master/Tools/setup/requirements.txt" target="_blank">requirements.txt</a> from the PX4 source repository (<strong>/Tools/setup/</strong>):
 <br><code>wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/ubuntu.sh</code>
 <br><code>wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/requirements.txt</code></li>
-<li>Run the <strong>ubuntu.sh</strong> with no arguments (in a bash shell) to install everything:<pre><code class="lang-bash"><span class="hljs-built_in">source</span> ubuntu.sh
+<li>Run the <strong>ubuntu.sh</strong> with no arguments (in a bash shell) to install everything:<pre><code class="lang-bash">bash ubuntu.sh
 </code></pre>
 <ul>
 <li>Acknowledge any prompts as the script progress.</li>
@@ -2276,7 +2263,7 @@ It allows you to build for the <a href="dev_env.html#supported-targets">most PX4
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> You can alternatively <a href="building_px4.html">Download PX4 Source Code</a> and run the scripts in place:</p>
 <pre><code>  git clone https://github.com/PX4/Firmware.git
-  source Firmware/Tools/setup/ubuntu.sh
+  bash Firmware/Tools/setup/ubuntu.sh
 </code></pre></blockquote>
 <p>Notes:</p>
 <ul>
@@ -2306,7 +2293,7 @@ sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 <li>Download <a href="https://github.com/PX4/Firmware/blob/master/Tools/setup/ubuntu.sh" target="_blank">ubuntu.sh</a> and <a href="https://github.com/PX4/Firmware/blob/master/Tools/setup/requirements.txt" target="_blank">requirements.txt</a> from the PX4 source repository (<strong>/Tools/setup/</strong>):
 <br><code>wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/ubuntu.sh</code>
 <br><code>wget https://raw.githubusercontent.com/PX4/Firmware/master/Tools/setup/requirements.txt</code></li>
-<li>Run <strong>ubuntu.sh</strong> in a terminal to get just the common dependencies:<pre><code class="lang-bash"><span class="hljs-built_in">source</span> ubuntu.sh --no-nuttx --no-sim-tools
+<li>Run <strong>ubuntu.sh</strong> in a terminal to get just the common dependencies:<pre><code class="lang-bash">bash ubuntu.sh --no-nuttx --no-sim-tools
 </code></pre>
 </li>
 <li>Then setup an ARMv7 cross-compiler (either GCC or clang) as described in the following sections.</li>
@@ -2356,11 +2343,11 @@ cmake \
 <ol>
 <li>Download the script in a bash shell:
 <br><code>wget https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_melodic.sh</code></li>
-<li>Run the script:<pre><code class="lang-bash"><span class="hljs-built_in">source</span> ubuntu_sim_ros_melodic.sh
+<li>Run the script:<pre><code class="lang-bash">bash ubuntu_sim_ros_melodic.sh
 </code></pre>
 You may need to acknowledge some prompts as the script progresses.</li>
 </ol>
-<p>Note: </p>
+<p>Note:</p>
 <ul>
 <li>ROS Melodic is installed with Gazebo9 by default.</li>
 <li>Your catkin (ROS build system) workspace is created at <strong>~/catkin_ws/</strong>.</li>
@@ -2384,7 +2371,7 @@ tar -xzf requiredcomponents/eProsima_FastCDR-1.0.8-Linux.tar.gz
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> In the following lines where we compile the FastCDR and FastRTPS libraries, the <code>make</code> command is issued with the <code>-j2</code> option.
-  This option defines the number of parallel threads (or <code>j</code>obs) that are used to compile the source code. 
+  This option defines the number of parallel threads (or <code>j</code>obs) that are used to compile the source code.
   Change <code>-j2</code> to <code>-j&lt;number_of_cpu_cores_in_your_system&gt;</code> to speed up the compilation of the libraries.</p>
 </blockquote>
 <pre><code class="lang-sh">(<span class="hljs-built_in">cd</span> eProsima_FastCDR-1.0.8-Linux &amp;&amp; ./configure --libdir=/usr/lib &amp;&amp; make -j2 &amp;&amp; sudo make install)
@@ -2441,7 +2428,7 @@ rm -rf requiredcomponents eprosima_fastrtps-1-7-1-linux.tar.gz
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"next":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"previous":{"title":"Linux","level":"1.2.2.2","depth":3,"path":"setup/dev_env_linux.md","ref":"setup/dev_env_linux.md","articles":[{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_linux_arch.md","ref":"setup/dev_env_linux_arch.md","articles":[]},{"title":"Advanced Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_linux_ubuntu.md","mtime":"2020-01-28T00:14:11.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-28T00:15:16.394Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"next":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"previous":{"title":"Linux","level":"1.2.2.2","depth":3,"path":"setup/dev_env_linux.md","ref":"setup/dev_env_linux.md","articles":[{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_linux_arch.md","ref":"setup/dev_env_linux_arch.md","articles":[]},{"title":"Advanced Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/dev_env_linux_ubuntu.md","mtime":"2020-01-28T03:19:42.006Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-28T03:21:21.089Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
