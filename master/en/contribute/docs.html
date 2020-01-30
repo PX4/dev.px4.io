@@ -2236,10 +2236,10 @@
 This includes the PX4 and QGroundControl developer and user guides, and the MAVLink guide. 
 This article explains how you can make changes, add content, and create translations.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> You will need a (free) <a href="http://github.com" target="_blank">Github</a> account to contribute to the guide.</p>
+<p> You will need a (free) <a href="http://github.com" target="_blank">Github</a> account to contribute to the guides.</p>
 </blockquote>
 <h2 id="quick-changes"><a name="quick-changes" class="plugin-anchor" href="#quick-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Quick Changes</h2>
-<p>Fixing typos or editing an <em>existing page</em> is easy:</p>
+<p>Fixing typos or editing the text an <em>existing page</em> is easy:</p>
 <ol>
 <li><p>Click the <strong>Edit</strong> toolbar icon at the top of the relevant page in the guide.</p>
 <p><img src="../../assets/gitbook/gitbook_toolbar_icon_edit.png" alt="Gitbook: Edit Page button"></p>
@@ -2250,11 +2250,23 @@ This article explains how you can make changes, add content, and create translat
 guided to submit a <em>pull request</em>.</li>
 </ol>
 <p>The documentation team reviews submitted pull requests and will either merge it or work with you to update it.</p>
-<h2 id="adding-new-content---big-changes"><a name="adding-new-content---big-changes" class="plugin-anchor" href="#adding-new-content---big-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Adding New Content - Big Changes</h2>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> If you want to add new pages or images, then you will need to work through the git tool rather than github.
+  Often you will want to build the library using the gitbook toolchain to test your changes.</p>
+</blockquote>
+<h2 id="adding-new-pages-and-images---big-changes"><a name="adding-new-pages-and-images---big-changes" class="plugin-anchor" href="#adding-new-pages-and-images---big-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Adding New Pages and Images - Big Changes</h2>
 <p>If you want to add new pages or images that can&apos;t easily be done through the Github interface.
-In this case you make changes in the same way as you would for code changes: use the <em>git</em> toolchain to get the code, modify it as needed, test that it renders properly using the Gitbook client, create a branch for your changes and create a pull request (PR) to pull it back into the documentation. 
-The following instructions explain how. </p>
-<h3 id="what-goes-where"><a name="what-goes-where" class="plugin-anchor" href="#what-goes-where"><i class="fa fa-link" aria-hidden="true"></i></a>What Goes Where?</h3>
+In this case you make changes in the same way as you would for <em>code</em> changes: </p>
+<ol>
+<li>Use the <em>git</em> toolchain to get the documentation source code</li>
+<li>Modify it as needed (add, change, delete).</li>
+<li>Test that it renders properly using the Gitbook client</li>
+<li>Create a branch for your changes and create a pull request (PR) to pull it back into the documentation. </li>
+</ol>
+<p>Change requests can be either done on the Gitbook website using the <a href="https://gitbookio.gitbooks.io/documentation/content/editor/index.html" target="_blank">Gitbook editor</a> or locally (more flexible, but less user-friendly). 
+Most of these instructions cover the local setup.</p>
+<h3 id="developer-or-user-guide"><a name="developer-or-user-guide" class="plugin-anchor" href="#developer-or-user-guide"><i class="fa fa-link" aria-hidden="true"></i></a>Developer or User Guide?</h3>
+<p>There are different types of PX4 users, and it is important that documentation goes into the right place.</p>
 <p>The <em>Developer Guide</em> is for documentation that is relevant to <em>software developers</em>.
 This includes users who need to: </p>
 <ul>
@@ -2272,76 +2284,78 @@ This includes users who need to: </p>
 <p> For example, detailed information about how to build/configure an existing airframe are in the User Guide, 
 while instructions for defining a <em>new</em> airframe are in the Developer Guide.</p>
 </blockquote>
-<h3 id="gitbook-documentation-toolchain"><a name="gitbook-documentation-toolchain" class="plugin-anchor" href="#gitbook-documentation-toolchain"><i class="fa fa-link" aria-hidden="true"></i></a>Gitbook Documentation Toolchain</h3>
-<p>The guide uses the <a href="https://legacy.gitbook.com/" target="_blank">Legacy Gitbook Toolchain</a> toolchain.</p>
-<p>Change requests can be either done on the Gitbook website using the <a href="https://gitbookio.gitbooks.io/documentation/content/editor/index.html" target="_blank">Gitbook editor</a> or locally (more flexible, but less user-friendly). </p>
-<p>In order to contribute many changes to the documentation, it is recommended that you follow these steps to add the changes locally and then create a pull request:</p>
-<ul>
+<h3 id="getpush-documentation-source-code"><a name="getpush-documentation-source-code" class="plugin-anchor" href="#getpush-documentation-source-code"><i class="fa fa-link" aria-hidden="true"></i></a>Get/Push Documentation Source Code</h3>
+<p>To get the library(s) sources onto your local computer you will need to use the git toolchain.
+The instructions below explain how to get git and use it on your local computer.</p>
+<ol>
+<li>Download git for your computer from <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
 <li><a href="https://github.com/join" target="_blank">Sign up</a> for github if you haven&apos;t already</li>
-<li>Fork the PX4 user guide from <a href="https://github.com/PX4/px4_user_guide" target="_blank">here</a> or Dev guide from <a href="https://github.com/PX4/Devguide" target="_blank">here</a>. For instructions to fork a git repository, see <a href="https://help.github.com/articles/fork-a-repo/#fork-an-example-repository" target="_blank">here</a>.</li>
-<li>Clone your forked repository to your local computer<br><pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/wherever/
-git <span class="hljs-built_in">clone</span> https://github.com/&lt;your git name&gt;/px4_user_guide.git
+<li>Create a copy (Fork) of the desired library on Github (<a href="https://help.github.com/articles/fork-a-repo/#fork-an-example-repository" target="_blank">instructions here</a>).
+The library repo URLs are:<ul>
+<li>PX4 User Guide: <a href="https://github.com/PX4/px4_user_guide" target="_blank">https://github.com/PX4/px4_user_guide</a></li>
+<li>PX4 Developer Guide: <a href="https://github.com/PX4/Devguide" target="_blank">https://github.com/PX4/Devguide</a></li>
+<li>QGroundControl User Guide: <a href="https://github.com/mavlink/qgc-user-guide" target="_blank">https://github.com/mavlink/qgc-user-guide</a></li>
+<li>QGroundControl Developer Guide: <a href="https://github.com/mavlink/qgc-dev-guide" target="_blank">https://github.com/mavlink/qgc-dev-guide</a></li>
+<li>MAVLink Developer Guide: <a href="https://github.com/mavlink/mavlink-devguide" target="_blank">https://github.com/mavlink/mavlink-devguide</a></li>
+</ul>
+</li>
+<li>Clone (copy) your forked repository to your local computer:<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/wherever/
+git <span class="hljs-built_in">clone</span> https://github.com/&lt;your git name&gt;/&lt;repository_name&gt;.git
+</code></pre>
+For example, to clone the PX4 userguide fork for a user with github account &quot;john_citizen_smith&quot;:<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/john_citizen_smith/px4_user_guide.git
 </code></pre>
 </li>
-<li><p>Install gitbook via NPM. At the terminal prompt, simply run the following command to install GitBook:</p>
-<pre><code class="lang-sh">npm install gitbook-cli -g
+<li>Navigate to your local repository (px4_user_guide is used below):<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/wherever/px4_user_guide
 </code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Everything you need to install and build Gitbook locally is also explained in the <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">toolchain documentation</a>. </p>
+</li>
+<li><p>Add a <em>remote</em> called &quot;upstream&quot; to point to the original library.
+The exmaple below shows how to do this for the user guide (note the URL format - it is the repo URL with extension &quot;.git&quot;).</p>
+<pre><code class="lang-sh">git remote add upstream https://github.com/PX4/px4_user_guide.git
+</code></pre>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> A &quot;remote&quot; is a handle to a particular repository.
+  The remote named <em>origin</em> is created by default when you clone the repository, and points to your fork of the guide.
+  You want to create a new remote <em>upstream</em> that points to the official version of the document.</p>
 </blockquote>
 </li>
-<li><p>Navigate to your local repository and add original upstream:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/wherever/px4_user_guide
-git remote add upstream https://github.com/PX4/px4_user_guide.git
+<li>Create a branch for your changes:<pre><code class="lang-sh">git checkout -b &lt;your_feature_branch_name&gt;
 </code></pre>
-</li>
-<li><p>Now you can checkout a new branch and add your changes. To build your book, run:</p>
-<pre><code class="lang-sh">gitbook build
-</code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> If you run into an error: <code>/usr/bin/env: node: No such file or directory</code>, run <code>ln -s /usr/bin/nodejs /usr/bin/node</code></p>
-</blockquote>
-</li>
-<li><p>To preview and serve your book, run:</p>
-<pre><code class="lang-sh">gitbook serve
-</code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> run <code>gitbook install</code> to install missing plugins.</p>
-</blockquote>
-</li>
-<li><p>Now you can browse your local book on <a href="http://localhost:4000/" target="_blank">http://localhost:4000/</a></p>
-</li>
-<li><p>Exit serving using <code>CTRL+c</code> in the terminal prompt.</p>
-</li>
-<li><p>You can also serve on a different port instead of 4000:</p>
-<pre><code class="lang-sh">gitbook serve --port 4003
-</code></pre>
-</li>
-<li>You can also output as html, pdf, epub or mobi:<pre><code class="lang-sh">gitbook <span class="hljs-built_in">help</span>
-</code></pre>
-</li>
-<li><p>Once you are satisfied with your changes after previewing them, you can add and commit them:</p>
-<pre><code class="lang-sh">git add &lt;file name&gt;
+This creates a local branch on your computer named <code>your_feature_branch_name</code>.</li>
+<li>Make changes to the documentation as needed (general guidance on this in following sections)</li>
+<li>Once you are satisfied with your changes, you can add them to your local branch using a &quot;commit&quot;:<pre><code class="lang-sh">git add &lt;file name&gt;
 git commit -m <span class="hljs-string">&quot;&lt;your commit message&gt;&quot;</span>
 </code></pre>
-<p>For a good commit message, please refer to <a href="./">Contributing</a> section.</p>
-</li>
-<li><p>Now you can push your local commits to your forked repository</p>
-<pre><code class="lang-sh">git push origin &lt;your feature branch name&gt;
+For a good commit message, please refer to <a href="./">Contributing</a> section.</li>
+<li>Push your local branch (including commits added to it) to your forked repository on github<pre><code class="lang-sh">git push origin your_feature_branch_name
 </code></pre>
 </li>
-<li>You can verify that the push was successful by going to your forked repository in your browser: <code>https://github.com/&lt;your git name&gt;/px4_user_guide.git</code><br>
+<li>Go to your forked repository on Github in a web browser, e.g.: <code>https://github.com/&lt;your git name&gt;/px4_user_guide.git</code>.
 There you should see the message that a new branch has been pushed to your forked repository.</li>
-<li>Now it&apos;s time to create a pull request (PR). On the right hand side of the &quot;new branch message&quot; (see one step before), you should see a green button saying &quot;Compare &amp; Create Pull Request&quot;. Then it should list your changes and you can (must) add a meaningful title (in case of a one commit PR, it&apos;s usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check <a href="https://github.com/PX4/px4_user_guide/pulls" target="_blank">other pull requests</a> for comparison)</li>
-<li>You&apos;re done! Responsible members of PX4 guides will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.</li>
+<li>Create a pull request (PR):<ul>
+<li>On the right hand side of the &quot;new branch message&quot; (see one step before), you should see a green button saying &quot;Compare &amp; Create Pull Request&quot;. Press it.</li>
+<li>A pull request template will be created. It will list your commits and you can (must) add a meaningful title (in case of a one commit PR, it&apos;s usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check <a href="https://github.com/PX4/px4_user_guide/pulls" target="_blank">other pull requests</a> for comparison)</li>
 </ul>
+</li>
+<li>You&apos;re done! Responsible members of PX4 guides will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.</li>
+</ol>
+<h3 id="source-code-structure"><a name="source-code-structure" class="plugin-anchor" href="#source-code-structure"><i class="fa fa-link" aria-hidden="true"></i></a>Source Code Structure</h3>
+<p>The guide uses the <a href="https://legacy.gitbook.com/" target="_blank">Legacy Gitbook Toolchain</a> toolchain.
+Instructions for how this toolchain is setup and used can be found in the <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">toolchain documentation</a>.</p>
 <p>In overview:</p>
 <ul>
 <li>Pages are written in separate files using markdown (almost the same syntax used by Github wiki). </li>
-<li>The <em>structure</em> of the book is defined in a file named <strong>SUMMARY.md</strong>.</li>
+<li>The <em>structure</em> of the book is defined in a file named <strong>SUMMARY.md</strong>.
+If you add a new page to the library you must add an entry to this file. </li>
 <li>This is a <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/languages.md" target="_blank">multilingual</a> book, 
-so there is a <strong>LANGS.md</strong> file in the root directory defining what languages are supported. 
-Pages for each language are stored in the folder named for the associated language code (e.g. &quot;zh&quot; for Chinese, &quot;en&quot; for English). </li>
+so there is a <strong>LANGS.md</strong> file in the root directory defining what languages are supported. <ul>
+<li>Pages for each language are stored in the folder named for the associated language code (e.g. &quot;zh&quot; for Chinese, &quot;en&quot; for English).</li>
+<li>You should only ever edit the ENGLISH version of files.
+We use translation software to manage the other trees.</li>
+</ul>
+</li>
+<li>Images must be stored in a sub folder of <strong>/assets</strong>.
+This is two folders down from content folders, so if you add an image you will reference it like:<pre><code>![Image Description](../../assets/path_to_file/filename.jpg)
+</code></pre></li>
 <li>A file named <strong>book.json</strong> defines any dependencies of the build.</li>
 <li>A web hook is used to track whenever files are merged into the master branch on this repository, causing the book to rebuild.</li>
 </ul>
@@ -2371,6 +2385,42 @@ Pages for each language are stored in the folder named for the associated langua
 <li>Don&apos;t translate the <em>first part</em> of a note, tip or warning declaration (e.g. <code>&gt; **Note**</code>) 
 as this precise text is required to render the note properly.</li>
 </ul>
+</li>
+</ol>
+<h3 id="building-the-gitbook-locally"><a name="building-the-gitbook-locally" class="plugin-anchor" href="#building-the-gitbook-locally"><i class="fa fa-link" aria-hidden="true"></i></a>Building the Gitbook Locally</h3>
+<p>Everything you need to install and build Gitbook locally is also explained in the <a href="https://github.com/GitbookIO/gitbook/blob/master/docs/setup.md" target="_blank">toolchain documentation</a>. </p>
+<ol>
+<li>Install nodejs on your computer (version 4-6 recommended).</li>
+<li>Install gitbook via NPM. 
+At the terminal prompt, simply run the following command to install GitBook:<pre><code class="lang-sh">npm install gitbook-cli -g
+</code></pre>
+</li>
+<li><p>Navigate to your local repository:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/wherever/px4_user_guide
+</code></pre>
+<p>1 Install gitbook dependencies:</p>
+<pre><code class="lang-sh">gitbook install
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> If you run into an error: <code>/usr/bin/env: node: No such file or directory</code>, run <code>ln -s /usr/bin/nodejs /usr/bin/node</code></p>
+</blockquote>
+</li>
+<li><p>Build your book:</p>
+<pre><code class="lang-sh">gitbook build
+</code></pre>
+</li>
+<li>To preview and serve your book, run:<pre><code class="lang-sh">gitbook serve
+</code></pre>
+<ul>
+<li>Now you can browse your local book on <a href="http://localhost:4000/" target="_blank">http://localhost:4000/</a></li>
+<li>Exit serving using <code>CTRL+c</code> in the terminal prompt.</li>
+</ul>
+</li>
+<li>You can also serve on a different port instead of 4000:<pre><code class="lang-sh">gitbook serve --port 4003
+</code></pre>
+</li>
+<li>You can also output as html, pdf, epub or mobi:<pre><code class="lang-sh">gitbook <span class="hljs-built_in">help</span>
+</code></pre>
 </li>
 </ol>
 <h2 id="translation"><a name="translation" class="plugin-anchor" href="#translation"><i class="fa fa-link" aria-hidden="true"></i></a>Translations </h2>
@@ -2422,7 +2472,7 @@ For more information see: <a href="translation.html">Translation</a>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.13.3","depth":2,"next":{"title":"Translation","level":"1.13.4","depth":2,"path":"contribute/translation.md","ref":"contribute/translation.md","articles":[]},"previous":{"title":"GIT Examples","level":"1.13.2.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"contribute/docs.md","mtime":"2020-01-30T12:53:40.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-30T12:54:45.973Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Documentation","level":"1.13.3","depth":2,"next":{"title":"Translation","level":"1.13.4","depth":2,"path":"contribute/translation.md","ref":"contribute/translation.md","articles":[]},"previous":{"title":"GIT Examples","level":"1.13.2.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"contribute/docs.md","mtime":"2020-01-30T22:01:22.385Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-01-30T22:03:04.090Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
