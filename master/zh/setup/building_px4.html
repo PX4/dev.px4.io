@@ -1030,25 +1030,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
-            
-                <a href="../middleware/uorb_graph.html">
-            
-                    
-                    uORB 图表
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/mavlink.html">
             
                 <a href="../middleware/mavlink.html">
             
                     
-                    MAVLink通讯
+                    MAVLink Messaging
             
                 </a>
             
@@ -1056,12 +1043,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/micrortps.html">
             
                 <a href="../middleware/micrortps.html">
             
                     
-                    RTPS/ROS2 接口
+                    RTPS/ROS2 Interface
             
                 </a>
             
@@ -1070,12 +1057,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+        <li class="chapter " data-level="1.6.3.1" data-path="../middleware/micrortps_throughput_test.html">
             
                 <a href="../middleware/micrortps_throughput_test.html">
             
                     
-                    输出测试
+                    Throughput Test
             
                 </a>
             
@@ -1083,12 +1070,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+        <li class="chapter " data-level="1.6.3.2" data-path="../middleware/micrortps_manual_code_generation.html">
             
                 <a href="../middleware/micrortps_manual_code_generation.html">
             
                     
-                    手动生成客户端和代理端代码
+                    Manually Generate Client/Agent
             
                 </a>
             
@@ -1933,7 +1920,7 @@
                 <a href="../test_and_ci/integration_testing.html">
             
                     
-                    整合测试
+                    ROS Integration Testing
             
                 </a>
             
@@ -1941,12 +1928,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/integration_testing_mavsdk.html">
+            
+                <a href="../test_and_ci/integration_testing_mavsdk.html">
+            
+                    
+                    MAVSDK Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/docker.html">
             
                 <a href="../test_and_ci/docker.html">
             
                     
-                    Docker 容器
+                    Docker Containers
             
                 </a>
             
@@ -1954,12 +1954,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+        <li class="chapter " data-level="1.12.8" data-path="../test_and_ci/maintenance.html">
             
                 <a href="../test_and_ci/maintenance.html">
             
                     
-                    维护
+                    Maintenance
             
                 </a>
             
@@ -2340,7 +2340,7 @@ make px4_fmu-v4_default
 <li><a href="https://docs.px4.io/en/flight_controller/pixfalcon.html" target="_blank">Pixfalcon</a>: <code>make px4_fmu-v2_default</code></li>
 <li><a href="https://docs.px4.io/en/flight_controller/dropix.html" target="_blank">Dropix</a>: <code>make px4_fmu-v2_default</code></li>
 <li><a href="https://docs.px4.io/en/flight_controller/mindpx.html" target="_blank">MindPX</a>/<a href="https://docs.px4.io/en/flight_controller/mindracer.html" target="_blank">MindRacer</a>: <code>make airmind_mindpx-v2_default</code></li>
-<li><a href="https://docs.px4.io/en/flight_controller/mro_x2.1.html" target="_blank">mRo X-2.1</a>: <code>make auav_x21_default</code> </li>
+<li><a href="https://docs.px4.io/en/flight_controller/mro_x2.1.html" target="_blank">mRo X-2.1</a>: <code>make mro_x21_default</code> </li>
 <li><a href="https://docs.px4.io/en/flight_controller/crazyflie2.html" target="_blank">Crazyflie 2.0</a>: <code>make bitcraze_crazyflie_default</code></li>
 <li><a href="https://docs.px4.io/en/flight_controller/intel_aero.html" target="_blank">Intel&#xAE; Aero Ready to Fly Drone</a>: <code>make intel_aerofc-v1_default</code></li>
 <li><a href="https://docs.px4.io/en/flight_controller/pixhawk.html" target="_blank">Pixhawk 1</a>: <code>make px4_fmu-v2_default</code> &gt; <strong>Warning</strong> You <strong>must</strong> use a supported version of GCC to build this board (e.g. the same as used by <a href="../test_and_ci/docker.html">CI/docker</a>) or remove modules from the build. &#x4F7F;&#x7528;&#x4E0D;&#x53D7;&#x652F;&#x6301;&#x7684; GCC &#x6784;&#x5EFA;&#x53EF;&#x80FD;&#x4F1A;&#x5931;&#x8D25;&#xFF0C;&#x56E0;&#x4E3A; PX4 &#x5BF9;&#x98DE;&#x63A7;&#x677F;&#x6709; 1MB &#x7684;&#x95EA;&#x5B58;&#x9650;&#x5236;&#x3002;</li>
@@ -2377,12 +2377,12 @@ Rebooting.
 </blockquote>
 <p>Build the executable file:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make emlid_navio2_cross <span class="hljs-comment"># for cross-compiler build</span>
+make emlid_navio2 <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
-<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_cross/</strong>. Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
+<p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_default/</strong>. Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
 <p>Then upload it with:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make emlid_navio2_cross upload <span class="hljs-comment"># for cross-compiler build</span>
+make emlid_navio2 upload <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
 <p>Then, connect over ssh and run it with (as root):</p>
 <pre><code class="lang-sh">sudo ./bin/px4 <span class="hljs-_">-s</span> px4.config
@@ -2412,56 +2412,13 @@ pxh&gt;
 <p>To autostart px4, add the following to the file <strong>/etc/rc.local</strong> (adjust it accordingly if you use native build), right before the <code>exit 0</code> line:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/pi &amp;&amp; ./bin/px4 <span class="hljs-_">-d</span> <span class="hljs-_">-s</span> px4.config &gt; px4.log
 </code></pre>
-<h3 id="parrot-bebop"><a name="parrot-bebop" class="plugin-anchor" href="#parrot-bebop"><i class="fa fa-link" aria-hidden="true"></i></a>Parrot Bebop</h3>
-<p>Support for the <a href="https://docs.px4.io/en/flight_controller/bebop.html" target="_blank">Parrot Bebop</a> is at an early stage and should be used very carefully.</p>
-<h4 id="&#x7F16;&#x8BD1;"><a name="&#x7F16;&#x8BD1;" class="plugin-anchor" href="#&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x8BD1;</h4>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-make parrot_bebop
-</code></pre>
-<p>Turn on your Bebop and connect your host machine with the Bebop&apos;s wifi. Then, press the power button four times to enable ADB and to start the telnet daemon.</p>
-<pre><code class="lang-sh">make parrot_bebop upload
-</code></pre>
-<p>This will upload the PX4 mainapp into /data/ftp/internal_000/px4/ and create the file /home/root/parameters if not already present. This also uploads the mixer file and the px4.config file into the /home/root/ directory.</p>
-<h4 id="&#x8FD0;&#x884C;"><a name="&#x8FD0;&#x884C;" class="plugin-anchor" href="#&#x8FD0;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;</h4>
-<p>Connect to the Bebop&apos;s wifi and press the power button four times. Next, connect with the Bebop via telnet or adb shell and run the commands below.</p>
-<pre><code class="lang-sh">telnet 192.168.42.1
-</code></pre>
-<p>Kill the Bebop&apos;s proprietary driver with</p>
-<pre><code class="lang-sh">kk
-</code></pre>
-<p>and start the PX4 mainapp with:</p>
-<pre><code class="lang-sh">/data/ftp/internal_000/px4/px4 <span class="hljs-_">-s</span> /home/root/px4.config /data/ftp/internal_000/px4/
-</code></pre>
-<p>In order to fly the Bebop, connect a joystick device with your host machine and start QGroundControl. Both the Bebop and the joystick should be recognized. Follow the instructions to calibrate the sensors and setup your joystick device.</p>
-<h4 id="&#x81EA;&#x52A8;&#x542F;&#x52A8;"><a name="&#x81EA;&#x52A8;&#x542F;&#x52A8;" class="plugin-anchor" href="#&#x81EA;&#x52A8;&#x542F;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x52A8;&#x542F;&#x52A8;</h4>
-<p>To auto-start PX4 on the Bebop at boot, modify the init script <code>/etc/init.d/rcS_mode_default</code>. Comment the following line:</p>
-<pre><code>DragonStarter.sh -out2null &amp;
-</code></pre><p>Replace it with:</p>
-<pre><code>echo 1 &gt; /sys/class/gpio/gpio85/value # enables the fan
-/data/ftp/internal_000/px4/px4 -d -s /home/root/px4.config /data/ftp/internal_000/px4/ &gt;/dev/null &amp;
-</code></pre><p>Enable adb server by pressing the power button 4 times and connect to adb server as described before:</p>
-<pre><code class="lang-sh">adb connect 192.168.42.1:9050
-</code></pre>
-<p>Re-mount the system partition as writeable:</p>
-<pre><code class="lang-sh">adb shell mount -o remount,rw /
-</code></pre>
-<p>In order to avoid editing the file manually, you can use this one: <a href="https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e" target="_blank">https://gist.github.com/bartslinger/8908ff07381f6ea3b06c1049c62df44e</a></p>
-<p>Save the original one and push this one to the Bebop</p>
-<pre><code class="lang-sh">adb shell cp /etc/init.d/rcS_mode_default /etc/init.d/rcS_mode_default_backup
-adb push rcS_mode_default /etc/init.d/
-adb shell chmod 755 /etc/init.d/rcS_mode_default
-</code></pre>
-<p>Sync and reboot:</p>
-<pre><code class="lang-sh">adb shell sync
-adb shell reboot
-</code></pre>
 <h3 id="ocpoc-zynq-mini"><a name="ocpoc-zynq-mini" class="plugin-anchor" href="#ocpoc-zynq-mini"><i class="fa fa-link" aria-hidden="true"></i></a>OcPoC-Zynq Mini</h3>
 <p>Build instructions for the <a href="https://docs.px4.io/en/flight_controller/ocpoc_zynq.html" target="_blank">OcPoC-Zynq Mini</a> are covered in:</p>
 <ul>
 <li><a href="https://docs.px4.io/master/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq" target="_blank">Aerotenna OcPoC-Zynq Mini Flight Controller &gt; Building PX4 for OcPoC-Zynq</a> (PX4 User Guide)</li>
 <li><a href="https://aerotenna.readme.io/docs/px4-setup" target="_blank">OcPoC PX4 Setup Page</a></li>
 </ul>
-<h3 id="&#x57FA;&#x4E8E;-qurt--snapdragon-&#x7684;&#x98DE;&#x63A7;&#x677F;"><a name="&#x57FA;&#x4E8E;-qurt--snapdragon-&#x7684;&#x98DE;&#x63A7;&#x677F;" class="plugin-anchor" href="#&#x57FA;&#x4E8E;-qurt--snapdragon-&#x7684;&#x98DE;&#x63A7;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x4E8E; QuRT / Snapdragon &#x7684;&#x98DE;&#x63A7;&#x677F;</h3>
+<h3 id="qurt--snapdragon-based-boards"><a name="qurt--snapdragon-based-boards" class="plugin-anchor" href="#qurt--snapdragon-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>QuRT / Snapdragon Based Boards</h3>
 <p>This section shows how to build for the <a href="https://docs.px4.io/en/flight_controller/snapdragon_flight.html" target="_blank">Qualcomm Snapdragon Flight</a>.</p>
 <h4 id="&#x7F16;&#x8BD1;"><a name="&#x7F16;&#x8BD1;" class="plugin-anchor" href="#&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x8BD1;</h4>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2481,7 +2438,7 @@ make atlflight_eagle_default
 <p>The mixer currently needs to be copied manually:</p>
 <pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 </code></pre>
-<h4 id="&#x8FD0;&#x884C;&#x811A;&#x672C;"><a name="&#x8FD0;&#x884C;&#x811A;&#x672C;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x811A;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x811A;&#x672C;</h4>
+<h4 id="&#x8FD0;&#x884C;"><a name="&#x8FD0;&#x884C;" class="plugin-anchor" href="#&#x8FD0;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;</h4>
 <p>Run the DSP debug monitor:</p>
 <pre><code class="lang-sh"><span class="hljs-variable">${HEXAGON_SDK_ROOT}</span>/tools/debug/mini-dm/Linux_Debug/mini-dm
 </code></pre>
@@ -2520,7 +2477,7 @@ chmod +x /etc/rc.local
 <h2 id="qt-creator-&#x529F;&#x80FD;"><a name="qt-creator-&#x529F;&#x80FD;" class="plugin-anchor" href="#qt-creator-&#x529F;&#x80FD;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator &#x529F;&#x80FD;</h2>
 <p>Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.</p>
 <p><img src="../../assets/toolchain/qtcreator.png" alt=""></p>
-<h3 id="&#x5728;-linux-&#x4E0A;&#x4F7F;&#x7528;-qt-creator"><a name="&#x5728;-linux-&#x4E0A;&#x4F7F;&#x7528;-qt-creator" class="plugin-anchor" href="#&#x5728;-linux-&#x4E0A;&#x4F7F;&#x7528;-qt-creator"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; Linux &#x4E0A;&#x4F7F;&#x7528; Qt creator</h3>
+<h3 id="qt-creator-on-linux"><a name="qt-creator-on-linux" class="plugin-anchor" href="#qt-creator-on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Linux</h3>
 <p>Before starting Qt Creator, the <a href="https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator" target="_blank">project file</a> needs to be created:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
 mkdir ../Firmware-build
@@ -2529,11 +2486,11 @@ cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles
 </code></pre>
 <p>Then load the CMakeLists.txt in the root firmware folder via <strong>File &gt; Open File or Project</strong> (Select the CMakeLists.txt file).</p>
 <p>After loading, the <strong>play</strong> button can be configured to run the project by selecting &apos;custom executable&apos; in the run target configuration and entering &apos;make&apos; as executable and &apos;upload&apos; as argument.</p>
-<h3 id="&#x5728;-windows-&#x4E0A;&#x4F7F;&#x7528;-qt-creator"><a name="&#x5728;-windows-&#x4E0A;&#x4F7F;&#x7528;-qt-creator" class="plugin-anchor" href="#&#x5728;-windows-&#x4E0A;&#x4F7F;&#x7528;-qt-creator"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; Windows &#x4E0A;&#x4F7F;&#x7528; Qt creator</h3>
+<h3 id="qt-creator-on-windows"><a name="qt-creator-on-windows" class="plugin-anchor" href="#qt-creator-on-windows"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Windows</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Windows has not been tested for PX4 development with Qt Creator.</p>
 </blockquote>
-<h3 id="&#x5728;-mac-os-&#x4E0A;&#x4F7F;&#x7528;-qt-creator"><a name="&#x5728;-mac-os-&#x4E0A;&#x4F7F;&#x7528;-qt-creator" class="plugin-anchor" href="#&#x5728;-mac-os-&#x4E0A;&#x4F7F;&#x7528;-qt-creator"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; Mac OS &#x4E0A;&#x4F7F;&#x7528; Qt creator</h3>
+<h3 id="qt-creator-on-mac-os"><a name="qt-creator-on-mac-os" class="plugin-anchor" href="#qt-creator-on-mac-os"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Mac OS</h3>
 <p>Before starting Qt Creator, the <a href="https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator" target="_blank">project file</a> needs to be created:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
 mkdir -p build/creator
@@ -2549,7 +2506,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 </code></pre>
 <p><strong>VENDOR_MODEL_VARIANT</strong>: (also known as <code>CONFIGURATION_TARGET</code>)</p>
 <ul>
-<li><strong>VENDOR:</strong> The manufacturer of the board: <code>px4</code>, <code>aerotenna</code>, <code>airmind</code>, <code>atlflight</code>, <code>auav</code>, <code>beaglebone</code>, <code>intel</code>, <code>nxp</code>, <code>parrot</code>, etc. The vendor name for Pixhawk series boards is <code>px4</code>.</li>
+<li><strong>VENDOR:</strong> The manufacturer of the board: <code>px4</code>, <code>aerotenna</code>, <code>airmind</code>, <code>atlflight</code>, <code>auav</code>, <code>beaglebone</code>, <code>intel</code>, <code>nxp</code>, etc. The vendor name for Pixhawk series boards is <code>px4</code>.</li>
 <li><strong>MODEL:</strong> The <em>board model</em> &quot;model&quot;: <code>sitl</code>, <code>fmu-v2</code>, <code>fmu-v3</code>, <code>fmu-v4</code>, <code>fmu-v5</code>, <code>navio2</code>, etc.</li>
 <li><strong>VARIANT:</strong> Indicates particular configurations: e.g. <code>rtps</code>, <code>lpe</code>, which contain components that are not present in the <code>default</code> configuration. Most commonly this is <code>default</code>, and may be omitted.</li>
 </ul>
@@ -2580,7 +2537,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 </ul>
 <p>The <code>VENDOR_MODEL_VARIANT</code> options map to particular <em>cmake</em> configuration files in the PX4 source tree under the <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">/boards</a> directory. Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <strong>boards/VENDOR/MODEL/VARIANT.cmake</strong> (e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
 <p>Additional make targets are discussed in the following sections (list is not exhaustive):</p>
-<h3 id="bloaty_compare_master"><a name="bloaty_compare_master" class="plugin-anchor" href="#bloaty_compare_master"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x5256;&#x6790; </h3>
+<h3 id="bloaty_compare_master"><a name="bloaty_compare_master" class="plugin-anchor" href="#bloaty_compare_master"><i class="fa fa-link" aria-hidden="true"></i></a>Binary Size Profiling </h3>
 <p>The <code>bloaty_compare_master</code> build target allows you to get a better understanding of the impact of changes on code size. When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the <a href="https://github.com/google/bloaty" target="_blank">bloaty</a> size profiler for binaries).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> This can help analyse changes that (may) cause <code>px4_fmu-v2_default</code> to hit the 1MB flash limit.</p>
@@ -2704,7 +2661,7 @@ sudo ln <span class="hljs-_">-s</span> /Library/Developer/CommandLineTools/SDKs/
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-02-03T15:08:55.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-03T15:09:59.275Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-02-04T03:56:39.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-04T03:58:23.464Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

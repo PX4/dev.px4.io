@@ -1030,25 +1030,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
-            
-                <a href="../middleware/uorb_graph.html">
-            
-                    
-                    uORB 图表
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/mavlink.html">
             
                 <a href="../middleware/mavlink.html">
             
                     
-                    MAVLink通讯
+                    MAVLink Messaging
             
                 </a>
             
@@ -1056,12 +1043,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/micrortps.html">
             
                 <a href="../middleware/micrortps.html">
             
                     
-                    RTPS/ROS2 接口
+                    RTPS/ROS2 Interface
             
                 </a>
             
@@ -1070,12 +1057,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+        <li class="chapter " data-level="1.6.3.1" data-path="../middleware/micrortps_throughput_test.html">
             
                 <a href="../middleware/micrortps_throughput_test.html">
             
                     
-                    输出测试
+                    Throughput Test
             
                 </a>
             
@@ -1083,12 +1070,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+        <li class="chapter " data-level="1.6.3.2" data-path="../middleware/micrortps_manual_code_generation.html">
             
                 <a href="../middleware/micrortps_manual_code_generation.html">
             
                     
-                    手动生成客户端和代理端代码
+                    Manually Generate Client/Agent
             
                 </a>
             
@@ -1933,7 +1920,7 @@
                 <a href="../test_and_ci/integration_testing.html">
             
                     
-                    整合测试
+                    ROS Integration Testing
             
                 </a>
             
@@ -1941,12 +1928,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/integration_testing_mavsdk.html">
+            
+                <a href="../test_and_ci/integration_testing_mavsdk.html">
+            
+                    
+                    MAVSDK Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/docker.html">
             
                 <a href="../test_and_ci/docker.html">
             
                     
-                    Docker 容器
+                    Docker Containers
             
                 </a>
             
@@ -1954,12 +1954,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+        <li class="chapter " data-level="1.12.8" data-path="../test_and_ci/maintenance.html">
             
                 <a href="../test_and_ci/maintenance.html">
             
                     
-                    维护
+                    Maintenance
             
                 </a>
             
@@ -2232,19 +2232,32 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;"><a name="gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;" class="plugin-anchor" href="#gazebo-&#x591A;&#x673A;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo &#x591A;&#x673A;&#x4EFF;&#x771F;</h1>
-<p>&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x4F7F;&#x7528; Gazebo &#x4EFF;&#x771F;&#x5668;&#x914D;&#x5408;&#x8F6F;&#x4EF6;&#x5728;&#x73AF;&#x4EFF;&#x771F;&#x8FDB;&#x884C;&#x591A;&#x673A;&#x4EFF;&#x771F;&#xFF08;&#x4EC5;&#x9002;&#x7528;&#x4E8E; Linux &#xFF09;&#x3002;</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> &#x5982;&#x679C;&#x60A8;&#x4E0D;&#x9700;&#x8981; Gazebo &#x6216; ROS &#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#xFF0C; <a href="multi_vehicle_jmavsim.html"> JMAVSim&#x7684;&#x591A;&#x673A;&#x4EFF;&#x771F;</a> &#x66F4;&#x5BB9;&#x6613;&#x8BBE;&#x7F6E;&#x3002;</p>
-</blockquote>
-<p>&#x672C;&#x6587;&#x7ED9;&#x51FA;&#x4E86;&#x6F14;&#x793A;&#x5B9E;&#x4F8B;, &#x6253;&#x5F00;&#x4E86; Gazebo &#x4EFF;&#x771F;&#x5668;&#xFF0C;&#x5728;&#x7A7A;&#x7684;&#x7684;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A; Iris &#x65E0;&#x4EBA;&#x673A;&#x3002; &#x7136;&#x540E;, &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl</em> &#x914D;&#x5408; MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;, &#x5176;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x4E0E;&#x5355;&#x673A;&#x63A7;&#x5236;&#x7C7B;&#x4F3C;&#x3002;</p>
-<h2 id="&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;"><a name="&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;" class="plugin-anchor" href="#&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EFF;&#x771F;&#x524D;&#x51C6;&#x5907;</h2>
-<ul>
-<li><a href="../setup/dev_env_linux_ubuntu.html#rosgazebo">PX4 ROS/Gazebo &#x5F00;&#x53D1;&#x73AF;&#x5883;</a> <strong>Note</strong> &#x7F16;&#x5199;&#x6B64;&#x6559;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x4E3A; Ubuntu 18.04 &#x548C; ROS &#x7248;&#x672C;&#x4E3A; Melodic &#x4EE5;&#x53CA; Gazebo&#x7248;&#x672C;&#x4E3A; Gazebo 9 &#x3002; &#x4E5F;&#x53EF;&#x4EE5;&#x770B; <a href="gazebo.html">Gazebo &#x4EFF;&#x771F;</a></li>
-<li><a href="http://wiki.ros.org/mavros" target="_blank">MAVROS</a></li>
-<li>&#x514B;&#x9686;&#x6700;&#x65B0;&#x7684; PX4 &#x6E90;&#x7801;&#x56FA;&#x4EF6;&#x3002;</li>
+<p>This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only). A different approach is used for simulation with and without ROS.</p>
+<h2 id="no_ros"><a name="no_ros" class="plugin-anchor" href="#no_ros"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicle with Gazebo (No ROS) </h2>
+<p>To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the <em>Firmware</em> tree):</p>
+<pre><code>Tools/gazebo_sitl_multiple_run.sh [-m &lt;model&gt;] [-n &lt;number_of_vehicles&gt;]
+</code></pre><ul>
+<li><code>&lt;model&gt;</code>: The vehicle type/model to spawn: <code>iris</code> (default), <code>plane</code>.</li>
+<li><code>number_of_vehicles</code>: The number of vehicles to spawn. Default is 3. Maximum is 10.</li>
 </ul>
-<h2 id="&#x5F00;&#x59CB;&#x4EFF;&#x771F;"><a name="&#x5F00;&#x59CB;&#x4EFF;&#x771F;" class="plugin-anchor" href="#&#x5F00;&#x59CB;&#x4EFF;&#x771F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F00;&#x59CB;&#x4EFF;&#x771F;</h2>
-<p>&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x8BBE;&#x7F6E;, &#x8BF7;&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x6B65;&#x9AA4;&#x64CD;&#x4F5C;:</p>
+<p>Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.) and can be accessed from a unique remote offboard UDP port (14540, 14541, 14542, etc.).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The 10-vehicle limitation occurs because the 11th vehicle would be allocated a remote offboard UDP port 14550, which is already used for QGC. The <code>MAV_SYS_ID</code> and various UDP ports are allocated in the SITL rcS: <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112" target="_blank">init.d-posix/rcS</a></p>
+</blockquote>
+<h3 id="video-multiple-multicopter-iris"><a name="video-multiple-multicopter-iris" class="plugin-anchor" href="#video-multiple-multicopter-iris"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple Multicopter (Iris)</h3>
+<p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Mskx_WxzeCk"></iframe></div></p>
+<h3 id="video-multiple-plane"><a name="video-multiple-plane" class="plugin-anchor" href="#video-multiple-plane"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple Plane</h3>
+<p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/aEzFKPMEfjc"></iframe></div></p>
+<h2 id="with_ros"><a name="with_ros" class="plugin-anchor" href="#with_ros"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicles with ROS and Gazebo </h2>
+<p>This example demonstrates a setup that opens the Gazebo client GUI showing two Iris vehicles in an empty world. You can then control the vehicles with <em>QGroundControl</em> and MAVROS in a similar way to how you would manage a single vehicle.</p>
+<h3 id="required"><a name="required" class="plugin-anchor" href="#required"><i class="fa fa-link" aria-hidden="true"></i></a>Required</h3>
+<ul>
+<li>Current <a href="../setup/dev_env_linux_ubuntu.html#rosgazebo">PX4 ROS/Gazebo development environment</a> &gt; <strong>Note</strong> At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also <a href="gazebo.html">Gazebo Simulation</a>.</li>
+<li><a href="http://wiki.ros.org/mavros" target="_blank">MAVROS package</a></li>
+<li>a clone of latest <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a></li>
+</ul>
+<h3 id="build-and-test"><a name="build-and-test" class="plugin-anchor" href="#build-and-test"><i class="fa fa-link" aria-hidden="true"></i></a>Build and Test</h3>
+<p>To build an example setup, follow the step below:</p>
 <ol>
 <li><p>&#x514B;&#x9686; PX4 &#x56FA;&#x4EF6;&#x6E90;&#x7801;, &#x7136;&#x540E;&#x7F16;&#x8BD1; SITL &#x4EE3;&#x7801; 
    cd Firmware_clone</p>
@@ -2261,26 +2274,26 @@ DONT_RUN=1 make px4_sitl_default gazebo
 </blockquote>
 </li>
 </ol>
-<p>&#x672C;&#x6307;&#x5357;&#x8BBE;&#x7F6E;&#x6253;&#x5F00;&#x4E86; Gazebo &#x4EFF;&#x771F;&#x5668;&#x754C;&#x9762;, &#x5728;&#x7A7A;&#x4E16;&#x754C;&#x4E2D;&#x663E;&#x793A;&#x4E86;&#x4E24;&#x4E2A; Iris &#x65E0;&#x4EBA;&#x673A;&#x3002;</p>
-<p>&#x7136;&#x540E;, &#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <em>QGroundControl</em> &#x548C; MAVROS &#x63A7;&#x5236;&#x591A;&#x673A;&#xFF0C;&#x63A7;&#x5236;&#x65B9;&#x5F0F;&#x4E0E;&#x5355;&#x673A;&#x7C7B;&#x4F3C;&#x3002;</p>
+<p>The tutorial example opens the Gazebo client GUI showing two Iris vehicles in an empty world.</p>
+<p>You can control the vehicles with <em>QGroundControl</em> or MAVROS in a similar way to how you would manage a single vehicle:</p>
 <ul>
-<li><em>QGroundControl</em> &#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x4E0B;&#x62C9;&#x9009;&#x9879;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x6307;&#x5B9A;&#x7684;&#x98DE;&#x884C;&#x5668;&#x3002;</li>
-<li>MAVROS &#x8981;&#x6C42;&#x4F60;&#x5728; topic/service &#x8DEF;&#x5F84;&#x4E4B;&#x524D;&#x5305;&#x542B;&#x5408;&#x9002;&#x7684;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#xFF0C;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x4F60;&#x4F1A;&#x7528;&#x5230; <em>/uav1/mavros/mission/push</em> &#xFF09;&#x3002;</li>
+<li><em>QGroundControl</em> will have a drop-down to select the vehicle that is &quot;in focus&quot;</li>
+<li>MAVROS requires that you include the proper namespace before the topic/service path (e.g. for <code>&lt;group ns=&quot;uav1&quot;&gt;</code> you&apos;ll use <em>/uav1/mavros/mission/push</em>).</li>
 </ul>
-<h2 id="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"><a name="&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;" class="plugin-anchor" href="#&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53D1;&#x751F;&#x4E86;&#x4EC0;&#x4E48;&#xFF1F;</h2>
-<p>&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x4EFF;&#x771F;&#x7684;&#x98DE;&#x884C;&#x5668;&#xFF0C;&#x6709;&#x5982;&#x4E0B;&#x8981;&#x6C42;&#xFF1A;</p>
+<h3 id="whats-happening"><a name="whats-happening" class="plugin-anchor" href="#whats-happening"><i class="fa fa-link" aria-hidden="true"></i></a>What&apos;s Happening?</h3>
+<p>For each simulated vehicle, the following is required:</p>
 <ul>
-<li><p><strong>Gazebo model</strong>&#xFF1A;&#x5728;&#x8DEF;&#x5F84;<code>Firmware/Tools/sitl_gazebo/models/rotors_description/urdf/&lt;model&gt;_base.xacro</code>&#x4E0B;&#x88AB;&#x5B9A;&#x4E49;&#x6210;<code>xacro</code> &#x6587;&#x4EF6;&#x3002;&#x770B;<a href="https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x76EE;&#x524D;&#xFF0C;&#x6A21;&#x578B; <code>xacro</code>&#x6587;&#x4EF6;&#x8BBE;&#x5B9A;&#x4EE5; base. xacro &#x7ED3;&#x5C3E;&#x3002; &#x6B64;&#x6A21;&#x578B;&#x5E94;&#x8BE5;&#x6709;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>mavlink_udp_port</code> &#x7684;&#x53C2;&#x6570;, &#x8BE5;&#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x4E86;&#x4E0E; px4 &#x8282;&#x70B9;&#x901A;&#x4FE1;&#x7684; udp &#x7AEF;&#x53E3;&#x3002; &#x6A21;&#x578B;&#x7684; <code>xacro</code> &#x6587;&#x4EF6;&#x5C06;&#x7528;&#x4E8E;&#x751F;&#x6210;&#x5305;&#x542B;&#x60A8;&#x9009;&#x62E9;&#x7684; udp &#x7AEF;&#x53E3;&#x7684; <code>urdf</code> &#x6A21;&#x578B;&#x3002; &#x82E5;&#x8981;&#x5B9A;&#x4E49; udp &#x7AEF;&#x53E3;&#xFF0C;&#x8BF7;&#x5728;&#x6BCF;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x7684;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E; <code>mavlink_udp_port</code>&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x4F8B;&#x5B50;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37" target="_blank">here</a>&#x3002;</p>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
-<p> &#x5982;&#x679C;&#x4F60;&#x5728;&#x4F7F;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x6A21;&#x578B;&#xFF0C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;<strong><code>xacro</code></strong>&#x6587;&#x4EF6;&#x3002; &#x76F8;&#x540C;&#x7684; <strong><code>xacro</code></strong> &#x6587;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
+<li><p><strong>Gazebo model</strong>: This is defined as <code>xacro</code> file in <code>Firmware/Tools/sitl_gazebo/models/rotors_description/urdf/&lt;model&gt;_base.xacro</code> see <a href="https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf" target="_blank">here</a>. Currently, the model <code>xacro</code> file is assumed to end with base.xacro. This model should have an argument called <code>mavlink_udp_port</code> which defines the UDP port on which gazebo will communicate with PX4 node. The model&apos;s <code>xacro</code> file will be used to generate an <code>urdf</code> model that contains UDP port that you select. To define the UDP port, set the <code>mavlink_udp_port</code> in the launch file for each vehicle, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37" target="_blank">here</a> as an example.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> If you are using the same vehicle model, you don&apos;t need a separate <strong><code>xacro</code></strong> file for each vehicle. The same <strong><code>xacro</code></strong> file is adequate.</p>
 </blockquote>
 </li>
-<li><p><strong>PX4 node</strong>: &#x8FD9;&#x662F; sitl px4 &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x5728;Gazebo&#x6A21;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x540C;&#x4E00; udp &#x7AEF;&#x53E3; &#xFF08;&#x5373; <code>mavlink_udp_port</code>&#xFF09;&#x4E0E;&#x6A21;&#x62DF;&#x5668; &#x3001;gazebo &#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002; &#x8981;&#x5728; px4 sitl &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7AEF;&#x8BBE;&#x7F6E; udp &#x7AEF;&#x53E3;, &#x60A8;&#x9700;&#x8981;&#x5728;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E; <code>SITL_UDP_PRT</code> &#x53C2;&#x6570;, &#x4EE5;&#x5339;&#x914D;&#x524D;&#x9762;&#x8BA8;&#x8BBA;&#x7684; <code>mavlink_udp_port</code>, &#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46" target="_blank">here</a>&#x3002; &#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5F00;&#x59CB;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x7531;&#x53C2;&#x6570; <code>vehicle</code>&#x548C;<code>ID</code>&#x4EA7;&#x751F;&#xFF0C;&#x53C2;&#x8003;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x5F00;&#x59CB;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x98DE;&#x884C;&#x5668;&#x7684;<code>MAV_SYS_ID</code>&#x53C2;&#x6570;&#x90FD;&#x8981;&#x4E0E;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x7684;<code>ID</code>&#x76F8;&#x5339;&#x914D;&#x3002;&#x53C2;&#x8003;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x8FD9;&#x6837;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x4F60;&#x786E;&#x4FDD;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x548C;&#x5F00;&#x59CB;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x8BBE;&#x7F6E;&#x76F8;&#x540C;&#x3002;</p>
+<li><p><strong>PX4 node</strong>: This is the SITL PX4 app. It communicates with the simulator, Gazebo, through the same UDP port defined in the Gazebo vehicle model, i.e. <code>mavlink_udp_port</code>. To set the UDP port on the PX4 SITL app side, you need to set the <code>SITL_UDP_PRT</code> parameter in the startup file to match the <code>mavlink_udp_port</code> discussed previously, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46" target="_blank">here</a>. The path of the startup file in the launch file is generated based on the <code>vehicle</code> and <code>ID</code> arguments, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36" target="_blank">here</a>. The <code>MAV_SYS_ID</code> for each vehicle in the startup file, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4" target="_blank">here</a>, should match the <code>ID</code> for that vehicle in the launch file <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25" target="_blank">here</a>. This will help make sure you keep the configurations consistent between the launch file and the startup file.</p>
 </li>
-<li><p><strong>MAVROS node</strong>&#xFF08;&#x53EF;&#x9009;&#xFF09;: &#x5982;&#x679C;&#x8981;&#x901A;&#x8FC7; ros &#x63A7;&#x5236;&#x8F66;&#x8F86;, &#x53EF;&#x4EE5;&#x5728;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684; mavros &#x8282;&#x70B9;&#xFF0C; &#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41" target="_blank">here</a>, &#x4EE5;&#x4FBF;&#x8FDE;&#x63A5;&#x5230; px4 sitl &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002; &#x60A8;&#x9700;&#x8981;&#x5728;&#x542F;&#x52A8;&#x6587;&#x4EF6;&#x4E2D;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x7AEF;&#x53E3;&#x4E0A;&#x542F;&#x52A8; mavlink &#x6D41;, &#x8BF7;&#x53C2;&#x9605; <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002; &#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x7AEF;&#x53E3;&#x9700;&#x8981;&#x4E0E;launch&#x6587;&#x4EF6;&#x4E2D;&#x4E3A;MAVROS&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x7684;&#x76F8;&#x7B26;&#x5408;&#x3002;&#x53C2;&#x8003;<a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002;</p>
+<li><p><strong>MAVROS node</strong> (optional): A seperate MAVROS node can be run in the launch file, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41" target="_blank">here</a>, in order to connect to PX4 SITL app, if you want to control your vehicle through ROS. You need to start a MAVLink stream on a unique set of ports in the startup file, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68" target="_blank">here</a>. Those unique set of ports need to match those in the launch file for the MAVROS node, see <a href="https://github.com/PX4/Firmware/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26" target="_blank">here</a>.</p>
 </li>
 </ul>
-<p>&#x542F;&#x52A8;&#x6587;&#x4EF6; <code>multi_uav_mavros_sitl.launch</code>&#x505A;&#x4E86;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;,</p>
+<p>The launch file <code>multi_uav_mavros_sitl.launch</code>does the following,</p>
 <ul>
 <li><p>loads a world in gazebo, </p>
 <pre><code>&lt;!-- Gazebo sim --&gt;
@@ -2326,7 +2339,7 @@ DONT_RUN=1 make px4_sitl_default gazebo
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The complete block for each vehicle is enclosed in a set of <code>&lt;group&gt;</code> tags to separate the ROS namespaces of the vehicles.</p>
 </blockquote>
-<p>&#x8981;&#x5728;&#x6B64;&#x6A21;&#x62DF;&#x4E2D;&#x6DFB;&#x52A0;&#x7B2C;&#x4E09;&#x4E2A;iris&#x56DB;&#x65CB;&#x7FFC;, &#x9700;&#x8981;&#x8003;&#x8651;&#x4E24;&#x4E2A;&#x4E3B;&#x8981;&#x90E8;&#x5206;&#xFF1A;</p>
+<p>To add a third iris to this simulation there are two main components to consider:</p>
 <ul>
 <li><p>add <code>UAV3</code> to <strong>multi_uav_mavros_sitl.launch</strong> </p>
 <ul>
@@ -2420,7 +2433,7 @@ DONT_RUN=1 make px4_sitl_default gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"基于 Gazebo 的多飞行器仿真","level":"1.4.5","depth":2,"next":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"previous":{"title":"使用 JMAVSim 进行多飞行器仿真","level":"1.4.4","depth":2,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2020-02-03T15:08:55.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-03T15:09:59.275Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"基于 Gazebo 的多飞行器仿真","level":"1.4.5","depth":2,"next":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"previous":{"title":"使用 JMAVSim 进行多飞行器仿真","level":"1.4.4","depth":2,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi-vehicle-simulation.md","mtime":"2020-02-04T03:56:39.166Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-04T03:58:23.464Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

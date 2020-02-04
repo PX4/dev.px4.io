@@ -1030,25 +1030,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="uorb_graph.html">
-            
-                <a href="uorb_graph.html">
-            
-                    
-                    uORB 图表
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.3" data-path="mavlink.html">
+        <li class="chapter " data-level="1.6.2" data-path="mavlink.html">
             
                 <a href="mavlink.html">
             
                     
-                    MAVLink通讯
+                    MAVLink Messaging
             
                 </a>
             
@@ -1056,12 +1043,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="micrortps.html">
+        <li class="chapter " data-level="1.6.3" data-path="micrortps.html">
             
                 <a href="micrortps.html">
             
                     
-                    RTPS/ROS2 接口
+                    RTPS/ROS2 Interface
             
                 </a>
             
@@ -1070,12 +1057,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.4.1" data-path="micrortps_throughput_test.html">
+        <li class="chapter " data-level="1.6.3.1" data-path="micrortps_throughput_test.html">
             
                 <a href="micrortps_throughput_test.html">
             
                     
-                    输出测试
+                    Throughput Test
             
                 </a>
             
@@ -1083,12 +1070,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4.2" data-path="micrortps_manual_code_generation.html">
+        <li class="chapter " data-level="1.6.3.2" data-path="micrortps_manual_code_generation.html">
             
                 <a href="micrortps_manual_code_generation.html">
             
                     
-                    手动生成客户端和代理端代码
+                    Manually Generate Client/Agent
             
                 </a>
             
@@ -1933,7 +1920,7 @@
                 <a href="../test_and_ci/integration_testing.html">
             
                     
-                    整合测试
+                    ROS Integration Testing
             
                 </a>
             
@@ -1941,12 +1928,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/integration_testing_mavsdk.html">
+            
+                <a href="../test_and_ci/integration_testing_mavsdk.html">
+            
+                    
+                    MAVSDK Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/docker.html">
             
                 <a href="../test_and_ci/docker.html">
             
                     
-                    Docker 容器
+                    Docker Containers
             
                 </a>
             
@@ -1954,12 +1954,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+        <li class="chapter " data-level="1.12.8" data-path="../test_and_ci/maintenance.html">
             
                 <a href="../test_and_ci/maintenance.html">
             
                     
-                    维护
+                    Maintenance
             
                 </a>
             
@@ -2236,12 +2236,26 @@
 <ul>
 <li><a href="modules_driver_distance_sensor.html">&#x8DDD;&#x79BB;&#x4F20;&#x611F;&#x5668;</a></li>
 </ul>
-<h2 id="atxxxx"><a name="atxxxx" class="plugin-anchor" href="#atxxxx"><i class="fa fa-link" aria-hidden="true"></i></a>atxxxx</h2>
-<p>&#x6E90;&#x7801;&#x4F4D;&#x7F6E;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx" target="_blank">drivers/osd/atxxxx</a></p>
+<h2 id="adc"><a name="adc" class="plugin-anchor" href="#adc"><i class="fa fa-link" aria-hidden="true"></i></a>adc</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/adc" target="_blank">drivers/adc</a></p>
 <h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x4F8B;&#x5982;&#xFF0C;&#x5B89;&#x88C5;&#x5728;OmnibusF4SD&#x677F;&#x5B50;&#x4E0A;&#x7684;&#x7528;&#x4E8E;OSD&#x9A71;&#x52A8;&#x7684;ATXXXX&#x82AF;&#x7247;</p>
-<p>&#x4ED6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;OSD_ATXXXX_CFG&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x4F7F;&#x80FD;</p>
-<h3 id="atxxxx_usage"><a name="atxxxx_usage" class="plugin-anchor" href="#atxxxx_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
+<p>ADC driver.</p>
+<h3 id="adc_usage"><a name="adc_usage" class="plugin-anchor" href="#adc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>adc &lt;command&gt; [arguments...]
+ Commands:
+   start
+
+   test
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="atxxxx"><a name="atxxxx" class="plugin-anchor" href="#atxxxx"><i class="fa fa-link" aria-hidden="true"></i></a>atxxxx</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx" target="_blank">drivers/osd/atxxxx</a></p>
+<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
+<p>OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.</p>
+<p>It can be enabled with the OSD_ATXXXX_CFG parameter.</p>
+<h3 id="atxxxx_usage"><a name="atxxxx_usage" class="plugin-anchor" href="#atxxxx_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>atxxxx &lt;command&gt; [arguments...]
  Commands:
    start         Start the driver
@@ -2251,15 +2265,15 @@
 
    status        print status info
 </code></pre><h2 id="battsmbus"><a name="battsmbus" class="plugin-anchor" href="#battsmbus"><i class="fa fa-link" aria-hidden="true"></i></a>batt_smbus</h2>
-<p>&#x6E90;&#x7801;&#x4F4D;&#x7F6E;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus" target="_blank">drivers/batt_smbus</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x7528;&#x4E8E;&#x667A;&#x80FD;&#x7535;&#x6C60;&#x7684;BQ40Z50&#x7535;&#x91CF;&#x7EDF;&#x8BA1;&#x82AF;&#x7247;</p>
-<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
-<p>&#x901A;&#x8FC7;&#x5199;&#x5165;flash&#x6765;&#x8BBE;&#x7F6E;&#x5B83;&#x7684;&#x53C2;&#x6570;&#x3002; &#x5730;&#x5740;&#xFF0C;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x5B57;&#x8282;0&#xFF0C;... &#xFF0C;&#x5B57;&#x8282;N</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus" target="_blank">drivers/batt_smbus</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Smart battery driver for the BQ40Z50 fuel gauge IC.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN</p>
 <pre><code>batt_smbus -X write_flash 19069 2 27 0
-</code></pre><h3 id="batt_smbus_usage"><a name="batt_smbus_usage" class="plugin-anchor" href="#batt_smbus_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
-<pre><code>batt_smbus &lt;&#x547D;&#x4EE4;&gt; [&#x53C2;&#x6570;...]
- &#x547D;&#x4EE4;&#x5217;&#x8868;:
+</code></pre><h3 id="batt_smbus_usage"><a name="batt_smbus_usage" class="plugin-anchor" href="#batt_smbus_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>batt_smbus &lt;command&gt; [arguments...]
+ Commands:
    start
      [-X]        BATT_SMBUS_BUS_I2C_EXTERNAL
      [-T]        BATT_SMBUS_BUS_I2C_EXTERNAL1
@@ -2267,47 +2281,52 @@
      [-I]        BATT_SMBUS_BUS_I2C_INTERNAL
      [-A]        BATT_SMBUS_BUS_ALL
 
-   man_info      &#x6253;&#x5370;&#x5382;&#x5546;&#x4FE1;&#x606F;
+   man_info      Prints manufacturer info.
 
-   unseal        &#x89E3;&#x9501;&#x8BBE;&#x5907;&#x7684;flash&#x6765;&#x4F7F;&#x80FD; write_flash &#x547D;&#x4EE4;
+   unseal        Unseals the devices flash memory to enable write_flash
+                 commands.
 
-   seal          &#x9501;&#x4F4F;&#x8BBE;&#x5907;&#x7684;flash&#x6765;&#x5931;&#x80FD; write_flash &#x547D;&#x4EE4;.
+   seal          Seals the devices flash memory to disbale write_flash commands.
 
-   suspend       &#x4ECE;&#x8C03;&#x5EA6;&#x5FAA;&#x73AF;&#x4E2D;&#x6302;&#x8D77;&#x8BE5;&#x8BBE;&#x5907;
+   suspend       Suspends the driver from rescheduling the cycle.
 
-   resume        &#x5C06;&#x8BE5;&#x8BBE;&#x5907;&#x4ECE;&#x6302;&#x8D77;&#x72B6;&#x6001;&#x6062;&#x590D;
+   resume        Resumes the driver from suspension.
 
-   write_flash   &#x5199;&#x5165;flash&#x3002; &#x5FC5;&#x987B;&#x5148;&#x901A;&#x8FC7;unseal &#x547D;&#x4EE4;&#x6765;&#x89E3;&#x9501;flash&#x3002;
-     [address]   &#x5199;&#x5165;&#x7684;&#x8D77;&#x59CB;&#x5730;&#x5740;
-     [number of bytes] &#x9700;&#x8981;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;
-     [data[0]...data[n]] &#x5177;&#x4F53;&#x7684;&#x5B57;&#x8282;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;&#x7A7A;&#x683C;&#x9694;&#x5F00;
+   write_flash   Writes to flash. The device must first be unsealed with the
+                 unseal command.
+     [address]   The address to start writing.
+     [number of bytes] Number of bytes to send.
+     [data[0]...data[n]] One byte of data at a time separated by spaces.
 
-   stop          &#x505C;&#x6B62;&#x8BBE;&#x5907;
+   stop
 
-   status        &#x6253;&#x5370;&#x72B6;&#x6001;&#x4FE1;&#x606F;
+   status        print status info
 </code></pre><h2 id="dshot"><a name="dshot" class="plugin-anchor" href="#dshot"><i class="fa fa-link" aria-hidden="true"></i></a>dshot</h2>
-<p>&#x6E90;&#x7801;&#x4F4D;&#x7F6E;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/dshot" target="_blank">drivers/dshot</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x8FD9;&#x662F;DShot&#x8F93;&#x51FA;&#x7684;&#x9A71;&#x52A8;&#x3002; &#x5B83;&#x8DDF;fmu&#x7684;&#x9A71;&#x52A8;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x66FF;&#x6362;&#x6389;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x4F7F;&#x7528;DShot&#x4E0E;&#x8C03;&#x901F;&#x5668;&#x901A;&#x8BAF;&#x800C;&#x4E0D;&#x662F;PWM&#x3002;</p>
-<p>&#x5B83;&#x652F;&#x6301;&#xFF1A;</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/dshot" target="_blank">drivers/dshot</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement to use DShot as ESC communication protocol instead of PWM.</p>
+<p>It supports:</p>
 <ul>
 <li>DShot150, DShot300, DShot600, DShot1200</li>
 <li>&#x901A;&#x8FC7;&#x72EC;&#x7ACB;&#x7684;&#x4E32;&#x53E3;&#x9065;&#x63A7;&#xFF0C;&#x5E76;&#x4E14;&#x53D1;&#x5E03;esc_status&#x6D88;&#x606F;</li>
 <li>&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x63A5;&#x53E3;&#x53D1;&#x9001; DShot &#x547D;&#x4EE4;</li>
 </ul>
-<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
-<p>&#x8BBE;&#x7F6E;&#x7535;&#x673A;1&#x6C38;&#x4E45;&#x53CD;&#x5411;&#xFF1A;</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>Permanently reverse motor 1:</p>
 <pre><code>dshot reverse -m 1
 dshot save -m 1
-</code></pre><p>&#x4FDD;&#x5B58;&#x4E4B;&#x540E;&#xFF0C;&#x8BBE;&#x7F6E;&#x7684;&#x53CD;&#x5411;&#x4E4B;&#x540E;&#x7684;&#x8F6C;&#x5411;&#x5C06;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6B63;&#x5E38;&#x65F6;&#x5019;&#x7684;&#x8F6C;&#x5411;&#xFF0C; &#x6240;&#x4EE5;&#x5982;&#x679C;&#x9700;&#x8981;&#x518D;&#x6B21;&#x53CD;&#x8F6C;&#x65B9;&#x5411;&#x53EA;&#x9700;&#x8981;&#x518D;&#x6B21;&#x91CD;&#x590D;&#x76F8;&#x540C;&#x7684;&#x547D;&#x4EE4;&#x3002;</p>
-<h3 id="dshot_usage"><a name="dshot_usage" class="plugin-anchor" href="#dshot_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
-<pre><code>dshot &lt;&#x547D;&#x4EE4;&gt; [&#x53C2;&#x6570;...]
- &#x547D;&#x4EE4;&#x5217;&#x8868;:
-   start         &#x542F;&#x52A8;&#x4EFB;&#x52A1; (&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x6A21;&#x5F0F;&#x96C6;, &#x4F7F;&#x7528;mode_*&#x7C7B;&#x7684;&#x547D;&#x4EE4;)&#xFF0C;&#x6240;&#x6709;&#x7684; mode_*&#x7C7B;&#x7684;&#x547D;&#x4EE4;&#x90FD;&#x4F1A;&#x542F;&#x52A8;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x8FD8;&#x6CA1;&#x6709;&#x542F;&#x52A8;&#x7684;&#x8BDD;
+</code></pre><p>After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.</p>
+<h3 id="dshot_usage"><a name="dshot_usage" class="plugin-anchor" href="#dshot_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>dshot &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
+
+ All of the mode_* commands will start the module if not running already
 
    mode_gpio
 
-   mode_pwm      &#x9009;&#x62E9;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;PWM&#x5F15;&#x811A;
+   mode_pwm      Select all available pins as PWM
 
    mode_pwm8
 
@@ -2333,54 +2352,54 @@ dshot save -m 1
 
    mode_pwm1
 
-   telemetry     &#x5728;&#x67D0;&#x4E2A;&#x4E32;&#x53E3;&#x4E0A;&#x4F7F;&#x80FD;&#x9065;&#x63A7;&#x529F;&#x80FD;
-     &lt;device&gt;    UART &#x8BBE;&#x5907;&#x8282;&#x70B9;
+   telemetry     Enable Telemetry on a UART
+     &lt;device&gt;    UART device
 
-   reverse       &#x53CD;&#x8F6C;&#x9A6C;&#x8FBE;&#x65B9;&#x5411;
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   reverse       Reverse motor direction
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   normal        &#x8F6C;&#x5230;&#x9ED8;&#x8BA4;&#x7684;&#x65B9;&#x5411;
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   normal        Normal motor direction
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   save          &#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x7684;&#x8BBE;&#x7F6E;
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   save          Save current settings
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   3d_on         &#x4F7F;&#x80FD;3D&#x6A21;&#x5F0F;
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   3d_on         Enable 3D mode
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   3d_off        &#x5173;&#x95ED;3D&#x6A21;&#x5F0F;
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   3d_off        Disable 3D mode
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   beep1         &#x53D1;&#x9001;&#x8702;&#x9E23;&#x6A21;&#x5F0F; 1
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   beep1         Send Beep pattern 1
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   beep2         &#x53D1;&#x9001;&#x8702;&#x9E23;&#x6A21;&#x5F0F; 2
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   beep2         Send Beep pattern 2
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   beep3         &#x53D1;&#x9001;&#x8702;&#x9E23;&#x6A21;&#x5F0F; 3
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   beep3         Send Beep pattern 3
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   beep4         &#x53D1;&#x9001;&#x8702;&#x9E23;&#x6A21;&#x5F0F; 4
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   beep4         Send Beep pattern 4
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   beep5         &#x53D1;&#x9001;&#x8702;&#x9E23;&#x6A21;&#x5F0F; 5
-     [-m &lt;val&gt;]  &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;&#xFF0C;&#x9ED8;&#x8BA4;&#x5168;&#x90E8;)
+   beep5         Send Beep pattern 5
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
 
-   esc_info      &#x8BF7;&#x6C42;&#x9A6C;&#x8FBE;&#x7684;&#x4FE1;&#x606F;
-     -m &lt;val&gt;    &#x9A6C;&#x8FBE;&#x7684;&#x7F16;&#x53F7; (&#x4ECE;1&#x5F00;&#x59CB;)
+   esc_info      Request ESC information
+     -m &lt;val&gt;    Motor index (1-based)
 
    stop
 
-   status        &#x6253;&#x5370;&#x72B6;&#x6001;&#x4FE1;&#x606F;
+   status        print status info
 </code></pre><h2 id="fmu"><a name="fmu" class="plugin-anchor" href="#fmu"><i class="fa fa-link" aria-hidden="true"></i></a>fmu</h2>
-<p>&#x6E90;&#x7801;&#x4F4D;&#x7F6E;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu" target="_blank">drivers/px4fmu</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x8BE5;&#x6A21;&#x5757;&#x8D1F;&#x8D23;&#x9A71;&#x52A8;&#x8F93;&#x51FA;&#x5F15;&#x811A;&#x6216;&#x8005;&#x8BFB;&#x53D6;&#x8F93;&#x5165;&#x5F15;&#x811A;&#x3002; &#x5BF9;&#x4E8E;&#x6CA1;&#x6709;&#x72EC;&#x7ACB; IO &#x82AF;&#x7247;&#x7684;&#x98DE;&#x63A7;&#x677F;&#xFF08;&#x4F8B;&#x5982; Pixracer), &#x5B83;&#x4F7F;&#x7528;&#x4E3B;&#x901A;&#x9053;&#x3002; On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu" target="_blank">drivers/px4fmu</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip (eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the px4io driver is used for main ones.</p>
 <p>It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.</p>
 <p>The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy. By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder driver. Alternatively, the fmu can be started in one of the capture modes, and then drivers can register a capture callback with ioctl calls.</p>
-<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0;</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>By default the module runs on a work queue with a callback on the uORB actuator_controls topic.</p>
-<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>It is typically started with:</p>
 <pre><code>fmu mode_pwm
 </code></pre><p>To drive all available pins.</p>
@@ -2482,9 +2501,63 @@ gps start -f
 
    reset         Reset GPS device
      cold|warm|hot Specify reset type
+</code></pre><h2 id="ina226"><a name="ina226" class="plugin-anchor" href="#ina226"><i class="fa fa-link" aria-hidden="true"></i></a>ina226</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/ina226" target="_blank">drivers/power_monitor/ina226</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Driver for the INA226 power monitor.</p>
+<p>Multiple instances of this driver can run simultaneously, if each instance has a separate bus OR I2C address.</p>
+<p>For example, one instance can run on Bus 2, address 0x41, and one can run on Bus 2, address 0x43.</p>
+<p>If the INA226 module is not powered, then by default, initialization of the driver will fail. To change this, use the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without this flag set, the battery must be plugged in before starting the driver.</p>
+<h3 id="ina226_usage"><a name="ina226_usage" class="plugin-anchor" href="#ina226_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>ina226 &lt;command&gt; [arguments...]
+ Commands:
+   start         Start a new instance of the driver
+     [-a]        If set, try to start the driver on each availabe I2C bus until
+                 a module is found
+     [-f]        If initialization fails, keep retrying periodically. Ignored if
+                 the -a flag is set. See full driver documentation for more info
+     [-b &lt;val&gt;]  I2C bus (default: use board-specific bus)
+                 default: 0
+     [-d &lt;val&gt;]  I2C Address (Start with &apos;0x&apos; for hexadecimal)
+                 default: 65
+     [-t &lt;val&gt;]  Which battery calibration values should be used (1 or 2)
+                 default: 1
+
+   stop          Stop one instance of the driver
+     [-b &lt;val&gt;]  I2C bus (default: use board-specific bus)
+                 default: 0
+     [-d &lt;val&gt;]  I2C Address (Start with &apos;0x&apos; for hexadecimal)
+                 default: 65
+
+   status        Status of every instance of the driver
+
+   info          Status of every instance of the driver
+</code></pre><h2 id="pca9685pwmout"><a name="pca9685pwmout" class="plugin-anchor" href="#pca9685pwmout"><i class="fa fa-link" aria-hidden="true"></i></a>pca9685_pwm_out</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685_pwm_out" target="_blank">drivers/pca9685_pwm_out</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module is responsible for generate pwm pulse with PCA9685 chip.</p>
+<p>It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>This module depends on ModuleBase and OutputModuleInterface. IIC communication is based on CDev::I2C</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>It is typically started with:</p>
+<pre><code>pca9685_pwm_out start -a 64 -b 1
+</code></pre><p>Use the <code>mixer</code> command to load mixer files. <code>mixer load /dev/pca9685 ROMFS/px4fmu_common/mixers/quad_x.main.mix</code></p>
+<h3 id="pca9685_pwm_out_usage"><a name="pca9685_pwm_out_usage" class="plugin-anchor" href="#pca9685_pwm_out_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>pca9685_pwm_out &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task
+     [-a &lt;val&gt;]  device address on this bus
+                 default: 64
+     [-b &lt;val&gt;]  bus that pca9685 is connected to
+                 default: 1
+
+   stop
+
+   status        print status info
 </code></pre><h2 id="pga460"><a name="pga460" class="plugin-anchor" href="#pga460"><i class="fa fa-link" aria-hidden="true"></i></a>pga460</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460" target="_blank">drivers/distance_sensor/pga460</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.</p>
 <h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>This driver is implented as a NuttX task. This Implementation was chosen due to the need for polling on a message via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve the quality of data that is being published. The driver will not publish data at all if it deems the sensor data to be invalid or unstable.</p>
@@ -2527,14 +2600,10 @@ gps start -f
 <li>ST24</li>
 <li>TBS Crossfire (CRSF)</li>
 </ul>
-<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
-<p>By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread, specified via start flag -t, to reduce latency. When running on the work queue, it schedules at a fixed frequency.</p>
 <h3 id="rc_input_usage"><a name="rc_input_usage" class="plugin-anchor" href="#rc_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>rc_input &lt;command&gt; [arguments...]
  Commands:
-   start         Start the task (without any mode set, use any of the mode_*
-                 cmds)
-     [-t]        Run as separate task instead of the work queue
+   start
      [-d &lt;val&gt;]  RC device
                  values: &lt;file:dev&gt;, default: /dev/ttyS3
 
@@ -2576,39 +2645,43 @@ gps start -f
 </code></pre><h2 id="safetybutton"><a name="safetybutton" class="plugin-anchor" href="#safetybutton"><i class="fa fa-link" aria-hidden="true"></i></a>safety_button</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/safety_button" target="_blank">drivers/safety_button</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
-<p>This module is responsible for the safety button.</p>
-<h3 id="safety_button_usage"><a name="safety_button_usage" class="plugin-anchor" href="#safety_button_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
+<p>This module is responsible for the safety button. Pressing the safety button 3 times quickly will trigger a GCS pairing request.</p>
+<h3 id="safety_button_usage"><a name="safety_button_usage" class="plugin-anchor" href="#safety_button_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>safety_button &lt;command&gt; [arguments...]
- &#x547D;&#x4EE4;&#x5217;&#x8868;:
-   start         &#x542F;&#x52A8;&#x8BE5;&#x9A71;&#x52A8;&#x6A21;&#x5757;
+ Commands:
+   start
+
+   stop
+
+   status        print status info
 </code></pre><h2 id="tapesc"><a name="tapesc" class="plugin-anchor" href="#tapesc"><i class="fa fa-link" aria-hidden="true"></i></a>tap_esc</h2>
-<p>&#x6E90;&#x7801;&#x4F4D;&#x7F6E;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc" target="_blank">drivers/tap_esc</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x8BE5;&#x6A21;&#x5757;&#x901A;&#x8FC7;&#x4E32;&#x53E3;&#x6765;&#x63A7;&#x5236;TAP_ESC&#x6A21;&#x5757;&#x3002; &#x5B83;&#x8D1F;&#x8D23;&#x76D1;&#x542C;&#x8BDD;&#x9898;actuator_controls&#xFF0C;&#x6267;&#x884C;&#x6DF7;&#x63A7;&#x5E76;&#x8F93;&#x51FA;&#x7ED9;&#x8C03;&#x901F;&#x5668;&#x8BBE;&#x5907;&#x3002;</p>
-<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0;</h3>
-<p>&#x76EE;&#x524D;&#x8BE5;&#x6A21;&#x5757;&#x8FD0;&#x884C;&#x5728;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x610F;&#x601D;&#x5C31;&#x662F;&#x5B83;&#x4E0D;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x3002;</p>
-<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
-<p>&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x6765;&#x542F;&#x52A8;: tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
-<h3 id="tap_esc_usage"><a name="tap_esc_usage" class="plugin-anchor" href="#tap_esc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
-<pre><code>tap_esc &lt;&#x547D;&#x4EE4;&gt; [&#x53C2;&#x6570;...]
- &#x547D;&#x4EE4;&#x5217;&#x8868;:
-   start         &#x542F;&#x52A8;&#x8BE5;&#x4EFB;&#x52A1;
-     [-d &lt;val&gt;]  &#x4E0E;&#x8C03;&#x901F;&#x5668;&#x901A;&#x8BAF;&#x7684;&#x4E32;&#x53E3;&#x8BBE;&#x5907;&#x8282;&#x70B9;
-                 &#x503C;: &lt;&#x8BBE;&#x5907;&#x5730;&#x5740;&gt;
-     [-n &lt;val&gt;]  &#x8C03;&#x901F;&#x5668;&#x6570;&#x91CF;
-                 &#x9ED8;&#x8BA4;: 4
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc" target="_blank">drivers/tap_esc</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module controls the TAP_ESC hardware via UART. It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>Currently the module is implementd as a threaded version only, meaning that it runs in its own thread instead of on the work queue.</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
+<p>The module is typically started with: tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
+<h3 id="tap_esc_usage"><a name="tap_esc_usage" class="plugin-anchor" href="#tap_esc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>tap_esc &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task
+     [-d &lt;val&gt;]  Device used to talk to ESCs
+                 values: &lt;device&gt;
+     [-n &lt;val&gt;]  Number of ESCs
+                 default: 4
 </code></pre><h2 id="vmount"><a name="vmount" class="plugin-anchor" href="#vmount"><i class="fa fa-link" aria-hidden="true"></i></a>vmount</h2>
-<p>&#x6E90;&#x7801;&#x4F4D;&#x7F6E;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/vmount" target="_blank">modules/vmount</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/vmount" target="_blank">modules/vmount</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured output (eg. AUX channels or MAVLink).</p>
 <p>Documentation how to use it is on the <a href="https://dev.px4.io/en/advanced/gimbal_control.html" target="_blank">gimbal_control</a> page.</p>
-<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0;</h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>Each method is implemented in its own class, and there is a common base class for inputs and outputs. They are connected via an API, defined by the <code>ControlData</code> data structure. This makes sure that each input method can be used with each output method and new inputs/outputs can be added with minimal effort.</p>
-<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Test the output by setting a fixed yaw angle (and the other axes to 0):</p>
 <pre><code>vmount stop
 vmount test yaw 30
-</code></pre><h3 id="vmount_usage"><a name="vmount_usage" class="plugin-anchor" href="#vmount_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
+</code></pre><h3 id="vmount_usage"><a name="vmount_usage" class="plugin-anchor" href="#vmount_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>vmount &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2663,7 +2736,7 @@ vmount test yaw 30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"驱动","level":"1.7.4","depth":2,"next":{"title":"Distance Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},"previous":{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2020-02-03T15:08:55.847Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-03T15:09:59.275Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"驱动","level":"1.7.4","depth":2,"next":{"title":"Distance Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},"previous":{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2020-02-04T03:56:39.162Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-04T03:58:23.464Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
