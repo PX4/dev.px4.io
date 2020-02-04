@@ -81,7 +81,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../airframes/" />
+    <link rel="next" href="porting_guide_nuttx.html" />
     
     
     <link rel="prev" href="reference_design.html" />
@@ -731,6 +731,25 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="porting_guide_nuttx.html">
+            
+                <a href="porting_guide_nuttx.html">
+            
+                    
+                    NuttX Board Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2250,52 +2269,15 @@ It may also be used to set a board&apos;s default parameters, UART mappings, and
 </ul>
 </li>
 </ul>
-<p>In addition there are several groups of configuration files for each board located throughout the code base:</p>
-<ul>
-<li>The boot file system (startup script) is located in: <a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common" target="_blank">ROMFS/px4fmu_common</a></li>
-<li>Driver files are located in: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers" target="_blank">src/drivers</a>.</li>
-</ul>
 <h2 id="host-operating-system-configuration"><a name="host-operating-system-configuration" class="plugin-anchor" href="#host-operating-system-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Host Operating System Configuration</h2>
 <p>This section describes the purpose and location of the configuration files required for each supported host operating system to port them to new flight controller hardware.</p>
 <h3 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX</h3>
-<p>In order to port PX4 on NuttX to a new hardware target, that hardware target must be supported by NuttX.
-The NuttX project maintains an excellent <a href="http://www.nuttx.org/Documentation/NuttxPortingGuide.html" target="_blank">porting guide</a> for porting NuttX to a new computing platform.</p>
-<p>For all NuttX based flight controllers (e.g. the Pixhawk series) the OS is loaded as part of the application build.</p>
-<p>The configuration files for all boards, including linker scripts and other required settings, are located under <a href="https://github.com/PX4/Firmware/tree/master/boards/" target="_blank">/boards</a> in a vendor- and board-specific directory (i.e. <strong>boards/<em>VENDOR</em>/<em>MODEL</em>/</strong>)).</p>
-<p>The following example uses FMUv5 as it is a recent <a href="reference_design.html">reference configuration</a> for NuttX based flight controllers:</p>
-<ul>
-<li>Running <code>make px4_fmu-v5_default</code> from the <strong>Firmware</strong> directory will build the FMUv5 config</li>
-<li>The base FMUv5 configuration files are located in: <a href="https://github.com/PX4/Firmware/tree/master/boards/px4/fmu-v5" target="_blank">/boards/px4/fmu-v5</a>.</li>
-<li>Board specific header: <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/nuttx-config/include/board.h" target="_blank">/boards/px4/fmu-v5/nuttx-config/include/board.h</a>. </li>
-<li>NuttX OS config (created with Nuttx menuconfig): <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/nuttx-config/nsh/defconfig" target="_blank">/boards/px4/fmu-v5/nuttx-config/nsh/defconfig</a>.</li>
-<li>Build configuration: <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>.</li>
-</ul>
-<p>The function of each of these files, and perhaps more, will need to be duplicated for a new flight controller board.</p>
-<h4 id="nuttx-menuconfig"><a name="nuttx-menuconfig" class="plugin-anchor" href="#nuttx-menuconfig"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX Menuconfig</h4>
-<p>If you need to modify the NuttX OS configuration, you can do this via <a href="https://bitbucket.org/nuttx/nuttx" target="_blank">menuconfig</a> using the PX4 shortcuts:</p>
-<pre><code class="lang-sh">make px4_fmu-v5_default menuconfig
-make px4_fmu-v5_default qconfig
-</code></pre>
-<p>For fresh installs of PX4 onto Ubuntu using <a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_nuttx.sh" target="_blank">ubuntu_sim_nuttx.sh</a> you will also need to install <em>kconfig</em> tools from <a href="https://bitbucket.org/nuttx/tools/src/master/" target="_blank">NuttX tools</a>.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The following steps are not required if using the <a href="https://hub.docker.com/r/px4io/px4-dev-nuttx/" target="_blank">px4-dev-nuttx</a> docker container or have installed to macOS using our normal instructions (as these include<code>kconfig-mconf</code>). </p>
-</blockquote>
-<p>Run the following commands from any directory:</p>
-<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://bitbucket.org/nuttx/tools.git
-<span class="hljs-built_in">cd</span> tools/kconfig-frontends
-sudo apt install gperf
-./configure --enable-mconf --disable-nconf --disable-gconf --enable-qconf --prefix=/usr
-make
-sudo make install
-</code></pre>
-<p>The <code>--prefix=/usr</code> is essential as it determines the specific installation location where PX4 is hardcoded to look for <code>kconfig-tools</code>.
-The <code>--enable-mconf</code> and <code>--enable-qconf</code> options will enable the <code>menuconfig</code> and <code>qconfig</code> options respectively.</p>
-<p>To run <code>qconfig</code> you may need to install additional Qt dependencies.</p>
+<p>See <a href="porting_guide_nuttx.html">NuttX Board Porting Guide</a>.</p>
 <h3 id="linux"><a name="linux" class="plugin-anchor" href="#linux"><i class="fa fa-link" aria-hidden="true"></i></a>Linux</h3>
 <p>Linux boards do not include the OS and kernel configuration. 
 These are already provided by the Linux image available for the board (which needs to support the inertial sensors out of the box).</p>
 <ul>
-<li><a href="https://github.com/PX4/Firmware/blob/master/boards/px4/raspberrypi/cross.cmake" target="_blank">boards/px4/raspberrypi/cross.cmake</a> - RPI cross-compilation. </li>
+<li><a href="https://github.com/PX4/Firmware/blob/master/boards/px4/raspberrypi/default.cmake" target="_blank">boards/px4/raspberrypi/default.cmake</a> - RPI cross-compilation. </li>
 </ul>
 <h2 id="middleware-components-and-configuration"><a name="middleware-components-and-configuration" class="plugin-anchor" href="#middleware-components-and-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Middleware Components and Configuration</h2>
 <p>This section describes the various middleware components, and the configuration file updates needed to port them to new flight controller hardware.</p>
@@ -2304,7 +2286,6 @@ These are already provided by the Linux image available for the board (which nee
 <li>The start script is located in <a href="https://github.com/PX4/Firmware/tree/master/posix-configs" target="_blank">posix-configs/</a>.</li>
 <li>The OS configuration is part of the default Linux image (TODO: Provide location of LINUX IMAGE and flash instructions).</li>
 <li>The PX4 middleware configuration is located in <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">src/boards</a>. TODO: ADD BUS CONFIG </li>
-<li>Drivers: <a href="https://github.com/px4/DriverFramework" target="_blank">DriverFramework</a>.</li>
 <li>Reference config: Running <code>make eagle_default</code> builds the Snapdragon Flight reference config.</li>
 </ul>
 <h2 id="rc-uart-wiring-recommendations"><a name="rc-uart-wiring-recommendations" class="plugin-anchor" href="#rc-uart-wiring-recommendations"><i class="fa fa-link" aria-hidden="true"></i></a>RC UART Wiring Recommendations</h2>
@@ -2382,7 +2363,7 @@ With full compatibility you benefit from the ongoing day-to-day development of P
                 </a>
                 
                 
-                <a href="../airframes/" class="navigation navigation-next " aria-label="Next page: Airframes">
+                <a href="porting_guide_nuttx.html" class="navigation navigation-next " aria-label="Next page: NuttX Board Porting Guide">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2393,7 +2374,7 @@ With full compatibility you benefit from the ongoing day-to-day development of P
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Flight Controller Porting Guide","level":"1.5.2","depth":2,"next":{"title":"Airframes","level":"1.5.3","depth":2,"path":"airframes/README.md","ref":"airframes/README.md","articles":[{"title":"Airframes Reference","level":"1.5.3.1","depth":3,"path":"airframes/airframe_reference.md","ref":"airframes/airframe_reference.md","articles":[]},{"title":"Adding a New Airframe","level":"1.5.3.2","depth":3,"path":"airframes/adding_a_new_frame.md","ref":"airframes/adding_a_new_frame.md","articles":[]}]},"previous":{"title":"Flight Controller Reference Design","level":"1.5.1","depth":2,"path":"hardware/reference_design.md","ref":"hardware/reference_design.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"hardware/porting_guide.md","mtime":"2020-02-04T07:10:03.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-04T07:11:40.437Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Flight Controller Porting Guide","level":"1.5.2","depth":2,"next":{"title":"NuttX Board Porting Guide","level":"1.5.2.1","depth":3,"path":"hardware/porting_guide_nuttx.md","ref":"hardware/porting_guide_nuttx.md","articles":[]},"previous":{"title":"Flight Controller Reference Design","level":"1.5.1","depth":2,"path":"hardware/reference_design.md","ref":"hardware/reference_design.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"hardware/porting_guide.md","mtime":"2020-02-04T08:30:40.710Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-04T08:31:48.344Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
