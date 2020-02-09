@@ -2251,9 +2251,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="hardware-in-the-loop-simulation-hitl"><a name="hardware-in-the-loop-simulation-hitl" class="plugin-anchor" href="#hardware-in-the-loop-simulation-hitl"><i class="fa fa-link" aria-hidden="true"></i></a>Hardware in the Loop Simulation (HITL)</h1>
-<p>Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware. 
+<p>Hardware-in-the-Loop (HITL or HIL) is a simulation mode in which normal PX4 firmware is run on real flight controller hardware.
 This approach has the benefit of testing most of the actual flight code on the real hardware.</p>
-<p>PX4 supports HITL for multicopters (using jMAVSim or Gazebo) and fixed wing (using Gazebo or X-Plane demo/full version). </p>
+<p>PX4 supports HITL for multicopters (using jMAVSim or Gazebo) and VTOL (using Gazebo).</p>
 <h2 id="compatible_airframe"><a name="compatible_airframe" class="plugin-anchor" href="#compatible_airframe"><i class="fa fa-link" aria-hidden="true"></i></a>HITL-Compatible Airframes </h2>
 <p>The current set of compatible airframes vs Simulators is:</p>
 <table>
@@ -2261,65 +2261,41 @@ This approach has the benefit of testing most of the actual flight code on the r
 <tr>
 <th>Airframe</th>
 <th><code>SYS_AUTOSTART</code></th>
-<th>X-Plane</th>
 <th>Gazebo</th>
 <th>jMAVSim</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../airframes/airframe_reference.html#plane_simulation_(plane)_hilstar_(xplane)">HILStar (X-Plane)</a></td>
-<td>1000</td>
-<td>Y</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="../airframes/airframe_reference.html#copter_simulation_(copter)_hil_quadcopter_x">HIL Quadcopter X</a></td>
 <td>1001</td>
-<td></td>
 <td>Y</td>
 <td>Y</td>
 </tr>
 <tr>
 <td><a href="../airframes/airframe_reference.html#vtol_standard_vtol_hil_standard_vtol_quadplane">HIL Standard VTOL QuadPlane</a></td>
 <td>1002</td>
-<td></td>
 <td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td><a href="../airframes/airframe_reference.html#plane_standard_plane_standard_plane">Standard planes</a></td>
-<td>2100</td>
-<td>Y</td>
-<td></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../airframes/airframe_reference.html#copter_quadrotor_x_generic_quadcopter">Generic Quadrotor x</a> copter</td>
 <td>4001</td>
-<td></td>
 <td>Y</td>
 <td>Y</td>
 </tr>
 <tr>
 <td><a href="../airframes/airframe_reference.html#copter_quadrotor_x_dji_flame_wheel_f450">DJI Flame Wheel f450</a></td>
 <td>4011</td>
-<td></td>
 <td>Y</td>
 <td>Y</td>
 </tr>
 </tbody>
 </table>
 <h2 id="simulation_environment"><a name="simulation_environment" class="plugin-anchor" href="#simulation_environment"><i class="fa fa-link" aria-hidden="true"></i></a>HITL Simulation Environment </h2>
-<p>With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware. 
-The HITL configuration is slightly different for Gazebo, jMAVSim and X-Plane.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> For more information see: <a href="./">Simulation</a>.</p>
-</blockquote>
-<h3 id="jmavsimgazebo-hitl-environment"><a name="jmavsimgazebo-hitl-environment" class="plugin-anchor" href="#jmavsimgazebo-hitl-environment"><i class="fa fa-link" aria-hidden="true"></i></a>JMAVSim/Gazebo HITL Environment</h3>
-<p>JMAVSim or Gazebo (running on a development computer) are connected to the flight controller hardware via USB/UART. 
-The simulator acts as gateway to share MAVLink data between PX4 and <em>QGroundControl</em>. </p>
+<p>With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware.
+JMAVSim or Gazebo (running on a development computer) are connected to the flight controller hardware via USB/UART.
+The simulator acts as gateway to share MAVLink data between PX4 and <em>QGroundControl</em>.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The simulator can also be connected via UDP if the flight controller has networking support and uses a stable, low-latency connection (e.g. a wired Ethernet connection - WiFi is usually not sufficiently reliable).
   For example, this configuration has been tested with PX4 running on a Raspberry Pi connected via Ethernet to the computer (a startup configuration that includes the command for running jMAVSim can be found <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/rpi/px4_hil.config" target="_blank">here</a>).</p>
@@ -2333,22 +2309,12 @@ The simulator acts as gateway to share MAVLink data between PX4 and <em>QGroundC
 <li>(Optional) A serial connection can be used to connect Joystick/Gamepad hardware via <em>QGroundControl</em>.</li>
 </ul>
 <p><img src="../../assets/simulation/px4_hitl_overview_jmavsim_gazebo.png" alt="HITL Setup - jMAVSim and Gazebo"></p>
-<h3 id="x-plane-hitl-environment"><a name="x-plane-hitl-environment" class="plugin-anchor" href="#x-plane-hitl-environment"><i class="fa fa-link" aria-hidden="true"></i></a>X-Plane HITL Environment</h3>
-<p><em>QGroundControl</em> is connected to the flight controller hardware via USB, and acts as a gateway to forward data between the X-Plane simulator running on a development computer, PX4, and any offboard API.
-The diagram below shows the simulation environment:</p>
-<ul>
-<li>A HITL configuration is selected (via <em>QGroundControl</em>) that doesn&apos;t start any real sensors.</li>
-<li><em>QGroundControl</em> is connected to the flight controller via USB.</li>
-<li><em>QGroundControl</em> is connected to the simulator and offboard API via UDP.</li>
-<li>A serial connection is used to connect Joystick/Gamepad hardware via <em>QGroundControl</em>.</li>
-</ul>
-<p><img src="../../assets/simulation/px4_hitl_overview_xplane.png" alt="HITL Setup - X-Plane"></p>
 <h2 id="hitl-vs-sitl"><a name="hitl-vs-sitl" class="plugin-anchor" href="#hitl-vs-sitl"><i class="fa fa-link" aria-hidden="true"></i></a>HITL vs SITL</h2>
-<p>SITL runs on a development computer in a simulated environment, and uses firmware specifically generated for that environment. 
+<p>SITL runs on a development computer in a simulated environment, and uses firmware specifically generated for that environment.
 Other than simulation drivers to provide fake environmental data from the simulator the system behaves normally.</p>
-<p>By contrast, HITL runs normal PX4 firmware in &quot;HITL mode&quot;, on normal hardware. 
-The simulation data enters the system at a different point than for SITL. 
-Core modules like commander and sensors have HITL modes at startup that bypass some of the normal functionality. </p>
+<p>By contrast, HITL runs normal PX4 firmware in &quot;HITL mode&quot;, on normal hardware.
+The simulation data enters the system at a different point than for SITL.
+Core modules like commander and sensors have HITL modes at startup that bypass some of the normal functionality.</p>
 <p>In summary, HITL runs PX4 on the actual hardware using standard firmware, but SITL actually executes more of the standard system code.</p>
 <h2 id="setting-up-hitl"><a name="setting-up-hitl" class="plugin-anchor" href="#setting-up-hitl"><i class="fa fa-link" aria-hidden="true"></i></a>Setting up HITL</h2>
 <h3 id="px4-configuration"><a name="px4-configuration" class="plugin-anchor" href="#px4-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Configuration</h3>
@@ -2365,8 +2331,7 @@ Core modules like commander and sensors have HITL modes at startup that bypass s
 <li><p>Select Airframe</p>
 <ol>
 <li>Open <strong>Setup &gt; Airframes</strong></li>
-<li><p>Select a <a href="#compatible_airframe">compatible airframe</a> you want to test. 
-Generally you&apos;ll select <em>HILStar</em> for Fixed Wing/X-Plane simulator and a <em>HIL QuadCopter</em> option for copters (and jMAVSim or Gazebo). 
+<li><p>Select a <a href="#compatible_airframe">compatible airframe</a> you want to test.
 Then click <strong>Apply and Restart</strong> on top-right of the <em>Airframe Setup</em> page.</p>
 <p><img src="../../assets/gcs/qgc_hil_config.png" alt="Select Airframe"></p>
 </li>
@@ -2392,8 +2357,8 @@ Set the following <a href="https://docs.px4.io/master/en/advanced_config/paramet
 </li>
 </ol>
 <p>Once configuration is complete, <strong>close</strong> <em>QGroundControl</em> and disconnect the flight controller hardware from the computer. </p>
-<h3 id="simulator-setup"><a name="simulator-setup" class="plugin-anchor" href="#simulator-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Simulator Setup</h3>
-<p>Follow the appropriate setup steps for your simulator in the following sections.</p>
+<h3 id="simulator-specific-setup"><a name="simulator-specific-setup" class="plugin-anchor" href="#simulator-specific-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Simulator-Specific Setup</h3>
+<p>Follow the appropriate setup steps for the specific simulator in the following sections.</p>
 <h4 id="gazebo"><a name="gazebo" class="plugin-anchor" href="#gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo</h4>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Make sure <em>QGroundControl</em> is not running!</p>
@@ -2407,12 +2372,14 @@ DONT_RUN=1 make px4_sitl_default gazebo
 <li><p>Under the <code>mavlink_interface plugin</code> section, change the <code>serialEnabled</code> and <code>hil_mode</code> parameters to <code>true</code>.</p>
 <p><img src="../../assets/simulation/gazebo_sdf_model_hil_params.png" alt="HIL Parameters"></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The file iris.sdf is autogenerated. Therefore you need to either keep a copy of your changed file or re-edit it for every build. </p>
+<p> The file iris.sdf is autogenerated.
+  Therefore you need to either keep a copy of your changed file or re-edit it for every build. </p>
 </blockquote>
 </li>
 <li><p>Replace the <code>serialDevice</code> parameter (<code>/dev/ttyACM0</code>) if necessary.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The serial device depends on what port is used to connect the vehicle to the computer (this is usually <code>/dev/ttyACM0</code>). An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type <code>dmesg | grep &quot;tty&quot;</code>. The correct device will be the last one shown.</p>
+<p> The serial device depends on what port is used to connect the vehicle to the computer (this is usually <code>/dev/ttyACM0</code>).
+  An easy way to check on Ubuntu is to plug in the autopilot, open up a terminal, and type <code>dmesg | grep &quot;tty&quot;</code>. The correct device will be the last one shown.</p>
 </blockquote>
 </li>
 <li><p>Set up the environment variables:</p>
@@ -2439,28 +2406,6 @@ DONT_RUN=1 make px4_sitl_default gazebo
 </blockquote>
 </li>
 <li>Start <em>QGroundControl</em>. It should autoconnect to PX4 and jMAVSim.</li>
-</ol>
-<h4 id="using-x-plane-fixed-wing-only"><a name="using-x-plane-fixed-wing-only" class="plugin-anchor" href="#using-x-plane-fixed-wing-only"><i class="fa fa-link" aria-hidden="true"></i></a>Using X-Plane (Fixed Wing only)</h4>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> X-Plane is currently not recommended. Among other issues, the frame update rate is too slow to run the system realistically.</p>
-</blockquote>
-<p>To set up X-Plane:</p>
-<ol>
-<li>Open X-Plane</li>
-<li><p>In <strong>Settings &gt; Data Input and Output</strong>, set these checkboxes:</p>
-<p><img src="../../assets/gcs/xplane_data_config.png" alt="X-Plane data configuration"></p>
-</li>
-<li><p>In <strong>Settings &gt; Net Connections</strong>, in the <em>Data</em> tab, set localhost and port 49005 as IP address, as shown below:</p>
-<p><img src="../../assets/gcs/xplane_net_config.png" alt="X-Plane network configuration"></p>
-</li>
-<li><p>Enable X-Plane HITL in <em>QGroundControl</em>:</p>
-<ol>
-<li>Open <em>QGroundControl</em></li>
-<li>Open <strong>Widgets &gt; HIL Config</strong>. 
-Select X-Plane 10 in the drop-down and hit connect. 
-Once the system is connected, battery status, GPS status and aircraft position should all become valid.</li>
-</ol>
-</li>
 </ol>
 <h2 id="fly-an-autonomous-mission-in-hitl"><a name="fly-an-autonomous-mission-in-hitl" class="plugin-anchor" href="#fly-an-autonomous-mission-in-hitl"><i class="fa fa-link" aria-hidden="true"></i></a>Fly an Autonomous Mission in HITL</h2>
 <p>You should be able to use <em>QGroundControl</em> to <a href="../qgc/#planning-missions">run missions</a> and otherwise control the vehicle.</p>
@@ -2507,7 +2452,7 @@ Once the system is connected, battery status, GPS status and aircraft position s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HITL Simulation","level":"1.4.7","depth":2,"next":{"title":"Simulation-In-Hardware","level":"1.4.8","depth":2,"path":"simulation/simulation-in-hardware.md","ref":"simulation/simulation-in-hardware.md","articles":[]},"previous":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/hitl.md","mtime":"2020-02-07T11:16:18.268Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-07T11:17:21.336Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"HITL Simulation","level":"1.4.7","depth":2,"next":{"title":"Simulation-In-Hardware","level":"1.4.8","depth":2,"path":"simulation/simulation-in-hardware.md","ref":"simulation/simulation-in-hardware.md","articles":[]},"previous":{"title":"Simulate Failsafes","level":"1.4.6","depth":2,"path":"simulation/failsafes.md","ref":"simulation/failsafes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/hitl.md","mtime":"2020-02-09T23:14:50.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-09T23:16:35.945Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
