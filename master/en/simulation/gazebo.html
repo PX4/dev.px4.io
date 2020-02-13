@@ -2256,10 +2256,13 @@
 - Video functionality disabled by default (should be enabled): https://github.com/PX4/Devguide/pull/418#pullrequestreview-86789154
 - Find out actual gstreamer dependencies and update both this doc and build scripts - should be done when the camera plugin is a default.
 -->
-<p><a href="http://gazebosim.org" target="_blank">Gazebo</a> is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision. This page describes its use with SITL and a single vehicle. Gazebo can also be used with <a href="hitl.html">HITL</a> and for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a>.</p>
-<p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>, Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine/UUV (coming soon!)</p>
+<p><a href="http://gazebosim.org" target="_blank">Gazebo</a> is a powerful 3D simulation environment for autonomous robots that is particularly suitable for testing object-avoidance and computer vision.
+This page describes its use with SITL and a single vehicle.
+Gazebo can also be used with <a href="hitl.html">HITL</a> and for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a>.</p>
+<p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>, Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine/UUV.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Gazebo is often used with <a href="../ros/">ROS</a>, a toolkit/offboard API for automating vehicle control.  If you plan to use PX4 with ROS you should instead <a href="ros_interface.html">follow the instructions here</a> to install Gazebo as part of ROS!</p>
+<p> Gazebo is often used with <a href="../ros/">ROS</a>, a toolkit/offboard API for automating vehicle control.
+  If you plan to use PX4 with ROS you should instead <a href="ros_interface.html">follow the instructions here</a> to install Gazebo as part of ROS!</p>
 </blockquote>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/qfFF9-0k4KA"></iframe></div></p>
 <p><div id="container" class="mermaid-container">
@@ -2328,7 +2331,10 @@ make px4_sitl gazebo
 </code></pre>
 <p><img src="../../assets/gazebo/hippocampus.png" alt="Submarine/UUV"></p>
 <h2 id="change-world"><a name="change-world" class="plugin-anchor" href="#change-world"><i class="fa fa-link" aria-hidden="true"></i></a>Change World</h2>
-<p>The current default world is the <strong>iris.world</strong> located in the directory <a href="https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds" target="_blank">worlds</a>. The default surrounding in the <strong>iris.world</strong> uses a heightmap as ground. This ground can cause difficulty when using a distance sensor. If there are unexpected results with that heightmap, we recommend you change the model in <strong>iris.model</strong> from <code>uneven_ground</code> to <code>asphalt_plane</code>.</p>
+<p>The current default world is the <strong>iris.world</strong> located in the directory <a href="https://github.com/PX4/sitl_gazebo/tree/b59e6e78e42d50f70224d1d0e506825590754d64/worlds" target="_blank">worlds</a>.
+The default surrounding in the <strong>iris.world</strong> uses a heightmap as ground.
+This ground can cause difficulty when using a distance sensor.
+If there are unexpected results with that heightmap, we recommend you change the model in <strong>iris.model</strong> from <code>uneven_ground</code> to <code>asphalt_plane</code>.</p>
 <h2 id="taking-it-to-the-sky"><a name="taking-it-to-the-sky" class="plugin-anchor" href="#taking-it-to-the-sky"><i class="fa fa-link" aria-hidden="true"></i></a>Taking it to the Sky</h2>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Please refer to the <a href="../setup/dev_env.html">Installing Files and Code</a> guide if you run into any errors.</p>
@@ -2353,7 +2359,8 @@ pxh&gt;
 <p> Right-clicking the quadrotor model allows to enable follow mode from the context menu, which is handy to keep it in view.</p>
 </blockquote>
 <p><img src="../../assets/simulation/gazebo.png" alt="Gazebo UI"></p>
-<p>The system will print the home position once it finished intializing (<code>telem&gt; home: 55.7533950, 37.6254270, -0.00</code>). You can bring it into the air by typing:</p>
+<p>The system will print the home position once it finished intializing (<code>telem&gt; home: 55.7533950, 37.6254270, -0.00</code>).
+You can bring it into the air by typing:</p>
 <pre><code class="lang-sh">pxh&gt; commander takeoff
 </code></pre>
 <h2 id="usageconfiguration-options"><a name="usageconfiguration-options" class="plugin-anchor" href="#usageconfiguration-options"><i class="fa fa-link" aria-hidden="true"></i></a>Usage/Configuration Options</h2>
@@ -2380,7 +2387,8 @@ make px4_sitl_default gazebo
 <p>Joystick and thumb-joystick support are supported through <em>QGroundControl</em> (<a href="./#joystickgamepad-integration">setup instructions here</a>).</p>
 <h3 id="simulating-gps-noise"><a name="simulating-gps-noise" class="plugin-anchor" href="#simulating-gps-noise"><i class="fa fa-link" aria-hidden="true"></i></a>Simulating GPS Noise</h3>
 <p>Gazebo can simulate GPS noise that is similar to that typically found in real systems (otherwise reported GPS values will be noise-free/perfect). This is useful when working on applications that might be impacted by GPS noise - e.g. precision positioning.</p>
-<p>GPS noise is enabled if the target vehicle&apos;s SDF file contains a value for the <code>gpsNoise</code> element (i.e. it has the line: <code>&lt;gpsNoise&gt;true&lt;/gpsNoise&gt;</code>). It is enabled by default in many vehicle SDF files: <strong>solo.sdf</strong>, <strong>iris.sdf</strong>, <strong>standard_vtol.sdf</strong>, <strong>delta_wing.sdf</strong>, <strong>plane.sdf</strong>, <strong>typhoon_h480</strong>, <strong>tailsitter.sdf</strong>.</p>
+<p>GPS noise is enabled if the target vehicle&apos;s SDF file contains a value for the <code>gpsNoise</code> element (i.e. it has the line: <code>&lt;gpsNoise&gt;true&lt;/gpsNoise&gt;</code>).
+It is enabled by default in many vehicle SDF files: <strong>solo.sdf</strong>, <strong>iris.sdf</strong>, <strong>standard_vtol.sdf</strong>, <strong>delta_wing.sdf</strong>, <strong>plane.sdf</strong>, <strong>typhoon_h480</strong>, <strong>tailsitter.sdf</strong>.</p>
 <p>To enable/disable GPS noise:</p>
 <ol>
 <li>Build any gazebo target in order to generate SDF files (for all vehicles). For example:<pre><code>make px4_sitl gazebo_iris
@@ -2395,15 +2403,18 @@ make px4_sitl_default gazebo
 <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
 </code></pre>
 <ul>
-<li>If it is present, GPS is enabled. You can disable it by deleting the line: <code>&lt;gpsNoise&gt;true&lt;/gpsNoise&gt;</code></li>
-<li>If it is not preset GPS is disabled. You can enable it by adding the <code>gpsNoise</code> element to the <code>gps_plugin</code> section (as shown above).</li>
+<li>If it is present, GPS is enabled.
+You can disable it by deleting the line: <code>&lt;gpsNoise&gt;true&lt;/gpsNoise&gt;</code></li>
+<li>If it is not preset GPS is disabled.
+You can enable it by adding the <code>gpsNoise</code> element to the <code>gps_plugin</code> section (as shown above).</li>
 </ul>
 </li>
 </ol>
 <p>The next time you build/restart Gazebo it will use the new GPS noise setting.</p>
 <h2 id="start_px4_sim_separately"><a name="start_px4_sim_separately" class="plugin-anchor" href="#start_px4_sim_separately"><i class="fa fa-link" aria-hidden="true"></i></a>Starting Gazebo and PX4 Separately </h2>
 <p>For extended development sessions it might be more convenient to start Gazebo and PX4 separately or even from within an IDE.</p>
-<p>In addition to the existing cmake targets that run <code>sitl_run.sh</code> with parameters for px4 to load the correct model it creates a launcher targets named <code>px4_&lt;mode&gt;</code> that is a thin wrapper around original sitl px4 app. This thin wrapper simply embeds app arguments like current working directories and the path to the model file.</p>
+<p>In addition to the existing cmake targets that run <code>sitl_run.sh</code> with parameters for px4 to load the correct model it creates a launcher targets named <code>px4_&lt;mode&gt;</code> that is a thin wrapper around original sitl px4 app.
+This thin wrapper simply embeds app arguments like current working directories and the path to the model file.</p>
 <p>To start Gazebo and PX4 separately:</p>
 <ul>
 <li>Run gazebo (or any other sim) server and client viewers via the terminal:<pre><code>make px4_sitl gazebo_none_ide
@@ -2413,9 +2424,12 @@ make px4_sitl_default gazebo
 </ul>
 <p>This approach significantly reduces the debug cycle time because simulator (e.g. gazebo) is always running in background and you only re-run the px4 process which is very light.</p>
 <h2 id="video-streaming"><a name="video-streaming" class="plugin-anchor" href="#video-streaming"><i class="fa fa-link" aria-hidden="true"></i></a>Video Streaming</h2>
-<p>PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model. You can connect to this stream from <em>QGroundControl</em> (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera. The video is streamed using a <em>gstreamer</em> pipeline.</p>
+<p>PX4 SITL for Gazebo supports UDP video streaming from a Gazebo camera sensor attached to a vehicle model.
+You can connect to this stream from <em>QGroundControl</em> (on UDP port 5600) and view video of the Gazebo environment from the simulated vehicle - just as you would from a real camera.
+The video is streamed using a <em>gstreamer</em> pipeline.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Video streaming from Gazebo and the Gazebo widget to turn streaming on/off are not enabled by default. This article explains how to enable them. In the near future we expect these features to be enabled by default.</p>
+<p> Video streaming from Gazebo and the Gazebo widget to turn streaming on/off are not enabled by default.
+This article explains how to enable them. In the near future we expect these features to be enabled by default.</p>
 </blockquote>
 <h3 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h3>
 <p>Ubuntu: Install <em>Gstreamer 1.0</em> and its dependencies:</p>
@@ -2423,10 +2437,12 @@ make px4_sitl_default gazebo
 </code></pre><p>Mac OS:</p>
 <pre><code>brew install gstreamer gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 </code></pre><h3 id="how-to-view-gazebo-video"><a name="how-to-view-gazebo-video" class="plugin-anchor" href="#how-to-view-gazebo-video"><i class="fa fa-link" aria-hidden="true"></i></a>How to View Gazebo Video</h3>
-<p>The easiest way to view the SITL/Gazebo camera video stream is in <em>QGroundControl</em>. Simply open <strong>Settings &gt; General</strong> and set <strong>Video Source</strong> to <em>UDP Video Stream</em> and <strong>UDP Port</strong> to <em>5600</em>:</p>
+<p>The easiest way to view the SITL/Gazebo camera video stream is in <em>QGroundControl</em>.
+Simply open <strong>Settings &gt; General</strong> and set <strong>Video Source</strong> to <em>UDP Video Stream</em> and <strong>UDP Port</strong> to <em>5600</em>:</p>
 <p><img src="../../assets/simulation/qgc_gazebo_video_stream_udp.png" alt="QGC Video Streaming Settings for Gazebo"></p>
 <p>The video from Gazebo should then display in <em>QGroundControl</em> just as it would from a real camera.</p>
-<p>It is also possible to view the video using the <em>Gstreamer Pipeline</em>. Simply enter the following terminal command:</p>
+<p>It is also possible to view the video using the <em>Gstreamer Pipeline</em>.
+Simply enter the following terminal command:</p>
 <pre><code>gst-launch-1.0  -v udpsrc port=5600 caps=&apos;application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264&apos; \
 ! rtph264depay ! avdec_h264 ! videoconvert ! autovideosink fps-update-interval=1000 sync=false
 </code></pre><h3 id="gazebo-gui-to-startstop-video-streaming"><a name="gazebo-gui-to-startstop-video-streaming" class="plugin-anchor" href="#gazebo-gui-to-startstop-video-streaming"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo GUI to Start/Stop Video Streaming</h3>
@@ -2461,9 +2477,11 @@ make px4_sitl gazebo_typhoon_h480
 </code></pre></li>
 </ol>
 <h2 id="extending-and-customizing"><a name="extending-and-customizing" class="plugin-anchor" href="#extending-and-customizing"><i class="fa fa-link" aria-hidden="true"></i></a>Extending and Customizing</h2>
-<p>To extend or customize the simulation interface, edit the files in the <code>Tools/sitl_gazebo</code> folder. The code is available on the <a href="https://github.com/px4/sitl_gazebo" target="_blank">sitl_gazebo repository</a> on Github.</p>
+<p>To extend or customize the simulation interface, edit the files in the <code>Tools/sitl_gazebo</code> folder.
+The code is available on the <a href="https://github.com/px4/sitl_gazebo" target="_blank">sitl_gazebo repository</a> on Github.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The build system enforces the correct GIT submodules, including the simulator. It will not overwrite changes in files in the directory.</p>
+<p> The build system enforces the correct GIT submodules, including the simulator.
+  It will not overwrite changes in files in the directory.</p>
 </blockquote>
 <h2 id="interfacing-to-ros"><a name="interfacing-to-ros" class="plugin-anchor" href="#interfacing-to-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Interfacing to ROS</h2>
 <p>The simulation can be <a href="ros_interface.html">interfaced to ROS</a> the same way as onboard a real vehicle.</p>
@@ -2515,7 +2533,7 @@ make px4_sitl gazebo_typhoon_h480
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Gazebo Simulation","level":"1.4.2","depth":2,"next":{"title":"AirSim Simulation","level":"1.4.3","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2020-02-10T21:17:02.111Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-10T21:18:51.462Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Gazebo Simulation","level":"1.4.2","depth":2,"next":{"title":"AirSim Simulation","level":"1.4.3","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2020-02-13T03:00:41.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-13T03:01:54.353Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
