@@ -732,6 +732,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../hardware/porting_guide_nuttx.html">
+            
+                <a href="../hardware/porting_guide_nuttx.html">
+            
+                    
+                    NuttX Board Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.5.3" data-path="../airframes/">
@@ -2232,8 +2251,11 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="px4-&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;"><a name="px4-&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;" class="plugin-anchor" href="#px4-&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;</h1>
-<p>&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;&#x5141;&#x8BB8;&#x5BF9;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x4F4E;&#x7EA7;&#x8BBF;&#x95EE;&#xFF0C;&#x8C03;&#x8BD5;&#x8F93;&#x51FA;&#x548C;&#x5206;&#x6790;&#x7CFB;&#x7EDF;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;&#x3002; The most convenient way to connect it is by using a <a href="https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation" target="_blank">Dronecode probe</a>, but a plain FTDI cable can be used as well.</p>
-<h2 id="&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;-vs-shells"><a name="&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;-vs-shells" class="plugin-anchor" href="#&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0;-vs-shells"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7CFB;&#x7EDF;&#x63A7;&#x5236;&#x53F0; vs. Shells</h2>
+<p>The PX4 <em>System Console</em> provides low-level access to the system, debug output and analysis of the system boot process. The most convenient way to connect it is by using a <a href="https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation" target="_blank">Dronecode probe</a>, but a plain FTDI cable can be used as well.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The <a href="#mavlink_shell">MAVLink Shell</a> (accessed via <em>QGroundControl</em>) can be used for <a href="#console_vs_shell">many of the same tasks</a> as the <em>System Console</em>, and is much easier to set up.</p>
+</blockquote>
+<h2 id="console_vs_shell"><a name="console_vs_shell" class="plugin-anchor" href="#console_vs_shell"><i class="fa fa-link" aria-hidden="true"></i></a>System Console vs. Shells </h2>
 <p>&#x53EA;&#x6709;&#x4E00;&#x4E2A; <em>System Console</em>&#xFF0C;&#x5B83;&#x5728;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684; Uart&#xFF08;&#x5728; Nuttx &#x4E2D;&#x914D;&#x7F6E;&#x7684;&#x8C03;&#x8BD5;&#x7AEF;&#x53E3;&#xFF09;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x901A;&#x5E38;&#x901A;&#x8FC7; FTDI &#x7535;&#x7F06;&#x8FDE;&#x63A5;&#x3002;</p>
 <ul>
 <li>&#x7528;&#x4E8E; <em>low &#x7EA7;&#x8C03;&#x8BD5;/&#x5F00;&#x53D1;&quot; </em>&#xFF1A;&#x542F;&#x52A8;&#x3001;Nuttx&#x3001;&#x542F;&#x52A8;&#x811A;&#x672C;&#x3001;&#x7535;&#x8DEF;&#x677F;&#x5B89;&#x88C5;&#x3001;px4 &#x6838;&#x5FC3;&#x90E8;&#x5206; (&#x5982; uorb) &#x7684;&#x5F00;&#x53D1;&#x3002;</li>
@@ -2245,6 +2267,9 @@
 <li>&#x4EC5;&#x663E;&#x793A;&#x542F;&#x52A8;&#x7684;&#x6A21;&#x5757;&#x7684;&#x8F93;&#x51FA;&#xFF08;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x8C03;&#x8BD5;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;&#xFF09;&#x3002;</li>
 <li>&#x65E0;&#x6CD5;&#x663E;&#x793A;&#x5728;&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x7684;&#x8F93;&#x51FA;&#x3002;</li>
 </ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The is particularly useful when the system does not boot (it displays the system boot log when power-cycling the board).</p>
+</blockquote>
 <p>&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A; Shell&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E13;&#x7528; Uart &#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; MAVLink &#x8FD0;&#x884C;&#x3002; &#x7531;&#x4E8E; MAVLink &#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x5927;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x73B0;&#x5728;&#x53EA;&#x4F7F;&#x7528; <a href="#mavlink_shell">via MAVLink</a>&#x3002;</p>
 <h2 id="&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF1A;&#x63A5;&#x7EBF;&#x63A7;&#x5236;&#x53F0;"><a name="&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF1A;&#x63A5;&#x7EBF;&#x63A7;&#x5236;&#x53F0;" class="plugin-anchor" href="#&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF1A;&#x63A5;&#x7EBF;&#x63A7;&#x5236;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF1A;&#x63A5;&#x7EBF;&#x63A7;&#x5236;&#x53F0;</h2>
 <p>&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5957;&#x4EF6;&#x9644;&#x5E26;&#x4E86;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x4E09;&#x4E2A;&#x5F15;&#x811A;&#x7684;&#x7535;&#x8DEF;&#x677F;&#xFF0C;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x53F0;&#x3002; &#x5C06;&#x6346;&#x7ED1;&#x7684; FTDI &#x7535;&#x7F06;&#x8FDE;&#x63A5;&#x5230;&#x63A5;&#x53E3;&#xFF0C;&#x5C06;&#x65AD;&#x8DEF;&#x677F;&#x8FDE;&#x63A5;&#x5230;&#x6269;&#x5C55;&#x8FDE;&#x63A5;&#x5668;&#x3002;</p>
@@ -2378,29 +2403,59 @@
 <li>8 &#x6570;&#x636E;&#x4F4D;</li>
 <li>1 &#x4E2A;&#x505C;&#x6B62;&#x4F4D;</li>
 </ul>
-<h2 id="&#x63A7;&#x5236;&#x53F0;&#x5165;&#x95E8;"><a name="&#x63A7;&#x5236;&#x53F0;&#x5165;&#x95E8;" class="plugin-anchor" href="#&#x63A7;&#x5236;&#x53F0;&#x5165;&#x95E8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A7;&#x5236;&#x53F0;&#x5165;&#x95E8;</h2>
-<p>&#x8F93;&#x5165; ls &#x67E5;&#x770B;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C; &#x8F93;&#x5165; <code>free</code> &#x67E5;&#x770B;&#x5269;&#x4F59;&#x5185;&#x5B58;&#x3002; &#x98DE;&#x63A7;&#x677F;&#x4E0A;&#x7535;&#x65F6;&#xFF0C;&#x7EC8;&#x7AEF;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#x65E5;&#x5FD7;&#x3002;</p>
+<h2 id="mavlink_shell"><a name="mavlink_shell" class="plugin-anchor" href="#mavlink_shell"><i class="fa fa-link" aria-hidden="true"></i></a>MAVLink Shell </h2>
+<p>For NuttX-based systems (Pixhawk, Pixracer, ...), the <em>nsh console</em> can also be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links.</p>
+<p>The easiest way to access the <em>nsh console</em> via MAVLink is using <a href="https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html" target="_blank">QGroundControl</a> (see <strong>Analyze View &gt; Mavlink Console</strong>).</p>
+<p>You can also access the shell in a terminal using the <strong>mavlink_shell.py</strong> script:</p>
+<ol>
+<li>Shut down QGroundControl.</li>
+<li><p>Install dependencies: </p>
+<pre><code> sh
+ sudo pip3 install pymavlink pyserial
+</code></pre></li>
+<li><p>Open terminal (in Firmware directory) and start the shell: </p>
+<pre><code> sh
+ # For serial port
+ ./Tools/mavlink_shell.py /dev/ttyACM0
+
+ sh
+ # For Wifi connection
+ ./Tools/mavlink_shell.py 0.0.0.0:14550
+</code></pre></li>
+</ol>
+<p>Use <code>mavlink_shell.py -h</code> to get a description of all available arguments.</p>
+<h2 id="getting-started-on-the-console"><a name="getting-started-on-the-console" class="plugin-anchor" href="#getting-started-on-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Started on the Console/Shell </h2>
+<p>The MAVLink shell/console and the System Console are used in much the same way.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> For more information about the differences see: <a href="#console_vs_shell">System Console vs. Shells</a>.</p>
+</blockquote>
+<p>Type <code>ls</code> to view the local file system, <code>free</code> to see the remaining free RAM, <code>dmesg</code> to look at boot output.</p>
 <pre><code class="lang-bash">nsh&gt; ls
 nsh&gt; free
+nsh&gt; dmesg
 </code></pre>
-<h2 id="mavlink_shell"><a name="mavlink_shell" class="plugin-anchor" href="#mavlink_shell"><i class="fa fa-link" aria-hidden="true"></i></a>MAVLink Shell</h2>
-<p>&#x57FA;&#x4E8E; Nuttx &#x7684;&#x7CFB;&#x7EDF;&#xFF08;Pixhawk, Pixracer, ...&#xFF09;&#xFF0C;nsh &#x7EC8;&#x7AEF;&#x4E5F;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5; MAVLink&#x3002; &#x901A;&#x8FC7;&#x4E32;&#x53E3;&#xFF08;USB/&#x7535;&#x53F0;&#xFF09;&#x6216; WiFi&#xFF08;UDP/TCP&#xFF09;&#x5B9E;&#x73B0;&#x8FDE;&#x63A5;&#x3002; &#x786E;&#x4FDD; QGC &#x6CA1;&#x6709;&#x8FD0;&#x884C;&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x542F; shell&#xFF1A;<code>./Tools/mavlink_shell.py /dev/ttyACM0</code>&#xFF08;&#x5728; Firmware &#x6E90;&#x7801;&#x4E2D;&#xFF0C; &#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5148;&#x5B89;&#x88C5;&#x4F9D;&#x8D56; <code>sudo pip install pymavlink pyserial</code>&#xFF09;&#x3002; &#x4F7F;&#x7528; <code>./Tools/mavlink_shell.py -h</code> &#x83B7;&#x53D6;&#x53EF;&#x7528;&#x53C2;&#x6570;&#x63CF;&#x8FF0;&#xFF0C;&#x5176;&#x4E2D;&#x540C;&#x6837;&#x663E;&#x793A;&#x4E86; WiFi &#x8FDE;&#x63A5;&#x7684; IP &#x5730;&#x5740;&#x3002; &#x6BD4;&#x5982; <code>./Tools/mavlink_shell.py &amp;lt;IP address&amp;gt;</code> &#x53EF;&#x7528;&#x4E8E;&#x901A;&#x8FC7; WiFi &#x5F00;&#x542F; nsh shell &#x8FDE;&#x63A5;&#x98DE;&#x63A7;&#x3002; &#x3002;</p>
+<p>Many other system commands and modules are listed in the <a href="../middleware/modules_main.html">Modules and Command Reference</a> (e.g. <code>top</code>, <code>listener</code>, etc.).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> &#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html" target="_blank">QGC directly</a> &#x7684; nsh shell&#x3002;</p>
+<p> Some commands may be disabled on some boards (i.e. the some modules are not included in firmware for boards with RAM constraints). In this case you will see the response: <code>command not found</code></p>
 </blockquote>
 <h1 id="&#x9A81;&#x9F99;-dsp-&#x63A7;&#x5236;&#x53F0;"><a name="&#x9A81;&#x9F99;-dsp-&#x63A7;&#x5236;&#x53F0;" class="plugin-anchor" href="#&#x9A81;&#x9F99;-dsp-&#x63A7;&#x5236;&#x53F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9A81;&#x9F99; DSP &#x63A7;&#x5236;&#x53F0;</h1>
-<p>&#x5F53;&#x4F60;&#x901A;&#x8FC7; Usb &#x8FDE;&#x63A5;&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#x65F6;&#xFF0C;&#x4F60;&#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x4E86; Px4 &#x5728; Posix &#x4E00;&#x65B9;&#x7684;&#x6743;&#x9650;&#x3002; DSP &#x4E00;&#x4FA7; (QuRT) &#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>qshell</code> &#x5F00;&#x542F;POSIX &#x5E94;&#x7528;&#x548C;&#x81EA;&#x8EAB;&#x6A21;&#x5757;&#x3002;</p>
-<p>&#x4F7F;&#x7528; USB &#x8FDE;&#x63A5;&#x9A81;&#x9F99;&#xFF0C; &#x6253;&#x5F00; mini-dm &#x67E5;&#x770B; DSP &#x8F93;&#x51FA;&#xFF1A;</p>
+<p>When you are connected to your Snapdragon board via usb you have access to the px4 shell on the posix side of things. The interaction with the DSP side (QuRT) is enabled with the <code>qshell</code> posix app and its QuRT companion.</p>
+<p>With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:</p>
 <pre><code>${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
-</code></pre><p>&#x6CE8;&#x610F;&#xFF1A;&#x5728; Mac &#x4E0A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://github.com/kevinmehall/nano-dm" target="_blank">nano-dm</a>&#x3002;</p>
-<p>&#x5728; Linaro &#x8FD0;&#x884C;&#x4E3B;&#x7A0B;&#x5E8F;&#xFF1A;</p>
-<pre><code>cd /home/linaro
-./px4 -s px4.config
-</code></pre><p>&#x7528;&#x4EE5;&#x4E0B;&#x8BED;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Linaro shell &#x4F7F;&#x7528;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5230; DSP &#x4E0A;&#x7684;&#x6240;&#x6709; Apps&#xFF1A;</p>
-<pre><code>pxh&gt; qshell command [args ...]
-</code></pre><p>&#x6BD4;&#x5982;&#xFF0C;&#x67E5;&#x770B;&#x53EF;&#x7528;&#x7684; QuRT Apps&#xFF1A;</p>
-<pre><code>pxh&gt; qshell list_tasks
-</code></pre><p>&#x6267;&#x884C;&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x7684;&#x7ED3;&#x679C;&#x663E;&#x793A;&#x5728; minidm&#x3002;</p>
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Alternatively, especially on Mac, you can also use <a href="https://github.com/kevinmehall/nano-dm" target="_blank">nano-dm</a>.</p>
+</blockquote>
+<p>Run the main app on the linaro side:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /home/linaro
+./px4 <span class="hljs-_">-s</span> px4.config
+</code></pre>
+<p>You can now use all apps loaded on the DSP from the linaro shell with the following syntax:</p>
+<pre><code class="lang-sh">pxh&gt; qshell <span class="hljs-built_in">command</span> [args ...]
+</code></pre>
+<p>For example, to see the available QuRT apps:</p>
+<pre><code class="lang-sh">pxh&gt; qshell list_tasks
+</code></pre>
+<p>The output of the executed command is displayed on the minidm.</p>
 
                                 
                                 </section>
@@ -2444,7 +2499,7 @@ nsh&gt; free
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"系统控制台","level":"1.9.2","depth":2,"next":{"title":"飞控调试","level":"1.9.3","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"常见问题","level":"1.9.1","depth":2,"path":"debug/faq.md","ref":"debug/faq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2020-02-14T03:39:10.369Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-14T03:40:55.845Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"系统控制台","level":"1.9.2","depth":2,"next":{"title":"飞控调试","level":"1.9.3","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"常见问题","level":"1.9.1","depth":2,"path":"debug/faq.md","ref":"debug/faq.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2020-02-14T05:52:53.434Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-14T05:54:35.624Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
