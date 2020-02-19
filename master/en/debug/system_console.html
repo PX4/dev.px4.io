@@ -2301,8 +2301,10 @@ Unfortunately some boards predate this standard or a non-compliant.</p>
 <h3 id="board-specific-wiring"><a name="board-specific-wiring" class="plugin-anchor" href="#board-specific-wiring"><i class="fa fa-link" aria-hidden="true"></i></a>Board-Specific Wiring</h3>
 <p>The System Console UART pinouts/debug ports are typically documented in <a href="https://docs.px4.io/master/en/flight_controller/" target="_blank">autopilot overview pages</a> (some are linked below):</p>
 <ul>
-<li><p><a href="https://docs.px4.io/master/en/flight_controller/pixhawk.html#console-port" target="_blank">3DR Pixhawk v1 Flight Controller</a> (also applies to 
-<a href="https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html#debug-ports" target="_blank">mRo Pixhawk</a>, <a href="https://docs.px4.io/master/en/flight_controller/HKPilot32.html#debug-port" target="_blank">HobbyKing HKPilot32</a>)</p>
+<li><a href="https://docs.px4.io/master/en/flight_controller/pixhawk.html#console-port" target="_blank">3DR Pixhawk v1 Flight Controller</a> (also applies to 
+<a href="https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html#debug-ports" target="_blank">mRo Pixhawk</a>, <a href="https://docs.px4.io/master/en/flight_controller/HKPilot32.html#debug-port" target="_blank">HobbyKing HKPilot32</a>)</li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html#debug-port" target="_blank">Pixhawk 3</a></li>
+<li><p><a href="https://docs.px4.io/master/en/flight_controller/pixracer.html#debug-port" target="_blank">Pixracer</a></p>
 </li>
 <li><p><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html" target="_blank">Snapdragon Flight</a>:</p>
 <ul>
@@ -2356,56 +2358,6 @@ Unfortunately some boards predate this standard or a non-compliant.</p>
 </tr>
 <tr>
 <td>6 (blk)</td>
-<td>GND</td>
-<td>1</td>
-<td>FTDI GND (black)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="pixracer--pixhawk-v3"><a name="pixracer--pixhawk-v3" class="plugin-anchor" href="#pixracer--pixhawk-v3"><i class="fa fa-link" aria-hidden="true"></i></a>Pixracer / Pixhawk v3:</h3>
-<p>Connect the 6-pos JST SH 1:1 cable to the Dronecode probe or connect the individual pins of the cable to a FTDI cable like this:</p>
-<table>
-<thead>
-<tr>
-<th>Pixracer / Pixhawk v3</th>
-<th></th>
-<th>FTDI</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>+5V (red)</td>
-<td></td>
-<td>N/C</td>
-</tr>
-<tr>
-<td>2</td>
-<td>UART7 Tx</td>
-<td>5</td>
-<td>FTDI RX (yellow)</td>
-</tr>
-<tr>
-<td>3</td>
-<td>UART7 Rx</td>
-<td>4</td>
-<td>FTDI TX (orange)</td>
-</tr>
-<tr>
-<td>4</td>
-<td>SWDIO</td>
-<td></td>
-<td>N/C</td>
-</tr>
-<tr>
-<td>5</td>
-<td>SWCLK</td>
-<td></td>
-<td>N/C</td>
-</tr>
-<tr>
-<td>6</td>
 <td>GND</td>
 <td>1</td>
 <td>FTDI GND (black)</td>
@@ -2476,7 +2428,7 @@ Unfortunately some boards predate this standard or a non-compliant.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System Console","level":"1.9.2.2","depth":3,"next":{"title":"Autopilot Debugging","level":"1.9.3","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"MAVLink Shell","level":"1.9.2.1","depth":3,"path":"debug/mavlink_shell.md","ref":"debug/mavlink_shell.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2020-02-19T00:29:26.022Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-19T00:30:33.397Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"System Console","level":"1.9.2.2","depth":3,"next":{"title":"Autopilot Debugging","level":"1.9.3","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"MAVLink Shell","level":"1.9.2.1","depth":3,"path":"debug/mavlink_shell.md","ref":"debug/mavlink_shell.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2020-02-19T05:33:45.511Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-19T05:34:49.469Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
