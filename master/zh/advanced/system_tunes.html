@@ -1436,16 +1436,48 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
             
-                <a href="../debug/system_console.html">
+                <a href="../debug/consoles.html">
             
                     
-                    系统控制台
+                    Consoles/Shells
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2250,54 +2282,54 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="system-notification-tunes"><a name="system-notification-tunes" class="plugin-anchor" href="#system-notification-tunes"><i class="fa fa-link" aria-hidden="true"></i></a>System Notification Tunes</h1>
-<p>PX4 defines a number of <a href="https://docs.px4.io/master/en/getting_started/tunes.html" target="_blank">standard tones/tunes</a> that are used to provide audio notification for important system states and problems (e.g. system startup, arming success, battery warnings, etc.)</p>
-<p>Tunes are specified using strings (in <a href="http://artscene.textfiles.com/ansimusic/information/ansimtech.txt" target="_blank">ANSI Music notation</a>) and played by code using the <a href="https://github.com/PX4/Firmware/tree/master/src/lib/tunes" target="_blank">tunes</a> library. The tunes library also contains the list of default system tunes - see <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">lib/tunes/tune_definition.desc</a>.</p>
-<p>PX4 also has a module that can be used to play (test) the default tunes or a user defined tune.</p>
-<p>This topic provides general guidance on how to create your own tunes and add to/replace the system notification tones/tunes.</p>
-<h2 id="creating-tunes"><a name="creating-tunes" class="plugin-anchor" href="#creating-tunes"><i class="fa fa-link" aria-hidden="true"></i></a>Creating Tunes</h2>
-<p>Tune strings are defined using <a href="http://artscene.textfiles.com/ansimusic/information/ansimtech.txt" target="_blank">ANSI Music notation</a>.</p>
+                                <h1 id="&#x7CFB;&#x7EDF;&#x901A;&#x77E5;&#x63D0;&#x793A;&#x97F3;"><a name="&#x7CFB;&#x7EDF;&#x901A;&#x77E5;&#x63D0;&#x793A;&#x97F3;" class="plugin-anchor" href="#&#x7CFB;&#x7EDF;&#x901A;&#x77E5;&#x63D0;&#x793A;&#x97F3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7CFB;&#x7EDF;&#x901A;&#x77E5;&#x63D0;&#x793A;&#x97F3;</h1>
+<p>PX4 &#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E9B;&#x7528;&#x4E8E;&#x4E3A;&#x7CFB;&#x7EDF;&#x72B6;&#x6001;&#x548C;&#x95EE;&#x9898;&#x63D0;&#x4F9B;&#x97F3;&#x9891;&#x901A;&#x77E5;&#x7684; <a href="https://docs.px4.io/master/en/getting_started/tunes.html" target="_blank">&#x6807;&#x51C6;&#x97F3;&#x7B26;/&#x63D0;&#x793A;&#x97F3;</a>&#xFF08;&#x6BD4;&#x5982;&#x7CFB;&#x7EDF;&#x542F;&#x52A8;&#xFF0C;&#x89E3;&#x9501;&#x6210;&#x529F;&#xFF0C;&#x7535;&#x6C60;&#x8B66;&#x544A;&#x7B49;&#xFF09;</p>
+<p>&#x63D0;&#x793A;&#x97F3;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x6765;&#x6307;&#x5B9A; (<a href="http://artscene.textfiles.com/ansimusic/information/ansimtech.txt" target="_blank">ANSI &#x97F3;&#x4E50;&#x901A;&#x77E5;</a>)&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <a href="https://github.com/PX4/Firmware/tree/master/src/lib/tunes" target="_blank">tunes</a> &#x5E93;&#x64AD;&#x653E;&#x3002; &#x4E50;&#x66F2;&#x5E93;&#x4E5F;&#x5305;&#x542B;&#x9ED8;&#x8BA4;&#x7CFB;&#x7EDF;&#x8C03;&#x8282;&#x5217;&#x8868;&#x2014;&#x2014;&#x89C1; <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">lib/tunes/tune_definition.desc</a>&#x3002;</p>
+<p>PX4&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x64AD;&#x653E;&#xFF08;&#x6D4B;&#x8BD5;&#xFF09;&#x9ED8;&#x8BA4;&#x6216;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x97F3;&#x4E50;&#x3002;</p>
+<p>&#x672C;&#x4E3B;&#x9898;&#x63D0;&#x4F9B;&#x4E86;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x60A8;&#x81EA;&#x5DF1;&#x7684;&#x58F0;&#x97F3;&#x5E76;&#x6DFB;&#x52A0;/&#x66FF;&#x6362;&#x7CFB;&#x7EDF;&#x901A;&#x77E5;&#x97F3;&#x8C03;/&#x4E50;&#x66F2;&#x7684;&#x901A;&#x7528;&#x6307;&#x5BFC;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x4E50;&#x66F2;"><a name="&#x521B;&#x5EFA;&#x4E50;&#x66F2;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x4E50;&#x66F2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x4E50;&#x66F2;</h2>
+<p>&#x63D0;&#x793A;&#x97F3;&#x5B57;&#x7B26;&#x4E32;&#x4F7F;&#x7528; <a href="http://artscene.textfiles.com/ansimusic/information/ansimtech.txt" target="_blank">ANSI &#x97F3;&#x4E50;&#x63D0;&#x793A;</a> &#x5B9A;&#x4E49;&#x3002;</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> More information about the format can be found in <a href="https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY" target="_blank">QBasic PLAY statement</a> (Wikibooks) and has been reproduced in <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">tune_definition.desc</a>.</p>
+<p> &#x5173;&#x4E8E;&#x683C;&#x5F0F;&#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x89C1; <a href="https://en.wikibooks.org/wiki/QBasic/Appendix#PLAY" target="_blank">QBasic PLAY &#x58F0;&#x660E;</a>&#xFF08;Wikibooks&#xFF09;&#xFF0C;&#x800C;&#x4E14;&#x5728;<a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">tune_definition.desc</a>&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x4E5F;&#x6709;&#x8BF4;&#x660E;&#x3002;</p>
 </blockquote>
-<p>The easiest way to create a new tune is to use a music editor. This allows you to edit the music and play it back on your computer, then export it to a format that can be played by PX4.</p>
-<p>ANSI music was popular in the days of ANSI BBS systems, and so the best editing tools are DOS utilities. On Windows, one option is to use <em>Melody Master</em> within <em>Dosbox</em>.</p>
-<p>The steps for using the software are:</p>
+<p>&#x521B;&#x5EFA;&#x65B0;&#x4E50;&#x66F2;&#x7684;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528;&#x97F3;&#x4E50;&#x7F16;&#x8F91;&#x5668;&#x3002; &#x8FD9;&#x5141;&#x8BB8;&#x60A8;&#x7F16;&#x8F91;&#x4E50;&#x66F2;&#x5E76;&#x5728;&#x60A8;&#x7684;&#x7535;&#x8111;&#x4E0A;&#x64AD;&#x653E;&#xFF0C; &#x7136;&#x540E;&#x5BFC;&#x51FA;&#x4E3A; PX4 &#x53EF;&#x4EE5;&#x64AD;&#x653E;&#x7684;&#x683C;&#x5F0F;&#x3002;</p>
+<p>ANSI &#x97F3;&#x4E50;&#x5728; ANSI BBS &#x7CFB;&#x7EDF;&#x4E2D;&#x5F88;&#x53D7;&#x6B22;&#x8FCE;&#xFF0C;&#x56E0;&#x6B64;&#x6700;&#x597D;&#x7684;&#x7F16;&#x8F91;&#x5DE5;&#x5177;&#x662F; DOS &#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x3002; &#x5728; Windows &#x4E0A;&#xFF0C;&#x4E00;&#x4E2A;&#x9009;&#x9879;&#x662F;&#x5728; <em>Dosbox</em> &#x5185;&#x4F7F;&#x7528; <em>Melody Master</em>&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x8F6F;&#x4EF6;&#x7684;&#x6B65;&#x9AA4;&#x662F;&#xFF1A;</p>
 <ol>
-<li>Download <a href="http://www.dosbox.com/" target="_blank">DosBox</a> and install the app</li>
-<li>Download <a href="ftp://archives.thebbs.org/ansi_utilities/melody21.zip" target="_blank">Melody Master</a> and unzip into a new directory</li>
-<li>Open the <em>Dosbox</em> console</li>
-<li>Mount the melody master directory in Dosbox as shown below:<pre><code>mount c C:\&lt;path_to_directory\Melody21
+<li>&#x4E0B;&#x8F7D; <a href="http://www.dosbox.com/" target="_blank">DosBox</a> &#x5E76;&#x5B89;&#x88C5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</li>
+<li>&#x4E0B;&#x8F7D; <a href="ftp://archives.thebbs.org/ansi_utilities/melody21.zip" target="_blank">Melody Master</a> &#x5E76;&#x89E3;&#x538B;&#x7F29;&#x5230;&#x65B0;&#x76EE;&#x5F55;</li>
+<li>&#x6253;&#x5F00; <em>Dosbox</em> &#x63A7;&#x5236;&#x53F0;</li>
+<li>&#x5C06; Melody &#x4E3B;&#x76EE;&#x5F55;&#x6302;&#x8F7D;&#x5230; DosBox&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;<pre><code>mount c C:\&lt;path_to_directory\Melody21
 </code></pre></li>
-<li>Start <em>Melody Master</em> with the following commands<pre><code>c:
+<li>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x542F;&#x52A8; <em>Melody Master</em><pre><code>c:
 start
 </code></pre></li>
-<li><p>You will then have the option to click through a few screens, then press <strong>1</strong> to display <em>Melody Master</em>: <img src="../../assets/tunes/tunes_melody_master_2_1.jpg" alt="Melody Master 2.1"></p>
-<p>The lower half of the screen provides helpful advice on keyboard shortcuts for using the tool (arrows for moving in stave, and numbers for selecting the note length, etc.).</p>
+<li><p>&#x60A8;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x70B9;&#x51FB;&#x7565;&#x8FC7;&#x51E0;&#x4E2A;&#x753B;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x6309; <strong>1</strong> &#x663E;&#x793A;<em>Melody Master</em>&#xFF1A; <img src="../../assets/tunes/tunes_melody_master_2_1.jpg" alt="Melody Master 2.1"></p>
+<p>&#x5C4F;&#x5E55;&#x7684;&#x4E0B;&#x534A;&#x90E8;&#x5206;&#x63D0;&#x4F9B;&#x4E86;&#x5173;&#x4E8E;&#x952E;&#x76D8;&#x5FEB;&#x6377;&#x952E;&#x7684;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#xFF08;&#x7BAD;&#x5934;&#x7528;&#x4E8E;&#x79FB;&#x52A8;&#xFF0C; &#x548C;&#x9009;&#x62E9;&#x7B14;&#x8BB0;&#x957F;&#x5EA6;&#x7684;&#x6570;&#x5B57;&#x7B49;&#xFF09;&#x3002;</p>
 </li>
-<li>When you&apos;re ready to save the music:<ul>
-<li>Press <strong>F2</strong> to give the tune a name and save it in the <em>/Music</em> sub folder of your Melody Master installation.</li>
-<li>Press <strong>F7</strong>, the scroll down the list of output formats on the right to get to ANSI. The file will be exported to the <em>root</em> of the Melody Master directory (with the same name and a file-type specific extension).</li>
+<li>&#x5F53;&#x60A8;&#x51C6;&#x5907;&#x597D;&#x65F6;&#x4FDD;&#x5B58;&#x97F3;&#x4E50;&#xFF1A;<ul>
+<li>&#x6309; <strong>F2</strong> &#x4EE5;&#x5728;&#x60A8;&#x7684; Melody &#x5B89;&#x88C5;&#x76EE;&#x5F55; <em>/Music</em> &#x5B50;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7ED9;&#x4E50;&#x66F2;&#x547D;&#x540D;&#x5E76;&#x4FDD;&#x5B58;&#x3002;</li>
+<li>&#x6309; <strong>F7</strong>, &#x5411;&#x53F3;&#x6EDA;&#x52A8;&#x65CB;&#x94AE;&#xFF0C;&#x5728;&#x8F93;&#x51FA;&#x5217;&#x8868;&#x9009;&#x62E9;&#x683C;&#x5F0F;&#xFF0C;&#x83B7;&#x53D6; ANSI&#x3002; &#x6587;&#x4EF6;&#x5C06;&#x5BFC;&#x51FA;&#x5230; Melody &#x4E3B;&#x76EE;&#x5F55;&#x7684; <em>root</em>&#xFF08;&#x5177;&#x6709;&#x76F8;&#x540C;&#x540D;&#x79F0;&#x548C;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#x7279;&#x5B9A;&#x6269;&#x5C55;&#x540D;&#xFF09;&#x3002;</li>
 </ul>
 </li>
-<li><p>Open the file. The output might look like this:</p>
+<li><p>&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x3002; &#x5185;&#x5BB9;&#x5E94;&#x8BE5;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;</p>
 <p><img src="../../assets/tunes/tune_musicmaker_ansi_output.png" alt="ANSI Output from file"></p>
 </li>
-<li><p>The string that can be played in PX4 is the bit between <code>MNT</code> and <code>P64</code>: <code>150L1O3DL16CL32&lt;B&gt;C&lt;AEL16A</code></p>
+<li><p>&#x53EF;&#x4EE5;&#x5728; PX4 &#x4E2D;&#x64AD;&#x653E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x662F;  <code>MNT</code> &#x548C; <code>P64</code>: <code>150L1O3DL16CL32&lt;B&gt;C&lt;AEL16A</code></p>
 </li>
 </ol>
-<h2 id="testing-tunes"><a name="testing-tunes" class="plugin-anchor" href="#testing-tunes"><i class="fa fa-link" aria-hidden="true"></i></a>Testing Tunes</h2>
-<p>When you&apos;re ready to try it out a new tune on PX4, use the <a href="../middleware/modules_system.html#tunecontrol">tune_control</a> library. For example, to test the tune we &quot;created&quot; above you would enter the following command on a console or shell (e.g. the <a href="../debug/system_console.html#mavlink_shell">MAVLink Shell</a>):</p>
+<h2 id="&#x6D4B;&#x8BD5;&#x4E50;&#x66F2;"><a name="&#x6D4B;&#x8BD5;&#x4E50;&#x66F2;" class="plugin-anchor" href="#&#x6D4B;&#x8BD5;&#x4E50;&#x66F2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D4B;&#x8BD5;&#x4E50;&#x66F2;</h2>
+<p>&#x5F53;&#x60A8;&#x51C6;&#x5907;&#x597D;&#x5728; PX4 &#x4E0A;&#x5C1D;&#x8BD5;&#x65B0;&#x7684;&#x4E50;&#x66F2;&#x65F6;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528; <a href="../middleware/modules_system.html#tunecontrol">tune_control</a> &#x5E93;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x8981;&#x6D4B;&#x8BD5;&#x6211;&#x4EEC;&#x5728;&#x4E0A;&#x9762;&#x201C;&#x521B;&#x5EFA;&#x7684;&#x201D;&#x4E50;&#x66F2;&#xFF0C;&#x60A8;&#x5E94;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x6216; shell&#xFF08;&#x4F8B;&#x5982;<a href="../debug/system_console.html#mavlink_shell">MAVLink Shell</a>&#xFF09;&#x4E0A;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4; &#xFF1A;</p>
 <pre><code class="lang-sh">tune_control play -m <span class="hljs-string">&quot;150L1O3DL16CL32&lt;B&gt;C&lt;AEL16A&quot;</span>
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Out of the box, the tune_control is only present on real hardware (not the simulator).</p>
+<p> &#x5F00;&#x7BB1;&#x5373;&#x7528;&#x4EA7;&#x54C1;&#x4E2D;&#xFF0C;tune_control &#x53EA;&#x5B58;&#x5728;&#x4E8E;&#x5B9E;&#x9645;&#x786C;&#x4EF6;&#x4E0A;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x6A21;&#x62DF;&#x5668;&#xFF09;&#x3002;</p>
 </blockquote>
-<h2 id="replacing-existing-tunes"><a name="replacing-existing-tunes" class="plugin-anchor" href="#replacing-existing-tunes"><i class="fa fa-link" aria-hidden="true"></i></a>Replacing Existing Tunes</h2>
-<p>Tunes are defined within <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">tune_definition.desc</a>.</p>
-<p>If you just need to replace an existing tune, then you can replace the file in your own fork, and update the tune strings defined in <code>PX4_DEFINE_TUNE</code>.</p>
-<h2 id="adding-a-new-tune"><a name="adding-a-new-tune" class="plugin-anchor" href="#adding-a-new-tune"><i class="fa fa-link" aria-hidden="true"></i></a>Adding a New Tune</h2>
-<p>TBD.</p>
+<h2 id="&#x6B63;&#x5728;&#x66FF;&#x6362;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x4E50;&#x66F2;"><a name="&#x6B63;&#x5728;&#x66FF;&#x6362;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x4E50;&#x66F2;" class="plugin-anchor" href="#&#x6B63;&#x5728;&#x66FF;&#x6362;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x4E50;&#x66F2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6B63;&#x5728;&#x66FF;&#x6362;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x4E50;&#x66F2;</h2>
+<p>&#x4E50;&#x66F2;&#x5B9A;&#x4E49;&#x5728; <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">tune_definition.desc</a>&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x66FF;&#x6362;&#x73B0;&#x6709;&#x7684;&#x4E50;&#x66F2;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x81EA;&#x5DF1;&#x7684; fork &#x4E2D;&#x66FF;&#x6362;&#x6587;&#x4EF6;&#xFF0C; &#x5E76;&#x66F4;&#x65B0; <code>PX4_DEFINE_TUNE</code> &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x4E50;&#x66F2;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<h2 id="&#x6DFB;&#x52A0;&#x65B0;&#x4E50;&#x66F2;"><a name="&#x6DFB;&#x52A0;&#x65B0;&#x4E50;&#x66F2;" class="plugin-anchor" href="#&#x6DFB;&#x52A0;&#x65B0;&#x4E50;&#x66F2;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6DFB;&#x52A0;&#x65B0;&#x4E50;&#x66F2;</h2>
+<p>&#x5F85;&#x5B9A;&#x3002;</p>
 <!-- 
 
 1. Assumption is that you need to define a new `PX4_DEFINE_TUNE` with its own number in the file.
@@ -2346,7 +2378,7 @@ start
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System Tunes","level":"1.11.8","depth":2,"next":{"title":"平台测试和 CI","level":"1.12","depth":1,"path":"test_and_ci/README.md","ref":"test_and_ci/README.md","articles":[{"title":"测试飞行","level":"1.12.1","depth":2,"path":"test_and_ci/test_flights.md","ref":"test_and_ci/test_flights.md","articles":[{"title":"测试 MC_01 - 手动模式","level":"1.12.1.1","depth":3,"path":"test_cards/mc_01_manual_modes.md","ref":"test_cards/mc_01_manual_modes.md","articles":[]},{"title":"测试 MC_02-完全自主","level":"1.12.1.2","depth":3,"path":"test_cards/mc_02_full_autonomous.md","ref":"test_cards/mc_02_full_autonomous.md","articles":[]},{"title":"测试 MC_03 - 自动手动混合","level":"1.12.1.3","depth":3,"path":"test_cards/mc_03_auto_manual_mix.md","ref":"test_cards/mc_03_auto_manual_mix.md","articles":[]},{"title":"测试 MC_04 -故障安全测试","level":"1.12.1.4","depth":3,"path":"test_cards/mc_04_failsafe_testing.md","ref":"test_cards/mc_04_failsafe_testing.md","articles":[]},{"title":"测试 MC_05-室内飞行（手动模式）","level":"1.12.1.5","depth":3,"path":"test_cards/mc_05_indoor_flight_manual_modes.md","ref":"test_cards/mc_05_indoor_flight_manual_modes.md","articles":[]}]},{"title":"单元测试","level":"1.12.2","depth":2,"path":"test_and_ci/unit_tests.md","ref":"test_and_ci/unit_tests.md","articles":[]},{"title":"持续集成","level":"1.12.3","depth":2,"path":"test_and_ci/continous_integration.md","ref":"test_and_ci/continous_integration.md","articles":[]},{"title":"Jenkins 持续集成","level":"1.12.4","depth":2,"path":"test_and_ci/jenkins_ci.md","ref":"test_and_ci/jenkins_ci.md","articles":[]},{"title":"ROS Integration Testing","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},{"title":"MAVSDK Integration Testing","level":"1.12.6","depth":2,"path":"test_and_ci/integration_testing_mavsdk.md","ref":"test_and_ci/integration_testing_mavsdk.md","articles":[]},{"title":"Docker Containers","level":"1.12.7","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},{"title":"Maintenance","level":"1.12.8","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]}]},"previous":{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"advanced/system_tunes.md","mtime":"2020-03-08T13:50:33.019Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-08T13:51:39.932Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"System Tunes","level":"1.11.8","depth":2,"next":{"title":"平台测试和 CI","level":"1.12","depth":1,"path":"test_and_ci/README.md","ref":"test_and_ci/README.md","articles":[{"title":"测试飞行","level":"1.12.1","depth":2,"path":"test_and_ci/test_flights.md","ref":"test_and_ci/test_flights.md","articles":[{"title":"测试 MC_01 - 手动模式","level":"1.12.1.1","depth":3,"path":"test_cards/mc_01_manual_modes.md","ref":"test_cards/mc_01_manual_modes.md","articles":[]},{"title":"测试 MC_02-完全自主","level":"1.12.1.2","depth":3,"path":"test_cards/mc_02_full_autonomous.md","ref":"test_cards/mc_02_full_autonomous.md","articles":[]},{"title":"测试 MC_03 - 自动手动混合","level":"1.12.1.3","depth":3,"path":"test_cards/mc_03_auto_manual_mix.md","ref":"test_cards/mc_03_auto_manual_mix.md","articles":[]},{"title":"测试 MC_04 -故障安全测试","level":"1.12.1.4","depth":3,"path":"test_cards/mc_04_failsafe_testing.md","ref":"test_cards/mc_04_failsafe_testing.md","articles":[]},{"title":"测试 MC_05-室内飞行（手动模式）","level":"1.12.1.5","depth":3,"path":"test_cards/mc_05_indoor_flight_manual_modes.md","ref":"test_cards/mc_05_indoor_flight_manual_modes.md","articles":[]}]},{"title":"单元测试","level":"1.12.2","depth":2,"path":"test_and_ci/unit_tests.md","ref":"test_and_ci/unit_tests.md","articles":[]},{"title":"持续集成","level":"1.12.3","depth":2,"path":"test_and_ci/continous_integration.md","ref":"test_and_ci/continous_integration.md","articles":[]},{"title":"Jenkins 持续集成","level":"1.12.4","depth":2,"path":"test_and_ci/jenkins_ci.md","ref":"test_and_ci/jenkins_ci.md","articles":[]},{"title":"ROS Integration Testing","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},{"title":"MAVSDK Integration Testing","level":"1.12.6","depth":2,"path":"test_and_ci/integration_testing_mavsdk.md","ref":"test_and_ci/integration_testing_mavsdk.md","articles":[]},{"title":"Docker Containers","level":"1.12.7","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},{"title":"Maintenance","level":"1.12.8","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]}]},"previous":{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"advanced/system_tunes.md","mtime":"2020-03-09T22:00:36.117Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T22:01:52.422Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

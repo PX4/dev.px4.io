@@ -1436,16 +1436,48 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
             
-                <a href="../debug/system_console.html">
+                <a href="../debug/consoles.html">
             
                     
-                    系统控制台
+                    Consoles/Shells
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2259,65 +2291,15 @@
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> For solutions to common build problems see <a href="#troubleshooting">Troubleshooting</a> below.</p>
 </blockquote>
-<h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0B;&#x8F7D; PX4 &#x6E90;&#x4EE3;&#x7801; </h2>
-<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. We recommend that you <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">fork</a> this repository (creating a copy associated with your own Github account), and then <a href="https://help.github.com/articles/cloning-a-repository/" target="_blank">clone</a> the source to your local computer.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Forking the repository allows you to better manage your custom code. Later on you will be able to use <em>git</em> to share changes with the main project.</p>
+<h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>Download the PX4 Source Code </h2>
+<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. To get the <em>very latest</em> version onto your computer, enter the following command into a terminal:</p>
+<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/PX4/Firmware.git --recursive
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This is all you need to do just to build the latest code. <a href="../contribute/git_examples.html#contributing-code-to-px4">GIT Examples &gt; Contributing code to PX4</a> provides a lot more information about using git to contribute to PX4.</p>
 </blockquote>
-<p>The steps to fork and clone the project source code are:</p>
-<ol>
-<li>&#x5728;GitHub&#x4E0A; <a href="https://github.com/" target="_blank">&#x6CE8;&#x518C;</a>&#x3002;</li>
-<li><p>&#x8F6C;&#x5230; <a href="https://github.com/PX4/Firmware" target="_blank">Firmware</a> &#x5B58;&#x50A8;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5355;&#x51FB;&#x53F3;&#x4E0A;&#x89D2;&#x9644;&#x8FD1;&#x7684; <strong>Fork</strong> &#x6309;&#x94AE;&#x3002; &#x8FD9;&#x5C06;&#x521B;&#x5EFA;&#x5E76;&#x6253;&#x5F00;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;&#x3002;</p>
-<p> <img src="../../assets/toolchain/github_fork.png" alt="Github &#x5206;&#x652F;&#x6309;&#x94AE;"></p>
-</li>
-<li><p>&#x590D;&#x5236; <em>Firmware</em> &#x5B58;&#x50A8;&#x5E93;&#x5206;&#x53C9;&#x7684;&#x5B58;&#x50A8;&#x5E93;URl&#x3002; &#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5355;&#x51FB; <strong>Clone &#x6216;&#x4E0B;&#x8F7D;</strong> &#x6309;&#x94AE;&#xFF0C;&#x7136;&#x540E;&#x590D;&#x5236;URL&#xFF1A;</p>
-<p> <img src="../../assets/toolchain/github_clone_or_download.png" alt="Github &#x514B;&#x9686;&#x6216;&#x4E0B;&#x8F7D;&#x6309;&#x94AE;"></p>
-</li>
-<li><p>Install <em>git</em> (if you haven&apos;t already done so as part of setting up the development environment):</p>
-<ul>
-<li>On macOS use the terminal command: <code>brew install git</code></li>
-<li>On Ubuntu use the terminal command: <code>sudo apt install git</code></li>
-<li>For other platforms see the <a href="https://git-scm.com/downloads" target="_blank">git documentation</a>.</li>
-</ul>
-</li>
-<li><p>Open a command prompt/terminal on your computer </p>
-<ul>
-<li>On OS X, hit &#x2318;-space and search for &apos;terminal&apos;.</li>
-<li>On Ubuntu, click the launch bar and search for &apos;terminal&apos;.</li>
-<li>On Windows, find the PX4 folder in the start menu and click on &apos;PX4 Console&apos;.</li>
-</ul>
-</li>
-<li><p>Clone the repository fork using the copied URL. This will look something like:</p>
-<pre><code> git clone https://github.com/&lt;youraccountname&gt;/Firmware.git
-</code></pre></li>
-</ol>
-<pre><code>&gt; **Tip** If you&apos;re just experimenting (and don&apos;t want to make any sort of permanent changes) you can simply clone the main Firmware repository as shown: 
-&gt; 
-&gt;     sh
-&gt;      git clone https://github.com/PX4/Firmware.git
-
-Windows users [refer to the Github help](https://help.github.com/desktop/guides/getting-started-with-github-desktop/installing-github-desktop/). You can use a *git* command line client as above or instead perform the same actions with the *Github for Windows* app.
-</code></pre><p>This will copy <em>most</em> of the <em>very latest</em> version of PX4 source code onto your computer (the rest of the code is automatically fetched from other <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> when you build PX4).</p>
-<p><span id="specific_version_source"></span></p>
-<h3 id="&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x53D1;&#x884C;&#x7248;&#x672C;"><a name="&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x53D1;&#x884C;&#x7248;&#x672C;" class="plugin-anchor" href="#&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x53D1;&#x884C;&#x7248;&#x672C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x53D1;&#x884C;&#x7248;&#x672C;</h3>
-<p>To get the source code for a <em>specific older release</em>:</p>
-<ol>
-<li><p>&#x514B;&#x9686;&#x56FA;&#x4EF6;&#x5B58;&#x50A8;&#x5E93;&#x5E76;&#x5BFC;&#x822A;&#x5230;&#x56FA;&#x4EF6;&#x76EE;&#x5F55;&#xFF1A; </p>
-<pre><code> sh
- git clone https://github.com/PX4/Firmware.git
- cd Firmware
-</code></pre></li>
-<li><p>&#x5217;&#x51FA;&#x6240;&#x6709;&#x53D1;&#x884C;&#x7248;&#x672C;&#xFF08;&#x6807;&#x7B7E;&#xFF09; </p>
-<pre><code> sh
- git tag -l
-</code></pre></li>
-<li><p>&#x8FC1;&#x51FA;&#x7279;&#x5B9A;tag&#x7684;&#x4EE3;&#x7801;&#xFF08;&#x6BD4;&#x5982; tag&#x4E3A; 1.7.4&#x7684;beta&#x7248;&#x672C;&#xFF09; </p>
-<pre><code> sh
- git checkout v1.7.4beta
-</code></pre></li>
-</ol>
 <h2 id="jmavsim_build"><a name="jmavsim_build" class="plugin-anchor" href="#jmavsim_build"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521D;&#x6B21;&#x7F16;&#x8BD1;&#xFF08;&#x4F7F;&#x7528; jMAVSim &#x6A21;&#x62DF;&#x5668;&#xFF09; </h2>
-<p>For the first build we&apos;ll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
+<p>First we&apos;ll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
 <p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
 <pre><code class="lang-sh">make px4_sitl jmavsim
 </code></pre>
@@ -2334,7 +2316,7 @@ Windows users [refer to the Github help](https://help.github.com/desktop/guides/
 <p> PX4 can be used with a number of other <a href="../simulation/">Simulators</a>, including <a href="../simulation/gazebo.html">Gazebo Simulation</a> and <a href="../simulation/airsim.html">AirSim Simulation</a>. These are also started with <em>make</em> - e.g. <code>make px4_sitl gazebo</code></p>
 </blockquote>
 <h2 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards </h2>
-<h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6784;&#x5EFA; </h3>
+<h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>Building </h3>
 <p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board.</p>
 <p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
@@ -2368,7 +2350,7 @@ make px4_fmu-v4_default
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> Generally the <code>_default</code> suffix is optional (i.e. you can also build using <code>make px4_fmu-v4</code>, <code>make bitcraze_crazyflie</code>, etc.).</p>
 </blockquote>
-<h3 id="&#x5C06;&#x56FA;&#x4EF6;&#x70E7;&#x5F55;&#x5230;&#x98DE;&#x63A7;&#x677F;"><a name="&#x5C06;&#x56FA;&#x4EF6;&#x70E7;&#x5F55;&#x5230;&#x98DE;&#x63A7;&#x677F;" class="plugin-anchor" href="#&#x5C06;&#x56FA;&#x4EF6;&#x70E7;&#x5F55;&#x5230;&#x98DE;&#x63A7;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C06;&#x56FA;&#x4EF6;&#x70E7;&#x5F55;&#x5230;&#x98DE;&#x63A7;&#x677F;</h3>
+<h3 id="uploading-firmware-flashing-the-board"><a name="uploading-firmware-flashing-the-board" class="plugin-anchor" href="#uploading-firmware-flashing-the-board"><i class="fa fa-link" aria-hidden="true"></i></a>Uploading Firmware (Flashing the board)</h3>
 <p>Append <code>upload</code> to the make commands to upload the compiled binary to the autopilot hardware via USB. For example</p>
 <pre><code class="lang-sh">make px4_fmu-v4_default upload
 </code></pre>
@@ -2382,7 +2364,7 @@ Rebooting.
 </code></pre>
 <h2 id="&#x5176;&#x4ED6;&#x98DE;&#x63A7;&#x677F;"><a name="&#x5176;&#x4ED6;&#x98DE;&#x63A7;&#x677F;" class="plugin-anchor" href="#&#x5176;&#x4ED6;&#x98DE;&#x63A7;&#x677F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x4ED6;&#x98DE;&#x63A7;&#x677F;</h2>
 <p>The following boards have more complicated build and/or deployment instructions.</p>
-<h3 id="raspberry-pi-23"><a name="raspberry-pi-23" class="plugin-anchor" href="#raspberry-pi-23"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3</h3>
+<h3 id="raspberry-pi-23-boards"><a name="raspberry-pi-23-boards" class="plugin-anchor" href="#raspberry-pi-23-boards"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi 2/3 Boards</h3>
 <p>The command below builds the target for <a href="https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2</a>.</p>
 <h4 id="&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;"><a name="&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;" class="plugin-anchor" href="#&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DE8;&#x7F16;&#x8BD1;&#x5668;&#x751F;&#x6210;</h4>
 <p>Set the IP (or hostname) of your RPi using:</p>
@@ -2680,7 +2662,7 @@ sudo ln <span class="hljs-_">-s</span> /Library/Developer/CommandLineTools/SDKs/
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-03-08T13:50:33.027Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-08T13:51:39.932Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-03-09T22:00:36.125Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T22:01:52.422Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

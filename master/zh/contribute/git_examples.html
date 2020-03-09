@@ -1436,16 +1436,48 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
             
-                <a href="../debug/system_console.html">
+                <a href="../debug/consoles.html">
             
                     
-                    系统控制台
+                    Consoles/Shells
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2256,108 +2288,128 @@
 <ul>
 <li>&#x5982;&#x679C;&#x60A8;&#x8FD8;&#x6CA1;&#x6709;&#x6CE8;&#x518C;&#xFF0C;&#x8BF7;&#x5148;<a href="https://github.com/join" target="_blank">Sign up</a> Github &#x8D26;&#x6237;</li>
 <li>&#x521B;&#x5EFA;&#x56FA;&#x4EF6;&#x5206;&#x652F; (&#x89C1; <a href="https://help.github.com/articles/fork-a-repo/#fork-an-example-repository" target="_blank">here</a>)</li>
-<li>&#x5C06;&#x5206;&#x652F;&#x514B;&#x9686;&#x5230;&#x672C;&#x5730;&#x8BA1;&#x7B97;&#x673A;  </li>
+<li><p>Clone your forked repository to your local computer  </p>
+<pre><code>  sh
+  cd ~/wherever/
+  git clone https://github.com/&lt;your git name&gt;/Firmware.git
+</code></pre></li>
+<li><p>Go into the new directory, initialize and update the submodules, and add the original upstream Firmware  </p>
+<pre><code>  sh
+  cd Firmware
+  git submodule update --init --recursive
+  git remote add upstream https://github.com/PX4/Firmware.git
+</code></pre></li>
+<li><p>You should have now two remote repositories: One repository is called upstream that points to the PX4 Firmware, and one repository that points to your forked repository of the PX4 repository.</p>
+</li>
+<li><p>This can be checked with the following command: </p>
+<pre><code>  sh
+  git remote -v
+</code></pre></li>
+<li><p>Make the changes that you want to add to the current master.</p>
+</li>
+<li><p>Create a new branch with a meaningful name that represents your feature  </p>
+<pre><code>  sh
+  git checkout -b &lt;your feature branch name&gt; you can use the command 
+</code></pre><p>  <code>git branch</code> to make sure you&apos;re on the right branch.</p>
+</li>
+<li><p>Add your changes that you want to be part of the commit by adding the respective files  </p>
+<pre><code>  sh
+  git add &lt;file name&gt; If you prefer having a GUI to add your files see 
+</code></pre><p>  <a href="https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces" target="_blank">Gitk</a> or <a href="http://nuclearsquid.com/writings/git-add/" target="_blank"><code>git add -p</code></a>.</p>
+</li>
+<li><p>Commit the added files with a meaningful message explaining your changes  </p>
+<pre><code>  sh
+  git commit -m &quot;&lt;your commit message&gt;&quot; For a good commit message, please refer to 
+</code></pre><p>  <a href="./">Contributing</a> section.</p>
+</li>
+<li>Some time might have passed and the <a href="https://github.com/PX4/Firmware.git" target="_blank">upstream master</a> has changed. PX4 prefers a linear commit history and uses <a href="https://git-scm.com/book/de/v1/Git-Branching-Rebasing" target="_blank">git rebase</a>. To include the newest changes from upstream in your local branch, switch to your master branch  <pre><code>  sh
+  git checkout master Then pull the newest commits from upstream master
+</code></pre></li>
 </ul>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/wherever/
-git <span class="hljs-built_in">clone</span> https://github.com/&lt;your git name&gt;/Firmware.git
-</code></pre>
+<pre><code>    sh
+    git pull upstream master Now your local master is up to date. Switch back to your feature branch
+
+
+    sh
+    git checkout &lt;your feature branch name&gt; and rebase on your updated master
+
+
+    sh
+    git rebase master
+</code></pre><ul>
+<li><p>Now you can push your local commits to your forked repository  </p>
+<pre><code>  sh
+  git push origin &lt;your feature branch name&gt;
+</code></pre></li>
+<li><p>You can verify that the push was successful by going to your forked repository in your browser: <code>https://github.com/&lt;your git name&gt;/Firmware.git</code><br>  There you should see the message that a new branch has been pushed to your forked repository.</p>
+</li>
+<li>Now it&apos;s time to create a pull request (PR). On the right hand side of the &quot;new branch message&quot; (see one step before), you should see a green button saying &quot;Compare &amp; Create Pull Request&quot;. Then it should list your changes and you can (must) add a meaningful title (in case of a one commit PR, it&apos;s usually the commit message) and message (<span style="color:orange">explain what you did for what reason</span>. Check <a href="https://github.com/PX4/Firmware/pulls" target="_blank">other pull requests</a> for comparison)</li>
+<li>You&apos;re done! Responsible members of PX4 will now have a look at your contribution and decide if they want to integrate it. Check if they have questions on your changes every once in a while.</li>
+</ul>
+<h2 id="get-a-specific-release"><a name="get-a-specific-release" class="plugin-anchor" href="#get-a-specific-release"><i class="fa fa-link" aria-hidden="true"></i></a>Get a Specific Release</h2>
+<p>To get the source code for a <em>specific older release</em>:</p>
 <ul>
-<li>&#x8FDB;&#x5165;&#x65B0;&#x76EE;&#x5F55;, &#x521D;&#x59CB;&#x5316;&#x548C;&#x66F4;&#x65B0;&#x5B50;&#x6A21;&#x5757;, &#x5E76;&#x6DFB;&#x52A0;&#x539F;&#x59CB;&#x4E0A;&#x6E38;&#x56FA;&#x4EF6;  </li>
+<li><p>Clone the Firmware repo and navigate into Firmware directory: </p>
+<pre><code>  sh
+  git clone https://github.com/PX4/Firmware.git
+  cd Firmware
+</code></pre></li>
+<li><p>List all releases (tags) </p>
+<pre><code>  sh
+  git tag -l
+</code></pre></li>
+<li><p>Checkout code for particular tag (e.g. for tag 1.7.4beta) </p>
+<pre><code>  sh
+  git checkout v1.7.4beta
+</code></pre></li>
 </ul>
+<h2 id="update-submodule"><a name="update-submodule" class="plugin-anchor" href="#update-submodule"><i class="fa fa-link" aria-hidden="true"></i></a>Update Submodule</h2>
+<p>There are several ways to update a submodule. Either you clone the repository or you go in the submodule directory and follow the same procedure as in <a href="#Contributing-code-to-PX4">Contributing code to PX4</a>.</p>
+<h2 id="do-a-pr-for-a-submodule-update"><a name="do-a-pr-for-a-submodule-update" class="plugin-anchor" href="#do-a-pr-for-a-submodule-update"><i class="fa fa-link" aria-hidden="true"></i></a>Do a PR for a submodule update</h2>
+<p>This is required after you have done a PR for a submodule X repository and the bug-fix / feature-add is in the current master of submodule X. Since the Firmware still points to a commit before your update, a submodule pull request is required such that the submodule used by the Firmware points to the newest commit.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-git submodule update --init --recursive
-git remote add upstream https://github.com/PX4/Firmware.git
 </code></pre>
 <ul>
-<li>&#x73B0;&#x5728;, &#x60A8;&#x5E94;&#x8BE5;&#x6709;&#x4E24;&#x4E2A;&#x8FDC;&#x7A0B;&#x5B58;&#x50A8;&#x5E93;: &#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x5E93;&#x88AB;&#x79F0;&#x4E3A;&#x4E0A;&#x6E38;&#x5B58;&#x50A8;&#x5E93;, &#x6307;&#x5411; px4 &#x56FA;&#x4EF6;, &#x53E6;&#x4E00;&#x4E2A;&#x5B58;&#x50A8;&#x5E93;&#x6307;&#x5411;&#x60A8;&#x7684; px4 &#x5B58;&#x50A8;&#x5E93;&#x5206;&#x652F;&#x5B58;&#x50A8;&#x5E93;&#x3002;</li>
-<li>&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x68C0;&#x67E5;:</li>
+<li><p>Make a new branch that describes the fix / feature for the submodule update: </p>
+<pre><code>  sh
+  git checkout -b pr-some-fix
+</code></pre></li>
+<li><p>Go to submodule subdirectory </p>
+<pre><code>  sh
+  cd &lt;path to submodule&gt;
+</code></pre></li>
+<li><p>PX4 submodule might not necessarily point to the newest commit. Therefore, first checkout master and pull the newest upstream code. </p>
+<pre><code>  sh
+  git checkout master
+  git pull upstream master
+</code></pre></li>
+<li><p>Go back to Firmware directory, and as usual add, commit and push the changes. </p>
+<pre><code>  sh
+  cd -
+  git add &lt;path to submodule&gt;
+  git commit -m &quot;Update submodule to include ...&quot;
+  git push upstream pr-some-fix
+</code></pre></li>
 </ul>
-<pre><code class="lang-sh">git remote -v
-</code></pre>
-<ul>
-<li>&#x8FDB;&#x884C;&#x8981;&#x6DFB;&#x52A0;&#x5230;&#x5F53;&#x524D; master &#x7684;&#x66F4;&#x6539;&#x3002;</li>
-<li>&#x4F7F;&#x7528;&#x4EE3;&#x8868;&#x60A8;&#x7684;&#x529F;&#x80FD;&#x7684;&#x6709;&#x610F;&#x4E49;&#x7684;&#x540D;&#x79F0;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x5206;&#x652F;  </li>
-</ul>
-<pre><code class="lang-sh">git checkout -b &lt;your feature branch name&gt;
-</code></pre>
-<p>&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4; <code>git branch</code> &#x4EE5;&#x786E;&#x4FDD;&#x4F60;&#x5728;&#x6B63;&#x786E;&#x7684;&#x5206;&#x652F;&#x4E0A; * &#x901A;&#x8FC7;&#x6DFB;&#x52A0;&#x76F8;&#x5E94;&#x7684;&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#x60A8;&#x5E0C;&#x671B;&#x6210;&#x4E3A;&#x63D0;&#x4EA4;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x66F4;&#x6539;  </p>
-<pre><code class="lang-sh">git add &lt;file name&gt;
-</code></pre>
-<p>&#x5982;&#x679C;&#x60A8;&#x5E0C;&#x671B;&#x6709;&#x4E00;&#x4E2A; GUI &#x6765;&#x6DFB;&#x52A0;&#x60A8;&#x7684;&#x6587;&#x4EF6;, &#x8BF7;&#x53C2;&#x9605; <a href="https://git-scm.com/book/en/v2/Git-in-Other-Environments-Graphical-Interfaces" target="_blank">Gitk</a> &#x6216; [</p>
-<pre><code>git add -p](http://nuclearsquid.com/writings/git-add/) * &#x63D0;&#x4EA4;&#x6DFB;&#x52A0;&#x7684;&#x6587;&#x4EF6;, &#x5E76;&#x987A;&#x4FBF;&#x8BB0;&#x5F55;&#x4E00;&#x6761;&#x6709;&#x610F;&#x4E49;&#x7684;&#x6D88;&#x606F;, &#x89E3;&#x91CA;&#x60A8;&#x7684;&#x66F4;&#x6539;
-</code></pre><pre><code class="lang-sh">git commit -m <span class="hljs-string">&quot;&lt;your commit message&gt;&quot;</span>
-</code></pre>
-<p>&#x6709;&#x5173;&#x826F;&#x597D;&#x7684;&#x63D0;&#x4EA4;&#x6D88;&#x606F;, &#x8BF7;&#x53C2;&#x9605; <a href="./">Contributing</a> &#x90E8;&#x5206;&#x3002; * &#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x8FC7;&#x53BB;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#xFF0C;<a href="https://github.com/PX4/Firmware.git" target="_blank">upstream master</a> &#x5DF2;&#x7ECF;&#x6539;&#x53D8;&#x3002; PX4 &#x66F4;&#x559C;&#x6B22;&#x7EBF;&#x6027;&#x63D0;&#x4EA4;&#x5386;&#x53F2;&#x8BB0;&#x5F55;, &#x5E76;&#x4F7F;&#x7528; <a href="https://git-scm.com/book/de/v1/Git-Branching-Rebasing" target="_blank">git rebase</a>&#x3002; &#x8981;&#x5728;&#x672C;&#x5730;&#x5206;&#x652F;&#x4E2D;&#x5305;&#x542B;&#x4E0A;&#x6E38;&#x7684;&#x6700;&#x65B0;&#x66F4;&#x6539;, &#x8BF7;&#x5207;&#x6362;&#x5230;&#x4E3B;&#x5206;&#x652F;  </p>
-<pre><code class="lang-sh">git checkout master
-</code></pre>
-<p>&#x7136;&#x540E;&#x4ECE;&#x4E0A;&#x6E38; master &#x4E2D;&#x63D0;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x63D0;&#x4EA4;  </p>
-<pre><code class="lang-sh">git pull upstream master
-</code></pre>
-<p>&#x73B0;&#x5728;&#x4F60;&#x672C;&#x5730;&#x7684; master &#x662F;&#x6700;&#x65B0;&#x7684;&#x3002; &#x5207;&#x6362;&#x56DE;&#x60A8;&#x7684;&#x529F;&#x80FD;&#x5206;&#x652F;  </p>
-<pre><code class="lang-sh">git checkout &lt;your feature branch name&gt;
-</code></pre>
-<p>&#x5E76;&#x6839;&#x636E;&#x60A8;&#x66F4;&#x65B0;&#x7684;&#x6BCD;&#x7248;&#x91CD;&#x65B0;&#x5B9A;&#x4F4D;  </p>
-<pre><code class="lang-sh">git rebase master
-</code></pre>
-<ul>
-<li>&#x73B0;&#x5728;, &#x60A8;&#x53EF;&#x4EE5;&#x5C06;&#x672C;&#x5730;&#x63D0;&#x4EA4;&#x63A8;&#x9001;&#x5230;&#x5206;&#x652F;&#x5B58;&#x50A8;&#x5E93;  </li>
-</ul>
-<pre><code class="lang-sh">git push origin &lt;your feature branch name&gt;
-</code></pre>
-<ul>
-<li>&#x60A8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8F6C;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;&#x6765;&#x9A8C;&#x8BC1;&#x63A8;&#x9001;&#x662F;&#x5426;&#x6210;&#x529F;&#xFF1A; <code>https://github.com/&lt;your git name&gt;/Firmware.git</code><br>  &#x60A8;&#x5E94;&#x8BE5;&#x4F1A;&#x770B;&#x5230;&#x4E00;&#x6761;&#x6D88;&#x606F;, &#x5373;&#x4E00;&#x4E2A;&#x65B0;&#x5206;&#x652F;&#x5DF2;&#x88AB;&#x63A8;&#x9001;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;&#x3002;</li>
-<li>&#x73B0;&#x5728;&#x662F;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x62C9;&#x53D6;&#x8BF7;&#x6C42; (PR) &#x4E86;&#x3002; &#x5728; &quot;&#x65B0;&#x5206;&#x652F;&#x6D88;&#x606F;&quot; &#x7684;&#x53F3;&#x4FA7; (&#x8BF7;&#x53C2;&#x9605;&#x524D;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;), &#x60A8;&#x5E94;&#x8BE5;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x7EFF;&#x8272;&#x6309;&#x94AE;, &#x4E0A;&#x9762;&#x5199;&#x7740; &quot;&#x6BD4;&#x8F83; &amp; amp; &#x521B;&#x5EFA;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;&quot;&#x3002; &#x7136;&#x540E;, &#x5B83;&#x5E94;&#x8BE5;&#x5217;&#x51FA;&#x4F60;&#x7684;&#x66F4;&#x6539;, &#x4F60;&#x5FC5;&#x987B;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6709;&#x610F;&#x4E49;&#x7684;&#x6807;&#x9898; (&#x5728;&#x4E00;&#x4E2A;&#x63D0;&#x4EA4; PR &#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x5B83;&#x901A;&#x5E38;&#x662F;&#x63D0;&#x4EA4;&#x6D88;&#x606F;) &#x548C;&#x6D88;&#x606F; (<span style="color:orange">&#x89E3;&#x91CA;&#x4F60;&#x505A;&#x4E86;&#x8FD9;&#x4E9B;&#x7684;&#x539F;&#x56E0; </span>&#xFF0C; &#x68C0;&#x67E5; <a href="https://github.com/PX4/Firmware/pulls" target="_blank">&#x5176;&#x4ED6;&#x62C9;&#x53D6;&#x8BF7;&#x6C42; </a> &#x8FDB;&#x884C;&#x6BD4;&#x8F83;)&#x3002;</li>
-<li>&#x641E;&#x5B9A;&#xFF01; PX4 &#x8D1F;&#x8D23;&#x6210;&#x5458;&#x73B0;&#x5728;&#x5C06;&#x770B;&#x770B;&#x4F60;&#x7684;&#x8D21;&#x732E;, &#x5E76;&#x51B3;&#x5B9A;&#x4ED6;&#x4EEC;&#x662F;&#x5426;&#x8981;&#x6574;&#x5408;&#x5B83;&#x3002; &#x6BCF;&#x8FC7;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x68C0;&#x67E5;&#x4F60;&#x7684;&#x66F4;&#x6539;&#x770B;&#x662F;&#x5426;&#x4F1A;&#x6709;&#x95EE;&#x9898;&#x3002;</li>
-</ul>
-<h2 id="&#x66F4;&#x65B0;&#x5B50;&#x6A21;&#x5757;"><a name="&#x66F4;&#x65B0;&#x5B50;&#x6A21;&#x5757;" class="plugin-anchor" href="#&#x66F4;&#x65B0;&#x5B50;&#x6A21;&#x5757;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x65B0;&#x5B50;&#x6A21;&#x5757;</h2>
-<p>&#x6709;&#x51E0;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x66F4;&#x65B0;&#x5B50;&#x6A21;&#x5757;&#x3002; &#x60A8;&#x53EF;&#x4EE5;&#x514B;&#x9686;&#x5B58;&#x50A8;&#x5E93;, &#x4E5F;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x5B50;&#x6A21;&#x5757;&#x76EE;&#x5F55;, &#x5E76;&#x6309;&#x7167; <a href="#Contributing-code-to-PX4">Contributing code to PX4</a> &#x4E2D;&#x7684;&#x6B65;&#x9AA4;&#x64CD;&#x4F5C;&#x3002;</p>
-<h2 id="&#x4E3A;&#x5B50;&#x6A21;&#x5757;&#x66F4;&#x65B0;&#x6267;&#x884C;-pr"><a name="&#x4E3A;&#x5B50;&#x6A21;&#x5757;&#x66F4;&#x65B0;&#x6267;&#x884C;-pr" class="plugin-anchor" href="#&#x4E3A;&#x5B50;&#x6A21;&#x5757;&#x66F4;&#x65B0;&#x6267;&#x884C;-pr"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3A;&#x5B50;&#x6A21;&#x5757;&#x66F4;&#x65B0;&#x6267;&#x884C; PR</h2>
-<p>&#x8FD9;&#x662F;&#x5728;&#x60A8;&#x4E3A;&#x5B50;&#x6A21;&#x5757; x &#x5B58;&#x50A8;&#x5E93;&#x505A;&#x4E86; PR &#x4E4B;&#x540E;&#x6240;&#x5FC5;&#x9700;&#x7684;, &#x5E76;&#x4E14;&#x9519;&#x8BEF;&#x4FEE;&#x590D;/&#x529F;&#x80FD;&#x6DFB;&#x52A0;&#x5728;&#x5B50;&#x6A21;&#x5757; x &#x7684;&#x5F53;&#x524D;&#x4E3B;&#x63A7;&#x4EF6;&#x4E2D;&#x3002;&#x7531;&#x4E8E;&#x56FA;&#x4EF6;&#x4ECD;&#x6307;&#x5411;&#x66F4;&#x65B0;&#x4E4B;&#x524D;&#x7684;&#x63D0;&#x4EA4;, &#x56E0;&#x6B64;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5B50;&#x6A21;&#x5757;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;, &#x4EE5;&#x4FBF;&#x56FA;&#x4EF6;&#x4F7F;&#x7528;&#x7684;&#x5B50;&#x6A21;&#x5757;&#x6307;&#x5411;&#x6700;&#x65B0;&#x63D0;&#x4EA4;&#x3002;</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
-</code></pre>
-<ul>
-<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#xFF0C;&#x63CF;&#x8FF0;&#x5B50;&#x6A21;&#x5757;&#x66F4;&#x65B0;&#x7684; bug &#x4FEE;&#x590D;/&#x529F;&#x80FD;&#xFF1A;</li>
-</ul>
-<pre><code class="lang-sh">git checkout -b pr-some-fix
-</code></pre>
-<ul>
-<li>&#x8FDB;&#x5165;&#x5B50;&#x6A21;&#x5757;&#x7684;&#x5B50;&#x76EE;&#x5F55;</li>
-</ul>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> &lt;path to submodule&gt;
-</code></pre>
-<ul>
-<li>PX4 &#x5B50;&#x6A21;&#x5757;&#x53EF;&#x80FD;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x6307;&#x5411;&#x6700;&#x65B0;&#x7684;&#x66F4;&#x65B0;&#x3002; &#x56E0;&#x6B64;&#xFF0C;&#x5148; checkout master &#x5E76;&#x4E14;&#x62C9;&#x53D6;&#x6700;&#x65B0;&#x7684;&#x4E0A;&#x6E38;&#x4EE3;&#x7801;&#x3002;</li>
-</ul>
-<pre><code class="lang-sh">git checkout master
-git pull upstream master
-</code></pre>
-<ul>
-<li>&#x56DE;&#x5230; Firmware &#x76EE;&#x5F55;&#xFF0C;&#x5982;&#x5F80;&#x5E38;&#x4E00;&#x6837;&#x6DFB;&#x52A0;&#x3001;&#x63D0;&#x4EA4;&#x548C;&#x4E0A;&#x63A8;&#x66F4;&#x6539;&#x3002;</li>
-</ul>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> -
-git add &lt;path to submodule&gt;
-git commit -m <span class="hljs-string">&quot;Update submodule to include ...&quot;</span>
-git push upstream pr-some-fix
-</code></pre>
-<h2 id="&#x67E5;&#x770B;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;"><a name="&#x67E5;&#x770B;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;" class="plugin-anchor" href="#&#x67E5;&#x770B;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;</h2>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5;&#x67D0;&#x4EBA;&#x7684;&#x62C9;&#x53D6;&#x8BF7;&#x6C42;&#xFF08;&#x66F4;&#x6539;&#x5C1A;&#x672A;&#x6574;&#x5408;&#xFF09;&#xFF0C;&#x5373;&#x4F7F;&#x8981;&#x6574;&#x5408;&#x7684;&#x5206;&#x652F;&#x53EA;&#x5B58;&#x5728;&#x4E8E;&#x4ED6;&#x7684;&#x62F7;&#x8D1D;&#x4E2D;&#x3002; Do the following:</p>
+<h2 id="checkout-pull-requests"><a name="checkout-pull-requests" class="plugin-anchor" href="#checkout-pull-requests"><i class="fa fa-link" aria-hidden="true"></i></a>Checkout pull requests</h2>
+<p>You can test someone&apos;s pull request (changes are not yet merged) even if the branch to merge only exists on the fork from that person. Do the following:</p>
 <pre><code class="lang-sh">git fetch upstream  pull/&lt;PR ID&gt;/head:&lt;branch name&gt;
 </code></pre>
 <p><code>PR ID</code> is the number right next to the PR&apos;s title (without the #) and the <code>&lt;branch name&gt;</code> can also be found right below the <code>PR ID</code>, e.g. <code>&lt;the other persons git name&gt;:&lt;branch name&gt;</code>. After that you can see the newly created branch locally with</p>
 <pre><code class="lang-sh">git branch
 </code></pre>
-<p>&#x7136;&#x540E;&#x5207;&#x6362;&#x5230;&#x90A3;&#x4E2A;&#x5206;&#x652F;</p>
+<p>Then switch to that branch</p>
 <pre><code class="lang-sh">git checkout &lt;branch name&gt;
 </code></pre>
-<h2 id="&#x5E38;&#x89C1;&#x9519;&#x8BEF;"><a name="&#x5E38;&#x89C1;&#x9519;&#x8BEF;" class="plugin-anchor" href="#&#x5E38;&#x89C1;&#x9519;&#x8BEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5E38;&#x89C1;&#x9519;&#x8BEF;</h2>
+<h2 id="common-pitfalls"><a name="common-pitfalls" class="plugin-anchor" href="#common-pitfalls"><i class="fa fa-link" aria-hidden="true"></i></a>Common pitfalls</h2>
 <h3 id="&#x5F3A;&#x5236;&#x63A8;&#x9001;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;"><a name="&#x5F3A;&#x5236;&#x63A8;&#x9001;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;" class="plugin-anchor" href="#&#x5F3A;&#x5236;&#x63A8;&#x9001;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F3A;&#x5236;&#x63A8;&#x9001;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;</h3>
-<p>&#x505A;&#x5B8C;&#x7B2C;&#x4E00;&#x4E2A; PR &#x540E;, &#x6765;&#x81EA; PX4 &#x793E;&#x533A;&#x7684;&#x4EBA;&#x5C06;&#x56DE;&#x987E;&#x4F60;&#x7684;&#x66F4;&#x6539;&#x3002; &#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;, &#x8FD9;&#x610F;&#x5473;&#x7740;&#x60A8;&#x5FC5;&#x987B;&#x6839;&#x636E;&#x8BC4;&#x5BA1;&#x6765;&#x4FEE;&#x590D;&#x672C;&#x5730;&#x5206;&#x652F;&#x3002; &#x5728;&#x672C;&#x5730;&#x66F4;&#x6539;&#x6587;&#x4EF6;&#x540E;, &#x9700;&#x8981;&#x4F7F;&#x7528;&#x6700;&#x65B0;&#x7684; uperecle1 &#x4E3B;&#x670D;&#x52A1;&#x5668;&#x91CD;&#x65B0;&#x5B9A;&#x4F4D;&#x529F;&#x80FD;&#x5206;&#x652F;&#x3002; &#x4F46;&#x662F;, &#x5728;&#x91CD;&#x65B0;&#x5EFA;&#x7ACB;&#x57FA;&#x7840;&#x540E;, &#x4E0D;&#x518D;&#x53EF;&#x80FD;&#x5C06;&#x7279;&#x5F81;&#x5206;&#x652F;&#x76F4;&#x63A5;&#x63A8;&#x9001;&#x5230;&#x5206;&#x53C9;&#x5B58;&#x50A8;&#x5E93;, &#x800C;&#x662F;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5F3A;&#x5236;&#x63A8;&#x9001;:</p>
+<p>After having done the first PR, people from the PX4 community will review your changes. In most cases this means that you have to fix your local branch according to the review. After changing the files locally, the feature branch needs to be rebased again with the most recent upstream/master. However, after the rebase, it is no longer possible to push the feature branch to your forked repository directly, but instead you need to use a force push:</p>
 <pre><code class="lang-sh">git push --force-with-lease origin &lt;your feature branch name&gt;
 </code></pre>
 <h3 id="&#x91CD;&#x65B0;&#x5EFA;&#x7ACB;&#x5408;&#x5E76;&#x51B2;&#x7A81;"><a name="&#x91CD;&#x65B0;&#x5EFA;&#x7ACB;&#x5408;&#x5E76;&#x51B2;&#x7A81;" class="plugin-anchor" href="#&#x91CD;&#x65B0;&#x5EFA;&#x7ACB;&#x5408;&#x5E76;&#x51B2;&#x7A81;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x65B0;&#x5EFA;&#x7ACB;&#x5408;&#x5E76;&#x51B2;&#x7A81;</h3>
-<p>&#x5982;&#x679C;&#x51B2;&#x7A81;&#x53D1;&#x751F;&#x5728; <code>git rebase</code>&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/" target="_blank">this guide</a>&#x3002;</p>
+<p>If a conflict occurs during a <code>git rebase</code>, please refer to <a href="https://help.github.com/articles/resolving-merge-conflicts-after-a-git-rebase/" target="_blank">this guide</a>.</p>
 <h3 id="&#x62C9;&#x53D6;&#x5408;&#x5E76;&#x51B2;&#x7A81;"><a name="&#x62C9;&#x53D6;&#x5408;&#x5E76;&#x51B2;&#x7A81;" class="plugin-anchor" href="#&#x62C9;&#x53D6;&#x5408;&#x5E76;&#x51B2;&#x7A81;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x62C9;&#x53D6;&#x5408;&#x5E76;&#x51B2;&#x7A81;</h3>
-<p>&#x5982;&#x679C;&#x51B2;&#x7A81;&#x53D1;&#x751F;&#x5728; <code>git pull</code>&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts" target="_blank">this guide</a>&#x3002;</p>
+<p>If a conflict occurs during a <code>git pull</code>, please refer to <a href="https://help.github.com/articles/resolving-a-merge-conflict-using-the-command-line/#competing-line-change-merge-conflicts" target="_blank">this guide</a>.</p>
 
                                 
                                 </section>
@@ -2401,7 +2453,7 @@ git push upstream pr-some-fix
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"GIT Examples","level":"1.13.2.1","depth":3,"next":{"title":"Documentation","level":"1.13.3","depth":2,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"previous":{"title":"Source Code Management","level":"1.13.2","depth":2,"path":"contribute/code.md","ref":"contribute/code.md","articles":[{"title":"GIT Examples","level":"1.13.2.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/git_examples.md","mtime":"2020-03-08T13:50:33.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-08T13:51:39.932Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"GIT Examples","level":"1.13.2.1","depth":3,"next":{"title":"Documentation","level":"1.13.3","depth":2,"path":"contribute/docs.md","ref":"contribute/docs.md","articles":[]},"previous":{"title":"Source Code Management","level":"1.13.2","depth":2,"path":"contribute/code.md","ref":"contribute/code.md","articles":[{"title":"GIT Examples","level":"1.13.2.1","depth":3,"path":"contribute/git_examples.md","ref":"contribute/git_examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"contribute/git_examples.md","mtime":"2020-03-09T22:00:36.117Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T22:01:52.422Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

@@ -1436,16 +1436,48 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
             
-                <a href="../debug/system_console.html">
+                <a href="../debug/consoles.html">
             
                     
-                    系统控制台
+                    Consoles/Shells
             
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink Shell
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2294,7 +2326,7 @@
 <p>&#x8BF7;&#x6CE8;&#x610F; <a href="https://github.com/ros2/ros1_bridge" target="_blank">ros1_bridge</a>&#x7684;&#x4F7F;&#x7528;, &#x5B83;&#x5728; ROS2 &#x548C; ROS &#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x6D88;&#x606F;&#x6865;&#x63A5;&#x3002; &#x56E0;&#x4E3A; ROS &#x4E00;&#x4EE3;&#x4E0D;&#x652F;&#x6301; RTPS&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x8FD9;&#x6837;&#x505A;&#x3002;</p>
 <h2 id="&#x4EE3;&#x7801;&#x751F;&#x6210;"><a name="&#x4EE3;&#x7801;&#x751F;&#x6210;" class="plugin-anchor" href="#&#x4EE3;&#x7801;&#x751F;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE3;&#x7801;&#x751F;&#x6210;</h2>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x8981;&#x751F;&#x6210;&#x6240;&#x9700;&#x4EE3;&#x7801; <a href="../setup/fast-rtps-installation.html">&#x5FC5;&#x987B;&#x5B89;&#x88C5; Fast RTPS</a>! &#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x4E3A;<a href="../setup/dev_env_mac.html">macOS</a>, <a href="../setup/dev_env_windows_cygwin.html">Windows Cygwin</a> &#x6216; <a href="../setup/dev_env_linux_ubuntu.html">Ubuntu</a>&#x5E73;&#x53F0;&#x7F16;&#x5199;&#x7684;&#x6807;&#x51C6;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;/&#x811A;&#x672C;&#xFF0C;<em>Fast RTPS</em> &#x662F; <em>&#x9ED8;&#x8BA4;</em> &#x5B89;&#x88C5;&#x7684;&#x3002;</p>
+<p> <a href="../setup/fast-rtps-installation.html">Fast RTPS 1.8.2 or later must be installed</a> in order to generate the required code! <em>Fast RTPS</em> is installed <em>by default</em> if you use the normal installers/scripts for <a href="../setup/dev_env_mac.html">macOS</a>, or <a href="../setup/dev_env_windows_cygwin.html">Windows Cygwin</a> (but not <a href="../setup/dev_env_linux_ubuntu.html">Ubuntu</a> at time of writing).</p>
 </blockquote>
 <h3 id="&#x72EC;&#x7ACB;&#x4E8E;-ros-&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;"><a name="&#x72EC;&#x7ACB;&#x4E8E;-ros-&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;" class="plugin-anchor" href="#&#x72EC;&#x7ACB;&#x4E8E;-ros-&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x72EC;&#x7ACB;&#x4E8E; ROS &#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</h3>
 <p>&#x7F16;&#x8BD1; PX4 &#x56FA;&#x4EF6;&#x65F6;, &#x5C06;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x521B;&#x5EFA;&#x3001;&#x7F16;&#x8BD1;&#x548C;&#x4F7F;&#x7528;&#x8BE5;&#x6865;&#x63A5;&#x6240;&#x9700;&#x7684;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x3002;</p>
@@ -2342,8 +2374,8 @@
 <span class="hljs-attr">    send:</span> <span class="hljs-literal">true</span>
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The <code>px4_msgs</code> build process (only) runs the CMake macro <code>rosidl_generate_interfaces()</code> to generate ROS2 message header files, while <code>px4_ros_com</code> build process generates the IDL files through the <code>rosidl_generate_dds_interfaces()</code> CMake macro. PX4&#x56FA;&#x4EF6;&#x4E2D;&#x53C8;&#x4E00;&#x4E2A;IDL&#x6587;&#x4EF6;&#x6A21;&#x677F;&#xFF0C;&#x53EA;&#x5728;PX4&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#x624D;&#x4F7F;&#x7528;&#x3002;</p>
-<p><code>px4_ros_com</code> &#x4E3A; ROS2/ROS &#x7F16;&#x8BD1;&#x751F;&#x6210;&#x7684;IDL&#x6587;&#x4EF6;&#x53EA;&#x6709; <em>&#x5C11;&#x8BB8;&#x4E0D;&#x540C;</em> (&#x4F46;&#x4E3A;PX4&#x56FA;&#x4EF6;&#x7F16;&#x8BD1;&#x7684;&#x5C31;&#x5F88;&#x4E0D;&#x4E00;&#x6837;&#x4E86;)&#x3002; <strong>uorb_rtps_message_ids.yaml</strong> &#x6587;&#x4EF6;&#x5C06;&#x6D88;&#x606F;&#x6539;&#x540D;&#x4F7F;&#x4E4B;&#x7B26;&#x5408;<em>PascalCased</em>&#x6807;&#x51C6; (&#x6539;&#x540D;&#x8FD9;&#x4E8B;&#x513F;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;-&#x4EE3;&#x7406;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E; ROS2 &#x662F;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; ROS2 &#x7684;&#x6D88;&#x606F;&#x547D;&#x540D;&#x5FC5;&#x987B;&#x7B26;&#x5408; PascalCase &#x7EA6;&#x5B9A;)&#x3002; &#x65B0;&#x7684;IDL&#x6587;&#x4EF6;&#x8FD8;&#x53CD;&#x8F6C;&#x4E86;&#x6D88;&#x606F;&#x7684;&#x53D1;&#x9001;/&#x63A5;&#x6536;&#x72B6;&#x6001; (&#x8FD9;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x662F;&#x53D1;&#x9001;&#xFF0C;&#x5728;&#x4EE3;&#x7406;&#x7AEF;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x662F;&#x63A5;&#x6536;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;)&#x3002;</p>
+<p> An API change in ROS2 Dashing means that we now use the <code>rosidl_generate_interfaces()</code> CMake module (in <code>px4_msgs</code>) to generate the IDL files that we require for microRTPS agent generation (in <code>px4_ros_com</code>). PX4&#x56FA;&#x4EF6;&#x4E2D;&#x53C8;&#x4E00;&#x4E2A;IDL&#x6587;&#x4EF6;&#x6A21;&#x677F;&#xFF0C;&#x53EA;&#x5728;PX4&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#x624D;&#x4F7F;&#x7528;&#x3002;</p>
+<p>The <code>px4_msgs</code> build generates <em>slightly different</em> IDL files for use with ROS2/ROS (than are built for PX4 firmware). <strong>uorb_rtps_message_ids.yaml</strong> &#x6587;&#x4EF6;&#x5C06;&#x6D88;&#x606F;&#x6539;&#x540D;&#x4F7F;&#x4E4B;&#x7B26;&#x5408;<em>PascalCased</em>&#x6807;&#x51C6; (&#x6539;&#x540D;&#x8FD9;&#x4E8B;&#x513F;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;-&#x4EE3;&#x7406;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E; ROS2 &#x662F;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; ROS2 &#x7684;&#x6D88;&#x606F;&#x547D;&#x540D;&#x5FC5;&#x987B;&#x7B26;&#x5408; PascalCase &#x7EA6;&#x5B9A;)&#x3002; &#x65B0;&#x7684;IDL&#x6587;&#x4EF6;&#x8FD8;&#x53CD;&#x8F6C;&#x4E86;&#x6D88;&#x606F;&#x7684;&#x53D1;&#x9001;/&#x63A5;&#x6536;&#x72B6;&#x6001; (&#x8FD9;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x662F;&#x53D1;&#x9001;&#xFF0C;&#x5728;&#x4EE3;&#x7406;&#x7AEF;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x662F;&#x63A5;&#x6536;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;)&#x3002;</p>
 </blockquote>
 <h2 id="client_firmware"><a name="client_firmware" class="plugin-anchor" href="#client_firmware"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BA2;&#x6237;&#x7AEF; (PX4&#x56FA;&#x4EF6;) </h2>
 <p>The <em>Client</em> source code is generated, compiled and built into the PX4 firmware as part of the normal build process.</p>
@@ -2354,16 +2386,16 @@
 <pre><code class="lang-sh">make px4_sitl_rtps
 </code></pre>
 <p>The <em>Client</em> application can be launched from <a href="../debug/system_console.html">NuttShell/System Console</a>. The command syntax is shown below (you can specify a variable number of arguments):</p>
-<pre><code class="lang-sh">&gt; micrortps_client start|stop [options]
-  -t &amp;lt;transport&amp;gt;          [UART|UDP] &#x7F3A;&#x7701;&#x4E3A; UART
-  <span class="hljs-_">-d</span> &amp;lt;device&amp;gt;             UART &#x8BBE;&#x5907;. &#x7F3A;&#x7701;&#x4E3A; /dev/ttyACM0
-  -u &amp;lt;update_time_ms&amp;gt;     &#x8BA2;&#x9605;&#x7684; uORB &#x6D88;&#x606F;&#x7684;&#x5237;&#x65B0;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;ms&#x3002; &#x7F3A;&#x7701;&#x4E3A; 0
-  <span class="hljs-_">-l</span> &amp;lt;loops&amp;gt;              &#x8BE5;&#x7A0B;&#x5E8F;&#x5C06;&#x5FAA;&#x73AF;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#x3002; -1 &#x8868;&#x793A;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#xFF0C; &#x7F3A;&#x7701;&#x4E3A; -1&#x3002;
-  -w &amp;lt;sleep_time_ms&amp;gt;      &#x6BCF;&#x4E2A;&#x5FAA;&#x73AF;&#x7684;&#x4F11;&#x7720;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;ms&#xFF0C; &#x7F3A;&#x7701;&#x4E3A; 1ms
-  -b &amp;lt;baudrate&amp;gt;           UART &#x8BBE;&#x5907;&#x6CE2;&#x7279;&#x7387; &#x7F3A;&#x7701;&#x4E3A; 460800
-  -p &amp;lt;poll_ms&amp;gt;            UART&#x8BBE;&#x5907;&#x8F6E;&#x8BE2;&#x65F6;&#x95F4;&#xFF0C;&#x5355;&#x4F4D;ms&#xFF0C; &#x7F3A;&#x7701;&#x4E3A; 1ms
-  -r &amp;lt;reception port&amp;gt;     UDP&#x63A5;&#x6536;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C; &#x7F3A;&#x7701;&#x4E3A; 2019
-  <span class="hljs-_">-s</span> &amp;lt;sending port&amp;gt;       UDP &#x53D1;&#x9001;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C; &#x7F3A;&#x7701;&#x4E3A; 2020
+<pre><code class="lang-sh">&gt; micrortps_client start|stop|status [options]
+  -t &lt;transport&gt;          [UART|UDP] Default UART
+  <span class="hljs-_">-d</span> &lt;device&gt;             UART device. Default /dev/ttyACM0
+  <span class="hljs-_">-l</span> &lt;loops&gt;              How many iterations will this program have. -1 <span class="hljs-keyword">for</span> infinite. Default -1.
+  -w &lt;sleep_time_ms&gt;      Time <span class="hljs-keyword">in</span> ms <span class="hljs-keyword">for</span> <span class="hljs-built_in">which</span> each iteration sleep. Default 1ms
+  -b &lt;baudrate&gt;           UART device baudrate. Default 460800
+  -p &lt;poll_ms&gt;            Time <span class="hljs-keyword">in</span> ms to poll over UART. Default 1ms
+  -r &lt;reception port&gt;     UDP port <span class="hljs-keyword">for</span> receiving. Default 2019
+  <span class="hljs-_">-s</span> &lt;sending port&gt;       UDP port <span class="hljs-keyword">for</span> sending. Default 2020
+  -i &lt;ip_address&gt;         Select IP address (remote) values: &lt;x.x.x.x&gt;. Default: 127.0.0.1
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;<em>Client</em> &#x4F5C;&#x4E3A;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;, &#x4F46;&#x60A8;&#x9700;&#x8981;&#x624B;&#x52A8;&#x542F;&#x52A8;&#x5B83;&#x3002; PX4 &#x56FA;&#x4EF6;&#x7684;&#x521D;&#x59CB;&#x5316;&#x4EE3;&#x7801;&#x5C06;&#x6765;&#x53EF;&#x80FD;&#x4F1A;&#x81EA;&#x52A8;&#x542F;&#x52A8; <em>Client</em> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6C38;&#x4E45;&#x7684;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x3002;</p>
@@ -2404,23 +2436,26 @@ make
 <p> ROS2&#x53EA;&#x9700;&#x8981;master&#x5206;&#x652F; (&#x4F46;ROS&#x4E24;&#x4E2A;&#x5206;&#x652F;&#x90FD;&#x9700;&#x8981;)&#x3002;</p>
 </blockquote>
 <h3 id="&#x5206;&#x522B;&#x5B89;&#x88C5;-ros-&#x548C;-ros2"><a name="&#x5206;&#x522B;&#x5B89;&#x88C5;-ros-&#x548C;-ros2" class="plugin-anchor" href="#&#x5206;&#x522B;&#x5B89;&#x88C5;-ros-&#x548C;-ros2"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x522B;&#x5B89;&#x88C5; ROS &#x548C; ROS2</h3>
-<p>In order to install ROS Melodic and ROS2 Crystal (officially supported) or Bouncy on a Ubuntu 18.04 machine, follow the links below, respectively:</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This install and build guide covers ROS Melodic and ROS2 Dashing (ROS2 Ardent, Bouncy or Crystal are not covered as they are EOL).</p>
+</blockquote>
+<p>In order to install ROS Melodic and ROS2 Dashing (officially supported) on a Ubuntu 18.04 machine, follow the links below, respectively:</p>
 <ol>
 <li><a href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank">&#x5B89;&#x88C5; ROS Melodic</a></li>
-<li><a href="https://index.ros.org/doc/ros2/Linux-Install-Debians/" target="_blank">Install ROS2 Crystal</a></li>
+<li><a href="https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/" target="_blank">Install ROS2 Dashing</a></li>
 <li><p>The install process should also install the <em>colcon</em> build tools, but in case that doesn&apos;t happen, you can install the tools manually:</p>
 <pre><code class="lang-sh"> sudo apt install python3-colcon-common-extensions
 </code></pre>
 </li>
-<li><p><em>setuptools</em>&#x4E5F;&#x5FC5;&#x987B;&#x88AB;&#x5B89;&#x88C5; (&#x4F7F;&#x7528; <em>pip</em> &#x6216; <em>apt</em>&#x5DE5;&#x5177;):</p>
+<li><p><em>eigen3_cmake_module</em> is also required, since Eigen3 is used on the transforms library:</p>
+<pre><code class="lang-sh"> sudo apt install ros-dashing-eigen3-cmake-module
+</code></pre>
+</li>
+<li><p><em>setuptools</em> must also be installed (using <em>pip</em> or <em>apt</em>):</p>
 <pre><code class="lang-sh"> sudo pip3 install -U setuptools
 </code></pre>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This install and build guide is not applicable to ROS2 Ardent anymore, since this has reached EOL December 2018.</p>
-</blockquote>
-<p> <span></span></p>
 <blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
-<p> &#x4E0D;&#x8981;&#x901A;&#x8FC7;deb&#x4ED3;&#x5E93;&#x5B89;&#x88C5; <code>ros1_bridge</code> &#x3002; &#x8BE5;&#x7A0B;&#x5E8F;&#x5305;&#x5FC5;&#x987B;&#x4ECE;&#x6E90;&#x7801;&#x6784;&#x5EFA;&#x3002;</p>
+<p> Do not install the <code>ros1_bridge</code> package through the deb repository. The package must be built from source.</p>
 </blockquote>
 </li>
 </ol>
@@ -2450,22 +2485,23 @@ make
 <pre><code class="lang-sh">$ <span class="hljs-built_in">source</span> build_all.bash --ros1_ws_dir &lt;path/to/px4_ros_com_ros1/ws&gt;
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The build process will open new tabs on the console, corresponding to different stages of the build process that need to have different environment configurations sourced.</p>
+<p> Using the <code>--verbose</code> argument will allow you to see the full <em>colcon</em> build output.</p>
+<p><strong>Note</strong> The build process will open new tabs on the console, corresponding to different stages of the build process that need to have different environment configurations sourced.</p>
 </blockquote>
 <p>One can also use the following individual scripts in order to build the individual parts:</p>
 <ul>
 <li><code>build_ros1_bridge.bash</code> &#x53EF;&#x4EE5;&#x6784;&#x5EFA; <code>ros1_bridge</code>;</li>
-<li><code>build_ros1_workspace.bash</code> (only the <code>ros1</code> branch of <code>px4_ros_com</code>), to build the ROS1 workspace to where the <code>px4_ros_com</code> and <code>px4_msgs</code> <code>ros1</code> branches were cloned;</li>
+<li><code>build_ros1_workspace.bash</code> (only on the <code>ros1</code> branch of <code>px4_ros_com</code>), to build the ROS1 workspace to where the <code>px4_ros_com</code> and <code>px4_msgs</code> <code>ros1</code> branches were cloned;</li>
 <li><code>build_ros2_workspace.bash</code>, to build the ROS2 workspace to where the <code>px4_ros_com</code> and <code>px4_msgs</code> <code>master</code> branches were cloned;</li>
 </ul>
 <p>The steps below show how to <em>manually</em> build the packages (provided for your information/better understanding only):</p>
 <ol>
 <li><p><code>cd</code> &#x5230; <code>px4_ros_com_ros2</code> &#x76EE;&#x5F55;&#x5E76; source &#x4E00;&#x4E0B; ROS2 &#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002; &#x4E0D;&#x7528;&#x7BA1;&#x662F;&#x5426;&#x63D0;&#x793A;&#x60A8;&#x8BE5;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x8FC7;&#xFF1A;</p>
-<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> /opt/ros/crystal/setup.bash
+<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> /opt/ros/dashing/setup.bash
 </code></pre>
 </li>
 <li><p>&#x514B;&#x9686; <code>ros1_bridge</code> &#x7A0B;&#x5E8F;&#x5305;&#x5230; ROS2 &#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;:</p>
-<pre><code class="lang-sh"> git <span class="hljs-built_in">clone</span> https://github.com/ros2/ros1_bridge.git -b crystal ~/px4_ros_com_ros2/src/ros1_bridge
+<pre><code class="lang-sh"> git <span class="hljs-built_in">clone</span> https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
 </code></pre>
 </li>
 <li><p>Build the <code>px4_ros_com</code> and <code>px4_msgs</code> packages, excluding the <code>ros1_bridge</code> package:</p>
@@ -2484,8 +2520,8 @@ make
 </code></pre>
 </li>
 <li><p>Before building the <code>ros1_bridge</code>, one needs to open a new terminal and then source the environments and workspaces following the order below:</p>
-<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> ~/px4_ros_com_ros1/install/<span class="hljs-built_in">local</span>_setup.bash
- <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/<span class="hljs-built_in">local</span>_setup.bash
+<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> ~/px4_ros_com_ros1/install/setup.bash
+ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/setup.bash
 </code></pre>
 </li>
 <li><p>&#x6700;&#x540E;&#xFF0C;&#x7F16;&#x8BD1; <code>ros1_bridge</code>&#x3002; &#x8BF7;&#x6CE8;&#x610F;, &#x6784;&#x5EFA;&#x8FC7;&#x7A0B;&#x53EF;&#x80FD;&#x4F1A;&#x5360;&#x7528;&#x5927;&#x91CF;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x3002; &#x5728;&#x5185;&#x5B58;&#x8F83;&#x5C0F;&#x7684;&#x673A;&#x5668;&#x4E0A;, &#x51CF;&#x5C11;&#x5E76;&#x884C;&#x7F16;&#x8BD1;&#x7684;&#x7EBF;&#x7A0B;&#x6570;&#x76EE; (&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF; <code>MAKEFLAGS=-j1</code>)&#x3002; &#x8981;&#x67E5;&#x770B;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x7684;&#x66F4;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x79FB;&#x6B65; <a href="https://github.com/ros2/ros1_bridge" target="_blank">ros1_bridge</a>&#x7A0B;&#x5E8F;&#x5305;&#x7684;&#x7F51;&#x9875;&#x3002;</p>
@@ -2573,7 +2609,7 @@ baro_temp_celcius: 43.93
 <p>With the <code>px4_ros_com</code> built successfully, one can now take advantage of the generated <em>micro-RTPS</em> agent app and also from the generated sources and headers of the ROS2 msgs from <code>px4_msgs</code>, which represent a one-to-one matching with the uORB counterparts.</p>
 <p>&#x8981;&#x5728; ROS2 &#x4E0A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;, &#x8BA9;&#x6211;&#x4EEC;&#x4EE5; <code>sensor_combined_listener.cpp</code> node under <code>px4_ros_com/src/listeners</code> &#x4F5C;&#x4E3A;&#x4E3E;&#x4F8B;&#xFF1A;</p>
 <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_ros_com/msg/sensor_combined.hpp&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_msgs/msg/sensor_combined.hpp&gt;</span></span>
 </code></pre>
 <p>&#x4E0A;&#x9762;&#x4E24;&#x884C;&#x4EE3;&#x7801;&#x5C06;&#x4E0E;ROS2&#x4E2D;&#x95F4;&#x4EF6;&#x4EA4;&#x4E92;&#x7684; C++ &#x5E93;&#x5305;&#x542B;&#x8FDB;&#x6765;&#x3002; &#x540C;&#x65F6;&#x8FD8;&#x5305;&#x542B;&#x4E86;&#x6211;&#x4EEC;&#x8981;&#x7528;&#x5230;&#x7684;&#x6D88;&#x606F;&#x5934;&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-c++"><span class="hljs-comment">/**
@@ -2585,29 +2621,28 @@ baro_temp_celcius: 43.93
 <p>&#x4E0A;&#x9762;&#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5B50;&#x7C7B; <code>SensorCombinedListener</code>&#xFF0C; &#x7EE7;&#x627F;&#x81EA; <code>rclcpp::Node</code> &#x57FA;&#x7C7B;&#x3002;</p>
 <pre><code class="lang-c++">public:
     explicit SensorCombinedListener() : Node(&quot;sensor_combined_listener&quot;) {
-        auto callback =
-        [this](const px4_ros_com::msg::SensorCombined::SharedPtr msg)-&gt;void
-        {
+        subscription_ = this-&gt;create_subscription&lt;px4_msgs::msg::SensorCombined&gt;(
+            &quot;SensorCombined_PubSubTopic&quot;, 10,
+            [this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
             std::cout &lt;&lt; &quot;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n&quot;;
-            std::cout &lt;&lt; &quot;RECEIVED DATA ON SENSOR COMBINED&quot; &lt;&lt; std::endl;
-            std::cout &lt;&lt; &quot;================================&quot; &lt;&lt; std::endl;
-            std::cout &lt;&lt; &quot;gyro_rad[0]: &quot; &lt;&lt; msg-&gt;gyro_rad[0] &lt;&lt; std::endl;
-            std::cout &lt;&lt; &quot;gyro_rad[1]: &quot; &lt;&lt; msg-&gt;gyro_rad[1] &lt;&lt; std::endl;
-            std::cout &lt;&lt; &quot;gyro_rad[2]: &quot; &lt;&lt; msg-&gt;gyro_rad[2] &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;RECEIVED SENSOR COMBINED DATA&quot;   &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;=============================&quot;   &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;ts: &quot;          &lt;&lt; msg-&gt;timestamp    &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_rad[0]: &quot; &lt;&lt; msg-&gt;gyro_rad[0]  &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_rad[1]: &quot; &lt;&lt; msg-&gt;gyro_rad[1]  &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_rad[2]: &quot; &lt;&lt; msg-&gt;gyro_rad[2]  &lt;&lt; std::endl;
             std::cout &lt;&lt; &quot;gyro_integral_dt: &quot; &lt;&lt; msg-&gt;gyro_integral_dt &lt;&lt; std::endl;
             std::cout &lt;&lt; &quot;accelerometer_timestamp_relative: &quot; &lt;&lt; msg-&gt;accelerometer_timestamp_relative &lt;&lt; std::endl;
             std::cout &lt;&lt; &quot;accelerometer_m_s2[0]: &quot; &lt;&lt; msg-&gt;accelerometer_m_s2[0] &lt;&lt; std::endl;
             std::cout &lt;&lt; &quot;accelerometer_m_s2[1]: &quot; &lt;&lt; msg-&gt;accelerometer_m_s2[1] &lt;&lt; std::endl;
             std::cout &lt;&lt; &quot;accelerometer_m_s2[2]: &quot; &lt;&lt; msg-&gt;accelerometer_m_s2[2] &lt;&lt; std::endl;
             std::cout &lt;&lt; &quot;accelerometer_integral_dt: &quot; &lt;&lt; msg-&gt;accelerometer_integral_dt &lt;&lt; std::endl;
-        };
-</code></pre>
-<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x6536;&#x5230; <code>sensor_combined</code> &#x6D88;&#x606F;&#x65F6;&#x88AB;&#x8C03;&#x7528;&#x3002; &#x4E00;&#x65E6;&#x6536;&#x5230;&#x6D88;&#x606F;&#x5C31;&#x6253;&#x5370;&#x51FA;&#x6BCF;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;</p>
-<pre><code class="lang-c++">        subscription_ = <span class="hljs-keyword">this</span>-&gt;create_subscription&lt;px4_ros_com::msg::SensorCombined&gt;(<span class="hljs-string">&quot;SensorCombined_topic&quot;</span>, callback);
+        });
     }
-
-<span class="hljs-keyword">private</span>:
-    rclcpp::Subscription&lt;px4_ros_com::msg::SensorCombined&gt;::SharedPtr subscription_;
+</code></pre>
+<p>This creates a callback function for when the <code>sensor_combined</code> uORB messages are received (now as DDS messages). &#x4E00;&#x65E6;&#x6536;&#x5230;&#x6D88;&#x606F;&#x5C31;&#x6253;&#x5370;&#x51FA;&#x6BCF;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">private</span>:
+    rclcpp::Subscription&lt;px4_msgs::msg::SensorCombined&gt;::SharedPtr subscription_;
 };
 </code></pre>
 <p>&#x4E0A;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86; <code>sensor_combined_topic</code> &#x4E3B;&#x9898;&#x7684;&#x8BA2;&#x9605;&#xFF0C;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x5230;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x8BE5;&#x6D88;&#x606F;&#x7684; ROS &#x5E7F;&#x64AD;&#x8005;&#x4E0A;&#x3002;</p>
@@ -2628,7 +2663,7 @@ baro_temp_celcius: 43.93
 <p>&#x4EE5; <code>px4_ros_com/src/listeners</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>debug_vect_advertiser.cpp</code> &#x4E3A;&#x4F8B;&#xFF1A;</p>
 <pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_ros_com/msg/debug_vect.hpp&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_msgs/msg/debug_vect.hpp&gt;</span></span>
 
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>::chrono_literals;
 </code></pre>
@@ -2639,16 +2674,18 @@ baro_temp_celcius: 43.93
 <p>&#x4E0A;&#x9762;&#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A; <code>DebugVectAdvertiser</code> &#x7C7B;&#xFF0C;&#x7EE7;&#x627F;&#x81EA; <code>rclcpp::Node</code> &#x57FA;&#x7C7B;&#x3002;</p>
 <pre><code class="lang-c++"><span class="hljs-keyword">public</span>:
     DebugVectAdvertiser() : Node(<span class="hljs-string">&quot;debug_vect_advertiser&quot;</span>) {
-        publisher_ = <span class="hljs-keyword">this</span>-&gt;create_publisher&lt;px4_ros_com::msg::DebugVect&gt;(<span class="hljs-string">&quot;DebugVect_topic&quot;</span>);
+        publisher_ = <span class="hljs-keyword">this</span>-&gt;create_publisher&lt;px4_msgs::msg::DebugVect&gt;(<span class="hljs-string">&quot;DebugVect_PubSubTopic&quot;</span>, <span class="hljs-number">10</span>);
         <span class="hljs-keyword">auto</span> timer_callback =
         [<span class="hljs-keyword">this</span>]()-&gt;<span class="hljs-keyword">void</span> {
-            <span class="hljs-keyword">auto</span> debug_vect = px4_ros_com::msg::DebugVect();
+            <span class="hljs-keyword">auto</span> debug_vect = px4_msgs::msg::DebugVect();
             debug_vect.timestamp = <span class="hljs-keyword">this</span>-&gt;now().nanoseconds() * <span class="hljs-number">1E-3</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name = <span class="hljs-string">&quot;test&quot;</span>;
+            <span class="hljs-built_in">std</span>::copy(name.begin(), name.end(), debug_vect.name.begin());
             debug_vect.x = <span class="hljs-number">1.0</span>;
             debug_vect.y = <span class="hljs-number">2.0</span>;
             debug_vect.z = <span class="hljs-number">3.0</span>;
-            RCLCPP_INFO(<span class="hljs-keyword">this</span>-&gt;get_logger(), <span class="hljs-string">&quot;Publishing debug_vect: time: %f x:%f y:%f z:%f&quot;</span>,
-                                debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z)
+            RCLCPP_INFO(<span class="hljs-keyword">this</span>-&gt;get_logger(), <span class="hljs-string">&quot;\033[97m Publishing debug_vect: time: %f x:%f y:%f z:%f \033[0m&quot;</span>,
+                                debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z);
             <span class="hljs-keyword">this</span>-&gt;publisher_-&gt;publish(debug_vect);
         };
         timer_ = <span class="hljs-keyword">this</span>-&gt;create_wall_timer(<span class="hljs-number">500</span>ms, timer_callback);
@@ -2656,7 +2693,7 @@ baro_temp_celcius: 43.93
 
 <span class="hljs-keyword">private</span>:
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher&lt;px4_ros_com::msg::DebugVect&gt;::SharedPtr publisher_;
+    rclcpp::Publisher&lt;px4_msgs::msg::DebugVect&gt;::SharedPtr publisher_;
 };
 </code></pre>
 <p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002; &#x53D1;&#x9001;&#x6D88;&#x606F;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7531;&#x5B9A;&#x65F6;&#x5668;&#x89E6;&#x53D1;&#x7684;&#xFF0C;&#x6BCF;&#x79D2;&#x949F;&#x53D1;&#x9001;&#x4E24;&#x6B21;&#x6D88;&#x606F;&#x3002;</p>
@@ -2672,7 +2709,7 @@ baro_temp_celcius: 43.93
 }
 </code></pre>
 <p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x5728; <code>main</code> &#x51FD;&#x6570;&#x4E2D;&#x5C06; <code>DebugVectAdvertiser</code> &#x7C7B;&#x5B9E;&#x4F8B;&#x5316;&#x6210;&#x4E00;&#x4E2A;ROS&#x8282;&#x70B9;&#x3002;</p>
-<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ros&#x76D1;&#x542C;&#x5668;"><a name="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ros&#x76D1;&#x542C;&#x5668;" class="plugin-anchor" href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ros&#x76D1;&#x542C;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ROS&#x76D1;&#x542C;&#x5668;</h2>
+<h2 id="creating-a-ros1-listener"><a name="creating-a-ros1-listener" class="plugin-anchor" href="#creating-a-ros1-listener"><i class="fa fa-link" aria-hidden="true"></i></a>Creating a ROS(1) listener</h2>
 <p>&#x521B;&#x5EFA;ROS&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x8BE6;&#x7EC6;&#x7684;&#x6587;&#x6863;&#x4F9B;&#x53C2;&#x8003;&#xFF0C;&#x4E0D;&#x5728;&#x8D58;&#x8FF0;&#x3002; &#x5728; <code>ros1</code> &#x5206;&#x652F;&#x7684;&#x4EE3;&#x7801;&#x7684; <code>px4_ros_com/src/listeners</code> &#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5173;&#x4E8E; <code>sensor_combined</code> &#x6D88;&#x606F;&#x7684;ROS &#x76D1;&#x542C;&#x5668;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
 <h2 id="&#x4E0E;ros&#x65E0;&#x5173;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x793A;&#x4F8B;&#x6D4B;&#x8BD5;"><a name="&#x4E0E;ros&#x65E0;&#x5173;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x793A;&#x4F8B;&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x4E0E;ros&#x65E0;&#x5173;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x793A;&#x4F8B;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0E;ROS&#x65E0;&#x5173;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x793A;&#x4F8B;/&#x6D4B;&#x8BD5;</h2>
 <p>&#x4E0B;&#x9762;&#x662F;PX4-FastRTPS&#x6865;&#x63A5;&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x7684;&#x66F4;&#x591A;&#x793A;&#x4F8B;&#x3002;</p>
@@ -2687,19 +2724,19 @@ baro_temp_celcius: 43.93
 </code></pre>
 </li>
 <li><p>&#x5728;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x91CC;&#xFF0C;source &#x4E00;&#x4E0B; ROS2 &#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8; <code>ros1_bridge</code> (&#x8FD9;&#x6837; ROS2 &#x548C; ROS &#x8282;&#x70B9;&#x5C31;&#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x901A;&#x4FE1;&#x4E86;)&#x3002; &#x8FD8;&#x8981;&#x5C06; <code>ROS_MASTER_URI</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>roscore</code> &#x6B63;&#x5728;/&#x5373;&#x5C06;&#x8FD0;&#x884C;&#x7684;IP&#x3002;</p>
-<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> /opt/ros/crystal/setup.bash
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> /opt/ros/dashing/setup.bash
  $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/<span class="hljs-built_in">local</span>_setup.bash
  $ <span class="hljs-built_in">export</span> ROS_MASTER_URI=http://localhost:11311
  $ ros2 run ros1_bridge dynamic_bridge
 </code></pre>
 </li>
 <li><p>&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x91CC;&#xFF0C;source &#x4E00;&#x4E0B; ROS &#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8; <code>sensor_combined</code> &#x76D1;&#x542C;&#x5668;&#x8282;&#x70B9;&#x3002; &#x4F7F;&#x7528; <code>roslaunch</code> &#x542F;&#x52A8;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x4F1A;&#x81EA;&#x52A8;&#x542F;&#x52A8; <code>roscore</code> &#xFF1A;</p>
-<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros1/install/<span class="hljs-built_in">local</span>_setup.bash
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros1/install/setup.bash
  $ roslaunch px4_ros_com sensor_combined_listener.launch
 </code></pre>
 </li>
 <li><p>&#x5728;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x91CC;&#xFF0C;source &#x4E00;&#x4E0B; ROS2 &#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8; <code>micrortps_agent</code> &#x5B88;&#x62A4;&#x7A0B;&#x5E8F;&#x5E76;&#x4F7F;&#x7528;UDP&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF1A;</p>
-<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/<span class="hljs-built_in">local</span>_setup.bash
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/setup.bash
  $ micrortps_agent -t UDP
 </code></pre>
 </li>
@@ -2738,7 +2775,7 @@ baro_temp_celcius: 43.93
 </li>
 <li><p>&#x5728;&#x4E00;&#x4E2A;&#x7EC8;&#x7AEF;&#x91CC;&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6765;&#x6D4B;&#x8BD5; <code>sensor_combined</code> ROS2 &#x76D1;&#x542C;&#x5668;&#xFF1A;</p>
 <pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/<span class="hljs-built_in">local</span>_setup.bash
- $ sensor_combined_listener <span class="hljs-comment"># or ros2 run px4_ros_com sensor_combined_listener</span>
+ $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
 </code></pre>
 </li>
 </ol>
@@ -2833,7 +2870,7 @@ baro_temp_celcius: 43.93
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 Interface","level":"1.6.3","depth":2,"next":{"title":"Throughput Test","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink Messaging","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2020-03-08T13:50:33.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-08T13:51:39.932Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 Interface","level":"1.6.3","depth":2,"next":{"title":"Throughput Test","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink Messaging","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2020-03-09T22:00:36.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T22:01:52.422Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
