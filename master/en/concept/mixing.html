@@ -81,7 +81,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="pwm_limit.html" />
+    <link rel="next" href="custom_mixer_payload.html" />
     
     
     <link rel="prev" href="flight_tasks.html" />
@@ -537,6 +537,25 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="custom_mixer_payload.html">
+            
+                <a href="custom_mixer_payload.html">
+            
+                    
+                    Custom Payload Mixer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2296,6 +2315,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="mixing-and-actuators"><a name="mixing-and-actuators" class="plugin-anchor" href="#mixing-and-actuators"><i class="fa fa-link" aria-hidden="true"></i></a>Mixing and Actuators</h1>
+<!-- there is a useful doc here that we should still mine to further improve this topic: https://docs.google.com/document/d/1xCEQh48uDWyo7TjqedW6gYxBxMtNyuYZ2Xkt2MBb2-w -->
 <p>The PX4 architecture ensures that the airframe layout does not require special case handling in the core controllers.</p>
 <p>Mixing means to take force commands (e.g. <code>turn right</code>) and translate them to actuator commands which control motors or servos.
 For a plane with one servo per aileron this means to command one of them high and the other low.
@@ -2361,18 +2381,18 @@ For a multicopter things are a bit different: control 0 (roll) is connected to a
 <li>1: RC pitch</li>
 <li>2: RC yaw</li>
 <li>3: RC throttle</li>
-<li>4: RC mode switch</li>
-<li>5: RC aux1</li>
-<li>6: RC aux2</li>
-<li>7: RC aux3</li>
+<li>4: RC mode switch (Passthrough of RC channel mapped by <a href="../advanced/parameter_reference.html#RC_MAP_FLAPS">RC_MAP_FLAPS</a>)</li>
+<li>5: RC aux1 (Passthrough of RC channel mapped by <a href="../advanced/parameter_reference.html#RC_MAP_AUX1">RC_MAP_AUX1</a>)</li>
+<li>6: RC aux2 (Passthrough of RC channel mapped by <a href="../advanced/parameter_reference.html#RC_MAP_AUX2">RC_MAP_AUX2</a>)</li>
+<li>7: RC aux3 (Passthrough of RC channel mapped by <a href="../advanced/parameter_reference.html#RC_MAP_AUX3">RC_MAP_AUX3</a>)</li>
 </ul>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> This group is only used to define mapping of RC inputs to specific outputs during <em>normal operation</em> (see <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/quad_x.main.mix#L7" target="_blank">quad_x.main.mix</a> for an example of AUX2 being scaled in a mixer).
   In the event of manual IO failsafe override (if the PX4FMU stops communicating with the PX4IO board) only the mapping/mixing defined by control group 0 inputs for roll, pitch, yaw and throttle are used (other mappings are ignored).</p>
 </blockquote>
-<h3 id="control-group-6-first-payload"><a name="control-group-6-first-payload" class="plugin-anchor" href="#control-group-6-first-payload"><i class="fa fa-link" aria-hidden="true"></i></a>Control Group #6 (First Payload)</h3>
+<h3 id="control_group_6"><a name="control_group_6" class="plugin-anchor" href="#control_group_6"><i class="fa fa-link" aria-hidden="true"></i></a>Control Group #6 (First Payload) </h3>
 <ul>
-<li>0: function 0 (default: parachute)</li>
+<li>0: function 0</li>
 <li>1: function 1</li>
 <li>2: function 2</li>
 <li>3: function 3</li>
@@ -2434,9 +2454,30 @@ graph TD;
 These can be used as a basis for customisation, or for general testing purposes.</p>
 <h3 id="mixer_file_names"><a name="mixer_file_names" class="plugin-anchor" href="#mixer_file_names"><i class="fa fa-link" aria-hidden="true"></i></a>Mixer File Names </h3>
 <p>A mixer file must be named <strong>XXXX.<em>main</em>.mix</strong> if it is responsible for the mixing of MAIN outputs or <strong>XXXX.<em>aux</em>.mix</strong> if it mixes AUX outputs.</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> <code>XXXX</code> in the mixer file name is set in the airframe definition (e.g. see <code>set MIXER quad_w</code> in <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/10015_tbs_discovery" target="_blank">airframes/10015_tbs_discovery</a>)</p>
+<h3 id="loading_mixer"><a name="loading_mixer" class="plugin-anchor" href="#loading_mixer"><i class="fa fa-link" aria-hidden="true"></i></a>Mixer Loading </h3>
+<p>The default set of mixer files (in Firmware) are defined in <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/" target="_blank">px4fmu_common/init.d/airframes/</a>.
+These can be overridden by mixer files with the same name in the SD card directory <strong>/etc/mixers/</strong> (SD card mixer files are loaded by preference).</p>
+<p>PX4 loads mixer files named <strong>XXXX.<em>main</em>.mix</strong> onto the MAIN outputs and <strong>YYYY.<em>aux</em>.mix</strong> onto the AUX outputs, where the prefixes depend on the airframe and airframe configuration.
+Commonly the MAIN and AUX outputs correspond to MAIN and AUX PWM outputs, but these may be loaded into a UAVCAN (or other) bus when that is enabled.</p>
+<p>The MAIN mixer filename (prefix <code>XXXX</code>) is set in the airframe configuration using <code>set MIXER XXXX</code> (e.g. <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/10015_tbs_discovery" target="_blank">airframes/10015_tbs_discovery</a> calls <code>set MIXER quad_w</code> to load the main mixer file <strong>quad<em>w._main</em>.mix</strong>).</p>
+<p>The AUX mixer filename (prefix <code>YYYY</code> above) depends on airframe settings and/or defaults:</p>
+<ul>
+<li><code>MIXER_AUX</code> can be used to <em>explicitly</em> set which AUX file is loaded (e.g. in the aiframe configuration, <code>set MIXER_AUX vtol_AAERT</code> will load <code>vtol_AAERT.aux.mix</code>).</li>
+<li>Multicopter and Fixed-Wing airframes load <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix" target="_blank">pass.aux.mix</a> by default (i.e if not set using <code>MIXER_AUX</code>).<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <code>pass.aux.mix</code> is the <em>RC passthrough mixer</em>, which passes the values of 4 user-defined RC channels (set using the <a href="../advanced/parameter_reference.html#RC_MAP_AUX1">RC_MAP_AUXx/RC_MAP_FLAPS</a> parameters) to the first four outputs on the AUX output.</p>
 </blockquote>
+</li>
+<li>VTOL frames load the AUX file specified using <code>MIXER_AUX</code> if set, or the value specified by <code>MIXER</code> if not.</li>
+<li>Frames with gimbal control enabled (and output mode set to AUX) will <em>override</em> the airframe-specific MIXER_AUX setting and load <code>mount.aux.mix</code> on the AUX outputs.</li>
+</ul>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Mixer file loading is implemented in <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rc.interface" target="_blank">ROMFS/px4fmu_common/init.d/rc.interface</a>.</p>
+</blockquote>
+<h3 id="loading_custom_mixer"><a name="loading_custom_mixer" class="plugin-anchor" href="#loading_custom_mixer"><i class="fa fa-link" aria-hidden="true"></i></a>Loading a Custom Mixer </h3>
+<p>PX4 loads appropriately named mixer files from the SD card directory <strong>/etc/mixers/</strong>, by preference, and then the version in Firmware.</p>
+<p>To load a custom mixer, you should give it the same name as a &quot;normal&quot; mixer file (that is going to be loaded by your airframe) and put it in the <strong>etc/mixers</strong> directory on your flight controller&apos;s SD card.</p>
+<p>Most commonly you will override/replace the <strong>AUX</strong> mixer file for your current airframe (which may be the RC passthrough mixer - <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix" target="_blank">pass.aux.mix</a>).
+See above for more information on <a href="#loading_mixer">mixer loading</a>.</p>
 <h3 id="mixer_syntax"><a name="mixer_syntax" class="plugin-anchor" href="#mixer_syntax"><i class="fa fa-link" aria-hidden="true"></i></a>Syntax </h3>
 <p>Mixer definitions are text files; lines beginning with a single capital letter followed by a colon are significant.
 All other lines are ignored, meaning that explanatory text can be freely mixed with the definitions.</p>
@@ -2571,7 +2612,7 @@ The servos are limited at -8000 and 8000 because they are mechanically constrain
                 </a>
                 
                 
-                <a href="pwm_limit.html" class="navigation navigation-next " aria-label="Next page: PWM limit state machine">
+                <a href="custom_mixer_payload.html" class="navigation navigation-next " aria-label="Next page: Custom Payload Mixer">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2582,7 +2623,7 @@ The servos are limited at -8000 and 8000 because they are mechanically constrain
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"next":{"title":"PWM limit state machine","level":"1.3.6","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"previous":{"title":"Flight Tasks","level":"1.3.4","depth":2,"path":"concept/flight_tasks.md","ref":"concept/flight_tasks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/mixing.md","mtime":"2020-03-17T23:57:34.413Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-17T23:59:24.739Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"next":{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]},"previous":{"title":"Flight Tasks","level":"1.3.4","depth":2,"path":"concept/flight_tasks.md","ref":"concept/flight_tasks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/mixing.md","mtime":"2020-03-18T00:19:05.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T00:20:55.398Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

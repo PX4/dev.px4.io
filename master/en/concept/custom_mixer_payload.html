@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="zh" >
+<html lang="en" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Simulation Debugging · PX4 Developer Guide</title>
+        <title>Custom Payload Mixer · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -81,10 +81,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="debug_values.html" />
+    <link rel="next" href="pwm_limit.html" />
     
     
-    <link rel="prev" href="sensor_uorb_topic_debugging.html" />
+    <link rel="prev" href="mixing.html" />
     
 
     </head>
@@ -127,7 +127,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="輸入並搜尋" />
+    <input type="text" placeholder="Type to search" />
 </div>
 
             
@@ -150,7 +150,7 @@
                 <a href="../">
             
                     
-                    简介
+                    Introduction
             
                 </a>
             
@@ -163,7 +163,7 @@
                 <a href="../setup/getting_started.html">
             
                     
-                    由此开始
+                    Getting Started
             
                 </a>
             
@@ -177,7 +177,7 @@
                 <a href="../setup/config_initial.html">
             
                     
-                    初始设置
+                    Initial Setup
             
                 </a>
             
@@ -190,7 +190,7 @@
                 <a href="../setup/dev_env.html">
             
                     
-                    工具链安装
+                    Toolchain Installation
             
                 </a>
             
@@ -270,7 +270,7 @@
                 <a href="../setup/dev_env_advanced_linux.html">
             
                     
-                    高级 Linux
+                    Advanced Linux
             
                 </a>
             
@@ -302,7 +302,7 @@
                 <a href="../setup/dev_env_windows_cygwin.html">
             
                     
-                    Cygwin 工具链
+                    Cygwin Toolchain
             
                 </a>
             
@@ -315,7 +315,7 @@
                 <a href="../setup/dev_env_windows_vm.html">
             
                     
-                    Virtual Machine 工具链
+                    Virtual Machine Toolchain
             
                 </a>
             
@@ -328,7 +328,7 @@
                 <a href="../setup/dev_env_windows_bash_on_win.html">
             
                     
-                    Bash on Windows 工具链
+                    Bash on Windows Toolchain
             
                 </a>
             
@@ -341,7 +341,7 @@
                 <a href="../setup/dev_env_windows_msys.html">
             
                     
-                    Msys 工具链
+                    Msys Toolchain
             
                 </a>
             
@@ -403,7 +403,7 @@
                 <a href="../setup/building_px4.html">
             
                     
-                    构建代码
+                    Building the Code
             
                 </a>
             
@@ -416,7 +416,7 @@
                 <a href="../apps/hello_sky.html">
             
                     
-                    编写您的第一个应用程序
+                    Writing your First Application
             
                 </a>
             
@@ -429,7 +429,7 @@
                 <a href="../apps/module_template.html">
             
                     
-                    应用/模块模板
+                    Application/Module Template
             
                 </a>
             
@@ -442,12 +442,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../concept/">
+        <li class="chapter " data-level="1.3" data-path="./">
             
-                <a href="../concept/">
+                <a href="./">
             
                     
-                    概念
+                    Concepts
             
                 </a>
             
@@ -456,12 +456,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+        <li class="chapter " data-level="1.3.1" data-path="architecture.html">
             
-                <a href="../concept/architecture.html">
+                <a href="architecture.html">
             
                     
-                    PX4 系统架构概述
+                    PX4 Architectural Overview
             
                 </a>
             
@@ -475,7 +475,7 @@
                 <a href="../flight_stack/controller_diagrams.html">
             
                     
-                    控制器图解
+                    Controller Diagrams
             
                 </a>
             
@@ -488,12 +488,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+        <li class="chapter " data-level="1.3.2" data-path="dronecode_architecture.html">
             
-                <a href="../concept/dronecode_architecture.html">
+                <a href="dronecode_architecture.html">
             
                     
-                    Dronecode 平台概述
+                    Dronecode Platform Overview
             
                 </a>
             
@@ -501,12 +501,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+        <li class="chapter " data-level="1.3.3" data-path="flight_modes.html">
             
-                <a href="../concept/flight_modes.html">
+                <a href="flight_modes.html">
             
                     
-                    飞行模式
+                    Flight Modes
             
                 </a>
             
@@ -514,9 +514,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+        <li class="chapter " data-level="1.3.4" data-path="flight_tasks.html">
             
-                <a href="../concept/flight_tasks.html">
+                <a href="flight_tasks.html">
             
                     
                     Flight Tasks
@@ -527,9 +527,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+        <li class="chapter " data-level="1.3.5" data-path="mixing.html">
             
-                <a href="../concept/mixing.html">
+                <a href="mixing.html">
             
                     
                     Mixing and Actuators
@@ -538,11 +538,30 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.5.1" data-path="custom_mixer_payload.html">
+            
+                <a href="custom_mixer_payload.html">
+            
+                    
+                    Custom Payload Mixer
+            
+                </a>
+            
+
+            
         </li>
     
-        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+
+            </ul>
             
-                <a href="../concept/pwm_limit.html">
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="pwm_limit.html">
+            
+                <a href="pwm_limit.html">
             
                     
                     PWM limit state machine
@@ -553,12 +572,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+        <li class="chapter " data-level="1.3.7" data-path="system_startup.html">
             
-                <a href="../concept/system_startup.html">
+                <a href="system_startup.html">
             
                     
                     System Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="sd_card_layout.html">
+            
+                <a href="sd_card_layout.html">
+            
+                    
+                    SD Card Layout
             
                 </a>
             
@@ -576,7 +608,7 @@
                 <a href="../simulation/">
             
                     
-                    仿真
+                    Simulation
             
                 </a>
             
@@ -590,7 +622,7 @@
                 <a href="../simulation/jmavsim.html">
             
                     
-                    jMAVSim 仿真模拟
+                    jMAVSim Simulation
             
                 </a>
             
@@ -603,7 +635,7 @@
                 <a href="../simulation/gazebo.html">
             
                     
-                    Gazebo 仿真模拟
+                    Gazebo Simulation
             
                 </a>
             
@@ -616,7 +648,7 @@
                 <a href="../simulation/airsim.html">
             
                     
-                    AirSim 仿真
+                    AirSim Simulation
             
                 </a>
             
@@ -629,7 +661,7 @@
                 <a href="../simulation/multi_vehicle_jmavsim.html">
             
                     
-                    使用 JMAVSim 进行多飞行器仿真
+                    Multi-Vehicle Sim with JMAVSim
             
                 </a>
             
@@ -642,7 +674,7 @@
                 <a href="../simulation/multi-vehicle-simulation.html">
             
                     
-                    基于 Gazebo 的多飞行器仿真
+                    Multi-Vehicle Sim with Gazebo
             
                 </a>
             
@@ -699,7 +731,7 @@
                 <a href="../hardware/">
             
                     
-                    硬件
+                    Hardware
             
                 </a>
             
@@ -713,7 +745,7 @@
                 <a href="../hardware/reference_design.html">
             
                     
-                    飞行控制器参考设计
+                    Flight Controller Reference Design
             
                 </a>
             
@@ -726,7 +758,7 @@
                 <a href="../hardware/porting_guide.html">
             
                     
-                    飞行控制器移植指南
+                    Flight Controller Porting Guide
             
                 </a>
             
@@ -758,7 +790,7 @@
                 <a href="../airframes/">
             
                     
-                    机架
+                    Airframes
             
                 </a>
             
@@ -772,7 +804,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    机架参考
+                    Airframes Reference
             
                 </a>
             
@@ -785,7 +817,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    增加一个新的机型
+                    Adding a New Airframe
             
                 </a>
             
@@ -803,7 +835,7 @@
                 <a href="../middleware/drivers.html">
             
                     
-                    设备驱动
+                    Device Drivers
             
                 </a>
             
@@ -816,7 +848,7 @@
                 <a href="../data_links/telemetry.html">
             
                     
-                    数传电台
+                    Telemetry Radio
             
                 </a>
             
@@ -830,7 +862,7 @@
                 <a href="../data_links/sik_radio.html">
             
                     
-                    SiK 电台
+                    SiK Radio
             
                 </a>
             
@@ -848,7 +880,7 @@
                 <a href="../sensor_bus/">
             
                     
-                    传感器和执行器 I/O
+                    Sensor and Actuator I/O
             
                 </a>
             
@@ -862,7 +894,7 @@
                 <a href="../sensor_bus/i2c.html">
             
                     
-                    I2C 总线
+                    I2C Bus
             
                 </a>
             
@@ -875,7 +907,7 @@
                 <a href="../uavcan/">
             
                     
-                    UAVCAN 总线
+                    UAVCAN Bus
             
                 </a>
             
@@ -902,7 +934,7 @@
                 <a href="../uavcan/node_firmware.html">
             
                     
-                    UAVCAN 固件升级
+                    UAVCAN Firmware Upgrades
             
                 </a>
             
@@ -915,7 +947,7 @@
                 <a href="../uavcan/node_enumeration.html">
             
                     
-                    UAVCAN 配置
+                    UAVCAN Configuration
             
                 </a>
             
@@ -928,7 +960,7 @@
                 <a href="../uavcan/notes.html">
             
                     
-                    UAVCAN 各种注释
+                    UAVCAN Various Notes
             
                 </a>
             
@@ -946,7 +978,7 @@
                 <a href="../uart/">
             
                     
-                    串行总线
+                    UART/Serial Ports
             
                 </a>
             
@@ -960,7 +992,7 @@
                 <a href="../uart/user_configurable_serial_driver.html">
             
                     
-                    端口-配置串行驱动
+                    Port-Configurable Serial Drivers
             
                 </a>
             
@@ -996,7 +1028,7 @@
                 <a href="../advanced/gimbal_control.html">
             
                     
-                    云台（安装）控制设置
+                    Gimbal (Mount) Control Setup
             
                 </a>
             
@@ -1009,7 +1041,7 @@
                 <a href="../companion_computer/pixhawk_companion.html">
             
                     
-                    机载计算机设置
+                    Companion Computers
             
                 </a>
             
@@ -1027,7 +1059,7 @@
                 <a href="../middleware/">
             
                     
-                    中间件
+                    Middleware
             
                 </a>
             
@@ -1041,7 +1073,7 @@
                 <a href="../middleware/uorb.html">
             
                     
-                    uORB 消息
+                    uORB Messaging
             
                 </a>
             
@@ -1117,7 +1149,7 @@
                 <a href="../middleware/modules_main.html">
             
                     
-                    模块 & 命令
+                    Modules & Commands
             
                 </a>
             
@@ -1131,7 +1163,7 @@
                 <a href="../middleware/modules_command.html">
             
                     
-                    命令
+                    Commands
             
                 </a>
             
@@ -1144,7 +1176,7 @@
                 <a href="../middleware/modules_communication.html">
             
                     
-                    通信
+                    Communication
             
                 </a>
             
@@ -1157,7 +1189,7 @@
                 <a href="../middleware/modules_controller.html">
             
                     
-                    控制器
+                    Controllers
             
                 </a>
             
@@ -1170,7 +1202,7 @@
                 <a href="../middleware/modules_driver.html">
             
                     
-                    驱动
+                    Drivers
             
                 </a>
             
@@ -1202,7 +1234,7 @@
                 <a href="../middleware/modules_estimator.html">
             
                     
-                    估计器
+                    Estimators
             
                 </a>
             
@@ -1259,7 +1291,7 @@
                 <a href="../robotics/">
             
                     
-                    机器人技术
+                    Robotics
             
                 </a>
             
@@ -1273,7 +1305,7 @@
                 <a href="../ros/offboard_control.html">
             
                     
-                    Linux 的离板模式控制
+                    Offboard Control from Linux
             
                 </a>
             
@@ -1300,7 +1332,7 @@
                 <a href="../ros/mavros_installation.html">
             
                     
-                    MAVROS \（ROS 上的 MAVLink\）
+                    MAVROS (MAVLink on ROS)
             
                 </a>
             
@@ -1313,7 +1345,7 @@
                 <a href="../ros/mavros_offboard.html">
             
                     
-                    MAVROS 离板例程
+                    MAVROS Offboard Example
             
                 </a>
             
@@ -1326,7 +1358,7 @@
                 <a href="../simulation/ros_interface.html">
             
                     
-                    另见 Gazebo 模拟。
+                    ROS with Gazebo Simulation
             
                 </a>
             
@@ -1339,7 +1371,7 @@
                 <a href="../simulation/gazebo_octomap.html">
             
                     
-                    具有 ROS 的 OctoMap 模型
+                    OctoMap Models with ROS
             
                 </a>
             
@@ -1352,7 +1384,7 @@
                 <a href="../ros/raspberrypi_installation.html">
             
                     
-                    在 RPi 上安装 ROS
+                    ROS Installation on RPi
             
                 </a>
             
@@ -1365,7 +1397,7 @@
                 <a href="../ros/external_position_estimation.html">
             
                     
-                    外部位置估计（基于视觉/运动）
+                    External Position Estimation (Vision/Motion based)
             
                 </a>
             
@@ -1409,12 +1441,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="./">
+        <li class="chapter " data-level="1.9" data-path="../debug/">
             
-                <a href="./">
+                <a href="../debug/">
             
                     
-                    调试日志
+                    Debugging/Logging
             
                 </a>
             
@@ -1423,12 +1455,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="faq.html">
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
             
-                <a href="faq.html">
+                <a href="../debug/faq.html">
             
                     
-                    常见问题
+                    FAQ
             
                 </a>
             
@@ -1436,9 +1468,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="consoles.html">
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
             
-                <a href="consoles.html">
+                <a href="../debug/consoles.html">
             
                     
                     Consoles/Shells
@@ -1450,9 +1482,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.2.1" data-path="mavlink_shell.html">
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
             
-                <a href="mavlink_shell.html">
+                <a href="../debug/mavlink_shell.html">
             
                     
                     MAVLink Shell
@@ -1463,9 +1495,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2.2" data-path="system_console.html">
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
             
-                <a href="system_console.html">
+                <a href="../debug/system_console.html">
             
                     
                     System Console
@@ -1481,12 +1513,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" data-path="gdb_debugging.html">
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
             
-                <a href="gdb_debugging.html">
+                <a href="../debug/gdb_debugging.html">
             
                     
-                    飞控调试
+                    Autopilot Debugging
             
                 </a>
             
@@ -1494,9 +1526,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="eclipse_jlink.html">
+        <li class="chapter " data-level="1.9.4" data-path="../debug/eclipse_jlink.html">
             
-                <a href="eclipse_jlink.html">
+                <a href="../debug/eclipse_jlink.html">
             
                     
                     Eclipse/JLink Hardware Debugging
@@ -1507,9 +1539,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.5" data-path="sensor_uorb_topic_debugging.html">
+        <li class="chapter " data-level="1.9.5" data-path="../debug/sensor_uorb_topic_debugging.html">
             
-                <a href="sensor_uorb_topic_debugging.html">
+                <a href="../debug/sensor_uorb_topic_debugging.html">
             
                     
                     Sensor/Topic Debugging
@@ -1520,9 +1552,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.6" data-path="simulation_debugging.html">
+        <li class="chapter " data-level="1.9.6" data-path="../debug/simulation_debugging.html">
             
-                <a href="simulation_debugging.html">
+                <a href="../debug/simulation_debugging.html">
             
                     
                     Simulation Debugging
@@ -1533,9 +1565,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.7" data-path="debug_values.html">
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
             
-                <a href="debug_values.html">
+                <a href="../debug/debug_values.html">
             
                     
                     Sending Debug Values
@@ -1546,9 +1578,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.8" data-path="system_wide_replay.html">
+        <li class="chapter " data-level="1.9.8" data-path="../debug/system_wide_replay.html">
             
-                <a href="system_wide_replay.html">
+                <a href="../debug/system_wide_replay.html">
             
                     
                     System-wide Replay
@@ -1559,9 +1591,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.9" data-path="profiling.html">
+        <li class="chapter " data-level="1.9.9" data-path="../debug/profiling.html">
             
-                <a href="profiling.html">
+                <a href="../debug/profiling.html">
             
                     
                     Profiling
@@ -1621,7 +1653,7 @@
                 <a href="../tutorials/tutorials.html">
             
                     
-                    教程
+                    Tutorials
             
                 </a>
             
@@ -1635,7 +1667,7 @@
                 <a href="../qgc/">
             
                     
-                    地面控制站
+                    Ground Control Station
             
                 </a>
             
@@ -1648,7 +1680,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming in QGC
             
                 </a>
             
@@ -1661,7 +1693,7 @@
                 <a href="../qgc/video_streaming_wifi_broadcast.html">
             
                     
-                    远距离视频流
+                    Long-distance Video Streaming
             
                 </a>
             
@@ -1692,7 +1724,7 @@
                 <a href="../advanced/">
             
                     
-                    高级主题
+                    Advanced Topics
             
                 </a>
             
@@ -1706,7 +1738,7 @@
                 <a href="../advanced/parameters_and_configurations.html">
             
                     
-                    参数 & 配置
+                    Parameters & Configs
             
                 </a>
             
@@ -1719,7 +1751,7 @@
                 <a href="../advanced/parameter_reference.html">
             
                     
-                    参数参照表
+                    Parameter Reference
             
                 </a>
             
@@ -1732,7 +1764,7 @@
                 <a href="../advanced/computer_vision.html">
             
                     
-                    机器视觉
+                    Computer Vision
             
                 </a>
             
@@ -1746,7 +1778,7 @@
                 <a href="../tutorials/motion-capture-vicon-optitrack.html">
             
                     
-                    运动捕获（VICON, Optitrack）
+                    Motion Capture (VICON, Optitrack)
             
                 </a>
             
@@ -1764,7 +1796,7 @@
                 <a href="../advanced/realsense_intel_driver.html">
             
                     
-                    安装英特尔 RealSense R200 的驱动程序
+                    Installing driver for Intel RealSense R200
             
                 </a>
             
@@ -1777,7 +1809,7 @@
                 <a href="../advanced/switching_state_estimators.html">
             
                     
-                    切换状态估计器
+                    Switching State Estimators
             
                 </a>
             
@@ -1790,7 +1822,7 @@
                 <a href="../advanced/out_of_tree_modules.html">
             
                     
-                    树外模块
+                    Out-of-Tree Modules
             
                 </a>
             
@@ -1834,7 +1866,7 @@
                 <a href="../test_and_ci/">
             
                     
-                    平台测试和 CI
+                    Platform Testing and CI
             
                 </a>
             
@@ -1848,7 +1880,7 @@
                 <a href="../test_and_ci/test_flights.html">
             
                     
-                    测试飞行
+                    Test Flights
             
                 </a>
             
@@ -1862,7 +1894,7 @@
                 <a href="../test_cards/mc_01_manual_modes.html">
             
                     
-                    测试 MC_01 - 手动模式
+                    Test MC_01 - Manual Modes
             
                 </a>
             
@@ -1875,7 +1907,7 @@
                 <a href="../test_cards/mc_02_full_autonomous.html">
             
                     
-                    测试 MC_02-完全自主
+                    Test MC_02 - Full Autonomous
             
                 </a>
             
@@ -1888,7 +1920,7 @@
                 <a href="../test_cards/mc_03_auto_manual_mix.html">
             
                     
-                    测试 MC_03 - 自动手动混合
+                    Test MC_03 - Auto Manual Mix
             
                 </a>
             
@@ -1901,7 +1933,7 @@
                 <a href="../test_cards/mc_04_failsafe_testing.html">
             
                     
-                    测试 MC_04 -故障安全测试
+                    Test MC_04 - Failsafe Testing
             
                 </a>
             
@@ -1914,7 +1946,7 @@
                 <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
             
                     
-                    测试 MC_05-室内飞行（手动模式）
+                    Test MC_05 - Indoor Flight (Manual Modes)
             
                 </a>
             
@@ -1932,7 +1964,7 @@
                 <a href="../test_and_ci/unit_tests.html">
             
                     
-                    单元测试
+                    Unit Tests
             
                 </a>
             
@@ -1945,7 +1977,7 @@
                 <a href="../test_and_ci/continous_integration.html">
             
                     
-                    持续集成
+                    Continuous Integration
             
                 </a>
             
@@ -1958,7 +1990,7 @@
                 <a href="../test_and_ci/jenkins_ci.html">
             
                     
-                    Jenkins 持续集成
+                    Jenkins Continuous Integration
             
                 </a>
             
@@ -2155,16 +2187,16 @@
 
     
         
-        <li class="header">Dronecode 相关资源</li>
+        <li class="header">Dronecode Shortcuts</li>
         
         
     
         <li class="chapter " data-level="2.1" >
             
-                <a target="_blank" href="https://docs.px4.cc/zh/">
+                <a target="_blank" href="https://docs.px4.io/en/">
             
                     
-                    PX4 用户指南
+                    PX4 User Guide
             
                 </a>
             
@@ -2177,7 +2209,7 @@
                 <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
             
                     
-                    QGroundControl用户指南
+                    QGroundControl User Guide
             
                 </a>
             
@@ -2187,10 +2219,10 @@
     
         <li class="chapter " data-level="2.3" >
             
-                <a target="_blank" href="http://dev.qgc.dimianzhan.com/zh/">
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
             
                     
-                    QGroundControl 开发人员指南
+                    QGroundControl Developer Guide
             
                 </a>
             
@@ -2203,7 +2235,7 @@
                 <a target="_blank" href="https://mavlink.io/en/">
             
                     
-                    MAVLink指南
+                    MAVLink Guide
             
                 </a>
             
@@ -2229,7 +2261,7 @@
                 <a target="_blank" href="https://camera-manager.dronecode.org/en/">
             
                     
-                    Dronecode相机管理器
+                    Dronecode Camera Manager
             
                 </a>
             
@@ -2244,7 +2276,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            本書使用 GitBook 釋出
+            Published with GitBook
         </a>
     </li>
 </ul>
@@ -2267,7 +2299,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Simulation Debugging</a>
+        <a href=".." >Custom Payload Mixer</a>
     </h1>
 </div>
 
@@ -2282,73 +2314,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x4EFF;&#x771F;&#x8C03;&#x8BD5;"><a name="&#x4EFF;&#x771F;&#x8C03;&#x8BD5;" class="plugin-anchor" href="#&#x4EFF;&#x771F;&#x8C03;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EFF;&#x771F;&#x8C03;&#x8BD5;</h1>
-<p>&#x5F53;&#x6A21;&#x62DF;&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6240;&#x6709;&#x684C;&#x9762;&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x90FD;&#x53EF;&#x7528;&#x3002;</p>
-<h2 id="clang-address-sanitizer-mac-os-linux"><a name="clang-address-sanitizer-mac-os-linux" class="plugin-anchor" href="#clang-address-sanitizer-mac-os-linux"><i class="fa fa-link" aria-hidden="true"></i></a>CLANG Address Sanitizer (Mac OS, Linux)</h2>
-<p>CLANG Address Sanitizer &#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x67E5;&#x627E;&#x5BF9;&#x9F50;&#xFF08;&#x603B;&#x7EBF;&#xFF09;&#x9519;&#x8BEF;&#x548C;&#x5176;&#x4ED6;&#x5185;&#x5B58;&#x9519;&#x8BEF;&#xFF0C;&#x5982;&#x6BB5;&#x9519;&#x8BEF;&#x3002; &#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#x8BBE;&#x7F6E;&#x4E86;&#x6B63;&#x786E;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x3002;</p>
-<pre><code class="lang-sh">make clean <span class="hljs-comment"># &#x4EC5;&#x9700;&#x5728;&#x5E38;&#x89C4;&#x7F16;&#x8BD1;&#x540E;&#xFF0C;&#x7B2C;&#x4E00;&#x6B21;&#x8FD0;&#x884C; address sanitizer &#x65F6;&#x4F7F;&#x7528;</span>
-PX4_ASAN=1 make px4_sitl jmavsim
-</code></pre>
-<h2 id="valgrind"><a name="valgrind" class="plugin-anchor" href="#valgrind"><i class="fa fa-link" aria-hidden="true"></i></a>Valgrind</h2>
-<pre><code class="lang-sh">brew install valgrind
-</code></pre>
-<p>&#x6216;</p>
-<pre><code class="lang-sh">sudo apt-get install valgrind
-</code></pre>
-<p>To use valgrind during the SITL simulation:</p>
-<pre><code class="lang-sh">make px4_sitl_default jmavsim___valgrind
-</code></pre>
-<h2 id="&#x5F00;&#x59CB;&#x7EC4;&#x5408;"><a name="&#x5F00;&#x59CB;&#x7EC4;&#x5408;" class="plugin-anchor" href="#&#x5F00;&#x59CB;&#x7EC4;&#x5408;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5F00;&#x59CB;&#x7EC4;&#x5408;</h2>
-<p>SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo as simulation backend. This results in the start options below:</p>
-<pre><code class="lang-sh">make px4_sitl_default jmavsim
-make px4_sitl_default jmavsim___gdb
-make px4_sitl_default jmavsim___lldb
+                                <h1 id="custom-payload-mixers"><a name="custom-payload-mixers" class="plugin-anchor" href="#custom-payload-mixers"><i class="fa fa-link" aria-hidden="true"></i></a>Custom Payload Mixers</h1>
+<p>This topic shows how to add a custom <a href="mixing.html">mixer</a> for programmatically controlling a custom payload (e.g., an electromagnetic gripper).</p>
+<p>The topic is intended for developers who want to support payload types that do not have existing control group definitions (e.g. gimbals have a control group, but grippers do not).
+You should already have read <a href="mixing.html">Mixing and Actuators</a>.</p>
+<h2 id="payload-mixer-example"><a name="payload-mixer-example" class="plugin-anchor" href="#payload-mixer-example"><i class="fa fa-link" aria-hidden="true"></i></a>Payload Mixer Example</h2>
+<p>A payload mixer is just a <a href="mixing.html#simple-mixer">simple mixer</a> that maps any of the function values from <a href="mixing.html#control_group_6">Control Group #6 (First Payload)</a> to a particular output.
+You can then publish uORB topics to the selected control group function and their value will be mapped to the specified output.</p>
+<p>For this example, we&apos;ll create a custom mixer based on the <em>RC passthrough mixer</em> (<a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix" target="_blank">pass.aux.mix</a>).
+This mixer is commonly loaded into the AUX PWM ports on large multicopters). 
+It passes through the values of 4 user-defined RC channels (set using the <a href="../advanced/parameter_reference.html#RC_MAP_AUX1">RC_MAP_AUXx/RC_MAP_FLAPS</a> parameters) to the first four outputs on the AUX PWM output.</p>
+<pre><code># Manual pass through mixer for servo outputs 1-4
 
-make px4_sitl_default gazebo
-make px4_sitl_default gazebo___gdb
-make px4_sitl_default gazebo___lldb
-</code></pre>
-<p>where the last parameter is the &lt;viewer_model_debugger&gt; triplet (using three underscores implies the default &apos;iris&apos; model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit <code>CTRL-C</code>:</p>
-<pre><code class="lang-gdb">Process 16529 stopped
-* thread #1: tid = 0x114e6d, 0x00007fff90f4430a libsystem_kernel.dylib`__read_nocancel + 10, name = &apos;px4&apos;, queue = &apos;com.apple.main-thread&apos;, stop reason = signal SIGSTOP
-    frame #0: 0x00007fff90f4430a libsystem_kernel.dylib`__read_nocancel + 10
-libsystem_kernel.dylib`__read_nocancel:
--&gt;  0x7fff90f4430a &lt;+10&gt;: jae    0x7fff90f44314            ; &lt;+20&gt;
-    0x7fff90f4430c &lt;+12&gt;: movq   %rax, %rdi
-    0x7fff90f4430f &lt;+15&gt;: jmp    0x7fff90f3fc53            ; cerror_nocancel
-    0x7fff90f44314 &lt;+20&gt;: retq
-(lldb)
-</code></pre>
-<p>In order to not have the DriverFrameworks scheduling interfere with the debugging session <code>SIGCONT</code> should be masked in LLDB and GDB:</p>
-<pre><code class="lang-bash">(lldb) process handle SIGCONT -n <span class="hljs-literal">false</span> -p <span class="hljs-literal">false</span> <span class="hljs-_">-s</span> <span class="hljs-literal">false</span>
-</code></pre>
-<p>Or in the case of GDB:</p>
-<pre><code>(gdb) handle SIGCONT noprint nostop
-</code></pre><p>After that the The lldb or gdb shells behave like normal sessions, please refer to the LLDB / GDB documentation.</p>
-<p>The last parameter, the &lt;viewer_model_debugger&gt; triplet, is actually passed to make in the build directory, so</p>
-<pre><code class="lang-sh">make px4_sitl_default jmavsim___gdb
-</code></pre>
-<p>is equivalent with</p>
-<pre><code class="lang-sh">make px4_sitl_default   <span class="hljs-comment"># Configure with cmake</span>
-make -C build/px4_sitl_default jmavsim___gdb
-</code></pre>
-<p>A full list of the available make targets in the build directory can be obtained with:</p>
-<pre><code class="lang-sh">make <span class="hljs-built_in">help</span>
-</code></pre>
-<p>but for your convenience, a list with just the &lt;viewer_model_debugger&gt; triplets is printed with the command</p>
-<pre><code class="lang-sh">make list_vmd_make_targets
-</code></pre>
-<h2 id="&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;"><a name="&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;" class="plugin-anchor" href="#&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x8BD1;&#x5668;&#x4F18;&#x5316;</h2>
-<p>It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with <code>add_executable</code> or <code>add_library</code>) when configuring for <code>posix_sitl_*</code>. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.</p>
-<p>To do so, set the environment variable <code>PX4_NO_OPTIMIZATION</code> to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn&apos;t <code>posix_sitl_*</code>.</p>
-<p>For example,</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">export</span> PX4_NO_OPTIMIZATION=<span class="hljs-string">&apos;px4;^modules__uORB;^modules__systemlib$&apos;</span>
-</code></pre>
-<p>would suppress optimization of the targets: platforms<em>_posix<strong>px4_layer, modules</strong>systemlib, modules<strong>uORB, examples</strong>px4_simple_app, modules**uORB</em>_uORB_tests and px4.</p>
-<p>The targets that can be matched with these regular expressions can be printed with the command:</p>
-<pre><code class="lang-sh">make -C build/posix_sitl_* list_cmake_targets
-</code></pre>
+# AUX1 channel (select RC channel with RC_MAP_AUX1 param)
+M: 1
+S: 3 5  10000  10000      0 -10000  10000
 
+# AUX2 channel (select RC channel with RC_MAP_AUX2 param)
+M: 1
+S: 3 6  10000  10000      0 -10000  10000
+
+# AUX3 channel (select RC channel with RC_MAP_AUX3 param)
+M: 1
+S: 3 7  10000  10000      0 -10000  10000
+
+# FLAPS channel (select RC channel with RC_MAP_FLAPS param)
+M: 1
+S: 3 4  10000  10000      0 -10000  10000
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The file defines a <a href="mixing.html#simple-mixer">simple mixer</a> with four outputs.</p>
+<ul>
+<li><code>M: 1</code> indicates an output that is defined by one control input (the following <code>S</code> line).</li>
+<li><code>S: 3</code><em><code>n</code></em> indicates that the input is the n&lt;&gt;th&lt;&gt; input of <a href="mixing.html#control-group-3-manual-passthrough">Control Group 3 (Manual Passthrough)</a>.
+So for <code>S: 3 5</code> the input is called &quot;RC aux1&quot; (this maps to the RC channel set in parameter <code>RC_MAP_AUX1</code>).</li>
+<li>The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).</li>
+</ul>
+</blockquote>
+<p>Start by copying the mixer file and putting it onto the SD Card at: <strong>/etc/mixers/pass.aux.mix</strong> (see <a href="mixing.html#loading_custom_mixer">Mixing and Actuators &gt; Loading a Custom Mixer</a>.</p>
+<p>Remove the first section with a payload control group function input:</p>
+<ul>
+<li>Change this:<pre><code># AUX1 channel (control group 3, RC CH5) (select RC channel with RC_MAP_AUX1 param)
+M: 1
+S: 3 5  10000  10000      0 -10000  10000
+</code></pre></li>
+<li>To:<pre><code># Payload 1 (control group 6) channel 1
+M: 1
+S: 6 1  10000  10000      0 -10000  10000
+</code></pre></li>
+</ul>
+<p>Because this output is in the first position in the file it will map to the first AUX PWM output (unless UAVCAN is enabled).
+This output will now respect updates to the payload control group (6) output 1.</p>
+<p>Control group 6 will need to be defined in the code as well (it is missing!):</p>
+<ul>
+<li>Add <code>actuator_controls_6</code> to the TOPICS definition in <a href="https://github.com/PX4/Firmware/blob/master/msg/actuator_controls.msg#L17" target="_blank">/msg/actuator_controls.msg</a>:<pre><code># TOPICS actuator_controls actuator_controls_0 actuator_controls_1 actuator_controls_2 actuator_controls_3 actuator_controls_6
+</code></pre></li>
+<li>Increase <code>NUM_ACTUATOR_CONTROL_GROUPS</code> to 7 in the same file.</li>
+<li>Subscribe to the additional control group in the output library (<a href="https://github.com/PX4/Firmware/blob/master/src/lib/mixer_module/mixer_module.cpp#L52" target="_blank">/src/lib/mixer_module/mixer_module.cpp#L52</a>) in the <code>MixingOutput</code> constructor.
+It should look like this:<pre><code>  {&amp;interface, ORB_ID(actuator_controls_0)},
+  {&amp;interface, ORB_ID(actuator_controls_1)},
+  {&amp;interface, ORB_ID(actuator_controls_2)},
+  {&amp;interface, ORB_ID(actuator_controls_3)},
+</code></pre><pre><code>  {&amp;interface, nullptr},
+  {&amp;interface, nullptr},
+  {&amp;interface, ORB_ID(actuator_controls_6)},
+</code></pre></li>
+</ul>
+<p>Putting an output on group 6 works by publishing actuator control group 6.
+First you have to create the publication.
+This should happen once when the PX4 module is initialized (look for places where this pattern is already being used):</p>
+<pre><code>uORB::Publication&lt;actuator_controls_s&gt; _actuator_controls_pub{ORB_ID(actuator_controls_6)};
+</code></pre><p>Then you need to publish the first message:</p>
+<pre><code>actuator_controls_s _act_controls{};
+_act_controls.timestamp = hrt_absolute_time();
+// set the first output to 50% positive (this would rotate a servo halfway into one of its directions)
+_act_controls.control[0] = 0.5f;
+_actuator_controls_pub.publish(_act_controls);
+</code></pre>
                                 
                                 </section>
                             
@@ -2375,12 +2416,12 @@ make -C build/px4_sitl_default jmavsim___gdb
 
             
                 
-                <a href="sensor_uorb_topic_debugging.html" class="navigation navigation-prev " aria-label="Previous page: Sensor/Topic Debugging">
+                <a href="mixing.html" class="navigation navigation-prev " aria-label="Previous page: Mixing and Actuators">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="debug_values.html" class="navigation navigation-next " aria-label="Next page: Sending Debug Values">
+                <a href="pwm_limit.html" class="navigation navigation-next " aria-label="Next page: PWM limit state machine">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2391,7 +2432,7 @@ make -C build/px4_sitl_default jmavsim___gdb
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation Debugging","level":"1.9.6","depth":2,"next":{"title":"Sending Debug Values","level":"1.9.7","depth":2,"path":"debug/debug_values.md","ref":"debug/debug_values.md","articles":[]},"previous":{"title":"Sensor/Topic Debugging","level":"1.9.5","depth":2,"path":"debug/sensor_uorb_topic_debugging.md","ref":"debug/sensor_uorb_topic_debugging.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/simulation_debugging.md","mtime":"2020-03-18T00:19:05.992Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T00:20:55.398Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"next":{"title":"PWM limit state machine","level":"1.3.6","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"previous":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"concept/custom_mixer_payload.md","mtime":"2020-03-18T00:19:05.960Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T00:20:55.398Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
