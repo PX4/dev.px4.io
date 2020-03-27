@@ -81,7 +81,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="airsim.html" />
+    <link rel="next" href="gazebo_vehicles.html" />
     
     
     <link rel="prev" href="jmavsim.html" />
@@ -640,6 +640,38 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="gazebo_vehicles.html">
+            
+                <a href="gazebo_vehicles.html">
+            
+                    
+                    Gazebo Vehicles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="gazebo_worlds.html">
+            
+                <a href="gazebo_worlds.html">
+            
+                    
+                    Gazebo Worlds
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -2414,62 +2446,75 @@ text { font-family: 'trebuchet ms', verdana, arial; font-size: 14px; }
 </ul>
 <p>Additional installation instructions can be found on <a href="http://gazebosim.org/tutorials?cat=guided_b&amp;tut=guided_b1" target="_blank">gazebosim.org</a>.</p>
 <h2 id="running-the-simulation"><a name="running-the-simulation" class="plugin-anchor" href="#running-the-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Simulation</h2>
-<p>You can run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).</p>
-<p>The easiest way to do this is to open a terminal in the root directory of the PX4 <em>Firmware</em> repository and call <code>make</code> for the targets as shown in the following sections.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> You can use the <a href="#start_px4_sim_separately">instructions below</a> to keep Gazebo running and only re-launch PX4.
-This is quicker than restarting both.
-  You can also run the simulation in <a href="#headless">Headless Mode</a> which does not start the Gazebo UI (this uses fewer resources and is much faster).</p>
-</blockquote>
-<p><span></span></p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p>Run a simulation by starting PX4 SITL and gazebo with the airframe configuration to load (multicopters, planes, VTOL, optical flow and multi-vehicle simulations are supported).</p>
+<p>The easiest way to do this is to open a terminal in the root directory of the PX4 <em>Firmware</em> repository and call <code>make</code> for the desired target.
+For example, to start a quadrotor simulation (the default):</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /path/to/Firmware
+make px4_sitl gazebo
+</code></pre>
+<p>The supported vehicles and <code>make</code> commands are listed below (click links to see vehicle images).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> For the full list of build targets run <code>make px4_sitl list_vmd_make_targets</code> (and filter on those that start with <code>gazebo_</code>).</p>
 </blockquote>
-<p><span></span></p>
+<table>
+<thead>
+<tr>
+<th>Vehicle</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="gazebo_vehicles.html#quadrotor">Quadrotor</a></td>
+<td><code>make px4_sitl gazebo</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#quadrotor_optical_flow">Quadrotor with Optical Flow</a></td>
+<td><code>make px4_sitl gazebo_iris_opt_flow</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#3dr_solo">3DR Solo (Quadrotor)</a></td>
+<td><code>make px4_sitl gazebo_solo</code></td>
+</tr>
+<tr>
+<td><span id="typhoon_h480"></span><a href="gazebo_vehicles.html#typhoon_h480">Typhoon H480 (Hexrotor)</a> (supports video streaming)</td>
+<td><code>make px4_sitl gazebo_typhoon_h480</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#standard_plane">Standard Plane</a></td>
+<td><code>make px4_sitl gazebo_plane</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#standard_vtol">Standard VTOL</a></td>
+<td><code>make px4_sitl gazebo_standard_vtol</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#tailsitter_vtol">Tailsitter VTOL</a></td>
+<td><code>make px4_sitl gazebo_tailsitter</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#ugv">Ackerman vehicle (UGV/Rover)</a></td>
+<td><code>make px4_sitl gazebo_rover</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#uuv">HippoCampus TUHH (UUV: Unmanned Underwater Vehicle)</a></td>
+<td><code>make px4_sitl gazebo_uuv_hippocampus</code></td>
+</tr>
+<tr>
+<td><a href="gazebo_vehicles.html#usv">Boat (USV: Unmanned Surface Vehicle)</a></td>
+<td><code>make px4_sitl gazebo_boat</code></td>
+</tr>
+</tbody>
+</table>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The <a href="../setup/dev_env.html">Installing Files and Code</a> guide is a useful reference if there are build errors.</p>
 </blockquote>
-<h3 id="quadrotor"><a name="quadrotor" class="plugin-anchor" href="#quadrotor"><i class="fa fa-link" aria-hidden="true"></i></a>Quadrotor</h3>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
-make px4_sitl gazebo
-</code></pre>
-<h3 id="quadrotor-with-optical-flow"><a name="quadrotor-with-optical-flow" class="plugin-anchor" href="#quadrotor-with-optical-flow"><i class="fa fa-link" aria-hidden="true"></i></a>Quadrotor with Optical Flow</h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_iris_opt_flow
-</code></pre>
-<h3 id="3dr-solo"><a name="3dr-solo" class="plugin-anchor" href="#3dr-solo"><i class="fa fa-link" aria-hidden="true"></i></a>3DR Solo (Quadrotor) </h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_solo
-</code></pre>
-<p><img src="../../assets/gazebo/solo.png" alt="3DR Solo in Gazebo"></p>
-<h3 id="typhoon_h480"><a name="typhoon_h480" class="plugin-anchor" href="#typhoon_h480"><i class="fa fa-link" aria-hidden="true"></i></a>Typhoon H480 (Hexrotor) </h3>
-<pre><code>make px4_sitl gazebo_typhoon_h480
-</code></pre><p><img src="../../assets/gazebo/typhoon.jpg" alt="Typhoon H480 in Gazebo"></p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This target also supports <a href="#video">video streaming simulation</a>.</p>
-</blockquote>
-<h3 id="standard-plane"><a name="standard-plane" class="plugin-anchor" href="#standard-plane"><i class="fa fa-link" aria-hidden="true"></i></a>Standard Plane</h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_plane
-</code></pre>
-<p><img src="../../assets/gazebo/plane.png" alt="Plane in Gazebo"></p>
-<h3 id="standard-vtol"><a name="standard-vtol" class="plugin-anchor" href="#standard-vtol"><i class="fa fa-link" aria-hidden="true"></i></a>Standard VTOL</h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_standard_vtol
-</code></pre>
-<p><img src="../../assets/gazebo/standard_vtol.png" alt="Standard VTOL in Gazebo"></p>
-<h3 id="tailsitter-vtol"><a name="tailsitter-vtol" class="plugin-anchor" href="#tailsitter-vtol"><i class="fa fa-link" aria-hidden="true"></i></a>Tailsitter VTOL</h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_tailsitter
-</code></pre>
-<p><img src="../../assets/gazebo/tailsitter.png" alt="Tailsitter VTOL in Gazebo"></p>
-<h3 id="ugv"><a name="ugv" class="plugin-anchor" href="#ugv"><i class="fa fa-link" aria-hidden="true"></i></a>Ackerman vehicle (UGV/Rover) </h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_rover
-</code></pre>
-<p><img src="../../assets/gazebo/rover.png" alt="Rover in Gazebo"></p>
-<h3 id="uuv"><a name="uuv" class="plugin-anchor" href="#uuv"><i class="fa fa-link" aria-hidden="true"></i></a>HippoCampus TUHH (UUV: Unmanned Underwater Vehicle) </h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_uuv_hippocampus
-</code></pre>
-<p><img src="../../assets/gazebo/hippocampus.png" alt="Submarine/UUV"></p>
-<h3 id="usv"><a name="usv" class="plugin-anchor" href="#usv"><i class="fa fa-link" aria-hidden="true"></i></a>Boat (USV: Unmanned Surface Vehicle) </h3>
-<pre><code class="lang-sh">make px4_sitl gazebo_boat
-</code></pre>
-<p><img src="../../assets/gazebo/boat.png" alt="Boat/USV"></p>
+<p>The commands above launch a single vehicle with the full UI.
+Other options include:</p>
+<ul>
+<li><a href="#start_px4_sim_separately">Starting PX4 and Gazebo separately</a> so that you can keep Gazebo running and only re-launch PX4 when needed (quicker than restarting both).</li>
+<li>Run the simulation in <a href="#headless">Headless Mode</a>, which does not start the Gazebo UI (this uses fewer resources and is much faster).</li>
+</ul>
 <h2 id="taking-it-to-the-sky"><a name="taking-it-to-the-sky" class="plugin-anchor" href="#taking-it-to-the-sky"><i class="fa fa-link" aria-hidden="true"></i></a>Taking it to the Sky</h2>
 <p>The <code>make</code> commands above first build PX4, and then run it along with the Gazebo simulator.</p>
 <p>Once PX4 has started it will launch the PX4 shell as shown below.</p>
@@ -2557,8 +2602,9 @@ You can enable it by adding the <code>gpsNoise</code> element to the <code>gps_p
 </ol>
 <p>The next time you build/restart Gazebo it will use the new GPS noise setting.</p>
 <h2 id="set_world"><a name="set_world" class="plugin-anchor" href="#set_world"><i class="fa fa-link" aria-hidden="true"></i></a>Loading a Specific World </h2>
-<p>By default Gazebo displays a flat featureless plane, as defined in <a href="https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world" target="_blank">empty.world</a>.</p>
-<p>You can load any of the worlds in <a href="https://github.com/PX4/sitl_gazebo/tree/master/worlds" target="_blank">PX4/sitl_gazebo/worlds</a>) by specifying them as the final option in the PX4 configuration target.
+<p>PX4 supports a number of <a href="gazebo_worlds.html">Gazebo Worlds</a>, which are stored in <a href="https://github.com/PX4/sitl_gazebo/tree/master/worlds" target="_blank">PX4/sitl_gazebo/worlds</a>)
+By default Gazebo displays a flat featureless plane, as defined in <a href="https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world" target="_blank">empty.world</a>.</p>
+<p>You can load any of the worlds by specifying them as the final option in the PX4 configuration target.
 For example, to load the <em>warehouse</em> world, you can append it as shown:</p>
 <pre><code>make px4_sitl_default gazebo_plane_cam__warehouse
 </code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2629,7 +2675,7 @@ The required dependencies should already have been <a href="#installation">insta
 For example, to start streaming video on the Typhoon H480:</p>
 <pre><code>make px4_sitl gazebo_typhoon_h480
 </code></pre><p>Streaming can be paused/restarted using the Gazebo UI <em>Video ON/OFF</em> button..</p>
-<p><img src="../../assets/gazebo/sitl_video_stream.png" alt="Video ON/OFF button"></p>
+<p><img src="../../assets/simulation/gazebo/sitl_video_stream.png" alt="Video ON/OFF button"></p>
 <h3 id="how-to-view-gazebo-video"><a name="how-to-view-gazebo-video" class="plugin-anchor" href="#how-to-view-gazebo-video"><i class="fa fa-link" aria-hidden="true"></i></a>How to View Gazebo Video</h3>
 <p>The easiest way to view the SITL/Gazebo camera video stream is in <em>QGroundControl</em>.
 Simply open <strong>Application Settings &gt; General</strong> and set <strong>Video Source</strong> to <em>UDP h.264 Video Stream</em> and <strong>UDP Port</strong> to <em>5600</em>:</p>
@@ -2688,7 +2734,7 @@ The code is available on the <a href="https://github.com/px4/sitl_gazebo" target
                 </a>
                 
                 
-                <a href="airsim.html" class="navigation navigation-next " aria-label="Next page: AirSim Simulation">
+                <a href="gazebo_vehicles.html" class="navigation navigation-next " aria-label="Next page: Gazebo Vehicles">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2699,7 +2745,7 @@ The code is available on the <a href="https://github.com/px4/sitl_gazebo" target
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Gazebo Simulation","level":"1.4.2","depth":2,"next":{"title":"AirSim Simulation","level":"1.4.3","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2020-03-26T17:25:52.526Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-26T17:26:56.747Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Gazebo Simulation","level":"1.4.2","depth":2,"next":{"title":"Gazebo Vehicles","level":"1.4.2.1","depth":3,"path":"simulation/gazebo_vehicles.md","ref":"simulation/gazebo_vehicles.md","articles":[]},"previous":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/gazebo.md","mtime":"2020-03-27T01:18:08.903Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-27T01:19:52.593Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
