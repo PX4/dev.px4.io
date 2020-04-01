@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Video Streaming in QGC · PX4 Developer Guide</title>
+        <title>Video Streaming from Odroid C1 to QGC · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -1777,7 +1777,7 @@
                 <a href="video_streaming.html">
             
                     
-                    Video Streaming in QGC
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -2396,7 +2396,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Video Streaming in QGC</a>
+        <a href=".." >Video Streaming from Odroid C1 to QGC</a>
     </h1>
 </div>
 
@@ -2411,33 +2411,47 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="video-streaming-in-qgroundcontrol"><a name="video-streaming-in-qgroundcontrol" class="plugin-anchor" href="#video-streaming-in-qgroundcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>Video streaming in QGroundControl</h1>
-<p>This page shows how to set up a a companion computer (Odroid C1) with a camera (Logitech C920) such that the video stream is transferred via the Odroid C1 to a network computer and displayed in the application QGroundControl that runs on this computer.</p>
-<p>The whole hardware setup is shown in the figure below. It consists of the following parts:</p>
+                                <h1 id="video-streaming-from-odroid-c1-to-qgroundcontrol"><a name="video-streaming-from-odroid-c1-to-qgroundcontrol" class="plugin-anchor" href="#video-streaming-from-odroid-c1-to-qgroundcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>Video Streaming from Odroid C1 to QGroundControl</h1>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> This article is somewhat out of date. 
+  Community members are encouraged to retest the instructions on a more recent Ubuntu version, and to import Odroid setup instructions into the wiki.</p>
+</blockquote>
+<p>This topic shows how to stream video from a camera (Logitech C920) attached to a companion computer (<a href="https://magazine.odroid.com/wp-content/uploads/odroid-c1-user-manual.pdf" target="_blank">Odroid C1</a>) to another computer (over wifi) and display in <em>QGroundControl</em>.</p>
+<p>The hardware setup is shown in the figure below.
+It consists of the following parts:</p>
 <ul>
 <li>Odroid C1</li>
 <li>Logitech camera C920</li>
 <li>WiFi module TP-LINK TL-WN722N</li>
 </ul>
 <p><img src="../../assets/videostreaming/setup_whole.jpg" alt="Setup"></p>
-<h2 id="install-linux-environment-in-odroid-c1"><a name="install-linux-environment-in-odroid-c1" class="plugin-anchor" href="#install-linux-environment-in-odroid-c1"><i class="fa fa-link" aria-hidden="true"></i></a>Install Linux environment in Odroid C1</h2>
-<p>To install the Linux environment (Ubuntu 14.04), follow the instruction given in the <a href="https://pixhawk.org/peripherals/onboard_computers/odroid_c1" target="_blank">Odroid C1 tutorial</a>. In this tutorial it is also shown how to access the Odroid C1 with a UART cable and how to establish Ethernet connection.</p>
-<h2 id="set-up-alternative-power-connection"><a name="set-up-alternative-power-connection" class="plugin-anchor" href="#set-up-alternative-power-connection"><i class="fa fa-link" aria-hidden="true"></i></a>Set up alternative power connection</h2>
-<p>The Odroid C1 can be powered via the 5V DC jack. If the Odroid is mounted on a drone, it is recommended to solder two pins next to the 5V DC jack by applying the through-hole soldering <a href="https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering" target="_blank">method</a> as shown in the figure below. The power is delivered by connecting the DC voltage source (5 V) via a jumper cable (red in the image above) with the Odroid C1 and connect the ground of the circuit with a jumper cable (black in the image above) with a ground pin of the Odroid C1 in the example setup. </p>
+<p>The instructions were tested on Ubuntu 14.04 but a similar approach should work for later Ubuntu versions.</p>
+<h2 id="install-linux-environment-in-odroid-c1"><a name="install-linux-environment-in-odroid-c1" class="plugin-anchor" href="#install-linux-environment-in-odroid-c1"><i class="fa fa-link" aria-hidden="true"></i></a>Install Linux Environment in Odroid C1</h2>
+<p>To install the Linux environment (Ubuntu 14.04), follow the instruction given in the <a href="http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1" target="_blank">Odroid C1 tutorial</a> (wayback machine).
+The tutorial also shows how to access the Odroid C1 with a UART cable and how to establish Ethernet connection.</p>
+<h2 id="set-up-alternative-power-connection"><a name="set-up-alternative-power-connection" class="plugin-anchor" href="#set-up-alternative-power-connection"><i class="fa fa-link" aria-hidden="true"></i></a>Set up Alternative Power Connection</h2>
+<p>The Odroid C1 can be powered via the 5V DC jack.
+If the Odroid is mounted on a drone, it is recommended to solder two pins next to the 5V DC jack by applying the through-hole soldering <a href="https://learn.sparkfun.com/tutorials/how-to-solder---through-hole-soldering" target="_blank">method</a> as shown in the figure below.
+The power is delivered by connecting the DC voltage source (5 V) via a jumper cable (red in the image above) with the Odroid C1 and connect the ground of the circuit with a jumper cable (black in the image above) with a ground pin of the Odroid C1 in the example setup.</p>
 <p><img src="../../assets/videostreaming/power-pins.jpg" alt="Power Pins"></p>
-<h2 id="enable-wifi-connection-for-odroid-c1"><a name="enable-wifi-connection-for-odroid-c1" class="plugin-anchor" href="#enable-wifi-connection-for-odroid-c1"><i class="fa fa-link" aria-hidden="true"></i></a>Enable WiFi connection for Odroid C1</h2>
-<p>In this this tutorial the WiFi module TP-LINK TL-WN722N is used. To enable WiFi connection for the Odroid C1, follow the steps described in the <a href="https://pixhawk.org/peripherals/onboard_computers/odroid_c1" target="_blank">Odroid C1 tutorial</a> in the section Establishing wifi connection with antenna.</p>
+<h2 id="enable-wifi-connection-for-odroid-c1"><a name="enable-wifi-connection-for-odroid-c1" class="plugin-anchor" href="#enable-wifi-connection-for-odroid-c1"><i class="fa fa-link" aria-hidden="true"></i></a>Enable WiFi Connection for Odroid C1</h2>
+<p>In this this tutorial the WiFi module TP-LINK TL-WN722N is used.
+To enable WiFi connection for the Odroid C1, follow the steps described in the <a href="http://web.archive.org/web/20180617111122/http://pixhawk.org/peripherals/onboard_computers/odroid_c1" target="_blank">Odroid C1 tutorial</a> in the section Establishing wifi connection with antenna.</p>
 <h2 id="configure-as-wifi-access-point"><a name="configure-as-wifi-access-point" class="plugin-anchor" href="#configure-as-wifi-access-point"><i class="fa fa-link" aria-hidden="true"></i></a>Configure as WiFi Access Point</h2>
-<p>This sections shows how to set up the Odroid C1 such that it is an access point. 
+<p>This sections shows how to set up the Odroid C1 such that it is an access point.
 The content is taken from the pixhawk.org &quot;access point&quot; tutorial (no longer available) with some small adaptions.
-To enable to stream the video from the camera via the Odroid C1 to the QGroundControl that runs on a computer it is not required to follow this section. However, it is shown here because setting up the Odroid C1 as an access point allows to use the system in a stand-alone fashion. The TP-LINK TL-WN722N is used as a WiFi module.
-In the ensuing steps it is assumed that the Odroid C1 assigns the name wlan0 to your WiFi module. Change all occurrences of wlan0 to the appropriate interface if different (e.g. wlan1).</p>
+To enable to stream the video from the camera via the Odroid C1 to the QGroundControl that runs on a computer it is not required to follow this section.
+However, it is shown here because setting up the Odroid C1 as an access point allows to use the system in a stand-alone fashion.
+The TP-LINK TL-WN722N is used as a WiFi module.</p>
+<p>In the following steps it is assumed that the Odroid C1 assigns the name wlan0 to your WiFi module.
+Change all occurrences of wlan0 to the appropriate interface if different (e.g. wlan1).</p>
 <h3 id="onboard-computer-as-access-point"><a name="onboard-computer-as-access-point" class="plugin-anchor" href="#onboard-computer-as-access-point"><i class="fa fa-link" aria-hidden="true"></i></a>Onboard Computer as Access Point</h3>
 <p>For a more in depth explanation, you can look at <a href="http://elinux.org/RPI-Wireless-Hotspot" target="_blank">RPI-Wireless-Hotspot</a></p>
 <p>Install the necessary software</p>
 <pre><code class="lang-bash">sudo apt-get install hostapd udhcpd
 </code></pre>
-<p>Configure DHCP. Edit the file <code>/etc/udhcpd.conf</code></p>
+<p>Configure DHCP.
+Edit the file <code>/etc/udhcpd.conf</code></p>
 <pre><code class="lang-bash">start 192.168.2.100 <span class="hljs-comment"># This is the range of IPs that the hotspot will give to client devices.</span>
 end 192.168.2.200
 interface wlan0 <span class="hljs-comment"># The device uDHCP listens on.</span>
@@ -2454,7 +2468,8 @@ opt lease 864000 <span class="hljs-comment"># 10 day DHCP lease time in seconds<
 <p>to</p>
 <pre><code class="lang-bash"><span class="hljs-comment">#DHCPD_ENABLED=&quot;no&quot;</span>
 </code></pre>
-<p>You will need to give the Onboard Computer a static IP address. Edit the file <code>/etc/network/interfaces</code> and replace the line <code>iface wlan0 inet dhcp</code> (or <code>iface wlan0 inet manual</code>) to:</p>
+<p>You will need to give the Onboard Computer a static IP address.
+Edit the file <code>/etc/network/interfaces</code> and replace the line <code>iface wlan0 inet dhcp</code> (or <code>iface wlan0 inet manual</code>) to:</p>
 <pre><code class="lang-sh">auto wlan0
 iface wlan0 inet static
 address 192.168.2.1
@@ -2463,7 +2478,8 @@ network 192.168.2.0
 broadcast 192.168.2.255
 wireless-power off
 </code></pre>
-<p>Disable the original (WiFi Client) auto configuration. Change the lines (they probably will not be all next to each other or may not even be there at all):</p>
+<p>Disable the original (WiFi Client) auto configuration.
+Change the lines (they probably will not be all next to each other or may not even be there at all):</p>
 <pre><code class="lang-sh">allow-hotplug wlan0
 wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 iface default inet dhcp
@@ -2473,7 +2489,8 @@ iface default inet dhcp
 <span class="hljs-comment">#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf</span>
 <span class="hljs-comment">#iface default inet dhcp</span>
 </code></pre>
-<p>If you have followed the <em>Odroid C1 tutorial</em> (originally pixhawk.org) to set up the WiFi connection, you might have created the file <code>/etc/network/intefaces.d/wlan0</code>. Please comment out all lines in that file such that those configurations have no effect anymore.</p>
+<p>If you have followed the <em>Odroid C1 tutorial</em> (originally pixhawk.org) to set up the WiFi connection, you might have created the file <code>/etc/network/intefaces.d/wlan0</code>.
+Please comment out all lines in that file such that those configurations have no effect anymore.</p>
 <p>Configure HostAPD: To create a WPA-secured network, edit the file <code>/etc/hostapd/hostapd.conf</code> (create it if it does not exist) and add the following lines: </p>
 <pre><code>auth_algs=1
 channel=6            # Channel to use
@@ -2490,16 +2507,21 @@ driver=nl80211
 # Change these to something else if you want
 ssid=OdroidC1
 wpa_passphrase=QGroundControl
-</code></pre><p>Change <code>ssid=</code>, <code>channel=</code>, and <code>wpa_passphrase=</code> to values of your choice. SSID is the hotspot&apos;s name which is broadcast to other devices, channel is what frequency the hotspot will run on, wpa_passphrase is the password for the wireless network. For many more options see the file <code>/usr/share/doc/hostapd/examples/hostapd.conf.gz</code>.
-Look for a channel that is not in use in the area. You can use tools such as <em>wavemon</em> for that. </p>
+</code></pre><p>Change <code>ssid=</code>, <code>channel=</code>, and <code>wpa_passphrase=</code> to values of your choice.
+SSID is the hotspot&apos;s name which is broadcast to other devices, channel is what frequency the hotspot will run on, wpa_passphrase is the password for the wireless network.
+For many more options see the file <code>/usr/share/doc/hostapd/examples/hostapd.conf.gz</code>.
+Look for a channel that is not in use in the area.
+You can use tools such as <em>wavemon</em> for that.</p>
 <p>Edit the file <code>/etc/default/hostapd</code> and change the line:</p>
 <pre><code>#DAEMON_CONF=&quot;&quot;
 </code></pre><p>to:</p>
 <pre><code>DAEMON_CONF=&quot;/etc/hostapd/hostapd.conf&quot;
-</code></pre><p>Your Onboard Computer should now be hosting a wireless hotspot. To get the hotspot to start on boot, run these additional commands: </p>
+</code></pre><p>Your Onboard Computer should now be hosting a wireless hotspot.
+To get the hotspot to start on boot, run these additional commands: </p>
 <pre><code>sudo update-rc.d hostapd enable
 sudo update-rc.d udhcpd enable
-</code></pre><p>This is enough to have the Onboard Computer present itself as an Access Point and allow your ground station to connect. If you truly want to make it work as a real Access Point (routing the WiFi traffic to the Onboard Computer&#x2019;s Ethernet connection), we need to configure the routing and network address translation (NAT). 
+</code></pre><p>This is enough to have the Onboard Computer present itself as an Access Point and allow your ground station to connect.
+If you truly want to make it work as a real Access Point (routing the WiFi traffic to the Onboard Computer&#x2019;s Ethernet connection), we need to configure the routing and network address translation (NAT).
 Enable IP forwarding in the kernel: </p>
 <pre><code class="lang-sh">sudo sh -c <span class="hljs-string">&quot;echo 1 &gt; /proc/sys/net/ipv4/ip_forward&quot;</span>
 </code></pre>
@@ -2515,17 +2537,17 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 <pre><code class="lang-sh">up iptables-restore &lt; /etc/iptables.ipv4.nat
 </code></pre>
 <h1 id="gstreamer-installation"><a name="gstreamer-installation" class="plugin-anchor" href="#gstreamer-installation"><i class="fa fa-link" aria-hidden="true"></i></a>Gstreamer Installation</h1>
-<p>To install gstreamer packages on the computer and on the Odroid C1 and start the stream, follow the instruction given in the <a href="https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoReceiver/README.md" target="_blank">QGroundControl README</a>. </p>
+<p>To install gstreamer packages on the computer and on the Odroid C1 and start the stream, follow the instruction given in the <a href="https://github.com/mavlink/qgroundcontrol/blob/master/src/VideoStreaming/README.md" target="_blank">QGroundControl README</a>.</p>
 <p>If you cannot start the stream on the Odroid with the uvch264s plugin, you can also try to start it with the v4l2src plugin:</p>
 <pre><code class="lang-sh">gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-h264,width=1920,height=1080,framerate=24/1 ! h264parse ! rtph264pay ! udpsink host=xxx.xxx.xxx.xxx port=5000
 </code></pre>
-<p>Where <code>xxx.xxx.xxx.xxx</code> is the IP address where QGC is running. </p>
+<p>Where <code>xxx.xxx.xxx.xxx</code> is the IP address where QGC is running.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> If you get the system error: <code>Permission denied</code>, you might need to prepend <code>sudo</code> to the command above.
-  Alternatively add the current user to the <code>video</code> group as shown below (and then logout/login): </p>
+<p> If you get the system error: <code>Permission denied</code>, you might need to prepend <code>sudo</code> to the command above.</p>
+</blockquote>
+<p>Alternatively add the current user to the <code>video</code> group as shown below (and then logout/login): </p>
 <pre><code class="lang-sh">  sudo usermod <span class="hljs-_">-a</span>G video <span class="hljs-variable">$USER</span>
 </code></pre>
-</blockquote>
 <p>If everything works, you should see the video stream on the bottom left corner in the flight-mode window of <em>QGroundControl</em> as shown in the screenshot below. </p>
 <p><img src="../../assets/videostreaming/qgc-screenshot.png" alt="QGC displaying video stream"></p>
 <p>If you click on the video stream, the satellite map is shown in the left bottom corner and the video is shown in the whole background.</p>
@@ -2572,7 +2594,7 @@ sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Video Streaming in QGC","level":"1.10.2","depth":2,"next":{"title":"Long-distance Video Streaming","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},"previous":{"title":"Ground Control Station","level":"1.10.1","depth":2,"path":"qgc/README.md","ref":"qgc/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"qgc/video_streaming.md","mtime":"2020-03-31T23:30:02.821Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-31T23:31:08.298Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Video Streaming from Odroid C1 to QGC","level":"1.10.2","depth":2,"next":{"title":"Long-distance Video Streaming","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},"previous":{"title":"Ground Control Station","level":"1.10.1","depth":2,"path":"qgc/README.md","ref":"qgc/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"qgc/video_streaming.md","mtime":"2020-04-01T04:45:14.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-01T04:47:06.389Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
