@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>S.Bus Driver for Linux · PX4 Developer Guide</title>
+        <title>Connecting an RC Receiver on Linux · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -329,19 +329,6 @@
             
                     
                     Bash on Windows 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
             
                 </a>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2396,7 +2383,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >S.Bus Driver for Linux</a>
+        <a href=".." >Connecting an RC Receiver on Linux</a>
     </h1>
 </div>
 
@@ -2411,32 +2398,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x7528;&#x4E8E;-linux-&#x7684;-sbus-&#x9A71;&#x52A8;"><a name="&#x7528;&#x4E8E;-linux-&#x7684;-sbus-&#x9A71;&#x52A8;" class="plugin-anchor" href="#&#x7528;&#x4E8E;-linux-&#x7684;-sbus-&#x9A71;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x4E8E; Linux &#x7684; S.Bus &#x9A71;&#x52A8;</h1>
-<p><em>S.Bus Driver for Linux</em> &#x5141;&#x8BB8;&#x57FA;&#x4E8E; Linux &#x7684;&#x65E0;&#x4EBA;&#x673A;&#x901A;&#x8FC7;&#x4E32;&#x884C;&#x7AEF;&#x53E3;&#x4ECE; <em>Futaba S.Bus &#x63A5;&#x6536;&#x673A;</em> &#x8BBF;&#x95EE;&#x591A;&#x8FBE; 16 &#x4E2A;&#x901A;&#x9053;&#x3002; &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x8FD8;&#x5E94;&#x8BE5;&#x4E0E;&#x4F7F;&#x7528; S.Bus &#x534F;&#x8BAE;&#x7684;&#x5176;&#x4ED6;&#x63A5;&#x6536;&#x5668;&#x4E00;&#x8D77;&#x5DE5;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x4F5C;&#x4E3A; FrSky&#xFF0C;RadioLink&#xFF0C;&#x751A;&#x81F3;&#x662F; S.Bus &#x7F16;&#x7801;&#x5668;&#x3002;</p>
-<p>&#x9700;&#x8981;&#x4FE1;&#x53F7;&#x53CD;&#x76F8;&#x5668;&#x7535;&#x8DEF;&#xFF08;&#x5982;&#x4E0B;&#x6240;&#x8FF0;&#xFF09;&#x4EE5;&#x4F7F;&#x5668;&#x4EF6;&#x4E32;&#x884C;&#x7AEF;&#x53E3;&#x80FD;&#x591F;&#x4ECE;&#x63A5;&#x6536;&#x5668;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x3002;</p>
+                                <h1 id="connecting-an-rc-receiver-on-linux-including-sbus"><a name="connecting-an-rc-receiver-on-linux-including-sbus" class="plugin-anchor" href="#connecting-an-rc-receiver-on-linux-including-sbus"><i class="fa fa-link" aria-hidden="true"></i></a>Connecting an RC Receiver on Linux (Including S.Bus)</h1>
+<p>This topic shows how to setup a PX4 Linux-based autopilot to connect and use a <a href="https://docs.px4.io/master/en/getting_started/rc_transmitter_receiver.html" target="_blank">supported RC receiver</a> on any serial port.</p>
+<p>For RC types other than S.Bus, you can just connect the receiver directly to the serial ports, or to USB via a USB to TTY serial cable (e.g. like PL2302 USB to Serial TTL converter).</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x5F53;&#x901A;&#x8FC7;&#x677F;&#x8F7D;&#x4E32;&#x884C;&#x7AEF;&#x53E3;&#x6216;&#x901A;&#x8FC7; USB &#x8F6C; TTL &#x4E32;&#x884C;&#x7535;&#x7F06;&#x8FDE;&#x63A5;&#x5230;&#x63A5;&#x6536;&#x5668;&#x65F6;&#xFF0C;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x5DF2;&#x7ECF;&#x5728;&#x8FD0;&#x884C; Raspbian Linux&#x7684;Raspberry Pi &#x4E0A;&#x8FDB;&#x884C;&#x4E86;&#x6D4B;&#x8BD5;&#x3002; &#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x6240;&#x6709; Linux &#x7248;&#x672C;&#x548C;&#x6240;&#x6709;&#x4E32;&#x884C;&#x7AEF;&#x53E3;&#x4E0A;&#x8FD0;&#x884C;&#x3002;</p>
+<p> For an S.Bus reciever (or encoder - e.g. from Futaba, RadioLink, etc.) you will usually need to connect the receiver and device via a <a href="#signal_inverter_circuit">signal inverter circuit</a>, but otherwise the setup is the same.</p>
 </blockquote>
-<h2 id="&#x4FE1;&#x53F7;&#x9006;&#x53D8;&#x5668;&#x7535;&#x8DEF;"><a name="&#x4FE1;&#x53F7;&#x9006;&#x53D8;&#x5668;&#x7535;&#x8DEF;" class="plugin-anchor" href="#&#x4FE1;&#x53F7;&#x9006;&#x53D8;&#x5668;&#x7535;&#x8DEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FE1;&#x53F7;&#x9006;&#x53D8;&#x5668;&#x7535;&#x8DEF;</h2>
-<p>S.Bus &#x662F; <em>inverted</em> UART &#x901A;&#x4FE1;&#x4FE1;&#x53F7;&#x3002; &#x7531;&#x4E8E;&#x8BB8;&#x591A;&#x4E32;&#x884C;&#x7AEF;&#x53E3;/&#x98DE;&#x884C;&#x63A7;&#x5236;&#x5668;&#x65E0;&#x6CD5;&#x8BFB;&#x53D6;&#x53CD;&#x5411; UART &#x4FE1;&#x53F7;&#xFF0C;&#x56E0;&#x6B64;&#x63A5;&#x6536;&#x5668;&#x548C;&#x4E32;&#x884C;&#x7AEF;&#x53E3;&#x4E4B;&#x95F4;&#x9700;&#x8981;&#x4FE1;&#x53F7;&#x53CD;&#x76F8;&#x5668;&#x7535;&#x8DEF;&#x6765;&#x53CD;&#x8F6C;&#x4FE1;&#x53F7;&#x3002; &#x672C;&#x8282;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x9002;&#x5F53;&#x7684;&#x7535;&#x8DEF;&#x3002;</p>
+<p>Then <a href="#start_driver">Start the PX4 RC Driver</a> on the device, as shown below.</p>
+<h2 id="start_driver"><a name="start_driver" class="plugin-anchor" href="#start_driver"><i class="fa fa-link" aria-hidden="true"></i></a>Starting the Driver </h2>
+<p>To start the RC driver on a particular UART (e.g. in this case <code>/dev/ttyS2</code>):</p>
+<pre><code>rc_input start -d /dev/ttyS2
+</code></pre><p>For other driver usage information see: <a href="../middleware/modules_driver.html#rcinput">rc_input</a>.</p>
+<h2 id="signal_inverter_circuit"><a name="signal_inverter_circuit" class="plugin-anchor" href="#signal_inverter_circuit"><i class="fa fa-link" aria-hidden="true"></i></a>Signal Inverter Circuit (S.Bus only) </h2>
+<p>S.Bus is an <em>inverted</em> UART communication signal.</p>
+<p>While some serial ports/flight controllers can read an inverted UART signal, most require a signal inverter circuit between the receiver and serial port to un-invert the signal.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Raspberry Pi &#x9700;&#x8981;&#x6B64;&#x7535;&#x8DEF;&#x624D;&#x80FD;&#x901A;&#x8FC7;&#x4E32;&#x884C;&#x7AEF;&#x53E3;&#x6216; USB-to-TTY &#x4E32;&#x884C;&#x8F6C;&#x6362;&#x5668;&#x8BFB;&#x53D6; S.Bus &#x8FDC;&#x7A0B;&#x63A7;&#x5236;&#x4FE1;&#x53F7;&#x3002; &#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x98DE;&#x884C;&#x63A7;&#x5236;&#x5668;&#x4E5F;&#x9700;&#x8981;&#x5B83;&#x3002;</p>
+<p> This circuit is also required to read S.Bus remote control signals through the serial port or USB-to-TTY serial converter.</p>
 </blockquote>
-<h3 id="&#x6240;&#x9700;&#x7EC4;&#x4EF6;"><a name="&#x6240;&#x9700;&#x7EC4;&#x4EF6;" class="plugin-anchor" href="#&#x6240;&#x9700;&#x7EC4;&#x4EF6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6240;&#x9700;&#x7EC4;&#x4EF6;</h3>
+<p>This section shows how to create an appropriate circuit.</p>
+<h3 id="required-components"><a name="required-components" class="plugin-anchor" href="#required-components"><i class="fa fa-link" aria-hidden="true"></i></a>Required Components</h3>
 <ul>
-<li>1x NPN &#x6676;&#x4F53;&#x7BA1;&#xFF08;&#x4F8B;&#x5982; NPN S9014 TO92&#xFF09; </li>
+<li>1x NPN &#x6676;&#x4F53;&#x7BA1;&#xFF08;&#x4F8B;&#x5982; NPN S9014 TO92&#xFF09;</li>
 <li>1x 10K &#x7535;&#x963B;</li>
 <li>1x 1K &#x7535;&#x963B;</li>
 </ul>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;/&#x578B;&#x53F7;&#x7684;&#x6676;&#x4F53;&#x7BA1;&#xFF0C;&#x56E0;&#x4E3A;&#x7535;&#x6D41;&#x6D88;&#x8017;&#x975E;&#x5E38;&#x4F4E;&#x3002;</p>
 </blockquote>
-<p><span></span></p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Raspberry Pi &#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x4E32;&#x53E3;&#x3002; &#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; USB &#x8F6C; TTY &#x4E32;&#x884C;&#x7535;&#x7F06;&#xFF08;&#x4F8B;&#x5982; PL2302 USB &#x8F6C; TTL &#x4E32;&#x884C;&#x8F6C;&#x6362;&#x5668;&#xFF09;&#x5C06; S.Bus &#x63A5;&#x6536;&#x5668;&#x8FDE;&#x63A5;&#x5230; RaPi USB &#x7AEF;&#x53E3;&#x3002;</p>
-</blockquote>
-<h3 id="&#x7535;&#x8DEF;&#x56FE;&#x8FDE;&#x63A5;"><a name="&#x7535;&#x8DEF;&#x56FE;&#x8FDE;&#x63A5;" class="plugin-anchor" href="#&#x7535;&#x8DEF;&#x56FE;&#x8FDE;&#x63A5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7535;&#x8DEF;&#x56FE;/&#x8FDE;&#x63A5;</h3>
-<p>&#x6309;&#x5982;&#x4E0B;&#x6240;&#x8FF0;&#x8FDE;&#x63A5;&#x7EC4;&#x4EF6;&#xFF08;&#x5E76;&#x5728;&#x7535;&#x8DEF;&#x56FE;&#x4E2D;&#x663E;&#x793A;&#xFF09;&#xFF1A;</p>
+<h3 id="circuit-diagramconnections"><a name="circuit-diagramconnections" class="plugin-anchor" href="#circuit-diagramconnections"><i class="fa fa-link" aria-hidden="true"></i></a>Circuit Diagram/Connections</h3>
+<p>Connect the components as described below (and shown in the circuit diagram):</p>
 <ul>
 <li>S.Bus &#x4FE1;&#x53F7;&#x2192;1K &#x7535;&#x963B;&#x2192;NPN &#x6676;&#x4F53;&#x7BA1;</li>
 <li>NPN&#x6676;&#x4F53;&#x7BA1;&#x53D1;&#x5C04;&#x2192;GND</li>
@@ -2444,22 +2434,9 @@
 <li>5.0VCC&#x2192;S.Bus VCC</li>
 <li>GND &#x2192; S.Bus GND</li>
 </ul>
-<p><img src="../../assets/driver_sbus_signal_inverter_circuit_diagram.png" alt="&#x4FE1;&#x53F7;&#x9006;&#x53D8;&#x5668;&#x7535;&#x8DEF;"></p>
-<h3 id="&#x7535;&#x8DEF;&#x677F;&#x56FE;&#x50CF;"><a name="&#x7535;&#x8DEF;&#x677F;&#x56FE;&#x50CF;" class="plugin-anchor" href="#&#x7535;&#x8DEF;&#x677F;&#x56FE;&#x50CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7535;&#x8DEF;&#x677F;&#x56FE;&#x50CF;</h3>
-<p>&#x4E0B;&#x56FE;&#x663E;&#x793A;&#x4E86;&#x7535;&#x8DEF;&#x677F;&#x4E0A;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
-<p><img src="../../assets/driver_sbus_signal_inverter_breadboard.png" alt="&#x4FE1;&#x53F7;&#x9006;&#x53D8;&#x5668;&#x7535;&#x8DEF;&#x677F;"></p>
-<h2 id="&#x6E90;&#x4EE3;&#x7801;"><a name="&#x6E90;&#x4EE3;&#x7801;" class="plugin-anchor" href="#&#x6E90;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6E90;&#x4EE3;&#x7801;</h2>
-<ul>
-<li><a href="https://github.com/PX4/Firmware/tree/master/src/drivers/linux_sbus" target="_blank">Firmware/src/drivers/linux_sbus</a></li>
-</ul>
-<h2 id="&#x7528;&#x6CD5;"><a name="&#x7528;&#x6CD5;" class="plugin-anchor" href="#&#x7528;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5;</h2>
-<p>&#x547D;&#x4EE4;&#x8BED;&#x6CD5;&#x662F;&#xFF1A;</p>
-<pre><code>linux_sbus start|stop|status -d &lt;device&gt; -c &lt;channel&gt;
-</code></pre><p>&#x56E0;&#x6B64;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x8981;&#x5728;&#x8BBE;&#x5907; <code>/dev/ttyUSB0</code> &#x4E0A;&#x81EA;&#x52A8;&#x542F;&#x52A8;&#x4FA6;&#x542C; 8 &#x4E2A;&#x901A;&#x9053;&#x7684;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5C06;&#x4EE5;&#x4E0B;&#x884C;&#x6DFB;&#x52A0;&#x5230;&#x542F;&#x52A8;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
-<pre><code>linux_sbus start -d /dev/ttyUSB0 -c 8
-</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x539F;&#x59CB;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4F4D;&#x4E8E; <strong>Firmware / posix-configs</strong> &#x4E2D;&#x3002; &#x6839;&#x636E;&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF0C;&#x5728;&#x5B8C;&#x6210; <code>make upload</code> &#x76F8;&#x5173;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x4E0E; posix &#x76F8;&#x5173;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5C06;&#x88AB;&#x653E;&#x7F6E;&#x5728; <strong>/home/pi</strong> &#x4E2D;&#x3002; &#x60A8;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x8981;&#x5728;&#x90A3;&#x91CC;&#x4F7F;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
-</blockquote>
+<p><img src="../../assets/driver_sbus_signal_inverter_circuit_diagram.png" alt="Signal inverter circuit diagram"></p>
+<p>The image below shows the connections on a breadboard.</p>
+<p><img src="../../assets/driver_sbus_signal_inverter_breadboard.png" alt="Signal inverter breadboard"></p>
 
                                 
                                 </section>
@@ -2503,7 +2480,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"S.Bus Driver for Linux","level":"1.10.4","depth":2,"next":{"title":"高级主题","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"参数 & 配置","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"参数参照表","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"机器视觉","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"运动捕获（VICON, Optitrack）","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},{"title":"安装英特尔 RealSense R200 的驱动程序","level":"1.11.4","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"切换状态估计器","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"树外模块","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]},{"title":"System Tunes","level":"1.11.8","depth":2,"path":"advanced/system_tunes.md","ref":"advanced/system_tunes.md","articles":[]}]},"previous":{"title":"远距离视频流","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"tutorials/linux_sbus.md","mtime":"2020-04-02T11:04:22.257Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Connecting an RC Receiver on Linux","level":"1.10.4","depth":2,"next":{"title":"高级主题","level":"1.11","depth":1,"path":"advanced/README.md","ref":"advanced/README.md","articles":[{"title":"参数 & 配置","level":"1.11.1","depth":2,"path":"advanced/parameters_and_configurations.md","ref":"advanced/parameters_and_configurations.md","articles":[]},{"title":"参数参照表","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},{"title":"机器视觉","level":"1.11.3","depth":2,"path":"advanced/computer_vision.md","ref":"advanced/computer_vision.md","articles":[{"title":"运动捕获（VICON, Optitrack）","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]}]},{"title":"安装英特尔 RealSense R200 的驱动程序","level":"1.11.4","depth":2,"path":"advanced/realsense_intel_driver.md","ref":"advanced/realsense_intel_driver.md","articles":[]},{"title":"切换状态估计器","level":"1.11.5","depth":2,"path":"advanced/switching_state_estimators.md","ref":"advanced/switching_state_estimators.md","articles":[]},{"title":"树外模块","level":"1.11.6","depth":2,"path":"advanced/out_of_tree_modules.md","ref":"advanced/out_of_tree_modules.md","articles":[]},{"title":"STM32 Bootloader","level":"1.11.7","depth":2,"path":"software_update/stm32_bootloader.md","ref":"software_update/stm32_bootloader.md","articles":[]},{"title":"System Tunes","level":"1.11.8","depth":2,"path":"advanced/system_tunes.md","ref":"advanced/system_tunes.md","articles":[]}]},"previous":{"title":"远距离视频流","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"tutorials/linux_sbus.md","mtime":"2020-04-03T05:16:51.053Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

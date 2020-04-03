@@ -336,19 +336,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2422,29 +2409,26 @@
    &amp;lt;file&amp;gt;        Bootloader bin &#x6587;&#x4EF6;
 </code></pre><h2 id="config"><a name="config" class="plugin-anchor" href="#config"><i class="fa fa-link" aria-hidden="true"></i></a>config</h2>
 <p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/config" target="_blank">systemcmds/config</a></p>
-<p>&#x914D;&#x7F6E;&#x4F20;&#x611F;&#x5668;&#x7684;&#x9A71;&#x52A8;&#xFF08;&#x8BBE;&#x5B9A;&#x4F20;&#x611F;&#x5668;&#x91C7;&#x6837; &amp; &#x53D1;&#x5E03;&#x901F;&#x7387;&#xFF0C;&#x91CF;&#x7A0B;&#x7B49;&#xFF09;</p>
+<p>Configure a sensor driver (sampling &amp; publication rate, etc.)</p>
 <h3 id="config_usage"><a name="config_usage" class="plugin-anchor" href="#config_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
-<pre><code>config &amp;lt;command&amp;gt; [arguments...]
+<pre><code>config &lt;command&gt; [arguments...]
  Commands:
 
-&amp;lt;file:dev&amp;gt; &#x53C2;&#x6570;&#x901A;&#x5E38;&#x662F; /dev/{gyro,accel,mag}i &#x4E2D;&#x7684;&#x4E00;&#x4E2A;
-   block         &#x5835;&#x585E;&#x4F20;&#x611F;&#x5668;&#x8BDD;&#x9898;&#x7684;&#x53D1;&#x5E03;
-     &amp;lt;file:dev&amp;gt;  &#x4F20;&#x611F;&#x5668;&#x8BBE;&#x5907;&#x6587;&#x4EF6;
+ The &lt;file:dev&gt; argument is typically one of /dev/{gyro,accel,mag}i
+   block         Block sensor topic publication
+     &lt;file:dev&gt;  Sensor device file
 
-   unblock       &#x6062;&#x590D;&#x4F20;&#x611F;&#x5668;&#x8BDD;&#x9898;&#x7684;&#x53D1;&#x5E03;
-     &amp;lt;file:dev&amp;gt;  &#x4F20;&#x611F;&#x5668;&#x8BBE;&#x5907;&#x6587;&#x4EF6;
+   unblock       Unblock sensor topic publication
+     &lt;file:dev&gt;  Sensor device file
 
-   sampling      &#x8BBE;&#x5B9A;&#x4F20;&#x611F;&#x5668;&#x91C7;&#x6837;&#x901F;&#x7387;
-     &amp;lt;file:dev&amp;gt; &amp;lt;rate&amp;gt; &#x4F20;&#x611F;&#x5668;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#xFF0C;&#x91C7;&#x6837;&#x901F;&#x7387; Hz
+   sampling      Set sensor sampling rate
+     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and sampling rate in Hz
 
-   rate          &#x8BBE;&#x5B9A;&#x4F20;&#x611F;&#x5668;&#x6570;&#x636E;&#x53D1;&#x5E03;&#x901F;&#x7387;
-     &amp;lt;file:dev&amp;gt; &amp;lt;rate&amp;gt; &#x4F20;&#x611F;&#x5668;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#xFF0C;&#x53D1;&#x5E03;&#x901F;&#x7387; Hz
+   rate          Set sensor publication rate
+     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and publication rate in Hz
 
-   range         &#x8BBE;&#x5B9A;&#x4F20;&#x611F;&#x5668;&#x6D4B;&#x91CF;&#x91CF;&#x7A0B;
-     &amp;lt;file:dev&amp;gt; &amp;lt;rate&amp;gt; &#x4F20;&#x611F;&#x5668;&#x8BBE;&#x5907;&#x6587;&#x4EF6;&#x548C;&#x91CF;&#x7A0B;
-
-   check         &#x6267;&#x884C;&#x4F20;&#x611F;&#x5668;&#x81EA;&#x68C0;&#xFF08;&#x5E76;&#x6253;&#x5370;&#x81EA;&#x68C0;&#x4FE1;&#x606F;&#xFF09;
-     &amp;lt;file:dev&amp;gt;  &#x4F20;&#x611F;&#x5668;&#x8BBE;&#x5907;&#x6587;&#x4EF6;
+   check         Perform sensor self-test (and print info)
+     &lt;file:dev&gt;  Sensor device file
 </code></pre><h2 id="dumpfile"><a name="dumpfile" class="plugin-anchor" href="#dumpfile"><i class="fa fa-link" aria-hidden="true"></i></a>dumpfile</h2>
 <p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile" target="_blank">systemcmds/dumpfile</a></p>
 <p>&#x8F6C;&#x50A8;&#x6587;&#x4EF6;&#x5E94;&#x7528;&#x3002; &#x5C06;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x53CA;&#x5185;&#x5BB9;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x6A21;&#x5F0F;&#x8F93;&#x51FA;&#x503C;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#xFF08;&#x4E0D;&#x4F7F;&#x7528; LF &#x66FF;&#x6362; CR LF&#xFF09;&#x3002;</p>
@@ -2897,7 +2881,7 @@ pwm test -c 13 -p 1200
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"命令","level":"1.7.1","depth":2,"next":{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"模块 & 命令","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"驱动","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},{"title":"Baro","level":"1.7.4.2","depth":3,"path":"middleware/modules_driver_baro.md","ref":"middleware/modules_driver_baro.md","articles":[]},{"title":"Distance Sensor","level":"1.7.4.3","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},{"title":"IMU","level":"1.7.4.4","depth":3,"path":"middleware/modules_driver_imu.md","ref":"middleware/modules_driver_imu.md","articles":[]},{"title":"Magnetometer","level":"1.7.4.5","depth":3,"path":"middleware/modules_driver_magnetometer.md","ref":"middleware/modules_driver_magnetometer.md","articles":[]}]},{"title":"估计器","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},{"title":"System","level":"1.7.7","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2020-04-02T11:04:22.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"命令","level":"1.7.1","depth":2,"next":{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"模块 & 命令","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"驱动","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},{"title":"Baro","level":"1.7.4.2","depth":3,"path":"middleware/modules_driver_baro.md","ref":"middleware/modules_driver_baro.md","articles":[]},{"title":"Distance Sensor","level":"1.7.4.3","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},{"title":"IMU","level":"1.7.4.4","depth":3,"path":"middleware/modules_driver_imu.md","ref":"middleware/modules_driver_imu.md","articles":[]},{"title":"Magnetometer","level":"1.7.4.5","depth":3,"path":"middleware/modules_driver_magnetometer.md","ref":"middleware/modules_driver_magnetometer.md","articles":[]}]},{"title":"估计器","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},{"title":"System","level":"1.7.7","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2020-04-03T05:16:51.049Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

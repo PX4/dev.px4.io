@@ -336,19 +336,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2421,10 +2408,13 @@
 <li><a href="https://docs.px4.io/en/computer_vision/obstacle_avoidance.html" target="_blank">&#x969C;&#x788D;&#x907F;&#x514D;</a>&#x5728;&#x98DE;&#x884C;&#x8BA1;&#x5212;&#x8DEF;&#x5F84;&#x65F6;&#x63D0;&#x4F9B;&#x7ED5;&#x969C;&#x788D;&#x7269;&#x7684;&#x5BFC;&#x822A;&#xFF08;&#x652F;&#x6301;&#x5F53;&#x524D;&#x7684;&#x4EFB;&#x52A1;&#xFF09;&#x3002; &#x8FD9;&#x4F9D;&#x8D56;&#x673A;&#x8F7D;&#x7535;&#x8111;&#x4E0A;&#x8FD0;&#x884C;&#x7684; <a href="https://github.com/PX4/avoidance" target="_blank">PX4/avoidance</a></li>
 <li><a href="https://docs.px4.io/en/computer_vision/collision_prevention.html" target="_blank">&#x78B0;&#x649E;&#x9884;&#x9632;</a>&#x4F7F;&#x8F7D;&#x5177;&#x5728;&#x649E;&#x5230;&#x969C;&#x788D;&#x7269;&#x4E4B;&#x524D;&#x505C;&#x6B62;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x5728;&#x624B;&#x52A8;&#x6A21;&#x5F0F;&#x4E0B;&#x98DE;&#x884C;&#x65F6;&#xFF09;&#x3002;</li>
 </ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The <a href="https://docs.px4.io/master/en/complete_vehicles/px4_vision_kit.html" target="_blank">PX4 Vision Autonomy Development Kit</a> (Holybro) is a robust and inexpensive kit for developers working with computer vision on PX4. It comes with <a href="https://github.com/PX4/avoidance#obstacle-detection-and-avoidance" target="_blank">PX4 avoidance</a> software pre-installed, and can be used as the base for your own algorithms.</p>
+</blockquote>
 <h2 id="mocap"><a name="mocap" class="plugin-anchor" href="#mocap"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x52A8;&#x6355;&#x6349; </h2>
 <p>&#x8FD0;&#x52A8;&#x6355;&#x6349;&#xFF08;MoCap&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x4F7F;&#x7528;&#x8F7D;&#x5177;<em>&#x5916;&#x90E8;</em>&#x7684;&#x5B9A;&#x4F4D;&#x673A;&#x6784;&#x6765;&#x4F30;&#x8BA1;&#x98DE;&#x673A;&#x7684;3D <em>&#x59FF;&#x52BF;</em>&#xFF08;&#x4F4D;&#x7F6E;&#x548C;&#x59FF;&#x52BF;&#xFF09;&#x7684;&#x6280;&#x672F;&#x3002; MoCap&#x7CFB;&#x7EDF;&#x6700;&#x5E38;&#x4F7F;&#x7528;&#x7EA2;&#x5916;&#x6444;&#x50CF;&#x673A;&#x68C0;&#x6D4B;&#x8FD0;&#x52A8;&#xFF0C;&#x4F46;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x6444;&#x50CF;&#x673A;&#xFF0C;&#x6FC0;&#x5149;&#x96F7;&#x8FBE;&#x6216;Ultra Wideband (UWB)&#x3002;</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> MoCap &#x901A;&#x5E38;&#x7528;&#x4E8E;&#x5728; GPS &#x4E0D;&#x5B58;&#x5728;&#xFF08;&#x4F8B;&#x5982;&#x5BA4;&#x5185;&#xFF09;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5BFC;&#x822A;&#x98DE;&#x673A;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x76F8;&#x5BF9;&#x4E8E;<em>&#x672C;&#x5730;</em>&#x5750;&#x6807;&#x7CFB;&#x7EDF;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<p> MoCap is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a a <em>local</em> co-ordinate system.</p>
 </blockquote>
 <p>&#x6709;&#x5173;MoCap&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#xFF1A;</p>
 <ul>
@@ -2436,7 +2426,7 @@
 <p>&#x89C6;&#x89C9;&#x60EF;&#x6027;&#x6D4B;&#x8DDD;&#xFF08;VIO&#xFF09;&#x7528;&#x4E8E;&#x4F30;&#x8BA1;&#x79FB;&#x52A8;&#x8F66;&#x8F86;&#x76F8;&#x5BF9;&#x4E8E;<em>&#x8D77;&#x59CB;&#x70B9;</em>&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x7684;3D <em>&#x59FF;&#x52BF;</em>&#xFF08;&#x4F4D;&#x7F6E;&#x548C;&#x65B9;&#x5411;&#xFF09;&#x3002; &#x5B83;&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x5728;GPS&#x4E0D;&#x5B58;&#x5728;&#xFF08;&#x4F8B;&#x5982;&#x5BA4;&#x5185;&#xFF09;&#x6216;&#x4E0D;&#x53EF;&#x9760;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x4F8B;&#x5982;&#x5728;&#x6865;&#x4E0B;&#x98DE;&#x884C;&#x65F6;&#xFF09;&#x5BFC;&#x822A;&#x8F7D;&#x5177;&#x3002;</p>
 <p>VIO&#x4F7F;&#x7528;<a href="https://en.wikipedia.org/wiki/Visual_odometry" target="_blank">&#x89C6;&#x89C9;&#x6D4B;&#x8DDD;</a>&#x6765;&#x4ECE;&#x89C6;&#x89C9;&#x4FE1;&#x606F;&#x4F30;&#x8BA1;&#x8F66;&#x8F86;<em>&#x59FF;&#x52BF;</em>&#xFF0C;&#x7ED3;&#x5408;&#x6765;&#x81EA;IMU&#x7684;&#x60EF;&#x6027;&#x6D4B;&#x91CF;&#xFF08;&#x4EE5;&#x6821;&#x6B63;&#x4E0E;&#x8F7D;&#x5177;&#x5FEB;&#x901F;&#x79FB;&#x52A8;&#x5BFC;&#x81F4;&#x4E0D;&#x826F;&#x7684;&#x56FE;&#x50CF;&#x6355;&#x83B7;&#xFF09;&#x3002;</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> VIO &#x548C; <a href="#mocap">MoCap</a> &#x4E4B;&#x95F4;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E; VIO &#x6444;&#x50CF;&#x673A;&#x3001;IMU &#x662F;&#x57FA;&#x4E8E;&#x98DE;&#x673A;&#x672C;&#x8EAB;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x8FD8;&#x63D0;&#x4F9B;&#x901F;&#x5EA6;&#x4FE1;&#x606F;&#x3002;</p>
+<p> On difference between VIO and <a href="#mocap">MoCap</a> is that VIO cameras/IMU are vehicle-based, and additionally provide velocity information.</p>
 </blockquote>
 <p>&#x6709;&#x5173;VIO&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#xFF1A;</p>
 <ul>
@@ -2496,7 +2486,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"机器视觉","level":"1.11.3","depth":2,"next":{"title":"运动捕获（VICON, Optitrack）","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]},"previous":{"title":"参数参照表","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"advanced/computer_vision.md","mtime":"2020-04-02T11:04:22.249Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"机器视觉","level":"1.11.3","depth":2,"next":{"title":"运动捕获（VICON, Optitrack）","level":"1.11.3.1","depth":3,"path":"tutorials/motion-capture-vicon-optitrack.md","ref":"tutorials/motion-capture-vicon-optitrack.md","articles":[]},"previous":{"title":"参数参照表","level":"1.11.2","depth":2,"path":"advanced/parameter_reference.md","ref":"advanced/parameter_reference.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"advanced/computer_vision.md","mtime":"2020-04-03T05:16:51.041Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

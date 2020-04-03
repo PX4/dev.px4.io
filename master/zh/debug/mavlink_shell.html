@@ -336,19 +336,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2412,32 +2399,32 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="mavlink-shell"><a name="mavlink-shell" class="plugin-anchor" href="#mavlink-shell"><i class="fa fa-link" aria-hidden="true"></i></a>MAVLink Shell</h1>
-<p>The MAVLink Shell is an <em>NSH console</em> that can be accessed via MAVLink over serial (USB/Telemetry) or WiFi (UDP/TCP) links (in particular, on NuttX-based systems like: Pixhawk, Pixracer, etc.).</p>
-<p>The shell can be used for running commands and modules, and displaying their output. While the shell cannot <em>directly</em> display the output of modules that it does not start, it can do so indirectly using the <code>dmesg</code> command (<code>dmesg -f &amp;</code> can be used to display the output of other modules and tasks running on the work queue).</p>
+<p>MAVLink Shell &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E32;&#x53E3;&#xFF08;USB&#x3001;&#x6570;&#x4F20;&#x6216;&#x57FA;&#x4E8E;WIFI&#x7684;UDP/TCP&#x94FE;&#x8DEF;&#xFF09;&#x4F7F;&#x7528;MAVLink&#x534F;&#x8BAE;&#x8BBF;&#x95EE;&#x7684; <em>NSH &#x63A7;&#x5236;&#x53F0;</em> &#x3002;&#x53EA;&#x9002;&#x7528;&#x4E8E;&#x57FA;&#x4E8E;NuttX&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x5982;&#xFF1A;Pixhawk&#x3001;Pixracer&#x7B49;&#x3002;</p>
+<p>&#x5B83;&#x53EF;&#x7528;&#x4E8E;&#x542F;&#x52A8;&#x7CFB;&#x7EDF;&#x6307;&#x4EE4;&#x4E0E;&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x5F97;&#x5230;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x3002; &#x5C3D;&#x7BA1;&#x5B83;&#x4E0D;&#x80FD;<em>&#x76F4;&#x63A5;</em>&#x663E;&#x793A;&#x90A3;&#x4E9B;&#x4E0D;&#x662F;&#x7531;&#x5B83;&#x542F;&#x52A8;&#x7684;&#x6A21;&#x5757;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x4F46;&#x662F;&#x53EF;&#x4EE5;&#x95F4;&#x63A5;&#x7684;&#x4F7F;&#x7528; <code>dmesg</code> &#x547D;&#x4EE4;&#x6765;&#x67E5;&#x8BE2;&#x3002;&#x6267;&#x884C; <code>dmesg -f &amp;</code> &#x53EF;&#x4EE5;&#x6253;&#x5370;&#x51FA;&#x5DE5;&#x4F5C;&#x961F;&#x5217;&#x4E2D;&#x5176;&#x5B83;&#x6A21;&#x5757;&#x548C;&#x4EFB;&#x52A1;&#x7684;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x3002;</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The <a href="#qgroundcontrol">QGroundControl MAVLink Console</a> is the easiest way to access the console. If the system does not start properly you should instead use the <a href="system_console.html">System Console</a>.</p>
+<p> <a href="#qgroundcontrol">QGC&#x5730;&#x9762;&#x7AD9; MAVLink &#x63A7;&#x5236;&#x53F0;</a> &#x662F;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x53F0;&#x6700;&#x65B9;&#x4FBF;&#x7684;&#x65B9;&#x6CD5;&#x3002; &#x5982;&#x679C;&#x7CFB;&#x7EDF;&#x672A;&#x80FD;&#x6B63;&#x5E38;&#x542F;&#x52A8;&#xFF0C;&#x5219;&#x5E94;&#x4F7F;&#x7528;<a href="system_console.html">System Console</a>&#x3002;</p>
 </blockquote>
-<h2 id="opening-the-shell"><a name="opening-the-shell" class="plugin-anchor" href="#opening-the-shell"><i class="fa fa-link" aria-hidden="true"></i></a>Opening the Shell</h2>
+<h2 id="&#x542F;&#x7528;-shell"><a name="&#x542F;&#x7528;-shell" class="plugin-anchor" href="#&#x542F;&#x7528;-shell"><i class="fa fa-link" aria-hidden="true"></i></a>&#x542F;&#x7528; Shell</h2>
 <h3 id="qgroundcontrol"><a name="qgroundcontrol" class="plugin-anchor" href="#qgroundcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>QGroundControl MAVLink Console </h3>
-<p>The easiest way to access shell is to use the <a href="https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html" target="_blank">QGroundControl MAVLink Console</a> (see <strong>Analyze View &gt; Mavlink Console</strong>).</p>
+<p>&#x8BBF;&#x95EE; shell &#x7684;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x5F0F;&#x662F;&#x4F7F;&#x7528; <a href="https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html" target="_blank">QGC&#x5730;&#x9762;&#x7AD9; MAVLink &#x63A7;&#x5236;&#x53F0;</a> (&#x89C1;<strong>Analyze View &gt; Mavlink Console</strong>)&#x3002;</p>
 <h3 id="mavlinkshellpy"><a name="mavlinkshellpy" class="plugin-anchor" href="#mavlinkshellpy"><i class="fa fa-link" aria-hidden="true"></i></a>mavlink_shell.py</h3>
-<p>You can also access the shell in a terminal using the <strong>mavlink_shell.py</strong> script:</p>
+<p>&#x60A8;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <strong>mavlink_shell.py</strong> &#x811A;&#x672C;&#x4ECE;&#x7EC8;&#x7AEF;&#x8BBF;&#x95EE;shell&#xFF1A;</p>
 <ol>
-<li>Shut down <em>QGroundControl</em>.</li>
-<li>Install dependencies:<pre><code class="lang-sh">sudo pip3 install pymavlink pyserial
+<li>&#x5173;&#x95ED; <em>QGroundControl</em>.</li>
+<li>&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x9879;<pre><code class="lang-sh">sudo pip3 install pymavlink pyserial
 </code></pre>
 </li>
-<li>Open terminal (in Firmware directory) and start the shell:<pre><code class="lang-sh"><span class="hljs-comment"># For serial port</span>
+<li>&#x5728; Firmware &#x76EE;&#x5F55;&#x4E2D;&#x6253;&#x5F00;&#x7EC8;&#x7AEF;&#x5E76;&#x542F;&#x52A8; shell&#xFF1A;<pre><code class="lang-sh"><span class="hljs-comment"># &#x901A;&#x8FC7;&#x4E32;&#x53E3;</span>
 ./Tools/mavlink_shell.py /dev/ttyACM0
 </code></pre>
-<pre><code class="lang-sh"><span class="hljs-comment"># For Wifi connection</span>
+<pre><code class="lang-sh"><span class="hljs-comment"># &#x901A;&#x8FC7; WiFi &#x8FDE;&#x63A5;</span>
 ./Tools/mavlink_shell.py 0.0.0.0:14550
 </code></pre>
 </li>
 </ol>
-<p>Use <code>mavlink_shell.py -h</code> to get a description of all available arguments.</p>
-<h2 id="using-the-mavlink-shell"><a name="using-the-mavlink-shell" class="plugin-anchor" href="#using-the-mavlink-shell"><i class="fa fa-link" aria-hidden="true"></i></a>Using the MAVLink Shell</h2>
-<p>For information see: <a href="consoles.html#using_the_console">PX4 Consoles/Shells &gt; Using Consoles/Shells</a>.</p>
+<p>&#x6267;&#x884C; <code>mavlink_shell.py -h</code> &#x83B7;&#x53D6;&#x6240;&#x6709;&#x53EF;&#x7528;&#x53C2;&#x6570;&#x7684;&#x63CF;&#x8FF0;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;-mavlink-shell"><a name="&#x4F7F;&#x7528;-mavlink-shell" class="plugin-anchor" href="#&#x4F7F;&#x7528;-mavlink-shell"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; MAVLink Shell</h2>
+<p>&#x8BE6;&#x60C5;&#x89C1;&#xFF1A;<a href="consoles.html#using_the_console">PX4 &#x63A7;&#x5236;&#x53F0;/Shells &gt; &#x4F7F;&#x7528;&#x63A7;&#x5236;&#x53F0;/Shells</a>&#x3002;</p>
 
                                 
                                 </section>
@@ -2481,7 +2468,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MAVLink Shell","level":"1.9.2.1","depth":3,"next":{"title":"System Console","level":"1.9.2.2","depth":3,"path":"debug/system_console.md","ref":"debug/system_console.md","articles":[]},"previous":{"title":"Consoles/Shells","level":"1.9.2","depth":2,"path":"debug/consoles.md","ref":"debug/consoles.md","articles":[{"title":"MAVLink Shell","level":"1.9.2.1","depth":3,"path":"debug/mavlink_shell.md","ref":"debug/mavlink_shell.md","articles":[]},{"title":"System Console","level":"1.9.2.2","depth":3,"path":"debug/system_console.md","ref":"debug/system_console.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/mavlink_shell.md","mtime":"2020-04-02T11:04:22.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"MAVLink Shell","level":"1.9.2.1","depth":3,"next":{"title":"System Console","level":"1.9.2.2","depth":3,"path":"debug/system_console.md","ref":"debug/system_console.md","articles":[]},"previous":{"title":"Consoles/Shells","level":"1.9.2","depth":2,"path":"debug/consoles.md","ref":"debug/consoles.md","articles":[{"title":"MAVLink Shell","level":"1.9.2.1","depth":3,"path":"debug/mavlink_shell.md","ref":"debug/mavlink_shell.md","articles":[]},{"title":"System Console","level":"1.9.2.2","depth":3,"path":"debug/system_console.md","ref":"debug/system_console.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"debug/mavlink_shell.md","mtime":"2020-04-03T05:16:51.045Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

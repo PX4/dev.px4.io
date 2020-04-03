@@ -336,19 +336,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2458,7 +2445,7 @@ graph LR;
 <li>1&#xFF1A;gimbal pitch</li>
 <li>2: gimbal yaw</li>
 <li>3: gimbal shutter</li>
-<li>4&#xFF1A;&#x4FDD;&#x7559;</li>
+<li>4: camera zoom</li>
 <li>5&#xFF1A;&#x4FDD;&#x7559;</li>
 <li>6&#xFF1A;&#x4FDD;&#x7559;</li>
 <li>7&#xFF1A;&#x4FDD;&#x7559; (&#x964D;&#x843D;&#x4F1E;, -1..1)</li>
@@ -2489,6 +2476,9 @@ graph LR;
 <li>7: function 7</li>
 </ul>
 <h2 id="&#x865A;&#x62DF;&#x63A7;&#x5236;&#x7EC4;"><a name="&#x865A;&#x62DF;&#x63A7;&#x5236;&#x7EC4;" class="plugin-anchor" href="#&#x865A;&#x62DF;&#x63A7;&#x5236;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x865A;&#x62DF;&#x63A7;&#x5236;&#x7EC4;</h2>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> <em>Virtual Control Group</em>s are only relevant to developers creating VTOL code. They should not be used in mixers, and are provided only for &quot;completeness&quot;.</p>
+</blockquote>
 <p>&#x865A;&#x62DF;&#x63A7;&#x5236;&#x7EC4;&#x5E76;&#x4E0D;&#x4F5C;&#x4E3A;&#x6DF7;&#x63A7;&#x5668;&#x7684;&#x8F93;&#x5165;&#x91CF;&#x4F7F;&#x7528;&#xFF0C;&#x5B83;&#x4EEC;&#x5C06;&#x4F5C;&#x4E3A;&#x5143;&#x901A;&#x9053;&#xFF08;meta-channels&#xFF09;&#x5C06;&#x56FA;&#x5B9A;&#x7FFC;&#x63A7;&#x5236;&#x5668;&#x548C;&#x591A;&#x65CB;&#x7FFC;&#x63A7;&#x5236;&#x5668;&#x7684;&#x8F93;&#x51FA;&#x4F20;&#x9012;&#x7ED9; VOTL &#x8C03;&#x8282;&#x5668;&#x6A21;&#x5757;&#xFF08;VTOL governor module&#xFF09;&#x3002;</p>
 <h3 id="&#x63A7;&#x5236;&#x7EC4;-4-flight-control-mc-virtual"><a name="&#x63A7;&#x5236;&#x7EC4;-4-flight-control-mc-virtual" class="plugin-anchor" href="#&#x63A7;&#x5236;&#x7EC4;-4-flight-control-mc-virtual"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A7;&#x5236;&#x7EC4; #4 (Flight Control MC VIRTUAL)</h3>
 <ul>
@@ -2515,8 +2505,8 @@ graph LR;
 <h2 id="&#x8F93;&#x51FA;&#x7EC4;&#x6620;&#x5C04;"><a name="&#x8F93;&#x51FA;&#x7EC4;&#x6620;&#x5C04;" class="plugin-anchor" href="#&#x8F93;&#x51FA;&#x7EC4;&#x6620;&#x5C04;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F93;&#x51FA;&#x7EC4;/&#x6620;&#x5C04;</h2>
 <p>&#x4E00;&#x4E2A;&#x4EA7;&#x51FA;&#x7EC4;&#x662F;&#x4E00;&#x4E2A;&#x7269;&#x7406;&#x603B;&#x7EBF;(&#x4F8B;&#x5982; FMU PWM &#x8F93;&#x51FA;&#xFF0C;IO PWM &#x8F93;&#x51FA;&#xFF0C;UAVCAN &#x7B49;)&#x3002; &#x5177;&#x6709; N (&#x901A;&#x5E38;&#x4E3A;8) &#x4E2A;&#x89C4;&#x8303;&#x5316;(-1..+1)&#x7684;&#x547D;&#x4EE4;&#x7AEF;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6DF7;&#x97F3;&#x5668;&#x6620;&#x5C04;&#x548C;&#x7F29;&#x653E;&#x3002;</p>
 <p>&#x6DF7;&#x97F3;&#x5668;&#x6587;&#x4EF6;&#x6CA1;&#x6709;&#x660E;&#x786E;&#x5B9A;&#x4E49;&#x8F93;&#x51FA;&#x5E94;&#x7528;&#x7684;&#x5B9E;&#x9645; <em>&#x8F93;&#x51FA;&#x7EC4;</em> (&#x7269;&#x7406;&#x603B;&#x7EBF;)&#x3002; &#x76F8;&#x53CD;&#xFF0C;&#x6DF7;&#x5408;&#x7269;&#x7684;&#x76EE;&#x7684; (&#x4F8B;&#x5982;&#x63A7;&#x5236;MAIN&#x6216; AUX &#x8F93;&#x51FA;) &#x4ECE;&#x6DF7;&#x97F3;&#x5668; <a href="#mixer_file_names"> filename </a> &#x4E2D;&#x63A8;&#x65AD;&#xFF0C;&#x5E76;&#x6620;&#x5C04;&#x5230;&#x7CFB;&#x7EDF;&#x4E2D;&#x9002;&#x5F53;&#x7684;&#x7269;&#x7406;&#x603B;&#x7EBF; <a href="system_startup.html">startup scripts</a> (&#x5C24;&#x5176;&#x662F;<a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rc.interface" target="_blank">rc.interface</a>)&#x3002;</p>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
-<p> &#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5F88;&#x6709;&#x5FC5;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;&#x7528;&#x4E8E;MAIN&#x8F93;&#x51FA;&#x7684;&#x7269;&#x7406;&#x603B;&#x7EBF;&#x5E76;&#x4E0D;&#x603B;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF1B; &#x5B83;&#x53D6;&#x51B3;&#x4E8E;&#x98DE;&#x884C;&#x63A7;&#x5236;&#x5668;&#x662F;&#x5426;&#x6709; IO Board(&#x89C1;<a href="../hardware/reference_design.html#mainio-function-breakdown">PX4 Reference Flight Controller Design &gt; Main/IO Function Breakdown</a>) &#x6216;&#x4F7F;&#x7528;UAVCAN &#x8FDB;&#x884C;&#x53D1;&#x52A8;&#x673A;&#x63A7;&#x5236;&#x3002; &#x542F;&#x52A8;&#x811A;&#x672C;&#x4F7F;&#x7528;&quot;&#x8BBE;&#x5907;&quot;&#x62BD;&#x8C61;&#x5C06;&#x6DF7;&#x97F3;&#x5668;&#x6587;&#x4EF6;&#x52A0;&#x8F7D;&#x5230;&#x677F;&#x5B50;&#x9002;&#x5F53;&#x7684;&#x8BBE;&#x5907;&#x9A71;&#x52A8;&#x5668;&#x3002; &#x5982;&#x679C; UAVCAN &#x5DF2;&#x542F;&#x7528;&#xFF0C;&#x4E3B;&#x6DF7;&#x97F3;&#x5668;&#x5C06;&#x88AB;&#x52A0;&#x8F7D;&#x5230;&#x8BBE;&#x5907;<code>/dev/uavcan/esc</code> (uavcan) &#x5426;&#x5219;<code>/dev/pwm_output0</code> (&#x6B64;&#x8BBE;&#x5907;&#x5DF2;&#x6620;&#x5C04;&#x7ED9;&#x5177;&#x6709;I/O &#x677F;&#x7684;&#x63A7;&#x5236;&#x5668;&#x7684; IO &#x9A71;&#x52A8;&#xFF0C;&#x4E14; FMU &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x5DF2;&#x6620;&#x5C04;&#x5230;&#x672A;&#x6620;&#x5C04;&#x7684;&#x677F;&#x4E0A;)&#x3002; Aux &#x6DF7;&#x63A7;&#x5668; &#x6587;&#x4EF6;&#x88AB;&#x52A0;&#x8F7D;&#x5230;&#x8BBE;&#x5907; <code>/dev/pwm_output1</code>, &#x5B83;&#x5C06;&#x6620;&#x5C04;&#x5230; Pixhawk &#x63A7;&#x5236;&#x5668;&#x4E0A;&#x62E5;&#x6709; I/O &#x677F;&#x5B50;&#x7684; FMU &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x3002;</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This approach is needed because the physical bus used for MAIN outputs is not always the same; it depends on whether or not the flight controller has an IO Board (see <a href="../hardware/reference_design.html#mainio-function-breakdown">PX4 Reference Flight Controller Design &gt; Main/IO Function Breakdown</a>) or uses UAVCAN for motor control. The startup scripts load the mixer files into the appropriate device driver for the board, using the abstraction of a &quot;device&quot;. The main mixer is loaded into device <code>/dev/uavcan/esc</code> (uavcan) if UAVCAN is enabled, and otherwise <code>/dev/pwm_output0</code> (this device is mapped to the IO driver on controllers with an I/O board, and the FMU driver on boards that don&apos;t). The aux mixer file is loaded into device <code>/dev/pwm_output1</code>, which maps to the FMU driver on Pixhawk controllers that have an I/O board.</p>
 </blockquote>
 <p>&#x56E0;&#x4E3A;&#x6709;&#x591A;&#x4E2A;&#x63A7;&#x5236;&#x7EC4;(&#x4F8B;&#x5982;&#x98DE;&#x884C;&#x63A7;&#x5236;&#x3001;&#x6709;&#x6548;&#x8F7D;&#x8377;&#x7B49;)&#x3002; &#x548C;&#x591A;&#x4E2A;&#x8F93;&#x51FA;&#x7EC4;(&#x603B;&#x7EBF;) &#xFF0C;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x7EC4;&#x53EF;&#x4EE5;&#x5411;&#x591A;&#x4E2A;&#x8F93;&#x51FA;&#x7EC4;&#x53D1;&#x9001;&#x547D;&#x4EE4;&#x3002;</p>
 <p><img src="../../assets/concepts/mermaid_mixer_inputs_outputs.png" alt="Mixer Input/Output Mapping"> <!--- Mermaid Live Version:
@@ -2527,7 +2517,7 @@ graph TD;
   actuator_group_1dashdash>output_group_0
 ---></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x542F;&#x52A8;&#x811A;&#x672C;&#x53EA;&#x4F1A;&#x52A0;&#x8F7D;&#x6DF7;&#x63A7;&#x5668;&#x5230;&#x5355;&#x4E2A;&#x8BBE;&#x5907; (&#x8F93;&#x51FA;&#x7EC4;)&#x3002; &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x914D;&#x7F6E;&#x800C;&#x4E0D;&#x662F;&#x6280;&#x672F;&#x9650;&#x5236;&#xFF1B; &#x60A8;&#x53EF;&#x4EE5;&#x5C06;&#x4E3B;&#x6DF7;&#x97F3;&#x5668;&#x52A0;&#x8F7D;&#x5230;&#x591A;&#x4E2A;&#x9A71;&#x52A8;&#x5668;&#x4E2D;&#xFF0C;&#x4F8B;&#x5982;&#x5728;UAVCAN &#x548C;&#x4E3B;&#x5F15;&#x811A;&#x4E0A;&#x90FD;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4FE1;&#x53F7;&#x3002;</p>
+<p> In practice, the startup scripts only load mixers into a single device (output group). This is a configuration rather than technical limitation; you could load the main mixer into multiple drivers and have, for example, the same signal on both UAVCAN and the main pins.</p>
 </blockquote>
 <h2 id="px4-&#x6DF7;&#x63A7;&#x5668;&#x5B9A;&#x4E49;"><a name="px4-&#x6DF7;&#x63A7;&#x5668;&#x5B9A;&#x4E49;" class="plugin-anchor" href="#px4-&#x6DF7;&#x63A7;&#x5668;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#x6DF7;&#x63A7;&#x5668;&#x5B9A;&#x4E49;</h2>
 <p>Mixers are defined in plain-text files using the <a href="#mixer_syntax">syntax</a> below.</p>
@@ -2556,18 +2546,35 @@ graph TD;
 <p> You can also <em>manually</em> load a mixer at runtime using the <a href="../middleware/modules_command.html#mixer">mixer load</a> command (thereby avoiding the need for a reboot). For example, to load a mixer <strong>/etc/mixers/test_mixer.mix</strong> onto the MAIN PWM outputs, you could enter the following command in a <a href="../debug/consoles.html">console</a>: <code>mixer load /dev/pwm_output0 /fs/microsd/etc/mixers/test_mixer.mix</code></p>
 </blockquote>
 <h3 id="mixer_syntax"><a name="mixer_syntax" class="plugin-anchor" href="#mixer_syntax"><i class="fa fa-link" aria-hidden="true"></i></a>Syntax </h3>
-<p>Mixer definitions are text files; lines beginning with a single capital letter followed by a colon are significant. All other lines are ignored, meaning that explanatory text can be freely mixed with the definitions.</p>
-<p>Each file may define more than one mixer; the allocation of mixers to actuators is specific to the device reading the mixer definition, and the number of actuator outputs generated by a mixer is specific to the mixer.</p>
-<p>For example: each simple or null mixer is assigned to outputs 1 to x in the order they appear in the mixer file.</p>
-<p>A mixer begins with a line of the form</p>
+<p>Mixer files are text files that define one or more mixer definitions: mappings between one or more inputs and one or more outputs.</p>
+<p>There are four types of mixers definitions: <a href="#multirotor_mixer">multirotor mixer</a>, <a href="#helicopter_mixer">helicopter mixer</a>, <a href="#summing_mixer">summing mixer</a>, and <a href="#null_mixer">null mixer</a>.</p>
+<ul>
+<li><a href="#multirotor_mixer">Multirotor mixer</a> - Defines outputs for 4, 6, or 8 rotor vehicles with + or X geometry.</li>
+<li><a href="#helicopter_mixer">Helicopter mixer</a> - Defines outputs for helicopter swash-plate servos and main motor ESCs (the tail-rotor is a separate <a href="#summing_mixer">summing mixer</a>.)</li>
+<li><a href="#summing_mixer">Summing mixer</a> - Combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.</li>
+<li><a href="#null_mixer">Null mixer</a> - Generates a single actuator output that has zero output (when not in failsafe mode).</li>
+</ul>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> Use <em>multirotor</em> and <em>helicopter mixers</em> for the respective types, the <em>summing mixer</em> for servos and actuator controls, and the <em>null mixer</em> for creating outputs that must be zero during normal use (e.g. a parachute has 0 normally, but might have a particular value during failsafe).</p>
+</blockquote>
+<p>The number of outputs generated by each mixer depends on the mixer type and configuration. For example, the multirotor mixer generates 4, 6, or 8 outputs depending on the geometry, while a summing mixer or null mixer generate just one output.</p>
+<p>You can specify more than one mixer in each file. The output order (allocation of mixers to actuators) is specific to the device reading the mixer definition; for a PWM device the output order matches the order of declaration. For example, if you define a multi-rotor mixer for a quad geometry, followed by a null mixer, followed by two summing mixers then this would allocate the first 4 outputs to the quad, an &quot;empty&quot; output, and the next two outputs.</p>
+<p>Each mixer definition begin with a line of the form:</p>
 <pre><code>&lt;tag&gt;: &lt;mixer arguments&gt;
-</code></pre><p>The tag selects the mixer type; &apos;M&apos; for a simple summing mixer, &apos;R&apos; for a multirotor mixer, etc.</p>
-<h4 id="&#x7A7A;&#x7684;&#x6DF7;&#x63A7;&#x5668;&#xFF08;null&#xFF09;"><a name="&#x7A7A;&#x7684;&#x6DF7;&#x63A7;&#x5668;&#xFF08;null&#xFF09;" class="plugin-anchor" href="#&#x7A7A;&#x7684;&#x6DF7;&#x63A7;&#x5668;&#xFF08;null&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7A7A;&#x7684;&#x6DF7;&#x63A7;&#x5668;&#xFF08;Null&#xFF09;</h4>
-<p>A null mixer consumes no controls and generates a single actuator output whose value is always zero. Typically a null mixer is used as a placeholder in a collection of mixers in order to achieve a specific pattern of actuator outputs.</p>
-<p>The null mixer definition has the form:</p>
-<pre><code>Z:
-</code></pre><h4 id="&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF7;&#x63A7;&#x5668;"><a name="&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF7;&#x63A7;&#x5668;" class="plugin-anchor" href="#&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF7;&#x63A7;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6DF7;&#x63A7;&#x5668;</h4>
-<p>A simple mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.</p>
+</code></pre><p>The <code>tag</code> selects the mixer type (see links for detail on each type):</p>
+<ul>
+<li><code>R</code>: <a href="#multirotor_mixer">Multirotor mixer</a></li>
+<li><code>H</code>: <a href="#helicopter_mixer">Helicopter mixer</a></li>
+<li><code>M</code>: <a href="#summing_mixer">Summing mixer</a></li>
+<li><code>Z</code>: <a href="#null_mixer">Null mixer</a></li>
+</ul>
+<p>Some mixers definitions consist of a number of tags (e.g. <code>O</code> and <code>S</code>) that follow the mixer-type tag above.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Any line that does not begin with a single capital letter followed by a colon may be ignored (so explanatory text can be freely mixed with the definitions).</p>
+</blockquote>
+<h4 id="summing_mixer"><a name="summing_mixer" class="plugin-anchor" href="#summing_mixer"><i class="fa fa-link" aria-hidden="true"></i></a>Summing Mixer </h4>
+<p>Summing mixers are used for actuator and servo control.</p>
+<p>A summing (simple) mixer combines zero or more control inputs into a single actuator output. Inputs are scaled, and the mixing function sums the result before applying an output scaler.</p>
 <p>A simple mixer definition begins with:</p>
 <pre><code>M: &lt;control count&gt;
 O: &lt;-ve scale&gt; &lt;+ve scale&gt; &lt;offset&gt; &lt;lower limit&gt; &lt;upper limit&gt;
@@ -2582,7 +2589,12 @@ O: &lt;-ve scale&gt; &lt;+ve scale&gt; &lt;offset&gt; &lt;lower limit&gt; &lt;up
 <p>When used to mix vehicle controls, mixer group zero is the vehicle attitude control group, and index values zero through three are normally roll, pitch, yaw and thrust respectively.</p>
 <p>The remaining fields on the line configure the control scaler with parameters as discussed above. Whilst the calculations are performed as floating-point operations, the values stored in the definition file are scaled by a factor of 10000; i.e. an offset of -0.5 is encoded as -5000.</p>
 <p>An example of a typical mixer file is explained <a href="../airframes/adding_a_new_frame.html#mixer-file">here</a>.</p>
-<h4 id="&#x9488;&#x5BF9;&#x591A;&#x65CB;&#x7FFC;&#x7684;&#x6DF7;&#x63A7;&#x5668;"><a name="&#x9488;&#x5BF9;&#x591A;&#x65CB;&#x7FFC;&#x7684;&#x6DF7;&#x63A7;&#x5668;" class="plugin-anchor" href="#&#x9488;&#x5BF9;&#x591A;&#x65CB;&#x7FFC;&#x7684;&#x6DF7;&#x63A7;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9488;&#x5BF9;&#x591A;&#x65CB;&#x7FFC;&#x7684;&#x6DF7;&#x63A7;&#x5668;</h4>
+<h4 id="null_mixer"><a name="null_mixer" class="plugin-anchor" href="#null_mixer"><i class="fa fa-link" aria-hidden="true"></i></a>Null Mixer </h4>
+<p>A null mixer consumes no controls and generates a single actuator output with a value that is always zero.</p>
+<p>Typically a null mixer is used as a placeholder in a collection of mixers in order to achieve a specific pattern of actuator outputs. It may also be used to control the value of an output used for a failsafe device (the output is 0 in normal use; during failsafe the mixer is ignored and a failsafe value is used instead).</p>
+<p>The null mixer definition has the form:</p>
+<pre><code>Z:
+</code></pre><h4 id="multirotor_mixer"><a name="multirotor_mixer" class="plugin-anchor" href="#multirotor_mixer"><i class="fa fa-link" aria-hidden="true"></i></a>Multirotor Mixer </h4>
 <p>The multirotor mixer combines four control inputs (roll, pitch, yaw, thrust) into a set of actuator outputs intended to drive motor speed controllers.</p>
 <p>The mixer definition is a single line of the form:</p>
 <pre><code>R: &lt;geometry&gt; &lt;roll scale&gt; &lt;pitch scale&gt; &lt;yaw scale&gt; &lt;idlespeed&gt;
@@ -2599,8 +2611,8 @@ O: &lt;-ve scale&gt; &lt;+ve scale&gt; &lt;offset&gt; &lt;lower limit&gt; &lt;up
 <p>Roll, pitch and yaw inputs are expected to range from -1.0 to 1.0, whilst the thrust input ranges from 0.0 to 1.0. Output for each actuator is in the range -1.0 to 1.0.</p>
 <p>Idlespeed can range from 0.0 to 1.0. Idlespeed is relative to the maximum speed of motors and it is the speed at which the motors are commanded to rotate when all control inputs are zero.</p>
 <p>In the case where an actuator saturates, all actuator values are rescaled so that the saturating actuator is limited to 1.0.</p>
-<h4 id="&#x9488;&#x5BF9;&#x76F4;&#x5347;&#x673A;&#x7684;&#x6DF7;&#x63A7;&#x5668;"><a name="&#x9488;&#x5BF9;&#x76F4;&#x5347;&#x673A;&#x7684;&#x6DF7;&#x63A7;&#x5668;" class="plugin-anchor" href="#&#x9488;&#x5BF9;&#x76F4;&#x5347;&#x673A;&#x7684;&#x6DF7;&#x63A7;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9488;&#x5BF9;&#x76F4;&#x5347;&#x673A;&#x7684;&#x6DF7;&#x63A7;&#x5668;</h4>
-<p>The helicopter mixer combines three control inputs (roll, pitch, thrust) into four outputs ( swash-plate servos and main motor ESC setting). The first output of the helicopter mixer is the throttle setting for the main motor. The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.</p>
+<h4 id="helicopter_mixer"><a name="helicopter_mixer" class="plugin-anchor" href="#helicopter_mixer"><i class="fa fa-link" aria-hidden="true"></i></a>Helicopter Mixer </h4>
+<p>The helicopter mixer combines three control inputs (roll, pitch, thrust) into four outputs (swash-plate servos and main motor ESC setting). The first output of the helicopter mixer is the throttle setting for the main motor. The subsequent outputs are the swash-plate servos. The tail-rotor can be controlled by adding a simple mixer.</p>
 <p>The thrust control input is used for both the main motor setting as well as the collective pitch for the swash-plate. It uses a throttle-curve and a pitch-curve, both consisting of five points.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The throttle- and pitch- curves map the &quot;thrust&quot; stick input position to a throttle value and a pitch value (separately). This allows the flight characteristics to be tuned for different types of flying. An explanation of how curves might be tuned can be found in <a href="https://www.rchelicopterfun.com/rc-helicopter-radios.html" target="_blank">this guide</a> (search on <em>Programmable Throttle Curves</em> and <em>Programmable Pitch Curves</em>).</p>
@@ -2614,11 +2626,34 @@ P: &lt;collective pitch at thrust: 0%&gt; &lt;25%&gt; &lt;50%&gt; &lt;75%&gt; &l
 <pre><code>S: &amp;lt;angle&amp;gt; &amp;lt;arm length&amp;gt; &amp;lt;scale&amp;gt; &amp;lt;offset&amp;gt; &amp;lt;lower limit&amp;gt; &amp;lt;upper limit&amp;gt;
 </code></pre><p>The <code>&lt;angle&gt;</code> is in degrees, with 0 degrees being in the direction of the nose. Viewed from above, a positive angle is clock-wise. The <code>&lt;arm length&gt;</code> is a normalized length with 10000 being equal to 1. If all servo-arms are the same length, the values should al be 10000. A bigger arm length reduces the amount of servo deflection and a shorter arm will increase the servo deflection.</p>
 <p>The servo output is scaled by <code>&lt;scale&gt; / 10000</code>. After the scaling, the <code>&lt;offset&gt;</code> is applied, which should be between -10000 and +10000. The <code>&lt;lower limit&gt;</code> and <code>&lt;upper limit&gt;</code> should be -10000 and +10000 for full servo range.</p>
-<p>The tail rotor can be controller by adding a <a href="#simple-mixer">simple mixer</a>:</p>
+<p>The tail rotor can be controller by adding a <a href="#summing_mixer">summing mixer</a>:</p>
 <pre><code>M: 1
 S: 0 2  10000  10000      0 -10000  10000
 </code></pre><p>By doing so, the tail rotor setting is directly mapped to the yaw command. This works for both servo-controlled tail-rotors, as well as for tail rotors with a dedicated motor.</p>
-<p>The <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix" target="_blank">blade 130 helicopter mixer</a> can be viewed as an example. The throttle-curve starts with a slightly steeper slope to reach 6000 (0.6) at 50% thrust. It continues with a less steep slope to reach 10000 (1.0) at 100% thrust. The pitch-curve is linear, but does not use the entire range. At 0% throttle, the collective pitch setting is already at 500 (0.05). At maximum throttle, the collective pitch is only 4500 (0.45). Using higher values for this type of helicopter would stall the blades. The swash-plate servos for this helicopter are located at angles of 0, 140 and 220 degrees. The servo arm-lenghts are not equal. The second and third servo have a longer arm, by a ratio of 1.3054 compared to the first servo. The servos are limited at -8000 and 8000 because they are mechanically constrained.</p>
+<p>The <a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/blade130.main.mix" target="_blank">blade 130 helicopter mixer</a> can be viewed as an example.</p>
+<pre><code>H: 3
+T:      0   3000   6000   8000  10000
+P:    500   1500   2500   3500   4500
+# Swash plate servos:
+S:      0  10000  10000      0  -8000   8000
+S:    140  13054  10000      0  -8000   8000
+S:    220  13054  10000      0  -8000   8000
+
+# Tail servo:
+M: 1
+S: 0 2  10000  10000      0 -10000  10000
+</code></pre><ul>
+<li>The throttle-curve starts with a slightly steeper slope to reach 6000 (0.6) at 50% thrust.</li>
+<li>It continues with a less steep slope to reach 10000 (1.0) at 100% thrust.</li>
+<li>The pitch-curve is linear, but does not use the entire range.</li>
+<li>At 0% throttle, the collective pitch setting is already at 500 (0.05).</li>
+<li>At maximum throttle, the collective pitch is only 4500 (0.45).</li>
+<li>Using higher values for this type of helicopter would stall the blades.</li>
+<li>The swash-plate servos for this helicopter are located at angles of 0, 140 and 220 degrees.</li>
+<li>The servo arm-lenghts are not equal.</li>
+<li>The second and third servo have a longer arm, by a ratio of 1.3054 compared to the first servo.</li>
+<li>The servos are limited at -8000 and 8000 because they are mechanically constrained.</li>
+</ul>
 
                                 
                                 </section>
@@ -2662,7 +2697,7 @@ S: 0 2  10000  10000      0 -10000  10000
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"next":{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]},"previous":{"title":"Flight Tasks","level":"1.3.4","depth":2,"path":"concept/flight_tasks.md","ref":"concept/flight_tasks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"concept/mixing.md","mtime":"2020-04-02T11:04:22.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"next":{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]},"previous":{"title":"Flight Tasks","level":"1.3.4","depth":2,"path":"concept/flight_tasks.md","ref":"concept/flight_tasks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"concept/mixing.md","mtime":"2020-04-03T05:16:51.045Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

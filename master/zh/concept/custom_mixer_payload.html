@@ -336,19 +336,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2411,46 +2398,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="custom-payload-mixers"><a name="custom-payload-mixers" class="plugin-anchor" href="#custom-payload-mixers"><i class="fa fa-link" aria-hidden="true"></i></a>Custom Payload Mixers</h1>
-<p>This topic shows how to add a custom <a href="mixing.html">mixer</a> for programmatically controlling a custom payload (e.g., an electromagnetic gripper).</p>
-<p>The topic is intended for developers who want to support payload types that do not have existing control group definitions (e.g. gimbals have a control group, but grippers do not). You should already have read <a href="mixing.html">Mixing and Actuators</a>.</p>
-<h2 id="payload-mixer-example"><a name="payload-mixer-example" class="plugin-anchor" href="#payload-mixer-example"><i class="fa fa-link" aria-hidden="true"></i></a>Payload Mixer Example</h2>
-<p>A payload mixer is just a <a href="mixing.html#simple-mixer">simple mixer</a> that maps any of the function values from <a href="mixing.html#control_group_6">Control Group #6 (First Payload)</a> to a particular output. You can then publish uORB topics to the selected control group function and their value will be mapped to the specified output.</p>
-<p>For this example, we&apos;ll create a custom mixer based on the <em>RC passthrough mixer</em> (<a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix" target="_blank">pass.aux.mix</a>). This mixer is commonly loaded into the AUX PWM ports on large multicopters). It passes through the values of 4 user-defined RC channels (set using the <a href="../advanced/parameter_reference.html#RC_MAP_AUX1">RC_MAP_AUXx/RC_MAP_FLAPS</a> parameters) to the first four outputs on the AUX PWM output.</p>
-<pre><code># Manual pass through mixer for servo outputs 1-4
+                                <h1 id="&#x81EA;&#x5B9A;&#x4E49;&#x6709;&#x6548;&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;"><a name="&#x81EA;&#x5B9A;&#x4E49;&#x6709;&#x6548;&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;" class="plugin-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x6709;&#x6548;&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x81EA;&#x5B9A;&#x4E49;&#x6709;&#x6548;&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;</h1>
+<p>&#x6B64;&#x4E3B;&#x9898;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x7528;&#x4EE5;&#x53EF;&#x7F16;&#x7A0B;&#x63A7;&#x5236;&#x81EA;&#x5B9A;&#x4E49;&#x8F7D;&#x8377;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7684;<a href="mixing.html">&#x6DF7;&#x63A7;&#x5668;</a>&#xFF08;&#x6BD4;&#x5982;&#x7535;&#x78C1;&#x63A7;&#x5236;&#x7684;&#x673A;&#x68B0;&#x624B;&#xFF09;</p>
+<p>&#x6B64;&#x4E3B;&#x9898;&#x662F;&#x4E3A;&#x90A3;&#x4E9B;&#x60F3;&#x8981;&#x652F;&#x6301;&#x73B0;&#x5728;&#x6CA1;&#x6709;&#x73B0;&#x6210;&#x63A7;&#x5236;&#x7EC4;&#x5B9A;&#x4E49;&#x7684;&#x8F7D;&#x8377;&#x7684;&#x5F00;&#x53D1;&#x8005;&#xFF08;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x4E91;&#x53F0;&#x6709;&#x4E00;&#x4E2A;&#x73B0;&#x6210;&#x7684;&#x63A7;&#x5236;&#x7EC4;&#xFF0C;&#x4F46;&#x662F;&#x673A;&#x68B0;&#x624B;&#x6CA1;&#x6709;&#xFF09; &#x60A8;&#x5E94;&#x8BE5;&#x5DF2;&#x7ECF;&#x9605;&#x8BFB;&#x8FC7;<a href="mixing.html">&#x6DF7;&#x63A7;&#x548C;&#x6267;&#x884C;&#x5668;</a></p>
+<h2 id="&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;&#x793A;&#x4F8B;"><a name="&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F7D;&#x8377;&#x6DF7;&#x63A7;&#x5668;&#x793A;&#x4F8B;</h2>
+<p>A payload mixer is just a <a href="mixing.html#summing_mixer">summing mixer</a> that maps any of the function values from <a href="mixing.html#control_group_6">Control Group #6 (First Payload)</a> to a particular output. &#x968F;&#x540E;&#x60A8;&#x53EF;&#x4EE5;&#x5C06; uORB &#x4E3B;&#x9898;&#x53D1;&#x5E03;&#x5230;&#x9009;&#x5B9A;&#x7684;&#x63A7;&#x5236;&#x7EC4;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5176;&#x503C;&#x5C06;&#x88AB;&#x6620;&#x5C04;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x8F93;&#x51FA;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;<em>&#x9065;&#x63A7;&#x4FE1;&#x53F7;&#x76F4;&#x7A7F;&#x7684;&#x6DF7;&#x63A7;&#x5668;</em>&#xFF08;<a href="https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/pass.aux.mix" target="_blank">&#x7A7F;&#x8FC7;&#x8F85;&#x52A9;&#x6DF7;&#x63A7;&#x5668;</a>&#xFF09; &#x8FD9;&#x4E2A;&#x6DF7;&#x63A7;&#x5668;&#x901A;&#x5E38;&#x88AB;&#x52A0;&#x8F7D;&#x5230;&#x5927;&#x578B;&#x591A;&#x65CB;&#x7FFC;&#x7684; AUX PWM &#x7AEF;&#x53E3;)&#x3002; &#x5B83;&#x5C06;4&#x4E2A;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9065;&#x63A7;&#x4FE1;&#x53F7;&#x503C;&#xFF08;&#x4F7F;&#x7528;<a href="../advanced/parameter_reference.html#RC_MAP_AUX1">RC_MAP_AUXx/RC_MAP_FLAPS</a>&#x53C2;&#x6570;&#xFF09;&#x76F4;&#x4F20;&#x5230;4&#x4E2A;AUX&#x53E3;&#x4F5C;&#x4E3A;PWM&#x8F93;&#x51FA;</p>
+<pre><code># &#x8F93;&#x51FA;1-4&#x7684;&#x624B;&#x52A8;&#x76F4;&#x4F20;&#x6DF7;&#x63A7;&#x5668;
 
-# AUX1 channel (select RC channel with RC_MAP_AUX1 param)
+# AUX1&#x901A;&#x9053; (&#x7531; RC_MAP_AUX1 &#x53C2;&#x6570;&#x9009;&#x62E9;&#x9065;&#x63A7;&#x5668;&#x7684;&#x901A;&#x9053;)
 M: 1
 S: 3 5  10000  10000      0 -10000  10000
 
-# AUX2 channel (select RC channel with RC_MAP_AUX2 param)
+# AUX2 &#x901A;&#x9053;(&#x7531; RC_MAP_AUX2 &#x53C2;&#x6570;&#x9009;&#x62E9;&#x9065;&#x63A7;&#x5668;&#x7684;&#x901A;&#x9053;)
 M: 1
 S: 3 6  10000  10000      0 -10000  10000
 
-# AUX3 channel (select RC channel with RC_MAP_AUX3 param)
+# AUX3 &#x901A;&#x9053;(&#x7531; RC_MAP_AUX3 &#x53C2;&#x6570;&#x9009;&#x62E9;&#x9065;&#x63A7;&#x5668;&#x7684;&#x901A;&#x9053;)
 M: 1
 S: 3 7  10000  10000      0 -10000  10000
 
-# FLAPS channel (select RC channel with RC_MAP_FLAPS param)
+# &#x895F;&#x7FFC;&#x901A;&#x9053; (&#x7531; RC_MAP_FLAPS &#x53C2;&#x6570;&#x9009;&#x62E9;&#x9065;&#x63A7;&#x5668;&#x7684;&#x901A;&#x9053;)
 M: 1
 S: 3 4  10000  10000      0 -10000  10000
 </code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The file defines a <a href="mixing.html#simple-mixer">simple mixer</a> with four outputs. - <code>M: 1</code> indicates an output that is defined by one control input (the following <code>S</code> line). - <code>S: 3</code><em><code>n</code></em> indicates that the input is the n&lt;&gt;th&lt;&gt; input of <a href="mixing.html#control-group-3-manual-passthrough">Control Group 3 (Manual Passthrough)</a>. So for <code>S: 3 5</code> the input is called &quot;RC aux1&quot; (this maps to the RC channel set in parameter <code>RC_MAP_AUX1</code>). - The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).</p>
+<p> The file defines four <a href="mixing.html#summing_mixer">summing mixers</a> (for four outputs). - <code>M&#xFF1A;1</code> &#x8868;&#x793A;&#x7531;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x8F93;&#x5165;&#x5B9A;&#x4E49;&#x7684;&#x8F93;&#x51FA;(&#x4EE5;&#x4E0B;&#x7684;<code>S</code> &#x884C;&#x5185;&#x5BB9;)&#x3002; - <code>S&#xFF1A;3</code><em><code>n</code></em> &#x8868;&#x793A;&#x8F93;&#x5165;&#x7684;&#x662F;&lt;&gt;th&lt;&gt; &#x8F93;&#x5165;&#x7684;<a href="mixing.html#control-group-3-manual-passthrough">&#x63A7;&#x5236;&#x7EC4;3(&#x624B;&#x52A8;&#x901A;&#x8FC7;)</a>&#x3002; &#x6240;&#x4EE5;&#x5BF9;&#x4E8E;r <code>S: 3 5</code>  &#x8F93;&#x5165;&#x88AB;&#x79F0;&#x4E3A;&quot;RC aux1&quot; &#xFF08;&#x8FD9;&#x8868;&#x793A;&#x53C2;&#x6570;<code>RC_MAP_AUX1</code>&#x6620;&#x5C04;&#x5230;&#x9065;&#x63A7;&#x5668;&#x901A;&#x9053;&#xFF09; - The section declaration order defines the order of the outputs when assigned to a physical bus (e.g. the third section might be assigned to AUX3).</p>
 </blockquote>
 <p>Start by copying the mixer file and putting it onto the SD Card at: <strong>/etc/mixers/pass.aux.mix</strong> (see <a href="mixing.html#loading_custom_mixer">Mixing and Actuators &gt; Loading a Custom Mixer</a>.</p>
-<p>Remove the first section with a payload control group function input:</p>
+<p>&#x5220;&#x9664;&#x5E26;&#x6709;&#x8F7D;&#x8377;&#x63A7;&#x5236;&#x7EC4;&#x51FD;&#x6570;&#x8F93;&#x5165;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;</p>
 <ul>
-<li>Change this:<pre><code># AUX1 channel (control group 3, RC CH5) (select RC channel with RC_MAP_AUX1 param)
+<li>&#x66F4;&#x6539;&#x6B64;&#x9879;<pre><code># AUX1 &#x901A;&#x9053;(&#x63A7;&#x5236;&#x7EC4; 3, &#x9065;&#x63A7;&#x5668;5&#x901A;&#x9053;) ( RC_MAP_AUX1&#x53C2;&#x6570;&#x51B3;&#x5B9A;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x9065;&#x63A7;&#x5668;&#x901A;&#x9053;)
 M: 1
 S: 3 5  10000  10000      0 -10000  10000
 </code></pre></li>
-<li>To:<pre><code># Payload 1 (control group 6) channel 1
+<li>&#x4E3A;&#xFF1A;<pre><code># &#x8F7D;&#x8377;1&#xFF08;&#x63A7;&#x5236;&#x7EC4;6&#xFF09;&#x901A;&#x9053;1
 M: 1
-S: 6 1  10000  10000      0 -10000  10000
+S: 6 1 100001 0000 -10000 1 0000
 </code></pre></li>
 </ul>
-<p>Because this output is in the first position in the file it will map to the first AUX PWM output (unless UAVCAN is enabled). This output will now respect updates to the payload control group (6) output 1.</p>
-<p>Control group 6 will need to be defined in the code as well (it is missing!):</p>
+<p>&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x8F93;&#x51FA;&#x5904;&#x4E8E;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x5B83;&#x5C06;&#x6620;&#x5C04;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;AUX PWM&#x8F93;&#x51FA;(&#x9664;&#x975E;&#x542F;&#x7528; UAVCAN)&#x3002; &#x6B64;&#x8F93;&#x51FA;&#x5C06;&#x9075;&#x4ECE;&#x5BF9;&#x8F7D;&#x8377;&#x63A7;&#x5236;&#x7EC4;(6)&#x8F93;&#x51FA;1&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x63A7;&#x5236;&#x7EC4;6&#x4E5F;&#x9700;&#x8981;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x5B9A;&#x4E49;(&#x7F3A;&#x5C11;!):</p>
 <ul>
 <li>Add <code>actuator_controls_6</code> to the TOPICS definition in <a href="https://github.com/PX4/Firmware/blob/master/msg/actuator_controls.msg#L17" target="_blank">/msg/actuator_controls.msg</a>:<pre><code># TOPICS actuator_controls actuator_controls_0 actuator_controls_1 actuator_controls_2 actuator_controls_3 actuator_controls_6
 </code></pre></li>
@@ -2515,7 +2502,7 @@ _actuator_controls_pub.publish(_act_controls);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"next":{"title":"PWM limit state machine","level":"1.3.6","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"previous":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"concept/custom_mixer_payload.md","mtime":"2020-04-02T11:04:22.253Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"next":{"title":"PWM limit state machine","level":"1.3.6","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},"previous":{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"concept/custom_mixer_payload.md","mtime":"2020-04-03T05:16:51.045Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

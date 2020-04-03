@@ -336,19 +336,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
-            
-                <a href="../setup/dev_env_windows_msys.html">
-            
-                    
-                    Msys 工具链
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -1777,7 +1764,7 @@
                 <a href="../qgc/video_streaming.html">
             
                     
-                    QGC 的视频流
+                    Video Streaming from Odroid C1 to QGC
             
                 </a>
             
@@ -1803,7 +1790,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    S.Bus Driver for Linux
+                    Connecting an RC Receiver on Linux
             
                 </a>
             
@@ -2411,68 +2398,71 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="integration-testing-using-mavsdk"><a name="integration-testing-using-mavsdk" class="plugin-anchor" href="#integration-testing-using-mavsdk"><i class="fa fa-link" aria-hidden="true"></i></a>Integration Testing using MAVSDK</h1>
-<p>PX4 can be tested end to end to using integration tests based on <a href="https://mavsdk.mavlink.io" target="_blank">MAVSDK</a>.</p>
-<p>The tests are primarily developed against SITL for now and run in continuous integration (CI). However, they are meant to generalize to real tests eventually.</p>
-<h2 id="install-the-mavsdk-c-library"><a name="install-the-mavsdk-c-library" class="plugin-anchor" href="#install-the-mavsdk-c-library"><i class="fa fa-link" aria-hidden="true"></i></a>Install the MAVSDK C++ Library</h2>
-<p>The tests need the MAVSDK C++ library installed system-wide (e.g. in <code>/usr/lib</code> or <code>/usr/local/lib</code>).</p>
-<p>Install either from binaries or source:</p>
+                                <h1 id="&#x4F7F;&#x7528;-mavsdk-&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;"><a name="&#x4F7F;&#x7528;-mavsdk-&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x4F7F;&#x7528;-mavsdk-&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; MAVSDK &#x8FDB;&#x884C;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;</h1>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x57FA;&#x4E8E; <a href="https://mavsdk.mavlink.io" target="_blank">MAVSDK</a> &#x7684;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x5BF9; PX4 &#x8FDB;&#x884C;&#x7AEF;&#x5230;&#x7AEF;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p>&#x76EE;&#x524D;&#x4E3B;&#x8981;&#x9488;&#x5BF9; SITL &#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#xFF0C;&#x5E76;&#x5728;&#x6301;&#x7EED;&#x96C6;&#x6210;&#xFF08;CI&#xFF09;&#x4E2D;&#x8FD0;&#x884C;&#x3002; &#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x4EEC;&#x6700;&#x7EC8;&#x65E8;&#x5728;&#x63A8;&#x5E7F;&#x5230;&#x5B9E;&#x9645;&#x6D4B;&#x8BD5;&#x3002;</p>
+<h2 id="&#x5B89;&#x88C5;-mavsdk-c-&#x5E93;"><a name="&#x5B89;&#x88C5;-mavsdk-c-&#x5E93;" class="plugin-anchor" href="#&#x5B89;&#x88C5;-mavsdk-c-&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5; MAVSDK C++ &#x5E93;</h2>
+<p>&#x6D4B;&#x8BD5;&#x9700;&#x8981;&#x5C06;MAVSAK C++&#x5E93;&#x5B89;&#x88C5;&#x5230;&#x7CFB;&#x7EDF;&#x76EE;&#x5F55;&#xFF08;&#x5982;&#xFF1A; <code>/usr/lib</code> or <code>/usr/local/lib</code>&#xFF09;</p>
+<p>&#x4E8C;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x6216;&#x6E90;&#x7801;&#x5B89;&#x88C5;&#xFF1A;</p>
 <ul>
-<li><a href="https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp" target="_blank">MAVSDK &gt; Installation &gt; C++</a>: Install as a prebuilt library on supported platforms (recommended)</li>
-<li><a href="https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp" target="_blank">MAVSDK &gt; Contributing &gt; Building from Source</a>: Build  C++ library from source.</li>
+<li><a href="https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp" target="_blank">MAVSDK &gt; &#x5B89;&#x88C5; &gt; C++</a>&#xFF1A;&#x4EE5;&#x652F;&#x6301;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#x5B89;&#x88C5;&#x9884;&#x6784;&#x5EFA;&#x5E93;&#xFF08;&#x63A8;&#x8350;&#xFF09;</li>
+<li><a href="https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp" target="_blank">MAVSDK &gt; &#x8D21;&#x732E; &gt; &#x4ECE;&#x6E90;&#x7801;&#x6784;&#x5EFA;</a>&#xFF1A;&#x4ECE;&#x6E90;&#x7801;&#x7F16;&#x8BD1;&#x6784;&#x5EFA; C++ &#x5E93;&#x3002;</li>
 </ul>
-<h2 id="prepare-px4-code"><a name="prepare-px4-code" class="plugin-anchor" href="#prepare-px4-code"><i class="fa fa-link" aria-hidden="true"></i></a>Prepare PX4 Code</h2>
-<p>To build the PX4 code, use:</p>
+<h2 id="&#x51C6;&#x5907;-px4-&#x6E90;&#x7801;"><a name="&#x51C6;&#x5907;-px4-&#x6E90;&#x7801;" class="plugin-anchor" href="#&#x51C6;&#x5907;-px4-&#x6E90;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51C6;&#x5907; PX4 &#x6E90;&#x7801;</h2>
+<p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6784;&#x5EFA; PX4 &#x6E90;&#x7801;&#xFF1A;</p>
 <pre><code class="lang-sh">DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
 </code></pre>
-<h3 id="run-all-px4-tests"><a name="run-all-px4-tests" class="plugin-anchor" href="#run-all-px4-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Run All PX4 Tests</h3>
-<p>To run all SITL tests as defined in <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/configs/sitl.json" target="_blank">sitl.json</a>, do:</p>
+<h3 id="&#x8FD0;&#x884C;&#x6240;&#x6709;px4&#x6D4B;&#x8BD5;"><a name="&#x8FD0;&#x884C;&#x6240;&#x6709;px4&#x6D4B;&#x8BD5;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x6240;&#x6709;px4&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x6240;&#x6709;PX4&#x6D4B;&#x8BD5;</h3>
+<p>&#x8FD0;&#x884C; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/configs/sitl.json" target="_blank">sitl.json</a> &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x6240;&#x6709;SITL&#x6D4B;&#x8BD5;&#xFF0C;&#x6267;&#x884C;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">test</span>/mavsdk_tests/mavsdk_<span class="hljs-built_in">test</span>_runner.py <span class="hljs-built_in">test</span>/mavsdk_tests/configs/sitl.json --speed-factor 10
 </code></pre>
-<p>To see all possible command line arguments, check out:</p>
+<p>&#x8981;&#x770B;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#xFF0C;&#x8FD0;&#x884C;&#xFF1A;</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">test</span>/mavsdk_tests/mavsdk_<span class="hljs-built_in">test</span>_runner.py -h
 
-usage: mavsdk_<span class="hljs-built_in">test</span>_runner.py [-h] [--log-dir LOG_DIR] [--speed-factor SPEED_FACTOR] [--iterations ITERATIONS] [--abort-early] [--gui] [--model MODEL]
-                             [--case CASE] [--debugger DEBUGGER] [--verbose]
+&#x7528;&#x6CD5;&#xFF1A;mavsdk_<span class="hljs-built_in">test</span>_runner&#x3002; y [-h] [--log-dir LOG_DIR] [--speed-factor SPEED_FACTOR] [--trerations ITERATION] [--abort-early] [--gui] [--model MODEL]
+                             [--case CASE] [--debugger DEBUGER] [--verbose]
                              config_file
 
-positional arguments:
-  config_file           JSON config file to use
+posital &#x53C2;&#x6570;&#xFF1A;
+  config_file JSON &#x4F7F;&#x7528;&#x7684;JSON&#x914D;&#x7F6E;&#x6587;&#x4EF6;
 
-optional arguments:
-  -h, --help            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span>
-  --log-dir LOG_DIR     Directory <span class="hljs-keyword">for</span> <span class="hljs-built_in">log</span> files
+optional &#x53C2;&#x6570;&#xFF1A;
+  -h, --help &#x663E;&#x793A;&#x6B64;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#x5E76;&#x9000;&#x51FA;
+  --log-dir LOG_DIR &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x76EE;&#x5F55;
   --speed-factor SPEED_FACTOR
-                        how fast to run the simulation
-  --iterations ITERATIONS
-                        how often to run all tests
-  --abort-early         abort on first unsuccessful <span class="hljs-built_in">test</span>
-  --gui                 display the visualization <span class="hljs-keyword">for</span> a simulation
-  --model MODEL         only run tests <span class="hljs-keyword">for</span> one model
-  --case CASE           only run tests <span class="hljs-keyword">for</span> one <span class="hljs-keyword">case</span>
-  --debugger DEBUGGER   choice from valgrind, callgrind, gdb, lldb
-  --verbose             <span class="hljs-built_in">enable</span> more verbose output
+                        &#x6A21;&#x62DF;&#x8FD0;&#x884C;&#x7684;&#x901F;&#x5EA6;&#x56E0;&#x5B50;
+  --&#x8FED;&#x4EE3;ITERATION
+                        &#x5728;&#x9996;&#x6B21;&#x5931;&#x8D25;&#x7684;&#x6D4B;&#x8BD5;&#x4E2D;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x7684;&#x9891;&#x7387;
+  --abort-early &#x4E2D;&#x6B62;
+  --guide &#x663E;&#x793A;&#x6A21;&#x62DF;&#x7684;&#x53EF;&#x89C6;&#x5316;&#x5316;
+  MODEL &#x53EA;&#x4E3A;&#x4E00;&#x4E2A;&#x6A21;&#x578B;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;
+  --case CASE &#x53EA;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x4E00;&#x4E2A;&#x6848;&#x4F8B;
+  --debugger DEBUGER &#x8C03;&#x8BD5;&#x5668;&#xFF1A;callgrind, gdb, lldb
+  --verbose &#x542F;&#x7528;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x8F93;&#x51FA;
 </code></pre>
-<h2 id="notes-on-implementation"><a name="notes-on-implementation" class="plugin-anchor" href="#notes-on-implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Notes on implementation</h2>
+<h2 id="&#x5173;&#x4E8E;&#x5B9E;&#x73B0;&#x7684;&#x8BF4;&#x660E;"><a name="&#x5173;&#x4E8E;&#x5B9E;&#x73B0;&#x7684;&#x8BF4;&#x660E;" class="plugin-anchor" href="#&#x5173;&#x4E8E;&#x5B9E;&#x73B0;&#x7684;&#x8BF4;&#x660E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5173;&#x4E8E;&#x5B9E;&#x73B0;&#x7684;&#x8BF4;&#x660E;</h2>
 <ul>
-<li>The tests are invoked from the test runner script <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/mavsdk_test_runner.py" target="_blank">mavsdk_test_runner.py</a>, which is written in Python. This runner also starts <code>px4</code> as well as Gazebo for SITL tests, and collects the logs of these processes.</li>
-<li>The test runner is a C++ binary It contains:<ul>
-<li>The <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_main.cpp" target="_blank">main</a> function to parse the arguments.</li>
-<li>An abstraction around MAVSDK called <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/autopilot_tester.h" target="_blank">autopilot_tester</a>.</li>
-<li>The actual tests using the abstraction around MAVSDK as e.g. <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp" target="_blank">test_multicopter_mission.cpp</a>.</li>
-<li>The tests use the <a href="https://github.com/catchorg/Catch2" target="_blank">catch2</a> unit testing framework. The reasons for using this framework are:<ul>
-<li>Asserts (<code>REQUIRE</code>) which are needed to abort a test can be inside of functions (and not just in the top level test as is <a href="https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement" target="_blank">the case with gtest</a>).</li>
-<li>Dependency management is easier because <em>catch2</em> can just be included as a header-only library.</li>
-<li><em>Catch2</em> supports <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags" target="_blank">tags</a>, which allows for flexible composition of tests.</li>
+<li>&#x4F7F;&#x7528; Python &#x7F16;&#x5199;&#x7684;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x811A;&#x672C; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/mavsdk_test_runner.py" target="_blank">mavsdk_test_runner.py</a> &#x8C03;&#x7528;&#x8FD9;&#x4E9B;&#x6D4B;&#x8BD5;&#x3002; &#x8BE5;&#x8FD0;&#x884C;&#x7A0B;&#x5E8F;&#x8FD8;&#x542F;&#x52A8; <code>px4</code> &#x4EE5;&#x53CA;&#x7528;&#x4E8E; SITL &#x6D4B;&#x8BD5;&#x7684; Gazebo&#xFF0C;&#x5E76;&#x6536;&#x96C6;&#x8FD9;&#x4E9B;&#x8FDB;&#x7A0B;&#x7684;&#x65E5;&#x5FD7;&#x3002;</li>
+<li>&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x5668;&#x662F;&#x4E00;&#x4E2A; C++ &#x5E93; &#x5B83;&#x5305;&#x542B;&#x4E86;&#xFF1A;<ul>
+<li>&#x89E3;&#x6790;&#x53C2;&#x6570;&#x7684; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_main.cpp" target="_blank">main</a> &#x51FD;&#x6570;&#x3002;</li>
+<li>MAVSDK&#x7684;&#x62BD;&#x8C61;&#x79F0;&#x4E3A; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/autopilot_tester.h" target="_blank">autopilot_tester</a>&#x3002;</li>
+<li>&#x4F7F;&#x7528;&#x56F4;&#x7ED5;MAVSDK&#x7684;&#x62BD;&#x8C61;&#x7684;&#x5B9E;&#x9645;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F8B;&#x5982; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp" target="_blank"> test_multicopter_mission.cpp </a>&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x4F7F;&#x7528; <a href="https://github.com/catchorg/Catch2" target="_blank">catch2</a> &#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;&#x3002; &#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x6846;&#x67B6;&#x7684;&#x539F;&#x56E0;&#x5982;&#x4E0B;&#xFF1A;<ul>
+<li>&#x7EC8;&#x6B62;&#x6D4B;&#x8BD5;&#x6240;&#x9700;&#x7684;&#x65AD;&#x8A00;&#xFF08;<code>REQUIRE</code>&#xFF09;&#x53EF;&#x4EE5;&#x4F4D;&#x4E8E;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF08;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x9876;&#x5C42;&#xFF0C;&#x5982; <a href="https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement" target="_blank">gtest &#x6D4B;&#x8BD5;&#x6240;&#x793A;</a>&#xFF09;&#x3002;</li>
+<li>&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7BA1;&#x7406;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#xFF0C;&#x56E0;&#x4E3A;<em> catch2 </em>&#x53EF;&#x4EE5;&#x53EA;&#x4F5C;&#x4E3A;&#x5934;&#x6587;&#x4EF6;&#x5E93;&#x5305;&#x542B;&#x5728;&#x5185;&#x3002;</li>
+<li><ul>
+<li>Catch2 *&#x652F;&#x6301;<a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags" target="_blank"> tags </a>&#xFF0C;&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x7075;&#x6D3B;&#x5730;&#x7EC4;&#x6210;&#x6D4B;&#x8BD5;&#x3002;</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>Terms used:</p>
+</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x7684;&#x672F;&#x8BED;&#xFF1A;</p>
 <ul>
-<li>&quot;model&quot;: This is the selected Gazebo model, e.g. <code>iris</code>.</li>
-<li>&quot;test case&quot;: This is a <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md" target="_blank">catch2 test case</a>.</li>
+<li>&quot;model&quot;&#xFF1A;&#x8FD9;&#x662F;&#x9009;&#x5B9A;&#x7684;Gazebo&#x6A21;&#x578B;&#xFF0C;&#x4F8B;&#x5982; <code>iris</code>&#x3002;</li>
+<li>&quot;test case&quot;: &#x8FD9;&#x662F; <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md" target="_blank">catch2 &#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</a>&#x3002;</li>
 </ul>
 
                                 
@@ -2517,7 +2507,7 @@ optional arguments:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MAVSDK Integration Testing","level":"1.12.6","depth":2,"next":{"title":"Docker Containers","level":"1.12.7","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},"previous":{"title":"ROS Integration Testing","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"test_and_ci/integration_testing_mavsdk.md","mtime":"2020-04-02T11:04:22.257Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-02T11:05:34.736Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"MAVSDK Integration Testing","level":"1.12.6","depth":2,"next":{"title":"Docker Containers","level":"1.12.7","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},"previous":{"title":"ROS Integration Testing","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"test_and_ci/integration_testing_mavsdk.md","mtime":"2020-04-03T05:16:51.053Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-03T05:18:45.881Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
