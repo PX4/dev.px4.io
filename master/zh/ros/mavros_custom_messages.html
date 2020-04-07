@@ -2398,24 +2398,24 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;movros&#x53D1;&#x9001;&#x5230;px4"><a name="&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;movros&#x53D1;&#x9001;&#x5230;px4" class="plugin-anchor" href="#&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;movros&#x53D1;&#x9001;&#x5230;px4"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;MOVROS&#x53D1;&#x9001;&#x5230;PX4</h1>
-<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
-<p> &#x672C;&#x6587;&#x5DF2;&#x7ECF;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;:</p>
+                                <h1 id="&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;-movros-&#x53D1;&#x9001;&#x5230;-px4"><a name="&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;-movros-&#x53D1;&#x9001;&#x5230;-px4" class="plugin-anchor" href="#&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE;-movros-&#x53D1;&#x9001;&#x5230;-px4"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5C06;&#x81EA;&#x5B9A;&#x4E49;&#x6D88;&#x606F;&#x4ECE; MOVROS &#x53D1;&#x9001;&#x5230; PX4</h1>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> &#x672C;&#x6587;&#x5DF2;&#x7ECF;&#x8FC7;&#x5982;&#x4E0B;&#x6D4B;&#x8BD5;&#xFF1A;</p>
 </blockquote>
 <ul>
-<li><strong>Ubuntu:</strong> 18.04</li>
-<li><strong>ROS:</strong> Melodic</li>
-<li><p><strong>PX4 Firmware:</strong> 1.9.0</p>
-<p>  However these steps are fairly general and so it should work with other distros/versions with little to no modifications.</p>
+<li><strong>Ubuntu&#xFF1A;</strong>18.04</li>
+<li><strong>ROS&#xFF1A;</strong>Melodic</li>
+<li><p><strong>PX4 Firmware&#xFF1A;</strong>1.9.0</p>
+<p>  &#x8FD9;&#x4E9B;&#x6B65;&#x9AA4;&#x666E;&#x904D;&#x9002;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x53D1;&#x884C;&#x7248;&#xFF0C;&#x6216;&#x8005;&#x53EA;&#x9700;&#x8981;&#x7A0D;&#x5FAE;&#x4FEE;&#x6539;&#x3002;</p>
 </li>
 </ul>
 <!-- Content reproduced with permission from @JoonmoAhn in https://github.com/JoonmoAhn/Sending-Custom-Message-from-MAVROS-to-PX4/issues/1 -->
-<h2 id="mavros-installation"><a name="mavros-installation" class="plugin-anchor" href="#mavros-installation"><i class="fa fa-link" aria-hidden="true"></i></a>MAVROS Installation</h2>
-<p>Follow <em>Source Installation</em> instructions from <a href="https://github.com/mavlink/mavros/blob/master/mavros/README.md" target="_blank">mavlink/mavros</a> to install &quot;ROS Kinetic&quot;.</p>
+<h2 id="mavros-&#x5B89;&#x88C5;"><a name="mavros-&#x5B89;&#x88C5;" class="plugin-anchor" href="#mavros-&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>MAVROS &#x5B89;&#x88C5;</h2>
+<p>&#x6309;&#x7167; <em>Source Installation</em> &#x4E2D;&#x7684;&#x6307;&#x5BFC;&#xFF0C;&#x4ECE; <a href="https://github.com/mavlink/mavros/blob/master/mavros/README.md" target="_blank">mavlink/mavros</a> &#x5B89;&#x88C5;&#x201C;ROS Kinetic&#x201D;&#x7248;&#x672C;&#x3002;</p>
 <h2 id="mavros"><a name="mavros" class="plugin-anchor" href="#mavros"><i class="fa fa-link" aria-hidden="true"></i></a>MAVROS</h2>
 <ol>
-<li><p>We start by creating a new MAVROS plugin, in this example named <strong>keyboard_command.cpp</strong> (in <strong>workspace/src/mavros/mavros_extras/src/plugins</strong>) by using the code below:</p>
-<p> The code subscribes a &apos;char&apos; message from ROS topic <code>/mavros/keyboard_command/keyboard_sub</code> and sends it as a MAVLink message.</p>
+<li><p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;MAVROS &#x63D2;&#x4EF6;&#xFF0C;&#x5728;<strong>keyboard_command.cpp</strong>(<strong>workspace/src/mavros/mavros_extras/src/plugins</strong>)&#x793A;&#x4F8B;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
+<p> &#x4EE3;&#x7801;&#x529F;&#x80FD;&#x662F;&#x4ECE;ROS&#x6D88;&#x606F;&#x4E3B;&#x9898;<code>/mavros/keyboard_command/keyboard_sub</code>&#x4E2D;&#x8BA2;&#x9605;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x6D88;&#x606F;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;MAVLink &#x6D88;&#x606F;&#x53D1;&#x9001;&#x51FA;&#x53BB;&#x3002;</p>
 <pre><code class="lang-c"> <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;mavros/mavros_plugin.h&gt;</span></span>
  <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;pluginlib/class_list_macros.h&gt;</span></span>
  <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
@@ -2458,20 +2458,20 @@
 PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plugin::PluginBase)
 </code></pre>
 </li>
-<li><p>Edit <strong>mavros_plugins.xml</strong> (in <strong>workspace/src/mavros/mavros_extras</strong>) and add the following lines:</p>
+<li><p>&#x7F16;&#x8F91; <strong>mavros_plugins.xml</strong> &#x6587;&#x4EF6;&#xFF08;&#x5728;<strong>workspace/src/mavros/mavros_extras</strong>&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF09;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">class</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;keyboard_command&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;mavros::extra_plugins::KeyboardCommandPlugin&quot;</span> <span class="hljs-attr">base_class_type</span>=<span class="hljs-string">&quot;mavros::plugin::PluginBase&quot;</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Accepts keyboard command.<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">class</span>&gt;</span>
 </code></pre>
 </li>
-<li><p>Edit <strong>CMakeLists.txt</strong> (in <strong>workspace/src/mavros/mavros_extras</strong>) and add the following line in <code>add_library</code>.</p>
+<li><p>&#x7F16;&#x8F91; <strong>CMakeLists.txt</strong>&#xFF08;<strong>workspace/src/mavros/mavros_extras</strong>&#xFF09;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5728;<code>add_library</code>&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
 <pre><code class="lang-cmake"><span class="hljs-keyword">add_library</span>( 
 ...
   src/plugins/keyboard_command.cpp 
 )
 </code></pre>
 </li>
-<li><p>Inside <strong>common.xml</strong> in (<strong>workspace/src/mavlink/message_definitions/v1.0</strong>), copy the following lines to add your MAVLink message:</p>
+<li><p>&#x6253;&#x5F00;<strong>common.xml</strong>&#xFF08;<strong>workspace/src/mavlink/message_definitions/v1.0</strong>&#xFF09;&#x6587;&#x4EF6;&#xFF0C;&#x590D;&#x5236;&#x4E0B;&#x9762;&#x5185;&#x5BB9;&#x5230;&#x4F60;&#x7684;MAVLink &#x6D88;&#x606F;&#x4E2D;&#xFF1A;</p>
 <pre><code class="lang-xml">...
   <span class="hljs-tag">&lt;<span class="hljs-name">message</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;229&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;KEY_COMMAND&quot;</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Keyboard char command.<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
@@ -2481,9 +2481,9 @@ PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plu
 </code></pre>
 </li>
 </ol>
-<h2 id="px4-changes"><a name="px4-changes" class="plugin-anchor" href="#px4-changes"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Changes</h2>
+<h2 id="px4-&#x4FEE;&#x6539;"><a name="px4-&#x4FEE;&#x6539;" class="plugin-anchor" href="#px4-&#x4FEE;&#x6539;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#x4FEE;&#x6539;</h2>
 <ol>
-<li><p>Inside <strong>common.xml</strong> (in <strong>Firmware/mavlink/include/mavlink/v2.0/message_definitions</strong>), add your MAVLink message as following (same procedure as for MAVROS section above):</p>
+<li><p>&#x6253;&#x5F00; <strong>common.xml</strong> &#xFF08;<strong>Firmware/mavlink/include/mavlink/v2.0/message_definitions</strong>&#xFF09;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4F60;&#x7684;MAVLink &#x6D88;&#x606F;&#xFF08;&#x548C;&#x524D;&#x9762;MAVROS&#x90E8;&#x5206;&#x76F8;&#x540C;&#x7684;&#x64CD;&#x4F5C;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-xml">...
   <span class="hljs-tag">&lt;<span class="hljs-name">message</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;229&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;KEY_COMMAND&quot;</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Keyboard char command.<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
@@ -2492,40 +2492,40 @@ PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plu
 ...
 </code></pre>
 </li>
-<li><p>Remove <em>common</em>, <em>standard</em> directories in (<strong>Firmware/mavlink/include/mavlink/v2.0</strong>).</p>
+<li><p>&#x5220;&#x9664; <em>common</em>&#xFF0C;<em>standard</em> &#x6587;&#x4EF6;&#x5939;&#xFF08;<strong>Firmware/mavlink/include/mavlink/v2.0</strong>&#xFF09;&#x3002;</p>
 <pre><code class="lang-sh">rm -r common
 rm -r standard
 </code></pre>
 </li>
-<li><p>Git clone &quot;mavlink_generator&quot; to any directory you want and execute it.</p>
+<li><p>git &#x514B;&#x9686;&quot;mavlink_generator&quot;&#x5230;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x5E76;&#x6267;&#x884C;&#x3002;</p>
 <pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/mavlink/mavlink mavlink-generator
 <span class="hljs-built_in">cd</span> mavlink-generator
 python mavgenerate.py
 </code></pre>
 </li>
-<li><p>You will see a &quot;MAVLink Generator&quot; popup:</p>
+<li><p>&#x4F60;&#x4F1A;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x201C;MAVLink Generator&#x201D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7A97;&#x53E3;&#xFF1A;</p>
 <ul>
-<li>For <em>XML</em>, &quot;Browse&quot; to <strong>/Firmware/mavlink/include/mavlink/v2.0/message_definitions/standard.xml</strong>.</li>
-<li>For Out, &quot;Browse&quot; to <strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>.</li>
-<li>Select Language <strong>C</strong></li>
-<li>Select Protocol <strong>2.0</strong></li>
-<li><p>Check <em>Validate</em></p>
-<p>Then, press <strong>Generate</strong>. You will see <em>common</em>, and <em>standard</em> directories created in <strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>.</p>
+<li><em>XML</em>&#x4E00;&#x680F;&#x9009;&#x62E9;<strong>/Firmware/mavlink/include/mavlink/v2.0/message_definitions/standard.xml</strong>&#x3002;</li>
+<li>&#x8F93;&#x51FA;&#x4E00;&#x680F;&#x9009;&#x62E9;<strong>/Firmware/mavlink/include/mavlink/v2.0/</strong></li>
+<li>&#x8BED;&#x8A00;&#x4E00;&#x680F;&#x9009;&#x62E9;<strong>C</strong></li>
+<li>&#x9009;&#x62E9;<strong>2.0</strong>&#x534F;&#x8BAE;</li>
+<li><p>&#x52FE;&#x9009;<em>Validate</em></p>
+<p>&#x7136;&#x540E;&#x70B9;&#x51FB; <strong>Generate</strong> &#x6309;&#x94AE;&#x3002; &#x5728;<strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>&#x4E2D;&#x4F1A;&#x751F;&#x6210;<em>common</em>&#x548C;<em>standard</em>&#x6587;&#x4EF6;&#x5939;&#x3002;</p>
 </li>
 </ul>
 </li>
-<li><p>Make your own uORB message file <strong>key_command.msg</strong> in (Firmware/msg). For this example the &quot;key_command.msg&quot; has only the code:</p>
+<li><p>&#x6DFB;&#x52A0;&#x4F60;&#x81EA;&#x5DF1;&#x7684;uORB&#x6D88;&#x606F;&#x6587;&#x4EF6; <strong>key_command.msg</strong> &#x5230; Firmware/msg &#x76EE;&#x5F55;&#x4E0B;&#x3002; &#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x201C;key_command.msg&#x201D;&#x6587;&#x4EF6;&#x53EA;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
 <pre><code>char cmd
 </code></pre></li>
 </ol>
-<p>Then, in <strong>CMakeLists.txt</strong> (in <strong>Firmware/msg</strong>), include</p>
+<p>&#x7136;&#x540E;&#xFF0C;&#x5728; <strong>CMakeLists.txt</strong>&#xFF08;<strong>Firmware/msg</strong>&#xFF09;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4F60;&#x7684;&#x6D88;&#x606F;&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-cmake">   <span class="hljs-keyword">set</span>(
    ...
         key_command.msg
         )
 </code></pre>
 <ol>
-<li><p>Edit <strong>mavlink_receiver.h</strong> (in <strong>Firmware/src/modules/mavlink</strong>)</p>
+<li><p>&#x7F16;&#x8F91; <strong>mavlink_receiver.h</strong>&#xFF08;<strong>Firmware/src/modules/mavlink</strong>&#xFF09;&#x6587;&#x4EF6;&#x3002;</p>
 <pre><code class="lang-cpp">...
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/key_command.h&gt;</span></span>
 ...
@@ -2539,7 +2539,7 @@ python mavgenerate.py
 }
 </code></pre>
 </li>
-<li><p>Edit <strong>mavlink_receiver.cpp</strong> (in <strong>Firmware/src/modules/mavlink</strong>). This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.</p>
+<li><p>&#x7F16;&#x8F91; <strong>mavlink_receiver.cpp</strong>&#xFF08;<strong>Firmware/src/modules/mavlink</strong>&#xFF09;&#x6587;&#x4EF6;&#x3002; &#x8FD9;&#x662F; PX4 &#x63A5;&#x6536; ROS &#x53D1;&#x9001;&#x8FC7;&#x6765;&#x7684; MAVLink &#x6D88;&#x606F;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x6D88;&#x606F;&#x4F5C;&#x4E3A; uORB &#x4E3B;&#x9898;&#x53D1;&#x5E03;&#x3002;</p>
 <pre><code class="lang-cpp">...
 <span class="hljs-keyword">void</span> MavlinkReceiver::handle_message(<span class="hljs-keyword">mavlink_message_t</span> *msg)
 {
@@ -2570,7 +2570,7 @@ MavlinkReceiver::handle_message_key_command(<span class="hljs-keyword">mavlink_m
 }
 </code></pre>
 </li>
-<li><p>Make your own uORB topic subscriber just like any example subscriber module. For this example lets create the model in (/Firmware/src/modules/key_receiver). In this directory, create two files <strong>CMakeLists.txt</strong>, <strong>key_receiver.cpp</strong>. Each one looks like following.</p>
+<li><p>&#x50CF;&#x5176;&#x4ED6;&#x793A;&#x4F8B;&#x4E00;&#x6837;&#x8BA2;&#x9605;&#x4F60;&#x81EA;&#x5DF1;&#x7684;uORB&#x4E3B;&#x9898;&#x3002; &#x8BA9;&#x6211;&#x4EEC;&#x5148;&#x5728;&#xFF08;/Firmware/src/modules/key_receiver&#xFF09;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x521B;&#x5EFA;&#x6A21;&#x578B;&#x3002; &#x5728;&#x6B64;&#x6A21;&#x578B;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E24;&#x4E2A;&#x6587;&#x4EF6; <strong>CMakeLists.txt</strong>&#xFF0C;<strong>key_receiver.cpp</strong>&#x3002; &#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002;</p>
 <p> -CMakeLists.txt</p>
 <pre><code class="lang-cmake">px4_add_module(
     MODULE modules__key_receiver
@@ -2642,28 +2642,28 @@ MavlinkReceiver::handle_message_key_command(<span class="hljs-keyword">mavlink_m
        }
        return 0;
    }
-</code></pre><p>For a more detailed explanation please see the documentation for <a href="https://dev.px4.io/en/apps/hello_sky.html" target="_blank">Writing your first application</a>.</p>
+</code></pre><p>&#x8BE6;&#x60C5;&#x8BF7;&#x89C1; <a href="https://dev.px4.io/en/apps/hello_sky.html" target="_blank">Writing your first application</a> &#x6587;&#x6863;&#x3002;</p>
 <ol>
-<li><p>Lastly add your module in the <strong>default.cmake</strong> file correspondent to your board in <strong>Firmware/boards/</strong>. For example for the Pixhawk 4 add the following code in <strong>Firmware/boards/px4/fmu-v5/default.cmake</strong>:</p>
+<li><p>&#x6700;&#x540E;&#x6DFB;&#x52A0;&#x4F60;&#x7684;&#x6A21;&#x5757;&#x5230;&#x4F60;&#x7684;&#x98DE;&#x63A7;&#x677F;<strong>Firmware/boards/</strong>&#x5BF9;&#x5E94;&#x7684; <strong>default.cmake</strong>&#x6587;&#x4EF6;&#x4E2D;&#x3002; &#x4F8B;&#x5982;Pixhawk 4&#xFF0C;&#x5728;<strong>Firmware/boards/px4/fmu-v5/default.cmake</strong> &#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
 <pre><code class="lang-cmake"> MODULES
      ...
      key_receiver
      ...
 </code></pre>
+<p>&#x73B0;&#x5728;&#x5F00;&#x59CB;&#x7F16;&#x8BD1;&#x4F60;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
 </li>
 </ol>
-<p>Now you are ready to build all your work!</p>
-<h2 id="building"><a name="building" class="plugin-anchor" href="#building"><i class="fa fa-link" aria-hidden="true"></i></a>Building</h2>
-<h3 id="build-for-ros"><a name="build-for-ros" class="plugin-anchor" href="#build-for-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Build for ROS</h3>
+<h2 id="&#x7F16;&#x8BD1;"><a name="&#x7F16;&#x8BD1;" class="plugin-anchor" href="#&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F16;&#x8BD1;</h2>
+<h3 id="ros&#x7F16;&#x8BD1;"><a name="ros&#x7F16;&#x8BD1;" class="plugin-anchor" href="#ros&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS&#x7F16;&#x8BD1;</h3>
 <ol>
-<li>In your workspace enter: <code>catkin build</code>.</li>
-<li><p>Beforehand, you have to set your &quot;px4.launch&quot; in (/workspace/src/mavros/mavros/launch). 
-Edit &quot;px4.launch&quot; as below.
-If you are using USB to connect your computer with Pixhawk, you have to set &quot;fcu_url&quot; as shown below.
-But, if you are using CP2102 to connect your computer with Pixhawk, you have to replace &quot;ttyACM0&quot; with &quot;ttyUSB0&quot;.
-Modifying &quot;gcs_url&quot; is to connect your Pixhawk with UDP, because serial communication cannot accept MAVROS, and your nutshell connection simultaneously.</p>
+<li>&#x5728;&#x4F60;&#x7684;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x76EE;&#x5F55;&#x4E0B;&#x8FD0;&#x884C;<code>catkin build</code>&#x547D;&#x4EE4;&#x3002;</li>
+<li><p>&#x5728;&#x6B64;&#x4E4B;&#x524D;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x4F60;&#x7684;&#x201C;px4.launch&#x201D;&#xFF08;/workspace/src/mavros/mavros/launch&#xFF09;&#x6587;&#x4EF6;&#x3002; 
+&#x7F16;&#x8F91;&#x201C;px4.launch&#x201D;&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;
+&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;USB&#x6765;&#x8FDE;&#x63A5;&#x4F60;&#x7684;&#x7535;&#x8111;&#x548C;Pixhawk&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x201C;fcu_url&#x201D;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;CP2102&#x6765;&#x8FDE;&#x63A5;&#x4F60;&#x7684;&#x7535;&#x8111;&#x548C;Pixhawk&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x5C06;&#x201C;ttyACM0&#x201D; &#x66FF;&#x6362;&#x4E3A;&quot;ttyUSB0&quot;&#x3002;
+&#x4FEE;&#x6539;&#x201C;gcs_url&#x201D;&#x662F;&#x4E3A;&#x4E86;&#x8FDE;&#x63A5;&#x4F60;&#x7684; Pixhawk &#x548C; UDP&#xFF0C;&#x56E0;&#x4E3A;&#x4E32;&#x53E3;&#x901A;&#x4FE1;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x63A5;&#x6536; MAVROS &#x548C; nutshell&#x3002;</p>
 </li>
-<li><p>Write your IP address at &quot;xxx.xx.xxx.xxx&quot;</p>
+<li><p>&#x5C06;&#x4F60;&#x7684; IP &#x5730;&#x5740;&#x5199;&#x5728; &quot;xxx.xx.xxx.xxx&quot;</p>
 <pre><code class="lang-xml">...
   <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;fcu_url&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;/dev/ttyACM0:57600&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">arg</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gcs_url&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;udp://:14550@xxx.xx.xxx.xxx:14557&quot;</span> /&gt;</span>
@@ -2671,44 +2671,44 @@ Modifying &quot;gcs_url&quot; is to connect your Pixhawk with UDP, because seria
 </code></pre>
 </li>
 </ol>
-<h3 id="build-for-px4"><a name="build-for-px4" class="plugin-anchor" href="#build-for-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Build for PX4</h3>
+<h3 id="px4-&#x7F16;&#x8BD1;"><a name="px4-&#x7F16;&#x8BD1;" class="plugin-anchor" href="#px4-&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#x7F16;&#x8BD1;</h3>
 <ol>
-<li><p>Build PX4 Firmware and upload <a href="../setup/building_px4.html#nuttx">in the normal way</a>.</p>
-<p> For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the Firmware directory:</p>
+<li><p>&#x7F16;&#x8BD1; PX4 &#x56FA;&#x4EF6;&#x5E76;&#x4EE5; <a href="../setup/building_px4.html#nuttx">&#x666E;&#x901A;&#x65B9;&#x5F0F;</a> &#x4E0A;&#x4F20;&#x3002; </p>
+<p> &#x4F8B;&#x5982;&#xFF0C;&#x4E3A;Pixhawk 4/FMUv5&#x7F16;&#x8BD1;&#x56FA;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;Firmware&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
 <pre><code class="lang-sh"> make px4_fmu-v5_default upload
 </code></pre>
+<h2 id="&#x8FD0;&#x884C;&#x4EE3;&#x7801;"><a name="&#x8FD0;&#x884C;&#x4EE3;&#x7801;" class="plugin-anchor" href="#&#x8FD0;&#x884C;&#x4EE3;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C;&#x4EE3;&#x7801;</h2>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6D4B;&#x8BD5;MAVROS&#x6D88;&#x606F;&#x662F;&#x5426;&#x53D1;&#x9001;&#x7ED9;PX4&#x3002;</p>
 </li>
 </ol>
-<h2 id="running-the-code"><a name="running-the-code" class="plugin-anchor" href="#running-the-code"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Code</h2>
-<p>Next test if the MAVROS message is sent to PX4.</p>
-<h3 id="running-ros"><a name="running-ros" class="plugin-anchor" href="#running-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Running ROS</h3>
+<h3 id="&#x8FD0;&#x884C;-ros"><a name="&#x8FD0;&#x884C;-ros" class="plugin-anchor" href="#&#x8FD0;&#x884C;-ros"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FD0;&#x884C; ROS</h3>
 <ol>
-<li><p>In a terminal enter</p>
+<li><p>&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;&#x8F93;&#x5165;</p>
 <pre><code class="lang-sh">roslaunch mavros px4.launch
 </code></pre>
 </li>
-<li><p>In a second terminal run:</p>
+<li><p>&#x5728;&#x7B2C;&#x4E8C;&#x4E2A;&#x7EC8;&#x7AEF;&#x4E2D;&#x8FD0;&#x884C;&#xFF1A;</p>
 <pre><code class="lang-sh">rostopic pub -r 10 /mavros/keyboard_<span class="hljs-built_in">command</span>/keyboard_sub std_msgs/Char 97
 </code></pre>
 </li>
 </ol>
-<p>This means, publish 97 (&apos;a&apos; in ASCII) to ROS topic &quot;/mavros/keyboard_command/keyboard_sub&quot; in message type &quot;std_msgs/Char&quot;. &quot;-r 10&quot; means to publish continuously in &quot;10Hz&quot;.</p>
-<h3 id="running-px4"><a name="running-px4" class="plugin-anchor" href="#running-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Running PX4</h3>
+<p>&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4EE5;&#x201C;std_msgs/Char&#x201D;&#x6D88;&#x606F;&#x7C7B;&#x578B;&#x53D1;&#x5E03;97&#xFF08;ASCII&#x7801;&#x7684;&#x2018;a&apos;&#xFF09;&#x5230;ROS&#x4E3B;&#x9898;&#x201C;/mavros/keyboard_command/keyboard_sub&#x201D; &#x201C;-r 10&#x201D;&#x610F;&#x5473;&#x7740;&#x4EE5;&#x201C;10Hz&#x201D;&#x9891;&#x7387;&#x6301;&#x7EED;&#x53D1;&#x5E03;&#x3002;</p>
+<h3 id="px4-&#x8FD0;&#x884C;"><a name="px4-&#x8FD0;&#x884C;" class="plugin-anchor" href="#px4-&#x8FD0;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#x8FD0;&#x884C;</h3>
 <ol>
-<li><p>Enter the Pixhawk nutshell through UDP. Replace xxx.xx.xxx.xxx with your IP.</p>
+<li><p>&#x901A;&#x8FC7;UDP&#x8FDB;&#x5165;Pixhawk &#x7684; nutshell&#x3002; &#x7528;&#x4F60;&#x7684;IP&#x5730;&#x5740;&#x66FF;&#x6362;xxx.xx.xxx.xxx </p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware/Tools
 ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
 </code></pre>
 </li>
-<li><p>After few seconds, press <strong>Enter</strong> a couple of times. You should see a prompt in the terminal as below:</p>
+<li><p>&#x51E0;&#x79D2;&#x949F;&#x4E4B;&#x540E;&#xFF0C;&#x6572;&#x51FB; <strong>Enter</strong>&#x6309;&#x952E;&#x51E0;&#x6B21;&#x3002; &#x4F60;&#x4F1A;&#x770B;&#x5230;&#x7EC8;&#x7AEF;&#x4E2D;&#x4EE5;&#x4E0B;&#x63D0;&#x793A;&#xFF1A;</p>
 <pre><code class="lang-sh">nsh&gt;
 nsh&gt;
 </code></pre>
 </li>
 </ol>
-<p>Type &quot;key_receiver&quot;, to run your subscriber module.</p>
+<p>&#x8F93;&#x5165;&#x201C;key_receiver&#x201D;&#x547D;&#x4EE4;&#x6765;&#x8FD0;&#x884C;&#x4F60;&#x7684;&#x8BA2;&#x9605;&#x6A21;&#x5757;&#x3002;</p>
 <pre><code>   nsh&gt; key_receiver
-</code></pre><p>Check if it successfully receives <code>a</code> from your ROS topic.</p>
+</code></pre><p>&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x4ECE;&#x4F60;&#x7684; ROS &#x8BDD;&#x9898;&#x4E2D;&#x63A5;&#x6536;&#x5230; <code>a</code> &#x5B57;&#x7B26;&#x3002;</p>
 
                                 
                                 </section>
@@ -2752,7 +2752,7 @@ nsh&gt;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"外部位置估计（基于视觉/运动）","level":"1.8.2.6","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"ros/mavros_custom_messages.md","mtime":"2020-04-06T14:09:03.255Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-06T14:10:06.229Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"外部位置估计（基于视觉/运动）","level":"1.8.2.6","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"ros/mavros_custom_messages.md","mtime":"2020-04-07T04:46:02.824Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-07T04:47:07.937Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
