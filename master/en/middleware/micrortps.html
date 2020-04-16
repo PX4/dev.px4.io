@@ -2712,7 +2712,7 @@ For this example the <em>Agent</em> and <em>Listener application</em> will be on
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /path/to/PX4/Firmware/build/px4_sitl_rtps/src/modules/micrortps_bridge
 mkdir micrortps_listener
 <span class="hljs-built_in">cd</span> micrortps_listener
-fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined.idl
+fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined_.idl
 </code></pre>
 <p>This creates a basic subscriber and publisher, and a main-application to run them.
 To print out the data from the <code>sensor_combined</code> topic, modify the <code>onNewDataMessage()</code> method in <strong>sensor_combined_Subscriber.cxx</strong>:</p>
@@ -2730,23 +2730,16 @@ To print out the data from the <code>sensor_combined</code> topic, modify the <c
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;\n\n\n\n\n\n\n\n\n\n&quot;</span>;
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Sample received, count=&quot;</span> &lt;&lt; n_msg &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;=============================&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;gyro_rad: &quot;</span> &lt;&lt; st.gyro_rad().at(<span class="hljs-number">0</span>);
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.gyro_rad().at(<span class="hljs-number">1</span>);
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.gyro_rad().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;gyro_integral_dt: &quot;</span> &lt;&lt; st.gyro_integral_dt() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;gyro_rad: &quot;</span> &lt;&lt; st.gyro_rad_().at(<span class="hljs-number">0</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.gyro_rad_().at(<span class="hljs-number">1</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.gyro_rad_().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;gyro_integral_dt: &quot;</span> &lt;&lt; st.gyro_integral_dt_() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
             <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_timestamp_relative: &quot;</span> &lt;&lt; st.accelerometer_timestamp_relative() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_m_s2: &quot;</span> &lt;&lt; st.accelerometer_m_s2().at(<span class="hljs-number">0</span>);
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.accelerometer_m_s2().at(<span class="hljs-number">1</span>);
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.accelerometer_m_s2().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_integral_dt: &quot;</span> &lt;&lt; st.accelerometer_integral_dt() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;magnetometer_timestamp_relative: &quot;</span> &lt;&lt; st.magnetometer_timestamp_relative() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;magnetometer_ga: &quot;</span> &lt;&lt; st.magnetometer_ga().at(<span class="hljs-number">0</span>);
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.magnetometer_ga().at(<span class="hljs-number">1</span>);
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.magnetometer_ga().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;baro_timestamp_relative: &quot;</span> &lt;&lt; st.baro_timestamp_relative() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;baro_alt_meter: &quot;</span> &lt;&lt; st.baro_alt_meter() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;baro_temp_celcius: &quot;</span> &lt;&lt; st.baro_temp_celcius() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_m_s2: &quot;</span> &lt;&lt; st.accelerometer_m_s2_().at(<span class="hljs-number">0</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.accelerometer_m_s2_().at(<span class="hljs-number">1</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.accelerometer_m_s2_().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_integral_dt: &quot;</span> &lt;&lt; st.accelerometer_integral_dt_() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+           
         }
     }
 }
