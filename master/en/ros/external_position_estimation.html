@@ -2401,7 +2401,7 @@
                                 <h1 id="using-vision-or-motion-capture-systems-for-position-estimation"><a name="using-vision-or-motion-capture-systems-for-position-estimation" class="plugin-anchor" href="#using-vision-or-motion-capture-systems-for-position-estimation"><i class="fa fa-link" aria-hidden="true"></i></a>Using Vision or Motion Capture Systems for Position Estimation</h1>
 <p>Visual Inertial Odometry (VIO) and and Motion Capture (MoCap) systems allow vehicles to navigate when a global position source is unavailable or unreliable (e.g. indoors, or when flying under a bridge. etc.).</p>
 <p>Both VIO and MoCap determine a vehicle&apos;s <em>pose</em> (position and attitude) from &quot;visual&quot; information.
-The main difference between them is the frame perspective: </p>
+The main difference between them is the frame perspective:</p>
 <ul>
 <li>VIO uses <em>onboard sensors</em> to get pose data from the vehicle&apos;s perspective (see <a href="https://en.wikipedia.org/wiki/Visual_odometry#Egomotion" target="_blank">egomotion</a>).</li>
 <li>MoCap uses a system of <em>off-board cameras</em> to get vehicle pose data in a 3D space (i.e. it is an external system that tells the vehicle its pose).</li>
@@ -2417,7 +2417,7 @@ The main difference between them is the frame perspective: </p>
 <thead>
 <tr>
 <th>MAVLink</th>
-<th>uORB </th>
+<th>uORB</th>
 </tr>
 </thead>
 <tbody>
@@ -2447,9 +2447,9 @@ The LPE estimator subscribes to both topics, and can hence process all the above
   It is better tested and supported than LPE, and should be used by preference.</p>
 </blockquote>
 <p>The messages should be streamed at between 30Hz (if containing covariances) and 50 Hz.</p>
-<p>The following MAVLink &quot;vision&quot; messages are not currently supported by PX4: 
-<a href="https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE" target="_blank">GLOBAL_VISION_POSITION_ESTIMATE</a>, 
-<a href="https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE" target="_blank">VISION_SPEED_ESTIMATE</a>, 
+<p>The following MAVLink &quot;vision&quot; messages are not currently supported by PX4:
+<a href="https://mavlink.io/en/messages/common.html#GLOBAL_VISION_POSITION_ESTIMATE" target="_blank">GLOBAL_VISION_POSITION_ESTIMATE</a>,
+<a href="https://mavlink.io/en/messages/common.html#VISION_SPEED_ESTIMATE" target="_blank">VISION_SPEED_ESTIMATE</a>,
 <a href="https://mavlink.io/en/messages/common.html#VICON_POSITION_ESTIMATE" target="_blank">VICON_POSITION_ESTIMATE</a></p>
 <h2 id="reference-frames"><a name="reference-frames" class="plugin-anchor" href="#reference-frames"><i class="fa fa-link" aria-hidden="true"></i></a>Reference Frames</h2>
 <p>PX4 uses FRD (X <strong>F</strong>orward, Y <strong>R</strong>ight and Z <strong>D</strong>own) for the local body frame as well for the reference frame. When using the heading of the magnetometer, the PX4 reference frame x axis will be aligned with north, so therefore it is called NED (X <strong>N</strong>orth, Y <strong>E</strong>ast, Z <strong>D</strong>own). The heading of the reference frame of the PX4 estimator and the one of the external pose estimate will not match in most cases.
@@ -2468,6 +2468,7 @@ z_{mav} = - y_{mocap}
 </code></pre><p>Regarding the orientation, keep the scalar part <em>w</em> of the quaternion the same and swap the vector part <em>x</em>, <em>y</em> and <em>z</em> in the same way.
 You can apply this trick with every system - if you need to obtain a NED frame, look at your MoCap output and swap axis accordingly.</p>
 <h2 id="ekf2-tuningconfiguration"><a name="ekf2-tuningconfiguration" class="plugin-anchor" href="#ekf2-tuningconfiguration"><i class="fa fa-link" aria-hidden="true"></i></a>EKF2 Tuning/Configuration</h2>
+<p>Note: this is a quick overview. For more detailed information, check the <a href="https://docs.px4.io/master/en/advanced_config/tuning_the_ecl_ekf.html" target="_blank">EKF2 tuning guide</a></p>
 <p>The following parameters must be set to use external position information with EKF2 (these can be set in <em>QGroundControl</em> &gt; <strong>Vehicle Setup &gt; Parameters &gt; EKF2</strong>).</p>
 <table>
 <thead>
@@ -2562,7 +2563,7 @@ For other systems consult the vendor setup documentation.</p>
 <tr>
 <th>ROS</th>
 <th>MAVLink</th>
-<th>uORB </th>
+<th>uORB</th>
 </tr>
 </thead>
 <tbody>
@@ -2685,7 +2686,7 @@ However, it is applicable with LPE.</p>
 <p>You are now set to proceed to the first flight.</p>
 <h2 id="first-flight"><a name="first-flight" class="plugin-anchor" href="#first-flight"><i class="fa fa-link" aria-hidden="true"></i></a>First Flight</h2>
 <p>After setting up one of the (specific) systems described above you should now be ready to test.
-The instructions below show how to do so for MoCap and VIO systems </p>
+The instructions below show how to do so for MoCap and VIO systems</p>
 <h3 id="check-external-estimate"><a name="check-external-estimate" class="plugin-anchor" href="#check-external-estimate"><i class="fa fa-link" aria-hidden="true"></i></a>Check external estimate</h3>
 <p>Be sure to perform the following checks before your first flight:</p>
 <ul>
@@ -2710,10 +2711,9 @@ The green light tells you that position feedback is available and position contr
 With this stick value, the robot maintains its altitude;
 raising the stick will increase the reference altitude while lowering the value will decrease it.
 Same for right stick on x and y.</p>
-<p>Increase the value of the left stick and the robot will take off, 
+<p>Increase the value of the left stick and the robot will take off,
 put it back to the middle right after. Check if it is able to keep its position.</p>
 <p>If it works, you may want to set up an <a href="offboard_control.html">offboard</a> experiment by sending position-setpoint from a remote ground station.</p>
-<h3 id="vio-first-flight"><a name="vio-first-flight" class="plugin-anchor" href="#vio-first-flight"><i class="fa fa-link" aria-hidden="true"></i></a>VIO First Flight</h3>
 
                                 
                                 </section>
@@ -2757,7 +2757,7 @@ put it back to the middle right after. Check if it is able to keep its position.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"next":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"path":"ros/mavros_custom_messages.md","ref":"ros/mavros_custom_messages.md","articles":[]},"previous":{"title":"ROS Installation on RPi","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2020-04-22T18:58:55.204Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T19:00:02.200Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"next":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"path":"ros/mavros_custom_messages.md","ref":"ros/mavros_custom_messages.md","articles":[]},"previous":{"title":"ROS Installation on RPi","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2020-04-28T02:37:05.039Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-28T02:38:51.818Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

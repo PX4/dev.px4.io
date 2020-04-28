@@ -2277,7 +2277,7 @@
     
         <li class="chapter " data-level="2.1" >
             
-                <a target="_blank" href="https://docs.px4.cc/zh/">
+                <a target="_blank" href="https://docs.px4.io/master/en/">
             
                     
                     PX4 用户指南
@@ -2407,87 +2407,65 @@
    setopt        &#x8BBE;&#x7F6E;&#x9009;&#x9879;&#x5B57;&#x8282;&#xFF08;option bits&#xFF09;&#x4EE5;&#x89E3;&#x9501;  FLASH (&#x4EC5;&#x5F53;&#x5176;&#x5904;&#x4E8E;&#x9501;&#x5B9A;&#x72B6;&#x6001;&#x65F6;)
 
    &amp;lt;file&amp;gt;        Bootloader bin &#x6587;&#x4EF6;
-</code></pre><h2 id="config"><a name="config" class="plugin-anchor" href="#config"><i class="fa fa-link" aria-hidden="true"></i></a>config</h2>
-<p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/config" target="_blank">systemcmds/config</a></p>
-<p>Configure a sensor driver (sampling &amp; publication rate, etc.)</p>
-<h3 id="config_usage"><a name="config_usage" class="plugin-anchor" href="#config_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
-<pre><code>config &lt;command&gt; [arguments...]
- Commands:
-
- The &lt;file:dev&gt; argument is typically one of /dev/{gyro,accel,mag}i
-   block         Block sensor topic publication
-     &lt;file:dev&gt;  Sensor device file
-
-   unblock       Unblock sensor topic publication
-     &lt;file:dev&gt;  Sensor device file
-
-   sampling      Set sensor sampling rate
-     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and sampling rate in Hz
-
-   rate          Set sensor publication rate
-     &lt;file:dev&gt; &lt;rate&gt; Sensor device file and publication rate in Hz
-
-   check         Perform sensor self-test (and print info)
-     &lt;file:dev&gt;  Sensor device file
 </code></pre><h2 id="dumpfile"><a name="dumpfile" class="plugin-anchor" href="#dumpfile"><i class="fa fa-link" aria-hidden="true"></i></a>dumpfile</h2>
-<p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile" target="_blank">systemcmds/dumpfile</a></p>
-<p>&#x8F6C;&#x50A8;&#x6587;&#x4EF6;&#x5E94;&#x7528;&#x3002; &#x5C06;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x53CA;&#x5185;&#x5BB9;&#x4EE5;&#x4E8C;&#x8FDB;&#x5236;&#x6A21;&#x5F0F;&#x8F93;&#x51FA;&#x503C;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x8BBE;&#x5907;&#xFF08;&#x4E0D;&#x4F7F;&#x7528; LF &#x66FF;&#x6362; CR LF&#xFF09;&#x3002;</p>
-<h3 id="dumpfile_usage"><a name="dumpfile_usage" class="plugin-anchor" href="#dumpfile_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile" target="_blank">systemcmds/dumpfile</a></p>
+<p>Dump file utility. Prints file size and contents in binary mode (don&apos;t replace LF with CR LF) to stdout.</p>
+<h3 id="dumpfile_usage"><a name="dumpfile_usage" class="plugin-anchor" href="#dumpfile_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>dumpfile [arguments...]
-     &amp;lt;file&amp;gt;      &#x9700;&#x8981;&#x8FDB;&#x884C;&#x8F6C;&#x50A8;&#x7684;&#x6587;&#x4EF6;
+     &lt;file&gt;      File to dump
 </code></pre><h2 id="dyn"><a name="dyn" class="plugin-anchor" href="#dyn"><i class="fa fa-link" aria-hidden="true"></i></a>dyn</h2>
-<p>&#x6E90;&#x7801;&#xFF1A;<a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn" target="_blank">systemcmds/dyn</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x8F7D;&#x5165;&#x5E76;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x672A;&#x88AB;&#x7F16;&#x8BD1;&#x81F3; PX4 &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5185;&#x7684;&#x52A8;&#x6001; PX4 &#x6A21;&#x5757;&#x3002;</p>
-<h3 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="plugin-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x793A;&#x4F8B;</h3>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dyn" target="_blank">systemcmds/dyn</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Load and run a dynamic PX4 module, which was not compiled into the PX4 binary.</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
 <pre><code>dyn ./hello.px4mod start
-</code></pre><h3 id="dyn_usage"><a name="dyn_usage" class="plugin-anchor" href="#dyn_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
+</code></pre><h3 id="dyn_usage"><a name="dyn_usage" class="plugin-anchor" href="#dyn_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>dyn [arguments...]
-     &amp;lt;file&amp;gt;      &#x5305;&#x542B;&#x6A21;&#x5757;&#x7684;&#x6587;&#x4EF6;
-     [arguments...] &#x4F20;&#x9012;&#x7ED9;&#x6A21;&#x5757;&#x7684;&#x53C2;&#x6570;
+     &lt;file&gt;      File containing the module
+     [arguments...] Arguments to the module
 </code></pre><h2 id="esccalib"><a name="esccalib" class="plugin-anchor" href="#esccalib"><i class="fa fa-link" aria-hidden="true"></i></a>esc_calib</h2>
-<p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib" target="_blank">systemcmds/esc_calib</a></p>
-<p>ESC &#x6821;&#x51C6;&#x5DE5;&#x5177;&#x3002;</p>
-<p>&#x6821;&#x51C6;&#x6D41;&#x7A0B;&#xFF08;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#x5C06;&#x4F1A;&#x5F15;&#x5BFC;&#x4F60;&#x5B8C;&#x6210;&#x6B64;&#x6D41;&#x7A0B;&#xFF09;&#xFF1A;</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/esc_calib" target="_blank">systemcmds/esc_calib</a></p>
+<p>Tool for ESC calibration</p>
+<p>Calibration procedure (running the command will guide you through it):</p>
 <ul>
 <li>&#x79FB;&#x9664;&#x87BA;&#x65CB;&#x6868;&#xFF0C;&#x5C06; ESC &#x65AD;&#x7535;</li>
 <li>Stop attitude and rate controllers: mc_rate_control stop, fw_att_control stop</li>
 <li>&#x786E;&#x4FDD;&#x5B89;&#x5168;&#x8BBE;&#x7F6E;&#x65AD;&#x5F00;&#xFF08;Make sure safety is off&#xFF09;</li>
 <li>&#x8FD0;&#x884C;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;</li>
 </ul>
-<h3 id="esc_calib_usage"><a name="esc_calib_usage" class="plugin-anchor" href="#esc_calib_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
+<h3 id="esc_calib_usage"><a name="esc_calib_usage" class="plugin-anchor" href="#esc_calib_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>esc_calib [arguments...]
-     [-d &amp;lt;val&amp;gt;]  &#x9009;&#x62E9; PWM &#x8F93;&#x51FA;&#x8BBE;&#x5907;
-                 &#x53D6;&#x503C; &amp;lt;file:dev&amp;gt;, &#x9ED8;&#x8BA4;&#x503C;&#xFF1A; /dev/pwm_output0
-     [-l &amp;lt;val&amp;gt;]  Low PWM &#x503C;&#xFF0C;&#x5355;&#x4F4D; us
-                 &#x9ED8;&#x8BA4;&#x503C;&#xFF1A; 1000
-     [-h &amp;lt;val&amp;gt;]  High PWM &#x503C;&#xFF0C;&#x5355;&#x4F4D; us
-                 &#x9ED8;&#x8BA4;&#x503C;&#xFF1A;2000
-     [-c &amp;lt;val&amp;gt;]  &#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x5F62;&#x5F0F;&#x9009;&#x53D6;&#x901A;&#x9053;&#xFF1A;1234 (1 &#x4F4D;&#x6570;&#x5B57;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#xFF0C;
-                 1=&#x7B2C;&#x4E00;&#x4E2A;&#x901A;&#x9053;)
-     [-m &amp;lt;val&amp;gt;]  &#x4F7F;&#x7528;&#x4F4D;&#x63A9;&#x7801;&#xFF08;bitmask&#xFF09;&#x9009;&#x53D6;&#x901A;&#x9053; 0xF, 3)
+     [-d &lt;val&gt;]  Select PWM output device
+                 values: &lt;file:dev&gt;, default: /dev/pwm_output0
+     [-l &lt;val&gt;]  Low PWM value in us
+                 default: 1000
+     [-h &lt;val&gt;]  High PWM value in us
+                 default: 2000
+     [-c &lt;val&gt;]  select channels in the form: 1234 (1 digit per channel,
+                 1=first)
+     [-m &lt;val&gt;]  Select channels via bitmask (eg. 0xF, 3)
      [-a]        Select all channels
 </code></pre><h2 id="hardfaultlog"><a name="hardfaultlog" class="plugin-anchor" href="#hardfaultlog"><i class="fa fa-link" aria-hidden="true"></i></a>hardfault_log</h2>
-<p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log" target="_blank">systemcmds/hardfault_log</a></p>
-<p>&#x786C;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x3002;</p>
-<p>&#x5728;&#x542F;&#x52A8;&#x811A;&#x672C;&#x4E2D;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x786C;&#x9519;&#x8BEF;&#x3002;</p>
-<h3 id="hardfault_log_usage"><a name="hardfault_log_usage" class="plugin-anchor" href="#hardfault_log_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6CD5; </h3>
-<pre><code>hardfault_log &amp;lt;command&amp;gt; [arguments...]
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log" target="_blank">systemcmds/hardfault_log</a></p>
+<p>Hardfault utility</p>
+<p>Used in startup scripts to handle hardfaults</p>
+<h3 id="hardfault_log_usage"><a name="hardfault_log_usage" class="plugin-anchor" href="#hardfault_log_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>hardfault_log &lt;command&gt; [arguments...]
  Commands:
-   check         &#x68C0;&#x67E5;&#x662F;&#x5426;&#x5B58;&#x5728;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x786C;&#x9519;&#x8BEF;&#xFF08;uncommited hardfault&#xFF09;
+   check         Check if there&apos;s an uncommited hardfault
 
-   rearm         &#x629B;&#x4E0B;&#x4E00;&#x4E2A;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x786C;&#x9519;&#x8BEF;
+   rearm         Drop an uncommited hardfault
 
-   fault         &#x751F;&#x6210;&#x4E00;&#x4E2A;&#x786C;&#x9519;&#x8BEF; (&#x8BE5;&#x547D;&#x4EE4;&#x4F1A;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;:)
-     [0|1]       &#x786C;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#xFF1A; 0=&#x9664; 0 &#x9519;&#x8BEF;, 1=&#x65AD;&#x8A00;&#x9519;&#x8BEF;&#xFF08;Assertion&#xFF09; (&#x9ED8;&#x8BA4;&#x503C;=0)
+   fault         Generate a hardfault (this command crashes the system :)
+     [0|1]       Hardfault type: 0=divide by 0, 1=Assertion (default=0)
 
-   commit        &#x8BB2;&#x4E00;&#x4E2A;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x786C;&#x9519;&#x8BEF;&#x5199;&#x5165; /fs/microsd/fault_%i.txt (&#x7136;&#x540E;
-                 rearm&#x4F46;&#x4E0D; reset&#xFF09;
+   commit        Write uncommited hardfault to /fs/microsd/fault_%i.txt (and
+                 rearm, but don&apos;t reset)
 
-   count         &#x8BFB;&#x53D6;&#x91CD;&#x542F;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x786C;&#x9519;&#x8BEF;&#x5F15;&#x8D77;&#x7684;&#x91CD;&#x542F;&#x6B21;&#x6570;
-                  (&#x8BE5;&#x7ED3;&#x679C;&#x5C06;&#x4F5C;&#x4E3A;&#x7A0B;&#x5E8F;&#x7684;&#x9000;&#x51FA;&#x4EE3;&#x7801;&#x8FD4;&#x56DE;)
+   count         Read the reboot counter, counts the number of reboots of an
+                 uncommited hardfault (returned as the exit code of the program)
 
-   reset         &#x91CD;&#x7F6E;&#x91CD;&#x542F;&#x8BA1;&#x6570;&#x5668;
+   reset         Reset the reboot counter
 </code></pre><h2 id="i2cdetect"><a name="i2cdetect" class="plugin-anchor" href="#i2cdetect"><i class="fa fa-link" aria-hidden="true"></i></a>i2cdetect</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/i2cdetect" target="_blank">systemcmds/i2cdetect</a></p>
 <p>Utility to scan for I2C devices on a particular bus.</p>
@@ -2881,7 +2859,7 @@ pwm test -c 13 -p 1200
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"命令","level":"1.7.1","depth":2,"next":{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"模块 & 命令","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"驱动","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},{"title":"Baro","level":"1.7.4.2","depth":3,"path":"middleware/modules_driver_baro.md","ref":"middleware/modules_driver_baro.md","articles":[]},{"title":"Distance Sensor","level":"1.7.4.3","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},{"title":"IMU","level":"1.7.4.4","depth":3,"path":"middleware/modules_driver_imu.md","ref":"middleware/modules_driver_imu.md","articles":[]},{"title":"Magnetometer","level":"1.7.4.5","depth":3,"path":"middleware/modules_driver_magnetometer.md","ref":"middleware/modules_driver_magnetometer.md","articles":[]}]},{"title":"估计器","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},{"title":"System","level":"1.7.7","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2020-04-22T18:58:55.228Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-22T19:00:02.200Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"命令","level":"1.7.1","depth":2,"next":{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"模块 & 命令","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"命令","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"通信","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"驱动","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},{"title":"Baro","level":"1.7.4.2","depth":3,"path":"middleware/modules_driver_baro.md","ref":"middleware/modules_driver_baro.md","articles":[]},{"title":"Distance Sensor","level":"1.7.4.3","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},{"title":"IMU","level":"1.7.4.4","depth":3,"path":"middleware/modules_driver_imu.md","ref":"middleware/modules_driver_imu.md","articles":[]},{"title":"Magnetometer","level":"1.7.4.5","depth":3,"path":"middleware/modules_driver_magnetometer.md","ref":"middleware/modules_driver_magnetometer.md","articles":[]}]},{"title":"估计器","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},{"title":"System","level":"1.7.7","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"mermaid":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2020-04-28T02:37:05.075Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-28T02:38:51.818Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
