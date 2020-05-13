@@ -84,7 +84,7 @@
     <link rel="next" href="flightgear_vehicles.html" />
     
     
-    <link rel="prev" href="gazebo_worlds.html" />
+    <link rel="prev" href="multi_vehicle_simulation_gazebo.html" />
     
 
     </head>
@@ -615,6 +615,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="multi_vehicle_jmavsim.html">
+            
+                <a href="multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4.2" data-path="gazebo.html">
@@ -657,6 +676,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.2.3" data-path="multi_vehicle_simulation_gazebo.html">
+            
+                <a href="multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -689,6 +721,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.3.2" data-path="multi_vehicle_flightgear.html">
+            
+                <a href="multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -707,38 +752,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="multi_vehicle_flightgear.html">
-            
-                <a href="multi_vehicle_flightgear.html">
-            
-                    
-                    Multi-Vehicle Sim with FlightGear
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="multi_vehicle_jmavsim.html">
-            
-                <a href="multi_vehicle_jmavsim.html">
-            
-                    
-                    Multi-Vehicle Sim with JMAVSim
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.5" data-path="multi-vehicle-simulation.html">
             
                 <a href="multi-vehicle-simulation.html">
             
                     
-                    Multi-Vehicle Sim with Gazebo
+                    Multi-Vehicle Simulation
             
                 </a>
             
@@ -746,7 +765,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="failsafes.html">
+        <li class="chapter " data-level="1.4.6" data-path="failsafes.html">
             
                 <a href="failsafes.html">
             
@@ -759,7 +778,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.9" data-path="hitl.html">
+        <li class="chapter " data-level="1.4.7" data-path="hitl.html">
             
                 <a href="hitl.html">
             
@@ -772,7 +791,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.10" data-path="simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.8" data-path="simulation-in-hardware.html">
             
                 <a href="simulation-in-hardware.html">
             
@@ -2444,8 +2463,10 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="flightgear-simulation"><a name="flightgear-simulation" class="plugin-anchor" href="#flightgear-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>FlightGear Simulation</h1>
-<p><a href="https://www.flightgear.org/" target="_blank">FlightGear</a> is a flight simulator with powerful <a href="http://wiki.flightgear.org/Flight_Dynamics_Model" target="_blank">FDM engines</a>. Thanks to this FlightGear is capable to simulate rotorcrafts under various meteorological conditions. This ability was the main reason why FlightGear PX4 bridge was originally developed by <a href="https://www.thunderfly.cz/" target="_blank">ThunderFly s.r.o.</a>  </p>
-<p>This page describes FlightGear&apos;s use in SITL and with single-vehicle, although FlightGear can also be used for <a href="multi_vehicle_flightgear.html">multi-vehicle simulation</a> as well.</p>
+<p><a href="https://www.flightgear.org/" target="_blank">FlightGear</a> is a flight simulator with powerful <a href="http://wiki.flightgear.org/Flight_Dynamics_Model" target="_blank">FDM engines</a>.
+This allows FlightGear to simulate rotorcrafts under various meteorological conditions (which is why the bridge was originally developed by <a href="https://www.thunderfly.cz/" target="_blank">ThunderFly s.r.o.</a>).</p>
+<p>This page describes FlightGear&apos;s single-vehicle use in SITL.
+For information about multi-vehicle use see: <a href="multi_vehicle_flightgear.html">Multi-Vehicle Simulation with FlightGear</a>.</p>
 <p><strong>Supported Vehicles:</strong> Autogyro, Plane, Rover.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/iqdcN5Gj4wI"></iframe></div></p>
 <p><a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9" target="_blank"><img src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFI7XG4gIEZsaWdodEdlYXIgLS0-IEZsaWdodEdlYXItQnJpZGdlO1xuICBGbGlnaHRHZWFyLUJyaWRnZSAtLT4gTUFWTGluaztcbiAgTUFWTGluayAtLT4gUFg0X1NJVEw7XG5cdCIsIm1lcm1haWQiOnsidGhlbWUiOiJkZWZhdWx0In0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9" alt="Mermaid Graph "></a></p>
@@ -2458,37 +2479,38 @@ graph LR;
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> See <a href="./">Simulation</a> for general information about simulators, the simulation environment, and simulation configuration (e.g. supported vehicles).</p>
 </blockquote>
-<h2 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>Installation </h2>
-<h4 id="installation-tested-in-ubuntu-1804"><a name="installation-tested-in-ubuntu-1804" class="plugin-anchor" href="#installation-tested-in-ubuntu-1804"><i class="fa fa-link" aria-hidden="true"></i></a>Installation tested in Ubuntu 18.04</h4>
-<p>You need the <a href="../setup/dev_env_linux_ubuntu.html">Development Environment on Ubuntu LTS / Debian Linux</a> properly installed.</p>
+<h2 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>Installation (Ubuntu Linux) </h2>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> These instructions were tested on Ubuntu 18.04</p>
+</blockquote>
 <ol>
-<li><p>Install FlightGear. In Ubuntu, you can install the latest stable FG from the PAA repository using the following commands. This action will also install the FGdata package.</p>
-<pre><code>sudo add-apt-repository ppa:saiarcot895/flightgear
+<li>Install the usual <a href="../setup/dev_env_linux_ubuntu.html">Development Environment on Ubuntu LTS / Debian Linux</a>.</li>
+<li><p>Install FlightGear:</p>
+<pre><code class="lang-sh">sudo add-apt-repository ppa:saiarcot895/flightgear
 sudo apt update
 sudo apt install flightgear
-</code></pre></li>
-</ol>
-<p>For some models (like models with electric engines) the daily build with the newest features may be necessary. It could be installed from <a href="https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge" target="_blank">daily build PPA</a>.</p>
-<p>You should check that you are able to run FlightGear by running the:</p>
-<pre><code>fgfs --launcher
-</code></pre><p>Additional installation instructions can be found on <a href="http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA" target="_blank">FlightGear wiki</a>.</p>
-<ol>
-<li><p>Set write permissions to the <code>Protocols</code> folder in the FlightGear installation directory. On Ubuntu run</p>
-<pre><code>sudo chmod a+w /usr/share/games/flightgear/Protocols
-</code></pre><p>Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here.  </p>
+</code></pre>
+<p>This installs the latest stable FlightGear version from the PAA repository along with the the FGdata package.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> For some models (e.g. those with electric engines) the daily build with the newest features may be necessary.
+  Install this using the <a href="https://launchpad.net/~saiarcot895/+archive/ubuntu/flightgear-edge" target="_blank">daily build PPA</a>.</p>
+</blockquote>
 </li>
+<li><p>Check that you are able to run FlightGear:</p>
+<pre><code>fgfs --launcher
+</code></pre></li>
+<li>Set write permissions to the <strong>Protocols</strong> folder in the FlightGear installation directory:<pre><code>sudo chmod a+w /usr/share/games/flightgear/Protocols
+</code></pre>Setting the permissions is required because the PX4-FlightGear-Bridge puts the communication definition file here. </li>
 </ol>
+<p>Additional installation instructions can be found on <a href="http://wiki.flightgear.org/Howto:Install_Flightgear_from_a_PPA" target="_blank">FlightGear wiki</a>.   </p>
 <h2 id="running"><a name="running" class="plugin-anchor" href="#running"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Simulation </h2>
-<p>Run a simulation by starting PX4 SITL with an airframe configuration of your choice to load.</p>
+<p>Run a simulation by starting PX4 SITL, specifying the airframe configuration of your choice.</p>
 <p>The easiest way to do this is to open a terminal in the root directory of the PX4 <em>Firmware</em> repository and call <code>make</code> for the desired target.
 For example, to start a plane simulation :</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /path/to/Firmware
 make px4_sitl_nolockstep flightgear_rascal
 </code></pre>
 <p>The supported vehicles and <code>make</code> commands are listed below (click on the links to see the vehicle images).</p>
-<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> For the full list of build targets run <code>px4_sitl_nolockstep list_vmd_make_targets</code>. Then filter those that start with <code>grep flightgear_</code>.</p>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -2511,13 +2533,21 @@ make px4_sitl_nolockstep flightgear_rascal
 </tr>
 </tbody>
 </table>
+<p>The commands above launch a single vehicle with the full UI.
+<em>QGroundControl</em> should be able to automatically connect to the simulated vehicle.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> For the full list of FlightGear build targets (highlighted) run:</p>
+<pre><code>  make px4_sitl_nolockstep list_vmd_make_targets | grep flightgear_
+</code></pre><p>  For additional information see: <a href="flightgear_vehicles.html">FlightGear Vehicles</a> (this includes information about &quot;unsupported&quot; vehicles, and adding new vehicles).</p>
+</blockquote>
+<p><span></span></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The <a href="../setup/dev_env.html">Installing Files and Code</a> guide is a useful reference if there are build errors.</p>
 </blockquote>
-<p>The commands above launch a single vehicle with the full UI. QGroundControl should be able to automatically connect to the simulated vehicle.</p>
 <h2 id="taking-it-to-the-sky"><a name="taking-it-to-the-sky" class="plugin-anchor" href="#taking-it-to-the-sky"><i class="fa fa-link" aria-hidden="true"></i></a>Taking it to the Sky</h2>
 <p>The <code>make</code> commands mentioned above first build PX4 and then run it along with the FlightGear simulator.</p>
-<p>Once the PX4 has started it will launch the PX4 shell as shown below. You must hit enter to get the command prompt.</p>
+<p>Once the PX4 has started it will launch the PX4 shell as shown below.
+You must select enter to get the command prompt.</p>
 <pre><code>______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
@@ -2561,7 +2591,7 @@ pxh&gt;
 Once there is an INFO print that [ecl/EKF] is <code>commencing GPS fusion</code> the vehicle is ready to arm.
 At this point, you should see a FlightGear window with some view of aircraft.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> There is a possibility to change the view by pressing ctrl+v.</p>
+<p> You can change the view by pressing <strong>Ctrl+V</strong>.</p>
 </blockquote>
 <p><img src="../../assets/simulation/flightgear/flightgearUI.jpg" alt="FlightGear UI"></p>
 <p>You can bring it into the air by typing:</p>
@@ -2569,15 +2599,18 @@ At this point, you should see a FlightGear window with some view of aircraft.</p
 </code></pre>
 <h2 id="usageconfiguration-options"><a name="usageconfiguration-options" class="plugin-anchor" href="#usageconfiguration-options"><i class="fa fa-link" aria-hidden="true"></i></a>Usage/Configuration Options</h2>
 <p>You can tune your FG installation/settings by the following environment variables:</p>
-<p>1) FG_BINARY - absolute path to FG binary to run. (It can be an AppImage)
-2) FG_MODELS_DIR - absolute path to the folder containing the manually-downloaded aircraft models which should be used for simulation.
-3) FG_ARGS_EX - any additional FG parameters.</p>
+<ul>
+<li><code>FG\_BINARY</code> - absolute path to FG binary to run. (It can be an AppImage)</li>
+<li><code>FG\_MODELS\_DIR</code> - absolute path to the folder containing the manually-downloaded aircraft models which should be used for simulation.</li>
+<li><code>FG\_ARGS\_EX</code> - any additional FG parameters.</li>
+</ul>
 <h3 id="frame_rate"><a name="frame_rate" class="plugin-anchor" href="#frame_rate"><i class="fa fa-link" aria-hidden="true"></i></a>Display the frame rate </h3>
-<p> In FlightGear you can display the frame rate by enabling it in View-&gt;View Options-&gt;Show frame rate.</p>
+<p>In FlightGear you can display the frame rate by enabling it in: <strong>View &gt; View Options &gt; Show frame rate</strong>.</p>
 <h3 id="custom_takeoff_location"><a name="custom_takeoff_location" class="plugin-anchor" href="#custom_takeoff_location"><i class="fa fa-link" aria-hidden="true"></i></a>Set Custom Takeoff Location </h3>
 <p>Takeoff location in SITL FlightGear can be set using additional variables.
 Setting the variable will override the default takeoff location.</p>
-<p>The variables which can be set are as follows: <code>--airport</code>, <code>--runway</code>, and <code>--offset-distance</code>. Other options can be found on <a href="http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation" target="_blank">FlightGear wiki</a></p>
+<p>The variables which can be set are as follows: <code>--airport</code>, <code>--runway</code>, and <code>--offset-distance</code>.
+Other options can be found on <a href="http://wiki.flightgear.org/Command_line_options#Initial_Position_and_Orientation" target="_blank">FlightGear wiki</a></p>
 <p>For example:</p>
 <pre><code>FG_ARGS_EX=&quot;--airport=PHNL&quot;  make px4_sitl_nolockstep flightgear_rascal
 </code></pre><p>The example above starts the simulation on the <a href="http://wiki.flightgear.org/Suggested_airports" target="_blank">Honolulu international airport</a></p>
@@ -2585,7 +2618,7 @@ Setting the variable will override the default takeoff location.</p>
 <p>Joystick and thumb-joystick are supported through <em>QGroundControl</em> (<a href="./#joystickgamepad-integration">setup instructions here</a>).</p>
 <p>The joystick input in FlightGear should be disabled in otherwise there will be a &quot;race condition&quot; between the FG joystick input and PX4 commands.</p>
 <h2 id="extending-and-customizing"><a name="extending-and-customizing" class="plugin-anchor" href="#extending-and-customizing"><i class="fa fa-link" aria-hidden="true"></i></a>Extending and Customizing</h2>
-<p>To extend or customize the simulation interface, edit the files in the <code>Tools/flightgear_bridge</code> folder.
+<p>To extend or customize the simulation interface, edit the files in the <em>*Tools/flightgear_bridge</em> folder.
 The code is available in the <a href="https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge" target="_blank">PX4-FlightGear-Bridge repository</a> on Github.</p>
 <h2 id="further-information"><a name="further-information" class="plugin-anchor" href="#further-information"><i class="fa fa-link" aria-hidden="true"></i></a>Further Information</h2>
 <ul>
@@ -2618,7 +2651,7 @@ The code is available in the <a href="https://github.com/ThunderFly-aerospace/PX
 
             
                 
-                <a href="gazebo_worlds.html" class="navigation navigation-prev " aria-label="Previous page: Gazebo Worlds">
+                <a href="multi_vehicle_simulation_gazebo.html" class="navigation navigation-prev " aria-label="Previous page: Multi-Vehicle Sim with Gazebo">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -2634,7 +2667,7 @@ The code is available in the <a href="https://github.com/ThunderFly-aerospace/PX
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FlightGear Simulation","level":"1.4.3","depth":2,"next":{"title":"FlightGear Vehicles","level":"1.4.3.1","depth":3,"path":"simulation/flightgear_vehicles.md","ref":"simulation/flightgear_vehicles.md","articles":[]},"previous":{"title":"Gazebo Worlds","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/flightgear.md","mtime":"2020-05-13T00:57:00.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T00:57:49.435Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"FlightGear Simulation","level":"1.4.3","depth":2,"next":{"title":"FlightGear Vehicles","level":"1.4.3.1","depth":3,"path":"simulation/flightgear_vehicles.md","ref":"simulation/flightgear_vehicles.md","articles":[]},"previous":{"title":"Multi-Vehicle Sim with Gazebo","level":"1.4.2.3","depth":3,"path":"simulation/multi_vehicle_simulation_gazebo.md","ref":"simulation/multi_vehicle_simulation_gazebo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/flightgear.md","mtime":"2020-05-13T02:29:48.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T02:31:15.447Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

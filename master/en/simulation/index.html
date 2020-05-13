@@ -615,6 +615,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="multi_vehicle_jmavsim.html">
+            
+                <a href="multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4.2" data-path="gazebo.html">
@@ -657,6 +676,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.2.3" data-path="multi_vehicle_simulation_gazebo.html">
+            
+                <a href="multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -689,6 +721,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.3.2" data-path="multi_vehicle_flightgear.html">
+            
+                <a href="multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -707,38 +752,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="multi_vehicle_flightgear.html">
-            
-                <a href="multi_vehicle_flightgear.html">
-            
-                    
-                    Multi-Vehicle Sim with FlightGear
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="multi_vehicle_jmavsim.html">
-            
-                <a href="multi_vehicle_jmavsim.html">
-            
-                    
-                    Multi-Vehicle Sim with JMAVSim
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.5" data-path="multi-vehicle-simulation.html">
             
                 <a href="multi-vehicle-simulation.html">
             
                     
-                    Multi-Vehicle Sim with Gazebo
+                    Multi-Vehicle Simulation
             
                 </a>
             
@@ -746,7 +765,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="failsafes.html">
+        <li class="chapter " data-level="1.4.6" data-path="failsafes.html">
             
                 <a href="failsafes.html">
             
@@ -759,7 +778,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.9" data-path="hitl.html">
+        <li class="chapter " data-level="1.4.7" data-path="hitl.html">
             
                 <a href="hitl.html">
             
@@ -772,7 +791,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.10" data-path="simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.8" data-path="simulation-in-hardware.html">
             
                 <a href="simulation-in-hardware.html">
             
@@ -2469,7 +2488,7 @@ The other sections provide general information about how the simulator works, an
 </tr>
 <tr>
 <td><a href="flightgear.html">FlightGear</a></td>
-<td>A simulator that provides physically and visually realistic simulations under various scenarios. The simulator is capable to simulate many weather conditions, including thunderstorm, snow, rain and hail. It is also capable to simulate thermals and different types of atmospheric flows. It can also be used for <a href="multi_vehicle_flightgear.html">multi-vehicle simulation</a>. <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p></td>
+<td><p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. <a href="multi_vehicle_flightgear.html">Multi-vehicle simulation</a> is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p></td>
 </tr>
 <tr>
 <td><a href="jmavsim.html">jMAVSim</a></td>
@@ -2477,17 +2496,18 @@ The other sections provide general information about how the simulator works, an
 </tr>
 <tr>
 <td><a href="airsim.html">AirSim</a></td>
-<td>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here. <p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p></td>
+<td><p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p></td>
 </tr>
 <tr>
 <td><a href="simulation-in-hardware.html">Simulation-In-Hardware</a> (SIH)</td>
-<td>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot.<br><p><strong>Supported Vehicles:</strong> Quad</p></td>
+<td><p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot.</p><p><strong>Supported Vehicles:</strong> Quad</p></td>
 </tr>
 </tbody>
 </table>
 <p>Instructions for how to setup and use the simulators are in the topics linked above.</p>
 <hr>
-<p>The remainder of this topic is a &quot;somewhat generic&quot; description of how the simulation infrastructure works. It is not required to <em>use</em> the simulators.</p>
+<p>The remainder of this topic is a &quot;somewhat generic&quot; description of how the simulation infrastructure works.
+It is not required to <em>use</em> the simulators.</p>
 <h2 id="simulator-mavlink-api"><a name="simulator-mavlink-api" class="plugin-anchor" href="#simulator-mavlink-api"><i class="fa fa-link" aria-hidden="true"></i></a>Simulator MAVLink API</h2>
 <p>All simulators communicate with PX4 using the Simulator MAVLink API.
 This API defines a set of MAVLink messages that supply sensor data from the simulated world to PX4 and return motor and actuator values from the flight code that will be applied to the simulated vehicle.
@@ -2495,7 +2515,8 @@ The image below shows the message flow.</p>
 <p><img src="../../assets/simulation/px4_simulator_messages.png" alt="Simulator MAVLink API"></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> A SITL build of PX4 uses <a href="https://github.com/PX4/Firmware/blob/master/src/modules/simulator/simulator_mavlink.cpp" target="_blank">simulator_mavlink.cpp</a> to handle these messages while a hardware build in HIL mode uses <a href="https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_receiver.cpp" target="_blank">mavlink_receiver.cpp</a>.
-  Sensor data from the simulator is written to PX4 uORB topics. All motors / actuators are blocked, but internal software is fully operational.</p>
+  Sensor data from the simulator is written to PX4 uORB topics.
+  All motors / actuators are blocked, but internal software is fully operational.</p>
 </blockquote>
 <p>The messages are described below (see links for specific detail).</p>
 <table>
@@ -2551,7 +2572,8 @@ These ports are:</p>
 <li>UDP Port <strong>14540</strong> is used for communication with offboard APIs.
 Offboard APIs are expected to listen for connections on this port.</li>
 <li>UDP Port <strong>14550</strong> is used for communication with ground control stations.
-GCS are expected to listen for connections on this port. <em>QGroundControl</em> listens to this port by default.</li>
+GCS are expected to listen for connections on this port.
+<em>QGroundControl</em> listens to this port by default.</li>
 <li>The simulator&apos;s local TCP Port <strong>4560</strong> is used for communication with PX4.
 PX4 listens to this port, and simulators are expected to initiate the communication by broadcasting data to this port.</li>
 </ul>
@@ -2634,7 +2656,8 @@ In this case the simulator and PX4 use the host system time and do not wait on e
 <p>To disable lockstep in jMAVSim, remove <code>-l</code> in <a href="https://github.com/PX4/Firmware/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/Tools/sitl_run.sh#L75" target="_blank">jmavsim_run.sh</a>, or make sure otherwise that the java binary is started without the <code>-lockstep</code> flag.</p>
 <h3 id="scripts"><a name="scripts" class="plugin-anchor" href="#scripts"><i class="fa fa-link" aria-hidden="true"></i></a>Startup Scripts </h3>
 <p>Scripts are used to control which parameter settings to use or which modules to start.
-They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d-posix" target="_blank">ROMFS/px4fmu_common/init.d-posix</a> directory, the <code>rcS</code> file is the main entry point. See <a href="../concept/system_startup.html">System Startup</a> for more information.</p>
+They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d-posix" target="_blank">ROMFS/px4fmu_common/init.d-posix</a> directory, the <code>rcS</code> file is the main entry point.
+See <a href="../concept/system_startup.html">System Startup</a> for more information.</p>
 <h3 id="simulating-failsafes-and-sensorhardware-failure"><a name="simulating-failsafes-and-sensorhardware-failure" class="plugin-anchor" href="#simulating-failsafes-and-sensorhardware-failure"><i class="fa fa-link" aria-hidden="true"></i></a>Simulating Failsafes and Sensor/Hardware Failure</h3>
 <p>The <a href="../advanced/parameter_reference.html#sitl">SITL parameters</a> can also be used to simulate common sensor failure cases, including low battery, loss of GPS or barometer, gyro failure, increased GPS noise etc.  (e.g. <a href="../advanced/parameter_reference.html#SIM_GPS_BLOCK">SIM_GPS_BLOCK</a> can be set to simulate GPS failure).</p>
 <p>Additionally (and with some overlap), <a href="failsafes.html">Simulate Failsafes</a> explains how to trigger safety failsafes.</p>
@@ -2642,7 +2665,8 @@ They are located in the <a href="https://github.com/PX4/Firmware/tree/master/ROM
 <p>With Hardware-in-the-Loop (HITL) simulation the normal PX4 firmware is run on real hardware.
 The HITL Simulation Environment in documented in: <a href="hitl.html">HITL Simulation</a>.</p>
 <h2 id="joystickgamepad-integration"><a name="joystickgamepad-integration" class="plugin-anchor" href="#joystickgamepad-integration"><i class="fa fa-link" aria-hidden="true"></i></a>Joystick/Gamepad Integration</h2>
-<p><em>QGroundControl</em> desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink. This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle.
+<p><em>QGroundControl</em> desktop versions can connect to a USB Joystick/Gamepad and send its movement commands and button presses to PX4 over MAVLink.
+This works on both SITL and HITL simulations, and allows you to directly control the simulated vehicle.
 If you don&apos;t have a joystick you can alternatively control the vehicle using QGroundControl&apos;s onscreen virtual thumbsticks.</p>
 <p>For setup information see the <em>QGroundControl User Guide</em>:</p>
 <ul>
@@ -2653,10 +2677,12 @@ If you don&apos;t have a joystick you can alternatively control the vehicle usin
 <h2 id="camera-simulation"><a name="camera-simulation" class="plugin-anchor" href="#camera-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>Camera Simulation</h2>
 <p>PX4 supports capture of both still images and video from within the <a href="gazebo.html">Gazebo</a> simulated environment.
 This can be enabled/set up as described in <a href="gazebo.html#video">Gazebo &gt; Video Streaming</a>.</p>
-<p>The simulated camera is a gazebo plugin that implements the <a href="https://mavlink.io/en/protocol/camera.html" target="_blank">MAVLink Camera Protocol</a><!-- **Firmware/Tools/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->. PX4 connects/integrates with this camera in <em>exactly the same way</em> as it would with any other MAVLink camera:</p>
+<p>The simulated camera is a gazebo plugin that implements the <a href="https://mavlink.io/en/protocol/camera.html" target="_blank">MAVLink Camera Protocol</a><!-- **Firmware/Tools/sitl_gazebo/src/gazebo_geotagged_images_plugin.cpp -->.
+PX4 connects/integrates with this camera in <em>exactly the same way</em> as it would with any other MAVLink camera:</p>
 <ol>
 <li><a href="../advanced/parameter_reference.html#TRIG_INTERFACE">TRIG_INTERFACE</a> must be set to <code>3</code> to configure the camera trigger driver for use with a MAVLink camera<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> In this mode the driver just sends a <a href="https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER" target="_blank">CAMERA_TRIGGER</a> message whenever an image capture is requested. For more information see <a href="https://docs.px4.io/master/en/peripherals/camera.html" target="_blank">Camera</a>.</p>
+<p> In this mode the driver just sends a <a href="https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER" target="_blank">CAMERA_TRIGGER</a> message whenever an image capture is requested.
+  For more information see <a href="https://docs.px4.io/master/en/peripherals/camera.html" target="_blank">Camera</a>.</p>
 </blockquote>
 </li>
 <li>PX4 must forward all camera commands between the GCS and the (simulator) MAVLink Camera.
@@ -2767,7 +2793,7 @@ The simulation must already be running on the remote server, and you must be abl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2020-05-13T00:57:00.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T00:57:49.435Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[{"title":"Multi-Vehicle Sim with JMAVSim","level":"1.4.1.1","depth":3,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]}]},"previous":{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2020-05-13T02:29:48.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T02:31:15.447Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

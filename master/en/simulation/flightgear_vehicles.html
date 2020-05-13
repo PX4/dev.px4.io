@@ -81,7 +81,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="airsim.html" />
+    <link rel="next" href="multi_vehicle_flightgear.html" />
     
     
     <link rel="prev" href="flightgear.html" />
@@ -615,6 +615,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="multi_vehicle_jmavsim.html">
+            
+                <a href="multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4.2" data-path="gazebo.html">
@@ -657,6 +676,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.2.3" data-path="multi_vehicle_simulation_gazebo.html">
+            
+                <a href="multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -689,6 +721,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.3.2" data-path="multi_vehicle_flightgear.html">
+            
+                <a href="multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -707,38 +752,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="multi_vehicle_flightgear.html">
-            
-                <a href="multi_vehicle_flightgear.html">
-            
-                    
-                    Multi-Vehicle Sim with FlightGear
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.6" data-path="multi_vehicle_jmavsim.html">
-            
-                <a href="multi_vehicle_jmavsim.html">
-            
-                    
-                    Multi-Vehicle Sim with JMAVSim
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.7" data-path="multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.5" data-path="multi-vehicle-simulation.html">
             
                 <a href="multi-vehicle-simulation.html">
             
                     
-                    Multi-Vehicle Sim with Gazebo
+                    Multi-Vehicle Simulation
             
                 </a>
             
@@ -746,7 +765,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="failsafes.html">
+        <li class="chapter " data-level="1.4.6" data-path="failsafes.html">
             
                 <a href="failsafes.html">
             
@@ -759,7 +778,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.9" data-path="hitl.html">
+        <li class="chapter " data-level="1.4.7" data-path="hitl.html">
             
                 <a href="hitl.html">
             
@@ -772,7 +791,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.10" data-path="simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.8" data-path="simulation-in-hardware.html">
             
                 <a href="simulation-in-hardware.html">
             
@@ -2444,78 +2463,90 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="flightgear-vehicles"><a name="flightgear-vehicles" class="plugin-anchor" href="#flightgear-vehicles"><i class="fa fa-link" aria-hidden="true"></i></a>FlightGear Vehicles</h1>
-<p>This topic lists/displays the vehicles supported by the PX4 <a href="flightgear.html">FlightGear</a> simulation and the <code>make</code> commands required to run them (the commands are run from terminal in the <strong>Firmware</strong> directory).</p>
-<p>Supported vehicle types include: Plane, Autogyro, Rover.</p>
+<p>This topic lists/displays the vehicles supported by the PX4 <a href="flightgear.html">FlightGear</a> simulation, and the <code>make</code> commands required to run them (the commands are run from terminal in the <strong>Firmware</strong> directory).
+The supported types are: plane, autogyro and rover (there are specific frames within these types).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> For the full list of build targets run <code>make px4_sitl list_vmd_make_targets</code> (filter out those that start with <code>flightgear_</code>).</p>
 </blockquote>
 <p><span></span></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The <a href="flightgear.html">FlightGear</a> page shows how to install FlightGear, how to enable global features and enable scenarios. This page is a summary for vehicle specific features.</p>
+<p> The <a href="flightgear.html">FlightGear</a> page shows how to install and use FlightGear in more detail.
+  (this page is a summary of vehicle-specific features).</p>
 </blockquote>
 <h2 id="standard_plane"><a name="standard_plane" class="plugin-anchor" href="#standard_plane"><i class="fa fa-link" aria-hidden="true"></i></a>Standard Plane </h2>
-<p>The FlightGear has models for many planes.  The most suitable one for UAV development is currently the <a href="https://github.com/ThunderFly-aerospace/FlightGear-Rascal" target="_blank">Rascal RC plane</a>, which also exists in multiple variants.</p>
+<p>FlightGear has models for many planes.
+The most suitable one for UAV development is currently the <a href="https://github.com/ThunderFly-aerospace/FlightGear-Rascal" target="_blank">Rascal RC plane</a> (which also exists in multiple variants).</p>
 <p><img src="../../assets/simulation/flightgear/vehicles/rascal110.jpg" alt="Rascal plane in FlightGear"></p>
-<p>The variants differ by some features and mainly by using the different <a href="http://wiki.flightgear.org/Flight_Dynamics_Model" target="_blank">FDM</a>. All variants have a common feature selection table which could be activated by pressing &quot;=&quot; key on the computer keyboard.</p>
+<p>The variants differ mainly by the <a href="http://wiki.flightgear.org/Flight_Dynamics_Model" target="_blank">FDM</a> model.
+All variants have a common feature selection table that can be activated by pressing the <code>=</code> key on the computer keyboard.</p>
 <p>There is a pop-up table that could be used for advanced features activation.</p>
 <p><img src="../../assets/simulation/flightgear/vehicles/rascal_options.jpg" alt="Rascal plane FlightGear advanced options"></p>
 <p>The most relevant option is:</p>
 <ul>
-<li>Smoke - generates a smoke trail to enhance the visibility of aircraft in the air. (Smoke and particles option needs to be activated in FG View -&gt; rendering options -&gt; Particles checkbox)</li>
+<li>Smoke - generates a smoke trail to enhance the visibility of aircraft in the air (smoke and particles option needs to be activated in <strong>FG View &gt; rendering options &gt; Particles checkbox</strong>).</li>
 <li>Trajectory markers - displays orthogonal markers along the trajectory of flight.</li>
 </ul>
 <p>Trajectory markers show the absolute flight path in the world coordinates, and the smoke trail shows the relative path in the air mass.</p>
 <h3 id="rascal-110-yasim"><a name="rascal-110-yasim" class="plugin-anchor" href="#rascal-110-yasim"><i class="fa fa-link" aria-hidden="true"></i></a>Rascal 110 YASim</h3>
-<p>The primary variant of Rascal model selected by</p>
+<p>The primary variant of the Rascal model has a combustion piston-engine model.
+This results in a non-zero idle power causing a rotation of propeller on idle engine RPM.</p>
+<p>The launch command is:</p>
 <pre><code class="lang-sh">make px4_sitl_nolockstep flightgear_rascal
 </code></pre>
-<p>has a combustion piston-engine model. This results in a non-zero idle power causing a rotation of propeller on idle engine RPM.</p>
 <h3 id="rascal-110-electric-yasim"><a name="rascal-110-electric-yasim" class="plugin-anchor" href="#rascal-110-electric-yasim"><i class="fa fa-link" aria-hidden="true"></i></a>Rascal 110 Electric YASim</h3>
-<p>There also exists a variant with an electric engine.</p>
+<p>A Rascal vehicle with an electric engine.</p>
 <pre><code class="lang-sh">make px4_sitl_nolockstep flightgear_rascal-electric
 </code></pre>
-<p>However, this variant needs the latest FlightGear code (sources at least from 26 April 2020). Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> This variant needs the latest FlightGear code (sources at least from 26 April 2020).
+  Otherwise, the FlightGear crashes because of an unexpected definition of electric engine.</p>
+</blockquote>
 <h3 id="rascal-110-jsbsim"><a name="rascal-110-jsbsim" class="plugin-anchor" href="#rascal-110-jsbsim"><i class="fa fa-link" aria-hidden="true"></i></a>Rascal 110 JSBsim</h3>
-<p>JSBsim rascal variant currently does not have a direct make option but could be manually selected in the rascal.json configuration file, which is a part of <a href="https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge" target="_blank">PX4-FlightGear-Bridge</a></p>
-<p>In <a href="https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/blob/master/rascal.json#L2" target="_blank">this file</a> the <code>Rascal110-YASim</code> should be changed to <code>Rascal110-JSBSim</code>.</p>
+<p>Rascal JSBsim variant.</p>
+<p>This variant does not have a direct <code>make</code> option but can be manually selected in the <strong>rascal.json</strong> configuration file (part of <a href="https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge" target="_blank">PX4-FlightGear-Bridge</a>).
+Simply change <code>Rascal110-YASim</code> to <code>Rascal110-JSBSim</code> in <a href="https://github.com/ThunderFly-aerospace/PX4-FlightGear-Bridge/blob/master/rascal.json#L2" target="_blank">this file</a>.</p>
 <h2 id="autogyro"><a name="autogyro" class="plugin-anchor" href="#autogyro"><i class="fa fa-link" aria-hidden="true"></i></a>Autogyro </h2>
-<p>The only UAV autogyro model supported by FlightGear is <a href="https://github.com/ThunderFly-aerospace/TF-G1" target="_blank">TF-G1 Autogyro</a></p>
+<p>The only UAV autogyro model supported by FlightGear is <a href="https://github.com/ThunderFly-aerospace/TF-G1" target="_blank">TF-G1 Autogyro</a>.</p>
 <pre><code class="lang-sh">make px4_sitl_nolockstep flightgear_tf-g1
 </code></pre>
 <p><img src="../../assets/simulation/flightgear/vehicles/tf-g1.jpg" alt="TF-G1 in FlightGear"></p>
 <h2 id="ugv"><a name="ugv" class="plugin-anchor" href="#ugv"><i class="fa fa-link" aria-hidden="true"></i></a>Ackerman vehicle (UGV/Rover) </h2>
 <h3 id="tf-r1-ground-support-rover"><a name="tf-r1-ground-support-rover" class="plugin-anchor" href="#tf-r1-ground-support-rover"><i class="fa fa-link" aria-hidden="true"></i></a>TF-R1 Ground support Rover</h3>
-<p>This rover is equipped with a towing hitch. Therefore it could be used for aerotowing of other vehicles.  </p>
+<p>This rover is equipped with a towing hitch and might be used for aero-towing of other vehicles.  </p>
 <pre><code class="lang-sh">make px4_sitl_nolockstep flightgear_tf-r1
 </code></pre>
 <p><img src="../../assets/simulation/flightgear/vehicles/tf-r1_towing.jpg" alt="TF-R1 rover in FlightGear"></p>
 <h2 id="quadrotor"><a name="quadrotor" class="plugin-anchor" href="#quadrotor"><i class="fa fa-link" aria-hidden="true"></i></a>Quadrotor </h2>
-<p>There is only an <a href="https://github.com/ThunderFly-aerospace/FlightGear-TF-Mx1" target="_blank">incomplete multirotor model</a> which is numerically unstable and needs an additional work to become usable.</p>
+<p>There is only an <a href="https://github.com/ThunderFly-aerospace/FlightGear-TF-Mx1" target="_blank">incomplete multirotor model</a>.
+This is not yet usable (it is numerically unstable and needs an additional work).</p>
 <h1 id="adding-a-new-vehicle"><a name="adding-a-new-vehicle" class="plugin-anchor" href="#adding-a-new-vehicle"><i class="fa fa-link" aria-hidden="true"></i></a>Adding a New Vehicle</h1>
-<p>A new vehicle model needs to be included as a git submodule into <a href="https://github.com/PX4/PX4-FlightGear-Bridge/tree/master/models" target="_blank">PX4-FlightGear-Bridge/models/</a> directory.  This directory contains an control channel definition <a href="https://github.com/PX4/PX4-FlightGear-Bridge/blob/master/models/rascal.json" target="_blank">JSON file</a>. </p>
-<pre><code>{
-    &quot;FgModel&quot;:&quot;Rascal110-YASim&quot;,
-    &quot;Url&quot;:&quot;https://github.com/ThunderFly-aerospace/FlightGear-Rascal/archive/master.zip&quot;,
-    &quot;Controls&quot;: [
-                [&quot;5&quot;,&quot;/controls/flight/aileron&quot;,&quot;-1&quot;],
-                [&quot;7&quot;,&quot;/controls/flight/elevator&quot;,&quot;-1&quot;],
-                [&quot;2&quot;,&quot;/controls/flight/rudder&quot;,&quot;1&quot;],
-                [&quot;4&quot;,&quot;/controls/engines/engine/throttle&quot;,&quot;1&quot;]
+<p>A new vehicle model needs to be included as a git submodule into <a href="https://github.com/PX4/PX4-FlightGear-Bridge/tree/master/models" target="_blank">PX4-FlightGear-Bridge/models/</a> directory.
+This directory contains an control channel definition <a href="https://github.com/PX4/PX4-FlightGear-Bridge/blob/master/models/rascal.json" target="_blank">JSON file</a>. </p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;FgModel&quot;</span>:<span class="hljs-string">&quot;Rascal110-YASim&quot;</span>,
+    <span class="hljs-string">&quot;Url&quot;</span>:<span class="hljs-string">&quot;https://github.com/ThunderFly-aerospace/FlightGear-Rascal/archive/master.zip&quot;</span>,
+    <span class="hljs-string">&quot;Controls&quot;</span>: [
+                [<span class="hljs-string">&quot;5&quot;</span>,<span class="hljs-string">&quot;/controls/flight/aileron&quot;</span>,<span class="hljs-string">&quot;-1&quot;</span>],
+                [<span class="hljs-string">&quot;7&quot;</span>,<span class="hljs-string">&quot;/controls/flight/elevator&quot;</span>,<span class="hljs-string">&quot;-1&quot;</span>],
+                [<span class="hljs-string">&quot;2&quot;</span>,<span class="hljs-string">&quot;/controls/flight/rudder&quot;</span>,<span class="hljs-string">&quot;1&quot;</span>],
+                [<span class="hljs-string">&quot;4&quot;</span>,<span class="hljs-string">&quot;/controls/engines/engine/throttle&quot;</span>,<span class="hljs-string">&quot;1&quot;</span>]
                 ]
 }
-</code></pre><p>The file content meaning is as follows: </p>
+</code></pre>
+<p>The file content meaning is as follows: </p>
 <ul>
-<li>&quot;FgModel&quot; - a precise case sensitive name of the FlightGear model corresponding to &quot;XXXX-set.xml&quot; in the model directory (where XXXX is the model name).</li>
-<li>&quot;Url&quot; is optional and it is not currently used. It is intended for future use to auto-download the models from web</li>
-<li>&quot;Controls&quot; - the most important part of the process of adding a vehicle. This section contains the mapping between the PX4 mixer file and <a href="http://wiki.flightgear.org/Property_tree" target="_blank">FlightGear property tree</a>.<ul>
+<li><code>FgModel</code> - a precise case sensitive name of the FlightGear model corresponding to &quot;XXXX-set.xml&quot; in the model directory (where XXXX is the model name).</li>
+<li><code>Url</code> is optional and it is not currently used. It is intended for future use to auto-download the models from web</li>
+<li><code>Controls</code> - the most important part of the process of adding a vehicle. This section contains the mapping between the PX4 mixer file and <a href="http://wiki.flightgear.org/Property_tree" target="_blank">FlightGear property tree</a>.<ul>
 <li>The first number in a list selects a PX4 mixer output.</li>
 <li>Path string is a FlightGear variable location in the property tree.</li>
 <li>The last number in a list is a multiplier, allowing inversion or scaling of mixer input.</li>
 </ul>
 </li>
 </ul>
-<p>After preparing all these files a new vehicle needs to be included in the PX4 make system. </p>
-<p>The configuration is in <a href="https://github.com/PX4/Firmware/blob/c5341da8137f460c84f47f0e38293667ea69a6cb/platforms/posix/cmake/sitl_target.cmake#L164-L171" target="_blank">/platforms/posix/cmake/sitl_target.cmake</a> where a new vehicle json name should be added to the list. </p>
+<p>After preparing all these files a new vehicle need to be included in the PX4 make system. </p>
+<p>The PX4 configuration is in <a href="https://github.com/PX4/Firmware/blob/c5341da8137f460c84f47f0e38293667ea69a6cb/platforms/posix/cmake/sitl_target.cmake#L164-L171" target="_blank">/platforms/posix/cmake/sitl_target.cmake</a>.
+The new vehicle&apos;s json name should be added to the list.</p>
 
                                 
                                 </section>
@@ -2548,7 +2579,7 @@
                 </a>
                 
                 
-                <a href="airsim.html" class="navigation navigation-next " aria-label="Next page: AirSim Simulation">
+                <a href="multi_vehicle_flightgear.html" class="navigation navigation-next " aria-label="Next page: Multi-Vehicle Sim with FlightGear">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2559,7 +2590,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FlightGear Vehicles","level":"1.4.3.1","depth":3,"next":{"title":"AirSim Simulation","level":"1.4.4","depth":2,"path":"simulation/airsim.md","ref":"simulation/airsim.md","articles":[]},"previous":{"title":"FlightGear Simulation","level":"1.4.3","depth":2,"path":"simulation/flightgear.md","ref":"simulation/flightgear.md","articles":[{"title":"FlightGear Vehicles","level":"1.4.3.1","depth":3,"path":"simulation/flightgear_vehicles.md","ref":"simulation/flightgear_vehicles.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/flightgear_vehicles.md","mtime":"2020-05-13T00:57:00.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T00:57:49.435Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"FlightGear Vehicles","level":"1.4.3.1","depth":3,"next":{"title":"Multi-Vehicle Sim with FlightGear","level":"1.4.3.2","depth":3,"path":"simulation/multi_vehicle_flightgear.md","ref":"simulation/multi_vehicle_flightgear.md","articles":[]},"previous":{"title":"FlightGear Simulation","level":"1.4.3","depth":2,"path":"simulation/flightgear.md","ref":"simulation/flightgear.md","articles":[{"title":"FlightGear Vehicles","level":"1.4.3.1","depth":3,"path":"simulation/flightgear_vehicles.md","ref":"simulation/flightgear_vehicles.md","articles":[]},{"title":"Multi-Vehicle Sim with FlightGear","level":"1.4.3.2","depth":3,"path":"simulation/multi_vehicle_flightgear.md","ref":"simulation/multi_vehicle_flightgear.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/flightgear_vehicles.md","mtime":"2020-05-13T02:29:48.225Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T02:31:15.447Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
