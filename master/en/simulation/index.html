@@ -662,7 +662,39 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="airsim.html">
+        <li class="chapter " data-level="1.4.3" data-path="flightgear.html">
+            
+                <a href="flightgear.html">
+            
+                    
+                    FlightGear Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="flightgear_vehicles.html">
+            
+                <a href="flightgear_vehicles.html">
+            
+                    
+                    FlightGear Vehicles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="airsim.html">
             
                 <a href="airsim.html">
             
@@ -675,7 +707,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="multi_vehicle_jmavsim.html">
+        <li class="chapter " data-level="1.4.5" data-path="multi_vehicle_flightgear.html">
+            
+                <a href="multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="multi_vehicle_jmavsim.html">
             
                 <a href="multi_vehicle_jmavsim.html">
             
@@ -688,7 +733,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.7" data-path="multi-vehicle-simulation.html">
             
                 <a href="multi-vehicle-simulation.html">
             
@@ -701,7 +746,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="failsafes.html">
+        <li class="chapter " data-level="1.4.8" data-path="failsafes.html">
             
                 <a href="failsafes.html">
             
@@ -714,7 +759,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="hitl.html">
+        <li class="chapter " data-level="1.4.9" data-path="hitl.html">
             
                 <a href="hitl.html">
             
@@ -727,7 +772,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.10" data-path="simulation-in-hardware.html">
             
                 <a href="simulation-in-hardware.html">
             
@@ -2420,7 +2465,11 @@ The other sections provide general information about how the simulator works, an
 <tbody>
 <tr>
 <td><a href="gazebo.html">Gazebo</a></td>
-<td><p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a> and is commonly used with <a href="ros_interface.html">ROS</a>, a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>), Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine (coming soon!) </p></td>
+<td><p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a> and is commonly used with <a href="ros_interface.html">ROS</a>, a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>), Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine </p></td>
+</tr>
+<tr>
+<td><a href="flightgear.html">FlightGear</a></td>
+<td>A simulator that provides physically and visually realistic simulations under various scenarios. The simulator is capable to simulate many weather conditions, including thunderstorm, snow, rain and hail. It is also capable to simulate thermals and different types of atmospheric flows. It can also be used for <a href="multi_vehicle_flightgear.html">multi-vehicle simulation</a>. <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p></td>
 </tr>
 <tr>
 <td><a href="jmavsim.html">jMAVSim</a></td>
@@ -2568,7 +2617,7 @@ Powerful desktop machines can usually run the simulation at around 6-10x, for no
 <p>PX4 SITL and the simulators (jMAVSim or Gazebo) have been set up to run in <em>lockstep</em>.
 What this means is that PX4 and the simulator wait on each other for sensor and actuator messages, rather than running at their own speeds.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Lockstep makes it possible to <a href="#simulation_speed">run the simulation faster or slower than realtime</a>, and also to pause it in order to step through code. </p>
+<p> Lockstep makes it possible to <a href="#simulation_speed">run the simulation faster or slower than realtime</a>, and also to pause it in order to step through code.</p>
 </blockquote>
 <p>The sequence of steps for lockstep are:</p>
 <ol>
@@ -2578,7 +2627,7 @@ What this means is that PX4 and the simulator wait on each other for sensor and 
 </ol>
 <p>The system starts with a &quot;freewheeling&quot; period where the simulation sends sensor messages including time and therefore runs PX4 until it has initialized and responds with an actautor message.</p>
 <h4 id="disable-lockstep-simulation"><a name="disable-lockstep-simulation" class="plugin-anchor" href="#disable-lockstep-simulation"><i class="fa fa-link" aria-hidden="true"></i></a>Disable Lockstep Simulation</h4>
-<p>The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature. 
+<p>The lockstep simulation can be disabled if, for example, SITL is to be used with a simulator that does not support this feature.
 In this case the simulator and PX4 use the host system time and do not wait on each other.</p>
 <p>To disable lockstep in PX4, use <code>set(ENABLE_LOCKSTEP_SCHEDULER no)</code> in the <a href="https://github.com/PX4/Firmware/blob/77097b6adc70afbe7e5d8ff9797ed3413e96dbf6/boards/px4/sitl/default.cmake#L104" target="_blank">SITL board config</a>.</p>
 <p>To disable lockstep in Gazebo, edit <a href="https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/plane/plane.sdf#L449" target="_blank">the model SDF file</a> and set <code>&lt;enable_lockstep&gt;false&lt;/enable_lockstep&gt;</code> (or for Iris edit the <a href="https://github.com/PX4/sitl_gazebo/blob/3062d287c322fabf1b41b8e33518eb449d4ac6ed/models/rotors_description/urdf/iris_base.xacro#L22" target="_blank">xacro file</a>.</p>
@@ -2631,7 +2680,7 @@ Instead it routes traffic internally - to &quot;localhost&quot;.</p>
 <p>The <a href="https://github.com/intel/mavlink-router" target="_blank">mavlink-router</a> can be used to route packets from localhost to an external interface.</p>
 <p>To route packets between SITL running on one computer (sending MAVLink traffic to localhost on UDP port 14550), and QGC running on another computer (e.g. at address <code>10.73.41.30</code>) you could:</p>
 <ul>
-<li>Start <em>mavlink-router</em> with the following command: <pre><code>mavlink-routerd -e 10.73.41.30:14550 127.0.0.1:14550
+<li>Start <em>mavlink-router</em> with the following command:<pre><code>mavlink-routerd -e 10.73.41.30:14550 127.0.0.1:14550
 </code></pre></li>
 <li><p>Use a <em>mavlink-router</em> conf file.</p>
 <pre><code>[UdpEndpoint QGC]
@@ -2718,7 +2767,7 @@ The simulation must already be running on the remote server, and you must be abl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2020-05-12T04:11:58.768Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T04:13:16.375Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[]},"previous":{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2020-05-13T00:57:00.970Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-13T00:57:49.435Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
