@@ -615,6 +615,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
@@ -662,12 +681,70 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                <a href="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/flightgear.html">
+            
+                <a href="../simulation/flightgear.html">
+            
+                    
+                    FlightGear Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../simulation/flightgear_vehicles.html">
+            
+                <a href="../simulation/flightgear_vehicles.html">
+            
+                    
+                    FlightGear Vehicles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi_vehicle_flightgear.html">
+            
+                <a href="../simulation/multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/airsim.html">
             
                 <a href="../simulation/airsim.html">
             
                     
-                    AirSim 仿真
+                    AirSim Simulation
             
                 </a>
             
@@ -675,25 +752,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi_vehicle_jmavsim.html">
-            
-                <a href="../simulation/multi_vehicle_jmavsim.html">
-            
-                    
-                    使用 JMAVSim 进行多飞行器仿真
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/multi-vehicle-simulation.html">
             
                 <a href="../simulation/multi-vehicle-simulation.html">
             
                     
-                    基于 Gazebo 的多飞行器仿真
+                    Multi-Vehicle Simulation
             
                 </a>
             
@@ -701,7 +765,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="../simulation/failsafes.html">
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/failsafes.html">
             
                 <a href="../simulation/failsafes.html">
             
@@ -714,7 +778,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="../simulation/hitl.html">
+        <li class="chapter " data-level="1.4.9" data-path="../simulation/hitl.html">
             
                 <a href="../simulation/hitl.html">
             
@@ -727,7 +791,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="../simulation/simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.10" data-path="../simulation/simulation-in-hardware.html">
             
                 <a href="../simulation/simulation-in-hardware.html">
             
@@ -2553,7 +2617,7 @@ z_{mav} = - y_{mocap}
 <td><code>vehicle_visual_odometry</code></td>
 </tr>
 <tr>
-<td>/mavros/odometry/odom</td>
+<td>/mavros/odometry/out (<code>frame_id = odom</code>, <code>child_frame_id = base_link</code>)</td>
 <td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD" target="_blank">MAV_FRAME_LOCAL_FRD</a>)</td>
 <td><code>vehicle_visual_odometry</code></td>
 </tr>
@@ -2563,8 +2627,8 @@ z_{mav} = - y_{mocap}
 <td><code>vehicle_mocap_odometry</code></td>
 </tr>
 <tr>
-<td>/mavros/odometry/odom</td>
-<td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_MOCAP_NED" target="_blank">MAV_FRAME_MOCAP_NED</a>)</td>
+<td>/mavros/odometry/out (<code>frame_id = odom</code>, <code>child_frame_id = base_link</code>)</td>
+<td><a href="https://mavlink.io/en/messages/common.html#ODOMETRY" target="_blank">ODOMETRY</a> (<code>frame_id =</code> <a href="https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_FRD" target="_blank">MAV_FRAME_LOCAL_FRD</a>)</td>
 <td><code>vehicle_mocap_odometry</code></td>
 </tr>
 </tbody>
@@ -2573,7 +2637,9 @@ z_{mav} = - y_{mocap}
 <p>If you&apos;re working with EKF2, only the &quot;vision&quot; pipelines are supported. To use MoCap data with EKF2 you will have to <a href="http://wiki.ros.org/roslaunch/XML/remap" target="_blank">remap</a> the pose topic that you get from MoCap:</p>
 <ul>
 <li>&#x5FC5;&#x987B;&#x91CD;&#x65B0;&#x6620;&#x5C04; <code>geometry_msgs/PoseStamped</code> &#x6216; <code>geometry_msgs/PoseWithCovarianceStamped</code> &#x7C7B;&#x578B;&#x7684; MOCAP ROS &#x4E3B;&#x9898;&#xFF0C;&#x4EE5; <code>/mavros/vision_pose/pose</code>&#x3002; <code>geometry_msgs/PoseStamped</code> &#x4E3B;&#x9898;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; mocap &#x901A;&#x5E38;&#x6CA1;&#x6709;&#x4E0E;&#x6570;&#x636E;&#x76F8;&#x5173;&#x7684;&#x534F;&#x65B9;&#x5DEE;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x60A8;&#x901A;&#x8FC7; <code>nav_msgs/Odometry</code> ROS &#x6D88;&#x606F;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x6620;&#x5C04;&#x6570;&#x636E;&#x4EE5; <code>/mavros/odometry/odom</code>&#x3002;</li>
+<li>If you get data through a <code>nav_msgs/Odometry</code> ROS message then you will need to remap it to <code>/mavros/odometry/out</code>, making sure to update the <code>frame_id</code> and <code>child_frame_id</code> accordingly.</li>
+<li>The odometry frames <code>frame_id = odom</code>, <code>child_frame_id = base_link</code> can be changed by updating the file in <code>mavros/launch/px4_config.yaml</code>. However, the current version of mavros (<code>1.2.0</code>) needs to be able to use the tf tree to find a transform from <code>frame_id</code> to the hardcoded frame <code>odom_ned</code>. The same applies to the <code>child_frame_id</code>, which needs to be connected in the tf tree to the hardcoded frame <code>base_link_frd</code>. If you are using mavros <code>1.2.0</code> and you didn&apos;t update the file <code>mavros/launch/px4_config.yaml</code>, then you can safely use the odometry frames <code>frame_id = odom</code>, <code>child_frame_id = base_link</code> without much worry.</li>
+<li>Note that if you are sending odometry data to px4 using <code>child_frame_id = base_link</code>, then then you need to make sure that the <code>twist</code> portion of the <code>nav_msgs/Odometry</code> message is <strong>expressed in body frame</strong>, <strong>not in inertial frame!!!!!</strong>.</li>
 </ul>
 <h3 id="ros_reference_frames"><a name="ros_reference_frames" class="plugin-anchor" href="#ros_reference_frames"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53C2;&#x8003;&#x6846;&#x67B6;&#x548C; ROS </h3>
 <p>The local/world and world frames used by ROS and PX4 are different.</p>
@@ -2703,7 +2769,7 @@ z_{mav} = - y_{mocap}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"外部位置估计（基于视觉/运动）","level":"1.8.2.6","depth":3,"next":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"path":"ros/mavros_custom_messages.md","ref":"ros/mavros_custom_messages.md","articles":[]},"previous":{"title":"在 RPi 上安装 ROS","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2020-07-08T15:54:16.159Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-08T16:05:48.995Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"外部位置估计（基于视觉/运动）","level":"1.8.2.6","depth":3,"next":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"path":"ros/mavros_custom_messages.md","ref":"ros/mavros_custom_messages.md","articles":[]},"previous":{"title":"在 RPi 上安装 ROS","level":"1.8.2.5","depth":3,"path":"ros/raspberrypi_installation.md","ref":"ros/raspberrypi_installation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"ros/external_position_estimation.md","mtime":"2020-07-08T23:16:45.547Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-08T23:18:10.301Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

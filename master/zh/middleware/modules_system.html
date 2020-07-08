@@ -615,6 +615,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
@@ -662,12 +681,70 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                <a href="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/flightgear.html">
+            
+                <a href="../simulation/flightgear.html">
+            
+                    
+                    FlightGear Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../simulation/flightgear_vehicles.html">
+            
+                <a href="../simulation/flightgear_vehicles.html">
+            
+                    
+                    FlightGear Vehicles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi_vehicle_flightgear.html">
+            
+                <a href="../simulation/multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/airsim.html">
             
                 <a href="../simulation/airsim.html">
             
                     
-                    AirSim 仿真
+                    AirSim Simulation
             
                 </a>
             
@@ -675,25 +752,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi_vehicle_jmavsim.html">
-            
-                <a href="../simulation/multi_vehicle_jmavsim.html">
-            
-                    
-                    使用 JMAVSim 进行多飞行器仿真
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/multi-vehicle-simulation.html">
             
                 <a href="../simulation/multi-vehicle-simulation.html">
             
                     
-                    基于 Gazebo 的多飞行器仿真
+                    Multi-Vehicle Simulation
             
                 </a>
             
@@ -701,7 +765,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="../simulation/failsafes.html">
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/failsafes.html">
             
                 <a href="../simulation/failsafes.html">
             
@@ -714,7 +778,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="../simulation/hitl.html">
+        <li class="chapter " data-level="1.4.9" data-path="../simulation/hitl.html">
             
                 <a href="../simulation/hitl.html">
             
@@ -727,7 +791,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="../simulation/simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.10" data-path="../simulation/simulation-in-hardware.html">
             
                 <a href="../simulation/simulation-in-hardware.html">
             
@@ -2399,23 +2463,34 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x7CFB;&#x7EDF;"><a name="&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x7CFB;&#x7EDF;" class="plugin-anchor" href="#&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x7CFB;&#x7EDF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6A21;&#x5757;&#x53C2;&#x8003;&#xFF1A;&#x7CFB;&#x7EDF;</h1>
-<h2 id="batterystatus"><a name="batterystatus" class="plugin-anchor" href="#batterystatus"><i class="fa fa-link" aria-hidden="true"></i></a>battery_status</h2>
-<p>&#x6E90;&#x7801;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/modules/battery_status" target="_blank">modules/battery_status</a></p>
+<h2 id="batterysimulator"><a name="batterysimulator" class="plugin-anchor" href="#batterysimulator"><i class="fa fa-link" aria-hidden="true"></i></a>battery_simulator</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/simulator/battery_simulator" target="_blank">modules/simulator/battery_simulator</a></p>
 <h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
-<p>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x7684;&#x529F;&#x80FD;&#x5305;&#x62EC;&#xFF1A;</p>
+<h3 id="battery_simulator_usage"><a name="battery_simulator_usage" class="plugin-anchor" href="#battery_simulator_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>battery_simulator &lt;command&gt; [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="batterystatus"><a name="batterystatus" class="plugin-anchor" href="#batterystatus"><i class="fa fa-link" aria-hidden="true"></i></a>battery_status</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/battery_status" target="_blank">modules/battery_status</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>The provided functionality includes:</p>
 <ul>
 <li>&#x4ECE; ADC &#x9A71;&#x52A8;&#x8BFB;&#x53D6;&#x7535;&#x6C60;&#x72B6;&#x6001;&#xFF08;&#x901A;&#x8FC7; ioctl &#x63A5;&#x53E3;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x53D1;&#x5E03;&#x5230;&#x4E3B;&#x9898; <code>battery_status</code>&#x3002;</li>
 </ul>
-<h3 id="&#x5B9E;&#x73B0;"><a name="&#x5B9E;&#x73B0;" class="plugin-anchor" href="#&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B9E;&#x73B0;</h3>
-<p>&#x6A21;&#x5757;&#x8FD0;&#x884C;&#x5728;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x5E76;&#x8F6E;&#x8BE2;&#x5F53;&#x524D;&#x9009;&#x5B9A;&#x7684;&#x9640;&#x87BA;&#x4EEA;&#x4E3B;&#x9898;&#x3002;</p>
-<h3 id="battery_status_usage"><a name="battery_status_usage" class="plugin-anchor" href="#battery_status_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; </h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>It runs in its own thread and polls on the currently selected gyro topic.</p>
+<h3 id="battery_status_usage"><a name="battery_status_usage" class="plugin-anchor" href="#battery_status_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>battery_status &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        &#x6253;&#x5370;&#x72B6;&#x6001;&#x4FE1;&#x606F;
+   status        print status info
 </code></pre><h2 id="camerafeedback"><a name="camerafeedback" class="plugin-anchor" href="#camerafeedback"><i class="fa fa-link" aria-hidden="true"></i></a>camera_feedback</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/camera_feedback" target="_blank">modules/camera_feedback</a></p>
 <h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
@@ -2429,7 +2504,7 @@
    status        print status info
 </code></pre><h2 id="commander"><a name="commander" class="plugin-anchor" href="#commander"><i class="fa fa-link" aria-hidden="true"></i></a>commander</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/commander" target="_blank">modules/commander</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>The commander module contains the state machine for mode switching and failsafe behavior.</p>
 <h3 id="commander_usage"><a name="commander_usage" class="plugin-anchor" href="#commander_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>commander &lt;command&gt; [arguments...]
@@ -2509,7 +2584,7 @@
      [-f]        Follow: wait for new messages
 </code></pre><h2 id="escbattery"><a name="escbattery" class="plugin-anchor" href="#escbattery"><i class="fa fa-link" aria-hidden="true"></i></a>esc_battery</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/esc_battery" target="_blank">modules/esc_battery</a></p>
-<h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This implements using information from the ESC status and publish it as battery status.</p>
 <h3 id="esc_battery_usage"><a name="esc_battery_usage" class="plugin-anchor" href="#esc_battery_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>esc_battery &lt;command&gt; [arguments...]
@@ -2798,7 +2873,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System","level":"1.7.7","depth":2,"next":{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]},"previous":{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_system.md","mtime":"2020-07-08T15:54:16.159Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-08T16:05:48.995Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"System","level":"1.7.7","depth":2,"next":{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]},"previous":{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_system.md","mtime":"2020-07-08T23:16:45.547Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-08T23:18:10.301Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

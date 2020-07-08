@@ -615,6 +615,25 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
@@ -662,12 +681,70 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                <a href="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/flightgear.html">
+            
+                <a href="../simulation/flightgear.html">
+            
+                    
+                    FlightGear Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../simulation/flightgear_vehicles.html">
+            
+                <a href="../simulation/flightgear_vehicles.html">
+            
+                    
+                    FlightGear Vehicles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi_vehicle_flightgear.html">
+            
+                <a href="../simulation/multi_vehicle_flightgear.html">
+            
+                    
+                    Multi-Vehicle Sim with FlightGear
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/airsim.html">
             
                 <a href="../simulation/airsim.html">
             
                     
-                    AirSim 仿真
+                    AirSim Simulation
             
                 </a>
             
@@ -675,25 +752,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi_vehicle_jmavsim.html">
-            
-                <a href="../simulation/multi_vehicle_jmavsim.html">
-            
-                    
-                    使用 JMAVSim 进行多飞行器仿真
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi-vehicle-simulation.html">
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/multi-vehicle-simulation.html">
             
                 <a href="../simulation/multi-vehicle-simulation.html">
             
                     
-                    基于 Gazebo 的多飞行器仿真
+                    Multi-Vehicle Simulation
             
                 </a>
             
@@ -701,7 +765,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="../simulation/failsafes.html">
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/failsafes.html">
             
                 <a href="../simulation/failsafes.html">
             
@@ -714,7 +778,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.7" data-path="../simulation/hitl.html">
+        <li class="chapter " data-level="1.4.9" data-path="../simulation/hitl.html">
             
                 <a href="../simulation/hitl.html">
             
@@ -727,7 +791,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="../simulation/simulation-in-hardware.html">
+        <li class="chapter " data-level="1.4.10" data-path="../simulation/simulation-in-hardware.html">
             
                 <a href="../simulation/simulation-in-hardware.html">
             
@@ -2399,11 +2463,46 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="&#x9002;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x5B8C;&#x6574;&#x5E94;&#x7528;&#x7684;&#x6A21;&#x7248;"><a name="&#x9002;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x5B8C;&#x6574;&#x5E94;&#x7528;&#x7684;&#x6A21;&#x7248;" class="plugin-anchor" href="#&#x9002;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x5B8C;&#x6574;&#x5E94;&#x7528;&#x7684;&#x6A21;&#x7248;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9002;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x5B8C;&#x6574;&#x5E94;&#x7528;&#x7684;&#x6A21;&#x7248;</h1>
-<p>PX4 &#x56FA;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x6A21;&#x7248;&#x6587;&#x4EF6;&#xFF1A; <a href="https://github.com/PX4/Firmware/tree/master/src/templates/module" target="_blank">src/templates/module</a> &#xFF0C;&#x57FA;&#x4E8E;&#x8BE5;&#x6A21;&#x7248;&#x7F16;&#x5199;&#x7684;&#x5E94;&#x7528;&#xFF08;&#x6A21;&#x5757;&#xFF09;&#x53EF;&#x4EE5;&#x5728;&#x5E94;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x6808;&#x4E0A;&#x6267;&#x884C; <a href="../concept/architecture.html#runtime-environment">&#x4EFB;&#x52A1;</a> &#x3002;</p>
+<p>An application can be written to run as either a <em>task</em> (a module with its own stack and process priority) or as a <em>work queue task</em> (a module that runs on a work queue thread, sharing the stack and thread priorit with other tasks on the work queue). In most cases a work queue task can be used, as this minimizes resource usage.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> &#x6240;&#x6709;&#x5728; <a href="hello_sky.html">First Application Tutorial</a> &#x4E00;&#x8282;&#x5B66;&#x5230;&#x7684;&#x5185;&#x5BB9;&#x90FD;&#x53EF;&#x7528;&#x4E8E;&#x7F16;&#x5199;&#x5B8C;&#x6574;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p> <a href="../concept/architecture.html#runtime-environment">Architectural Overview &gt; Runtime Environment</a> provides more information about tasks and work queue tasks.</p>
 </blockquote>
-<p>&#x8BE5;&#x6A21;&#x677F;&#x4E3B;&#x8981;&#x5C55;&#x793A;&#x4E86;&#x5F00;&#x53D1;&#x5B8C;&#x6574;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6240;&#x9700;&#x8981;&#x7684;&#x6216;&#x8005;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x5982;&#x4E0B;&#x9644;&#x52A0;&#x529F;&#x80FD;&#xFF1A;</p>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> All the things learned in the <a href="hello_sky.html">First Application Tutorial</a> are relevant for writing a full application.</p>
+</blockquote>
+<h2 id="work-queue-task"><a name="work-queue-task" class="plugin-anchor" href="#work-queue-task"><i class="fa fa-link" aria-hidden="true"></i></a>Work Queue Task</h2>
+<p>The PX4 Firmware contains a template for writing a new application (module) that runs as a <em>work queue task</em>: <a href="https://github.com/PX4/Firmware/tree/master/src/examples/work_item" target="_blank">src/examples/work_item</a>.</p>
+<p>A work queue task application is just the same as an ordinary (task) application, except that it needs to specify that it is a work queue task, and schedule itself to run during initialisation.</p>
+<p>The example shows how. In summary:</p>
+<ol>
+<li><p>Specify the dependency on the work queue library in the cmake definition file (<a href="https://github.com/PX4/Firmware/blob/master/src/examples/work_item/CMakeLists.txt" target="_blank">CMakeLists.txt</a>): </p>
+<pre><code> ...
+ DEPENDS
+   px4_work_queue
+</code></pre></li>
+<li><p>In addition to <code>ModuleBase</code>, the task should also derive from <code>ScheduledWorkItem</code> (included from <a href="https://github.com/PX4/Firmware/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/ScheduledWorkItem.hpp" target="_blank">ScheduledWorkItem.hpp</a>)</p>
+</li>
+<li><p>Specify the queue to add the task to in the constructor initialisation. The <a href="https://github.com/PX4/Firmware/blob/master/src/examples/work_item/WorkItemExample.cpp#L42" target="_blank">work_item</a> example adds itself to the <code>wq_configurations::test1</code> work queue as shown below:</p>
+<pre><code class="lang-cpp"> WorkItemExample::WorkItemExample() :
+    ModuleParams(<span class="hljs-literal">nullptr</span>),
+    ScheduledWorkItem(MODULE_NAME, px4::wq_configurations::test1)
+ {
+ }
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The available work queues (<code>wq_configurations</code>) are listed in <a href="https://github.com/PX4/Firmware/blob/master/platforms/common/include/px4_platform_common/px4_work_queue/WorkQueueManager.hpp#L49" target="_blank">WorkQueueManager.hpp</a>.</p>
+</blockquote>
+</li>
+<li><p>Implement the <code>ScheduledWorkItem::Run()</code> method to perform &quot;work&quot;.</p>
+</li>
+<li><p>Implement the <code>task_spawn</code> method, specifying that the task is a work queue (using the <code>task_id_is_work_queue</code> id.</p>
+</li>
+<li>Schedule the work queue task using one of the scheduling methods (in the example we use <code>ScheduleOnInterval</code> from within the <code>init</code> method).</li>
+</ol>
+<h2 id="tasks"><a name="tasks" class="plugin-anchor" href="#tasks"><i class="fa fa-link" aria-hidden="true"></i></a>Tasks</h2>
+<p>The PX4 Firmware contains a template for writing a new application (module) that runs as a task on its own stack: <a href="https://github.com/PX4/Firmware/tree/master/src/templates/module" target="_blank">src/templates/module</a>.</p>
+<p>The template demonstrates the following additional features/aspects that are required or are useful for a full application:</p>
 <ul>
 <li>&#x8BBF;&#x95EE;&#x53C2;&#x6570;&#x5E76;&#x5BF9;&#x53C2;&#x6570;&#x66F4;&#x65B0;&#x505A;&#x51FA;&#x53CD;&#x5E94;&#x3002;</li>
 <li>&#x8BA2;&#x9605;&#x3001;&#x7B49;&#x5F85; topic &#x66F4;&#x65B0;&#x3002;</li>
@@ -2458,7 +2557,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"应用/模块模板","level":"1.2.5","depth":2,"next":{"title":"概念","level":"1.3","depth":1,"path":"concept/README.md","ref":"concept/README.md","articles":[{"title":"PX4 系统架构概述","level":"1.3.1","depth":2,"path":"concept/architecture.md","ref":"concept/architecture.md","articles":[{"title":"控制器图解","level":"1.3.1.1","depth":3,"path":"flight_stack/controller_diagrams.md","ref":"flight_stack/controller_diagrams.md","articles":[]}]},{"title":"Dronecode 平台概述","level":"1.3.2","depth":2,"path":"concept/dronecode_architecture.md","ref":"concept/dronecode_architecture.md","articles":[]},{"title":"飞行模式","level":"1.3.3","depth":2,"path":"concept/flight_modes.md","ref":"concept/flight_modes.md","articles":[]},{"title":"Flight Tasks","level":"1.3.4","depth":2,"path":"concept/flight_tasks.md","ref":"concept/flight_tasks.md","articles":[]},{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]}]},{"title":"PWM limit state machine","level":"1.3.6","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},{"title":"System Startup","level":"1.3.7","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]}]},"previous":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"apps/module_template.md","mtime":"2020-07-08T15:54:16.155Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-08T16:05:48.995Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"应用/模块模板","level":"1.2.5","depth":2,"next":{"title":"概念","level":"1.3","depth":1,"path":"concept/README.md","ref":"concept/README.md","articles":[{"title":"PX4 系统架构概述","level":"1.3.1","depth":2,"path":"concept/architecture.md","ref":"concept/architecture.md","articles":[{"title":"控制器图解","level":"1.3.1.1","depth":3,"path":"flight_stack/controller_diagrams.md","ref":"flight_stack/controller_diagrams.md","articles":[]}]},{"title":"Dronecode 平台概述","level":"1.3.2","depth":2,"path":"concept/dronecode_architecture.md","ref":"concept/dronecode_architecture.md","articles":[]},{"title":"飞行模式","level":"1.3.3","depth":2,"path":"concept/flight_modes.md","ref":"concept/flight_modes.md","articles":[]},{"title":"Flight Tasks","level":"1.3.4","depth":2,"path":"concept/flight_tasks.md","ref":"concept/flight_tasks.md","articles":[]},{"title":"Mixing and Actuators","level":"1.3.5","depth":2,"path":"concept/mixing.md","ref":"concept/mixing.md","articles":[{"title":"Custom Payload Mixer","level":"1.3.5.1","depth":3,"path":"concept/custom_mixer_payload.md","ref":"concept/custom_mixer_payload.md","articles":[]}]},{"title":"PWM limit state machine","level":"1.3.6","depth":2,"path":"concept/pwm_limit.md","ref":"concept/pwm_limit.md","articles":[]},{"title":"System Startup","level":"1.3.7","depth":2,"path":"concept/system_startup.md","ref":"concept/system_startup.md","articles":[]},{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]}]},"previous":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"apps/module_template.md","mtime":"2020-07-08T23:16:45.543Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-07-08T23:18:10.301Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
