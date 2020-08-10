@@ -1,0 +1,3123 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>RTPS/ROS2 인터페이스 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="micrortps_throughput_test.html" />
+    
+    
+    <link rel="prev" href="mavlink.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    시작하기
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    초기 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    툴체인 설치
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    리눅스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    우분투/데비안 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    센트OS 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    아치 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    고급 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    윈도우
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    가상 머신 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    윈도우용 배시 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/vscode.html">
+            
+                <a href="../setup/vscode.html">
+            
+                    
+                    비주얼 스튜디오 코드 IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    빠른 RTPS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    추가 도구
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    코드 빌드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    첫 프로그램 작성
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    프로그램/모듈 서식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 구성 개요
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    컨트롤러 구성도
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    드론코드 플랫폼 개요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    비행 모드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    비행 동작
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    믹서와 액추에이터
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../concept/custom_mixer_payload.html">
+            
+                <a href="../concept/custom_mixer_payload.html">
+            
+                    
+                    개별 페이로드 믹서
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit 상태 머신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    시스템 시작
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../concept/sd_card_layout.html">
+            
+                <a href="../concept/sd_card_layout.html">
+            
+                    
+                    SD 카드 배치
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim 시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    jMAVSim 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    가제보(Gazebo) 짐벌 모의시험
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../simulation/gazebo_vehicles.html">
+            
+                <a href="../simulation/gazebo_vehicles.html">
+            
+                    
+                    가제보(Gazebo) 비행체
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../simulation/gazebo_worlds.html">
+            
+                <a href="../simulation/gazebo_worlds.html">
+            
+                    
+                    가제보(Gazebo) 월드(world)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                <a href="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    가제보(Gazebo) 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/flightgear.html">
+            
+                <a href="../simulation/flightgear.html">
+            
+                    
+                    플라이트 기어(FlightGear) 모의시험 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../simulation/flightgear_vehicles.html">
+            
+                <a href="../simulation/flightgear_vehicles.html">
+            
+                    
+                    플라이트 기어(FlightGear) 비행체
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi_vehicle_flightgear.html">
+            
+                <a href="../simulation/multi_vehicle_flightgear.html">
+            
+                    
+                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim 모의시험 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/failsafes.html">
+            
+                <a href="../simulation/failsafes.html">
+            
+                    
+                    모의시험 안전 수단
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../simulation/simulation-in-hardware.html">
+            
+                <a href="../simulation/simulation-in-hardware.html">
+            
+                    
+                    하드웨어 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    하드웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    비행체 컨트롤러 참고 디자인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    비행체 컨트롤러 이식 안내
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../hardware/porting_guide_nuttx.html">
+            
+                <a href="../hardware/porting_guide_nuttx.html">
+            
+                    
+                    NuttX 보드 이식 안내
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    비행체(Airframe)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    비행체 참고
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    새 비행체 추가
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="drivers.html">
+            
+                <a href="drivers.html">
+            
+                    
+                    장치 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    텔레메트리 무선 통신
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK 무선 통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    센서, 액츄에이터 입출력
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C 버스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN 버스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN 펌웨어 업그레이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 기타 참고
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    UART/직렬 포트
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    설정 가능 직렬 포트 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    짐벌 (마운트) 제어 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    보조 컴퓨터
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    미들웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="uorb.html">
+            
+                <a href="uorb.html">
+            
+                    
+                    uORB 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="mavlink.html">
+            
+                <a href="mavlink.html">
+            
+                    
+                    MAVLink 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="micrortps.html">
+            
+                <a href="micrortps.html">
+            
+                    
+                    RTPS/ROS2 인터페이스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="micrortps_throughput_test.html">
+            
+                <a href="micrortps_throughput_test.html">
+            
+                    
+                    메시지 처리 시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="micrortps_manual_code_generation.html">
+            
+                <a href="micrortps_manual_code_generation.html">
+            
+                    
+                    클라이언트/에이전트 직접 생성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="modules_main.html">
+            
+                <a href="modules_main.html">
+            
+                    
+                    모듈과 명령
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="modules_command.html">
+            
+                <a href="modules_command.html">
+            
+                    
+                    명령
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="modules_communication.html">
+            
+                <a href="modules_communication.html">
+            
+                    
+                    통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="modules_controller.html">
+            
+                <a href="modules_controller.html">
+            
+                    
+                    컨트롤러
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="modules_driver.html">
+            
+                <a href="modules_driver.html">
+            
+                    
+                    드라이버
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="modules_driver_airspeed_sensor.html">
+            
+                <a href="modules_driver_airspeed_sensor.html">
+            
+                    
+                    대기속도 센서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.2" data-path="modules_driver_baro.html">
+            
+                <a href="modules_driver_baro.html">
+            
+                    
+                    기압
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.3" data-path="modules_driver_distance_sensor.html">
+            
+                <a href="modules_driver_distance_sensor.html">
+            
+                    
+                    거리 센서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.4" data-path="modules_driver_imu.html">
+            
+                <a href="modules_driver_imu.html">
+            
+                    
+                    관성계
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.5" data-path="modules_driver_magnetometer.html">
+            
+                <a href="modules_driver_magnetometer.html">
+            
+                    
+                    자력계
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="modules_estimator.html">
+            
+                <a href="modules_estimator.html">
+            
+                    
+                    추정자
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="modules_simulation.html">
+            
+                <a href="modules_simulation.html">
+            
+                    
+                    모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="modules_system.html">
+            
+                <a href="modules_system.html">
+            
+                    
+                    시스템
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="modules_template.html">
+            
+                <a href="modules_template.html">
+            
+                    
+                    서식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    로보틱스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    리눅스에서의 외부 제어
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (ROS용 MAVLink)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS 오프 보드 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    가제보 모의시험 환경의 ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    ROS의 OctoMap 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    라즈베리 파이로의 ROS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    외부 위치 추정 (시각/움직임 기반)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    MAVROS에서의 개별 메시지 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    드론키트
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    디버깅/로깅
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    자주 묻는 질문
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
+            
+                <a href="../debug/consoles.html">
+            
+                    
+                    콘솔/셸
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink 셸
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    시스템 콘솔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/swd_debug.html">
+            
+                <a href="../debug/swd_debug.html">
+            
+                    
+                    SWD/JLink 디버깅 인터페이스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    오토파일럿 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink 하드웨어 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    센서/토픽 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    모의시험 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    디버깅 값 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    시스템 범위 재현
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    프로파일링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    로깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    비행 로그 분석
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog 파일 구성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    자습서
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    지상 통제 스테이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    Odroid C1에서 QGC로의 동영상 스트리밍 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    장거리 동영상 스트리밍 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    리눅스에서의 리모콘 리시버 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    고급 주제
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    매개변수와 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    매개변수 참고서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    컴퓨터 비전
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    움직임 촬영(Motion Capture) (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Intel RealSense R200 드라이버 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    상태 추정자(State Estimator) 전환
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    별도 모듈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    시스템 알림음
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    플랫폼 시험과 지속 통합
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    비행 시험
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    시험 MC_01 - 수동 상태
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    시험 MC_02 - 완전 자동화
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    시험 MC_03 - 자동 / 수동 혼합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    시험 MC_04 - 안전 장치 시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    시험 MC_05 - 실내 비행 (수동 상태)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    단위 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    젠킨스 지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    ROS 통합 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/integration_testing_mavsdk.html">
+            
+                <a href="../test_and_ci/integration_testing_mavsdk.html">
+            
+                    
+                    MAVSDK 통합 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    도커 컨테이너
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.8" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    유지 관리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    기여(와 유선 개발 미팅)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    유선 개발 미팅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    소스 코드 관리
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    문서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    번역
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    용어/표기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    라이선스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    지원
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">드론코드 관련 링크</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/master/en/">
+            
+                    
+                    PX4 사용자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 사용자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 개발자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    드론코드 카메라 관리자
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >RTPS/ROS2 인터페이스</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="rtpsros2-&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;-px4-fastrtps-&#xBE0C;&#xB9BF;&#xC9C0;"><a name="rtpsros2-&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;-px4-fastrtps-&#xBE0C;&#xB9BF;&#xC9C0;" class="plugin-anchor" href="#rtpsros2-&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;-px4-fastrtps-&#xBE0C;&#xB9BF;&#xC9C0;"><i class="fa fa-link" aria-hidden="true"></i></a>RTPS/ROS2 &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;: PX4-FastRTPS &#xBE0C;&#xB9BF;&#xC9C0;</h1>
+<p><em>PX4-FastRTPS &#xBE0C;&#xB9BF;&#xC9C0;</em>&#xB294; PX4 &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xC640; (&#xBCF4;&#xB4DC; &#xC678;&#xBD80;&#xC758;) <em>Fast RTPS</em> &#xD504;&#xB85C;&#xADF8;&#xB7A8;(ROS2/ROS &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xB85C; &#xBE4C;&#xB4DC;&#xD55C; &#xACB0;&#xACFC; &#xD3EC;&#xD568;)&#xAC04; <a href="uorb.html">uORB &#xBA54;&#xC138;&#xC9C0;</a>&#xB97C; &#xC1A1;&#xC218;&#xC2E0;&#xD558;&#xB294; RTPS(Real Time Publish Subscribe) &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; PX4&#xC5D0; &#xCD94;&#xAC00;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> RTPS&#xB294; OMG(Object Management Group)&#xC758; DDS(Data Distribution Service) &#xD45C;&#xC900; &#xAE30;&#xBCF8; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC785;&#xB2C8;&#xB2E4;. &#xC774; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC740; Pub/Sub &#xD328;&#xD134;&#xC744; &#xD65C;&#xC6A9;, &#xD655;&#xC7A5;&#xC131;, &#xC2E4;&#xC2DC;&#xAC04;&#xC131;, &#xC758;&#xC874;&#xC131;, &#xACE0;&#xC131;&#xB2A5;, &#xC0C1;&#xD638;&#xC6B4;&#xC6A9; &#xADDC;&#xACA9;&#xC744; &#xB9CC;&#xC871;&#xD569;&#xB2C8;&#xB2E4;. <em>Fast RTPS</em>&#xB294; &#xCD5C;&#xC2E0; RTPS &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xACFC; &#xCD5C;&#xC18C;&#xD55C;&#xC758; DDS API&#xB97C; &#xD06C;&#xB85C;&#xC2A4;&#xD50C;&#xB7AB;&#xD3FC; &#xD658;&#xACBD;&#xC5D0; &#xB9DE;&#xCDB0; &#xACBD;&#xB7C9;&#xD654;&#xD55C; &#xAD6C;&#xD604;&#xCCB4;&#xC785;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p>ROS2(Robot Operating System)&#xC758; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xB85C; RTPS&#xB97C; &#xCC44;&#xD0DD;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. <em>Fast RTPS &#xBE0C;&#xB9BF;&#xC9C0;</em>&#xB294; &#xC13C;&#xC11C;&#xC758; &#xAC12;, &#xBA85;&#xB839;&#xC5B4; &#xADF8;&#xB9AC;&#xACE0; &#xB2E4;&#xB978; &#xAE30;&#xCCB4;&#xC758; &#xC815;&#xBCF4;&#xB97C; &#xACF5;&#xC720;&#xD558;&#xAE30; &#xC27D;&#xAC8C;&#xD558;&#xB294; ROS2&#xC640;&#xC758; &#xD1B5;&#xD569;&#xC744; &#xC6A9;&#xC774;&#xD558;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774; &#xC8FC;&#xC81C;&#xC5D0;&#xC11C;&#xB294; RTPS &#xBE0C;&#xB9BF;&#xC9C0; &#xAD6C;&#xC870;(&#xC640; ROS2/ROS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD30C;&#xC774;&#xD504;&#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xC5B4;&#xB5BB;&#xAC8C; &#xD65C;&#xC6A9;&#xD558;&#xB294;&#xC9C0;)&#xB97C; &#xC124;&#xBA85;&#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB9AC;&#xACE0; &#xD544;&#xC694;&#xD55C; &#xCF54;&#xB4DC;&#xB97C; &#xC5B4;&#xB5BB;&#xAC8C; &#xCEF4;&#xD30C;&#xC77C;&#xD560;&#xC9C0;&#xB3C4; &#xC54C;&#xC544;&#xBCF4;&#xB3C4;&#xB85D; &#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<ol>
+<li>PX4&#xC758; &#xBCC0;&#xD654;&#xB97C; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xC0B4;&#xD3B4;&#xBCFC; &#xAC04;&#xB2E8;&#xD55C; <em>Fast RTPS</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xC791;&#xC131;</li>
+<li>&#xC5EC;&#xB7EC; ROS2 &#xB178;&#xB4DC;&#xC640; PX4 &#xC5F0;&#xACB0;(RTPS &#xBE0C;&#xB9BF;&#xC9C0;&#xC640; <code>px4_ros_com</code> &#xD65C;&#xC6A9;)</li>
+<li>&#xCD94;&#xAC00;&#xB85C;, ROS2&#xC640; ROS &#xBE0C;&#xB9BF;&#xC9C0; <code>ros1_bridge</code>&#xB97C; &#xD65C;&#xC6A9;, &#xC5EC;&#xB7EC; ROS(&quot;&#xBC84;&#xC804; 1&quot;) &#xB178;&#xB4DC;&#xC640; PX4 &#xC5F0;&#xACB0;</li>
+</ol>
+<h2 id="rtps&#xB294;-&#xC5B8;&#xC81C;-&#xC0AC;&#xC6A9;&#xD574;&#xC57C;-&#xD560;&#xAE4C;"><a name="rtps&#xB294;-&#xC5B8;&#xC81C;-&#xC0AC;&#xC6A9;&#xD574;&#xC57C;-&#xD560;&#xAE4C;" class="plugin-anchor" href="#rtps&#xB294;-&#xC5B8;&#xC81C;-&#xC0AC;&#xC6A9;&#xD574;&#xC57C;-&#xD560;&#xAE4C;"><i class="fa fa-link" aria-hidden="true"></i></a>RTPS&#xB294; &#xC5B8;&#xC81C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD560;&#xAE4C;?</h2>
+<p>&#xBE44;&#xD589; &#xC870;&#xC885;&#xAE30;&#xC640; &#xBCF4;&#xB4DC; &#xC678;&#xBD80; &#xC694;&#xC18C;&#xAC04; &#xC9C0;&#xC815; &#xC81C;&#xD55C; &#xC2DC;&#xAC04;&#xB0B4; &#xC2E4;&#xC2DC;&#xAC04; &#xC815;&#xBCF4; &#xACF5;&#xC720;&#xB97C; &#xD655;&#xC2E4;&#xD788;&#xD558;&#xB824;&#xBA74; RTPS&#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xD2B9;&#xD788; &#xBCF4;&#xB4DC; &#xC678;&#xBD80; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; PX4&#xC5D0;&#xC11C; (uORB &#xD1A0;&#xD53D; &#xC1A1;&#xC218;&#xC2E0;&#xC73C;&#xB85C;) &#xB3D9;&#xC791;&#xD558;&#xB294; &#xD504;&#xB85C;&#xADF8;&#xB7A8; &#xAD6C;&#xC131;&#xC694;&#xC18C;&#xC758; <em>&#xD53C;&#xC5B4;</em>&#xB85C; &#xB3D9;&#xC791;&#xD560; &#xACBD;&#xC6B0; &#xC720;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC0AC;&#xC6A9;&#xAC00;&#xB2A5;&#xD55C; &#xACBD;&#xC6B0;&#xB294;, &#xCEF4;&#xD4E8;&#xD130; &#xBE44;&#xC804;&#xC744; &#xC704;&#xD55C; &#xB85C;&#xBCF4;&#xD2F1;&#xC2A4; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB4E4;&#xAC04;&#xC758; &#xD1B5;&#xC2E0;, &#xAE30;&#xCCB4; &#xC870;&#xC885;&#xC744; &#xC704;&#xD55C; &#xC561;&#xCD94;&#xC5D0;&#xC774;&#xD130;&#xC640; &#xC13C;&#xC11C;&#xAC04;&#xC758; &#xC2E4;&#xC2DC;&#xAC04; &#xB370;&#xC774;&#xD130; &#xD1B5;&#xC2E0;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <em>Fast RTPS</em>&#xB294; MAVLink&#xC758; &#xB300;&#xCCB4; &#xC218;&#xB2E8;&#xC774; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. (<em>Fast RTPS</em>&#xB294; &#xC77C;&#xBD80; &#xC8FC;&#xBCC0;&#xAE30;&#xAE30;&#xC640; &#xB3D9;&#xC791;&#xD560; &#xBAA9;&#xC801;&#xC758; &#xB2E4;&#xB978; &#xAE30;&#xD68C;&#xAC00; &#xC5F4;&#xB824;&#xC788;&#xC9C0;&#xB9CC;) MAVLink&#xB294; &#xC9C0;&#xC0C1; &#xD1B5;&#xC81C;&#xAD6D;, &#xC9D0;&#xBC8C;, &#xCE74;&#xBA54;&#xB77C; &#xADF8; &#xC678;&#xC758; &#xBCF4;&#xB4DC; &#xC678;&#xBD80; &#xC694;&#xC18C;&#xC640;&#xC758; &#xD1B5;&#xC2E0;&#xC5D0; &#xC801;&#xD569;&#xD55C; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xB85C; &#xB0A8;&#xC544;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;</p>
+</blockquote>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> RTPS&#xB294; &#xB290;&#xB9B0; &#xCC44;&#xB110;(e.g. &#xBB34;&#xC120; &#xD154;&#xB808;&#xBA54;&#xD2B8;&#xB9AC;)&#xC5D0;&#xC11C;&#xB3C4; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC9C0;&#xB9CC; &#xCC44;&#xB110; &#xB300;&#xC5ED;&#xD3ED;&#xC744; &#xB118;&#xAE30;&#xC9C0; &#xC54A;&#xB3C4;&#xB85D; &#xC870;&#xC2EC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h2 id="&#xC544;&#xD0A4;&#xD14D;&#xCCD0;-&#xAC1C;&#xC694;"><a name="&#xC544;&#xD0A4;&#xD14D;&#xCCD0;-&#xAC1C;&#xC694;" class="plugin-anchor" href="#&#xC544;&#xD0A4;&#xD14D;&#xCCD0;-&#xAC1C;&#xC694;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC544;&#xD0A4;&#xD14D;&#xCCD0; &#xAC1C;&#xC694;</h2>
+<h3 id="rtps-&#xBE0C;&#xB9BF;&#xC9C0;"><a name="rtps-&#xBE0C;&#xB9BF;&#xC9C0;" class="plugin-anchor" href="#rtps-&#xBE0C;&#xB9BF;&#xC9C0;"><i class="fa fa-link" aria-hidden="true"></i></a>RTPS &#xBE0C;&#xB9BF;&#xC9C0;</h3>
+<p>RTPS&#xBE0C;&#xB9BF;&#xC9C0;&#xB294; <a href="uorb.html">uORB</a>&#xC640; RTPS &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB9E4;&#xB044;&#xB7FD;&#xAC8C; &#xBCC0;&#xD658;&#xD558;&#xC5EC; PX4&#xC640; RTPS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xAC04; &#xC8FC;&#xACE0; &#xBC1B;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC1A1;&#xC218;&#xC2E0;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><img src="../../assets/middleware/micrortps/architecture.png" alt="basic example flow"></p>
+<p>&#xAD6C;&#xC870;&#xC758; &#xC8FC;&#xB41C; &#xC694;&#xC18C;&#xB294; &#xC0C1;&#xB2E8; &#xADF8;&#xB9BC;&#xC5D0; &#xC788;&#xB294; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC640; &#xC5D0;&#xC774;&#xC804;&#xD2B8; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li><em>Client</em>&#xB294; &#xBE44;&#xD589; &#xC870;&#xC885;&#xAE30;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xB294; PX4 &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4; &#xB370;&#xBAAC;&#xC785;&#xB2C8;&#xB2E4;. &#xB2E4;&#xB978; PX4 &#xCEF4;&#xD3EC;&#xB10C;&#xD2B8;&#xAC00; &#xBCF4;&#xB0B4;&#xB294; &#xD1A0;&#xD53D;&#xC744; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xC218;&#xC2E0;&#xD558;&#xACE0;, (UART &#xB610;&#xB294; UDP &#xD3EC;&#xD2B8;&#xB85C;) <em>Agent</em>&#xB97C; &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xC5C5;&#xB370;&#xC774;&#xD2B8; &#xB0B4;&#xC6A9;&#xC744; &#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;. <em>Agent</em>&#xB85C; &#xBD80;&#xD130; &#xBA54;&#xC2DC;&#xC9C0;&#xB3C4; &#xBC1B;&#xC73C;&#xBA70; PX4&#xB85C; uORB &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB0B4;&#xBCF4;&#xB0B4;&#xAE30;&#xB3C4; &#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><em>Agent</em>&#xB294; &#xC678;&#xBD80; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xB370;&#xBAAC;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. <em>Client</em>&#xC5D0;&#xC11C; &#xBCF4;&#xB0B8; uORB &#xC5C5;&#xB370;&#xC774;&#xD2B8; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xAC80;&#xC0AC;&#xD55C; &#xD6C4; RTPS&#xC5D0; &#xC2E4;&#xC5B4; &#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;. RTPS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC5D0;&#xC11C; &#xC624;&#xB294; &quot;uORB&quot; RTPS &#xBA54;&#xC2DC;&#xC9C0;&#xB3C4; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xC218;&#xC2E0;&#xD558;&#xBA70; Client&#xC5D0; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><em>Agent</em>&#xACFC; <em>Client</em>&#xB294; &#xC9C1;&#xB82C; &#xC5F0;&#xACB0;(UART) &#xB610;&#xB294; UDP &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xB85C; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;. uORB &#xC815;&#xBCF4;&#xB294; &#xC804;&#xC1A1; &#xC804; <a href="https://en.wikipedia.org/wiki/Common_Data_Representation" target="_blank">CDR &#xC9C1;&#xB82C;&#xD654;</a> &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;(<em>CDR &#xC9C1;&#xB82C;&#xD654;</em> &#xC218;&#xB2E8;&#xC740; &#xB2E4;&#xB978; &#xD50C;&#xB7AB;&#xD3FC;&#xB4E4;&#xAC04; &#xC9C1;&#xB82C; &#xB370;&#xC774;&#xD130; &#xC1A1;&#xC218;&#xC2E0;&#xC5D0; &#xD65C;&#xC6A9;&#xD558;&#xB294; &#xC77C;&#xBC18; &#xD615;&#xC2DD;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;).</li>
+<li><em>Agent</em>&#xC640; <em>Fast RTPS</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC740; UDP&#xB97C; &#xD1B5;&#xD574; &#xC5F0;&#xACB0;&#xB418;&#xBA70;, &#xB2E4;&#xB978; &#xC7A5;&#xCE58;&#xC5D0; &#xC788;&#xC744;&#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC77C;&#xBC18;&#xC801;&#xC778; &#xAD6C;&#xC131;&#xC5D0;&#xC11C;&#xB294; &#xC640;&#xC774;&#xD30C;&#xC774;&#xB098; USB&#xB85C; <em>Client</em>&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xB3D9;&#xC77C;&#xD55C; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC788;&#xC744; &#xAC83;&#xC785;&#xB2C8;&#xB2E4; (&#xC608;. &#xAC1C;&#xBC1C; &#xCEF4;&#xD4E8;&#xD130;, &#xB9AC;&#xB205;&#xC2A4; &#xCEF4;&#xD4E8;&#xD130; &#xB610;&#xB294; &#xCEF4;&#xD4E8;&#xD130; &#xBCF4;&#xB4DC;).</li>
+</ul>
+<h3 id="ros2ros-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xD30C;&#xC774;&#xD504;&#xB77C;&#xC778;"><a name="ros2ros-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xD30C;&#xC774;&#xD504;&#xB77C;&#xC778;" class="plugin-anchor" href="#ros2ros-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xD30C;&#xC774;&#xD504;&#xB77C;&#xC778;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2/ROS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD30C;&#xC774;&#xD504;&#xB77C;&#xC778;</h3>
+<p>ROS2&#xB97C; &#xC704;&#xD55C; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xD30C;&#xC774;&#xD504;&#xB77C;&#xC778;&#xC740; &#xC544;&#xC8FC; &#xC9C1;&#xAD00;&#xC801;&#xC785;&#xB2C8;&#xB2E4;. ROS2&#xB294; &#xC790;&#xCCB4; &#xD1B5;&#xC2E0; &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xB85C; DDS/RTPS&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, <em>PX4 Fast RTPS &#xBE0C;&#xB9BF;&#xC9C0;</em>&#xB97C; &#xD1B5;&#xD574; PX4&#xC5D0;&#xC11C; &#xB0B4;&#xBCF4;&#xB0B4;&#xAC70;&#xB098; &#xC9C0;&#xC18D; &#xC218;&#xC2E0;&#xD558;&#xB294; ROS2 &#xAC10;&#xCCAD; &#xC720;&#xB2DB; &#xB610;&#xB294; &#xAD11;&#xC5ED; &#xC804;&#xB2EC; &#xB178;&#xB4DC;&#xB97C; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xB0B4;&#xC6A9;&#xC744; &#xC544;&#xB798;&#xC758; &#xADF8;&#xB9BC;&#xC73C;&#xB85C; &#xC815;&#xB9AC;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC640; &#xC5D0;&#xC774;&#xC804;&#xD2B8;(&#xADF8;&#xB9AC;&#xACE0; ROS &#xB178;&#xB4DC;&#xC5D0;&#xC11C; &#xACC4;&#xC18D;)&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBA54;&#xC2DC;&#xC9C0; &#xD615;&#xC2DD;, &#xD5E4;&#xB354;, &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xC774; &#xB3D9;&#xC77C;&#xD55C; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4; &#xAE30;&#xC220; &#xC5B8;&#xC5B4;(IDL) &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB9CC;&#xB4E4;&#xC5C8;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. <code>px4_ros_com</code> &#xD328;&#xD0A4;&#xC9C0;&#xB294; ROS2&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xD55C; &#xBA54;&#xC2DC;&#xC9C0;, &#xD5E4;&#xB354; &#xC0DD;&#xC131;&#xC5D0; &#xD544;&#xC694;&#xD55C; &#xAE30;&#xBC18;&#xC785;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p><img src="../../assets/middleware/micrortps/architecture_ros2.png" alt="Architecture with ROS2"></p>
+<p>ROS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xACFC; PX4&#xB97C; &#xD1B5;&#xD569;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xAD6C;&#xC870;&#xB294; &#xC544;&#xB798;&#xC5D0; &#xB098;&#xC654;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p><img src="../../assets/middleware/micrortps/architecture_ros.png" alt="Architecture with ROS"></p>
+<p>ROS2&#xC640; ROS&#xAC04;&#xC758; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC8FC;&#xACE0; &#xBC1B;&#xB294; <a href="https://github.com/ros2/ros1_bridge" target="_blank">ros1_bridge</a> &#xD65C;&#xC6A9;&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. ROS&#xC758; &#xCC98;&#xC74C; &#xBC84;&#xC804;&#xC774; RTPS&#xB97C; &#xC9C0;&#xC6D0;&#xD558;&#xAE30; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;"><a name="&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;" class="plugin-anchor" href="#&#xCF54;&#xB4DC;-&#xC0DD;&#xC131;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCF54;&#xB4DC; &#xC0DD;&#xC131;</h2>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <a href="../setup/fast-rtps-installation.html">Fast RTPS 1.8.2 &#xC640; FastRTPSGen 1.0.4 &#xB610;&#xB294; &#xC774;&#xD6C4;&#xC758; &#xBC84;&#xC804;&#xC744; &#xC124;&#xCE58;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;</a>. &#xADF8;&#xB798;&#xC57C; &#xD544;&#xC694;&#xD55C; &#xCF54;&#xB4DC;&#xB97C; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;!</p>
+</blockquote>
+<h3 id="ros-&#xB3C5;&#xB9BD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;"><a name="ros-&#xB3C5;&#xB9BD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;" class="plugin-anchor" href="#ros-&#xB3C5;&#xB9BD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS-&#xB3C5;&#xB9BD; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;</h3>
+<p>&#xBE0C;&#xB9BF;&#xC9C0;&#xB97C; &#xB9CC;&#xB4E4;&#xACE0; &#xBE4C;&#xB4DC;&#xD558;&#xACE0; &#xC0AC;&#xC6A9;&#xD560; &#xB54C; &#xD544;&#xC694;&#xD55C; &#xBAA8;&#xB4E0; &#xCF54;&#xB4DC;&#xB294; PX4 &#xD38C;&#xC6E8;&#xC5B4; &#xCEF4;&#xD30C;&#xC77C; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.</p>
+<p><em>Client</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xB610;&#xD55C; &#xC77C;&#xBC18; &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC758; &#xC77C;&#xBD80;&#xB85C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xACE0; &#xBE4C;&#xB4DC;&#xD558;&#xC5EC; &#xD38C;&#xC6E8;&#xC5B4;&#xC5D0; &#xB4E4;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;. <em>Agent</em>&#xB294; &#xB300;&#xC0C1; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0; &#xB9DE;&#xAC8C; &#xB530;&#xB85C; &#xC9C1;&#xC811; &#xCEF4;&#xD30C;&#xC77C;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#xBE0C;&#xB9BF;&#xC9C0; &#xCF54;&#xB4DC; &#xB610;&#xD55C; <a href="micrortps_manual_code_generation.html">&#xC9C1;&#xC811; &#xB9CC;&#xB4E4;</a>&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB300;&#xBD80;&#xBD84;&#xC758; &#xC0AC;&#xC6A9;&#xC790;&#xB294; &#xADF8;&#xB7F4; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xC9C0;&#xB9CC;, &#xC5F0;&#xACB0;&#xD55C; &#xC8FC;&#xC81C;&#xC5D0;&#xC11C;&#xB294; &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC744; &#xC790;&#xC138;&#xD558;&#xAC8C; &#xC548;&#xB0B4;&#xD558;&#xBA70;, &#xC774; &#xB0B4;&#xC6A9;&#xC744; &#xD1B5;&#xD574; &#xBB38;&#xC81C; &#xD574;&#xACB0;&#xC758; &#xB3C4;&#xC6C0;&#xC744; &#xBC1B;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h3 id="px4_ros_com"><a name="px4_ros_com" class="plugin-anchor" href="#px4_ros_com"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2/ROS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; </h3>
+<p><a href="https://github.com/PX4/px4_ros_com" target="_blank">px4_ros_com</a> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xBA74;, ROS2 &#xB178;&#xB4DC;&#xC5D0;&#xC11C; PX4 uORB &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB2E4;&#xB8F0; &#xB54C; &#xD544;&#xC694;&#xD55C; &#xBAA8;&#xB4E0; &#xC694;&#xC18C;&#xAC00; &#xB098;&#xC635;&#xB2C8;&#xB2E4;(ROS&#xC77C; &#xACBD;&#xC6B0; <a href="https://github.com/ros2/ros1_bridge" target="_blank">ros1_bridge</a>&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;). <code>micrortps_agent</code>&#xC640; (<code>microtps_agent</code>&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xD55C;) IDL &#xD30C;&#xC77C;&#xC774; &#xB4E4;&#xC5B4;&#xAC04; <em>PX4 RTPS &#xBE0C;&#xB9BF;&#xC9C0;</em>&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xB85C;&#xD558;&#xB294; &#xBAA8;&#xB4E0; &#xAD6C;&#xC131; &#xC694;&#xC18C;&#xAC00; &#xB2E4; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>ROS, ROS2&#xC758; &#xBA54;&#xC2DC;&#xC9C0; &#xC815;&#xC758; &#xD5E4;&#xB354;&#xC640; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB294; PX4 &#xD38C;&#xC6E8;&#xC5B4;&#xC758; uORB &#xBA54;&#xC2DC;&#xC9C0; &#xB300;&#xC751; &#xBD80;&#xBD84;&#xC5D0; &#xB9DE;&#xCD94;&#xB294; <a href="https://github.com/PX4/px4_msgs" target="_blank">px4_msgs</a> &#xD328;&#xD0A4;&#xC9C0;&#xC5D0;&#xC11C; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. <code>micrortps_agent</code>&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; IDL &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4; &#xB54C; <code>px4_ros_com</code>&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><code>px4_ros_com</code>&#xC640; <code>px4_msgs</code> &#xD328;&#xD0A4;&#xC9C0;&#xB294; 2&#xAC1C;&#xC758; &#xAC1C;&#xBCC4; &#xBE0C;&#xB79C;&#xCE58;&#xB97C; &#xAC16;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li>ROS2&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <code>master</code> &#xBE0C;&#xB79C;&#xCE58;. &#xC774; &#xBE0C;&#xB79C;&#xCE58;&#xB294; PX4&#xC640; ROS2 &#xB178;&#xB4DC;&#xB97C; &#xC5F0;&#xACB0;&#xD560; ROS2 &#xBA54;&#xC2DC;&#xC9C0;&#xC640; IDL &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4DC;&#xB294; &#xCF54;&#xB4DC;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+<li>ROS&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <code>ros1</code> &#xBE0C;&#xB79C;&#xCE58;. &#xC774; &#xBE0C;&#xB79C;&#xCE58;&#xB294; <code>ros1_bridge</code>&#xB85C; PX4&#xC640; ROS&#xC758; &#xB370;&#xC774;&#xD130;&#xB97C; &#xACF5;&#xC720;&#xD558;&#xB294;&#xB370;, <em>&#xC774;&#xB97C;</em> &#xD65C;&#xC6A9;&#xD560; ROS &#xBA54;&#xC2DC;&#xC9C0; &#xD5E4;&#xB354;&#xC640; &#xC18C;&#xC2A4; &#xD30C;&#xC77C;&#xC744; &#xC0DD;&#xC131;&#xD558;&#xB294; &#xCF54;&#xB4DC;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+</ul>
+<p><code>px4_ros_com</code>&#xC758; &#xB450; &#xBE0C;&#xB79C;&#xCE58; &#xBAA8;&#xB450; &#xAC10;&#xCCAD; &#xC720;&#xB2DB;&#xACFC; &#xAD11;&#xC5ED; &#xC804;&#xB2EC; &#xC608;&#xC81C; &#xB178;&#xB4DC;&#xB3C4; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xC9C0;&#xC6D0;&#xD558;&#xB294;-uorb-&#xBA54;&#xC2DC;&#xC9C0;"><a name="&#xC9C0;&#xC6D0;&#xD558;&#xB294;-uorb-&#xBA54;&#xC2DC;&#xC9C0;" class="plugin-anchor" href="#&#xC9C0;&#xC6D0;&#xD558;&#xB294;-uorb-&#xBA54;&#xC2DC;&#xC9C0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC9C0;&#xC6D0;&#xD558;&#xB294; uORB &#xBA54;&#xC2DC;&#xC9C0;</h2>
+<p>&#xC0DD;&#xC131;&#xB41C; &#xBE0C;&#xB9BF;&#xC9C0; &#xCF54;&#xB4DC;&#xB294; &#xD2B9;&#xC815; &#xD1A0;&#xD53D;&#xB4E4;&#xC5D0; &#xB300;&#xD574; RTPS&#xB97C; &#xD1B5;&#xD574; Pub/Sub&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xB3C4;&#xB85D; &#xD569;&#xB2C8;&#xB2E4;. ROS&#xC640; non-ROS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC120; &#xBAA8;&#xB450; &#xD574;&#xB2F9;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p><em>&#xC790;&#xB3D9; &#xCF54;&#xB4DC; &#xC0DD;&#xC131;</em>&#xC744; &#xC704;&#xD574; <strong>Firmware/msg/tools/</strong> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; <strong>uorb_rtps_message_ids.yaml</strong> &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;(<em>yaml</em>). &#xC774; &#xD30C;&#xC77C;&#xC740; RTPS&#xC5D0; &#xC0AC;&#xC6A9;&#xB420; uORB &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xC9D1;&#xD569;&#xC744; &#xC815;&#xC758; &#xD569;&#xB2C8;&#xB2E4;. &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xC1A1;, &#xC218;&#xC2E0; &#xC5EC;&#xBD80;&#xC640; DDS/RTPS &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xC5D0; &#xC0AC;&#xC6A9;&#xB420; RTPS ID&#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> &#xBAA8;&#xB4E0; &#xBA54;&#xC2DC;&#xC9C0;&#xB4E4;&#xC5D0; &#xB300;&#xD574; RTPS ID&#xAC00; &#xC124;&#xC815;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-yaml"><span class="hljs-attr">rtps:</span>
+<span class="hljs-attr">  - msg:</span> actuator_armed
+<span class="hljs-attr">    id:</span> <span class="hljs-number">0</span>
+<span class="hljs-attr">  - msg:</span> actuator_control
+<span class="hljs-attr">    id:</span> <span class="hljs-number">1</span>
+<span class="hljs-bullet">  -</span> ...
+<span class="hljs-attr">  - msg:</span> airspeed
+<span class="hljs-attr">    id:</span> <span class="hljs-number">5</span>
+<span class="hljs-attr">    send:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  - msg:</span> battery_status
+<span class="hljs-attr">    id:</span> <span class="hljs-number">6</span>
+<span class="hljs-attr">    send:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">  - msg:</span> camera_capture
+<span class="hljs-attr">    id:</span> <span class="hljs-number">7</span>
+<span class="hljs-attr">  - msg:</span> camera_trigger
+<span class="hljs-attr">    id:</span> <span class="hljs-number">8</span>
+<span class="hljs-attr">    receive:</span> <span class="hljs-literal">true</span>
+<span class="hljs-bullet">  -</span> ...
+<span class="hljs-attr">  - msg:</span> sensor_baro
+<span class="hljs-attr">    id:</span> <span class="hljs-number">63</span>
+<span class="hljs-attr">    receive:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    send:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> ROS2 Dashing&#xC5D0;&#xC11C;&#xC758; API &#xBCC0;&#xACBD;&#xC73C;&#xB85C; <code>rosidl_generate_interfaces()</code> (<code>px4_msgs</code>&#xC5D0;&#xC11C;&#xC758;) CMake &#xBAA8;&#xB4C8;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; microRTPS &#xC5D0;&#xC774;&#xC804;&#xD2B8; &#xC0DD;&#xC131;&#xC5D0; &#xD544;&#xC694;&#xD55C; IDL &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. PX4 &#xD38C;&#xC6E8;&#xC5B4;&#xB294; PX4 &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC5D0;&#xC11C;&#xB9CC; &#xD65C;&#xC6A9;&#xD558;&#xB294; IDL &#xD30C;&#xC77C; &#xC0DD;&#xC131; &#xACFC;&#xC815;&#xC758; &#xC11C;&#xC2DD;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p><code>px4_msgs</code> &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC5D0;&#xC11C;&#xB294; ROS2/ROS&#xC5D0; &#xD65C;&#xC6A9;&#xD560; <em>&#xC57D;&#xAC04; &#xB2E4;&#xB978;</em> IDL &#xD30C;&#xC77C;(PX4 &#xD38C;&#xC6E8;&#xC5B4; &#xC6A9;&#xC73C;&#xB85C; &#xBE4C;&#xB4DC;)&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. <strong>uorb_rtps_message_ids.yaml</strong>&#xB294; <em>PascalCased</em>&#xBC29;&#xC2DD;&#xC73C;&#xB85C; &#xBA54;&#xC2DC;&#xC9C0; &#xC774;&#xB984;&#xC744; &#xC9D3;&#xC2B5;&#xB2C8;&#xB2E4;(&#xC774;&#xB984;&#xC744; &#xBC14;&#xAFB8;&#xB294; &#xAC83;&#xC740; client-agent &#xD1B5;&#xC2E0;&#xACFC;&#xB294; &#xC0C1;&#xAD00;&#xC5C6;&#xC9C0;&#xB9CC; ROS2&#xC5D0;&#xB294; &#xD06C;&#xB9AC;&#xD2F0;&#xCEEC;&#xD569;&#xB2C8;&#xB2E4;, &#xB530;&#xB77C;&#xC11C; &#xBA54;&#xC2DC;&#xC9C0; &#xB124;&#xC774;&#xBC0D;&#xC740; PascalCase &#xCEE8;&#xBCA4;&#xC158;&#xC744; &#xB530;&#xB77C;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;). &#xC0C8; IDL &#xD30C;&#xC77C;&#xC740; &#xC1A1;&#xC218;&#xC2E0;&#xD55C; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xB418;&#xB3CC;&#xB9BD;&#xB2C8;&#xB2E4;(&#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C; &#xBCF4;&#xB0C8;&#xC744; &#xB54C;, &#xC5D0;&#xC774;&#xC804;&#xD2B8;&#xC5D0;&#xC11C; &#xBCF4;&#xB0B4;&#xAC70;&#xB098; &#xADF8; &#xBC18;&#xB300;&#xC758; &#xACBD;&#xC6B0;&#xB85C;&#xB3C4; &#xAC00;&#xB2A5;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD544;&#xC694;).</p>
+</blockquote>
+<h2 id="client_firmware"><a name="client_firmware" class="plugin-anchor" href="#client_firmware"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8; (PX4 &#xD38C;&#xC6E8;&#xC5B4;) </h2>
+<p><em>Client</em> &#xC18C;&#xC2A4;&#xCF54;&#xB4DC;&#xB294; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC744; &#xAC70;&#xCCD0; &#xC0DD;&#xC131;, &#xCEF4;&#xD30C;&#xC77C;, &#xBE4C;&#xB4DC;&#xD558;&#xC5EC; PX4 &#xD38C;&#xC6E8;&#xC5B4;&#xC5D0; &#xB123;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>NuttX/&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xBE44;&#xD589;&#xCCB4; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC;&#xB97C; &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xD38C;&#xC6E8;&#xC5B4;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74; &#xC124;&#xC815; &#xB300;&#xC0C1;&#xC5D0;&#xC11C; <code>_rtps</code> &#xB300;&#xC0C1;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4;, RTPS&#xB97C; px4_fmu-v4&#xC5D0; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74;:</p>
+<pre><code class="lang-sh">make px4_fmu-v4_rtps
+</code></pre>
+<p>SITL &#xB300;&#xC0C1; &#xD38C;&#xC6E8;&#xC5B4;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74;:</p>
+<pre><code class="lang-sh">make px4_sitl_rtps
+</code></pre>
+<p><em>Client</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC740; <a href="../debug/system_console.html">NuttShell/System Console</a>&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xBA85;&#xB839; &#xBB38;&#xBC95;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;(&#xC5EC;&#xB7EC; &#xC778;&#xC790;&#xC758; &#xBCC0;&#xC218; &#xAC12;&#xC744; &#xC9C0;&#xC815;&#xD560; &#xC218; &#xC788;&#xC74C;):</p>
+<pre><code class="lang-sh">&gt; micrortps_client start|stop|status [options]
+  -t &lt;transport&gt;          [UART|UDP] Default UART
+  <span class="hljs-_">-d</span> &lt;device&gt;             UART device. Default /dev/ttyACM0
+  <span class="hljs-_">-l</span> &lt;loops&gt;              How many iterations will this program have. -1 <span class="hljs-keyword">for</span> infinite. Default -1.
+  -w &lt;sleep_time_ms&gt;      Time <span class="hljs-keyword">in</span> ms <span class="hljs-keyword">for</span> <span class="hljs-built_in">which</span> each iteration sleep. Default 1ms
+  -b &lt;baudrate&gt;           UART device baudrate. Default 460800
+  -p &lt;poll_ms&gt;            Time <span class="hljs-keyword">in</span> ms to poll over UART. Default 1ms
+  -r &lt;reception port&gt;     UDP port <span class="hljs-keyword">for</span> receiving. Default 2019
+  <span class="hljs-_">-s</span> &lt;sending port&gt;       UDP port <span class="hljs-keyword">for</span> sending. Default 2020
+  -i &lt;ip_address&gt;         Select IP address (remote) values: &lt;x.x.x.x&gt;. Default: 127.0.0.1
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; <em>Client</em>&#xB294; &#xB370;&#xBAAC;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xC9C0;&#xB9CC;, &#xC9C1;&#xC811; &#xC2E4;&#xD589;&#xD574;&#xC57C; &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. PX4 &#xD38C;&#xC6E8;&#xC5B4; &#xCD08;&#xAE30;&#xD654; &#xCF54;&#xB4DC;&#xB294; &#xB098;&#xC911;&#xC5D0; <em>Client</em>&#xB97C; &#xC601;&#xAD6C; &#xC2E4;&#xD589; &#xB370;&#xBAAC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB85C; &#xC790;&#xB3D9; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4; UDP&#xB85C; &#xC5D0;&#xC774;&#xC804;&#xD2B8;&#xC5D0; SITL &#xC5F0;&#xACB0;&#xD558;&#xB294; <em>Client</em> &#xB370;&#xBAAC;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xBA74; &#xB370;&#xBAAC;&#xC744; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC2DC;&#xC791;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh">micrortps_client start -t UDP
+</code></pre>
+<h2 id="fast-rtps-interface&#xB97C;-&#xC0AC;&#xC6A9;&#xD558;&#xB294;-ros&#xC5D0;-&#xB3C5;&#xB9BD;&#xC801;&#xC778;-&#xC624;&#xD504;&#xBCF4;&#xB4DC;-&#xC5D0;&#xC774;&#xC804;&#xD2B8;"><a name="fast-rtps-interface&#xB97C;-&#xC0AC;&#xC6A9;&#xD558;&#xB294;-ros&#xC5D0;-&#xB3C5;&#xB9BD;&#xC801;&#xC778;-&#xC624;&#xD504;&#xBCF4;&#xB4DC;-&#xC5D0;&#xC774;&#xC804;&#xD2B8;" class="plugin-anchor" href="#fast-rtps-interface&#xB97C;-&#xC0AC;&#xC6A9;&#xD558;&#xB294;-ros&#xC5D0;-&#xB3C5;&#xB9BD;&#xC801;&#xC778;-&#xC624;&#xD504;&#xBCF4;&#xB4DC;-&#xC5D0;&#xC774;&#xC804;&#xD2B8;"><i class="fa fa-link" aria-hidden="true"></i></a>Fast RTPS interface&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; ROS&#xC5D0; &#xB3C5;&#xB9BD;&#xC801;&#xC778; &#xC624;&#xD504;&#xBCF4;&#xB4DC; &#xC5D0;&#xC774;&#xC804;&#xD2B8;</h2>
+<p><em>Agent</em> &#xCF54;&#xB4DC;&#xB294; PX4 &#xD38C;&#xC6E8;&#xC5B4;&#xC640; &#xAD00;&#xB828;&#xB41C; &#xAC83;&#xC744; &#xBE4C;&#xB4DC;&#xD560; &#xB54C; &#xC790;&#xB3D9;&#xC801;&#xC73C;&#xB85C; <em>&#xC0DD;&#xC131;</em>&#xB429;&#xB2C8;&#xB2E4;. &#xC18C;&#xC2A4;&#xCF54;&#xB4DC;&#xB294; &#xC5EC;&#xAE30;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <strong>build/<target-platform>/src/modules/micrortps_bridge/micrortps_client/micrortps_agent/</target-platform></strong>.</p>
+<p><em>Agent</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xD544;&#xB4DC;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; &#xCF54;&#xB4DC;&#xB97C; &#xCEF4;&#xD30C;&#xC77C; &#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> build/&lt;target-platform&gt;/src/modules/micrortps_bridge/micrortps_client/micrortps_agent
+mkdir build &amp;&amp; <span class="hljs-built_in">cd</span> build
+cmake ..
+make
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <em>Qualcomm Snapdragon Flight</em> &#xD50C;&#xB7AB;&#xD3FC;&#xC744; &#xC704;&#xD55C; &#xD06C;&#xB85C;&#xC2A4; &#xCEF4;&#xD30C;&#xC77C;&#xC744; <a href="https://github.com/eProsima/PX4-FastRTPS-PoC-Snapdragon-UDP#how-to-use" target="_blank">&#xC5EC;&#xAE30;</a>&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;.</p>
+</blockquote>
+<p><em>Agent</em> &#xBA85;&#xB839;&#xC5B4;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-sh">$ ./micrortps_agent [options]
+  -t &lt;transport&gt;          [UART|UDP] Default UART.
+  <span class="hljs-_">-d</span> &lt;device&gt;             UART device. Default /dev/ttyACM0.
+  -w &lt;sleep_time_us&gt;      Time <span class="hljs-keyword">in</span> us <span class="hljs-keyword">for</span> <span class="hljs-built_in">which</span> each iteration sleep. Default 1ms.
+  -b &lt;baudrate&gt;           UART device baudrate. Default 460800.
+  -p &lt;poll_ms&gt;            Time <span class="hljs-keyword">in</span> ms to poll over UART. Default 1ms.
+  -r &lt;reception port&gt;     UDP port <span class="hljs-keyword">for</span> receiving. Default 2019.
+  <span class="hljs-_">-s</span> &lt;sending port&gt;       UDP port <span class="hljs-keyword">for</span> sending. Default 2020.
+</code></pre>
+<p><em>Agent</em>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xBA74; <code>micrortps_agent</code>&#xB97C; <em>Client</em>&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xC801;&#xC808;&#xD55C; &#xC635;&#xC158;&#xC744; &#xC8FC;&#xC5B4; &#xC2E4;&#xD589;&#xD558;&#xC138;&#xC694;(&#xB9AC;&#xB205;&#xC2A4; &#xB514;&#xBC14;&#xC774;&#xC2A4;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; UART &#xD3EC;&#xD2B8;&#xB97C; &#xD1B5;&#xD574; <em>Client</em>&#xC5D0; &#xC5F0;&#xACB0;&#xD569;&#xB2C8;&#xB2E4;).</p>
+<p>&#xC608;&#xB97C; &#xB4E4;&#xC5B4;, UDP&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xB294; <em>micrortps_agent</em>&#xC744; &#xC2DC;&#xC791;&#xD558;&#xB824;&#xBA74;, &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh">./micrortps_agent -t UDP
+</code></pre>
+<h2 id="agent&#xC640;-ros2-&#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;"><a name="agent&#xC640;-ros2-&#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;" class="plugin-anchor" href="#agent&#xC640;-ros2-&#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;"><i class="fa fa-link" aria-hidden="true"></i></a>Agent&#xC640; ROS2 &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;</h2>
+<p><code>pxr_ros_com</code> &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC5D0;&#xC11C;&#xB294; <code>px4_msgs</code> &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xB3D9;&#xC77C;&#xD55C; ROS2 &#xC791;&#xC5C5; &#xACF5;&#xAC04;(&#xB610;&#xB294; &#xB2E4;&#xB978; ROS2 &#xC791;&#xC5C5; &#xACF5;&#xAC04;&#xC5D0; &#xB193;&#xC5EC;)&#xC5D0; &#xBE4C;&#xB4DC; &#xACB0;&#xACFC;&#xBB3C;&#xC744; &#xB450;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; &#xC5D0;&#xC774;&#xC804;&#xD2B8; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4; &#xBE4C;&#xB4DC;&#xD569;&#xB2C8;&#xB2E4;. <a href="http://design.ros2.org/articles/build_tool.html" target="_blank"><code>colcon</code></a> &#xBE4C;&#xB4DC; &#xD234;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xC124;&#xCE58;&#xD558;&#xBBC0;&#xB85C; &#xC704;&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xBC29;&#xC2DD;&#xC73C;&#xB85C;&#xB3C4; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;. &#xC790;&#xC138;&#xD55C; &#xBE4C;&#xB4DC; &#xAD6C;&#xC870; &#xB0B4;&#xC6A9;&#xC740; <strong><code>px4_ros_com</code> &#xD328;&#xD0A4;&#xC9C0; &#xBE4C;&#xB4DC;</strong>&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. </p>
+<h2 id="px4roscom&#xC640;-px4msgs-&#xD328;&#xD0A4;&#xC9C0;-&#xBE4C;&#xB4DC;"><a name="px4roscom&#xC640;-px4msgs-&#xD328;&#xD0A4;&#xC9C0;-&#xBE4C;&#xB4DC;" class="plugin-anchor" href="#px4roscom&#xC640;-px4msgs-&#xD328;&#xD0A4;&#xC9C0;-&#xBE4C;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a><code>px4_ros_com</code>&#xC640; <code>px4_msgs</code> &#xD328;&#xD0A4;&#xC9C0; &#xBE4C;&#xB4DC;</h2>
+<p>&#xAC1C;&#xBC1C;&#xC6A9; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0; ROS2&#xC640; ROS &#xD658;&#xACBD;&#xC744; &#xC124;&#xCE58;&#xD558;&#xACE0; &#xC138;&#xD305;&#xD558;&#xC138;&#xC694;, &#xADF8;&#xB9AC;&#xACE0; <code>px4_ros_com</code>&#xC640; <code>px4_msgs</code> &#xC800;&#xC7A5;&#xC18C;&#xB97C; <code>master</code>&#xC640; <code>ros1</code>&#xBE0C;&#xB79C;&#xCE58;&#xC5D0; &#xB3C5;&#xB9BD;&#xC801;&#xC73C;&#xB85C; &#xD074;&#xB860;&#xD558;&#xC138;&#xC694;(<a href="#px4_ros_com">&#xB354; &#xC790;&#xC138;&#xD55C; &#xC815;&#xBCF4;&#xB294; &#xC5EC;&#xAE30;&#xB97C; &#xBCF4;&#xC138;&#xC694;</a>).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> ROS2&#xB294; &#xB9C8;&#xC2A4;&#xD130; &#xBE0C;&#xB79C;&#xCE58;&#xB9CC; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;(ROS&#xB294; &#xB450; &#xBE0C;&#xB79C;&#xCE58; &#xB2E4; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;).</p>
+</blockquote>
+<h3 id="ros&#xC640;-ros2-&#xC124;&#xCE58;&#xC640;-&#xC758;&#xC874;&#xC131;"><a name="ros&#xC640;-ros2-&#xC124;&#xCE58;&#xC640;-&#xC758;&#xC874;&#xC131;" class="plugin-anchor" href="#ros&#xC640;-ros2-&#xC124;&#xCE58;&#xC640;-&#xC758;&#xC874;&#xC131;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS&#xC640; ROS2 &#xC124;&#xCE58;&#xC640; &#xC758;&#xC874;&#xC131;</h3>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p>&#xC774; &#xC124;&#xCE58; &#xBE4C;&#xB4DC; &#xC548;&#xB0B4;&#xC11C;&#xB294; ROS Melodic&#xACFC; ROS2 Dashing&#xC744; &#xB2E4;&#xB8F9;&#xB2C8;&#xB2E4;(ROS2 Ardent, Bouncy, Crystal&#xC740; &#xC9C0;&#xC6D0;&#xC774; &#xB05D;&#xB098; &#xB2E4;&#xB8E8;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;).</p>
+</blockquote>
+<p>ROS Melodic&#xACFC; ROS2 Dashing(&#xACF5;&#xC2DD; &#xC9C0;&#xC6D0;)&#xC744; Ubuntu 18.04 &#xBA38;&#xC2E0;&#xC5D0; &#xC124;&#xCE58;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xAC01; &#xB9C1;&#xD06C;&#xC758; &#xB0B4;&#xC6A9;&#xC744; &#xB530;&#xB974;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<ol>
+<li><a href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank">ROS Melodic&#xC744; &#xC124;&#xCE58;&#xD558;&#xC2ED;&#xC2DC;&#xC624;</a></li>
+<li><a href="https://index.ros.org/doc/ros2/Installation/Dashing/Linux-Install-Debians/" target="_blank">ROS2 Dashing&#xC744; &#xC124;&#xCE58;&#xD558;&#xC2ED;&#xC2DC;&#xC624;</a></li>
+<li><p>&#xC774; &#xC124;&#xCE58;&#xACFC;&#xC815;&#xC740; <em>colcon</em> &#xBE4C;&#xB4DC; &#xD234; &#xC124;&#xCE58;&#xAC00; &#xD544;&#xC694;&#xD560; &#xAC83; &#xC785;&#xB2C8;&#xB2E4;. &#xC124;&#xCE58;&#xB418;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC218;&#xB3D9;&#xC73C;&#xB85C; &#xC124;&#xCE58;&#xD574;&#xC8FC;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> sudo apt install python3-colcon-common-extensions
+</code></pre>
+</li>
+<li><p>Eigen3&#xB97C; &#xBCC0;&#xD658; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC5D0;&#xC11C; &#xD65C;&#xC6A9;&#xD558;&#xBBC0;&#xB85C; <em>eigen3_cmake_module</em> &#xBAA8;&#xB4C8;&#xB3C4; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-sh"> sudo apt install ros-dashing-eigen3-cmake-module
+</code></pre>
+</li>
+<li><p><em>setuptools</em>&#xB97C; &#xC124;&#xCE58;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;(<em>apt</em> &#xB610;&#xB294; <em>apt</em> &#xD65C;&#xC6A9;):</p>
+<pre><code class="lang-sh"> sudo pip3 install -U setuptools
+</code></pre>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> &#xB370;&#xBE44;&#xC548; &#xC800;&#xC7A5;&#xC18C;&#xC5D0;&#xC11C; <code>ros1_bridge</code> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xC124;&#xCE58;&#xD558;&#xC9C0; &#xB9C8;&#xC2ED;&#xC2DC;&#xC624;. &#xC774; &#xD328;&#xD0A4;&#xC9C0;&#xB294; &#xC18C;&#xC2A4; &#xCF54;&#xB4DC;&#xB97C; &#xBE4C;&#xB4DC;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xC124;&#xC815;"><a name="&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xC124;&#xC815;" class="plugin-anchor" href="#&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC791;&#xC5C5; &#xC601;&#xC5ED; &#xC124;&#xC815;</h3>
+<p>ROS&#xC640; ROS2&#xAC00; &#xB2E4;&#xB978; &#xD658;&#xACBD;&#xC744; &#xD544;&#xC694;&#xB85C; &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xAC01; ROS&#xB97C; &#xC704;&#xD55C; &#xC6CC;&#xD06C;&#xC2A4;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xBD84;&#xB9AC;&#xD560; &#xD544;&#xC694;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC608;:</p>
+<ol>
+<li><p>ROS2 &#xC6CC;&#xD0B9; &#xC2A4;&#xD398;&#xC774;&#xC2A4;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xB9CC;&#xB4DC;&#xC138;&#xC694;</p>
+<pre><code class="lang-sh"> mkdir -p ~/px4_ros_com_ros2/src
+</code></pre>
+<p> &#xADF8;&#xB9AC;&#xACE0; ROS2 (<code>master</code>) &#xBE0C;&#xB79C;&#xCE58;&#xB97C; <code>/src</code> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xD074;&#xB860;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> $ git <span class="hljs-built_in">clone</span> https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros2/src/px4_ros_com <span class="hljs-comment"># clones the master branch</span>
+ $ git <span class="hljs-built_in">clone</span> https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros2/src/px4_msgs
+</code></pre>
+</li>
+<li><p>ROS&#xB3C4; &#xB611;&#xAC19;&#xC9C0;&#xB9CC;, &#xB2E4;&#xB978; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC0DD;&#xC131;&#xD574; &#xB2E4;&#xB978; &#xBE0C;&#xB79C;&#xCE58;&#xB97C; &#xD074;&#xB860;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> mkdir -p ~/px4_ros_com_ros1/src
+</code></pre>
+<p> ROS2 (<code>ros1</code>) &#xBE0C;&#xB79C;&#xCE58;&#xB97C; <code>/src</code> &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xD074;&#xB860;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> $ git <span class="hljs-built_in">clone</span> https://github.com/PX4/px4_ros_com.git ~/px4_ros_com_ros1/src/px4_ros_com -b ros1 <span class="hljs-comment"># clones the &apos;ros1&apos; branch</span>
+ $ git <span class="hljs-built_in">clone</span> https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ros1/src/px4_msgs -b ros1
+</code></pre>
+</li>
+</ol>
+<h3 id="&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><a name="&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xBE4C;&#xB4DC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC791;&#xC5C5; &#xC601;&#xC5ED; &#xBE4C;&#xB4DC;&#xD558;&#xAE30;</h3>
+<p><code>px4_ros_com/scripts</code> &#xB514;&#xB809;&#xD130;&#xB9AC;&#xB294; &#xB450; &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC744; &#xBE4C;&#xB4DC;&#xD560; &#xB54C; &#xD65C;&#xC6A9;&#xD558;&#xB294; &#xC5EC;&#xB7EC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB450; &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC744; &#xB2E8;&#xC77C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB85C; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74; <code>build_all.bash</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. <code>source build_all.bash --help</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xBC95;&#xC744; &#xD655;&#xC778;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xAC00;&#xC7A5; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xC0AC;&#xC6A9;&#xBC95;&#xC740; ROS(1) &#xC791;&#xC5C5; &#xC601;&#xC5ED; &#xACBD;&#xB85C;&#xC640; PX4 &#xD38C;&#xC6E8;&#xC5B4; &#xB514;&#xB809;&#xD130;&#xB9AC; &#xACBD;&#xB85C;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">source</span> build_all.bash --ros1_ws_dir &lt;path/to/px4_ros_com_ros1/ws&gt;
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <code>--verbose</code> &#xC778;&#xC790;&#xB294; <em>colcon</em> &#xBE4C;&#xB4DC; &#xCD9C;&#xB825; &#xC804;&#xCCB4; &#xB0B4;&#xC6A9;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.</p>
+<p><strong>Note</strong> &#xBE4C;&#xB4DC; &#xACFC;&#xC815; &#xB3C4;&#xC911; &#xB2E4;&#xB978; &#xD658;&#xACBD; &#xC124;&#xC815;&#xC744; &#xC801;&#xC6A9;&#xD574;&#xC57C; &#xD558;&#xB294; &#xAC01; &#xBE4C;&#xB4DC; &#xACFC;&#xC815; &#xB2E8;&#xACC4;&#xC5D0; &#xB530;&#xB77C; &#xCF58;&#xC194;&#xC758; &#xC0C8; &#xD0ED;&#xC744; &#xC5FD;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p>&#xC77C;&#xBD80;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74; &#xC544;&#xB798; &#xBCC4;&#xB3C4; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li><code>ros1_bridge</code>&#xB97C; &#xBE4C;&#xB4DC;&#xD560; <code>build_ros1_bridge.bash</code>.</li>
+<li><code>px4_ros_com</code>&#xACFC; <code>px4_msgs</code>&#xC758; <code>ros1</code> &#xBE0C;&#xB79C;&#xCE58;&#xB97C; &#xAC00;&#xC838;&#xC628; &#xC704;&#xCE58;&#xC5D0; ROS1 &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC744; &#xBE4C;&#xB4DC;&#xD558;&#xB294; <code>build_ros1_workspace.bash</code>(<code>px4_ros_com</code>&#xC758; <code>ros1</code> &#xBE0C;&#xB79C;&#xCE58;&#xC5D0;&#xB9CC; &#xC788;&#xC74C;).</li>
+<li><code>px4_ros_com</code>&#xACFC; <code>px4_msgs</code>&#xC758; <code>master</code> &#xBE0C;&#xB79C;&#xCE58;&#xB97C; &#xAC00;&#xC838;&#xC628; &#xC704;&#xCE58;&#xC5D0; ROS2 &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC744; &#xBE4C;&#xB4DC;&#xD558;&#xB294; <code>build_ros2_workspace.bash</code>.</li>
+</ul>
+<p>&#xC544;&#xB798; &#xB2E8;&#xACC4;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; <em>&#xC9C1;&#xC811;</em> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xB294; &#xC9C0; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;(&#xC774;&#xD574;&#xB97C; &#xB3D5;&#xB294; &#xC6A9;&#xB3C4;&#xB85C;&#xB9CC; &#xC81C;&#xACF5;&#xD568;):</p>
+<ol>
+<li><p><code>px4_ros_com_ros2</code> &#xB514;&#xB809;&#xD130;&#xB9AC;&#xB97C; &#xB300;&#xC0C1;&#xC73C;&#xB85C; <code>cd</code> &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xACE0; ROS2 &#xD658;&#xACBD;&#xC5D0; &#xD544;&#xC694;&#xD55C; &#xBAA8;&#xB4E0; &#xC124;&#xC815;&#xC744; &#xC801;&#xC6A9;(source)&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xC55E;&#xC11C; &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC744; &#xC124;&#xC815;&#xD588;&#xB2E4;&#xACE0; &#xD558;&#xB354;&#xB77C;&#xB3C4; &#xC2E0;&#xACBD;&#xC4F0;&#xC9C0; &#xB9C8;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> /opt/ros/dashing/setup.bash
+</code></pre>
+</li>
+<li><p>ROS2 &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC5D0; &#xBE4C;&#xB4DC;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; <code>ros1_bridge</code> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xC6D0;&#xACA9;&#xC5D0;&#xC11C; &#xAC00;&#xC838;&#xC624;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"> git <span class="hljs-built_in">clone</span> https://github.com/ros2/ros1_bridge.git -b dashing ~/px4_ros_com_ros2/src/ros1_bridge
+</code></pre>
+</li>
+<li><p><code>ros1_bridge</code> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xC81C;&#xC678;&#xD558;&#xACE0;, <code>px4_ros_com</code>&#xC640; <code>px4_msgs</code> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> colcon build --symlink-install --packages-skip ros1_bridge --event-handlers console_direct+
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <code>--event-handlers console_direct+</code>&#xB294; &#xB2E8;&#xC9C0; <code>colcon</code> &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC744; &#xC790;&#xC138;&#xD558;&#xAC8C; &#xBCF4;&#xC5EC;&#xC8FC;&#xB294; &#xC6A9;&#xB3C4;&#xB85C;&#xB9CC; &#xC0AC;&#xC6A9;&#xB418;&#xACE0; &#xC6D0;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC0AD;&#xC81C;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+</li>
+<li><p>&#xC774;&#xC81C; ROS &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xBE4C;&#xB4DC; &#xACFC;&#xC815; &#xC9C4;&#xD589;&#xC744; &#xC704;&#xD574; &#xC0C8; &#xD130;&#xBBF8;&#xB110; &#xCC3D;&#xC744; &#xC5F4;&#xACE0; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC124;&#xCE58;&#xD55C; ROS(1) &#xD658;&#xACBD; &#xC804;&#xC6A9; &#xC124;&#xC815; &#xAC12;&#xC744; &#xC801;&#xC6A9;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> /opt/ros/melodic/setup.bash
+</code></pre>
+</li>
+<li><p>&#xC0C8;&#xB85C;&#xC6B4; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C;, <code>px4_ros_com</code>&#xC640; <code>px4_msgs</code> &#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> <span class="hljs-built_in">cd</span> ~/px4_ros_com_ros1 &amp;&amp; colcon build --symlink-install --event-handlers console_direct+
+</code></pre>
+</li>
+<li><p><code>ros1_bridge</code>&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xAE30; &#xC804;, &#xC0C8; &#xD130;&#xBBF8;&#xB110;&#xC744; &#xC5F4;&#xACE0; &#xC544;&#xB798; &#xC21C;&#xC11C;&#xB300;&#xB85C; &#xD658;&#xACBD;&#xACFC; &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC744; &#xC124;&#xC815;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"> <span class="hljs-built_in">source</span> ~/px4_ros_com_ros1/install/setup.bash
+ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/setup.bash
+</code></pre>
+</li>
+<li><p>&#xC774;&#xC81C; <code>ros1_bridge</code>&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xCC38;&#xACE0;&#xB85C;, &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC740; &#xBA54;&#xBAA8;&#xB9AC;&#xB97C; &#xB9CE;&#xC774; &#xC18C;&#xBE44;&#xD569;&#xB2C8;&#xB2E4;. &#xD55C;&#xC815; &#xC790;&#xC6D0;&#xC744; &#xC9C0;&#xB2CC; &#xD658;&#xACBD;&#xC5D0;&#xC11C;&#xB294;, &#xBCD1;&#xB82C; &#xCC98;&#xB9AC; &#xAC74;&#xC218;&#xB97C; &#xC904;&#xC774;&#xC2ED;&#xC2DC;&#xC624;(&#xC608;: &#xD658;&#xACBD; &#xBCC0;&#xC218; &#xC124;&#xC815; <code>MAKEFLAGS=-j1</code>). &#xC790;&#xC138;&#xD55C; &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC740; <a href="https://github.com/ros2/ros1_bridge" target="_blank">ros1_bridge</a> &#xD328;&#xD0A4;&#xC9C0;&#xC758; &#xBE4C;&#xB4DC; &#xBA85;&#xB839;&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<pre><code class="lang-sh"> <span class="hljs-built_in">cd</span> ~/px4_ros_com_ros2 &amp;&amp; colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure --event-handlers console_direct+
+</code></pre>
+</li>
+</ol>
+<h3 id="&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xC815;&#xB9AC;&#xD558;&#xAE30;"><a name="&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xC815;&#xB9AC;&#xD558;&#xAE30;" class="plugin-anchor" href="#&#xC791;&#xC5C5;-&#xC601;&#xC5ED;-&#xC815;&#xB9AC;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC791;&#xC5C5; &#xC601;&#xC5ED; &#xC815;&#xB9AC;&#xD558;&#xAE30;</h3>
+<p>&#xBE4C;&#xB4DC;&#xAC00; &#xB05D;&#xB098;&#xBA74; &#xC0C8; &#xBE4C;&#xB4DC;&#xB97C; &#xC9C4;&#xD589;&#xD558;&#xAE30; &#xC804; &#xC0AD;&#xC81C;&#xD560; &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; (&#xC608;. &#xCF54;&#xB4DC;&#xC758; &#xC77C;&#xBD80;&#xB97C; &#xC218;&#xC815;&#xD558;&#xACE0; &#xB2E4;&#xC2DC; &#xD544;&#xC694;&#xD558;&#xB824;&#xACE0; &#xD560; &#xB54C;). <em>colcon</em>&#xB294; &#xD604;&#xC7AC; &#xC0DD;&#xC131;&#xD55C; <strong>build</strong>, <strong>install</strong>, <strong>log</strong> &#xB514;&#xB809;&#xD130;&#xB9AC;&#xB97C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC9C0;&#xC6B0;&#xB294; &#xC218;&#xB2E8;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC9C1;&#xC811; &#xC9C0;&#xC6B0;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<p>&#xC815;&#xB9AC; &#xACFC;&#xC815;&#xC744; &#xC27D;&#xAC8C; &#xCC98;&#xB9AC;&#xD558;&#xB294; (<strong>px4_ros_com/scripts</strong>&#xC758;) <strong>clean_all.bash</strong> &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xAC00;&#xC7A5; &#xC77C;&#xBC18;&#xC801;&#xC778; &#xD65C;&#xC6A9;&#xBC95;&#xC740; ROS(1) &#xC791;&#xC5C5; &#xC601;&#xC5ED; &#xB514;&#xB809;&#xD130;&#xB9AC; &#xACBD;&#xB85C;(&#xD574;&#xB2F9; &#xACBD;&#xB85C;&#xAC00; &#xAE30;&#xBCF8; &#xACBD;&#xB85C;&#xAC00; &#xC544;&#xB2C8;&#xAE30; &#xB54C;&#xBB38;)&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-sh">$ <span class="hljs-built_in">source</span> clean_all.bash --ros1_ws_dir &lt;path/to/px4_ros_com_ros1/ws&gt;
+</code></pre>
+<h2 id="fast-rtps-&#xAC10;&#xCCAD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xB9CC;&#xB4E4;&#xAE30;"><a name="fast-rtps-&#xAC10;&#xCCAD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xB9CC;&#xB4E4;&#xAE30;" class="plugin-anchor" href="#fast-rtps-&#xAC10;&#xCCAD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xB9CC;&#xB4E4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>Fast RTPS &#xAC10;&#xCCAD; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xB9CC;&#xB4E4;&#xAE30;</h2>
+<p>&#xD55C;&#xBC88; <em>Client</em> (&#xBE44;&#xD589; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC;&#xC758;) &#xC640; <em>Agent</em> (&#xC624;&#xD504;&#xBCF4;&#xB4DC; &#xCEF4;&#xD4E8;&#xD130;&#xC758;)&#xAC00; &#xB3D9;&#xC791;&#xD558;&#xACE0; &#xC5F0;&#xACB0;&#xB418;&#xAE30; &#xC2DC;&#xC791;&#xD558;&#xBA74;, <em>Fast RTPS</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC740; RTPS&#xB97C; &#xC774;&#xC6A9;&#xD558;&#xC5EC; uORB &#xD1A0;&#xD53D;&#xB4E4;&#xC744; &#xD37C;&#xBE14;&#xB9AC;&#xC2DC;&#xD558;&#xACE0; &#xAD6C;&#xB3C5;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774; &#xC608;&#xC81C;&#xB294; <code>sensor_combined</code> &#xD1A0;&#xD53D;&#xC744; &#xAD6C;&#xB3C5;&#xD558;&#xACE0; &#xAC31;&#xC2E0;&#xACB0;&#xACFC;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xB294; <em>Fast RTPS</em> &quot;&#xB9AC;&#xC2A4;&#xB108;&quot; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xC5B4;&#xB5BB;&#xAC8C; &#xB9CC;&#xB4E4;&#xC9C0; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;. &#xC5F0;&#xACB0;&#xD55C; RTPS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC740; &#xAC19;&#xC740; &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xB0B4;&#xC758; &#xC5B4;&#xB5A4; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0; &#xB300;&#xD574; <em>Agent</em>&#xB85C; &#xB3D9;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; &#xC774; &#xC608;&#xC81C;&#xC5D0;&#xC11C; <em>Agent</em>&#xC640; <em>Listener application</em>&#xC740; &#xB3D9;&#xC77C;&#xD55C; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><em>fastrtpsgen</em> &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; IDL &#xBA54;&#xC2DC;&#xC9C0; &#xD30C;&#xC77C;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xAC04;&#xB2E8;&#xD55C; RTPS &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xB9CC;&#xB4E4; &#xB54C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> RTPS &#xBA54;&#xC2DC;&#xC9C0;&#xB294; IDL &#xD30C;&#xC77C;&#xC5D0; &#xC815;&#xC758;&#xD574;&#xB450;&#xACE0; <em>fastrtpsgen</em> &#xBA85;&#xB839;&#xC73C;&#xB85C; C++ &#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xCF54;&#xB4DC;&#xB97C; &#xCEF4;&#xD30C;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;. &#xBE0C;&#xB9BF;&#xC9C0; &#xCF54;&#xB4DC; &#xBE4C;&#xB4DC; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC1A1;&#xC218;&#xC2E0;&#xD560; uORB &#xBA54;&#xC138;&#xC9C0; &#xD30C;&#xC77C;&#xC5D0; &#xB300;&#xD55C; IDL &#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;(<strong>build/BUILDPLATFORM/src/modules/micrortps_bridge/micrortps_agent/idl/*.idl</strong> &#xCC38;&#xACE0;). PX4&#xC640; &#xD1B5;&#xC2E0;&#xD560; <em>Fast RTPS</em> &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xB9CC;&#xB4E4; &#xB54C; IDL &#xD30C;&#xC77C;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p>&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xB9CC;&#xB4E4;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xC785;&#xB825;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> /path/to/PX4/Firmware/build/px4_sitl_rtps/src/modules/micrortps_bridge
+mkdir micrortps_listener
+<span class="hljs-built_in">cd</span> micrortps_listener
+fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined.idl
+</code></pre>
+<p>&#xC774; &#xBA85;&#xB839;&#xC5B4;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC778; Subscriber&#xC640; Publisher&#xB97C; &#xB9CC;&#xB4E4;&#xACE0;, &#xC774;&#xAC83;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xBA54;&#xC778; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. <code>sensor_combined</code> &#xD1A0;&#xD53D;&#xC73C;&#xB85C; &#xBD80;&#xD130; &#xC624;&#xB294; &#xB370;&#xC774;&#xD130;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; <strong>sensor_combined_Subscriber.cxx</strong> &#xBA54;&#xC18C;&#xB4DC;&#xC758; <code>onNewDataMessage()</code>&#xB97C; &#xC218;&#xC815;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">void</span> sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
+{
+    <span class="hljs-comment">// Take data</span>
+    sensor_combined_ st;
+
+    <span class="hljs-keyword">if</span>(sub-&gt;takeNextData(&amp;st, &amp;m_info))
+    {
+        <span class="hljs-keyword">if</span>(m_info.sampleKind == ALIVE)
+        {
+            <span class="hljs-comment">// Print your structure data here.</span>
+            ++n_msg;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;\n\n\n\n\n\n\n\n\n\n&quot;</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Sample received, count=&quot;</span> &lt;&lt; n_msg &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;=============================&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;gyro_rad: &quot;</span> &lt;&lt; st.gyro_rad().at(<span class="hljs-number">0</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.gyro_rad().at(<span class="hljs-number">1</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.gyro_rad().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;gyro_integral_dt: &quot;</span> &lt;&lt; st.gyro_integral_dt() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_timestamp_relative: &quot;</span> &lt;&lt; st.accelerometer_timestamp_relative() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_m_s2: &quot;</span> &lt;&lt; st.accelerometer_m_s2().at(<span class="hljs-number">0</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.accelerometer_m_s2().at(<span class="hljs-number">1</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.accelerometer_m_s2().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;accelerometer_integral_dt: &quot;</span> &lt;&lt; st.accelerometer_integral_dt() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;magnetometer_timestamp_relative: &quot;</span> &lt;&lt; st.magnetometer_timestamp_relative() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;magnetometer_ga: &quot;</span> &lt;&lt; st.magnetometer_ga().at(<span class="hljs-number">0</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.magnetometer_ga().at(<span class="hljs-number">1</span>);
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;, &quot;</span> &lt;&lt; st.magnetometer_ga().at(<span class="hljs-number">2</span>) &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;baro_timestamp_relative: &quot;</span> &lt;&lt; st.baro_timestamp_relative() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;baro_alt_meter: &quot;</span> &lt;&lt; st.baro_alt_meter() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;baro_temp_celcius: &quot;</span> &lt;&lt; st.baro_temp_celcius() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+
+        }
+    }
+}
+</code></pre>
+<p>&#xB9AC;&#xB205;&#xC2A4; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xBE4C;&#xB4DC;&#xD558;&#xACE0; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xBA74;:</p>
+<pre><code class="lang-sh">make <span class="hljs-_">-f</span> makefile_x64Linux2.6gcc
+bin/*/sensor_combined_PublisherSubscriber subscriber
+</code></pre>
+<p>&#xC774;&#xC81C; &#xC13C;&#xC11C; &#xC815;&#xBCF4;&#xAC00; &#xB098;&#xD0C0;&#xB098;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-sh">Sample received, count=10119
+Received sensor_combined data
+=============================
+gyro_rad: -0.0103228, 0.0140477, 0.000319406
+gyro_integral_dt: 0.004
+accelerometer_timestamp_relative: 0
+accelerometer_m_s2: -2.82708, -6.34799, -7.41101
+accelerometer_integral_dt: 0.004
+magnetometer_timestamp_relative: -10210
+magnetometer_ga: 0.60171, 0.0405879, -0.040995
+baro_timestamp_relative: -17469
+baro_alt_meter: 368.647
+baro_temp_celcius: 43.93
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <em>&#xAC10;&#xCCAD; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;</em>&#xC5D0;&#xC11C; &#xC544;&#xBB34; &#xB0B4;&#xC6A9;&#xB3C4; &#xCD9C;&#xB825;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; <em>&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;</em>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+</blockquote>
+<h2 id="ros2-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;"><a name="ros2-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;" class="plugin-anchor" href="#ros2-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2 &#xAC10;&#xCCAD; &#xC720;&#xB2DB; &#xB9CC;&#xB4E4;&#xAE30;</h2>
+<p><code>px4_ros_com</code>&#xAC00; &#xBE4C;&#xB4DC;&#xB418;&#xBA74;, &#xC0DD;&#xC131;&#xB41C; <em>micro-RTPS</em> &#xC5D0;&#xC774;&#xC804;&#xD2B8; &#xC571;&#xACFC; <code>px4_msgs</code>&#xB85C; &#xBD80;&#xD130; &#xC0DD;&#xC131;&#xB41C; ROS2 &#xBA54;&#xC2DC;&#xC9C0; &#xD5E4;&#xB354;, &#xC18C;&#xC2A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB300;&#xC751;&#xD558;&#xB294; uORB&#xC640; 1:1&#xB85C; &#xB9E4;&#xCE6D;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>ROS2&#xC5D0;&#xC11C; &#xAC10;&#xCCAD; &#xB178;&#xB4DC;&#xB97C; &#xB9CC;&#xB4DC;&#xB824;&#xBA74; <code>px4_ros_com/src/listeners</code>&#xC758; <code>sensor_combined_listener.cpp</code> &#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_msgs/msg/sensor_combined.hpp&gt;</span></span>
+</code></pre>
+<p>&#xC704;&#xC758; &#xD5E4;&#xB354;&#xB4E4;&#xC740; ROS2 &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xC5D0; &#xC811;&#xC18D;&#xD558;&#xAE30; &#xC704;&#xD574; &#xD544;&#xC694;&#xD55C; C++ &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB4E4;&#xC744; &#xD3EC;&#xD568;&#xD569;&#xB2C8;&#xB2E4;. &#xD544;&#xC694;&#xD55C; &#xBA54;&#xC2DC;&#xC9C0; &#xD5E4;&#xB354;&#xD30C;&#xC77C;&#xB4E4; &#xB610;&#xD55C; &#xD3EC;&#xD568;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++"><span class="hljs-comment">/**
+ * @brief Sensor Combined uORB topic data callback
+ */</span>
+<span class="hljs-keyword">class</span> SensorCombinedListener : <span class="hljs-keyword">public</span> rclcpp::Node
+{
+</code></pre>
+<p><code>rclcpp::Node</code>&#xC758; &#xC11C;&#xBE0C;&#xD074;&#xB798;&#xC2A4;&#xB85C; <code>SensorCombinedListener</code> &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++">public:
+    explicit SensorCombinedListener() : Node(&quot;sensor_combined_listener&quot;) {
+        subscription_ = this-&gt;create_subscription&lt;px4_msgs::msg::SensorCombined&gt;(
+            &quot;SensorCombined_PubSubTopic&quot;, 10,
+            [this](const px4_msgs::msg::SensorCombined::UniquePtr msg) {
+            std::cout &lt;&lt; &quot;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n&quot;;
+            std::cout &lt;&lt; &quot;RECEIVED SENSOR COMBINED DATA&quot;   &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;=============================&quot;   &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;ts: &quot;          &lt;&lt; msg-&gt;timestamp    &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_rad[0]: &quot; &lt;&lt; msg-&gt;gyro_rad[0]  &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_rad[1]: &quot; &lt;&lt; msg-&gt;gyro_rad[1]  &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_rad[2]: &quot; &lt;&lt; msg-&gt;gyro_rad[2]  &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;gyro_integral_dt: &quot; &lt;&lt; msg-&gt;gyro_integral_dt &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;accelerometer_timestamp_relative: &quot; &lt;&lt; msg-&gt;accelerometer_timestamp_relative &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;accelerometer_m_s2[0]: &quot; &lt;&lt; msg-&gt;accelerometer_m_s2[0] &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;accelerometer_m_s2[1]: &quot; &lt;&lt; msg-&gt;accelerometer_m_s2[1] &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;accelerometer_m_s2[2]: &quot; &lt;&lt; msg-&gt;accelerometer_m_s2[2] &lt;&lt; std::endl;
+            std::cout &lt;&lt; &quot;accelerometer_integral_dt: &quot; &lt;&lt; msg-&gt;accelerometer_integral_dt &lt;&lt; std::endl;
+        });
+    }
+</code></pre>
+<p>&#xC774; &#xCF54;&#xB4DC;&#xB294; <code>sensor_combined</code> uORB &#xBA54;&#xC138;&#xC9C0;(DDS &#xBA54;&#xC138;&#xC9C0;&#xC640; &#xC720;&#xC0AC;)&#xB97C; &#xBC1B;&#xC558;&#xC744; &#xB54C; &#xD638;&#xCD9C;&#xD558;&#xB294; &#xD568;&#xC218;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. &#xC774; &#xD568;&#xC218;&#xB294; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xBC1B;&#xC744; &#xB54C;&#xB9C8;&#xB2E4; &#xBA54;&#xC138;&#xC9C0; &#xD544;&#xB4DC; &#xB0B4;&#xC6A9;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">private</span>:
+    rclcpp::Subscription&lt;px4_msgs::msg::SensorCombined&gt;::SharedPtr subscription_;
+};
+</code></pre>
+<p>&#xC704; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C;&#xB294; &#xD638;&#xD658;&#xC131;&#xC744; &#xAC00;&#xC9C4; &#xD558;&#xB098; &#xC774;&#xC0C1;&#xC758; ROS &#xC1A1;&#xC2E0;&#xC790;&#xC5D0; &#xB300;&#xC751; &#xAC00;&#xB2A5;&#xD55C; <code>sensor_combined_topic</code>&#xC73C;&#xB85C; &#xC9C0;&#xC18D; &#xAC10;&#xCCAD; &#xC5F0;&#xACB0;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Starting sensor_combined listener node...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    setvbuf(<span class="hljs-built_in">stdout</span>, <span class="hljs-literal">NULL</span>, _IONBF, BUFSIZ);
+    rclcpp::init(argc, argv);
+    rclcpp::spin(<span class="hljs-built_in">std</span>::make_shared&lt;SensorCombinedListener&gt;());
+
+    rclcpp::shutdown();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>ROS &#xB178;&#xB4DC;&#xC758; <code>SensorCombinedListener</code> &#xD074;&#xB798;&#xC2A4; &#xCD08;&#xAE30;&#xD654;&#xB294; <code>main</code> &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="ros2-&#xAD11;&#xC5ED;-&#xC804;&#xB2EC;-&#xB178;&#xB4DC;-&#xB9CC;&#xB4E4;&#xAE30;"><a name="ros2-&#xAD11;&#xC5ED;-&#xC804;&#xB2EC;-&#xB178;&#xB4DC;-&#xB9CC;&#xB4E4;&#xAE30;" class="plugin-anchor" href="#ros2-&#xAD11;&#xC5ED;-&#xC804;&#xB2EC;-&#xB178;&#xB4DC;-&#xB9CC;&#xB4E4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2 &#xAD11;&#xC5ED; &#xC804;&#xB2EC; &#xB178;&#xB4DC; &#xB9CC;&#xB4E4;&#xAE30;</h2>
+<p>ROS2 &#xAD11;&#xC5ED; &#xC804;&#xB2EC; &#xB178;&#xB4DC;&#xB294; DDS/RTPS/PX4 &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
+<p><code>px4_ros_com/src/listeners</code>&#xC758; <code>debug_vect_advertiser.cpp</code> &#xC608;&#xC81C;&#xB97C; &#xC0B4;&#xD3B4;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_msgs/msg/debug_vect.hpp&gt;</span></span>
+
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>::chrono_literals;
+</code></pre>
+<p><code>debug_vect</code> &#xBA54;&#xC138;&#xC9C0; &#xD5E4;&#xB354;&#xC640; &#xD544;&#xC694;&#xD55C; &#xD5E4;&#xB354;&#xB97C; &#xD568;&#xAED8; &#xC120;&#xC5B8;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> DebugVectAdvertiser : <span class="hljs-keyword">public</span> rclcpp::Node
+{
+</code></pre>
+<p><code>rclcpp::Node</code>&#xC758; &#xC11C;&#xBE0C;&#xD074;&#xB798;&#xC2A4;&#xB85C; <code>DebugVectAdvertiser</code> &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">public</span>:
+    DebugVectAdvertiser() : Node(<span class="hljs-string">&quot;debug_vect_advertiser&quot;</span>) {
+        publisher_ = <span class="hljs-keyword">this</span>-&gt;create_publisher&lt;px4_msgs::msg::DebugVect&gt;(<span class="hljs-string">&quot;DebugVect_PubSubTopic&quot;</span>, <span class="hljs-number">10</span>);
+        <span class="hljs-keyword">auto</span> timer_callback =
+        [<span class="hljs-keyword">this</span>]()-&gt;<span class="hljs-keyword">void</span> {
+            <span class="hljs-keyword">auto</span> debug_vect = px4_msgs::msg::DebugVect();
+            debug_vect.timestamp = <span class="hljs-keyword">this</span>-&gt;now().nanoseconds() * <span class="hljs-number">1E-3</span>;
+            <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name = <span class="hljs-string">&quot;test&quot;</span>;
+            <span class="hljs-built_in">std</span>::copy(name.begin(), name.end(), debug_vect.name.begin());
+            debug_vect.x = <span class="hljs-number">1.0</span>;
+            debug_vect.y = <span class="hljs-number">2.0</span>;
+            debug_vect.z = <span class="hljs-number">3.0</span>;
+            RCLCPP_INFO(<span class="hljs-keyword">this</span>-&gt;get_logger(), <span class="hljs-string">&quot;\033[97m Publishing debug_vect: time: %f x:%f y:%f z:%f \033[0m&quot;</span>,
+                                debug_vect.timestamp, debug_vect.x, debug_vect.y, debug_vect.z);
+            <span class="hljs-keyword">this</span>-&gt;publisher_-&gt;publish(debug_vect);
+        };
+        timer_ = <span class="hljs-keyword">this</span>-&gt;create_wall_timer(<span class="hljs-number">500</span>ms, timer_callback);
+    }
+
+<span class="hljs-keyword">private</span>:
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Publisher&lt;px4_msgs::msg::DebugVect&gt;::SharedPtr publisher_;
+};
+</code></pre>
+<p>&#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC1A1;&#xC2E0;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xD568;&#xC218;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xD0C0;&#xC774;&#xBA38; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xB294; &#xCF5C;&#xBC31; &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xCD08;&#xB2F9; 2&#xAC1C;&#xC529; &#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Starting debug_vect advertiser node...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    setvbuf(<span class="hljs-built_in">stdout</span>, <span class="hljs-literal">NULL</span>, _IONBF, BUFSIZ);
+    rclcpp::init(argc, argv);
+    rclcpp::spin(<span class="hljs-built_in">std</span>::make_shared&lt;DebugVectAdvertiser&gt;());
+
+    rclcpp::shutdown();
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>ROS &#xB178;&#xB4DC;&#xC5D0;&#xC11C;&#xC758; <code>DebugVectAdvertiser</code> &#xD074;&#xB798;&#xC2A4; &#xCD08;&#xAE30;&#xD654;&#xB294; <code>main</code> &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="ros1-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;"><a name="ros1-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;" class="plugin-anchor" href="#ros1-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS(1) &#xAC10;&#xCCAD; &#xC720;&#xB2DB; &#xB9CC;&#xB4E4;&#xAE30;</h2>
+<p>ROS &#xB178;&#xB4DC; &#xB9CC;&#xB4E4;&#xAE30; &#xC608;&#xC81C;&#xB294; &#xB9CE;&#xC774; &#xC54C;&#xB824;&#xC838; &#xC788;&#xC73C;&#xBA70;, &#xBB38;&#xC11C;&#xD654;&#xAC00; &#xC798; &#xB418;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>sensor_combined</code> &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC704;&#xD55C; ROS &#xB9AC;&#xC2A4;&#xB108;&#xB97C; &#xC704;&#xD55C; &#xC608;&#xC81C;&#xAC00; <code>ros1</code> &#xBE0C;&#xB79C;&#xCE58;&#xC5D0;&#xC11C; <code>px4_ros_com/src/listeners</code>&#xC5D0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="ros-&#xB3C5;&#xB9BD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xC608;&#xC81C;&#xC640;-&#xD14C;&#xC2A4;&#xD2B8;"><a name="ros-&#xB3C5;&#xB9BD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xC608;&#xC81C;&#xC640;-&#xD14C;&#xC2A4;&#xD2B8;" class="plugin-anchor" href="#ros-&#xB3C5;&#xB9BD;-&#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;-&#xC608;&#xC81C;&#xC640;-&#xD14C;&#xC2A4;&#xD2B8;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS-&#xB3C5;&#xB9BD; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158; &#xC608;&#xC81C;&#xC640; &#xD14C;&#xC2A4;&#xD2B8;</h2>
+<p>&#xC544;&#xB798;&#xC758; &#xC608;&#xC81C;&#xB4E4;&#xC740; &#xC774; &#xC139;&#xC158;&#xC5D0;&#xC11C; &#xC124;&#xBA85;&#xD55C; &#xAE30;&#xB2A5;&#xB4E4;&#xC744; &#xC2E4;&#xC81C;&#xB85C; &#xC5B4;&#xB5BB;&#xAC8C; &#xC0AC;&#xC6A9;&#xD558;&#xB294;&#xC9C0;&#xC5D0; &#xB300;&#xD55C; &#xCD94;&#xAC00;&#xC801;&#xC778; &#xC815;&#xBCF4;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li><a href="micrortps_throughput_test.html">Throughput test</a>: &#xBE0C;&#xB9BF;&#xC9C0;&#xC758; &#xCC98;&#xB9AC;&#xB7C9;&#xC744; &#xCE21;&#xC801;&#xD558;&#xB294; &#xAC04;&#xB2E8;&#xD55C; &#xD14C;&#xC2A4;&#xD2B8;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+<h2 id="ros2ros&#xC640;-&#xBE0C;&#xB9BF;&#xC9D5;&#xD55C;-px4-fastrpts-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;"><a name="ros2ros&#xC640;-&#xBE0C;&#xB9BF;&#xC9D5;&#xD55C;-px4-fastrpts-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;" class="plugin-anchor" href="#ros2ros&#xC640;-&#xBE0C;&#xB9BF;&#xC9D5;&#xD55C;-px4-fastrpts-&#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2/ROS&#xC640; &#xBE0C;&#xB9BF;&#xC9D5;&#xD55C; PX4-FastRPTS &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xAE30;</h2>
+<p>&#xD328;&#xD0A4;&#xC9C0;&#xB97C; &#xBE60;&#xB974;&#xAC8C; &#xD14C;&#xC2A4;&#xD2B8;&#xD558;&#xB824;&#xBA74; (PX4 SITL&#xC640; Gazebo&#xB97C; &#xC0AC;&#xC6A9;):</p>
+<ol>
+<li><p>PX4 SITL&#xC640; &#xAC00;&#xC81C;&#xBCF4;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xC2ED;&#xC2DC;&#xC624;</p>
+<pre><code class="lang-sh"> make px4_sitl_rtps gazebo
+</code></pre>
+</li>
+<li><p>&#xD558;&#xB098;&#xC758; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; ROS2 &#xD658;&#xACBD;&#xACFC; &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC758; &#xC124;&#xC815;&#xC744; &#xAC00;&#xC838;&#xC624;&#xACE0; <code>ros1_bridge</code> &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC2ED;&#xC2DC;&#xC624;(ROS2&#xC640; ROS&#xAC00; &#xC11C;&#xB85C; &#xD1B5;&#xC2E0;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;). &#xB610;&#xD55C; <code>roscore</code>&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xC704;&#xCE58;&#xC778; <code>ROS_MASTER_URI</code>&#xB97C; &#xC124;&#xC815;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> /opt/ros/dashing/setup.bash
+ $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/<span class="hljs-built_in">local</span>_setup.bash
+ $ <span class="hljs-built_in">export</span> ROS_MASTER_URI=http://localhost:11311
+ $ ros2 run ros1_bridge dynamic_bridge
+</code></pre>
+</li>
+<li><p>&#xB2E4;&#xB978; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; ROS &#xC791;&#xC5C5; &#xC601;&#xC5ED; &#xC124;&#xC815;&#xC744; &#xC801;&#xC6A9;&#xD558;&#xACE0; <code>sensor_combined</code> &#xAC10;&#xCCAD; &#xB178;&#xB4DC;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. <code>roslaunch</code>&#xB97C; &#xC2E4;&#xD589;&#xD588;&#xB2E4;&#xBA74; <code>roscore</code>&#xB3C4; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros1/install/setup.bash
+ $ roslaunch px4_ros_com sensor_combined_listener.launch
+</code></pre>
+</li>
+<li><p>&#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; ROS2 &#xC791;&#xC5C5; &#xC601;&#xC5ED;&#xC758; &#xC124;&#xC815;&#xC744; &#xC801;&#xC6A9;&#xD558;&#xACE0; <code>micrortps_agent</code> &#xB370;&#xBAAC;&#xC744; &#xC2DC;&#xC791;&#xD558;&#xBA74;&#xC11C; UDP&#xB97C; &#xC804;&#xC1A1; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xB85C; &#xC9C0;&#xC815;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/setup.bash
+ $ micrortps_agent -t UDP
+</code></pre>
+</li>
+<li><p><a href="../debug/system_console.html">NuttShell/System Console</a>&#xC5D0;&#xC11C;&#xB294; UDP&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <code>micrortps_client</code>&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-sh"> &gt; micrortps_client start -t UDP
+</code></pre>
+<p> &#xC774;&#xC81C; ROS &#xB9AC;&#xC2A4;&#xB108;&#xB97C; &#xC2E4;&#xD589;&#xD55C; &#xCF58;&#xC194;&#xC5D0;&#xC11C; &#xB370;&#xC774;&#xD130;&#xAC00; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC744; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"> RECEIVED DATA FROM SENSOR COMBINED
+ ================================
+ gyro_rad[0]: 0.00341645
+ gyro_rad[1]: 0.00626475
+ gyro_rad[2]: -0.000515705
+ gyro_integral_dt: 4739
+ accelerometer_timestamp_relative: 0
+ accelerometer_m_s2[0]: -0.273381
+ accelerometer_m_s2[1]: 0.0949186
+ accelerometer_m_s2[2]: -9.76044
+ accelerometer_integral_dt: 4739
+
+ Publishing back...
+</code></pre>
+<p> <code>rostopic hz</code>&#xB85C; &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xC18D;&#xB3C4;&#xB97C; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>sensor_combined</code>&#xC758; &#xACBD;&#xC6B0;</p>
+<pre><code class="lang-sh"> average rate: 248.187
+ min: 0.000s max: 0.012s std dev: 0.00147s window: 2724
+ average rate: 248.006
+ min: 0.000s max: 0.012s std dev: 0.00147s window: 2972
+ average rate: 247.330
+ min: 0.000s max: 0.012s std dev: 0.00148s window: 3212
+ average rate: 247.497
+ min: 0.000s max: 0.012s std dev: 0.00149s window: 3464
+ average rate: 247.458
+ min: 0.000s max: 0.012s std dev: 0.00149s window: 3712
+ average rate: 247.485
+ min: 0.000s max: 0.012s std dev: 0.00148s window: 3960
+</code></pre>
+</li>
+<li><p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>sensor_combined</code> ROS2 &#xB9AC;&#xC2A4;&#xB108;&#xB97C; &#xD14C;&#xC2A4;&#xB97C; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"> $ <span class="hljs-built_in">source</span> ~/px4_ros_com_ros2/install/<span class="hljs-built_in">local</span>_setup.bash
+ $ ros2 launch px4_ros_com sensor_combined_listener.launch.py
+</code></pre>
+</li>
+</ol>
+<p>&#xC774; &#xC791;&#xC5C5;&#xC740; &#xCF58;&#xC194;&#xC5D0; &#xCD9C;&#xB825; &#xC911;&#xC778; &#xB370;&#xC774;&#xD130;&#xB97C; &#xAC00;&#xC838;&#xC635;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> &#xB204;&#xAD70;&#xAC00;&#xAC00; <code>build_all.bash</code> &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74;, &#xD544;&#xC694;&#xD55C; &#xBAA8;&#xB4E0; &#xD130;&#xBBF8;&#xB110;&#xC744; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC5F4;&#xACE0; &#xBAA8;&#xB4E0; &#xD658;&#xACBD; &#xBCC0;&#xC218; &#xC124;&#xC815;&#xC744; &#xC801;&#xC6A9;&#xD558;&#xC5EC; &#xAC01; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xC81C;&#xAC01;&#xAC01;&#xC758; &#xC571;&#xC774; &#xC62C;&#xBC14;&#xB978; &#xC124;&#xC815;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h2 id="&#xBB38;&#xC81C;-&#xD574;&#xACB0;"><a name="&#xBB38;&#xC81C;-&#xD574;&#xACB0;" class="plugin-anchor" href="#&#xBB38;&#xC81C;-&#xD574;&#xACB0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBB38;&#xC81C; &#xD574;&#xACB0;</h2>
+<h3 id="&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C;-&#xC120;&#xD0DD;&#xD55C;-uart-&#xD3EC;&#xD2B8;&#xAC00;-&#xC0AC;&#xC6A9;-&#xC911;&#xC774;&#xB77C;&#xACE0;-&#xD560;-&#xACBD;&#xC6B0;"><a name="&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C;-&#xC120;&#xD0DD;&#xD55C;-uart-&#xD3EC;&#xD2B8;&#xAC00;-&#xC0AC;&#xC6A9;-&#xC911;&#xC774;&#xB77C;&#xACE0;-&#xD560;-&#xACBD;&#xC6B0;" class="plugin-anchor" href="#&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C;-&#xC120;&#xD0DD;&#xD55C;-uart-&#xD3EC;&#xD2B8;&#xAC00;-&#xC0AC;&#xC6A9;-&#xC911;&#xC774;&#xB77C;&#xACE0;-&#xD560;-&#xACBD;&#xC6B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C; &#xC120;&#xD0DD;&#xD55C; UART &#xD3EC;&#xD2B8;&#xAC00; &#xC0AC;&#xC6A9; &#xC911;&#xC774;&#xB77C;&#xACE0; &#xD560; &#xACBD;&#xC6B0;</h3>
+<p>&#xB9CC;&#xC57D; &#xC120;&#xD0DD;&#xD55C; UART &#xD3EC;&#xD2B8;&#xAC00; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xC0C1;&#xD0DC;&#xC774;&#xBA74;, MAVLink &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC774; &#xC774;&#xBBF8; &#xC2E4;&#xD589;&#xC911;&#xC77C; &#xAC00;&#xB2A5;&#xC131;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. MAVLink&#xC640; RTPS &#xC5F0;&#xACB0;&#xC744; &#xBAA8;&#xB450; &#xD544;&#xC694;&#xB85C; &#xD558;&#xB2E4;&#xBA74; &#xB2E4;&#xB978; &#xD3EC;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB3C4;&#xB85D; &#xD558;&#xAC70;&#xB098; &#xD3EC;&#xD2B8;&#xB97C; &#xACF5;&#xC720;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xC124;&#xC815;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. <!-- https://github.com/PX4/Devguide/issues/233 --></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#xAC1C;&#xBC1C; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xBE0C;&#xB9BF;&#xC9C0; &#xC2DC;&#xD5D8;&#xC744; &#xD5C8;&#xC6A9;&#xD558;&#xB3C4;&#xB85D; &#xC7AC;&#xBE60;&#xB974;&#xAC8C; &#xC784;&#xC2DC;&#xB85C; &#xC870;&#xCE58;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740; <em>NuttShell</em>&#xC5D0;&#xC11C; MAVLink&#xB97C; &#xC911;&#xB2E8;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;: </p>
+<pre><code>sh
+  mavlink stop-all
+</code></pre></blockquote>
+<h3 id="&#xC5D0;&#xC774;&#xC804;&#xD2B8;-&#xBE4C;&#xB4DC;-&#xC548;&#xB428;-fastrtpsgen-&#xCC3E;&#xC744;-&#xC218;-&#xC5C6;&#xC74C;"><a name="&#xC5D0;&#xC774;&#xC804;&#xD2B8;-&#xBE4C;&#xB4DC;-&#xC548;&#xB428;-fastrtpsgen-&#xCC3E;&#xC744;-&#xC218;-&#xC5C6;&#xC74C;" class="plugin-anchor" href="#&#xC5D0;&#xC774;&#xC804;&#xD2B8;-&#xBE4C;&#xB4DC;-&#xC548;&#xB428;-fastrtpsgen-&#xCC3E;&#xC744;-&#xC218;-&#xC5C6;&#xC74C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC5D0;&#xC774;&#xC804;&#xD2B8; &#xBE4C;&#xB4DC; &#xC548;&#xB428;, fastrtpsgen &#xCC3E;&#xC744; &#xC218; &#xC5C6;&#xC74C;</h3>
+<p><em>Agent</em> &#xCF54;&#xB4DC;&#xB294; <em>fastrtpsgen</em>&#xC774;&#xB77C;&#xACE0; &#xBD88;&#xB9AC;&#xB294; <em>Fast RTPS</em> &#xD234;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xC0DD;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB9CC;&#xC57D; Fatt RTPS&#xB97C; &#xAE30;&#xBCF8; &#xACBD;&#xB85C;&#xC5D0; &#xC124;&#xCE58;&#xD558;&#xC9C0; &#xC54A;&#xC558;&#xB2E4;&#xBA74; <em>make</em>&#xB97C; &#xC218;&#xD589;&#xD558;&#xAE30; &#xC774;&#xC804;&#xC5D0; <code>FASTRTPSGEN_DIR</code> &#xD658;&#xACBD;&#xBCC0;&#xC218;&#xC5D0; &#xC124;&#xCE58;&#xB41C; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC124;&#xC815;&#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB9AC;&#xB205;&#xC2A4;/Mac &#xC5D0;&#xC11C;&#xB294; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xC218;&#xD589;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"><span class="hljs-built_in">export</span> FASTRTPSGEN_DIR=/path/to/fastrtps/install/folder/bin
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> <a href="../setup/fast-rtps-installation.html">Fast RTPS &#xB97C; &#xAE30;&#xBCF8; &#xACBD;&#xB85C;&#xC5D0; &#xC124;&#xCE58;</a>&#xD588;&#xB2E4;&#xBA74; &#xBB38;&#xC81C;&#xAC00; &#xB098;&#xD0C0;&#xB098;&#xC9C0; &#xC54A;&#xC544;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<h3 id="obc&#xC628;&#xBCF4;&#xB4DC;-&#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C;-uart-&#xD65C;&#xC131;&#xD654;&#xD558;&#xAE30;"><a name="obc&#xC628;&#xBCF4;&#xB4DC;-&#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C;-uart-&#xD65C;&#xC131;&#xD654;&#xD558;&#xAE30;" class="plugin-anchor" href="#obc&#xC628;&#xBCF4;&#xB4DC;-&#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C;-uart-&#xD65C;&#xC131;&#xD654;&#xD558;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>OBC(&#xC628;&#xBCF4;&#xB4DC; &#xCEF4;&#xD4E8;&#xD130;)&#xC5D0;&#xC11C; UART &#xD65C;&#xC131;&#xD654;&#xD558;&#xAE30;</h3>
+<p>&#xB77C;&#xC988;&#xD398;&#xC774;&#xD30C;&#xC774;&#xB098; &#xB2E4;&#xB978; OBC&#xC5D0;&#xC11C; UART &#xC804;&#xC1A1;&#xC744; &#xC704;&#xD574;&#xC11C;&#xB294; &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xB97C; &#xD65C;&#xC131;&#xD654;&#xD574;&#xC57C;&#xB9CC; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<ol>
+<li><p><code>userid</code>&#xAC00; <code>dialout</code> &#xADF8;&#xB8F9;&#xC758; &#xBA64;&#xBC84;&#xC778;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xC138;&#xC694;(&#xB77C;&#xC988;&#xBCA0;&#xB9AC;&#xD30C;&#xC774;&#xC5D0;&#xC11C;&#xB294; &#xAE30;&#xBCF8;&#xAC12;&#xC774; pi &#xC785;&#xB2C8;&#xB2E4;).</p>
+<pre><code class="lang-sh"> groups pi
+ sudo usermod <span class="hljs-_">-a</span> -G dialout pi
+</code></pre>
+</li>
+<li><p>&#xC77C;&#xBD80; &#xB77C;&#xC988;&#xBCA0;&#xB9AC;&#xD30C;&#xC774;&#xC5D0;&#xC11C;&#xB294; &#xADF8; &#xD3EC;&#xD2B8;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xB294; GPIO &#xC2DC;&#xB9AC;&#xC5BC; &#xCF58;&#xC194;&#xC744; &#xBA48;&#xCDB0;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh"> sudo raspi-config
+</code></pre>
+<p> &#xBCF4;&#xC5EC;&#xC9C0;&#xB294; &#xBA54;&#xB274;&#xC5D0;&#xC11C; <strong>Interfacing options &gt; Serial</strong>&#xB85C; &#xC774;&#xB3D9;&#xD569;&#xB2C8;&#xB2E4;. <em>Would you like a login shell to be accessible over serial?</em> &#xC9C8;&#xBB38;&#xC5D0; &#xB300;&#xD574;&#xC11C;&#xB294; <strong>NO</strong>&#xB97C; &#xC120;&#xD0DD;&#xD558;&#xC138;&#xC694;. &#xD655;&#xC778;&#xD558;&#xACE0; &#xC7AC;&#xBD80;&#xD305;&#xD558;&#xC138;&#xC694;.</p>
+</li>
+<li><p>&#xCEE4;&#xB110;&#xC5D0;&#xC11C; UART &#xD655;&#xC778;&#xD558;&#xAE30;</p>
+<pre><code class="lang-sh"> sudo vi /boot/config.txt
+</code></pre>
+<p> <code>enable_uart</code> &#xAC12;&#xC774; 1&#xB85C; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xC138;&#xC694;.</p>
+<pre><code class="lang-txt"> enable_uart=1
+</code></pre>
+</li>
+</ol>
+<h2 id="&#xCD94;&#xAC00;-&#xC815;&#xBCF4;"><a name="&#xCD94;&#xAC00;-&#xC815;&#xBCF4;" class="plugin-anchor" href="#&#xCD94;&#xAC00;-&#xC815;&#xBCF4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCD94;&#xAC00; &#xC815;&#xBCF4;</h2>
+<ul>
+<li><a href="../setup/fast-rtps-installation.html">Fast RTPS &#xC124;&#xCE58;</a></li>
+<li><a href="micrortps_manual_code_generation.html">Client&#xC640; Agent &#xCF54;&#xB4DC; &#xC9C1;&#xC811; &#xC0DD;&#xC131;</a></li>
+<li><a href="https://github.com/ros2/ros2/wiki/DDS-and-ROS-middleware-implementations" target="_blank">DDS&#xC640; ROS &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4; &#xAD6C;&#xD604;</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="mavlink.html" class="navigation navigation-prev " aria-label="Previous page: MAVLink 메시징">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="micrortps_throughput_test.html" class="navigation navigation-next " aria-label="Next page: 메시지 처리 시험">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"next":{"title":"메시지 처리 시험","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2020-08-10T22:50:22.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-10T22:51:45.252Z"},"basePath":"..","book":{"language":"ko"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

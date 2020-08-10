@@ -1,0 +1,2647 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>보조 컴퓨터 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../middleware/" />
+    
+    
+    <link rel="prev" href="../advanced/gimbal_control.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    시작하기
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    초기 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    툴체인 설치
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    리눅스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    우분투/데비안 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    센트OS 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    아치 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    고급 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    윈도우
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    가상 머신 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    윈도우용 배시 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/vscode.html">
+            
+                <a href="../setup/vscode.html">
+            
+                    
+                    비주얼 스튜디오 코드 IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    빠른 RTPS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    추가 도구
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    코드 빌드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    첫 프로그램 작성
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    프로그램/모듈 서식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 구성 개요
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    컨트롤러 구성도
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    드론코드 플랫폼 개요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    비행 모드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    비행 동작
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    믹서와 액추에이터
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../concept/custom_mixer_payload.html">
+            
+                <a href="../concept/custom_mixer_payload.html">
+            
+                    
+                    개별 페이로드 믹서
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit 상태 머신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    시스템 시작
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../concept/sd_card_layout.html">
+            
+                <a href="../concept/sd_card_layout.html">
+            
+                    
+                    SD 카드 배치
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim 시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    jMAVSim 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    가제보(Gazebo) 짐벌 모의시험
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../simulation/gazebo_vehicles.html">
+            
+                <a href="../simulation/gazebo_vehicles.html">
+            
+                    
+                    가제보(Gazebo) 비행체
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../simulation/gazebo_worlds.html">
+            
+                <a href="../simulation/gazebo_worlds.html">
+            
+                    
+                    가제보(Gazebo) 월드(world)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                <a href="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    가제보(Gazebo) 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/flightgear.html">
+            
+                <a href="../simulation/flightgear.html">
+            
+                    
+                    플라이트 기어(FlightGear) 모의시험 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../simulation/flightgear_vehicles.html">
+            
+                <a href="../simulation/flightgear_vehicles.html">
+            
+                    
+                    플라이트 기어(FlightGear) 비행체
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi_vehicle_flightgear.html">
+            
+                <a href="../simulation/multi_vehicle_flightgear.html">
+            
+                    
+                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim 모의시험 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/failsafes.html">
+            
+                <a href="../simulation/failsafes.html">
+            
+                    
+                    모의시험 안전 수단
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../simulation/simulation-in-hardware.html">
+            
+                <a href="../simulation/simulation-in-hardware.html">
+            
+                    
+                    하드웨어 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    하드웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    비행체 컨트롤러 참고 디자인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    비행체 컨트롤러 이식 안내
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../hardware/porting_guide_nuttx.html">
+            
+                <a href="../hardware/porting_guide_nuttx.html">
+            
+                    
+                    NuttX 보드 이식 안내
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    비행체(Airframe)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    비행체 참고
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    새 비행체 추가
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    장치 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    텔레메트리 무선 통신
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK 무선 통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    센서, 액츄에이터 입출력
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C 버스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN 버스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN 펌웨어 업그레이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 기타 참고
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    UART/직렬 포트
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    설정 가능 직렬 포트 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    짐벌 (마운트) 제어 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.9" data-path="pixhawk_companion.html">
+            
+                <a href="pixhawk_companion.html">
+            
+                    
+                    보조 컴퓨터
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    미들웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 인터페이스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    메시지 처리 시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    클라이언트/에이전트 직접 생성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    모듈과 명령
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    명령
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_controller.html">
+            
+                <a href="../middleware/modules_controller.html">
+            
+                    
+                    컨트롤러
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    드라이버
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../middleware/modules_driver_airspeed_sensor.html">
+            
+                <a href="../middleware/modules_driver_airspeed_sensor.html">
+            
+                    
+                    대기속도 센서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.2" data-path="../middleware/modules_driver_baro.html">
+            
+                <a href="../middleware/modules_driver_baro.html">
+            
+                    
+                    기압
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.3" data-path="../middleware/modules_driver_distance_sensor.html">
+            
+                <a href="../middleware/modules_driver_distance_sensor.html">
+            
+                    
+                    거리 센서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.4" data-path="../middleware/modules_driver_imu.html">
+            
+                <a href="../middleware/modules_driver_imu.html">
+            
+                    
+                    관성계
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.5" data-path="../middleware/modules_driver_magnetometer.html">
+            
+                <a href="../middleware/modules_driver_magnetometer.html">
+            
+                    
+                    자력계
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
+            
+                <a href="../middleware/modules_estimator.html">
+            
+                    
+                    추정자
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../middleware/modules_simulation.html">
+            
+                <a href="../middleware/modules_simulation.html">
+            
+                    
+                    모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    시스템
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../middleware/modules_template.html">
+            
+                <a href="../middleware/modules_template.html">
+            
+                    
+                    서식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    로보틱스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    리눅스에서의 외부 제어
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (ROS용 MAVLink)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS 오프 보드 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    가제보 모의시험 환경의 ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    ROS의 OctoMap 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    라즈베리 파이로의 ROS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    외부 위치 추정 (시각/움직임 기반)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    MAVROS에서의 개별 메시지 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    드론키트
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    디버깅/로깅
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    자주 묻는 질문
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
+            
+                <a href="../debug/consoles.html">
+            
+                    
+                    콘솔/셸
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink 셸
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    시스템 콘솔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/swd_debug.html">
+            
+                <a href="../debug/swd_debug.html">
+            
+                    
+                    SWD/JLink 디버깅 인터페이스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    오토파일럿 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink 하드웨어 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    센서/토픽 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    모의시험 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    디버깅 값 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    시스템 범위 재현
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    프로파일링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    로깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    비행 로그 분석
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog 파일 구성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    자습서
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    지상 통제 스테이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    Odroid C1에서 QGC로의 동영상 스트리밍 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    장거리 동영상 스트리밍 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    리눅스에서의 리모콘 리시버 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    고급 주제
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    매개변수와 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    매개변수 참고서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    컴퓨터 비전
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    움직임 촬영(Motion Capture) (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Intel RealSense R200 드라이버 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    상태 추정자(State Estimator) 전환
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    별도 모듈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    시스템 알림음
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    플랫폼 시험과 지속 통합
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    비행 시험
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    시험 MC_01 - 수동 상태
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    시험 MC_02 - 완전 자동화
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    시험 MC_03 - 자동 / 수동 혼합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    시험 MC_04 - 안전 장치 시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    시험 MC_05 - 실내 비행 (수동 상태)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    단위 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    젠킨스 지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    ROS 통합 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/integration_testing_mavsdk.html">
+            
+                <a href="../test_and_ci/integration_testing_mavsdk.html">
+            
+                    
+                    MAVSDK 통합 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    도커 컨테이너
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.8" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    유지 관리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    기여(와 유선 개발 미팅)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    유선 개발 미팅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    소스 코드 관리
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    문서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    번역
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    용어/표기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    라이선스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    지원
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">드론코드 관련 링크</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/master/en/">
+            
+                    
+                    PX4 사용자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 사용자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 개발자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    드론코드 카메라 관리자
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >보조 컴퓨터</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#xD53D;&#xC2A4;&#xD638;&#xD06C;-&#xC2DC;&#xB9AC;&#xC988;&#xC6A9;-&#xBCF4;&#xC870;-&#xCEF4;&#xD4E8;&#xD130;"><a name="&#xD53D;&#xC2A4;&#xD638;&#xD06C;-&#xC2DC;&#xB9AC;&#xC988;&#xC6A9;-&#xBCF4;&#xC870;-&#xCEF4;&#xD4E8;&#xD130;" class="plugin-anchor" href="#&#xD53D;&#xC2A4;&#xD638;&#xD06C;-&#xC2DC;&#xB9AC;&#xC988;&#xC6A9;-&#xBCF4;&#xC870;-&#xCEF4;&#xD4E8;&#xD130;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xC2DC;&#xB9AC;&#xC988;&#xC6A9; &#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130;</h1>
+<p>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xACC4;&#xC5F4; &#xBCF4;&#xB4DC;&#xC5D0; &#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130;(&#xB77C;&#xC988;&#xBCA0;&#xB9AC; &#xD30C;&#xC774;, &#xC624;&#xB4DC;&#xB85C;&#xC774;&#xB4DC;, &#xD14C;&#xADF8;&#xB77C; K1)&#xB97C; &#xBD99;&#xC774;&#xB294; &#xC791;&#xC5C5;&#xC758; &#xBC29;&#xC2DD;&#xC740; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;. &#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130;&#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xB824;&#xB294; &#xC6A9;&#xB3C4;&#xC758; &#xD3EC;&#xD2B8; <code>TELEM 2</code>&#xC5D0; &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xC5F0;&#xACB0;&#xC758; &#xBA54;&#xC2DC;&#xC9C0; &#xD615;&#xC2DD;&#xC740; <a href="https://mavlink.io/en/" target="_blank">MAVLink</a> &#xC785;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xD53D;&#xC2A4;&#xD638;&#xD06C;-&#xC124;&#xC815;"><a name="&#xD53D;&#xC2A4;&#xD638;&#xD06C;-&#xC124;&#xC815;" class="plugin-anchor" href="#&#xD53D;&#xC2A4;&#xD638;&#xD06C;-&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xC124;&#xC815;</h2>
+<p><a href="https://docs.px4.io/master/en/peripherals/serial_configuration.html" target="_blank">&#xC124;&#xC815; &#xAC00;&#xB2A5;&#xD55C; &#xC2DC;&#xB9AC;&#xC5BC; &#xD3EC;&#xD2B8;</a>&#xC5D0; MAVLink&#xB97C; &#xD65C;&#xC131;&#xD654;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> &#xBCF4;&#xD1B5; <code>TELEM 2</code> &#xD3EC;&#xD2B8;&#xB294; &#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130;&#xC6A9;&#xC73C;&#xB85C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p><code>TELEM 2</code>&#xC758; &#xAE30;&#xBCF8; &#xBCF4;&#xC870;&#xCEF4;&#xD4E8;&#xD130; &#xBA54;&#xC2DC;&#xC9C0; &#xC2A4;&#xD2B8;&#xB9BC;&#xC744; &#xC124;&#xC815;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xC124;&#xC815;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
+<ul>
+<li><a href="../advanced/parameter_reference.html#MAV_1_CONFIG">MAV_1_CONFIG</a> = <code>TELEM 2</code> (<code>MAV_1_CONFIG</code>&#xB294; <code>TELEM 2</code> &#xD3EC;&#xD2B8; &#xB9E4;&#xD551; &#xBAA9;&#xC801;&#xC73C;&#xB85C; &#xC8FC;&#xB85C; &#xD65C;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;)</li>
+<li><a href="../advanced/parameter_reference.html#MAV_1_MODE">MAV_1_MODE</a> = <code>Onboard</code></li>
+<li><a href="../advanced/parameter_reference.html#SER_TEL2_BAUD">SER_TEL2_BAUD</a> = <code>921600</code> (&#xB85C;&#xADF8; &#xC2A4;&#xD2B8;&#xB9AC;&#xBC0D; &#xB610;&#xB294; FastRTPS &#xD65C;&#xC6A9; &#xBAA9;&#xC801;&#xC73C;&#xB85C; 921600 &#xC774;&#xC0C1; &#xAC12;&#xC744; &#xAD8C;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;)</li>
+</ul>
+<p>&#xB354; &#xB9CE;&#xC740; &#xC815;&#xBCF4;&#xB294; <a href="https://docs.px4.io/master/en/peripherals/mavlink_peripherals.html" target="_blank">MAVLink &#xC8FC;&#xBCC0;&#xAE30;&#xAE30; &#xD3B8;(GCS/OSD/Companion)</a>&#xC744; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<h2 id="&#xBCF4;&#xC870;-&#xCEF4;&#xD4E8;&#xD130;-&#xC124;&#xC815;"><a name="&#xBCF4;&#xC870;-&#xCEF4;&#xD4E8;&#xD130;-&#xC124;&#xC815;" class="plugin-anchor" href="#&#xBCF4;&#xC870;-&#xCEF4;&#xD4E8;&#xD130;-&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130; &#xC124;&#xC815;</h2>
+<p>MAVLink &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC1B;&#xC73C;&#xB824;&#xBA74;, &#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0;&#xC11C; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8;&#xB85C; &#xD1B5;&#xC2E0;&#xD558;&#xB294; &#xC5B4;&#xB5A4; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xB300;&#xBD80;&#xBD84; &#xC77C;&#xBC18;&#xC801;&#xC73C;&#xB85C; &#xC120;&#xD0DD;&#xD560; &#xC218; &#xC788;&#xB294; &#xBC29;&#xC548;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li>ROS &#xB178;&#xB4DC;&#xC640; &#xD1B5;&#xC2E0; &#xC6A9;&#xB3C4;&#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; <a href="../ros/mavros_installation.html">MAVROS</a></li>
+<li>&#xAC1C;&#xBCC4; &#xC791;&#xC131; &#xCF54;&#xB4DC;&#xB97C; &#xC5F0;&#xACB0;&#xD560; <a href="https://github.com/mavlink/c_uart_interface_example" target="_blank">C/C++ &#xC608;&#xC81C; &#xCF54;&#xB4DC;</a></li>
+<li>&#xC2DC;&#xB9AC;&#xC5BC; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xC640; UDP &#xD1B5;&#xC2E0;&#xAC04; &#xB77C;&#xC6B0;&#xD305; &#xC791;&#xC5C5;&#xC744; &#xC218;&#xD589;&#xD558;&#xB294; <a href="https://github.com/intel/mavlink-router" target="_blank">MAVLink &#xB77C;&#xC6B0;&#xD130;</a>(&#xCD94;&#xCC9C;) &#xB610;&#xB294; <a href="https://ardupilot.org/mavproxy/" target="_blank">MAVProxy</a></li>
+</ul>
+<h2 id="&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;-&#xC124;&#xC815;"><a name="&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;-&#xC124;&#xC815;" class="plugin-anchor" href="#&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;-&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC124;&#xC815;</h2>
+<p>&#xB2E4;&#xC74C; &#xC808;&#xCC28;&#xC5D0; &#xB530;&#xB77C; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8;&#xB97C; &#xC5F0;&#xACB0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xBAA8;&#xB4E0; &#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8;&#xB294; 3.3V ~ 5V &#xB808;&#xBCA8; &#xD638;&#xD658;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> &#xB300;&#xBD80;&#xBD84;&#xC758; &#xCD5C;&#xADFC; &#xBCF4;&#xC870; &#xCEF4;&#xD4E8;&#xD130;&#xB294; 1.8V &#xB808;&#xBCA8;&#xC5D0;&#xC11C; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; UART&#xAC00; &#xB3D9;&#xC791;&#xD558;&#xBA70; 3.3V &#xB808;&#xBCA8;&#xC5D0;&#xC11C; &#xC190;&#xC0C1;&#xC744; &#xC785;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC804;&#xC555; &#xBCC0;&#xD658; &#xCE69;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC2ED;&#xC2DC;&#xC624;. &#xB300;&#xBD80;&#xBD84;&#xC758; &#xACBD;&#xC6B0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB294; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8;&#xC5D0;&#xB294; &#xC5F0;&#xACB0;&#xD558;&#xB824;&#xB294; &#xC7A5;&#xBE44;(&#xBAA8;&#xB380; &#xB610;&#xB294; &#xCF58;&#xC194;)&#xC640; &#xAD00;&#xB828;&#xB41C; &#xC77C;&#xBD80; &#xAE30;&#xB2A5;&#xC774; &#xC788;&#xC73C;&#xBA70;, &#xD574;&#xB2F9; &#xC7A5;&#xBE44;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xB824;&#xBA74; <em>&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C; &#xC7AC;&#xC124;&#xC815;</em>&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<p>&#xD655;&#xC2E4;&#xD788; &#xC548;&#xC804;&#xD55C; &#xBC29;&#xBC95;&#xC740; &#xC544;&#xB798;&#xC758; &#xACB0;&#xC120;&#xD45C;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC5EC; FTDI &#xCE69;&#xC744; &#xB0B4;&#xC7A5;&#xD55C; USB-to-serial &#xBCC0;&#xD658; &#xBCF4;&#xB4DC;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC785;&#xB2C8;&#xB2E4;. &#xC5BC;&#xB9C8;&#xB4E0;&#xC9C0; &#xB3D9;&#xC791;&#xD558;&#xACE0;, &#xC124;&#xC815;&#xD558;&#xAE30;&#xB3C4; &#xC27D;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>|  | TELEM2 |          | FTDI |                   |
+|  | ------ | -------- | ---- | ----------------- |
+|  | 1      | +5V (&#xC801;)  |      | &#xC5F0;&#xACB0;&#xD558;&#xC9C0; &#xB9C8;&#xC2ED;&#xC2DC;&#xC624;!        |
+|  | 2      | Tx (&#xCD9C;&#xB825;)  | 5    | FTDI RX (&#xD669;) (&#xC785;&#xB825;)  |
+|  | 3      | Rx (&#xC785;&#xB825;)  | 4    | FTDI TX (&#xC801;&#xD669;) (&#xCD9C;&#xB825;) |
+|  | 4      | CTS (&#xC785;&#xB825;) | 6    | FTDI RTS (&#xB179;) (&#xCD9C;&#xB825;) |
+|  | 5      | RTS (&#xCD9C;&#xB825;) | 2    | FTDI CTS (&#xAC08;) (&#xC785;&#xB825;) |
+|  | 6      | GND      | 1    | FTDI GND (&#xD751;)      |</p>
+<h2 id="&#xB9AC;&#xB205;&#xC2A4;-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xC124;&#xC815;"><a name="&#xB9AC;&#xB205;&#xC2A4;-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xC124;&#xC815;" class="plugin-anchor" href="#&#xB9AC;&#xB205;&#xC2A4;-&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4;-&#xC124;&#xC815;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB9AC;&#xB205;&#xC2A4; &#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xC124;&#xC815;</h2>
+<p>&#xB9AC;&#xB205;&#xC2A4;&#xC5D0;&#xC11C; USB FTDI &#xAE30;&#xBCF8; &#xBA85;&#xCE6D;&#xC740; <code>/dev/ttyUSB0</code>&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. USB&#xB85C; &#xB450;&#xBC88;&#xC9F8; FTDI &#xCE69;&#xC744; &#xC5F0;&#xACB0;&#xD588;&#xC744; &#xACBD;&#xC6B0;&#xB098;, &#xC544;&#xB450;&#xC774;&#xB178;&#xC5D0; &#xC5F0;&#xACB0;&#xD588;&#xB2E4;&#xBA74; <code>/dev/ttyUSB1</code>&#xC774; &#xB429;&#xB2C8;&#xB2E4;. &#xCCAB;&#xBC88;&#xC9F8; &#xC5F0;&#xACB0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC640; &#xB450;&#xBC88;&#xC9F8; &#xC5F0;&#xACB0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC758; &#xD63C;&#xB3D9;&#xC744; &#xB9C9;&#xC73C;&#xB824;&#xBA74; <code>ttyUSBx</code>&#xC758; &#xC2EC;&#xBCFC;&#xB9AD; &#xB9C1;&#xD06C;&#xB97C; USB &#xC7A5;&#xCE58;&#xC758; &#xC81C;&#xC870;&#xC0AC;, &#xC81C;&#xD3FC; ID &#xC5D0; &#xB530;&#xB77C; &#xC54C;&#xAE30; &#xC26C;&#xC6B4; &#xC774;&#xB984;&#xC73C;&#xB85C; &#xB9CC;&#xB4DC;&#xC2DC;&#xB294; &#xBC29;&#xC548;&#xC744; &#xCD94;&#xCC9C;&#xD574;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;.</p>
+<p><code>lsusb</code>&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC81C;&#xC870;&#xC0AC;&#xC640; &#xC81C;&#xD488; ID&#xB97C; &#xAC00;&#xC838;&#xC62C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">$ lsusb
+
+Bus 006 Device 002: ID 0bda:8153 Realtek Semiconductor Corp.
+Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 004 Device 002: ID 05e3:0616 Genesys Logic, Inc.
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)
+Bus 003 Device 005: ID 26ac:0011
+Bus 003 Device 002: ID 05e3:0610 Genesys Logic, Inc. 4-port hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+Bus 001 Device 002: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</code></pre>
+<p>&#xC5EC;&#xAE30;&#xC11C; &#xC544;&#xB450;&#xC774;&#xB178;&#xB294; <code>Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)</code>&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xC7A5;&#xBE44;&#xB294; <code>Bus 003 Device 005: ID 26ac:0011</code>&#xC785;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> &#xC7A5;&#xCE58;&#xB97C; &#xCC3E;&#xC9C0; &#xBABB;&#xD558;&#xACA0;&#xB2E4;&#xBA74;, &#xBF51;&#xACE0; <code>lsusb</code>&#xB97C; &#xC785;&#xB825;, &#xB2E4;&#xC2DC; &#xC5F0;&#xACB0;&#xD55C; &#xD6C4; <code>lsusb</code>&#xB97C; &#xB2E4;&#xC2DC; &#xC785;&#xB825;&#xD558;&#xC5EC; &#xCD94;&#xAC00; &#xC7A5;&#xCE58;&#xB97C; &#xD655;&#xC778;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+</blockquote>
+<p>&#xC774; &#xACFC;&#xC815;&#xC744; &#xC218;&#xD589;&#xD558;&#xC5EC; <code>/etc/udev/rules.d/99-pixhawk.rules</code> &#xD30C;&#xC77C;&#xC5D0; &#xB2E4;&#xC74C; &#xB0B4;&#xC6A9;&#xC5D0;&#xC11C; idVendor&#xC640; idProduct&#xB97C; &#xC5EC;&#xB7EC;&#xBD84;&#xC758; &#xC7A5;&#xBE44;&#xC5D0; &#xB9DE;&#xAC8C; &#xBC14;&#xAFB8;&#xC5B4; &#xCD94;&#xAC00;&#xD55C; &#xC0C8; UDEV &#xADDC;&#xCE59;&#xC744; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-sh">SUBSYSTEM==<span class="hljs-string">&quot;tty&quot;</span>, ATTRS{idVendor}==<span class="hljs-string">&quot;2341&quot;</span>, ATTRS{idProduct}==<span class="hljs-string">&quot;0042&quot;</span>, SYMLINK+=<span class="hljs-string">&quot;ttyArduino&quot;</span>
+SUBSYSTEM==<span class="hljs-string">&quot;tty&quot;</span>, ATTRS{idVendor}==<span class="hljs-string">&quot;26ac&quot;</span>, ATTRS{idProduct}==<span class="hljs-string">&quot;0011&quot;</span>, SYMLINK+=<span class="hljs-string">&quot;ttyPixhawk&quot;</span>
+</code></pre>
+<p>&#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; <strong>reboot</strong>&#xB97C; &#xC218;&#xD589;&#xD558;&#xBA74; &#xBC29;&#xAE08; &#xC791;&#xC131;&#xD55C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xD1B5;&#xD574;, &#xC5B4;&#xB5A4; &#xC7A5;&#xCE58;&#xB97C; &#xC5F0;&#xACB0;&#xD588;&#xC744; &#xB54C; <code>/dev/ttyUSB0</code> &#xB300;&#xC2E0; <code>/dev/ttyPixhawk</code>&#xAC00; &#xB728;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xB8E8;&#xD2B8; &#xACC4;&#xC815;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xC77C;&#xC744; &#xB9C9;&#xAE30; &#xC704;&#xD574; <code>usermod</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; <code>tty</code> &#xADF8;&#xB8F9;&#xACFC; <code>dialout</code> &#xADF8;&#xB8F9;&#xC5D0; &#xC5EC;&#xB7EC;&#xBD84; &#xC790;&#xC2E0;&#xC758; &#xACC4;&#xC815;&#xC744; &#xCD94;&#xAC00;&#xD588;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+</blockquote>
+<pre><code class="lang-sh">usermod <span class="hljs-_">-a</span> -G tty ros-user
+usermod <span class="hljs-_">-a</span> -G dialout ros-user
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../advanced/gimbal_control.html" class="navigation navigation-prev " aria-label="Previous page: 짐벌 (마운트) 제어 설정">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../middleware/" class="navigation navigation-next " aria-label="Next page: 미들웨어">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"보조 컴퓨터","level":"1.5.9","depth":2,"next":{"title":"미들웨어","level":"1.6","depth":1,"path":"middleware/README.md","ref":"middleware/README.md","articles":[{"title":"uORB 메시징","level":"1.6.1","depth":2,"path":"middleware/uorb.md","ref":"middleware/uorb.md","articles":[]},{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"path":"middleware/micrortps.md","ref":"middleware/micrortps.md","articles":[{"title":"메시지 처리 시험","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},{"title":"클라이언트/에이전트 직접 생성","level":"1.6.3.2","depth":3,"path":"middleware/micrortps_manual_code_generation.md","ref":"middleware/micrortps_manual_code_generation.md","articles":[]}]}]},"previous":{"title":"짐벌 (마운트) 제어 설정","level":"1.5.8","depth":2,"path":"advanced/gimbal_control.md","ref":"advanced/gimbal_control.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"companion_computer/pixhawk_companion.md","mtime":"2020-08-10T22:50:22.087Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-10T22:51:45.252Z"},"basePath":"..","book":{"language":"ko"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,3040 @@
+
+<!DOCTYPE HTML>
+<html lang="ko" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>ULog 파일 구성 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tutorials/tutorials.html" />
+    
+    
+    <link rel="prev" href="flight_log_analysis.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="검색어 입력" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    소개
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    시작하기
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    초기 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    툴체인 설치
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    리눅스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    우분투/데비안 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    센트OS 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    아치 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    고급 리눅스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    윈도우
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    가상 머신 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    윈도우용 배시 툴체인
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/vscode.html">
+            
+                <a href="../setup/vscode.html">
+            
+                    
+                    비주얼 스튜디오 코드 IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    빠른 RTPS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    추가 도구
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    코드 빌드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    첫 프로그램 작성
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    프로그램/모듈 서식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    개념
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 구성 개요
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    컨트롤러 구성도
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    드론코드 플랫폼 개요
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    비행 모드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    비행 동작
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    믹서와 액추에이터
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../concept/custom_mixer_payload.html">
+            
+                <a href="../concept/custom_mixer_payload.html">
+            
+                    
+                    개별 페이로드 믹서
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit 상태 머신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    시스템 시작
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../concept/sd_card_layout.html">
+            
+                <a href="../concept/sd_card_layout.html">
+            
+                    
+                    SD 카드 배치
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim 시뮬레이션
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    jMAVSim 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    가제보(Gazebo) 짐벌 모의시험
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../simulation/gazebo_vehicles.html">
+            
+                <a href="../simulation/gazebo_vehicles.html">
+            
+                    
+                    가제보(Gazebo) 비행체
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../simulation/gazebo_worlds.html">
+            
+                <a href="../simulation/gazebo_worlds.html">
+            
+                    
+                    가제보(Gazebo) 월드(world)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                <a href="../simulation/multi_vehicle_simulation_gazebo.html">
+            
+                    
+                    가제보(Gazebo) 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/flightgear.html">
+            
+                <a href="../simulation/flightgear.html">
+            
+                    
+                    플라이트 기어(FlightGear) 모의시험 
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.4.1" data-path="../simulation/flightgear_vehicles.html">
+            
+                <a href="../simulation/flightgear_vehicles.html">
+            
+                    
+                    플라이트 기어(FlightGear) 비행체
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi_vehicle_flightgear.html">
+            
+                <a href="../simulation/multi_vehicle_flightgear.html">
+            
+                    
+                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim 모의시험 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    다중 비행체 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/failsafes.html">
+            
+                <a href="../simulation/failsafes.html">
+            
+                    
+                    모의시험 안전 수단
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../simulation/simulation-in-hardware.html">
+            
+                <a href="../simulation/simulation-in-hardware.html">
+            
+                    
+                    하드웨어 모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    하드웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    비행체 컨트롤러 참고 디자인
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    비행체 컨트롤러 이식 안내
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../hardware/porting_guide_nuttx.html">
+            
+                <a href="../hardware/porting_guide_nuttx.html">
+            
+                    
+                    NuttX 보드 이식 안내
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    비행체(Airframe)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    비행체 참고
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    새 비행체 추가
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    장치 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    텔레메트리 무선 통신
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK 무선 통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    센서, 액츄에이터 입출력
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C 버스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN 버스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN 펌웨어 업그레이드
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 기타 참고
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    UART/직렬 포트
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    설정 가능 직렬 포트 드라이버
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    짐벌 (마운트) 제어 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    보조 컴퓨터
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    미들웨어
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink 메시징
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 인터페이스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.3.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    메시지 처리 시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    클라이언트/에이전트 직접 생성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    모듈과 명령
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    명령
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    통신
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_controller.html">
+            
+                <a href="../middleware/modules_controller.html">
+            
+                    
+                    컨트롤러
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    드라이버
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../middleware/modules_driver_airspeed_sensor.html">
+            
+                <a href="../middleware/modules_driver_airspeed_sensor.html">
+            
+                    
+                    대기속도 센서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.2" data-path="../middleware/modules_driver_baro.html">
+            
+                <a href="../middleware/modules_driver_baro.html">
+            
+                    
+                    기압
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.3" data-path="../middleware/modules_driver_distance_sensor.html">
+            
+                <a href="../middleware/modules_driver_distance_sensor.html">
+            
+                    
+                    거리 센서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.4" data-path="../middleware/modules_driver_imu.html">
+            
+                <a href="../middleware/modules_driver_imu.html">
+            
+                    
+                    관성계
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4.5" data-path="../middleware/modules_driver_magnetometer.html">
+            
+                <a href="../middleware/modules_driver_magnetometer.html">
+            
+                    
+                    자력계
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
+            
+                <a href="../middleware/modules_estimator.html">
+            
+                    
+                    추정자
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../middleware/modules_simulation.html">
+            
+                <a href="../middleware/modules_simulation.html">
+            
+                    
+                    모의시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    시스템
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../middleware/modules_template.html">
+            
+                <a href="../middleware/modules_template.html">
+            
+                    
+                    서식
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    로보틱스
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    리눅스에서의 외부 제어
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (ROS용 MAVLink)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS 오프 보드 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    가제보 모의시험 환경의 ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    ROS의 OctoMap 모델
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    라즈베리 파이로의 ROS 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    외부 위치 추정 (시각/움직임 기반)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    MAVROS에서의 개별 메시지 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    드론키트
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    디버깅/로깅
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    자주 묻는 질문
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/consoles.html">
+            
+                <a href="../debug/consoles.html">
+            
+                    
+                    콘솔/셸
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../debug/mavlink_shell.html">
+            
+                <a href="../debug/mavlink_shell.html">
+            
+                    
+                    MAVLink 셸
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    시스템 콘솔
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/swd_debug.html">
+            
+                <a href="../debug/swd_debug.html">
+            
+                    
+                    SWD/JLink 디버깅 인터페이스
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    오토파일럿 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink 하드웨어 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    센서/토픽 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    모의시험 디버깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    디버깅 값 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    시스템 범위 재현
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    프로파일링
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="logging.html">
+            
+                <a href="logging.html">
+            
+                    
+                    로깅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="flight_log_analysis.html">
+            
+                <a href="flight_log_analysis.html">
+            
+                    
+                    비행 로그 분석
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.13" data-path="ulog_file_format.html">
+            
+                <a href="ulog_file_format.html">
+            
+                    
+                    ULog 파일 구성
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    자습서
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    지상 통제 스테이션
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    Odroid C1에서 QGC로의 동영상 스트리밍 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    장거리 동영상 스트리밍 전송
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    리눅스에서의 리모콘 리시버 연결
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    고급 주제
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    매개변수와 설정
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    매개변수 참고서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    컴퓨터 비전
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    움직임 촬영(Motion Capture) (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Intel RealSense R200 드라이버 설치
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    상태 추정자(State Estimator) 전환
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    별도 모듈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 부트로더
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    시스템 알림음
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    플랫폼 시험과 지속 통합
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    비행 시험
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    시험 MC_01 - 수동 상태
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    시험 MC_02 - 완전 자동화
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    시험 MC_03 - 자동 / 수동 혼합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    시험 MC_04 - 안전 장치 시험
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    시험 MC_05 - 실내 비행 (수동 상태)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    단위 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    젠킨스 지속 통합
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    ROS 통합 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/integration_testing_mavsdk.html">
+            
+                <a href="../test_and_ci/integration_testing_mavsdk.html">
+            
+                    
+                    MAVSDK 통합 테스트
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    도커 컨테이너
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.8" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    유지 관리
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    기여(와 유선 개발 미팅)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    유선 개발 미팅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    소스 코드 관리
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT 예제
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    문서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    번역
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    용어/표기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    라이선스
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    지원
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">드론코드 관련 링크</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/master/en/">
+            
+                    
+                    PX4 사용자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 사용자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl 개발자 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink 안내서
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    드론코드 카메라 관리자
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBook에 게시
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >ULog 파일 구성</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="ulog-&#xD30C;&#xC77C;-&#xD615;&#xC2DD;"><a name="ulog-&#xD30C;&#xC77C;-&#xD615;&#xC2DD;" class="plugin-anchor" href="#ulog-&#xD30C;&#xC77C;-&#xD615;&#xC2DD;"><i class="fa fa-link" aria-hidden="true"></i></a>ULog &#xD30C;&#xC77C; &#xD615;&#xC2DD;</h1>
+<p>ULog&#xB294; &#xC2DC;&#xC2A4;&#xD15C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xAE30;&#xB85D;&#xD560; &#xB584; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD30C;&#xC77C; &#xD615;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD615;&#xC2DD;&#xC740; &#xC790;&#xCCB4;&#xC801; &#xC124;&#xBA85;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC73C;&#xBA70;, &#xC608;&#xB97C; &#xB4E4;&#xBA74;, &#xB85C;&#xAE45;&#xD55C; &#xB0B4;&#xC6A9;&#xC5D0; &#xD615;&#xC2DD; &#xC815;&#xBCF4;&#xC640; &#xBA54;&#xC138;&#xC9C0; &#xD615;&#xC2DD;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;(&#xCC38;&#xACE0;&#xB85C; <a href="logging.html">&#xC2DC;&#xC2A4;&#xD15C; &#xB85C;&#xAC70;</a>&#xC5D0;&#xC11C;&#xB294; &#xB85C;&#xADF8; &#xD1A0;&#xD53D;&#xC758; <em>&#xAE30;&#xBCF8; &#xC124;&#xC815;</em>&#xC744; SD &#xCE74;&#xB4DC;&#xC758; &#xC124;&#xC815;&#xC73C;&#xB85C;&#xC758; &#xB300;&#xCCB4;&#xB97C; &#xD5C8;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;).</p>
+<p>&#xC7A5;&#xCE58; &#xC785;&#xB825;(&#xC13C;&#xC11C;, &#xB4F1;), &#xB0B4;&#xBD80; &#xC0C1;&#xD0DC;(CPU &#xBD80;&#xD558;, &#xACE0;&#xB3C4;, &#xB4F1;), <code>printf</code> &#xB85C;&#xADF8; &#xBA54;&#xC138;&#xC9C0;&#xC758; &#xB85C;&#xAE45;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBAA8;&#xB4E0; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xD615;&#xC2DD;&#xC5D0; &#xB9AC;&#xD2C0; &#xC5D4;&#xB514;&#xC548; &#xBC29;&#xC2DD;&#xC744; &#xC801;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xB370;&#xC774;&#xD130;-&#xD615;&#xC2DD;"><a name="&#xB370;&#xC774;&#xD130;-&#xD615;&#xC2DD;" class="plugin-anchor" href="#&#xB370;&#xC774;&#xD130;-&#xD615;&#xC2DD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB370;&#xC774;&#xD130; &#xD615;&#xC2DD;</h2>
+<p>&#xB2E4;&#xC74C; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xD615;&#xC2DD;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. C&#xC758; &#xC790;&#xB8CC;&#xD615;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<table>
+<thead>
+<tr>
+<th>&#xD615;&#xC2DD;</th>
+<th>&#xBC14;&#xC774;&#xD2B8; &#xD06C;&#xAE30;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int8_t, uint8_t</td>
+<td>1</td>
+</tr>
+<tr>
+<td>int16_t, uint16_t</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int32_t, uint32_t</td>
+<td>4</td>
+</tr>
+<tr>
+<td>int64_t, uint64_t</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8</td>
+</tr>
+<tr>
+<td>bool, char</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>&#xAC8C;&#xB2E4;&#xAC00; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xBC30;&#xC5F4;&#xC5D0;&#xB3C4; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>float[5]</code>&#xAC00; &#xC774;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;. &#xBCF4;&#xD1B5; &#xBAA8;&#xB4E0; &#xBB38;&#xC790;&#xC5F4;(<code>char[length]</code>)&#xC758; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; <code>&apos;\0&apos;</code>&#xC774; &#xC788;&#xB294;&#xAC74; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;. &#xBB38;&#xC790;&#xC5F4; &#xBE44;&#xAD50;&#xC2DC; &#xB300;&#xC18C;&#xBB38;&#xC790;&#xB97C; &#xAD6C;&#xBD84;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xD30C;&#xC77C;-&#xAD6C;&#xC870;"><a name="&#xD30C;&#xC77C;-&#xAD6C;&#xC870;" class="plugin-anchor" href="#&#xD30C;&#xC77C;-&#xAD6C;&#xC870;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD30C;&#xC77C; &#xAD6C;&#xC870;</h2>
+<p>&#xD30C;&#xC77C;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC138; &#xBD80;&#xBD84;&#xC73C;&#xB85C; &#xB098;&#xB269;&#xB2C8;&#xB2E4;:</p>
+<pre><code>----------------------
+|       Header       |
+----------------------
+|    Definitions     |
+----------------------
+|        Data        |
+----------------------
+</code></pre><h3 id="&#xD5E4;&#xB354;-&#xC139;&#xC158;"><a name="&#xD5E4;&#xB354;-&#xC139;&#xC158;" class="plugin-anchor" href="#&#xD5E4;&#xB354;-&#xC139;&#xC158;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD5E4;&#xB354; &#xC139;&#xC158;</h3>
+<p>&#xD5E4;&#xB354;&#xB294; &#xACE0;&#xC815; &#xAE38;&#xC774;(16 &#xBC14;&#xC774;&#xD2B8;) &#xC139;&#xC158;&#xC774;&#xBA70;, &#xB2E4;&#xC74C; &#xD615;&#xC2DD;&#xC744; &#xAC16;&#xCD94;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<pre><code>----------------------------------------------------------------------
+| 0x55 0x4c 0x6f 0x67 0x01 0x12 0x35 | 0x01         | uint64_t       |
+| File magic (7B)                    | Version (1B) | Timestamp (8B) |
+----------------------------------------------------------------------
+</code></pre><p>&#xBC84;&#xC804;&#xC740; &#xD30C;&#xC77C; &#xD615;&#xC2DD; &#xBC84;&#xC804;&#xC774;&#xBA70;, &#xD604;&#xC7AC; &#xAC12;&#xC740; 1&#xC785;&#xB2C8;&#xB2E4;. &#xD0C0;&#xC784;&#xC2A4;&#xD0EC;&#xD504;&#xB294; <code>uint64_t</code> &#xC815;&#xC218;&#xD615;&#xC774;&#xBA70;, &#xB85C;&#xAE45;&#xC744; &#xC2DC;&#xC791;&#xD55C; &#xC2DC;&#xAC01;&#xC744; &#xB9C8;&#xC774;&#xD06C;&#xB85C;&#xCD08; &#xB2E8;&#xC704;&#xB85C; &#xD45C;&#xAE30;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xC139;&#xC158;-&#xC815;&#xC758;"><a name="&#xC139;&#xC158;-&#xC815;&#xC758;" class="plugin-anchor" href="#&#xC139;&#xC158;-&#xC815;&#xC758;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC139;&#xC158; &#xC815;&#xC758;</h3>
+<p>&#xB2E4;&#xC591;&#xD55C; &#xAE38;&#xC774;&#xB97C; &#xAC00;&#xC9C4; &#xC139;&#xC158;&#xC5D0;&#xB294; &#xBC84;&#xC804; &#xC815;&#xBCF4;, &#xD615;&#xC2DD; &#xC815;&#xC758;, (&#xCD08;&#xAE30;) &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB370;&#xC774;&#xD130; &#xC139;&#xC158; &#xC815;&#xC758;&#xB294; &#xBA54;&#xC2DC;&#xC9C0; &#xC2A4;&#xD2B8;&#xB9BC;&#xC73C;&#xB85C; &#xAD6C;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. &#xAC01; &#xB370;&#xC774;&#xD130; &#xC139;&#xC158;&#xC740; &#xC774; &#xD5E4;&#xB354;&#xB85C; &#xC2DC;&#xC791;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> message_header_s {
+  <span class="hljs-keyword">uint16_t</span> msg_size;
+  <span class="hljs-keyword">uint8_t</span> msg_type
+};
+</code></pre>
+<p><code>msg_size</code>&#xB294; &#xD5E4;&#xB354; &#xAE38;&#xC774;(<code>hdr_size</code>=3 &#xBC14;&#xC774;&#xD2B8;)&#xB97C; &#xBE80; &#xBC14;&#xC774;&#xD2B8; &#xB2E8;&#xC704;&#xC758; &#xBA54;&#xC2DC;&#xC9C0; &#xAE38;&#xC774;&#xC785;&#xB2C8;&#xB2E4;. <code>msg_type</code>&#xC740; &#xB0B4;&#xC6A9;&#xACFC; &#xB2E4;&#xC74C; &#xC911; &#xD558;&#xB098;&#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li><p>&apos;B&apos;: &#xD50C;&#xB798;&#xADF8; &#xBE44;&#xD2B8; &#xC9D1;&#xD569; &#xBA54;&#xC2DC;&#xC9C0;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code>struct ulog_message_flag_bits_s {
+  struct message_header_s;
+  uint8_t compat_flags[8];
+  uint8_t incompat_flags[8];
+  uint64_t appended_offsets[3]; ///&lt; file offset(s) for appended data if appending bit is set
+};
+</code></pre></li>
+</ul>
+<p>  &#xC774; &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xCC98;&#xC74C; &#xBA54;&#xC2DC;&#xC9C0; <strong>&#xC5EC;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;</strong>. &#xADF8; &#xB2E4;&#xC74C;&#xC5D0;&#xB294; &#xACE0;&#xC815; &#xC0C1;&#xC218; &#xC624;&#xD504;&#xC14B; &#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xAC04; &#xD5E4;&#xB354; &#xC139;&#xC158;&#xC774; &#xC635;&#xB2C8;&#xB2E4;.</p>
+<ul>
+<li><code>compat_flags</code>: &#xD638;&#xD658; &#xD50C;&#xB798;&#xADF8; &#xBE44;&#xD2B8;&#xAC12;. &#xC544;&#xC9C1; &#xC815;&#xC758;&#xD558;&#xB294; &#xC0AC;&#xD56D;&#xC740; &#xC5C6;&#xC73C;&#xBA70; &#xBAA8;&#xB4E0; &#xACBD;&#xC6B0;&#xC5D0; 0&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xBE44;&#xD2B8; &#xAC12;&#xC740; &#xB098;&#xC911;&#xC5D0; ULog &#xD615;&#xC2DD;&#xC774; &#xBC14;&#xB00C;&#xACE0; &#xAE30;&#xC874; &#xD30C;&#xC11C;&#xC640;&#xC758; &#xD638;&#xD658;&#xC131;&#xC744; &#xBE44;&#xAD50;&#xD560; &#xB54C; &#xD65C;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; &#xC54C; &#xC218; &#xC5C6;&#xB294; &#xBE44;&#xD2B8;&#xAC12;&#xC744; &#xC124;&#xC815;&#xD588;&#xB2E4;&#xBA74;, &#xD30C;&#xC11C;&#xC5D0;&#xC11C; &#xC774; &#xBE44;&#xD2B8;&#xAC12;&#xC744; &#xBB34;&#xC2DC;&#xD560; &#xC218; &#xC788;&#xC74C;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><code>incompat_flags</code>: &#xBE44;&#xD638;&#xD658;&#xC131; &#xD50C;&#xB798;&#xADF8; &#xBE44;&#xD2B8;&#xAC12;. &#xB85C;&#xADF8;&#xC5D0; &#xD6C4;&#xC704; &#xCCA8;&#xAC00; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC788;&#xACE0; &#xCD5C;&#xC18C;&#xD55C; <code>appended_offsets</code> &#xAC12; &#xC911; &#xD558;&#xB098;&#xAC00; 0 &#xAC12;&#xC774; &#xC544;&#xB2CC; &#xACBD;&#xC6B0;, &#xC778;&#xB371;&#xC2A4; 0&#xBC88;&#xC758; &#xCD5C;&#xD558;&#xC704; &#xBE44;&#xD2B8; &#xAC12;&#xC744; 1&#xB85C; &#xC124;&#xC815;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xB2E4;&#xB978; &#xBE44;&#xD2B8; &#xAC12;&#xC740; &#xBCC4;&#xB3C4;&#xB85C; &#xC815;&#xC758;&#xD55C; &#xB0B4;&#xC6A9;&#xC774; &#xC5C6;&#xC5B4; 0&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xD30C;&#xC11C;&#xC5D0;&#xC11C; &#xC774; &#xBE44;&#xD2B8; &#xC911; &#xCD5C;&#xC18C;&#xD55C; &#xD558;&#xB098;&#xB77C;&#xB3C4; &#xC124;&#xC815; &#xAC12;&#xC744; &#xBC1C;&#xACAC;&#xD588;&#xB2E4;&#xBA74; &#xB85C;&#xADF8; &#xD574;&#xC11D;&#xC744; &#xAC70;&#xC808;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xAE30;&#xC874; &#xD30C;&#xC11C;&#xC5D0;&#xC11C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xBCC0;&#xACBD; &#xC190;&#xC0C1; &#xBC1C;&#xACAC;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
+<li><p><code>appended_offsets</code>: &#xD6C4;&#xC704; &#xCCA8;&#xAC00; &#xB370;&#xC774;&#xD130;&#xC758; (0 &#xBD80;&#xD130; &#xC2DC;&#xC791;&#xD558;&#xB294;) &#xD30C;&#xC77C; &#xC624;&#xD504;&#xC14B; &#xAC12;&#xC785;&#xB2C8;&#xB2E4;. &#xD6C4;&#xC704; &#xCCA8;&#xAC00; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;, &#xBAA8;&#xB4E0; &#xC624;&#xD504;&#xC14B; &#xAC12;&#xC740; 0&#xC774;&#xC5B4;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xAC12;&#xC740; &#xBA54;&#xC2DC;&#xC9C0; &#xAE30;&#xB85D; &#xC911; &#xC911;&#xAC04;&#xC5D0;&#xC11C; &#xBA48;&#xCD94;&#xB354;&#xB77C;&#xB3C4; &#xB85C;&#xADF8;&#xC758; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB4A4;&#xC5D0; &#xD655;&#xC2E4;&#xD558;&#xAC8C; &#xBD99;&#xC77C; &#xB54C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB370;&#xC774;&#xD130; &#xD6C4;&#xC704; &#xCCA8;&#xBD80; &#xC808;&#xCC28;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC9C4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li>&#xAD00;&#xB828; <code>incompat_flags</code> &#xBE44;&#xD2B8; &#xAC12;&#xC744; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><code>append_offsets</code> &#xCC98;&#xC74C; &#xAC12;&#xC744; &#xB85C;&#xADF8; &#xD30C;&#xC77C; &#xAE38;&#xC774; &#xAC12;&#xC778; 0&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li>&#xADF8; &#xB2E4;&#xC74C; &#xB370;&#xC774;&#xD130; &#xC139;&#xC158;&#xC5D0; &#xC720;&#xD6A8;&#xD55C; &#xC5B4;&#xB5A4; &#xBA54;&#xC2DC;&#xC9C0;&#xB4E0; &#xB4A4;&#xC5D0; &#xBD99;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+<p>&#xD5A5;&#xD6C4; ULog &#xBA85;&#xC138;&#xC5D0;&#xC11C;&#xB294; &#xC774; &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xB05D;&#xC5D0; &#xCD94;&#xAC00; &#xD544;&#xB4DC;&#xAC00; &#xBD99;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB2C8;&#xAE4C;, &#xC774; &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xAE38;&#xC774;&#xAC00; &#xACE0;&#xC815;&#xC784;&#xC744; &#xAC04;&#xC8FC;&#xD574;&#xC11C;&#xB294; &#xC548;&#xB429;&#xB2C8;&#xB2E4;. &#xC608;&#xC0C1; &#xAE38;&#xC774;&#xBCF4;&#xB2E4; &#xBA54;&#xC2DC;&#xC9C0;&#xC758; &#xAE38;&#xC774;&#xAC00; &#xAE38;&#xC5B4;&#xC9C0;&#xBA74;(&#xD604;&#xC7AC; 40&#xBC14;&#xC774;&#xD2B8;), &#xCD08;&#xACFC; &#xAE38;&#xC774;&#xB294; &#xBB34;&#xC2DC;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</li>
+</ul>
+<ul>
+<li><p>&apos;F&apos;: &#xC911;&#xCCA9; &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xB2E4;&#xB978; &#xC815;&#xC758;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xB2E8;&#xC77C;(&#xC694;&#xC18C;)&#xD615;&#xC2DD; &#xC815;&#xC758; &#xAD6C;&#xC131;(&#xD3EC;&#xB9F7;)</p>
+<pre><code>struct message_format_s {
+  struct message_header_s header;
+  char format[header.msg_size];
+};
+</code></pre></li>
+</ul>
+<p>  <code>format</code>: <code>message_name:field0;field1;</code> &#xD615;&#xC2DD;&#xC758; &#xC77C;&#xBC18; &#xD14D;&#xC2A4;&#xD2B8; &#xBB38;&#xC790;&#xC5F4;&#xC785;&#xB2C8;&#xB2E4;. <code>;</code> &#xBB38;&#xC790;&#xB85C; &#xB098;&#xB208; &#xC784;&#xC758; &#xAC2F;&#xC218;&#xC758; &#xD544;&#xB4DC;(&#xCD5C;&#xC18C; 1&#xAC1C;)&#xB97C; &#xB123;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD544;&#xB4DC;&#xB294; <code>type field_name</code> &#xD615;&#xC2DD; &#xB610;&#xB294; <code>type[array_length] field_name</code> (&#xACE0;&#xC815; &#xAE38;&#xC774;&#xB9CC; &#xC9C0;&#xC6D0;) &#xBC30;&#xC5F4; &#xD615;&#xC2DD;&#xC744; &#xC9C0;&#xB2D9;&#xB2C8;&#xB2E4;. <code>type</code> &#xC740; &#xAE30;&#xBCF8; &#xBC14;&#xC774;&#xB108;&#xB9AC; &#xD615;&#xC2DD; &#xB610;&#xB294; &#xAE30;&#xD0C0; &#xD615;&#xC2DD; &#xC815;&#xC758;&#xC758; <code>message_name</code>&#xC911; &#xD558;&#xB098;&#xC785;&#xB2C8;&#xB2E4;(&#xC911;&#xCCA9; &#xD65C;&#xC6A9;). &#xD615;&#xC2DD; &#xC790;&#xCCB4;&#xB97C; &#xC815;&#xC758;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xBA3C;&#xC800; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC784;&#xC758;&#xB300;&#xB85C; &#xC911;&#xCCA9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xB098; &#xC21C;&#xD658; &#xC758;&#xC874;&#xC131;&#xC744; &#xC9C0;&#xB2C8;&#xBA74; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>  &#xC77C;&#xBD80; &#xD2B9;&#xBCC4;&#xD55C; &#xD544;&#xB4DC; &#xC774;&#xB984;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li><code>timestamp</code>: &#xB9E4;&#xBC88; &#xAE30;&#xB85D;&#xD558;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;(<code>message_add_logged_s</code>)&#xC5D0;&#xB294; &#xD0C0;&#xC784;&#xC2A4;&#xD0EC;&#xD504; &#xD544;&#xB4DC;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC5B4;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;(&#xCC98;&#xC74C; &#xD544;&#xB4DC;&#xC5D0;&#xB294; &#xD544;&#xC694;&#xD558;&#xC9C0; &#xC54A;&#xC74C;). &#xD0C0;&#xC784;&#xC2A4;&#xD0EC;&#xD504;&#xC758; &#xC790;&#xB8CC;&#xD615;&#xC740; <code>uint64_t</code> (&#xD604;&#xC7AC; &#xC720;&#xC77C;&#xD558;&#xAC8C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD615;&#xC2DD;), <code>uint32_t</code>, <code>uint16_t</code>, <code>uint8_t</code> &#xC911; &#xD558;&#xB098;&#xB85C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E8;&#xC704;&#xB294; &#xB9C8;&#xC774;&#xD06C;&#xB85C;&#xCD08;&#xC774;&#xBA70;, <code>uint8_t</code> &#xD615;&#xC77C; &#xACBD;&#xC6B0; &#xBC00;&#xB9AC;&#xCD08;&#xC785;&#xB2C8;&#xB2E4;. &#xB85C;&#xADF8; &#xAE30;&#xB85D; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC740; &#xBC18;&#xB4DC;&#xC2DC; &#xB85C;&#xADF8;&#xC758; &#xC2DC;&#xC791;&#xACFC; &#xB05D;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D; &#xB85C;&#xADF8;&#xB97C; &#xC791;&#xC131;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD574;&#xC57C; &#xD558;&#xBA70;, &#xB85C;&#xADF8; &#xC77D;&#xAE30; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC740; &#xC591; &#xB05D;&#xB2E8;&#xC744; &#xCC98;&#xB9AC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;(&#xADF8;&#xB9AC;&#xACE0; &#xC0C1;&#xD669;&#xC5D0; &#xB530;&#xB77C; &#xD3D0;&#xAE30;&#xB97C; &#xACE0;&#xB824;&#xD569;&#xB2C8;&#xB2E4;). &#xD0C0;&#xC784;&#xC2A4;&#xD0EC;&#xD504; &#xAC12;&#xC740; &#xB3D9;&#xC77C;&#xD55C; <code>msg_id</code>&#xB97C; &#xC9C0;&#xB2CC; &#xBA54;&#xC138;&#xC9C0; &#xBAA8;&#xC74C;&#xC5D0; &#xB300;&#xD574; &#xB2E8;&#xC870;&#xB86D;&#xAC8C; &#xACC4;&#xC18D; &#xB298;&#xC5B4;&#xB098;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><p>Padding: <code>_padding</code>&#xC73C;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xB294; &#xD544;&#xB4DC; &#xC774;&#xB984;&#xC744; &#xAC00;&#xC9C4; &#xBD80;&#xBD84;&#xC740; &#xD654;&#xBA74;&#xC5D0; &#xBFCC;&#xB9AC;&#xBA74; &#xC548;&#xB418;&#xBA70;, &#xB9AC;&#xB354;&#xC5D0;&#xC11C; &#xBB34;&#xC2DC;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xD544;&#xB4DC;&#xB294; &#xB370;&#xC774;&#xD130;&#xC758; &#xC815;&#xB82C;&#xC744; &#xC81C;&#xB300;&#xB85C; &#xD558;&#xAE30; &#xC704;&#xD574; &#xB85C;&#xADF8; &#xAE30;&#xB85D; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; &#xB123;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD328;&#xB529; &#xD544;&#xB4DC;&#xAC00; &#xB9C8;&#xC9C0;&#xB9C9; &#xD544;&#xB4DC;&#xB77C;&#xBA74;, &#xC774; &#xD544;&#xB4DC;&#xB294; &#xD544;&#xC694;&#xC5C6;&#xB294; &#xB370;&#xC774;&#xD130; &#xAE30;&#xB85D;&#xC744; &#xD53C;&#xD558;&#xB824; &#xAE30;&#xB85D;&#xC5D0; &#xB123;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774;&#xB294; <code>message_data_s.data</code> &#xB370;&#xC774;&#xD130;&#xAC00; &#xD328;&#xB529; &#xAE38;&#xC774;&#xB97C; &#xC904;&#xC774;&#xB294; &#xB9CC;&#xD07C; &#xB354; &#xC9E7;&#xC544;&#xC9C8; &#xC218; &#xC788;&#xC74C;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xD328;&#xB529;&#xC740; &#xC911;&#xCCA9; &#xC815;&#xC758;&#xC5D0;&#xC11C; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xD65C;&#xC6A9;&#xD560; &#xACBD;&#xC6B0; &#xC5EC;&#xC804;&#xD788; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. </p>
+</li>
+</ul>
+<ul>
+<li><p>&apos;I&apos;: &#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;.</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> message_info_s {
+  <span class="hljs-keyword">struct</span> message_header_s header;
+  <span class="hljs-keyword">uint8_t</span> key_len;
+  <span class="hljs-keyword">char</span> key[key_len];
+  <span class="hljs-keyword">char</span> value[header.msg_size<span class="hljs-number">-1</span>-key_len]
+};
+</code></pre>
+<p><code>key</code>&#xB294; &#xD615;&#xC2DD; &#xBA54;&#xC138;&#xC9C0;&#xC5D0;&#xC11C;&#xCC98;&#xB7FC; &#xC77C;&#xBC18; &#xBB38;&#xC790;&#xC5F4;&#xC774;&#xC9C0;&#xB9CC;(&#xAC1C;&#xBCC4; &#xC124;&#xC815; &#xD615;&#xC2DD;&#xC77C; &#xC218; &#xC788;&#xC74C;), <code>;</code> &#xBB38;&#xC790;&#xB85C; &#xB05D;&#xB098;&#xC9C0; &#xC54A;&#xB294; &#xB2E8;&#xC77C; &#xD544;&#xB4DC;&#xB85C; &#xAD6C;&#xC131;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xBA74;, <code>float[3] myvalues</code> &#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>value</code> &#xC5D0;&#xB294; <code>key</code>&#xAC00; &#xC124;&#xBA85;&#xD558;&#xB294; &#xB370;&#xC774;&#xD130;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC81C;&#xAC01;&#xAC01;&#xC758; &#xD0A4;&#xC5D0; &#xB4E4;&#xC5B4;&#xC788;&#xB294; &#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;&#xB294; &#xC804;&#xCCB4; &#xB85C;&#xADF8;&#xC5D0; &#xD55C;&#xBC88;&#xB9CC; &#xB4E4;&#xC5B4;&#xAC00;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xD30C;&#xC11C;&#xB294; &#xD574;&#xB2F9; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xB515;&#xC154;&#xB108;&#xB9AC;&#xB85C; &#xD615;&#xD0DC;&#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC0AC;&#xC804; &#xC815;&#xC758; &#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>&#xD0A4;</th>
+<th>&#xC124;&#xBA85;</th>
+<th>&#xC608;&#xC81C; &#xAC12;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char[value_len] sys_name</td>
+<td>&#xC2DC;&#xC2A4;&#xD15C; &#xC774;&#xB984;</td>
+<td>&quot;PX4&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] ver_hw</td>
+<td>&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;(&#xBCF4;&#xB4DC;) &#xBC84;&#xC804;</td>
+<td>&quot;PX4FMU_V4&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] ver_hw_subtype</td>
+<td>&#xBCF4;&#xB4DC; &#xD558;&#xC704; &#xBC84;&#xC804;(&#xBCC0;&#xD615;&#xD310;)</td>
+<td>&quot;V2&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] ver_sw</td>
+<td>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xBC84;&#xC804;(git tag)</td>
+<td>&quot;7f65e01&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] ver_sw_branch</td>
+<td>git &#xBE0C;&#xB79C;&#xCE58;</td>
+<td>&quot;master&quot;</td>
+</tr>
+<tr>
+<td>uint32_t ver_sw_release</td>
+<td>&#xC18C;&#xD504;&#xD2B8;&#xC6E8;&#xC5B4; &#xBC84;&#xC804; (&#xC544;&#xB798; &#xCC38;&#xACE0;)</td>
+<td>0x010401ff</td>
+</tr>
+<tr>
+<td>char[value_len] sys_os_name</td>
+<td>&#xC6B4;&#xC601; &#xCCB4;&#xC81C; &#xBA85;&#xCE6D;</td>
+<td>&quot;Linux&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] sys_os_ver</td>
+<td>&#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xBC84;&#xC804; (git tag)</td>
+<td>&quot;9f82919&quot;</td>
+</tr>
+<tr>
+<td>uint32_t ver_os_release</td>
+<td>&#xC6B4;&#xC601;&#xCCB4;&#xC81C; &#xBC84;&#xC804; (&#xC544;&#xB798; &#xCC38;&#xACE0;)</td>
+<td>0x010401ff</td>
+</tr>
+<tr>
+<td>char[value_len] sys_toolchain</td>
+<td>&#xD234;&#xCCB4;&#xC778; &#xBA85;&#xCE6D;</td>
+<td>&quot;GNU GCC&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] sys_toolchain_ver</td>
+<td>&#xD234;&#xCCB4;&#xC778; &#xBC84;&#xC804;</td>
+<td>&quot;6.2.1&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] sys_mcu</td>
+<td>&#xCE69; &#xBA85;&#xCE6D;&#xACFC; &#xBC84;&#xC804;</td>
+<td>&quot;STM32F42x, rev A&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] sys_uuid</td>
+<td>&#xAE30;&#xCCB4; &#xACE0;&#xC720; &#xC2DD;&#xBCC4;&#xC790;(&#xC608;: MCU ID)</td>
+<td>&quot;392a93e32fa3&quot;...</td>
+</tr>
+<tr>
+<td>char[value_len] log_type</td>
+<td>&#xB85C;&#xADF8; &#xD615;&#xC2DD;(&#xC9C0;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC804;&#xCCB4; &#xAE30;&#xB85D;)</td>
+<td>&quot;mission&quot;</td>
+</tr>
+<tr>
+<td>char[value_len] replay</td>
+<td>&#xC7AC;&#xD604; &#xBAA8;&#xB4DC;&#xC77C; &#xB54C; &#xC7AC;&#xD604; &#xD30C;&#xC77C; &#xC774;&#xB984;</td>
+<td>&quot;log001.ulg&quot;</td>
+</tr>
+<tr>
+<td>int32_t time_ref_utc</td>
+<td>&#xCD08; &#xB2E8;&#xC704; UTC &#xC2DC;&#xAC04; &#xC624;&#xD504;&#xC14B;</td>
+<td>-3600</td>
+</tr>
+</tbody>
+</table>
+<pre><code>`ver_sw_release`&#xC640; `ver_os_release` &#xD615;&#xC2DD;&#xC740; 0xAABBCCTT&#xC785;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; AA&#xB294; &#xBA54;&#xC774;&#xC800; &#xBC84;&#xC804;, BB&#xB294; &#xB9C8;&#xC774;&#xB108; &#xBC84;&#xC804;, CC&#xB294; &#xD328;&#xCE58; &#xD69F;&#xC218;, TT&#xB294; &#xD615;&#xC2DD;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;. 
+&#xD615;&#xC2DD; &#xAC12;&#xC740; &#xB2E4;&#xC74C;&#xC744; &#xB530;&#xB985;&#xB2C8;&#xB2E4;. &gt;= 0`: &#xAC1C;&#xBC1C; &#xBC84;&#xC804;, `&gt;= 64`: &#xC54C;&#xD30C; &#xBC84;&#xC804;, `&gt;= 128`: &#xBCA0;&#xD0C0; &#xBC84;&#xC804;, `&gt;= 192`: &#xCD9C;&#xC2DC; &#xD6C4;&#xBCF4;, `== 255`: &#xCD9C;&#xC2DC; &#xBC84;&#xC804;
+
+&#xC608;&#xB97C; &#xB4E4;&#xC5B4; 0x010402ff&#xB294; &#xCD9C;&#xC2DC; &#xBC84;&#xC804; v1.4.2&#xB85C; &#xBCC0;&#xD658;&#xD569;&#xB2C8;&#xB2E4;.
+
+&#xC774; &#xBA54;&#xC138;&#xC9C0;&#xB294; &#xB370;&#xC774;&#xD130; &#xC139;&#xC158;(&#xC774;&#xB098;, &#xC139;&#xC158; &#xC55E; &#xBD80;&#xBD84;)&#xC5D0;&#xB3C4; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+</code></pre><ul>
+<li><p>&apos;M&apos;: &#xB2E4;&#xC911; &#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;.</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> ulog_message_info_multiple_header_s {
+  <span class="hljs-keyword">struct</span> message_header_s header;
+  <span class="hljs-keyword">uint8_t</span> is_continued; <span class="hljs-comment">///&lt; can be used for arrays</span>
+  <span class="hljs-keyword">uint8_t</span> key_len;
+  <span class="hljs-keyword">char</span> key[key_len];
+  <span class="hljs-keyword">char</span> value[header.msg_size<span class="hljs-number">-2</span>-key_len]
+};
+</code></pre>
+<p>&#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;&#xC640; &#xB3D9;&#xC77C;&#xD558;&#xC9C0;&#xB9CC; &#xB3D9;&#xC77C;&#xD55C; &#xD0A4;&#xB97C; &#xC9C0;&#xB2CC; &#xB2E4;&#xC911; &#xBA54;&#xC138;&#xC9C0;&#xAC00; &#xB418;&#xB294; &#xACBD;&#xC6B0;&#xB294; &#xC608;&#xC678;&#xC785;&#xB2C8;&#xB2E4;(&#xD30C;&#xC11C;&#xC5D0;&#xC11C;&#xB294; &#xC774; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xBAA9;&#xB85D;&#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xD569;&#xB2C8;&#xB2E4;). <code>is_continued</code>&#xB294; &#xCABC;&#xAC20; &#xBA54;&#xC138;&#xC9C0;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. 1&#xB85C; &#xC124;&#xC815;&#xD558;&#xBA74;, &#xC774;&#xC804; &#xBA54;&#xC138;&#xC9C0;&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xD0A4;&#xB97C; &#xC9C0;&#xB2CC; &#xBD80;&#xBD84;&#xC785;&#xB2C8;&#xB2E4;. &#xD30C;&#xC11C;&#xB294; &#xB85C;&#xADF8; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xAE30;&#xB85D;&#xD558;&#xB294; &#xC21C;&#xC11C; &#xADF8;&#xB300;&#xB85C; 2&#xCC28;&#xC6D0; &#xBAA9;&#xB85D;&#xC73C;&#xB85C; &#xB2E4;&#xC911; &#xBA54;&#xC138;&#xC9C0;&#xC758; &#xBAA8;&#xB4E0; &#xC815;&#xBCF4;&#xB97C; &#xC800;&#xC7A5;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</li>
+<li><p>&apos;P&apos;: &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xBA54;&#xC138;&#xC9C0;. <code>message_info_s</code>&#xC640; &#xB3D9;&#xC77C;&#xD55C; &#xD615;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;. &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xAC00; &#xC2E4;&#xD589; &#xC2DC;&#xAC04;&#xB3D9;&#xC548; &#xC218;&#xC2DC;&#xB85C; &#xBC14;&#xB00C;&#xB294; &#xACBD;&#xC6B0;, &#xC774; &#xBA54;&#xC2DC;&#xC9C0;&#xB3C4; &#xB370;&#xC774;&#xD130; &#xC139;&#xC158;&#xC5D0;&#xC11C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xB370;&#xC774;&#xD130; &#xD615;&#xC2DD;&#xC740; <code>int32_t</code>, <code>float</code> &#xB450;&#xAC00;&#xC9C0; &#xD615;&#xC2DD;&#xC73C;&#xB85C; &#xC81C;&#xD55C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</li>
+</ul>
+<p>&#xC774; &#xC808;&#xC740; &#xCC98;&#xC74C; <code>message_add_logged_s</code> &#xBA54;&#xC138;&#xC9C0; &#xB610;&#xB294; <code>message_logging_s</code> &#xBA54;&#xC138;&#xC9C0; &#xB458; &#xC911; &#xC5B4;&#xB5A4; &#xBA54;&#xC138;&#xC9C0; &#xD558;&#xB098;&#xB97C; &#xC2DC;&#xC791;&#xD558;&#xAE30; &#xC804;&#xC5D0; &#xB05D;&#xB0A9;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xB370;&#xC774;&#xD130;-&#xC139;&#xC158;"><a name="&#xB370;&#xC774;&#xD130;-&#xC139;&#xC158;" class="plugin-anchor" href="#&#xB370;&#xC774;&#xD130;-&#xC139;&#xC158;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB370;&#xC774;&#xD130; &#xC139;&#xC158;</h3>
+<p>&#xB2E4;&#xC74C; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xC774; &#xC139;&#xC158;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li><p>&apos;A&apos;: &#xC774;&#xB984;&#xC744; &#xBD80;&#xC5EC;&#xD55C; &#xAC00;&#xC785; &#xBA54;&#xC2DC;&#xC9C0;&#xC774;&#xBA70;, <code>message_data_s</code>&#xC5D0;&#xC11C; &#xD65C;&#xC6A9;&#xD558;&#xB294; ID &#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xC139;&#xC158;&#xC740; <code>message_data_s</code>&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xCCAB;&#xBC88;&#xC9F8; &#xBD80;&#xBD84; &#xC774;&#xC804;&#xC5D0; &#xC640;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> message_add_logged_s {
+  <span class="hljs-keyword">struct</span> message_header_s header;
+  <span class="hljs-keyword">uint8_t</span> multi_id;
+  <span class="hljs-keyword">uint16_t</span> msg_id;
+  <span class="hljs-keyword">char</span> message_name[header.msg_size<span class="hljs-number">-3</span>];
+};
+</code></pre>
+<p><code>multi_id</code>: &#xB3D9;&#xC77C;&#xD55C; &#xD615;&#xC2DD;&#xC758; &#xC13C;&#xC11C; &#xB450;&#xAC00;&#xC9C0;&#xB97C; &#xB2EC;&#xACE0; &#xC788;&#xB294; &#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xACBD;&#xC6B0;&#xB97C; &#xC608;&#xB85C; &#xB4E4;&#xC5B4;, &#xC5EC;&#xB7EC; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB97C; &#xAC00;&#xC9C8; &#xC218; &#xC788;&#xB294; &#xB3D9;&#xC77C;&#xD55C; &#xBA54;&#xC138;&#xC9C0; &#xD615;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xACFC; &#xCCAB;&#xBC88;&#xC9F8; &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xB294; 0&#xC774;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. <code>msg_id</code>: <code>message_data_s</code> &#xB370;&#xC774;&#xD130;&#xC5D0; &#xC77C;&#xCE58;&#xD558;&#xB294; &#xACE0;&#xC720; ID&#xC785;&#xB2C8;&#xB2E4;. &#xCC98;&#xC74C; &#xD65C;&#xC6A9; &#xBD80;&#xBD84;&#xC740; 0&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD558;&#xACE0;, &#xAC12;&#xC744; &#xB298;&#xB824;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. &#xB3D9;&#xC77C;&#xD55C; <code>msg_id</code>&#xB97C; &#xAC01;&#xAE30; &#xB2E4;&#xB978; &#xAC00;&#xC785; &#xC808;&#xCC28;&#xB97C; &#xC704;&#xD574; &#xB450;&#xBC88; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC548;&#xB418;&#xBA70;, &#xADF8; &#xBC18;&#xB300;&#xC758; &#xACBD;&#xC6B0;&#xB3C4; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xC785;&#xB2C8;&#xB2E4;. <code>message_name</code>: &#xCC98;&#xB9AC; &#xACFC;&#xC815;&#xC5D0; &#xAC00;&#xC785;&#xD560; &#xBA54;&#xC138;&#xC9C0; &#xC774;&#xB984;&#xC785;&#xB2C8;&#xB2E4;. <code>message_format_s</code>&#xC5D0; &#xC9C0;&#xC815;&#xD55C; &#xC774;&#xB984;&#xACFC; &#xC815;&#xD655;&#xD558;&#xAC8C; &#xC77C;&#xCE58;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+</li>
+<li><p>&apos;R&apos;: &#xB354;&#xC774;&#xC0C1; &#xB85C;&#xADF8;&#xB97C; &#xC9C4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xC74C;&#xC744; &#xC54C;&#xB9AC;&#xB294; &#xD0C8;&#xC678; &#xBA54;&#xC2DC;&#xC9C0;(&#xD604;&#xC7AC; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC74C;)&#xC785;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-c"><span class="hljs-keyword">struct</span> message_remove_logged_s {
+  <span class="hljs-keyword">struct</span> message_header_s header;
+  <span class="hljs-keyword">uint16_t</span> msg_id;
+};
+</code></pre>
+</li>
+<li><p>&apos;D&apos;: &#xB85C;&#xADF8; &#xB370;&#xC774;&#xD130;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code>struct message_data_s {
+  struct message_header_s header;
+  uint16_t msg_id;
+  uint8_t data[header.msg_size-2];
+};
+</code></pre></li>
+</ul>
+<p>  <code>msg_id</code>: <code>message_add_logged_s</code> &#xBA54;&#xC2DC;&#xC9C0;&#xC5D0;&#xC11C; &#xC815;&#xC758;&#xD55C; &#xADF8;&#xB300;&#xB85C;&#xC785;&#xB2C8;&#xB2E4;. <code>data</code>&#xC5D0;&#xB294; <code>message_format_s</code>&#xC5D0; &#xC9C0;&#xC815;&#xD55C; &#xB300;&#xB85C; &#xC774;&#xC9C4; &#xD615;&#xC2DD;&#xC758; &#xB85C;&#xADF8; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD544;&#xB4DC; &#xC5EC;&#xBC31;&#xC744; &#xD2B9;&#xBCC4;&#xD788; &#xCC98;&#xB9AC;&#xD55C; &#xBC29;&#xBC95;&#xC740; &#xC704;&#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<ul>
+<li><p>&apos;L&apos;: &#xB85C;&#xAE45;&#xD55C; &#xBB38;&#xC790;&#xC5F4; &#xBA54;&#xC2DC;&#xC9C0;&#xC785;&#xB2C8;&#xB2E4;. &#xC608;: printf &#xCD9C;&#xB825;.</p>
+<pre><code>struct message_logging_s {
+  struct message_header_s header;
+  uint8_t log_level;
+  uint64_t timestamp;
+  char message[header.msg_size-9]
+};
+</code></pre></li>
+</ul>
+<p>  <code>timestamp</code>: &#xB9C8;&#xC774;&#xD06C;&#xB85C;&#xCD08; &#xB2E8;&#xC704;, <code>log_level</code>: &#xB9AC;&#xB205;&#xC2A4; &#xCEE4;&#xB110;&#xACFC; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<table>
+<thead>
+<tr>
+<th>&#xC774;&#xB984;</th>
+<th>&#xB808;&#xBCA8; &#xAC12;</th>
+<th>&#xC758;&#xBBF8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMERG</td>
+<td>&apos;0&apos;</td>
+<td>&#xC2DC;&#xC2A4;&#xD15C; &#xC0AC;&#xC6A9; &#xBD88;&#xAC00;</td>
+</tr>
+<tr>
+<td>ALERT</td>
+<td>&apos;1&apos;</td>
+<td>&#xC989;&#xC2DC; &#xC870;&#xCE58;&#xD574;&#xC57C; &#xD568;</td>
+</tr>
+<tr>
+<td>CRIT</td>
+<td>&apos;2&apos;</td>
+<td>&#xC911;&#xB300;&#xD55C; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>ERR</td>
+<td>&apos;3&apos;</td>
+<td>&#xC624;&#xB958; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>&apos;4&apos;</td>
+<td>&#xACBD;&#xACE0; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>NOTICE</td>
+<td>&apos;5&apos;</td>
+<td>&#xBCF4;&#xD1B5;&#xC758; &#xC0C1;&#xD0DC;&#xC774;&#xB098; &#xC8FC;&#xC2DC;&#xAC00; &#xD544;&#xC694;&#xD55C; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>&apos;6&apos;</td>
+<td>&#xC815;&#xBCF4;</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>&apos;7&apos;</td>
+<td>&#xB514;&#xBC84;&#xAE45; &#xBA54;&#xC2DC;&#xC9C0;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>&apos;C&apos;: &#xD0DC;&#xADF8;&#xAC00; &#xBD99;&#xC740; &#xB85C;&#xAE45; &#xBB38;&#xC790;&#xC5F4; &#xBA54;&#xC138;&#xC9C0;</p>
+<pre><code>struct message_logging_tagged_s {
+  struct message_header_s header;
+  uint8_t log_level;
+  uint16_t tag;
+  uint64_t timestamp;
+  char message[header.msg_size-9]
+};
+</code></pre></li>
+</ul>
+<p>  <code>tag</code>: &#xB85C;&#xADF8; &#xBA54;&#xC138;&#xC9C0; &#xBB38;&#xC790;&#xC5F4;&#xC758; &#xC6D0;&#xBCF8;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xB294; ID&#xC785;&#xB2C8;&#xB2E4;. &#xACFC;&#xC815;, &#xC2A4;&#xB808;&#xB4DC;, &#xC2DC;&#xC2A4;&#xD15C; &#xC544;&#xD0A4;&#xD14D;&#xCC98;&#xBCC4; &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB098;&#xD0C0;&#xB0BC; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xC5B4;, &#xC81C;&#xAC01;&#xAC01;&#xC758; &#xD398;&#xC774;&#xB85C;&#xB4DC;, &#xC678;&#xBD80; &#xB514;&#xC2A4;&#xD06C;, &#xC9C1;&#xB82C; &#xC7A5;&#xCE58; &#xB4F1;&#xC744; &#xC81C;&#xC5B4;&#xD558;&#xB824; &#xB2E4;&#xC911; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xCC98;&#xB9AC;&#xD558;&#xB294; &#xC628;&#xBCF4;&#xB4DC; &#xCEF4;&#xD4E8;&#xD130;&#xC6A9; &#xCC38;&#xC870; &#xAD6C;&#xD604;&#xCCB4;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; <code>message_logging_tagged_s</code> &#xAD6C;&#xC870;&#xCCB4;&#xC758; <code>uint16_t enum</code> &#xD0DC;&#xADF8; &#xC18D;&#xC131;&#xC73C;&#xB85C; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC2DD;&#xBCC4;&#xC790;&#xB97C; &#xC778;&#xCF54;&#xB529;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code>  enum class ulog_tag : uint16_t {
+    unassigned,
+    mavlink_handler,
+    ppk_handler,
+    camera_handler,
+    ptp_handler,
+    serial_handler,
+    watchdog,
+    io_service,
+    cbuf,
+    ulg
+  };
+</code></pre><p>  <code>timestamp</code>: &#xB9C8;&#xC774;&#xD06C;&#xB85C;&#xCD08; &#xB2E8;&#xC704;, <code>log_level</code>: &#xB9AC;&#xB205;&#xC2A4; &#xCEE4;&#xB110;&#xACFC; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<table>
+<thead>
+<tr>
+<th>&#xC774;&#xB984;</th>
+<th>&#xB808;&#xBCA8; &#xAC12;</th>
+<th>&#xC758;&#xBBF8;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EMERG</td>
+<td>&apos;0&apos;</td>
+<td>&#xC2DC;&#xC2A4;&#xD15C; &#xC0AC;&#xC6A9; &#xBD88;&#xAC00;</td>
+</tr>
+<tr>
+<td>ALERT</td>
+<td>&apos;1&apos;</td>
+<td>&#xC989;&#xC2DC; &#xC870;&#xCE58;&#xD574;&#xC57C; &#xD568;</td>
+</tr>
+<tr>
+<td>CRIT</td>
+<td>&apos;2&apos;</td>
+<td>&#xC911;&#xB300;&#xD55C; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>ERR</td>
+<td>&apos;3&apos;</td>
+<td>&#xC624;&#xB958; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td>&apos;4&apos;</td>
+<td>&#xACBD;&#xACE0; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>NOTICE</td>
+<td>&apos;5&apos;</td>
+<td>&#xBCF4;&#xD1B5;&#xC758; &#xC0C1;&#xD0DC;&#xC774;&#xB098; &#xC8FC;&#xC2DC;&#xAC00; &#xD544;&#xC694;&#xD55C; &#xC0C1;&#xD669;</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td>&apos;6&apos;</td>
+<td>&#xC815;&#xBCF4;</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td>&apos;7&apos;</td>
+<td>&#xB514;&#xBC84;&#xAE45; &#xBA54;&#xC2DC;&#xC9C0;</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>&apos;S&apos;: &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xB3D9;&#xAE30;&#xD654;&#xD558;&#xC5EC; &#xB9AC;&#xB354; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C; &#xB2E4;&#xC74C; &#xB3D9;&#xAE30;&#xD654; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xAC80;&#xC0C9;&#xD558;&#xC5EC; &#xAE68;&#xC9C4; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xBCF5;&#xC6D0;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code>struct message_sync_s {
+  struct message_header_s header;
+  uint8_t sync_magic[8];
+};
+</code></pre></li>
+</ul>
+<p>  <code>sync_magic</code>: [0x2F, 0x73, 0x13, 0x20, 0x25, 0x0C, 0xBB, 0x12]</p>
+<ul>
+<li><p>&apos;O&apos;: &#xBC00;&#xB9AC;&#xCD08; &#xB2E8;&#xC704;&#xC758; &#xC8FC;&#xC5B4;&#xC9C4; &#xC2DC;&#xAC04;&#xC744; &#xCD08;&#xACFC;&#xD558;&#xC5EC; &#xBC84;&#xB9B0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xD45C;&#xAE30;(&#xC190;&#xC2E4; &#xB85C;&#xAE45; &#xBA54;&#xC138;&#xC9C0;)&#xD569;&#xB2C8;&#xB2E4;. &#xC7A5;&#xCE58; &#xB3D9;&#xC791;&#xC774; &#xCDA9;&#xBD84;&#xD788; &#xBE60;&#xB974;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0; &#xB85C;&#xADF8;&#xBA54;&#xC2DC;&#xC9C0; &#xC190;&#xC2E4;&#xC774; &#xB098;&#xD0C0;&#xB0A0; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code>struct message_dropout_s {
+  struct message_header_s header;
+  uint16_t duration;
+};
+</code></pre></li>
+</ul>
+<ul>
+<li><p>&apos;I&apos;: &#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;. &#xC0C1;&#xB2E8; &#xCC38;&#xACE0;.</p>
+</li>
+<li><p>&apos;M&apos;: &#xB2E4;&#xC911; &#xC815;&#xBCF4; &#xBA54;&#xC138;&#xC9C0;. &#xC0C1;&#xB2E8; &#xCC38;&#xACE0;.</p>
+</li>
+<li><p>&apos;P&apos;: &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xBA54;&#xC138;&#xC9C0;. &#xC0C1;&#xB2E8; &#xCC38;&#xACE0;.</p>
+</li>
+</ul>
+<h2 id="&#xD30C;&#xC11C;-&#xC694;&#xAD6C;-&#xC0AC;&#xD56D;"><a name="&#xD30C;&#xC11C;-&#xC694;&#xAD6C;-&#xC0AC;&#xD56D;" class="plugin-anchor" href="#&#xD30C;&#xC11C;-&#xC694;&#xAD6C;-&#xC0AC;&#xD56D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD30C;&#xC11C; &#xC694;&#xAD6C; &#xC0AC;&#xD56D;</h2>
+<p>&#xC628;&#xC804;&#xD788; &#xB3D9;&#xC791;&#xD558;&#xB294; ULog &#xD30C;&#xC11C;&#xB294; &#xB2E4;&#xC74C; &#xC694;&#xAC74;&#xC744; &#xB9CC;&#xC871;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<ul>
+<li>&#xC54C; &#xC218; &#xC5C6;&#xB294; &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xBB34;&#xC2DC;&#xD574;&#xC57C; &#xD568;(&#xADF8;&#xB7EC;&#xB098; &#xACBD;&#xACE0;&#xB97C; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC74C;).</li>
+<li>&#xC774;&#xD6C4;/&#xC54C; &#xC218; &#xC5C6;&#xB294; &#xD30C;&#xC77C; &#xD615;&#xC2DD; &#xBC84;&#xC804;&#xB3C4; &#xD574;&#xC11D;(&#xADF8;&#xB7EC;&#xB098; &#xACBD;&#xACE0;&#xB97C; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC74C;).</li>
+<li>&#xB85C;&#xADF8;&#xC5D0; &#xD30C;&#xC11C;&#xC5D0;&#xC11C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC5C6;&#xB294; &#xAE68;&#xC9C4; &#xBCC0;&#xACBD;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC74C;&#xC744; &#xC758;&#xBBF8;&#xD558;&#xB294; &#xC54C; &#xC218; &#xC5C6;&#xB294; &#xBE44;&#xD638;&#xD658;&#xC131; &#xBE44;&#xD2B8;(<code>ulog_message_flag_bits_s</code> &#xBA54;&#xC138;&#xC9C0;&#xC758; <code>incompat_flags</code>) &#xC124;&#xC815; &#xAC12;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC744; &#xACBD;&#xC6B0; &#xB85C;&#xADF8; &#xD574;&#xC11D;&#xC744; &#xAC70;&#xC808;&#xD574;&#xC57C;&#xD568;.</li>
+<li>&#xB85C;&#xADF8;&#xAC00; &#xBA54;&#xC138;&#xC9C0; &#xC911;&#xAC04;&#xC5D0; &#xAC11;&#xC790;&#xAE30; &#xB05D;&#xB0AC;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB3C4; &#xC81C;&#xB300;&#xB85C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xC5B4;&#xC57C; &#xD568;. &#xB05D;&#xB098;&#xC9C0; &#xC54A;&#xC740; &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xBB34;&#xC2DC;&#xD574;&#xC57C; &#xD568;.</li>
+<li><p>&#xD6C4;&#xC704; &#xCCA8;&#xAC00; &#xB370;&#xC774;&#xD130;: &#xD30C;&#xC11C;&#xC5D0;&#xC11C; &#xB370;&#xC774;&#xD130; &#xC139;&#xC158;&#xC774; &#xC874;&#xC7AC;&#xD568;&#xC744; &#xAC00;&#xC815;&#xD560; &#xC218; &#xC788;&#xC5B4;&#xC57C; &#xD568;. &#xC608;: &#xC815;&#xC758; &#xC139;&#xC158; &#xB2E4;&#xC74C;&#xC758; &#xC704;&#xCE58;&#xB97C; &#xC624;&#xD504;&#xC14B;&#xC774; &#xAC00;&#xB9AC;&#xD0B4;.</p>
+<p>&#xD6C4;&#xC704; &#xCCA8;&#xAC00; &#xB370;&#xC774;&#xD130;&#xB294; &#xC815;&#xADDC; &#xB370;&#xC774;&#xD130; &#xC139;&#xC158;&#xC758; &#xC77C;&#xBD80;&#xB85C; &#xB2E4;&#xB8E8;&#xC5B4;&#xC57C; &#xD568;.</p>
+</li>
+</ul>
+<h2 id="&#xC54C;&#xB824;&#xC9C4;-&#xAE30;&#xC874;-&#xAD6C;&#xD604;&#xCCB4;"><a name="&#xC54C;&#xB824;&#xC9C4;-&#xAE30;&#xC874;-&#xAD6C;&#xD604;&#xCCB4;" class="plugin-anchor" href="#&#xC54C;&#xB824;&#xC9C4;-&#xAE30;&#xC874;-&#xAD6C;&#xD604;&#xCCB4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC54C;&#xB824;&#xC9C4; &#xAE30;&#xC874; &#xAD6C;&#xD604;&#xCCB4;</h2>
+<ul>
+<li>PX4 &#xD38C;&#xC6E8;&#xC5B4;: C++ <ul>
+<li><a href="https://github.com/PX4/Firmware/tree/master/src/modules/logger" target="_blank">&#xB85C;&#xAC70; &#xBAA8;&#xB4C8;</a></li>
+<li><a href="https://github.com/PX4/Firmware/tree/master/src/modules/replay" target="_blank">&#xC7AC;&#xD604; &#xBAA8;&#xB4C8;</a></li>
+<li><a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log" target="_blank">hardfault_log &#xBAA8;&#xB4C8;</a>: hardfault &#xCE58;&#xBA85; &#xC624;&#xB958; &#xB370;&#xC774;&#xD130;&#xB97C; &#xBD99;&#xC785;&#xB2C8;&#xB2E4;.</li>
+</ul>
+</li>
+<li><a href="https://github.com/PX4/pyulog" target="_blank">pyulog</a>: CLI &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xB4E4;&#xC5B4;&#xC788;&#xB294; &#xD30C;&#xC774;&#xC36C; ULog &#xD30C;&#xC11C; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;.</li>
+<li><a href="https://github.com/PX4/FlightPlot" target="_blank">FlightPlot</a>: Java&#xC5B8;&#xC5B4;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xB85C;&#xADF8; &#xD50C;&#xB85C;&#xD130;.</li>
+<li><a href="https://github.com/Marxlp/pyFlightAnalysis" target="_blank">pyFlightAnalysis</a>: pyulog &#xAE30;&#xBC18; &#xB85C;&#xADF8; &#xD50C;&#xB85C;&#xD130;, 3D &#xC2DC;&#xAC01;&#xD654; &#xB3C4;&#xAD6C;.</li>
+<li><a href="https://github.com/mavlink/mavlink" target="_blank">MAVLink</a>: MAVLink&#xB97C; &#xD1B5;&#xD55C; ULog &#xBA54;&#xC138;&#xC9C0; &#xC2A4;&#xD2B8;&#xB9AC;&#xBC0D; (&#xD6C4;&#xC704; &#xCCA8;&#xAC00; &#xB370;&#xC774;&#xD130;&#xB294; &#xC9C0;&#xC6D0;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xCD5C;&#xC18C;&#xD55C; &#xC798;&#xB9B0; &#xBA54;&#xC138;&#xC9C0;&#xC758; &#xBB34;&#xC2DC;&#xB294; &#xC9C0;&#xC6D0;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.).</li>
+<li><a href="https://github.com/mavlink/qgroundcontrol" target="_blank">QGroundControl</a>: C++&#xB85C; &#xC791;&#xC131;&#xD55C; MAVLink ULog &#xC2A4;&#xD2B8;&#xB9AC;&#xBC0D; &#xBC0F; &#xAC04;&#xB2E8;&#xD55C; GeoTagging &#xD30C;&#xC2F1; &#xB3C4;&#xAD6C;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><a href="https://github.com/01org/mavlink-router" target="_blank">mavlink-router</a>: MAVLink ULog &#xC2A4;&#xD2B8;&#xB9AC;&#xBC0D; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; C++ &#xAE30;&#xBC18; &#xD504;&#xB85C;&#xADF8;&#xB7A8;.</li>
+<li><a href="https://github.com/ecmnet/MAVGCL" target="_blank">MAVGAnalysis</a>: &#xC790;&#xBC14; &#xAE30;&#xBC18;&#xC758; MAVLink ULog &#xC2A4;&#xD2B8;&#xB9AC;&#xBC0D; &#xAE30;&#xB2A5;&#xACFC; &#xB3C4;&#xD45C; &#xC791;&#xC131;, &#xBD84;&#xC11D; &#xAE30;&#xB2A5;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xD30C;&#xC11C; &#xAE30;&#xB2A5;&#xC744; &#xAC16;&#xCD98; &#xD504;&#xB85C;&#xADF8;&#xB7A8;.</li>
+<li><a href="https://github.com/facontidavide/PlotJuggler" target="_blank">PlotJuggler</a>: &#xB85C;&#xADF8;&#xC640; &#xC2DC;&#xAC04;&#xB300;&#xB97C; &#xD50C;&#xB86F; &#xCC28;&#xD2B8;&#xB85C; &#xCD9C;&#xB825;&#xD558;&#xB294; C++/Qt &#xAE30;&#xBC18; &#xD504;&#xB85C;&#xADF8;&#xB7A8;. 2.1.3&#xBD80;&#xD130; ULog&#xB97C; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><a href="https://github.com/maxsun/ulogreader" target="_blank">ulogreader</a>: ULog&#xB85C;&#xADF8;&#xB97C; &#xC77D;&#xC5B4; JSON &#xAC1D;&#xCCB4; &#xD3EC;&#xBA67;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD558;&#xB294; Javascript &#xAE30;&#xBC18; &#xD30C;&#xC11C;. </li>
+</ul>
+<h2 id="&#xD30C;&#xC77C;-&#xD615;&#xC2DD;-&#xBC84;&#xC804;-&#xC774;&#xB825;"><a name="&#xD30C;&#xC77C;-&#xD615;&#xC2DD;-&#xBC84;&#xC804;-&#xC774;&#xB825;" class="plugin-anchor" href="#&#xD30C;&#xC77C;-&#xD615;&#xC2DD;-&#xBC84;&#xC804;-&#xC774;&#xB825;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD30C;&#xC77C; &#xD615;&#xC2DD; &#xBC84;&#xC804; &#xC774;&#xB825;</h2>
+<h3 id="&#xBC84;&#xC804;-2-&#xAC1C;&#xC815;-&#xC0AC;&#xD56D;"><a name="&#xBC84;&#xC804;-2-&#xAC1C;&#xC815;-&#xC0AC;&#xD56D;" class="plugin-anchor" href="#&#xBC84;&#xC804;-2-&#xAC1C;&#xC815;-&#xC0AC;&#xD56D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBC84;&#xC804; 2 &#xAC1C;&#xC815; &#xC0AC;&#xD56D;</h3>
+<p><code>ulog_message_info_multiple_header_s</code> &#xBA54;&#xC2DC;&#xC9C0;&#xC640; <code>ulog_message_flag_bits_s</code> &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xCD94;&#xAC00;&#xD558;&#xACE0; &#xB85C;&#xADF8;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xD6C4;&#xC704; &#xCCA8;&#xAC00;&#xD558;&#xB294; &#xAE30;&#xB2A5;&#xC744; &#xBD99;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xC874; &#xB85C;&#xADF8;&#xC5D0; &#xCE58;&#xBA85; &#xC624;&#xB958; &#xC815;&#xBCF4;&#xB97C; &#xCD94;&#xAC00;&#xD560; &#xB54C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC911;&#xAC04;&#xC774; &#xC798;&#xB9B0; &#xBA54;&#xC138;&#xC9C0;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xAC00; &#xBD99;&#xC5B4; &#xAE30;&#xB85D;&#xD560; &#xACBD;&#xC6B0; &#xBC84;&#xC804; 1&#xC758; &#xD574;&#xC11D; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC5D0;&#xC11C;&#xB294; &#xD574;&#xC11D;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD30C;&#xC11C;&#xC5D0;&#xC11C; &#xC54C; &#xC218; &#xC5C6;&#xB294; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xBB34;&#xC2DC;&#xD55C;&#xB2E4;&#xBA74; &#xC804;&#xD6C4; &#xD638;&#xD658;&#xC131;&#xC744; &#xD655;&#xBCF4;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="flight_log_analysis.html" class="navigation navigation-prev " aria-label="Previous page: 비행 로그 분석">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tutorials/tutorials.html" class="navigation navigation-next " aria-label="Next page: 자습서">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"ULog 파일 구성","level":"1.9.13","depth":2,"next":{"title":"자습서","level":"1.10","depth":1,"path":"tutorials/tutorials.md","ref":"tutorials/tutorials.md","articles":[{"title":"지상 통제 스테이션","level":"1.10.1","depth":2,"path":"qgc/README.md","ref":"qgc/README.md","articles":[]},{"title":"Odroid C1에서 QGC로의 동영상 스트리밍 전송","level":"1.10.2","depth":2,"path":"qgc/video_streaming.md","ref":"qgc/video_streaming.md","articles":[]},{"title":"장거리 동영상 스트리밍 전송","level":"1.10.3","depth":2,"path":"qgc/video_streaming_wifi_broadcast.md","ref":"qgc/video_streaming_wifi_broadcast.md","articles":[]},{"title":"리눅스에서의 리모콘 리시버 연결","level":"1.10.4","depth":2,"path":"tutorials/linux_sbus.md","ref":"tutorials/linux_sbus.md","articles":[]}]},"previous":{"title":"비행 로그 분석","level":"1.9.12","depth":2,"path":"log/flight_log_analysis.md","ref":"log/flight_log_analysis.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"log/ulog_file_format.md","mtime":"2020-08-10T22:50:22.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-10T22:51:45.252Z"},"basePath":"..","book":{"language":"ko"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
