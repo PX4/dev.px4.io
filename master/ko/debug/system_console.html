@@ -2462,39 +2462,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="px4-system-console"><a name="px4-system-console" class="plugin-anchor" href="#px4-system-console"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 System Console</h1>
-<p>The PX4 <em>System Console</em> provides low-level access to the system, debug output and analysis of the system boot process.</p>
+                                <h1 id="px4-&#xC2DC;&#xC2A4;&#xD15C;-&#xCF58;&#xC194;"><a name="px4-&#xC2DC;&#xC2A4;&#xD15C;-&#xCF58;&#xC194;" class="plugin-anchor" href="#px4-&#xC2DC;&#xC2A4;&#xD15C;-&#xCF58;&#xC194;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</h1>
+<p>PX4 <em>&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</em>&#xC5D0;&#xC11C;&#xB294; &#xC2DC;&#xC2A4;&#xD15C; &#xC800;&#xC218;&#xC900; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xBA70;, &#xB514;&#xBC84;&#xAE45; &#xCD9C;&#xB825;&#xACFC; &#xC2DC;&#xC2A4;&#xD15C; &#xBD80;&#xD305; &#xACFC;&#xC815; &#xBD84;&#xC11D;&#xC744; &#xC9C4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> The console should be used for debugging if the system won&apos;t boot. The <a href="mavlink_shell.html">MAVLink Shell</a> may otherwise be more suitable, as it is much easier to set up and can be used for <a href="consoles.html#console_vs_shell">many of the same tasks</a>.</p>
+<p> &#xC2DC;&#xC2A4;&#xD15C;&#xC774; &#xBD80;&#xD305;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xC9C0; &#xB514;&#xBC84;&#xAE45;&#xD558;&#xB824;&#xBA74; &#xCF58;&#xC194;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;. <a href="mavlink_shell.html">MAVLink &#xC178;</a>&#xC740; &#xC544;&#xB9C8;&#xB3C4; &#xC124;&#xCE58;&#xD558;&#xAE30; &#xC27D;&#xACE0; <a href="consoles.html#console_vs_shell">&#xB3D9;&#xC77C;&#xD55C; &#xC5EC;&#xB7EC; &#xC791;&#xC5C5; &#xCC98;&#xB9AC;</a>&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAE30;&#xC5D0; &#xB2E4;&#xC6A9;&#xB3C4;&#xB85C; &#xC801;&#xACA9;&#xC774;&#xB77C; &#xBD05;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h2 id="wiring-the-console"><a name="wiring-the-console" class="plugin-anchor" href="#wiring-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Wiring the Console</h2>
-<p>The console is made available through a (board-specific) UART that can be connected to a computer USB port using a <a href="https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393" target="_blank">3.3V FTDI</a> cable. This allows the console to be accessed using a terminal application.</p>
-<p>Pixhawk controller manufacturers are expected to expose the console UART and SWD (JTAG) debug interfaces through a dedicated <em>debug port</em> that complies with the <a href="#pixhawk_debug_port">Pixhawk Connector Standard</a>. Unfortunately some boards predate this standard or a non-compliant.</p>
+<h2 id="&#xCF58;&#xC194;-&#xC5F0;&#xACB0;"><a name="&#xCF58;&#xC194;-&#xC5F0;&#xACB0;" class="plugin-anchor" href="#&#xCF58;&#xC194;-&#xC5F0;&#xACB0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCF58;&#xC194; &#xC5F0;&#xACB0;</h2>
+<p>&#xCF58;&#xC194;&#xC740; <a href="https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393" target="_blank">3.3V FTDI</a> &#xCF00;&#xC774;&#xBE14;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xCEF4;&#xD4E8;&#xD130;&#xC5D0; USB &#xD3EC;&#xD2B8;&#xB97C; &#xC5F0;&#xACB0;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD558;&#xB294; (&#xBCF4;&#xB4DC;&#xBCC4;) UART &#xD3EC;&#xD2B8;&#xB85C; &#xB744;&#xC6B8; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC774; &#xD3EC;&#xD2B8;&#xB294; &#xD130;&#xBBF8;&#xB110; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC73C;&#xB85C; &#xCF58;&#xC194;&#xC5D0; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xCEE8;&#xD2B8;&#xB864;&#xB7EC; &#xC81C;&#xC870;&#xC0AC;&#xB294; <a href="#pixhawk_debug_port">&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xCEE4;&#xB125;&#xD130; &#xD45C;&#xC900;</a>&#xC744; &#xC900;&#xC218;&#xD558;&#xB294; &#xB0B4;&#xC7A5; <em>&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</em>&#xB85C; &#xCF58;&#xC194; UART&#xC640; SWD(JTAG) &#xB514;&#xBC84;&#xAE45; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xC7A5;&#xCE58; &#xC678;&#xBD80;&#xB85C; &#xC81C;&#xACF5;&#xD558;&#xB9AC;&#xB77C; &#xBD05;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xBD88;&#xD589;&#xD558;&#xAC8C;&#xB3C4; &#xC77C;&#xBD80; &#xBCF4;&#xB4DC;&#xB294; &#xC774; &#xD45C;&#xC900;&#xC744; &#xC81C;&#xC815;&#xD558;&#xAE30; &#xC774;&#xC804;&#xC758; &#xC124;&#xACC4;&#xB97C; &#xBC18;&#xC601;&#xD588;&#xAC70;&#xB098;, &#xD638;&#xD658;&#xC131;&#xC774; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Developers targeting a number of different boards may wish to use a <em>debug adapter</em> to simplify connecting multiple boards. For example, the <a href="https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation" target="_blank">Dronecode probe</a> comes with connectors for the <a href="#pixhawk_debug_port">Pixhawk Debug Port</a> and several other boards.</p>
+<p> &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; &#xBCF4;&#xB4DC;&#xB97C; &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xAC1C;&#xBC1C;&#xD558;&#xB824;&#xB294; &#xAC1C;&#xBC1C;&#xC790;&#xB294; &#xC544;&#xB9C8;&#xB3C4; &#xC5EC;&#xB7EC; &#xBCF4;&#xB4DC;&#xC5D0; &#xAC04;&#xB2E8;&#xD558;&#xAC8C; &#xC5F0;&#xACB0;&#xD558;&#xB294; <em>&#xB514;&#xBC84;&#xAE45; &#xC5B4;&#xB311;&#xD130;</em> &#xD65C;&#xC6A9;&#xD558;&#xB294; &#xD3B8;&#xC744; &#xC6D0;&#xD560;&#xC9C0;&#xB3C4; &#xBAA8;&#xB985;&#xB2C8;&#xB2E4;. &#xC774;&#xB97C;&#xD14C;&#xBA74;, <a href="https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation" target="_blank">&#xB4DC;&#xB860;&#xCF54;&#xB4DC; &#xD504;&#xB8E8;&#xBE0C;</a>&#xC5D0;&#xB294; <a href="#pixhawk_debug_port">&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</a>&#xC640; &#xC5EC;&#xB7EC; &#xAE30;&#xD0C0; &#xBCF4;&#xB4DC;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xCEE4;&#xB125;&#xD130;&#xAC00; &#xB538;&#xB824;&#xC635;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<p>The sections below outline/link to the wiring and system console information for many common boards.</p>
-<h3 id="board-specific-wiring"><a name="board-specific-wiring" class="plugin-anchor" href="#board-specific-wiring"><i class="fa fa-link" aria-hidden="true"></i></a>Board-Specific Wiring</h3>
-<p>The System Console UART pinouts/debug ports are typically documented in <a href="https://docs.px4.io/master/en/flight_controller/" target="_blank">autopilot overview pages</a> (some are linked below):</p>
+<p>&#xC544;&#xB798; &#xC808;&#xC5D0;&#xC11C;&#xB294; &#xC5EC;&#xB7EC; &#xBCF4;&#xB4DC;&#xC5D0;&#xC11C; &#xD65C;&#xC6A9;&#xD560; &#xACB0;&#xC120; &#xAC1C;&#xC694; &#xBC0F; &#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194; &#xC815;&#xBCF4;&#xB97C; &#xB2E4;&#xB8E8;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="&#xBCF4;&#xB4DC;&#xBCC4;-&#xC5F0;&#xACB0;-&#xBC29;&#xBC95;"><a name="&#xBCF4;&#xB4DC;&#xBCC4;-&#xC5F0;&#xACB0;-&#xBC29;&#xBC95;" class="plugin-anchor" href="#&#xBCF4;&#xB4DC;&#xBCC4;-&#xC5F0;&#xACB0;-&#xBC29;&#xBC95;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBCF4;&#xB4DC;&#xBCC4; &#xC5F0;&#xACB0; &#xBC29;&#xBC95;</h3>
+<p>&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194; UART &#xD540; &#xCD9C;&#xB825;/&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;&#xB294; <a href="https://docs.px4.io/master/en/flight_controller/" target="_blank">&#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF; &#xAC1C;&#xC694; &#xD398;&#xC774;&#xC9C0;</a>&#xC5D0; &#xC815;&#xB9AC;&#xD574;&#xB450;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;(&#xC544;&#xB798; &#xB9C1;&#xD06C;&#xC5D0; &#xC788;&#xC74C;):</p>
 <ul>
-<li><a href="https://docs.px4.io/master/en/flight_controller/pixhawk.html#console-port" target="_blank">3DR Pixhawk v1 Flight Controller</a> (also applies to <a href="https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html#debug-ports" target="_blank">mRo Pixhawk</a>, <a href="https://docs.px4.io/master/en/flight_controller/HKPilot32.html#debug-port" target="_blank">HobbyKing HKPilot32</a>)</li>
-<li><a href="https://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html#debug-port" target="_blank">Pixhawk 3</a></li>
-<li><p><a href="https://docs.px4.io/master/en/flight_controller/pixracer.html#debug-port" target="_blank">Pixracer</a></p>
+<li><a href="https://docs.px4.io/master/en/flight_controller/pixhawk.html#console-port" target="_blank">3DR &#xD53D;&#xC2A4;&#xD638;&#xD06C; v1 &#xBE44;&#xD589; &#xC870;&#xC885; &#xC7A5;&#xCE58;</a> (<a href="https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html#debug-ports" target="_blank">mRo Pixhawk</a>, <a href="https://docs.px4.io/master/en/flight_controller/HKPilot32.html#debug-port" target="_blank">HobbyKing HKPilot32</a>&#xC5D0;&#xB3C4; &#xC801;&#xC6A9;)</li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html#debug-port" target="_blank">&#xD53D;&#xC2A4;&#xD638;&#xD06C; 3</a></li>
+<li><p><a href="https://docs.px4.io/master/en/flight_controller/pixracer.html#debug-port" target="_blank">&#xD53D;&#xC2A4;&#xB808;&#xC774;&#xC11C;</a></p>
 </li>
-<li><p><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html" target="_blank">Snapdragon Flight</a>:</p>
+<li><p><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html" target="_blank">&#xC2A4;&#xB0C5;&#xB4DC;&#xB798;&#xACE4; &#xD50C;&#xB77C;&#xC774;&#xD2B8;</a>:</p>
 <ul>
 <li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_advanced.html#over-ftdi" target="_blank">FTDI</a></li>
-<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_advanced.html#dsp-debug-monitorconsole" target="_blank">DSP Debug Monitor/Console</a></li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_advanced.html#dsp-debug-monitorconsole" target="_blank">DSP &#xB514;&#xBC84;&#xAE45; &#xBAA8;&#xB2C8;&#xD130;/&#xCF58;&#xC194;</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="pixhawk_debug_port"><a name="pixhawk_debug_port" class="plugin-anchor" href="#pixhawk_debug_port"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk Debug Port </h3>
-<p>Flight controllers that adhere to the Pixhawk Connector standard use the <a href="https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug" target="_blank">Pixhawk Standard Debug Port</a>.</p>
-<p>The port/FTDI mapping is shown below.</p>
+<h3 id="pixhawk_debug_port"><a name="pixhawk_debug_port" class="plugin-anchor" href="#pixhawk_debug_port"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8; </h3>
+<p>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xC870;&#xC885; &#xC7A5;&#xCE58; &#xD45C;&#xC900;&#xC774; &#xBD99;&#xB294; &#xBE44;&#xD589; &#xC870;&#xC885; &#xC7A5;&#xCE58;&#xC5D0;&#xB294; <a href="https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug" target="_blank">&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xD45C;&#xC900; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</a>&#xAC00; &#xBD99;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD3EC;&#xD2B8;/FTDI &#xACB0;&#xC120; &#xAC1C;&#xB150;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <table>
 <thead>
 <tr>
-<th>Pixhawk Debug Port</th>
+<th>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</th>
 <th>-</th>
 <th>FTDI</th>
 <th>-</th>
@@ -2502,63 +2502,63 @@
 </thead>
 <tbody>
 <tr>
-<td>1 (red)</td>
+<td>1 (&#xC801;)</td>
 <td>TARGET PROCESSOR VOLTAGE</td>
 <td></td>
-<td>N/C (used for SWD/JTAG debugging)</td>
+<td>&#xC5F0;&#xACB0; &#xC548;&#xD568; (SWD/JTAG &#xB514;&#xBC84;&#xAE45;&#xC5D0; &#xD65C;&#xC6A9;)</td>
 </tr>
 <tr>
-<td>2 (blk)</td>
-<td>CONSOLE TX (OUT)</td>
+<td>2 (&#xD751;)</td>
+<td>CONSOLE TX (&#xCD9C;&#xB825;)</td>
 <td>5</td>
-<td>FTDI RX (yellow)</td>
+<td>FTDI RX (&#xD669;)</td>
 </tr>
 <tr>
-<td>3 (blk)</td>
-<td>CONSOLE RX (IN)</td>
+<td>3 (&#xD751;)</td>
+<td>CONSOLE RX (&#xC785;&#xB825;)</td>
 <td>4</td>
-<td>FTDI TX (orange)</td>
+<td>FTDI TX (&#xC8FC;&#xD669;)</td>
 </tr>
 <tr>
-<td>4 (blk)</td>
+<td>4 (&#xD751;)</td>
 <td>SWDIO</td>
 <td></td>
-<td>N/C (used for SWD/JTAG debugging)</td>
+<td>&#xC5F0;&#xACB0; &#xC548;&#xD568; (SWD/JTAG &#xB514;&#xBC84;&#xAE45;&#xC5D0; &#xD65C;&#xC6A9;)</td>
 </tr>
 <tr>
-<td>5 (blk)</td>
+<td>5 (&#xD751;)</td>
 <td>SWCLK</td>
 <td></td>
-<td>N/C (used for SWD/JTAG debugging)</td>
+<td>&#xC5F0;&#xACB0; &#xC548;&#xD568; (SWD/JTAG &#xB514;&#xBC84;&#xAE45;&#xC5D0; &#xD65C;&#xC6A9;)</td>
 </tr>
 <tr>
-<td>6 (blk)</td>
+<td>6 (&#xD751;)</td>
 <td>GND</td>
 <td>1</td>
-<td>FTDI GND (black)</td>
+<td>FTDI GND (&#xD751;)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="opening-the-console"><a name="opening-the-console" class="plugin-anchor" href="#opening-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Opening the Console</h2>
-<p>After the console connection is wired up, use the default serial port tool of your choice or the defaults described below:</p>
+<h2 id="&#xCF58;&#xC194;-&#xC5F4;&#xAE30;"><a name="&#xCF58;&#xC194;-&#xC5F4;&#xAE30;" class="plugin-anchor" href="#&#xCF58;&#xC194;-&#xC5F4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCF58;&#xC194; &#xC5F4;&#xAE30;</h2>
+<p>&#xCF58;&#xC194; &#xC5F0;&#xACB0;&#xC744; &#xB05D;&#xB0B4;&#xACE0; &#xB098;&#xBA74;, &#xAE30;&#xBCF8; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8; &#xD1B5;&#xC2E0; &#xB3C4;&#xAD6C;&#xB97C; &#xCDE8;&#xD5A5;&#xC5D0; &#xB530;&#xB77C; &#xACE8;&#xB77C; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098; &#xC544;&#xB798; &#xC124;&#xBA85;&#xD558;&#xB294; &#xAE30;&#xBCF8; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8; &#xD1B5;&#xC2E0; &#xB3C4;&#xAD6C;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
 <h3 id="linux--mac-os-screen"><a name="linux--mac-os-screen" class="plugin-anchor" href="#linux--mac-os-screen"><i class="fa fa-link" aria-hidden="true"></i></a>Linux / Mac OS: Screen</h3>
-<p>Install screen on Ubuntu (Mac OS already has it installed):</p>
+<p>&#xC6B0;&#xBD84;&#xD22C;&#xC5D0; screen&#xC744; &#xC124;&#xCE58;&#xD558;&#xC2ED;&#xC2DC;&#xC624;(Mac OS&#xC5D0;&#xB294; &#xC774;&#xBBF8; &#xC124;&#xCE58;&#xD574;&#xB454; &#xC0C1;&#xD0DC;&#xC784;):</p>
 <pre><code class="lang-bash">sudo apt-get install screen
 </code></pre>
 <ul>
-<li>Serial: Pixhawk v1 / Pixracer use 57600 baud</li>
-<li>Serial: Snapdragon Flight uses 115200 baud</li>
+<li>&#xC9C1;&#xB82C; &#xD3EC;&#xD2B8;: &#xD53D;&#xC2A4;&#xD638;&#xD06C; v1 / &#xD53D;&#xC2A4;&#xB808;&#xC774;&#xC11C; &#xC804;&#xC1A1;&#xC728;: 57600 bps</li>
+<li>&#xC9C1;&#xB82C; &#xD3EC;&#xD2B8;: &#xC2A4;&#xB0C5;&#xB4DC;&#xB798;&#xACE4; &#xD50C;&#xB77C;&#xC774;&#xD2B8;&#xC758; &#xACBD;&#xC6B0; 115200 bps</li>
 </ul>
-<p>Connect screen at BAUDRATE baud, 8 data bits, 1 stop bit to the right serial port (use <code>ls /dev/tty*</code> and watch what changes when unplugging / replugging the USB device). Common names are <code>/dev/ttyUSB0</code> and <code>/dev/ttyACM0</code> for Linux and <code>/dev/tty.usbserial-ABCBD</code> for Mac OS.</p>
+<p>screen&#xC744; BAUDRATE bps, &#xB370;&#xC774;&#xD130; &#xBE44;&#xD2B8; &#xC218; 8, &#xC815;&#xC9C0; &#xBE44;&#xD2B8; 1&#xC744; &#xC62C;&#xBC14;&#xB978; &#xC9C1;&#xB82C; &#xD1B5;&#xC2E0; &#xD3EC;&#xD2B8;&#xC5D0; &#xC124;&#xC815;&#xD558;&#xC5EC; &#xC5F0;&#xACB0;&#xD558;&#xC5EC; &#xC5F0;&#xACB0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;(<code>ls /dev/tty*</code> &#xBA85;&#xB839;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; USB &#xC7A5;&#xCE58;&#xB97C; &#xC5F0;&#xACB0;/&#xBD84;&#xB9AC; &#xD588;&#xC744; &#xB54C; &#xC5B4;&#xB5A4; &#xAC12;&#xC774; &#xBC14;&#xB00C;&#xB294;&#xC9C0; &#xD655;&#xC778;). &#xC77C;&#xBC18; &#xBA85;&#xCE6D;&#xC740; &#xB9AC;&#xB205;&#xC2A4;&#xC758; &#xACBD;&#xC6B0; <code>/dev/ttyUSB0</code>&#xACFC; <code>/dev/ttyACM0</code> &#xC774;&#xBA70;, Mac OS&#xC758; &#xACBD;&#xC6B0; <code>/dev/tty.usbserial-ABCBD</code>&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">screen /dev/ttyXXX BAUDRATE 8N1
 </code></pre>
-<h3 id="windows-putty"><a name="windows-putty" class="plugin-anchor" href="#windows-putty"><i class="fa fa-link" aria-hidden="true"></i></a>Windows: PuTTY</h3>
-<p>Download <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a> and start it.</p>
-<p>Then select &apos;serial connection&apos; and set the port parameters to:</p>
+<h3 id="&#xC708;&#xB3C4;&#xC6B0;-putty"><a name="&#xC708;&#xB3C4;&#xC6B0;-putty" class="plugin-anchor" href="#&#xC708;&#xB3C4;&#xC6B0;-putty"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC708;&#xB3C4;&#xC6B0;: PuTTY</h3>
+<p><a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>&#xB97C; &#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;&#xD558;&#xACE0; &#xC2DC;&#xC791;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<p>&#xC774;&#xD6C4; &apos;&#xC9C1;&#xB82C; &#xC5F0;&#xACB0;&apos;&#xC744; &#xC120;&#xD0DD;&#xD558;&#xACE0; &#xD3EC;&#xD2B8; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB97C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC124;&#xC815;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
 <ul>
-<li>57600 baud</li>
-<li>8 data bits</li>
-<li>1 stop bit</li>
+<li>&#xCD08;&#xB2F9; &#xC804;&#xC1A1; &#xBE44;&#xD2B8;: 57600</li>
+<li>&#xB370;&#xC774;&#xD130; &#xBE44;&#xD2B8;: 8</li>
+<li>&#xC815;&#xC9C0; &#xBE44;&#xD2B8;: 1</li>
 </ul>
 
                                 
@@ -2603,7 +2603,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"시스템 콘솔","level":"1.9.2.2","depth":3,"next":{"title":"SWD/JLink 디버깅 인터페이스","level":"1.9.3","depth":2,"path":"debug/swd_debug.md","ref":"debug/swd_debug.md","articles":[]},"previous":{"title":"MAVLink 셸","level":"1.9.2.1","depth":3,"path":"debug/mavlink_shell.md","ref":"debug/mavlink_shell.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2020-08-10T22:50:22.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-10T22:51:45.252Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"시스템 콘솔","level":"1.9.2.2","depth":3,"next":{"title":"SWD/JLink 디버깅 인터페이스","level":"1.9.3","depth":2,"path":"debug/swd_debug.md","ref":"debug/swd_debug.md","articles":[]},"previous":{"title":"MAVLink 셸","level":"1.9.2.1","depth":3,"path":"debug/mavlink_shell.md","ref":"debug/mavlink_shell.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10 - stable"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"debug/system_console.md","mtime":"2020-08-13T01:42:36.101Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-13T01:44:02.563Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>
