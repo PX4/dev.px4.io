@@ -204,7 +204,7 @@
                 <a href="../setup/dev_env_mac.html">
             
                     
-                    Mac OS
+                    맥 OS
             
                 </a>
             
@@ -641,7 +641,7 @@
                 <a href="../simulation/gazebo.html">
             
                     
-                    가제보(Gazebo) 짐벌 모의시험
+                    가제보 짐벌 모의시험
             
                 </a>
             
@@ -655,7 +655,7 @@
                 <a href="../simulation/gazebo_vehicles.html">
             
                     
-                    가제보(Gazebo) 비행체
+                    가제보 기체
             
                 </a>
             
@@ -668,7 +668,7 @@
                 <a href="../simulation/gazebo_worlds.html">
             
                     
-                    가제보(Gazebo) 월드(world)
+                    가제보 월드(world)
             
                 </a>
             
@@ -686,7 +686,7 @@
                 <a href="../simulation/multi_vehicle_simulation_gazebo.html">
             
                     
-                    가제보(Gazebo) 다중 비행체 모의시험
+                    가제보 다중 기체 모의시험
             
                 </a>
             
@@ -699,7 +699,7 @@
                 <a href="../simulation/flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 모의시험 
+                    플라이트기어 모의시험
             
                 </a>
             
@@ -713,7 +713,7 @@
                 <a href="../simulation/flightgear_vehicles.html">
             
                     
-                    플라이트 기어(FlightGear) 비행체
+                    플라이트기어 기체
             
                 </a>
             
@@ -731,7 +731,7 @@
                 <a href="../simulation/multi_vehicle_flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+                    플라이트기어 다중 기체 모의시험
             
                 </a>
             
@@ -828,7 +828,7 @@
                 <a href="../hardware/reference_design.html">
             
                     
-                    비행체 컨트롤러 참고 디자인
+                    비행체 제어 장치 참고 디자인
             
                 </a>
             
@@ -841,7 +841,7 @@
                 <a href="../hardware/porting_guide.html">
             
                     
-                    비행체 컨트롤러 이식 안내
+                    비행체 제어 장치 이식 안내
             
                 </a>
             
@@ -873,7 +873,7 @@
                 <a href="../airframes/">
             
                     
-                    비행체(Airframe)
+                    에어프레임
             
                 </a>
             
@@ -887,7 +887,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    비행체 참고
+                    에어프레임 참고
             
                 </a>
             
@@ -900,7 +900,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    새 비행체 추가
+                    새 에어프레임 추가
             
                 </a>
             
@@ -1299,7 +1299,7 @@
                 <a href="../middleware/modules_driver_airspeed_sensor.html">
             
                     
-                    대기속도 센서
+                    항속 센서
             
                 </a>
             
@@ -1351,7 +1351,7 @@
                 <a href="../middleware/modules_driver_magnetometer.html">
             
                     
-                    자력계
+                    지자계
             
                 </a>
             
@@ -1563,7 +1563,7 @@
                 <a href="../robotics/dronekit.html">
             
                     
-                    드론키트
+                    DroneKit
             
                 </a>
             
@@ -1815,7 +1815,7 @@
                 <a href="../qgc/">
             
                     
-                    지상 통제 스테이션
+                    지상 통제 장치
             
                 </a>
             
@@ -1854,7 +1854,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    리눅스에서의 리모콘 리시버 연결
+                    리눅스에서 원격 조종 수신 모듈 연결
             
                 </a>
             
@@ -2462,26 +2462,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="test-mc02---full-autonomous"><a name="test-mc02---full-autonomous" class="plugin-anchor" href="#test-mc02---full-autonomous"><i class="fa fa-link" aria-hidden="true"></i></a>Test MC_02 - Full Autonomous</h1>
-<h2 id="create-and-upload-mission"><a name="create-and-upload-mission" class="plugin-anchor" href="#create-and-upload-mission"><i class="fa fa-link" aria-hidden="true"></i></a>Create and upload mission</h2>
-<p>&#x274F; Mission Criteria</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Auto take-off</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Changes in Altitude throughout the mission</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; First waypoint set to Takeoff</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Enable Mission End RTL</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Duration of 5 to 6 minutes</p>
-<p>&#x274F; Upload mission to vehicle using <em>QGroundControl</em></p>
-<h2 id="arm-and-take-off"><a name="arm-and-take-off" class="plugin-anchor" href="#arm-and-take-off"><i class="fa fa-link" aria-hidden="true"></i></a>Arm and Take-off</h2>
-<p>&#x274F; Arm in any manual mode</p>
-<p>&#x274F; Engage Auto to trigger take-off</p>
-<p>&#x274F; Observe tracking, cornering and proper RTL performance</p>
-<p>&#x274F; Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: <a href="../advanced/parameter_reference.html#COM_DISARM_LAND">COM_DISARM_LAND</a>)</p>
-<h2 id="expected-results"><a name="expected-results" class="plugin-anchor" href="#expected-results"><i class="fa fa-link" aria-hidden="true"></i></a>Expected Results</h2>
+                                <h1 id="&#xC2DC;&#xD5D8;-mc02---&#xC644;&#xC804;-&#xC790;&#xB3D9;&#xD654;"><a name="&#xC2DC;&#xD5D8;-mc02---&#xC644;&#xC804;-&#xC790;&#xB3D9;&#xD654;" class="plugin-anchor" href="#&#xC2DC;&#xD5D8;-mc02---&#xC644;&#xC804;-&#xC790;&#xB3D9;&#xD654;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2DC;&#xD5D8; MC_02 - &#xC644;&#xC804; &#xC790;&#xB3D9;&#xD654;</h1>
+<h2 id="&#xC784;&#xBB34;-&#xC218;&#xB9BD;-&#xBC0F;-&#xC5C5;&#xB85C;&#xB4DC;"><a name="&#xC784;&#xBB34;-&#xC218;&#xB9BD;-&#xBC0F;-&#xC5C5;&#xB85C;&#xB4DC;" class="plugin-anchor" href="#&#xC784;&#xBB34;-&#xC218;&#xB9BD;-&#xBC0F;-&#xC5C5;&#xB85C;&#xB4DC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC784;&#xBB34; &#xC218;&#xB9BD; &#xBC0F; &#xC5C5;&#xB85C;&#xB4DC;</h2>
+<p>&#x274F; &#xC784;&#xBB34; &#xADDC;&#xC815;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xC790;&#xB3D9; &#xC774;&#xB959;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xC784;&#xBB34;&#xB97C; &#xD1B5;&#xD55C; &#xACE0;&#xB3C4; &#xBCC0;&#xACBD;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xC774;&#xB959; &#xD6C4; &#xCCAB; &#xBE44;&#xD589; &#xC9C0;&#xC810;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xC784;&#xBB34; &#xC885;&#xB8CC; RTL &#xD65C;&#xC131;&#xD654;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; 5~6&#xBD84;&#xAC04; &#xC218;&#xD589;</p>
+<p>&#x274F; <em>QGroundControl</em>&#xC744; &#xD1B5;&#xD55C; &#xAE30;&#xCCB4;&#xB85C;&#xC758; &#xC784;&#xBB34; &#xC5C5;&#xB85C;&#xB4DC;</p>
+<h2 id="&#xC774;&#xB959;-&#xC900;&#xBE44;-&#xBC0F;-&#xC774;&#xB959;"><a name="&#xC774;&#xB959;-&#xC900;&#xBE44;-&#xBC0F;-&#xC774;&#xB959;" class="plugin-anchor" href="#&#xC774;&#xB959;-&#xC900;&#xBE44;-&#xBC0F;-&#xC774;&#xB959;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC774;&#xB959; &#xC900;&#xBE44; &#xBC0F; &#xC774;&#xB959;</h2>
+<p>&#x274F; &#xC784;&#xC758;&#xC758; &#xC218;&#xB3D9; &#xC870;&#xC885; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; &#xC774;&#xB959; &#xC900;&#xBE44;</p>
+<p>&#x274F; &#xC774;&#xB959; &#xAC1C;&#xC2DC; &#xC804; &#xC790;&#xB3D9; &#xBAA8;&#xB4DC; &#xC778;&#xAC00;</p>
+<p>&#x274F; &#xACBD;&#xB85C; &#xCD94;&#xC801;, &#xC120;&#xD68C;, &#xC801;&#xC808;&#xD55C; &#xCC29;&#xB959; &#xC900;&#xBE44; &#xB3D9;&#xC791;</p>
+<p>&#x274F; &#xCF65;&#xD130;&#xAC00; &#xC9C0;&#xBA74;&#xC5D0; &#xB2FF;&#xC744; &#xB54C;, 2&#xCD08; &#xC548;&#xC5D0; &#xC774;&#xB959; &#xC900;&#xBE44;&#xB97C; &#xD574;&#xC81C;&#xD574;&#xC57C; &#xD568;(&#xC774;&#xB959; &#xC900;&#xBE44; &#xD574;&#xC81C; &#xC2DC;&#xAC04;&#xC740; <a href="../advanced/parameter_reference.html#COM_DISARM_LAND">COM_DISARM_LAND</a>&#xB85C; &#xC124;&#xC815;)</p>
+<h2 id="&#xC608;&#xC0C1;-&#xACB0;&#xACFC;"><a name="&#xC608;&#xC0C1;-&#xACB0;&#xACFC;" class="plugin-anchor" href="#&#xC608;&#xC0C1;-&#xACB0;&#xACFC;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC0C1; &#xACB0;&#xACFC;</h2>
 <ul>
-<li>Take-off should be smooth as throttle is raised</li>
-<li>Mission should upload on first attempt</li>
-<li>Vehicle should automatically take-off upon engaging Auto</li>
-<li>Upon landing, copter should not bounce on the ground</li>
+<li>&#xCD94;&#xB825;&#xC744; &#xC62C;&#xB9B4; &#xB54C; &#xC11C;&#xC11C;&#xD788; &#xC774;&#xB959;&#xD55C;&#xB2E4;</li>
+<li>&#xCCAB; &#xC2DC;&#xB3C4;&#xC2DC; &#xC784;&#xBB34; &#xB0B4;&#xC6A9;&#xC774; &#xC62C;&#xB77C;&#xAC00;&#xC57C; &#xD568;</li>
+<li>&#xC790;&#xB3D9; &#xBAA8;&#xB4DC; &#xC778;&#xAC00;&#xC2DC; &#xAE30;&#xCCB4;&#xB294; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC774;&#xB959;&#xD574;&#xC57C; &#xD568;</li>
+<li>&#xC9C0;&#xBA74;&#xC5D0; &#xCC29;&#xB959;&#xC2DC;, &#xCF65;&#xD130;&#xAC00; &#xC9C0;&#xBA74;&#xC5D0;&#xC11C; &#xD280;&#xBA74; &#xC548;&#xB428;</li>
 </ul>
 <!-- 
 MC_002 - Full autonomous
@@ -2535,7 +2535,7 @@ MC_002 - Full autonomous
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"시험 MC_02 - 완전 자동화","level":"1.12.1.2","depth":3,"next":{"title":"시험 MC_03 - 자동 / 수동 혼합","level":"1.12.1.3","depth":3,"path":"test_cards/mc_03_auto_manual_mix.md","ref":"test_cards/mc_03_auto_manual_mix.md","articles":[]},"previous":{"title":"시험 MC_01 - 수동 상태","level":"1.12.1.1","depth":3,"path":"test_cards/mc_01_manual_modes.md","ref":"test_cards/mc_01_manual_modes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"test_cards/mc_02_full_autonomous.md","mtime":"2020-09-12T10:43:44.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-12T10:45:10.578Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"시험 MC_02 - 완전 자동화","level":"1.12.1.2","depth":3,"next":{"title":"시험 MC_03 - 자동 / 수동 혼합","level":"1.12.1.3","depth":3,"path":"test_cards/mc_03_auto_manual_mix.md","ref":"test_cards/mc_03_auto_manual_mix.md","articles":[]},"previous":{"title":"시험 MC_01 - 수동 상태","level":"1.12.1.1","depth":3,"path":"test_cards/mc_01_manual_modes.md","ref":"test_cards/mc_01_manual_modes.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"test_cards/mc_02_full_autonomous.md","mtime":"2020-09-13T23:03:54.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-13T23:04:45.315Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>

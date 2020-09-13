@@ -204,7 +204,7 @@
                 <a href="../setup/dev_env_mac.html">
             
                     
-                    Mac OS
+                    맥 OS
             
                 </a>
             
@@ -641,7 +641,7 @@
                 <a href="../simulation/gazebo.html">
             
                     
-                    가제보(Gazebo) 짐벌 모의시험
+                    가제보 짐벌 모의시험
             
                 </a>
             
@@ -655,7 +655,7 @@
                 <a href="../simulation/gazebo_vehicles.html">
             
                     
-                    가제보(Gazebo) 비행체
+                    가제보 기체
             
                 </a>
             
@@ -668,7 +668,7 @@
                 <a href="../simulation/gazebo_worlds.html">
             
                     
-                    가제보(Gazebo) 월드(world)
+                    가제보 월드(world)
             
                 </a>
             
@@ -686,7 +686,7 @@
                 <a href="../simulation/multi_vehicle_simulation_gazebo.html">
             
                     
-                    가제보(Gazebo) 다중 비행체 모의시험
+                    가제보 다중 기체 모의시험
             
                 </a>
             
@@ -699,7 +699,7 @@
                 <a href="../simulation/flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 모의시험 
+                    플라이트기어 모의시험
             
                 </a>
             
@@ -713,7 +713,7 @@
                 <a href="../simulation/flightgear_vehicles.html">
             
                     
-                    플라이트 기어(FlightGear) 비행체
+                    플라이트기어 기체
             
                 </a>
             
@@ -731,7 +731,7 @@
                 <a href="../simulation/multi_vehicle_flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+                    플라이트기어 다중 기체 모의시험
             
                 </a>
             
@@ -828,7 +828,7 @@
                 <a href="../hardware/reference_design.html">
             
                     
-                    비행체 컨트롤러 참고 디자인
+                    비행체 제어 장치 참고 디자인
             
                 </a>
             
@@ -841,7 +841,7 @@
                 <a href="../hardware/porting_guide.html">
             
                     
-                    비행체 컨트롤러 이식 안내
+                    비행체 제어 장치 이식 안내
             
                 </a>
             
@@ -873,7 +873,7 @@
                 <a href="../airframes/">
             
                     
-                    비행체(Airframe)
+                    에어프레임
             
                 </a>
             
@@ -887,7 +887,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    비행체 참고
+                    에어프레임 참고
             
                 </a>
             
@@ -900,7 +900,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    새 비행체 추가
+                    새 에어프레임 추가
             
                 </a>
             
@@ -1299,7 +1299,7 @@
                 <a href="../middleware/modules_driver_airspeed_sensor.html">
             
                     
-                    대기속도 센서
+                    항속 센서
             
                 </a>
             
@@ -1351,7 +1351,7 @@
                 <a href="../middleware/modules_driver_magnetometer.html">
             
                     
-                    자력계
+                    지자계
             
                 </a>
             
@@ -1563,7 +1563,7 @@
                 <a href="../robotics/dronekit.html">
             
                     
-                    드론키트
+                    DroneKit
             
                 </a>
             
@@ -1815,7 +1815,7 @@
                 <a href="../qgc/">
             
                     
-                    지상 통제 스테이션
+                    지상 통제 장치
             
                 </a>
             
@@ -1854,7 +1854,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    리눅스에서의 리모콘 리시버 연결
+                    리눅스에서 원격 조종 수신 모듈 연결
             
                 </a>
             
@@ -2462,25 +2462,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="integration-testing-using-mavsdk"><a name="integration-testing-using-mavsdk" class="plugin-anchor" href="#integration-testing-using-mavsdk"><i class="fa fa-link" aria-hidden="true"></i></a>Integration Testing using MAVSDK</h1>
-<p>PX4 can be tested end to end to using integration tests based on <a href="https://mavsdk.mavlink.io" target="_blank">MAVSDK</a>.</p>
-<p>The tests are primarily developed against SITL for now and run in continuous integration (CI). However, they are meant to generalize to real tests eventually.</p>
-<h2 id="install-the-mavsdk-c-library"><a name="install-the-mavsdk-c-library" class="plugin-anchor" href="#install-the-mavsdk-c-library"><i class="fa fa-link" aria-hidden="true"></i></a>Install the MAVSDK C++ Library</h2>
-<p>The tests need the MAVSDK C++ library installed system-wide (e.g. in <code>/usr/lib</code> or <code>/usr/local/lib</code>).</p>
-<p>Install either from binaries or source:</p>
+                                <h1 id="mavsdk-&#xD1B5;&#xD569;-&#xC2DC;&#xD5D8;"><a name="mavsdk-&#xD1B5;&#xD569;-&#xC2DC;&#xD5D8;" class="plugin-anchor" href="#mavsdk-&#xD1B5;&#xD569;-&#xC2DC;&#xD5D8;"><i class="fa fa-link" aria-hidden="true"></i></a>MAVSDK &#xD1B5;&#xD569; &#xC2DC;&#xD5D8;</h1>
+<p>PX4&#xB294; <a href="https://mavsdk.mavlink.io" target="_blank">MAVSDK</a>&#xB97C; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xC885;&#xB2E8;&#xAC04; &#xD1B5;&#xD569; &#xC2DC;&#xD5D8;&#xC744; &#xC9C4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC2DC;&#xD5D8; &#xC808;&#xCC28;&#xB294; &#xC774;&#xC81C;&#xBD80;&#xD130; &#xADFC;&#xBCF8;&#xC801;&#xC73C;&#xB85C; SITL&#xC744; &#xB300;&#xC0C1;&#xC73C;&#xB85C; &#xAC1C;&#xBC1C;&#xD558;&#xBA70;, &#xC9C0;&#xC18D; &#xD1B5;&#xD569; &#xCCB4;&#xACC4;(CI)&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098;, &#xC2E4;&#xC81C; &#xC2DC;&#xD5D8;&#xB3C4; &#xC77C;&#xBC18;&#xD654;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="mavsdk-c-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;-&#xC124;&#xCE58;"><a name="mavsdk-c-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;-&#xC124;&#xCE58;" class="plugin-anchor" href="#mavsdk-c-&#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;-&#xC124;&#xCE58;"><i class="fa fa-link" aria-hidden="true"></i></a>MAVSDK C++ &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC; &#xC124;&#xCE58;</h2>
+<p>&#xC2DC;&#xC2A4;&#xD15C; &#xC601;&#xC5ED;(&#xC608;: <code>/usr/lib</code> &#xB610;&#xB294; <code>/usr/local/lib</code>)&#xC5D0; MAVSDK C++ &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC124;&#xCE58;&#xD574;&#xC57C; &#xC2DC;&#xD5D8;&#xC744; &#xC9C4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBC14;&#xC774;&#xB108;&#xB9AC;&#xB97C; &#xADF8;&#xB300;&#xB85C; &#xC124;&#xCE58;&#xD558;&#xAC70;&#xB098; &#xC18C;&#xC2A4;&#xCF54;&#xB4DC;&#xB97C; &#xCEF4;&#xD30C;&#xC77C;&#xD558;&#xC5EC; &#xC124;&#xCE58;&#xD558;&#xC2ED;&#xC2DC;&#xC624;:</p>
 <ul>
-<li><a href="https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp" target="_blank">MAVSDK &gt; Installation &gt; C++</a>: Install as a prebuilt library on supported platforms (recommended)</li>
-<li><a href="https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp" target="_blank">MAVSDK &gt; Contributing &gt; Building from Source</a>: Build  C++ library from source.</li>
+<li><a href="https://mavsdk.mavlink.io/develop/en/getting_started/installation.html#cpp" target="_blank">MAVSDK &gt; Installation &gt; C++</a>: &#xC9C0;&#xC6D0; &#xD50C;&#xB7AB;&#xD3FC;&#xC5D0; &#xC0AC;&#xC804; &#xBE4C;&#xB4DC;&#xD55C; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xC124;&#xCE58;(&#xCD94;&#xCC9C;)</li>
+<li><a href="https://mavsdk.mavlink.io/develop/en/contributing/build.html#build_sdk_cpp" target="_blank">MAVSDK &gt; Contributing &gt; Building from Source</a>: C++ &#xC18C;&#xC2A4; &#xCF54;&#xB4DC;&#xB97C; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB85C; &#xBE4C;&#xB4DC;.</li>
 </ul>
-<h2 id="prepare-px4-code"><a name="prepare-px4-code" class="plugin-anchor" href="#prepare-px4-code"><i class="fa fa-link" aria-hidden="true"></i></a>Prepare PX4 Code</h2>
-<p>To build the PX4 code, use:</p>
+<h2 id="px4-&#xCF54;&#xB4DC;-&#xC900;&#xBE44;"><a name="px4-&#xCF54;&#xB4DC;-&#xC900;&#xBE44;" class="plugin-anchor" href="#px4-&#xCF54;&#xB4DC;-&#xC900;&#xBE44;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#xCF54;&#xB4DC; &#xC900;&#xBE44;</h2>
+<p>PX4 &#xCF54;&#xB4DC;&#xB97C; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xB0B4;&#xB9AC;&#xC2ED;&#xC2DC;&#xC624;:</p>
 <pre><code class="lang-sh">DONT_RUN=1 make px4_sitl gazebo mavsdk_tests
 </code></pre>
-<h3 id="run-all-px4-tests"><a name="run-all-px4-tests" class="plugin-anchor" href="#run-all-px4-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Run All PX4 Tests</h3>
-<p>To run all SITL tests as defined in <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/configs/sitl.json" target="_blank">sitl.json</a>, do:</p>
+<h3 id="&#xBAA8;&#xB4E0;-px4-&#xC2DC;&#xD5D8;-&#xC808;&#xCC28;-&#xC2E4;&#xD589;"><a name="&#xBAA8;&#xB4E0;-px4-&#xC2DC;&#xD5D8;-&#xC808;&#xCC28;-&#xC2E4;&#xD589;" class="plugin-anchor" href="#&#xBAA8;&#xB4E0;-px4-&#xC2DC;&#xD5D8;-&#xC808;&#xCC28;-&#xC2E4;&#xD589;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBAA8;&#xB4E0; PX4 &#xC2DC;&#xD5D8; &#xC808;&#xCC28; &#xC2E4;&#xD589;</h3>
+<p>SITL &#xC2DC;&#xD5D8;&#xC744; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/configs/sitl.json" target="_blank">sitl.json</a>&#xC5D0; &#xC9C0;&#xC815;&#xD55C;&#xB300;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC744; &#xB0B4;&#xB9AC;&#xC2ED;&#xC2DC;&#xC624;:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">test</span>/mavsdk_tests/mavsdk_<span class="hljs-built_in">test</span>_runner.py <span class="hljs-built_in">test</span>/mavsdk_tests/configs/sitl.json --speed-factor 10
 </code></pre>
-<p>To see all possible command line arguments, check out:</p>
+<p>&#xBAA8;&#xB4E0; &#xAC00;&#xB2A5;&#xD55C; &#xBA85;&#xB839;&#xD589; &#xC778;&#xC790;&#xB97C; &#xC0B4;&#xD3B4;&#xBCF4;&#xB824;&#xBA74; &#xB2E4;&#xC74C; &#xB0B4;&#xC6A9;&#xC744; &#xC0B4;&#xD3B4;&#xBCF4;&#xC2ED;&#xC2DC;&#xC624;:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">test</span>/mavsdk_tests/mavsdk_<span class="hljs-built_in">test</span>_runner.py -h
 
 usage: mavsdk_<span class="hljs-built_in">test</span>_runner.py [-h] [--log-dir LOG_DIR] [--speed-factor SPEED_FACTOR] [--iterations ITERATIONS] [--abort-early] [--gui] [--model MODEL]
@@ -2504,26 +2504,26 @@ optional arguments:
   --debugger DEBUGGER   choice from valgrind, callgrind, gdb, lldb
   --verbose             <span class="hljs-built_in">enable</span> more verbose output
 </code></pre>
-<h2 id="notes-on-implementation"><a name="notes-on-implementation" class="plugin-anchor" href="#notes-on-implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Notes on implementation</h2>
+<h2 id="&#xAD6C;&#xD604;&#xC0C1;-&#xCC38;&#xACE0;"><a name="&#xAD6C;&#xD604;&#xC0C1;-&#xCC38;&#xACE0;" class="plugin-anchor" href="#&#xAD6C;&#xD604;&#xC0C1;-&#xCC38;&#xACE0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;&#xC0C1; &#xCC38;&#xACE0;</h2>
 <ul>
-<li>The tests are invoked from the test runner script <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/mavsdk_test_runner.py" target="_blank">mavsdk_test_runner.py</a>, which is written in Python. This runner also starts <code>px4</code> as well as Gazebo for SITL tests, and collects the logs of these processes.</li>
-<li>The test runner is a C++ binary It contains:<ul>
-<li>The <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_main.cpp" target="_blank">main</a> function to parse the arguments.</li>
-<li>An abstraction around MAVSDK called <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/autopilot_tester.h" target="_blank">autopilot_tester</a>.</li>
-<li>The actual tests using the abstraction around MAVSDK as e.g. <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp" target="_blank">test_multicopter_mission.cpp</a>.</li>
-<li>The tests use the <a href="https://github.com/catchorg/Catch2" target="_blank">catch2</a> unit testing framework. The reasons for using this framework are:<ul>
-<li>Asserts (<code>REQUIRE</code>) which are needed to abort a test can be inside of functions (and not just in the top level test as is <a href="https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement" target="_blank">the case with gtest</a>).</li>
-<li>Dependency management is easier because <em>catch2</em> can just be included as a header-only library.</li>
-<li><em>Catch2</em> supports <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags" target="_blank">tags</a>, which allows for flexible composition of tests.</li>
+<li>&#xC2DC;&#xD5D8; &#xC808;&#xCC28;&#xB294; &#xD30C;&#xC774;&#xC36C; &#xCF54;&#xB4DC;&#xB85C; &#xC791;&#xC131;&#xD55C; &#xC2DC;&#xD5D8; &#xC2E4;&#xD589; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/mavsdk_test_runner.py" target="_blank">mavsdk_test_runner.py</a> &#xD30C;&#xC77C;&#xB85C; &#xC9C4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xC2E4;&#xD589; &#xC8FC;&#xCCB4;&#xB294; <code>px4</code>&#xB97C; SITL &#xC2DC;&#xD5D8; &#xC6A9;&#xB3C4;&#xC758; &#xAC00;&#xC81C;&#xBCF4;&#xC640; &#xB9C8;&#xCC2C;&#xAC00;&#xC9C0;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xBA70;, &#xCC98;&#xB9AC; &#xACFC;&#xC815;&#xC758; &#xAE30;&#xB85D;&#xC744; &#xC218;&#xC9D1;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li>&#xC2DC;&#xD5D8; &#xC9C4;&#xD589; &#xC8FC;&#xCCB4;&#xB294; C++ &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xC774;&#xBA70;, &#xB2E4;&#xC74C; &#xD2B9;&#xC9D5;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<ul>
+<li>&#xC778;&#xC790;&#xB97C; &#xBD84;&#xC11D;&#xD558;&#xB294; <a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_main.cpp" target="_blank">main</a> &#xD568;&#xC218;.</li>
+<li><a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/autopilot_tester.h" target="_blank">autopilot_tester</a>&#xB97C; &#xD638;&#xCD9C;&#xD558;&#xB294; MAVSDK&#xC758; &#xCD94;&#xC0C1;&#xCCB4;.</li>
+<li><a href="https://github.com/PX4/Firmware/blob/master/test/mavsdk_tests/test_multicopter_mission.cpp" target="_blank">test_multicopter_mission.cpp</a>&#xC640; &#xAC19;&#xC774;, MAVSDK&#xC758; &#xCD94;&#xC0C1;&#xCCB4;&#xB97C; &#xD65C;&#xC6A9;&#xD55C; &#xC2E4;&#xC81C; &#xC2DC;&#xD5D8; &#xC808;&#xCC28;.</li>
+<li>&#xC2DC;&#xD5D8; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C;&#xB294; <a href="https://github.com/catchorg/Catch2" target="_blank">catch2</a> &#xB2E8;&#xC704; &#xC2DC;&#xD5D8; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xB97C; &#xD65C;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xD504;&#xB808;&#xC784;&#xC6CC;&#xD06C;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0;&#xC790; &#xD558;&#xB294; &#xB3D9;&#xAE30;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:<ul>
+<li>&#xD568;&#xC218; &#xB0B4;&#xBD80;&#xC5D0; &#xC874;&#xC7AC;&#xD560; &#xC218; &#xC788;&#xB294; &#xC2DC;&#xD5D8; &#xB300;&#xC0C1;&#xC744; &#xBA48;&#xCDB0;&#xC57C; &#xD560; &#xACBD;&#xC6B0;&#xC5D0; &#xB300;&#xD574; &#xB2E8;&#xC5B8;(<code>REQUIRE</code>) &#xD569;&#xB2C8;&#xB2E4;(&#xADF8;&#xB9AC;&#xACE0; <a href="https://github.com/google/googletest/blob/master/googletest/docs/advanced.md#assertion-placement" target="_blank">gtest &#xC2DC;&#xD5D8;</a>&#xACFC; &#xAC19;&#xC774; &#xCD5C;&#xC0C1;&#xC704;&#xC758; &#xC2DC;&#xD5D8;&#xB9CC; &#xC9C4;&#xD589;&#xD558;&#xB294;&#xAC83;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;).</li>
+<li><em>catch2</em>&#xC5D0; &#xD5E4;&#xB354;&#xB9CC; &#xC788;&#xB294; &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB97C; &#xB123;&#xC744; &#xC218; &#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC758;&#xC874; &#xAD00;&#xB9AC;&#xAC00; &#xAC04;&#xD3B8;&#xD574;&#xC9D1;&#xB2C8;&#xB2E4;.</li>
+<li><em>catch2</em>&#xC5D0;&#xC11C; &#xC2DC;&#xD5D8; &#xACFC;&#xC815;&#xC758; &#xC720;&#xC5F0;&#xD55C; &#xC870;&#xD569;&#xC744; &#xD5C8;&#xC6A9;&#xD558;&#xB294; <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md#tags" target="_blank">tag</a>&#xB97C; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;.</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>Terms used:</p>
+<p>&#xD65C;&#xC6A9; &#xC6A9;&#xC5B4;:</p>
 <ul>
-<li>&quot;model&quot;: This is the selected Gazebo model, e.g. <code>iris</code>.</li>
-<li>&quot;test case&quot;: This is a <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md" target="_blank">catch2 test case</a>.</li>
+<li>&quot;&#xBAA8;&#xB378;&quot;: &#xC120;&#xD0DD;&#xD55C; &#xAC00;&#xC81C;&#xBCF4; &#xBAA8;&#xB378;, &#xC608;: <code>iris</code></li>
+<li>&quot;&#xD14C;&#xC2A4;&#xD2B8; &#xCF00;&#xC774;&#xC2A4;&quot;: <a href="https://github.com/catchorg/Catch2/blob/master/docs/test-cases-and-sections.md" target="_blank">catch2&#xC6A9; &#xC870;&#xAC74; &#xC2DC;&#xD5D8; &#xCF54;&#xB4DC; &#xB2E8;&#xC704;</a>.</li>
 </ul>
 
                                 
@@ -2568,7 +2568,7 @@ optional arguments:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MAVSDK 통합 테스트","level":"1.12.6","depth":2,"next":{"title":"도커 컨테이너","level":"1.12.7","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},"previous":{"title":"ROS 통합 테스트","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"test_and_ci/integration_testing_mavsdk.md","mtime":"2020-09-12T10:43:44.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-12T10:45:10.578Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"MAVSDK 통합 테스트","level":"1.12.6","depth":2,"next":{"title":"도커 컨테이너","level":"1.12.7","depth":2,"path":"test_and_ci/docker.md","ref":"test_and_ci/docker.md","articles":[]},"previous":{"title":"ROS 통합 테스트","level":"1.12.5","depth":2,"path":"test_and_ci/integration_testing.md","ref":"test_and_ci/integration_testing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"test_and_ci/integration_testing_mavsdk.md","mtime":"2020-09-13T23:03:54.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-13T23:04:45.315Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>

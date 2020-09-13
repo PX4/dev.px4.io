@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>가제보(Gazebo) 비행체 · PX4 Developer Guide</title>
+        <title>가제보 기체 · PX4 Developer Guide</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -204,7 +204,7 @@
                 <a href="../setup/dev_env_mac.html">
             
                     
-                    Mac OS
+                    맥 OS
             
                 </a>
             
@@ -641,7 +641,7 @@
                 <a href="gazebo.html">
             
                     
-                    가제보(Gazebo) 짐벌 모의시험
+                    가제보 짐벌 모의시험
             
                 </a>
             
@@ -655,7 +655,7 @@
                 <a href="gazebo_vehicles.html">
             
                     
-                    가제보(Gazebo) 비행체
+                    가제보 기체
             
                 </a>
             
@@ -668,7 +668,7 @@
                 <a href="gazebo_worlds.html">
             
                     
-                    가제보(Gazebo) 월드(world)
+                    가제보 월드(world)
             
                 </a>
             
@@ -686,7 +686,7 @@
                 <a href="multi_vehicle_simulation_gazebo.html">
             
                     
-                    가제보(Gazebo) 다중 비행체 모의시험
+                    가제보 다중 기체 모의시험
             
                 </a>
             
@@ -699,7 +699,7 @@
                 <a href="flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 모의시험 
+                    플라이트기어 모의시험
             
                 </a>
             
@@ -713,7 +713,7 @@
                 <a href="flightgear_vehicles.html">
             
                     
-                    플라이트 기어(FlightGear) 비행체
+                    플라이트기어 기체
             
                 </a>
             
@@ -731,7 +731,7 @@
                 <a href="multi_vehicle_flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+                    플라이트기어 다중 기체 모의시험
             
                 </a>
             
@@ -828,7 +828,7 @@
                 <a href="../hardware/reference_design.html">
             
                     
-                    비행체 컨트롤러 참고 디자인
+                    비행체 제어 장치 참고 디자인
             
                 </a>
             
@@ -841,7 +841,7 @@
                 <a href="../hardware/porting_guide.html">
             
                     
-                    비행체 컨트롤러 이식 안내
+                    비행체 제어 장치 이식 안내
             
                 </a>
             
@@ -873,7 +873,7 @@
                 <a href="../airframes/">
             
                     
-                    비행체(Airframe)
+                    에어프레임
             
                 </a>
             
@@ -887,7 +887,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    비행체 참고
+                    에어프레임 참고
             
                 </a>
             
@@ -900,7 +900,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    새 비행체 추가
+                    새 에어프레임 추가
             
                 </a>
             
@@ -1299,7 +1299,7 @@
                 <a href="../middleware/modules_driver_airspeed_sensor.html">
             
                     
-                    대기속도 센서
+                    항속 센서
             
                 </a>
             
@@ -1351,7 +1351,7 @@
                 <a href="../middleware/modules_driver_magnetometer.html">
             
                     
-                    자력계
+                    지자계
             
                 </a>
             
@@ -1563,7 +1563,7 @@
                 <a href="../robotics/dronekit.html">
             
                     
-                    드론키트
+                    DroneKit
             
                 </a>
             
@@ -1815,7 +1815,7 @@
                 <a href="../qgc/">
             
                     
-                    지상 통제 스테이션
+                    지상 통제 장치
             
                 </a>
             
@@ -1854,7 +1854,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    리눅스에서의 리모콘 리시버 연결
+                    리눅스에서 원격 조종 수신 모듈 연결
             
                 </a>
             
@@ -2447,7 +2447,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >가제보(Gazebo) 비행체</a>
+        <a href=".." >가제보 기체</a>
     </h1>
 </div>
 
@@ -2462,71 +2462,76 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gazebo-vehicles"><a name="gazebo-vehicles" class="plugin-anchor" href="#gazebo-vehicles"><i class="fa fa-link" aria-hidden="true"></i></a>Gazebo Vehicles</h1>
-<p>This topic lists/displays the vehicles supported by the PX4 <a href="gazebo.html">Gazebo</a> simulation and the <code>make</code> commands required to run them (the commands are run from a terminal in the <strong>Firmware</strong> directory).</p>
-<p>Supported vehicle types include: mutirotors, VTOL, VTOL Tailsitter, Plane, Rover, Submarine/UUV.</p>
+                                <h1 id="&#xAC00;&#xC81C;&#xBCF4;-&#xAE30;&#xCCB4;"><a name="&#xAC00;&#xC81C;&#xBCF4;-&#xAE30;&#xCCB4;" class="plugin-anchor" href="#&#xAC00;&#xC81C;&#xBCF4;-&#xAE30;&#xCCB4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAC00;&#xC81C;&#xBCF4; &#xAE30;&#xCCB4;</h1>
+<p>&#xC774; &#xC8FC;&#xC81C;&#xC5D0;&#xC11C;&#xB294; PX4 <a href="gazebo.html">&#xAC00;&#xC81C;&#xBCF4;</a> &#xC2DC;&#xBBAC;&#xB808;&#xC774;&#xC158;&#xC5D0;&#xC11C; &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xAE30;&#xCCB4;&#xC640; &#xAE30;&#xCCB4;&#xB97C; &#xAC00;&#xB3D9;&#xD558;&#xB294;&#xB370; &#xD544;&#xC694;&#xD55C; <code>make</code> &#xBA85;&#xB839;&#xC744; &#xB098;&#xC5F4;&#xD569;&#xB2C8;&#xB2E4;(&#xBA85;&#xB839;&#xC740; <strong>Firmware</strong> &#xB514;&#xB809;&#xD130;&#xB9AC; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;).</p>
+<p>&#xC9C0;&#xC6D0; &#xAE30;&#xCCB4; &#xD615;&#xC2DD;&#xC740; &#xBA40;&#xD2F0;&#xB85C;&#xD130;, &#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959;&#xAE30;, &#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959; &#xD14C;&#xC77C;&#xC2DC;&#xD130;, &#xD56D;&#xACF5;&#xAE30;, &#xD0D0;&#xC0AC;&#xC120;, &#xC218;&#xC911;&#xC120;/&#xBB34;&#xC778; &#xC218;&#xC911;&#xC120;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> For the full list of build targets run <code>make px4_sitl list_vmd_make_targets</code> (and filter on those that start with <code>gazebo_</code>).</p>
+<p> &#xC804;&#xCCB4; &#xB300;&#xC0C1;&#xC744; &#xBE4C;&#xB4DC;&#xD558;&#xB824;&#xBA74; <code>make px4_sitl list_vmd_make_targets</code> &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589; (&#xD558;&#xACE0; <code>gazebo_</code>&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xB294; &#xC694;&#xC18C;&#xB97C; &#xAC80;&#xC0C9;) &#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
 </blockquote>
 <p><span></span></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The <a href="gazebo.html">Gazebo</a> page shows how to install Gazebo, how to enable video and load custom maps, and many other configuration options.</p>
+<p> <a href="gazebo.html">&#xAC00;&#xC81C;&#xBCF4;</a> &#xD398;&#xC774;&#xC9C0;&#xC5D0;&#xC11C;&#xB294; &#xAC00;&#xC81C;&#xBCF4; &#xC124;&#xCE58; &#xBC29;&#xBC95;, &#xB3D9;&#xC601;&#xC0C1; &#xD65C;&#xC131;, &#xAC1C;&#xBCC4; &#xC9C0;&#xB3C4; &#xBD88;&#xB7EC;&#xC624;&#xAE30;, &#xAE30;&#xD0C0; &#xC124;&#xC815; &#xC635;&#xC158;&#xC744; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h2 id="multicopter"><a name="multicopter" class="plugin-anchor" href="#multicopter"><i class="fa fa-link" aria-hidden="true"></i></a>Multicopter</h2>
-<h3 id="quadrotor"><a name="quadrotor" class="plugin-anchor" href="#quadrotor"><i class="fa fa-link" aria-hidden="true"></i></a>Quadrotor (Default) </h3>
+<h2 id="&#xBA40;&#xD2F0;&#xCF65;&#xD130;"><a name="&#xBA40;&#xD2F0;&#xCF65;&#xD130;" class="plugin-anchor" href="#&#xBA40;&#xD2F0;&#xCF65;&#xD130;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBA40;&#xD2F0;&#xCF65;&#xD130;</h2>
+<h3 id="quadrotor"><a name="quadrotor" class="plugin-anchor" href="#quadrotor"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCFFC;&#xB4DC;&#xB85C;&#xD130; (&#xAE30;&#xBCF8;) </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo
 </code></pre>
-<h3 id="quadrotor_optical_flow"><a name="quadrotor_optical_flow" class="plugin-anchor" href="#quadrotor_optical_flow"><i class="fa fa-link" aria-hidden="true"></i></a>Quadrotor with Optical Flow </h3>
+<h3 id="quadrotor_optical_flow"><a name="quadrotor_optical_flow" class="plugin-anchor" href="#quadrotor_optical_flow"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD11;&#xB958; &#xC13C;&#xC11C; &#xC7A5;&#xCC29; &#xCFFC;&#xB4DC;&#xB85C;&#xD130; </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_iris_opt_flow
 </code></pre>
-<h3 id="3dr_solo"><a name="3dr_solo" class="plugin-anchor" href="#3dr_solo"><i class="fa fa-link" aria-hidden="true"></i></a>3DR Solo (Quadrotor) </h3>
+<h3 id="3dr_solo"><a name="3dr_solo" class="plugin-anchor" href="#3dr_solo"><i class="fa fa-link" aria-hidden="true"></i></a>3DR &#xC194;&#xB85C; (&#xCFFC;&#xB4DC;&#xB85C;&#xD130;) </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_solo
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/solo.png" alt="3DR Solo in Gazebo"></p>
-<h3 id="typhoon_h480"><a name="typhoon_h480" class="plugin-anchor" href="#typhoon_h480"><i class="fa fa-link" aria-hidden="true"></i></a>Typhoon H480 (Hexrotor) </h3>
+<p><img src="../../assets/simulation/gazebo/vehicles/solo.png" alt="&#xAC00;&#xC81C;&#xBCF4; 3DR &#xC194;&#xB85C;"></p>
+<h3 id="typhoon_h480"><a name="typhoon_h480" class="plugin-anchor" href="#typhoon_h480"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD0DC;&#xD48D; H480 (&#xD5E5;&#xC2A4;&#xB85C;&#xD130;) </h3>
 <pre><code>make px4_sitl gazebo_typhoon_h480
-</code></pre><p><img src="../../assets/simulation/gazebo/vehicles/typhoon.jpg" alt="Typhoon H480 in Gazebo"></p>
+</code></pre><p><img src="../../assets/simulation/gazebo/vehicles/typhoon.jpg" alt="&#xAC00;&#xC81C;&#xBCF4; &#xD0DC;&#xD48D; H480"></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This target also supports <a href="#video">video streaming simulation</a>.</p>
+<p> &#xC774; &#xB300;&#xC0C1;&#xC5D0;&#xC11C;&#xB294;<a href="#video">&#xB3D9;&#xC601;&#xC0C1; &#xC2A4;&#xD2B8;&#xB9AC;&#xBC0D; &#xBAA8;&#xC758; &#xC2DC;&#xD5D8;&#xD658;&#xACBD;</a>&#xB3C4; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h2 id="fixed_wing"><a name="fixed_wing" class="plugin-anchor" href="#fixed_wing"><i class="fa fa-link" aria-hidden="true"></i></a>Plane/Fixed Wing </h2>
-<h3 id="standard_plane"><a name="standard_plane" class="plugin-anchor" href="#standard_plane"><i class="fa fa-link" aria-hidden="true"></i></a>Standard Plane </h3>
+<h2 id="fixed_wing"><a name="fixed_wing" class="plugin-anchor" href="#fixed_wing"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE44;&#xD589;&#xCCB4;/&#xACE0;&#xC815;&#xC775; </h2>
+<h3 id="standard_plane"><a name="standard_plane" class="plugin-anchor" href="#standard_plane"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD45C;&#xC900; &#xBE44;&#xD589;&#xCCB4; </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_plane
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/plane.png" alt="Plane in Gazebo"></p>
-<h4 id="standard_plane_catapult"><a name="standard_plane_catapult" class="plugin-anchor" href="#standard_plane_catapult"><i class="fa fa-link" aria-hidden="true"></i></a>Standard Plane with Catapult Launch </h4>
+<p><img src="../../assets/simulation/gazebo/vehicles/plane.png" alt="&#xAC00;&#xC81C;&#xBCF4; &#xBE44;&#xD589;&#xCCB4;"></p>
+<h4 id="standard_plane_catapult"><a name="standard_plane_catapult" class="plugin-anchor" href="#standard_plane_catapult"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCE90;&#xD130;&#xD384;&#xD2B8; &#xBC1C;&#xC0AC;&#xD615; &#xD45C;&#xC900; &#xBE44;&#xD589;&#xCCB4; </h4>
 <pre><code class="lang-sh">make px4_sitl gazebo_plane_catapult
 </code></pre>
-<p>This model simulates hand/catapult launch, which can be used for <a href="http://docs.px4.io/master/en/flying/fixed_wing_takeoff.html#fixed-wing-takeoff" target="_blank">fixed wing takeoff</a> in position mode, takeoff mode, or missions.</p>
-<p>The plane will automatically be launched as soon as the vehicle is armed.</p>
-<h2 id="vtol"><a name="vtol" class="plugin-anchor" href="#vtol"><i class="fa fa-link" aria-hidden="true"></i></a>VTOL</h2>
-<h3 id="standard_vtol"><a name="standard_vtol" class="plugin-anchor" href="#standard_vtol"><i class="fa fa-link" aria-hidden="true"></i></a>Standard VTOL </h3>
+<p>&#xC774; &#xBAA8;&#xB378;&#xB85C; &#xC790;&#xC138; &#xC900;&#xBE44; &#xBAA8;&#xB4DC;, &#xC774;&#xB959; &#xBAA8;&#xB4DC;, &#xC784;&#xBB34; &#xBE44;&#xD589;&#xC2DC; <a href="http://docs.px4.io/master/en/flying/fixed_wing_takeoff.html#fixed-wing-takeoff" target="_blank">&#xACE0;&#xC815;&#xC775; &#xC774;&#xB959;</a>&#xC2DC; &#xC190;&#xC73C;&#xB85C; &#xB0A0;&#xB9AC;&#xAC70;&#xB098; &#xBC1C;&#xC0AC;&#xB300;&#xB85C; &#xB0A0;&#xB9AC;&#xB294; &#xBE44;&#xD589;&#xCCB4;&#xB97C; &#xBAA8;&#xC758; &#xC2DC;&#xD5D8; &#xC2E4;&#xC2DC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xBE44;&#xD589;&#xCCB4;&#xB294; &#xAE30;&#xCCB4; &#xB3D9;&#xB825;&#xC744; &#xC778;&#xAC00;&#xD558;&#xACE0;&#xB09C; &#xD6C4; &#xBC14;&#xB85C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xBC1C;&#xC0AC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h2 id="&#xC218;&#xC9C1;-&#xC774;&#xCC29;&#xB959;&#xAE30;"><a name="&#xC218;&#xC9C1;-&#xC774;&#xCC29;&#xB959;&#xAE30;" class="plugin-anchor" href="#&#xC218;&#xC9C1;-&#xC774;&#xCC29;&#xB959;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959;&#xAE30;</h2>
+<h3 id="standard_vtol"><a name="standard_vtol" class="plugin-anchor" href="#standard_vtol"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD45C;&#xC900; &#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959;&#xAE30; </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_standard_vtol
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/standard_vtol.png" alt="Standard VTOL in Gazebo"></p>
-<h3 id="tailsitter_vtol"><a name="tailsitter_vtol" class="plugin-anchor" href="#tailsitter_vtol"><i class="fa fa-link" aria-hidden="true"></i></a>Tailsitter VTOL </h3>
+<p><img src="../../assets/simulation/gazebo/vehicles/standard_vtol.png" alt="&#xAC00;&#xC81C;&#xBCF4; &#xD45C;&#xC900; &#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959;&#xAE30;"></p>
+<h3 id="tailsitter_vtol"><a name="tailsitter_vtol" class="plugin-anchor" href="#tailsitter_vtol"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD14C;&#xC77C;&#xC2DC;&#xD130; &#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959;&#xAE30; </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_tailsitter
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/tailsitter.png" alt="Tailsitter VTOL in Gazebo"></p>
-<h2 id="ugv"><a name="ugv" class="plugin-anchor" href="#ugv"><i class="fa fa-link" aria-hidden="true"></i></a>Unmmanned Ground Vehicle (UGV/Rover/Car) </h2>
+<p><img src="../../assets/simulation/gazebo/vehicles/tailsitter.png" alt="&#xAC00;&#xC81C;&#xBCF4; &#xD14C;&#xC77C;&#xC2DC;&#xD130; &#xC218;&#xC9C1; &#xC774;&#xCC29;&#xB959;&#xAE30;"></p>
+<h2 id="ugv"><a name="ugv" class="plugin-anchor" href="#ugv"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBB34;&#xC778; &#xC9C0;&#xC0C1; &#xAE30;&#xCCB4;(UGV/&#xD0D0;&#xC0AC;&#xC120;/&#xCC28;&#xB7C9;) </h2>
 <h3 id="ugv_ackerman"><a name="ugv_ackerman" class="plugin-anchor" href="#ugv_ackerman"><i class="fa fa-link" aria-hidden="true"></i></a>Ackerman UGV </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_rover
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/rover.png" alt="Rover in Gazebo"></p>
+<p><img src="../../assets/simulation/gazebo/vehicles/rover.png" alt="&#xAC00;&#xC81C;&#xBCF4;&#xC758; &#xD0D0;&#xC0AC;&#xC120;"></p>
 <h3 id="ugv_differential"><a name="ugv_differential" class="plugin-anchor" href="#ugv_differential"><i class="fa fa-link" aria-hidden="true"></i></a>Differential UGV </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_r1_rover
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/r1_rover.png" alt="Rover in Gazebo"></p>
-<h2 id="uuv"><a name="uuv" class="plugin-anchor" href="#uuv"><i class="fa fa-link" aria-hidden="true"></i></a>Unmanned Underwater Vehicle (UUV/Submarine) </h2>
-<h3 id="uuv_hippocampus"><a name="uuv_hippocampus" class="plugin-anchor" href="#uuv_hippocampus"><i class="fa fa-link" aria-hidden="true"></i></a>HippoCampus TUHH UUV </h3>
+<p><img src="../../assets/simulation/gazebo/vehicles/r1_rover.png" alt="&#xAC00;&#xC81C;&#xBCF4;&#xC758; &#xD0D0;&#xC0AC;&#xC120;"></p>
+<h2 id="uuv"><a name="uuv" class="plugin-anchor" href="#uuv"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBB34;&#xC778; &#xC218;&#xC911; &#xAE30;&#xCCB4;(UUV/&#xC7A0;&#xC218;&#xD568;) </h2>
+<h3 id="uuv_hippocampus"><a name="uuv_hippocampus" class="plugin-anchor" href="#uuv_hippocampus"><i class="fa fa-link" aria-hidden="true"></i></a>&#xD788;&#xD3EC;&#xCEA0;&#xD37C;&#xC2A4; TUHH UUV </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_uuv_hippocampus
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/hippocampus.png" alt="Submarine/UUV"></p>
-<h2 id="usv"><a name="usv" class="plugin-anchor" href="#usv"><i class="fa fa-link" aria-hidden="true"></i></a>Unmanned Surface Vehicle (USV/Boat) </h2>
-<h3 id="usv_boat"><a name="usv_boat" class="plugin-anchor" href="#usv_boat"><i class="fa fa-link" aria-hidden="true"></i></a>Boat </h3>
+<p><img src="../../assets/simulation/gazebo/vehicles/hippocampus.png" alt="&#xC7A0;&#xC218;&#xD568;/UUV"></p>
+<h2 id="usv"><a name="usv" class="plugin-anchor" href="#usv"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBB34;&#xC778; &#xC218;&#xBA74; &#xAE30;&#xCCB4;(USV/&#xBCF4;&#xD2B8;) </h2>
+<h3 id="usv_boat"><a name="usv_boat" class="plugin-anchor" href="#usv_boat"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBCF4;&#xD2B8; </h3>
 <pre><code class="lang-sh">make px4_sitl gazebo_boat
 </code></pre>
-<p><img src="../../assets/simulation/gazebo/vehicles/boat.png" alt="Boat/USV"></p>
+<p><img src="../../assets/simulation/gazebo/vehicles/boat.png" alt="&#xBCF4;&#xD2B8;/USV"></p>
+<h2 id="airship"><a name="airship" class="plugin-anchor" href="#airship"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE44;&#xD589;&#xC120; </h2>
+<h3 id="cloudship"><a name="cloudship" class="plugin-anchor" href="#cloudship"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xB984;&#xC120; </h3>
+<pre><code class="lang-sh">make px4_sitl gazebo_cloudship
+</code></pre>
+<p><img src="../../assets/simulation/gazebo/vehicles/airship.png" alt="&#xBE44;&#xD589;&#xC120;"></p>
 
                                 
                                 </section>
@@ -2554,12 +2559,12 @@
 
             
                 
-                <a href="gazebo.html" class="navigation navigation-prev " aria-label="Previous page: 가제보(Gazebo) 짐벌 모의시험">
+                <a href="gazebo.html" class="navigation navigation-prev " aria-label="Previous page: 가제보 짐벌 모의시험">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="gazebo_worlds.html" class="navigation navigation-next " aria-label="Next page: 가제보(Gazebo) 월드(world)">
+                <a href="gazebo_worlds.html" class="navigation navigation-next " aria-label="Next page: 가제보 월드(world)">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2570,7 +2575,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"가제보(Gazebo) 비행체","level":"1.4.2.1","depth":3,"next":{"title":"가제보(Gazebo) 월드(world)","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]},"previous":{"title":"가제보(Gazebo) 짐벌 모의시험","level":"1.4.2","depth":2,"path":"simulation/gazebo.md","ref":"simulation/gazebo.md","articles":[{"title":"가제보(Gazebo) 비행체","level":"1.4.2.1","depth":3,"path":"simulation/gazebo_vehicles.md","ref":"simulation/gazebo_vehicles.md","articles":[]},{"title":"가제보(Gazebo) 월드(world)","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"simulation/gazebo_vehicles.md","mtime":"2020-09-12T10:43:44.398Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-12T10:45:10.578Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"가제보 기체","level":"1.4.2.1","depth":3,"next":{"title":"가제보 월드(world)","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]},"previous":{"title":"가제보 짐벌 모의시험","level":"1.4.2","depth":2,"path":"simulation/gazebo.md","ref":"simulation/gazebo.md","articles":[{"title":"가제보 기체","level":"1.4.2.1","depth":3,"path":"simulation/gazebo_vehicles.md","ref":"simulation/gazebo_vehicles.md","articles":[]},{"title":"가제보 월드(world)","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"simulation/gazebo_vehicles.md","mtime":"2020-09-13T23:03:54.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-13T23:04:45.315Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>

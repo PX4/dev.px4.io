@@ -204,7 +204,7 @@
                 <a href="../setup/dev_env_mac.html">
             
                     
-                    Mac OS
+                    맥 OS
             
                 </a>
             
@@ -641,7 +641,7 @@
                 <a href="../simulation/gazebo.html">
             
                     
-                    가제보(Gazebo) 짐벌 모의시험
+                    가제보 짐벌 모의시험
             
                 </a>
             
@@ -655,7 +655,7 @@
                 <a href="../simulation/gazebo_vehicles.html">
             
                     
-                    가제보(Gazebo) 비행체
+                    가제보 기체
             
                 </a>
             
@@ -668,7 +668,7 @@
                 <a href="../simulation/gazebo_worlds.html">
             
                     
-                    가제보(Gazebo) 월드(world)
+                    가제보 월드(world)
             
                 </a>
             
@@ -686,7 +686,7 @@
                 <a href="../simulation/multi_vehicle_simulation_gazebo.html">
             
                     
-                    가제보(Gazebo) 다중 비행체 모의시험
+                    가제보 다중 기체 모의시험
             
                 </a>
             
@@ -699,7 +699,7 @@
                 <a href="../simulation/flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 모의시험 
+                    플라이트기어 모의시험
             
                 </a>
             
@@ -713,7 +713,7 @@
                 <a href="../simulation/flightgear_vehicles.html">
             
                     
-                    플라이트 기어(FlightGear) 비행체
+                    플라이트기어 기체
             
                 </a>
             
@@ -731,7 +731,7 @@
                 <a href="../simulation/multi_vehicle_flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+                    플라이트기어 다중 기체 모의시험
             
                 </a>
             
@@ -828,7 +828,7 @@
                 <a href="../hardware/reference_design.html">
             
                     
-                    비행체 컨트롤러 참고 디자인
+                    비행체 제어 장치 참고 디자인
             
                 </a>
             
@@ -841,7 +841,7 @@
                 <a href="../hardware/porting_guide.html">
             
                     
-                    비행체 컨트롤러 이식 안내
+                    비행체 제어 장치 이식 안내
             
                 </a>
             
@@ -873,7 +873,7 @@
                 <a href="../airframes/">
             
                     
-                    비행체(Airframe)
+                    에어프레임
             
                 </a>
             
@@ -887,7 +887,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    비행체 참고
+                    에어프레임 참고
             
                 </a>
             
@@ -900,7 +900,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    새 비행체 추가
+                    새 에어프레임 추가
             
                 </a>
             
@@ -1299,7 +1299,7 @@
                 <a href="../middleware/modules_driver_airspeed_sensor.html">
             
                     
-                    대기속도 센서
+                    항속 센서
             
                 </a>
             
@@ -1351,7 +1351,7 @@
                 <a href="../middleware/modules_driver_magnetometer.html">
             
                     
-                    자력계
+                    지자계
             
                 </a>
             
@@ -1563,7 +1563,7 @@
                 <a href="../robotics/dronekit.html">
             
                     
-                    드론키트
+                    DroneKit
             
                 </a>
             
@@ -1815,7 +1815,7 @@
                 <a href="../qgc/">
             
                     
-                    지상 통제 스테이션
+                    지상 통제 장치
             
                 </a>
             
@@ -1854,7 +1854,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    리눅스에서의 리모콘 리시버 연결
+                    리눅스에서 원격 조종 수신 모듈 연결
             
                 </a>
             
@@ -2462,31 +2462,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="test-mc04---failsafe-testing"><a name="test-mc04---failsafe-testing" class="plugin-anchor" href="#test-mc04---failsafe-testing"><i class="fa fa-link" aria-hidden="true"></i></a>Test MC_04 - Failsafe Testing</h1>
-<p>&#x274F; Verify RC Loss action is Return to Land</p>
-<p>&#x274F; Verify Data Link Loss action is Return to Land and the timeout is 10 seconds</p>
-<p>&#x274F; Verify Battery failsafe</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Action is Return to Land</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Battery Warn Level is 25%</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Battery Failsafe Level is 20%</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; Battery Emergency Level is 15%</p>
-<p>&#x274F; Take off in Altitude mode</p>
-<p>&#x274F; Move at least 20 meters away home position</p>
-<p>&#x274F; RC loss</p>
-<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F;Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.</p>
-<h2 id="datalink-loss"><a name="datalink-loss" class="plugin-anchor" href="#datalink-loss"><i class="fa fa-link" aria-hidden="true"></i></a>Datalink Loss</h2>
-<p>&#x274F; Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio</p>
-<h2 id="switch-to-altitude-mode"><a name="switch-to-altitude-mode" class="plugin-anchor" href="#switch-to-altitude-mode"><i class="fa fa-link" aria-hidden="true"></i></a>Switch to Altitude Mode</h2>
-<p>&#x274F; Make sure roll, pitch and yaw sticks respond like in Stabilize mode</p>
-<p>&#x274F; Throttle should control altitude, and when the stick is centered it must maintain altitude</p>
-<h2 id="switch-to-position-mode"><a name="switch-to-position-mode" class="plugin-anchor" href="#switch-to-position-mode"><i class="fa fa-link" aria-hidden="true"></i></a>Switch to Position Mode</h2>
-<p>&#x274F; When the sticks are centered, it must maintain position</p>
-<p>&#x274F; Move roll, pitch and yaw and check the vehicle is moving according to the inputs</p>
-<p>&#x274F; Center the sticks again and check the vehicle maintains position</p>
-<h2 id="wait-for-battery-failsafe-to-trigger"><a name="wait-for-battery-failsafe-to-trigger" class="plugin-anchor" href="#wait-for-battery-failsafe-to-trigger"><i class="fa fa-link" aria-hidden="true"></i></a>Wait for Battery Failsafe to Trigger</h2>
-<p>&#x274F; Confirm the warning message is received in QGC</p>
-<p>&#x274F; Confirm the vehicle returns to land</p>
-<p>&#x274F; Confirm the vehicle lands.</p>
+                                <h1 id="&#xC2DC;&#xD5D8;-mc04---&#xC548;&#xC804;-&#xC7A5;&#xCE58;-&#xC2DC;&#xD5D8;"><a name="&#xC2DC;&#xD5D8;-mc04---&#xC548;&#xC804;-&#xC7A5;&#xCE58;-&#xC2DC;&#xD5D8;" class="plugin-anchor" href="#&#xC2DC;&#xD5D8;-mc04---&#xC548;&#xC804;-&#xC7A5;&#xCE58;-&#xC2DC;&#xD5D8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC2DC;&#xD5D8; MC_04 - &#xC548;&#xC804; &#xC7A5;&#xCE58; &#xC2DC;&#xD5D8;</h1>
+<p>&#x274F; &#xC6D0;&#xACA9; &#xC870;&#xC885; &#xC720;&#xC2E4; &#xB3D9;&#xC791;&#xC774; &#xCC29;&#xB959; &#xC900;&#xBE44;&#xC778;&#xC9C0; &#xD655;&#xC778;</p>
+<p>&#x274F; &#xB370;&#xC774;&#xD130; &#xB9C1;&#xD06C; &#xC720;&#xC2E4; &#xB3D9;&#xC791;&#xC774; &#xCC29;&#xB959; &#xC900;&#xBE44;&#xC774;&#xBA70; 10&#xCD08;&#xC758; &#xC81C;&#xD55C; &#xC2DC;&#xAC04;&#xC744; &#xB450;&#xB294;&#xC9C0; &#xD655;&#xC778;</p>
+<p>&#x274F; &#xBC30;&#xD130;&#xB9AC; &#xC548;&#xC804; &#xC7A5;&#xCE58; &#xAC80;&#xC99D;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xC548;&#xC804; &#xC870;&#xCE58; &#xB3D9;&#xC791;&#xC740; &#xCC29;&#xB959; &#xB3D9;&#xC791;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xBC30;&#xD130;&#xB9AC; &#xACBD;&#xACE0; &#xC794;&#xC5EC;&#xB7C9;&#xC774; 25%&#xC778;&#xAC00;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xBC30;&#xD130;&#xB9AC; &#xC548;&#xC804; &#xC7A5;&#xCE58; &#xAC00;&#xB3D9; &#xC794;&#xC5EC;&#xB7C9;&#xC774; 20%&#xC778;&#xAC00;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xBC30;&#xD130;&#xB9AC; &#xC751;&#xAE09; &#xC0C1;&#xD0DC; &#xC794;&#xC5EC;&#xB7C9;&#xC774; 15%&#xC778;&#xAC00; </p>
+<p>&#x274F; &#xACE0;&#xB3C4; &#xC81C;&#xC5B4; &#xBAA8;&#xB4DC;&#xC5D0;&#xC11C; &#xC774;&#xB959;</p>
+<p>&#x274F; &#xAE30;&#xC900; &#xC704;&#xCE58;&#xC5D0;&#xC11C; &#xCD5C;&#xC18C;&#xD55C; 20&#xBBF8;&#xD130; &#xC774;&#xC0C1; &#xC774;&#xB3D9;</p>
+<p>&#x274F; &#xC6D0;&#xACA9; &#xC870;&#xC885; &#xC720;&#xC2E4;</p>
+<p>&#xA0;&#xA0;&#xA0;&#xA0;&#x274F; &#xC6D0;&#xACA9; &#xC870;&#xC885; &#xC7A5;&#xCE58;&#xB97C; &#xB044;&#xACE0; &#xAE30;&#xCCB4;&#xAC00; &#xC2DC;&#xC791;&#xC810;&#xC73C;&#xB85C; &#xB3CC;&#xC544;&#xC624;&#xB294;&#xC9C0; &#xD655;&#xC778;, &#xD558;&#xAC15; &#xB300;&#xAE30; &#xD6C4; &#xC6D0;&#xACA9; &#xC870;&#xC885; &#xC7A5;&#xCE58;&#xB97C; &#xCF1C;&#xC11C; &#xC81C;&#xC5B4;&#xAD8C;&#xC744; &#xB118;&#xACA8;&#xBC1B;&#xC74C;</p>
+<h2 id="&#xB370;&#xC774;&#xD130;-&#xC5F0;&#xACB0;-&#xC720;&#xC2E4;"><a name="&#xB370;&#xC774;&#xD130;-&#xC5F0;&#xACB0;-&#xC720;&#xC2E4;" class="plugin-anchor" href="#&#xB370;&#xC774;&#xD130;-&#xC5F0;&#xACB0;-&#xC720;&#xC2E4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB370;&#xC774;&#xD130; &#xC5F0;&#xACB0; &#xC720;&#xC2E4;</h2>
+<p>&#x274F; &#xD154;&#xB808;&#xBA54;&#xD2B8;&#xB9AC; &#xC5F0;&#xACB0;&#xC744; &#xB04A;&#xC73C;&#xBA74;, &#xAE30;&#xCCB4;&#xB294; 10&#xCD08; &#xD6C4; &#xC2DC;&#xC791; &#xC810;&#xC73C;&#xB85C; &#xB3CC;&#xC544;&#xC640;&#xC57C; &#xD558;&#xBA70;, &#xD558;&#xAC15; &#xB300;&#xAE30; &#xD6C4; &#xD154;&#xB808;&#xBA54;&#xD2B8;&#xB9AC; &#xBB34;&#xC120; &#xD1B5;&#xC2E0; &#xC7A5;&#xCE58;&#xB97C; &#xB2E4;&#xC2DC; &#xC5F0;&#xACB0;</p>
+<h2 id="&#xACE0;&#xB3C4;-&#xC81C;&#xC5B4;-&#xBAA8;&#xB4DC;-&#xC804;&#xD658;"><a name="&#xACE0;&#xB3C4;-&#xC81C;&#xC5B4;-&#xBAA8;&#xB4DC;-&#xC804;&#xD658;" class="plugin-anchor" href="#&#xACE0;&#xB3C4;-&#xC81C;&#xC5B4;-&#xBAA8;&#xB4DC;-&#xC804;&#xD658;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xACE0;&#xB3C4; &#xC81C;&#xC5B4; &#xBAA8;&#xB4DC; &#xC804;&#xD658;</h2>
+<p>&#x274F; &#xC88C;&#xC6B0;, &#xC0C1;&#xD558;, &#xBC29;&#xC704; &#xD68C;&#xC804;&#xAC01; &#xC751;&#xB2F5;&#xC774; &#xC548;&#xC815; &#xBAA8;&#xB4DC;&#xCC98;&#xB7FC; &#xACE0;&#xC815; &#xAC12;&#xC73C;&#xB85C; &#xC751;&#xB2F5;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;</p>
+<p>&#x274F; &#xCD94;&#xC9C4;&#xBD80;&#xC5D0;&#xC11C; &#xACE0;&#xB3C4;&#xB97C; &#xC81C;&#xC5B4;&#xD574;&#xC57C; &#xD558;&#xBA70;, &#xC2A4;&#xD2F1;&#xC744; &#xAC00;&#xC6B4;&#xB370;&#xB85C; &#xB450;&#xC5C8;&#xC744; &#xB54C; &#xACE0;&#xB3C4;&#xB97C; &#xC720;&#xC9C0;&#xD574;&#xC57C; &#xD568;</p>
+<h2 id="&#xC704;&#xCE58;-&#xC81C;&#xC5B4;-&#xBAA8;&#xB4DC;-&#xC804;&#xD658;"><a name="&#xC704;&#xCE58;-&#xC81C;&#xC5B4;-&#xBAA8;&#xB4DC;-&#xC804;&#xD658;" class="plugin-anchor" href="#&#xC704;&#xCE58;-&#xC81C;&#xC5B4;-&#xBAA8;&#xB4DC;-&#xC804;&#xD658;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC704;&#xCE58; &#xC81C;&#xC5B4; &#xBAA8;&#xB4DC; &#xC804;&#xD658;</h2>
+<p>&#x274F; &#xC2A4;&#xD2F1;&#xC744; &#xAC00;&#xC6B4;&#xB370;&#xB85C; &#xB450;&#xC5C8;&#xC744; &#xB54C; &#xC704;&#xCE58;&#xB97C; &#xC720;&#xC9C0;&#xD574;&#xC57C; &#xD568;</p>
+<p>&#x274F; &#xC88C;&#xC6B0;, &#xC0C1;&#xD558;, &#xBC29;&#xC704; &#xD68C;&#xC804;&#xAC01;&#xC744; &#xC6C0;&#xC9C1;&#xC5EC;&#xC11C; &#xAE30;&#xCCB4;&#xAC00; &#xC785;&#xB825;&#xC5D0; &#xB530;&#xB77C; &#xC6C0;&#xC9C1;&#xC774;&#xB294;&#xC9C0; &#xD655;&#xC778;</p>
+<p>&#x274F; &#xC2A4;&#xD2F1;&#xC744; &#xAC00;&#xC6B4;&#xB370;&#xB85C; &#xB450;&#xC5B4; &#xAE30;&#xCCB4; &#xC704;&#xCE58;&#xB97C; &#xC720;&#xC9C0;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;</p>
+<h2 id="&#xBC30;&#xD130;&#xB9AC;-&#xC548;&#xC804;-&#xC7A5;&#xCE58;-&#xAC00;&#xB3D9;-&#xB300;&#xAE30;"><a name="&#xBC30;&#xD130;&#xB9AC;-&#xC548;&#xC804;-&#xC7A5;&#xCE58;-&#xAC00;&#xB3D9;-&#xB300;&#xAE30;" class="plugin-anchor" href="#&#xBC30;&#xD130;&#xB9AC;-&#xC548;&#xC804;-&#xC7A5;&#xCE58;-&#xAC00;&#xB3D9;-&#xB300;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBC30;&#xD130;&#xB9AC; &#xC548;&#xC804; &#xC7A5;&#xCE58; &#xAC00;&#xB3D9; &#xB300;&#xAE30;</h2>
+<p>&#x274F; QGC&#xC5D0;&#xC11C; &#xACBD;&#xACE0; &#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xBC1B;&#xB294;&#xC9C0; &#xD655;&#xC778;</p>
+<p>&#x274F; &#xAE30;&#xCCB4;&#xAC00; &#xC9C0;&#xBA74;&#xC73C;&#xB85C; &#xCC29;&#xB959;&#xD558;&#xB294;&#xC9C0; &#xD655;&#xC778;</p>
+<p>&#x274F; &#xAE30;&#xCCB4; &#xCC29;&#xB959; &#xD655;&#xC778;</p>
 
                                 
                                 </section>
@@ -2530,7 +2530,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"시험 MC_04 - 안전 장치 시험","level":"1.12.1.4","depth":3,"next":{"title":"시험 MC_05 - 실내 비행 (수동 상태)","level":"1.12.1.5","depth":3,"path":"test_cards/mc_05_indoor_flight_manual_modes.md","ref":"test_cards/mc_05_indoor_flight_manual_modes.md","articles":[]},"previous":{"title":"시험 MC_03 - 자동 / 수동 혼합","level":"1.12.1.3","depth":3,"path":"test_cards/mc_03_auto_manual_mix.md","ref":"test_cards/mc_03_auto_manual_mix.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"test_cards/mc_04_failsafe_testing.md","mtime":"2020-09-12T10:43:44.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-12T10:45:10.578Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"시험 MC_04 - 안전 장치 시험","level":"1.12.1.4","depth":3,"next":{"title":"시험 MC_05 - 실내 비행 (수동 상태)","level":"1.12.1.5","depth":3,"path":"test_cards/mc_05_indoor_flight_manual_modes.md","ref":"test_cards/mc_05_indoor_flight_manual_modes.md","articles":[]},"previous":{"title":"시험 MC_03 - 자동 / 수동 혼합","level":"1.12.1.3","depth":3,"path":"test_cards/mc_03_auto_manual_mix.md","ref":"test_cards/mc_03_auto_manual_mix.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"test_cards/mc_04_failsafe_testing.md","mtime":"2020-09-13T23:03:54.278Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-13T23:04:45.315Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>

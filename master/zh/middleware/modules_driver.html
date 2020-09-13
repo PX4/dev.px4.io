@@ -2469,10 +2469,11 @@
 <li><a href="modules_driver_distance_sensor.html">Distance Sensor</a></li>
 <li><a href="modules_driver_airspeed_sensor.html">Airspeed Sensor</a></li>
 <li><a href="modules_driver_baro.html">Baro</a></li>
+<li><a href="modules_driver_optical_flow.md">Optical Flow</a></li>
 <li><a href="modules_driver_magnetometer.html">Magnetometer</a></li>
 </ul>
 <h2 id="adc"><a name="adc" class="plugin-anchor" href="#adc"><i class="fa fa-link" aria-hidden="true"></i></a>adc</h2>
-<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/adc" target="_blank">drivers/adc</a></p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/adc/board_adc" target="_blank">drivers/adc/board_adc</a></p>
 <h3 id="&#x63CF;&#x8FF0;"><a name="&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63CF;&#x8FF0;</h3>
 <p>ADC driver.</p>
 <h3 id="adc_usage"><a name="adc_usage" class="plugin-anchor" href="#adc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
@@ -2496,12 +2497,13 @@
    start
      [-s]        Internal SPI bus(es)
      [-S]        External SPI bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-c &lt;val&gt;]  chip-select index (for external SPI)
                  default: 1
      [-m &lt;val&gt;]  SPI mode
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
 
    stop
 
@@ -2519,9 +2521,10 @@
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 11
 
@@ -2553,9 +2556,10 @@
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 9
 
@@ -2580,9 +2584,10 @@
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 118
 
@@ -2744,9 +2749,10 @@ gps start -f
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 65
      [-k]        if initialization (probing) fails, keep retrying periodically
@@ -2764,9 +2770,10 @@ gps start -f
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 84
 
@@ -2781,12 +2788,13 @@ gps start -f
    start
      [-s]        Internal SPI bus(es)
      [-S]        External SPI bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-c &lt;val&gt;]  chip-select index (for external SPI)
                  default: 1
      [-m &lt;val&gt;]  SPI mode
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-R &lt;val&gt;]  Rotation
                  default: 0
 
@@ -2801,12 +2809,13 @@ gps start -f
    start
      [-s]        Internal SPI bus(es)
      [-S]        External SPI bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-c &lt;val&gt;]  chip-select index (for external SPI)
                  default: 1
      [-m &lt;val&gt;]  SPI mode
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-R &lt;val&gt;]  Rotation
                  default: 0
 
@@ -2821,9 +2830,10 @@ gps start -f
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
 
    reset
 
@@ -2863,9 +2873,10 @@ gps start -f
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
 
    stop
 
@@ -2878,12 +2889,13 @@ gps start -f
    start
      [-s]        Internal SPI bus(es)
      [-S]        External SPI bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-c &lt;val&gt;]  chip-select index (for external SPI)
                  default: 1
      [-m &lt;val&gt;]  SPI mode
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-R &lt;val&gt;]  Rotation
                  default: 0
 
@@ -2981,9 +2993,10 @@ gps start -f
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 66
      [-R &lt;val&gt;]  Rotation (default=downwards)
@@ -3024,9 +3037,10 @@ gps start -f
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-a &lt;val&gt;]  I2C address
                  default: 57
 
@@ -3121,11 +3135,13 @@ vmount test yaw 30
    start
      [-I]        Internal I2C bus(es)
      [-X]        External I2C bus(es)
-     [-b &lt;val&gt;]  bus (board-specific internal (default=all) or n-th external
+     [-b &lt;val&gt;]  board-specific bus (default=all) (external SPI: n-th bus
                  (default=1))
      [-f &lt;val&gt;]  bus frequency in kHz
+     [-q]        quiet startup (no message if no device found)
      [-T &lt;val&gt;]  Type
-                 values: VBATT|P5VDC, default: VBATT
+                 values: VBATT|P5VDC|P12VDC, default: VBATT
+     [-K]        if initialization (probing) fails, keep retrying periodically
 
    stop
 
@@ -3173,7 +3189,7 @@ vmount test yaw 30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"驱动","level":"1.7.4","depth":2,"next":{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},"previous":{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2020-09-12T10:43:44.410Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-12T10:45:10.578Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"驱动","level":"1.7.4","depth":2,"next":{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},"previous":{"title":"控制器","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2020-09-13T23:03:54.286Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-13T23:04:45.315Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

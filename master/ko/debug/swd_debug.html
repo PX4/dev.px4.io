@@ -204,7 +204,7 @@
                 <a href="../setup/dev_env_mac.html">
             
                     
-                    Mac OS
+                    맥 OS
             
                 </a>
             
@@ -641,7 +641,7 @@
                 <a href="../simulation/gazebo.html">
             
                     
-                    가제보(Gazebo) 짐벌 모의시험
+                    가제보 짐벌 모의시험
             
                 </a>
             
@@ -655,7 +655,7 @@
                 <a href="../simulation/gazebo_vehicles.html">
             
                     
-                    가제보(Gazebo) 비행체
+                    가제보 기체
             
                 </a>
             
@@ -668,7 +668,7 @@
                 <a href="../simulation/gazebo_worlds.html">
             
                     
-                    가제보(Gazebo) 월드(world)
+                    가제보 월드(world)
             
                 </a>
             
@@ -686,7 +686,7 @@
                 <a href="../simulation/multi_vehicle_simulation_gazebo.html">
             
                     
-                    가제보(Gazebo) 다중 비행체 모의시험
+                    가제보 다중 기체 모의시험
             
                 </a>
             
@@ -699,7 +699,7 @@
                 <a href="../simulation/flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 모의시험 
+                    플라이트기어 모의시험
             
                 </a>
             
@@ -713,7 +713,7 @@
                 <a href="../simulation/flightgear_vehicles.html">
             
                     
-                    플라이트 기어(FlightGear) 비행체
+                    플라이트기어 기체
             
                 </a>
             
@@ -731,7 +731,7 @@
                 <a href="../simulation/multi_vehicle_flightgear.html">
             
                     
-                    플라이트 기어(FlightGear) 다중 비행체 모의시험
+                    플라이트기어 다중 기체 모의시험
             
                 </a>
             
@@ -828,7 +828,7 @@
                 <a href="../hardware/reference_design.html">
             
                     
-                    비행체 컨트롤러 참고 디자인
+                    비행체 제어 장치 참고 디자인
             
                 </a>
             
@@ -841,7 +841,7 @@
                 <a href="../hardware/porting_guide.html">
             
                     
-                    비행체 컨트롤러 이식 안내
+                    비행체 제어 장치 이식 안내
             
                 </a>
             
@@ -873,7 +873,7 @@
                 <a href="../airframes/">
             
                     
-                    비행체(Airframe)
+                    에어프레임
             
                 </a>
             
@@ -887,7 +887,7 @@
                 <a href="../airframes/airframe_reference.html">
             
                     
-                    비행체 참고
+                    에어프레임 참고
             
                 </a>
             
@@ -900,7 +900,7 @@
                 <a href="../airframes/adding_a_new_frame.html">
             
                     
-                    새 비행체 추가
+                    새 에어프레임 추가
             
                 </a>
             
@@ -1299,7 +1299,7 @@
                 <a href="../middleware/modules_driver_airspeed_sensor.html">
             
                     
-                    대기속도 센서
+                    항속 센서
             
                 </a>
             
@@ -1351,7 +1351,7 @@
                 <a href="../middleware/modules_driver_magnetometer.html">
             
                     
-                    자력계
+                    지자계
             
                 </a>
             
@@ -1563,7 +1563,7 @@
                 <a href="../robotics/dronekit.html">
             
                     
-                    드론키트
+                    DroneKit
             
                 </a>
             
@@ -1815,7 +1815,7 @@
                 <a href="../qgc/">
             
                     
-                    지상 통제 스테이션
+                    지상 통제 장치
             
                 </a>
             
@@ -1854,7 +1854,7 @@
                 <a href="../tutorials/linux_sbus.html">
             
                     
-                    리눅스에서의 리모콘 리시버 연결
+                    리눅스에서 원격 조종 수신 모듈 연결
             
                 </a>
             
@@ -2462,99 +2462,99 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="swd-jtag-hardware-debugging-interface"><a name="swd-jtag-hardware-debugging-interface" class="plugin-anchor" href="#swd-jtag-hardware-debugging-interface"><i class="fa fa-link" aria-hidden="true"></i></a>SWD (JTAG) Hardware Debugging Interface</h1>
-<p>PX4 usually runs on autopilot controller hardware that provides an ARM <em>Serial Wire Debug (SWD)</em> interface. SWD is a low pin-count physical interface for JTAG debugging on ARM-processors. It can be used with an SWD-compatible debug probe (e.g. <a href="#segger_jlink_edu_mini">Segger J-Link EDU Mini</a>, <a href="#dronecode_probe">Dronecode Probe</a>, etc.) to set breakpoints in PX4 and step through the code running on a real device.</p>
-<p>The SWD interface can also be used to add a new bootloader and/or firmware on a completely empty board (one that does not have the USB bootloader installed).</p>
-<p>This topic explains how to connect the SWD interface on different boards (actually performing debugging is then covered in the associated <a href="#debugging_topics">debugging topics</a>).</p>
-<h2 id="swd_interface"><a name="swd_interface" class="plugin-anchor" href="#swd_interface"><i class="fa fa-link" aria-hidden="true"></i></a>SWD Interface Definition </h2>
-<p>The SWD interface consists of the following pins.</p>
+                                <h1 id="swd-jtag-&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;-&#xB514;&#xBC84;&#xAE45;-&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;"><a name="swd-jtag-&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;-&#xB514;&#xBC84;&#xAE45;-&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;" class="plugin-anchor" href="#swd-jtag-&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;-&#xB514;&#xBC84;&#xAE45;-&#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;"><i class="fa fa-link" aria-hidden="true"></i></a>SWD (JTAG) &#xD558;&#xB4DC;&#xC6E8;&#xC5B4; &#xB514;&#xBC84;&#xAE45; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;</h1>
+<p>PX4&#xB294; &#xBCF4;&#xD1B5; ARM &#xCE69;&#xC758; <em>&#xC9C1;&#xB82C; &#xD68C;&#xC120; &#xB514;&#xBC84;&#xAE45;(SWD)</em>&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF; &#xC870;&#xC885; &#xC7A5;&#xCE58; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. SWD&#xB294; ARM &#xD504;&#xB85C;&#xC138;&#xC11C;&#xC5D0;&#xC11C; JTAG &#xB514;&#xBC84;&#xAE45;&#xC744; &#xC218;&#xD589;&#xD560; &#xB54C; &#xC801;&#xC740; &#xC218;&#xC758; &#xD540;&#xC744; &#xBB3C;&#xB9AC; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC785;&#xB2C8;&#xB2E4;. SWD &#xD638;&#xD658; &#xB514;&#xBC84;&#xAE45; &#xD504;&#xB85C;&#xBE0C;&#xB85C; PX4&#xC758; &#xC911;&#xB2E8;&#xC810;&#xC744; &#xC124;&#xC815;&#xD558;&#xACE0; &#xC2E4;&#xC81C; &#xC7A5;&#xCE58;&#xC5D0;&#xC11C; &#xCF54;&#xB4DC; &#xC2E4;&#xD589;&#xC744; &#xB2E8;&#xACC4;&#xBCC4;&#xB85C; &#xC9C4;&#xD589;&#xD560; &#xB54C; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB294; &#xC0C8; &#xBD80;&#xD2B8;&#xB85C;&#xB354; &#xB610;&#xB294; &#xD38C;&#xC6E8;&#xC5B4;&#xB97C; &#xC644;&#xC804;&#xD788; &#xAE61;&#xD1B5;&#xC778; (USB &#xBD80;&#xD2B8;&#xB85C;&#xB354;&#xB97C; &#xC124;&#xCE58;&#xD55C; &#xC801;&#xC774; &#xC5C6;&#xB294;) &#xBCF4;&#xB4DC;&#xC5D0; &#xCD94;&#xAC00;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774; &#xC8FC;&#xC81C;&#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xBCF4;&#xB4DC;&#xB85C;&#xC758; SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4; &#xC5F0;&#xACB0; &#xBC29;&#xBC95;(&#xC2E4;&#xC81C; &#xB514;&#xBC84;&#xAE45; &#xC218;&#xD589; &#xBC29;&#xBC95;&#xC740; &#xAD00;&#xB828; <a href="#debugging_topics">&#xB514;&#xBC84;&#xAE45; &#xC8FC;&#xC81C;</a>&#xC5D0;&#xC11C; &#xB2E4;&#xB8F8;)&#xC744; &#xC124;&#xBA85;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<h2 id="swd_interface"><a name="swd_interface" class="plugin-anchor" href="#swd_interface"><i class="fa fa-link" aria-hidden="true"></i></a>SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4; &#xC815;&#xC758;  </h2>
+<p>SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB294; &#xB2E4;&#xC74C; &#xD540;&#xC73C;&#xB85C; &#xC774;&#xB8E8;&#xC5B4;&#xC838;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <table>
 <thead>
 <tr>
-<th>Pin</th>
-<th>Signal Type</th>
-<th>Description</th>
+<th>&#xD540;</th>
+<th>&#xC2E0;&#xD638; &#xD615;&#xC2DD;</th>
+<th>&#xC124;&#xBA85;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>Vref</code></td>
-<td>Output</td>
-<td>Target reference voltage.<br>Some JTAG adapters require the <code>Vref</code> voltage to set the voltage on the SWD lines. For example, <a href="#segger_jlink_edu_mini">SEGGER J-Link Debug Probes</a> require <code>Vref</code>.</td>
+<td>&#xCD9C;&#xB825;</td>
+<td>&#xB300;&#xC0C1; &#xCC38;&#xC870; &#xC804;&#xC555;. <br>&#xC77C;&#xBD80; JTAG &#xC5B4;&#xB311;&#xD130;&#xC5D0;&#xB294; SWD &#xB77C;&#xC778;&#xC5D0; &#xC804;&#xC555;&#xC744; &#xC124;&#xC815;&#xD560; &#xB54C; <code>Vref</code> &#xC804;&#xC555;&#xC774; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB97C; &#xB4E4;&#xBA74;,  <a href="#segger_jlink_edu_mini">SEGGER J-Link Debug Probes</a> &#xC5D0;&#xC11C; <code>Vref</code>&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</td>
 </tr>
 <tr>
 <td><code>SWDIO</code></td>
-<td>I/O</td>
-<td>Single bi-directional data pin.</td>
+<td>&#xC785;&#xCD9C;&#xB825;</td>
+<td>&#xB2E8;&#xC77C; &#xC804;&#xC774;&#xC911; &#xB370;&#xC774;&#xD130; &#xD540;.</td>
 </tr>
 <tr>
 <td><code>SWCLK</code></td>
-<td>Output</td>
-<td>Clock signal.</td>
+<td>&#xCD9C;&#xB825;</td>
+<td>&#xD074;&#xB85D; &#xC2E0;&#xD638;.</td>
 </tr>
 <tr>
 <td><code>GND</code></td>
 <td>-</td>
-<td>Ground pin.</td>
+<td>&#xC811;&#xC9C0;&#xD540;.</td>
 </tr>
 </tbody>
 </table>
-<p>While not &quot;part&quot; of SWD, an autopilot may also have an <em>Serial Wire Output (SWO)</em> trace output pin. If present this should also be connected.</p>
+<p>SWD&#xC758; &quot;&#xC77C;&#xBD80;&quot;&#xB294; &#xC544;&#xB2C8;&#xC9C0;&#xB9CC;, &#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF;&#xC5D0;&#xC11C;&#xB294; <em>&#xC9C1;&#xB82C; &#xD68C;&#xC120; &#xCD9C;&#xB825; (SWO)</em> &#xCD94;&#xC801; &#xCD9C;&#xB825; &#xD540;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB9CC;&#xC57D; &#xC774; &#xD540;&#xC774; &#xC788;&#xB2E4;&#xBA74; &#xC774; &#xD540;&#xB3C4; &#xC5F0;&#xACB0;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <table>
 <thead>
 <tr>
-<th>Pin</th>
-<th>Signal Type</th>
-<th>Description</th>
+<th>&#xD540;</th>
+<th>&#xC2E0;&#xD638; &#xD615;&#xC2DD;</th>
+<th>&#xC124;&#xBA85;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>SWO</code></td>
-<td>Output</td>
-<td>Serial  Wire Output trace output pin. This may be used in combination with <em>SWD</em> to emit real-time trace data.</td>
+<td>&#xCD9C;&#xB825;</td>
+<td>&#xC9C1;&#xB82C; &#xD68C;&#xC120; &#xCD9C;&#xB825; &#xBC29;&#xC2DD;&#xC758; &#xCD94;&#xC801; &#xCD9C;&#xB825; &#xD540;. &#xC2E4;&#xC2DC;&#xAC04; &#xCD94;&#xC801; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC778;&#xAC00;&#xD558;&#xB824;&#xBA74; <em>SWD</em>&#xB3C4; &#xC5F0;&#xACB0;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="connecting-swd-debuggers-to-px4-hardware"><a name="connecting-swd-debuggers-to-px4-hardware" class="plugin-anchor" href="#connecting-swd-debuggers-to-px4-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Connecting SWD Debuggers to PX4 Hardware</h2>
-<p>Connect <code>SWDIO</code>, <code>SWCLK</code> and <code>GND</code> pins on the debug probe to the corresponding pins on the autopilot.</p>
-<p>In addition:</p>
+<h2 id="px4-&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB85C;&#xC758;-swd-&#xB514;&#xBC84;&#xAC70;-&#xC5F0;&#xACB0;"><a name="px4-&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB85C;&#xC758;-swd-&#xB514;&#xBC84;&#xAC70;-&#xC5F0;&#xACB0;" class="plugin-anchor" href="#px4-&#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB85C;&#xC758;-swd-&#xB514;&#xBC84;&#xAC70;-&#xC5F0;&#xACB0;"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;&#xB85C;&#xC758; SWD &#xB514;&#xBC84;&#xAC70; &#xC5F0;&#xACB0;</h2>
+<p>&#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C;&#xC758; <code>SWDIO</code>, <code>SWCLK</code>, <code>GND</code> &#xD540;&#xC744; &#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF;&#xC758; &#xAC01; &#xD574;&#xB2F9; &#xD540;&#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
+<p>&#xCD94;&#xAC00;&#xB85C;:</p>
 <ul>
-<li>Connect the <code>VRef</code> pin, if required by the debug adapter that is being used.</li>
-<li>Connect the <code>SWO</code> pin, if present.</li>
+<li>&#xB514;&#xBC84;&#xAE45; &#xC5B4;&#xB311;&#xD130;&#xC5D0;&#xC11C; <code>VRef</code> &#xD540; &#xC5F0;&#xACB0;&#xC774; &#xD544;&#xC694;&#xD558;&#xB2E4;&#xBA74; &#xC5F0;&#xACB0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</li>
+<li><code>SWO</code> &#xD540;&#xC774; &#xC788;&#xB2E4;&#xBA74; &#xC5F0;&#xACB0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</li>
 </ul>
-<p>Some SWD <a href="#debug_probes">debug probes</a> come with adapters/cables for connecting to common Pixhawk <a href="#debug_ports">debug ports</a>. You can also create custom cables for connecting to different boards or probes.</p>
+<p>&#xC77C;&#xBD80; SWD <a href="#debug_probes">&#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C;</a>&#xB294; &#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xACF5;&#xC6A9; <a href="#debug_ports">&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</a>&#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xC5B4;&#xB311;&#xD130;&#xC640; &#xCF00;&#xC774;&#xBE14;&#xC774; &#xB538;&#xB824;&#xC635;&#xB2C8;&#xB2E4;. &#xB2E4;&#xB978; &#xBCF4;&#xB4DC; &#xB610;&#xB294; &#xD504;&#xB8E8;&#xBE0C;&#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xAC1C;&#xBCC4; &#xCF00;&#xC774;&#xBE14;&#xC744; &#xC9C1;&#xC811; &#xB9CC;&#xB4E4; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> Some manufacturers provide cables to make it easy to connect the SWD interface and <a href="system_console.html">System Console</a>. For example the <a href="http://docs.px4.io/master/en/flight_controller/cuav_v5_nano.html#debug_port" target="_blank">CUAV V5nano</a> and <a href="http://docs.px4.io/master/en/flight_controller/cuav_v5_plus.html#debug-port" target="_blank">CUAV V5+</a> include this debug cable: <img src="../../assets/debug/cuav_v5_debug_cable.jpg" alt="6-pin JST SH Cable"></p>
+<p> &#xC77C;&#xBD80; &#xC81C;&#xC870;&#xC0AC;&#xC5D0;&#xC11C;&#xB294; SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xC640; <a href="system_console.html">&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</a>&#xC744; &#xC27D;&#xAC8C; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xCF00;&#xC774;&#xBE14;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xC608;&#xB85C;&#xC11C;, <a href="http://docs.px4.io/master/en/flight_controller/cuav_v5_nano.html#debug_port" target="_blank">CUAV V5nano</a>&#xC640; <a href="http://docs.px4.io/master/en/flight_controller/cuav_v5_plus.html#debug-port" target="_blank">CUAV V5+</a>&#xC5D0; &#xB514;&#xBC84;&#xAE45; &#xCF00;&#xC774;&#xBE14;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;: <img src="../../assets/debug/cuav_v5_debug_cable.jpg" alt="6-pin JST SH Cable"></p>
 </blockquote>
 <p><span></span></p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Where possible, we highly recommend that you create or obtain an adapter board rather than custom cables for connecting to SWD/JTAG debuggers and computers. This reduces the risk or poor wiring contributing to debugging problems, and has the benefit that adapters usually provide a common interface for connecting to multiple popular flight controller boards.</p>
+<p> &#xAC00;&#xB2A5;&#xD55C; &#xBD80;&#xBD84;&#xC774; &#xC788;&#xB2E4;&#xBA74;, SWD/JTAG &#xB514;&#xBC84;&#xAC70;, &#xCEF4;&#xD4E8;&#xD130;&#xC6A9; &#xCF00;&#xC774;&#xBE14;&#xC744; &#xBCC4;&#xB3C4;&#xB85C; &#xB9CC;&#xB4E4;&#xAE30; &#xBCF4;&#xB2E4;&#xB294; &#xC5B4;&#xB311;&#xD130; &#xBCF4;&#xB4DC;&#xB97C; &#xB9CC;&#xB4E4;&#xAC70;&#xB098; &#xAD6C;&#xD558;&#xB294; &#xBC29;&#xC548;&#xC744; &#xAD8C;&#xD574;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;. &#xB514;&#xBC84;&#xAE45; &#xBB38;&#xC81C;&#xB97C; &#xD574;&#xACB0;&#xD558;&#xB824;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C; &#xC785;&#xB294; &#xC190;&#xD574;&#xC640; &#xBBF8;&#xD761;&#xD55C; &#xACB0;&#xC120; &#xBB38;&#xC81C;&#xB97C; &#xC904;&#xC774;&#xB294; &#xACFC;&#xC815;&#xC5D0;&#xC11C;, &#xB2E4;&#xC591;&#xD558;&#xACE0; &#xC778;&#xAE30;&#xC788;&#xB294; &#xBE44;&#xD589;&#xCCB4; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58; &#xBCF4;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xACF5;&#xD1B5; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xC81C;&#xACF5;&#xD558;&#xB294; &#xC5B4;&#xB311;&#xD130;&#xB97C; &#xC4F0;&#xC2DC;&#xB294; &#xBC29;&#xC548;&#xC774; &#xC5EC;&#xB7EC;&#xBAA8;&#xB85C; &#xC774;&#xB4DD;&#xC785;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h2 id="debug_ports"><a name="debug_ports" class="plugin-anchor" href="#debug_ports"><i class="fa fa-link" aria-hidden="true"></i></a>Autopilot Debug Ports </h2>
-<p>Flight controllers commonly provide a debug port that exposes both the <a href="#swd_interface">SWD Interface</a> and <a href="system_console.html">System Console</a>.</p>
-<p>The <a href="#pixhawk_standard_debug_ports">Pixhawk Connector Standards</a> attempts to standardise this port. However since many boards use different pinouts or connectors, we recommend you check the documentation for your autopilot to confirm port location and pinout.</p>
-<p>The debug port location and pinouts for a small subset of autopilots are linked below:</p>
+<h2 id="debug_ports"><a name="debug_ports" class="plugin-anchor" href="#debug_ports"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8; </h2>
+<p>&#xBE44;&#xD589;&#xCCB4; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58;&#xB294; &#xBCF4;&#xD1B5; <a href="#swd_interface">SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;</a>&#xC640; <a href="system_console.html">&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</a>&#xC744; &#xB178;&#xCD9C;&#xD558;&#xB294; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p><a href="#pixhawk_standard_debug_ports">&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xCEE4;&#xB125;&#xD130; &#xD45C;&#xC900;</a>&#xC5D0;&#xC11C;&#xB294; &#xC774; &#xD3EC;&#xD2B8;&#xC758; &#xD45C;&#xC900; &#xC81C;&#xC815;&#xC744; &#xC2DC;&#xB3C4;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xB098; &#xC5EC;&#xB7EC; &#xBCF4;&#xB4DC;&#xAC00; &#xB2E4;&#xB978; &#xD540; &#xCD9C;&#xB825; &#xB610;&#xB294; &#xCEE4;&#xB125;&#xD130;&#xB97C; &#xC4F0;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;, &#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF;&#xC758; &#xD3EC;&#xD2B8; &#xC704;&#xCE58;&#xC640; &#xD540; &#xCD9C;&#xB825; &#xC815;&#xBCF4;&#xC758; &#xBB38;&#xC11C;&#xC0C1; &#xD655;&#xC778;&#xC744; &#xCD94;&#xCC9C;&#xB4DC;&#xB9BD;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF; &#xC77C;&#xBD80; &#xD558;&#xC704; &#xC9D1;&#xD569;&#xC758; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8; &#xC704;&#xCE58;&#xC640; &#xD540;  &#xCD9C;&#xB825;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><span id="port_information"></span></p>
 <table>
 <thead>
 <tr>
-<th>Autopilot</th>
-<th>Connector</th>
+<th>&#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF;</th>
+<th>&#xCEE4;&#xB125;&#xD130;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="http://docs.px4.io/master/en/flight_controller/pixhawk.html#swd-port" target="_blank">3DR Pixhawk</a></td>
-<td>ARM 10-pin JTAG Connector (also used for FMUv2 boards including: <em>mRo Pixhawk</em>, <em>HobbyKing HKPilot32</em>).</td>
+<td>ARM 10-pin JTAG &#xCEE4;&#xB125;&#xD130; (<em>mRo Pixhawk</em>, <em>HobbyKing HKPilot32</em>&#xB4F1;&#xC758; FMUv2 &#xBCF4;&#xB4DC;&#xC5D0;&#xC11C;&#xB3C4; &#xC0AC;&#xC6A9;&#xD568;).</td>
 </tr>
 <tr>
 <td><a href="http://docs.px4.io/master/en/flight_controller/cuav_v5_nano.html#debug_port" target="_blank">CUAV V5nano</a></td>
-<td>6-pin JST GH<br>Digikey: <a href="https://www.digikey.com/products/en?keywords=455-1582-1-ND" target="_blank">BM06B-GHS-TBT(LF)(SN)(N)</a> (vertical mount), <a href="https://www.digikey.com/products/en?keywords=455-1568-1-ND" target="_blank">SM06B-GHS-TBT(LF)(SN)(N)</a> (side mount)</td>
+<td>6-pin JST GH<br>Digikey: <a href="https://www.digikey.com/products/en?keywords=455-1582-1-ND" target="_blank">BM06B-GHS-TBT(LF)(SN)(N)</a> (&#xC218;&#xC9C1; &#xB9C8;&#xC6B4;&#xD2B8;), <a href="https://www.digikey.com/products/en?keywords=455-1568-1-ND" target="_blank">SM06B-GHS-TBT(LF)(SN)(N)</a> (&#xCE21;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;)</td>
 </tr>
 <tr>
 <td><a href="http://docs.px4.io/master/en/flight_controller/cuav_v5_plus.html#debug-port" target="_blank">CUAV V5+</a></td>
-<td>6-pin JST GH<br>Digikey: <a href="https://www.digikey.com/products/en?keywords=455-1582-1-ND" target="_blank">BM06B-GHS-TBT(LF)(SN)(N)</a> (vertical mount), <a href="https://www.digikey.com/products/en?keywords=455-1568-1-ND" target="_blank">SM06B-GHS-TBT(LF)(SN)(N)</a> (side mount)</td>
+<td>6-pin JST GH<br>Digikey: <a href="https://www.digikey.com/products/en?keywords=455-1582-1-ND" target="_blank">BM06B-GHS-TBT(LF)(SN)(N)</a> (&#xC218;&#xC9C1; &#xB9C8;&#xC6B4;&#xD2B8;), <a href="https://www.digikey.com/products/en?keywords=455-1568-1-ND" target="_blank">SM06B-GHS-TBT(LF)(SN)(N)</a> (&#xCE21;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;)</td>
 </tr>
 <tr>
 <td><a href="http://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html#debug-port" target="_blank">Drotek Pixhawk 3 Pro</a></td>
@@ -2570,7 +2570,7 @@
 </tr>
 <tr>
 <td><a href="http://docs.px4.io/master/en/flight_controller/kakutef7.html#debug-port" target="_blank">Holybro Kakute F7</a></td>
-<td>Solder pads</td>
+<td>&#xD310; &#xB0A9;&#xB55C;</td>
 </tr>
 <tr>
 <td><a href="http://docs.px4.io/master/en/flight_controller/durandal.html#debug-port" target="_blank">Holybro Durandal</a></td>
@@ -2579,19 +2579,19 @@
 </tbody>
 </table>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Check the <a href="http://docs.px4.io/master/en/flight_controller/" target="_blank">autopilot topics</a> if your flight controller is not listed.</p>
+<p> &#xC0AC;&#xC6A9; &#xC911;&#xC778; &#xBE44;&#xD589;&#xCCB4; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58;&#xAC00; &#xC5C6;&#xB2E4;&#xBA74; <a href="http://docs.px4.io/master/en/flight_controller/" target="_blank">&#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF; &#xC8FC;&#xC81C;</a>&#xB97C; &#xD655;&#xC778;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
 </blockquote>
-<h2 id="pixhawk_standard_debug_ports"><a name="pixhawk_standard_debug_ports" class="plugin-anchor" href="#pixhawk_standard_debug_ports"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk Standard Debug Ports </h2>
-<p>The Pixhawk project has defines a standard pinout and connector type for different Pixhawk FMU releases:</p>
+<h2 id="pixhawk_standard_debug_ports"><a name="pixhawk_standard_debug_ports" class="plugin-anchor" href="#pixhawk_standard_debug_ports"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk &#xD45C;&#xC900; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8; </h2>
+<p>&#xD53D;&#xC2A4;&#xD638;&#xD2B8; &#xD504;&#xB85C;&#xC81D;&#xD2B8;&#xC5D0;&#xB294; &#xB2E4;&#xC591;&#xD55C; &#xD53D;&#xC2A4;&#xD638;&#xD06C; FMU &#xCD9C;&#xC2DC;&#xC791;&#xC5D0; &#xB300;&#xD55C; &#xD45C;&#xC900; &#xD540; &#xCD9C;&#xB825; &#xBC0F; &#xCEE4;&#xB125;&#xD130; &#xD615;&#xC2DD;&#xC744; &#xC9C0;&#xC815;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Check your <a href="#port_information">specific board</a> to confirm the port used.</p>
+<p> &#xC0AC;&#xC6A9;&#xD558;&#xACE0;&#xC790; &#xD558;&#xB294; &#xD3EC;&#xD2B8;&#xB97C; &#xD655;&#xC778;&#xD558;&#xB824;&#xBA74; <a href="#port_information">&#xAC1C;&#xBCC4; &#xBCF4;&#xB4DC;</a>&#xB97C; &#xD655;&#xC778;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
 </blockquote>
 <table>
 <thead>
 <tr>
-<th>FMU Version</th>
-<th>Pixhawk Ver.</th>
-<th>Debug Interface</th>
+<th>FMU &#xBC84;&#xC804;</th>
+<th>&#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xBC84;&#xC804;</th>
+<th>&#xB514;&#xBC84;&#xADF8; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;</th>
 </tr>
 </thead>
 <tbody>
@@ -2633,19 +2633,19 @@
 </tbody>
 </table>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> There FMU and Pixhawk versions are (only) consistent after FMUv5X.</p>
+<p> FMU&#xC640; &#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xBC84;&#xC804;&#xC740; FMUv5X &#xC774;&#xD6C4;(&#xC5D0;&#xB9CC;) &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xAC11;&#xB2C8;&#xB2E4;</p>
 </blockquote>
 <h3 id="pixhawk_debug_port_6_pin_sh"><a name="pixhawk_debug_port_6_pin_sh" class="plugin-anchor" href="#pixhawk_debug_port_6_pin_sh"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk Debug Mini (6-Pin SH Debug Port) </h3>
-<p>The <a href="https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf" target="_blank">Pixhawk Connector Standard</a> defines a <em>6-Pin SH Debug Port</em> that provides access to both SWD pins and the <a href="system_console.html">System Console</a>.</p>
+<p><a href="https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf" target="_blank">Pixhawk &#xCEE4;&#xB125;&#xD130; &#xD45C;&#xC900;</a>&#xC5D0;&#xC11C;&#xB294; SWD &#xD540;&#xACFC; <a href="system_console.html">&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</a>&#xC5D0; &#xB2E4; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB294; <em>6-Pin SH &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</em> &#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This debug port is used in FMUv4 and FMUv5.</p>
+<p> &#xC774; &#xB514;&#xBC84;&#xAE45; &#xCF54;&#xB4DC;&#xB294; FMUv4&#xC640; FMUv5&#xC5D0;&#xC11C; &#xD65C;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<p>The pinout is as shown below (SWD pins highlighted):</p>
+<p>&#xD540; &#xCD9C;&#xB825;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4; (SWD &#xD540;&#xC740; &#xAC15;&#xC870;&#xD568;):</p>
 <table>
 <thead>
 <tr>
-<th>Debug Port</th>
-<th>Pin</th>
+<th>&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</th>
+<th>&#xD540;</th>
 </tr>
 </thead>
 <tbody>
@@ -2655,11 +2655,11 @@
 </tr>
 <tr>
 <td>2</td>
-<td>Console TX</td>
+<td>&#xCF58;&#xC194; TX</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Console RX</td>
+<td>&#xCF58;&#xC194; RX</td>
 </tr>
 <tr>
 <td>4</td>
@@ -2675,20 +2675,20 @@
 </tr>
 </tbody>
 </table>
-<p>The debug port definition includes the following solder pads (on board next to connector):</p>
+<p>&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8; &#xC815;&#xC758;&#xC5D0;&#xB294; &#xB2E4;&#xC74C; &#xACB0;&#xC120; &#xBC29;&#xBC95;&#xB3C4; &#xD3EC;&#xD568;&#xD569;&#xB2C8;&#xB2E4;(&#xCEE4;&#xB125;&#xD130;&#xB85C; &#xC774;&#xC5B4;&#xC9C0;&#xB294; &#xBCF4;&#xB4DC;):</p>
 <table>
 <thead>
 <tr>
-<th>Debug Port</th>
-<th>Pin</th>
-<th>Voltage</th>
+<th>&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</th>
+<th>&#xD540;</th>
+<th>&#xC804;&#xC555;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Pad</td>
-<td>Signal</td>
-<td>Volt</td>
+<td>&#xD328;&#xB4DC;</td>
+<td>&#xC2E0;&#xD638;</td>
+<td>&#xBCFC;&#xD2B8;</td>
 </tr>
 <tr>
 <td>1</td>
@@ -2697,30 +2697,30 @@
 </tr>
 <tr>
 <td>2</td>
-<td>GPIO1 (free GPIO)</td>
+<td>GPIO1 (&#xC5EC;&#xBD84;&#xC758; GPIO)</td>
 <td>+3.3V</td>
 </tr>
 <tr>
 <td>3</td>
-<td>GPIO2 (free GPIO)</td>
+<td>GPIO1 (&#xC5EC;&#xBD84;&#xC758; GPIO)</td>
 <td>+3.3V</td>
 </tr>
 </tbody>
 </table>
-<p>The socket is a <em>6-pin JST SH</em> - Digikey number: <a href="https://www.digikey.com/products/en?keywords=455-2875-1-ND" target="_blank">BM06B-SRSS-TBT(LF)(SN)</a> (vertical mount), <a href="https://www.digikey.com/products/en?keywords=455-1806-1-ND" target="_blank">SM06B-SRSS-TBT(LF)(SN)</a>(side mount).</p>
-<p>You can connect to the debug port using a <a href="https://www.digikey.com/products/en?keywords=A06SR06SR30K152A" target="_blank">cable like this one</a>.</p>
+<p><em>6-pin JST SH</em> &#xC18C;&#xCF13;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4; - Digikey number: <a href="https://www.digikey.com/products/en?keywords=455-2875-1-ND" target="_blank">BM06B-SRSS-TBT(LF)(SN)</a> (&#xC218;&#xC9C1; &#xB9C8;&#xC6B4;&#xD2B8;), <a href="https://www.digikey.com/products/en?keywords=455-1806-1-ND" target="_blank">SM06B-SRSS-TBT(LF)(SN)</a>(&#xCE21;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;).</p>
+<p><a href="https://www.digikey.com/products/en?keywords=A06SR06SR30K152A" target="_blank">&#xC774; &#xAC19;&#xC740; &#xCF00;&#xC774;&#xBE14;</a>&#xB85C; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;&#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><img src="../../assets/debug/cable_6pin_jst_sh.jpg" alt="6-pin JST SH Cable"></p>
 <h3 id="pixhawk_debug_port_10_pin_sh"><a name="pixhawk_debug_port_10_pin_sh" class="plugin-anchor" href="#pixhawk_debug_port_10_pin_sh"><i class="fa fa-link" aria-hidden="true"></i></a>Pixhawk Debug Full (10-Pin SH Debug Port) </h3>
-<p>The <a href="https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf" target="_blank">Pixhawk Connector Standard</a>  defines a <em>10-Pin SH Debug Port</em> that provides access to both SWD pins and the <a href="system_console.html">System Console</a>. This essentially moves the solder pads from beside the <a href="#pixhawk_debug_port_6_pin_sh">Pixhawk 6-Pin SH Debug Port</a> into the connector, and also adds an SWO pin.</p>
+<p><a href="https://github.com/pixhawk/Pixhawk-Standards/blob/master/DS-009%20Pixhawk%20Connector%20Standard.pdf" target="_blank">Pixhawk &#xCEE4;&#xB125;&#xD130; &#xD45C;&#xC900;</a>&#xC5D0;&#xC11C;&#xB294; SWD &#xD540;&#xACFC; <a href="system_console.html">&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</a>&#xC5D0; &#xB2E4; &#xC811;&#xADFC;&#xD560; &#xC218; &#xC788;&#xB294; <em>10-Pin SH &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</em> &#xB97C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;. &#xD575;&#xC2EC;&#xC801;&#xC73C;&#xB85C; <a href="#pixhawk_debug_port_6_pin_sh">Pixhawk 6-Pin SH &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</a> &#xC5D0;&#xC11C; &#xCEE4;&#xB125;&#xD130;&#xB85C; &#xB0A9;&#xB55C; &#xB300;&#xC0C1;&#xC744; &#xC62E;&#xACBC;&#xC73C;&#xBA70;,  SWO &#xD540;&#xB3C4; &#xCD94;&#xAC00;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> This port is specified for use in FMUv5x, FMUv6, FMUv6x.</p>
+<p> &#xC774; &#xD3EC;&#xD2B8;&#xB294; FMUv5x, FMUv6, FMUv6x&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB3C4;&#xB85D; &#xC9C0;&#xC815;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<p>The pinout is as shown below (SWD pins highlighted):</p>
+<p>&#xD540; &#xCD9C;&#xB825;&#xC740; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4; (SWD &#xD540;&#xC740; &#xAC15;&#xC870;&#xD568;):</p>
 <table>
 <thead>
 <tr>
-<th>Debug Port</th>
-<th>Pin</th>
+<th>&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</th>
+<th>&#xD540;</th>
 </tr>
 </thead>
 <tbody>
@@ -2730,11 +2730,11 @@
 </tr>
 <tr>
 <td>2</td>
-<td>Console TX</td>
+<td>&#xCF58;&#xC194; TX</td>
 </tr>
 <tr>
 <td>3</td>
-<td>Console RX</td>
+<td>&#xCF58;&#xC194; RX</td>
 </tr>
 <tr>
 <td>4</td>
@@ -2766,19 +2766,19 @@
 </tr>
 </tbody>
 </table>
-<p>The socket is a <em>10-pin JST SH</em> - Digikey number: <a href="https://www.digikey.com/products/en?keywords=455-1796-2-ND" target="_blank">BM10B-SRSS-TB(LF)(SN)</a> (vertical mount) or <a href="https://www.digikey.com/products/en?keywords=455-1810-2-ND" target="_blank">SM10B-SRSS-TB(LF)(SN)</a> (side mount).</p>
-<p>You can connect to the debug port using a <a href="https://www.digikey.com/products/en?keywords=A10SR10SR30K203A" target="_blank">cable like this one</a>.
+<p><em>10-pin JST SH</em> &#xC18C;&#xCF13;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4; - Digikey number: <a href="https://www.digikey.com/products/en?keywords=455-1796-2-ND" target="_blank">BM10B-SRSS-TB(LF)(SN)</a> (&#xC218;&#xC9C1; &#xB9C8;&#xC6B4;&#xD2B8;), <a href="https://www.digikey.com/products/en?keywords=455-1810-2-ND" target="_blank">SM10B-SRSS-TB(LF)(SN)</a> (&#xCE21;&#xBA74; &#xB9C8;&#xC6B4;&#xD2B8;).</p>
+<p><a href="https://www.digikey.com/products/en?keywords=A10SR10SR30K203A" target="_blank">&#xC774; &#xAC19;&#xC740; &#xCF00;&#xC774;&#xBE14;</a>&#xB85C; &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;&#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 <img src="../../assets/debug/cable_10pin_jst_sh.jpg" alt="10-pin JST SH Cable"> <!-- better to have image showing proper connections for SWD+SWO --></p>
-<h2 id="debug_probes"><a name="debug_probes" class="plugin-anchor" href="#debug_probes"><i class="fa fa-link" aria-hidden="true"></i></a>Debug Probes </h2>
-<p>The following section outlines some popular debug probes and adaptors for connecting them to autopilots running PX4.</p>
-<h3 id="segger_jlink_edu_mini"><a name="segger_jlink_edu_mini" class="plugin-anchor" href="#segger_jlink_edu_mini"><i class="fa fa-link" aria-hidden="true"></i></a>Segger JLink EDU Mini Debug Probe </h3>
-<p>The <a href="https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/" target="_blank">Segger JLink EDU Mini</a> is an inexpensive and popular SWD debug probe. The probe&apos;s connector pinout looks like the image below (connect to this using an ARM 10-pin mini connector like <a href="https://www.digikey.com/products/en?keywords=SAM8796-ND" target="_blank">FTSH-105-01-F-DV-K</a>).</p>
+<h2 id="debug_probes"><a name="debug_probes" class="plugin-anchor" href="#debug_probes"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C; </h2>
+<p>&#xB2E4;&#xC74C; &#xC808;&#xC5D0;&#xC11C;&#xB294; PX4&#xB97C; &#xAD6C;&#xB3D9;&#xD558;&#xB294; &#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF;&#xC5D0; &#xC5F0;&#xACB0;&#xD560; &#xC77C;&#xBD80; &#xC798; &#xC54C;&#xB824;&#xC9C4; &#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C; &#xC7A5;&#xBE44;&#xC640; &#xC5B4;&#xB311;&#xD130;&#xC758; &#xAC1C;&#xC694;&#xB97C; &#xC124;&#xBA85;&#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="segger_jlink_edu_mini"><a name="segger_jlink_edu_mini" class="plugin-anchor" href="#segger_jlink_edu_mini"><i class="fa fa-link" aria-hidden="true"></i></a>Segger JLink EDU Mini &#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C; </h3>
+<p><a href="https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/" target="_blank">Segger JLink EDU Mini</a>&#xB294; &#xAC12;&#xC2F8;&#xACE0; &#xC778;&#xAE30;&#xC788;&#xB294; SWD &#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C;&#xC785;&#xB2C8;&#xB2E4;. &#xD504;&#xB8E8;&#xBE0C; &#xCEE4;&#xB125;&#xD130; &#xD540; &#xCD9C;&#xB825;&#xC740; &#xC544;&#xB798; &#xADF8;&#xB9BC;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;(<a href="https://www.digikey.com/products/en?keywords=SAM8796-ND" target="_blank">FTSH-105-01-F-DV-K</a>&#xAC19;&#xC740; ARM 10-pin &#xBBF8;&#xB2C8; &#xCEE4;&#xB125;&#xD130;&#xB85C; &#xC5F0;&#xACB0;).</p>
 <p><img src="../../assets/debug/connector_jlink_mini.png" alt="connector_jlink_mini.png"></p>
-<p>The pin mapping to connect the J-Link Edu Mini to <a href="#pixhawk_debug_port_6_pin_sh">Pixhawk 6-Pin SH Debug Port</a> is shown below (note, the <code>-</code> indicates a pin that is not required for SWD).</p>
+<p>J-Link Edu Mini&#xB97C; <a href="#pixhawk_debug_port_6_pin_sh">Pixhawk 6-Pin SH Debug Port</a>&#xC5D0; &#xD540;&#xBCC4;&#xB85C; &#xACB0;&#xC120;&#xD574;&#xC11C; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xBC29;&#xBC95;&#xC740; &#xC544;&#xB798;&#xC5D0; &#xB098;&#xC640;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;(&#xCC38;&#xACE0;&#xB85C; <code>-</code> &#xD45C;&#xC2DC;&#xB294; SWD&#xC5D0; &#xD544;&#xC694;&#xD558;&#xC9C0; &#xC54A;&#xC74C;&#xC744; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;).</p>
 <table>
 <thead>
 <tr>
-<th>Debug Port</th>
+<th>&#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</th>
 <th>J-Link Mini</th>
 </tr>
 </thead>
@@ -2788,11 +2788,11 @@
 <td>1</td>
 </tr>
 <tr>
-<td>2 (Console TX)</td>
+<td>2 (&#xCF58;&#xC194; TX)</td>
 <td>-</td>
 </tr>
 <tr>
-<td>3 (Console RX)</td>
+<td>3 (&#xCF58;&#xC194; RX)</td>
 <td>-</td>
 </tr>
 <tr>
@@ -2805,36 +2805,36 @@
 </tr>
 <tr>
 <td>6 (GND)</td>
-<td>3 or 5</td>
+<td>3 &#xB610;&#xB294; 5</td>
 </tr>
 </tbody>
 </table>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> From the table above you can infer the connections for autopilots that do not use the standard port.</p>
+<p> &#xC0C1;&#xB2E8; &#xD45C;&#xB97C; &#xBCF4;&#xC2DC;&#xBA74; &#xC624;&#xD1A0;&#xD30C;&#xC77C;&#xB7FF; &#xD45C;&#xC900; &#xD3EC;&#xD2B8;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC5F0;&#xACB0;&#xC744; &#xC9D0;&#xC791;&#xD558;&#xC2E4; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
 <!-- Image of SWD cable and connector to debug port? --> 
-<h3 id="dronecode_probe"><a name="dronecode_probe" class="plugin-anchor" href="#dronecode_probe"><i class="fa fa-link" aria-hidden="true"></i></a>Dronecode Probe </h3>
-<p>The <a href="https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation" target="_blank">Dronecode Probe</a> is a generic JTAG/SWD + UART console adapter compatible with most ARM Cortex based designs, and in particular with Pixhawk series flight controllers (and other hardware that PX4 supports).</p>
-<p>The probe&apos;s USB interface exposes two separate virtual serial port interfaces: one for connecting to the <a href="system_console.html">System Console</a> (UART) and the other for an embedded GDB server (SWD interface).</p>
-<p>The probe provides a DCD-M connector cable for attaching to the <a href="#pixhawk_debug_port_6_pin_sh">Pixhawk 6-Pin SH Debug Port</a>.</p>
+<h3 id="dronecode_probe"><a name="dronecode_probe" class="plugin-anchor" href="#dronecode_probe"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB4DC;&#xB860;&#xCF54;&#xB4DC; &#xD504;&#xB8E8;&#xBE0C; </h3>
+<p><a href="https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation" target="_blank">&#xB4DC;&#xB860;&#xCF54;&#xB4DC; &#xD504;&#xB8E8;&#xBE0C;</a>&#xB294; ARM Cortex &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xC124;&#xACC4;&#xD55C; &#xC77C;&#xBC18; JTAG/SWD + UART &#xCF58;&#xC194; &#xC5B4;&#xB311;&#xD130; &#xD638;&#xD658; &#xC81C;&#xD488;&#xC774;&#xBA70;, &#xD2B9;&#xD788; &#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xACC4;&#xC5F4; &#xBE44;&#xD589;&#xCCB4; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58;(&#xC640; PX4 &#xC9C0;&#xC6D0; &#xAE30;&#xD0C0; &#xD558;&#xB4DC;&#xC6E8;&#xC5B4;)&#xC640; &#xB3D9;&#xC791;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD504;&#xB8E8;&#xBE0C;&#xC758; USB &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB294; &#xB458;&#xB85C; &#xBD84;&#xB9AC;&#xD55C; &#xAC00;&#xC0C1; &#xC9C1;&#xB82C; &#xD3EC;&#xD2B8; &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xAC00; &#xB098;&#xC640;&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xD558;&#xB098;&#xB294; <a href="system_console.html">&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194;</a>(UART) &#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xC6A9;&#xB3C4;, &#xB2E4;&#xB978; &#xD558;&#xB098;&#xB294; &#xC784;&#xBCA0;&#xB514;&#xB4DC; GDB &#xC11C;&#xBC84;&#xC5D0; &#xC5F0;&#xACB0;(SWD &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;)&#xD558;&#xB294; &#xC6A9;&#xB3C4;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD504;&#xB8E8;&#xBE0C;&#xC5D0;&#xC11C;&#xB294; <a href="#pixhawk_debug_port_6_pin_sh">Pixhawk 6-Pin SH &#xB514;&#xBC84;&#xAE45; &#xD3EC;&#xD2B8;</a>&#xC5D0; &#xC5F0;&#xACB0;&#xD558;&#xB294;  DCD-M &#xCEE4;&#xB125;&#xD130; &#xCF00;&#xC774;&#xBE14;&#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The <em>6-pos DF13</em> connector that comes with the probe cannot be used for SWD debugging (it is for using the System Console).</p>
+<p> <em>6-pos DF13</em> &#xD504;&#xB8E8;&#xBE0C;&#xC640; &#xB538;&#xB824;&#xC624;&#xB294; &#xCEE4;&#xB125;&#xD130;&#xB294; SWD &#xB514;&#xBC84;&#xAE45; &#xC6A9;&#xC774; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;(&#xC2DC;&#xC2A4;&#xD15C; &#xCF58;&#xC194; &#xC5F0;&#xACB0;&#xC6A9;).</p>
 </blockquote>
 <p><span></span></p>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
-<p> The <em>Dronecode Probe</em> is based on the <a href="#black_magic_probe">Black Magic Probe</a>.</p>
+<p> <em>&#xB4DC;&#xB860;&#xCF54;&#xB4DC; &#xD504;&#xB8E8;&#xBE0C;</em>&#xB294; <a href="#black_magic_probe">&#xBE14;&#xB799;&#xB9E4;&#xC9C1; &#xD504;&#xB8E8;&#xBE0C;</a>&#xB97C; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xB9CC;&#xB4E4;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<h3 id="black_magic_probe"><a name="black_magic_probe" class="plugin-anchor" href="#black_magic_probe"><i class="fa fa-link" aria-hidden="true"></i></a>Black Magic Probe </h3>
-<p>The <a href="https://github.com/blacksphere/blackmagic/wiki" target="_blank">Black Magic Probe</a> is much like the <a href="#dronecode_probe">Dronecode probe</a> but does not come with the same adapters for directly connecting to Pixhawk series flight controllers.</p>
-<p>Adapters can be purchased separately:</p>
+<h3 id="black_magic_probe"><a name="black_magic_probe" class="plugin-anchor" href="#black_magic_probe"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBE14;&#xB799;&#xB9E4;&#xC9C1; &#xD504;&#xB8E8;&#xBE0C; </h3>
+<p><a href="https://github.com/blacksphere/blackmagic/wiki" target="_blank">&#xBE14;&#xB799;&#xB9E4;&#xC9C1; &#xD504;&#xB8E8;&#xBE0C;</a>&#xB294; <0>&#xB4DC;&#xB860;&#xCF54;&#xB4DC; &#xD504;&#xB8E8;&#xBE0C;</0>&#xC640; &#xB9E4;&#xC6B0; &#xC720;&#xC0AC;&#xD558;&#xB098;, &#xD53D;&#xC2A4;&#xD638;&#xD06C; &#xACC4;&#xC5F4; &#xBE44;&#xD589;&#xCCB4; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58;&#xC5D0; &#xC9C1;&#xC811; &#xC5F0;&#xACB0;&#xD558;&#xB294; &#xB3D9;&#xC77C;&#xD55C; &#xC5B4;&#xB311;&#xD130;&#xAC00; &#xB538;&#xB824;&#xC624;&#xC9C4; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC5B4;&#xB311;&#xD130;&#xB294; &#xBCC4;&#xB9E4;&#xC785;&#xB2C8;&#xB2E4;:</p>
 <ul>
-<li><a href="https://1bitsquared.com/products/drone-code-debug-adapter" target="_blank">Drone Code Debug Adapter</a> (1 BIT SQUARED).</li>
+<li><a href="https://1bitsquared.com/products/drone-code-debug-adapter" target="_blank">&#xB4DC;&#xB860; &#xCF54;&#xB4DC; &#xB514;&#xBC84;&#xAE45; &#xC5B4;&#xB311;&#xD130;</a> (1 BIT &#xAC01; &#xCEE4;&#xB125;&#xD130;).</li>
 </ul>
-<h2 id="debugging_topics"><a name="debugging_topics" class="plugin-anchor" href="#debugging_topics"><i class="fa fa-link" aria-hidden="true"></i></a>Next Steps </h2>
-<p>You&apos;ve now connected the flight controller to an SWD debug probe!</p>
-<p>The following topics explain how to start on-target debugging:</p>
+<h2 id="debugging_topics"><a name="debugging_topics" class="plugin-anchor" href="#debugging_topics"><i class="fa fa-link" aria-hidden="true"></i></a>&#xB2E4;&#xC74C; &#xB2E8;&#xACC4; </h2>
+<p>&#xC774;&#xC81C; SWD &#xB514;&#xBC84;&#xAE45; &#xD504;&#xB8E8;&#xBE0C;&#xB97C; &#xBE44;&#xD589;&#xCCB4; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58;&#xC5D0; &#xC5F0;&#xACB0;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;!</p>
+<p>&#xB2E4;&#xC74C; &#xC8FC;&#xC81C;&#xC5D0;&#xC11C;&#xB294; &#xC628;-&#xD0C0;&#xAC9F; &#xB514;&#xBC84;&#xAE45; &#xBC29;&#xBC95;&#xC744; &#xC124;&#xBA85;&#xD558;&#xB3C4;&#xB85D; &#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
 <ul>
-<li><a href="eclipse_jlink.html">MCU Eclipse/J-Link Debugging for PX4</a></li>
+<li><a href="eclipse_jlink.html">PX4&#xC6A9; MCU Eclipse/J-Link &#xB514;&#xBC84;&#xAE45;</a></li>
 </ul>
 
                                 
@@ -2879,7 +2879,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SWD/JLink 디버깅 인터페이스","level":"1.9.3","depth":2,"next":{"title":"오토파일럿 디버깅","level":"1.9.4","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"시스템 콘솔","level":"1.9.2.2","depth":3,"path":"debug/system_console.md","ref":"debug/system_console.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"debug/swd_debug.md","mtime":"2020-09-12T10:43:44.394Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-12T10:45:10.578Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"SWD/JLink 디버깅 인터페이스","level":"1.9.3","depth":2,"next":{"title":"오토파일럿 디버깅","level":"1.9.4","depth":2,"path":"debug/gdb_debugging.md","ref":"debug/gdb_debugging.md","articles":[]},"previous":{"title":"시스템 콘솔","level":"1.9.2.2","depth":3,"path":"debug/system_console.md","ref":"debug/system_console.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"debug/swd_debug.md","mtime":"2020-09-13T23:03:54.274Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-09-13T23:04:45.315Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>
