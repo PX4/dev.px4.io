@@ -2608,12 +2608,23 @@
    stop
 
    status        print status info
-</code></pre><h2 id="heater"><a name="heater" class="plugin-anchor" href="#heater"><i class="fa fa-link" aria-hidden="true"></i></a>heater</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/heater" target="_blank">drivers/heater</a></p>
+</code></pre><h2 id="gyrofft"><a name="gyrofft" class="plugin-anchor" href="#gyrofft"><i class="fa fa-link" aria-hidden="true"></i></a>gyro_fft</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft" target="_blank">examples/gyro_fft</a></p>
 <h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xAD00;&#xC131;&#xC13C;&#xC11C;&#xC758; &#xC628;&#xB3C4;&#xB97C; &#xC9C0;&#xC815; &#xAC12;&#xC73C;&#xB85C; &#xC815;&#xADDC;&#xD654;&#xD558;&#xB824;&#xB294; &#xBAA9;&#xC801;&#xC73C;&#xB85C; LP &#xC791;&#xC5C5; &#xD050;&#xC5D0;&#xC11C; &#xC8FC;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC774; &#xC791;&#xC5C5;&#xC740; SENS_EN_THERMAL&#xC744; &#xC124;&#xC815;&#xD558;&#xC5EC; &#xBD80;&#xD305;&#xD560; &#xB54C; &#xC2DC;&#xC791; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xAC70;&#xB098; &#xBA85;&#xB839;&#xD589; &#xD658;&#xACBD;&#xC5D0;&#xC11C; &#xC2DC;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="heater_usage"><a name="heater_usage" class="plugin-anchor" href="#heater_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<h3 id="gyro_fft_usage"><a name="gyro_fft_usage" class="plugin-anchor" href="#gyro_fft_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>gyro_fft &lt;command&gt; [arguments...]
+ Commands:
+   start
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="heater"><a name="heater" class="plugin-anchor" href="#heater"><i class="fa fa-link" aria-hidden="true"></i></a>heater</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/heater" target="_blank">drivers/heater</a></p>
+<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
+<p>Background process running periodically on the LP work queue to regulate IMU temperature at a setpoint.</p>
+<p>This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.</p>
+<h3 id="heater_usage"><a name="heater_usage" class="plugin-anchor" href="#heater_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>heater &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2622,17 +2633,17 @@
 
    status        print status info
 </code></pre><h2 id="landdetector"><a name="landdetector" class="plugin-anchor" href="#landdetector"><i class="fa fa-link" aria-hidden="true"></i></a>land_detector</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/land_detector" target="_blank">modules/land_detector</a></p>
-<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xAE30;&#xCCB4;&#xC758; &#xC790;&#xC720; &#xB099;&#xD558;&#xB97C; &#xAC10;&#xC9C0;&#xD558;&#xAC70;&#xB098; &#xCC29;&#xB959; &#xC0C1;&#xD0DC;&#xB97C; &#xAC10;&#xC9C0;&#xD558;&#xB294; &#xBAA8;&#xB4C8;&#xC774;&#xBA70;, <code>vehicle_land_detected</code> &#xD1A0;&#xD53D;&#xC744; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;. &#xC5EC;&#xB7EC;&#xAC00;&#xC9C0; &#xAE30;&#xCCB4; &#xD615;&#xC2DD;(&#xBA40;&#xD2F0;&#xB85C;&#xD130;, &#xACE0;&#xC815;&#xC775;, &#xC218;&#xC9C1;&#xC774;&#xCC29;&#xB959;&#xAE30;,...) &#xC5D0; &#xB300;&#xD574; &#xACE0;&#xC720;&#xC758; &#xC54C;&#xACE0;&#xB9AC;&#xC998;&#xC744; &#xC81C;&#xACF5;&#xD558;&#xBA70;, &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD55C; &#xCD94;&#xC9C4;, &#xC774;&#xB959; &#xC900;&#xBE44; &#xC0C1;&#xD0DC;, &#xAE30;&#xCCB4;&#xC758; &#xC6C0;&#xC9C1;&#xC784; &#xB4F1; &#xC5EC;&#xB7EC; &#xC0C1;&#xD0DC;&#xB97C; &#xACE0;&#xB824;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
-<p>&#xBAA8;&#xB4E0; &#xAC1D;&#xCCB4; &#xD615;&#xC2DD;&#xC740; &#xACF5;&#xD1B5; &#xAE30;&#xBC18; &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xC0C1;&#xC18D;&#xBC1B;&#xC544; &#xC790;&#xCCB4; &#xD074;&#xB798;&#xC2A4;&#xB85C; &#xAD6C;&#xD604;&#xD588;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xBC18; &#xD074;&#xB798;&#xC2A4;&#xC5D0;&#xC11C;&#xB294; &#xC0C1;&#xD0DC;&#xB97C; &#xAD00;&#xB9AC;(landed, maybe_landed, ground_contact)&#xD569;&#xB2C8;&#xB2E4;. &#xAC00;&#xB2A5;&#xD55C; &#xAC01;&#xAC01;&#xC758; &#xC0C1;&#xD0DC;&#xB294; &#xC0C1;&#xC18D; &#xD074;&#xB798;&#xC2A4;&#xC5D0;&#xC11C; &#xAD6C;&#xD604;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB825; &#xD604;&#xC0C1;(hysteresis)&#xACFC; &#xAC01; &#xCD08;&#xAE30; &#xC0C1;&#xD0DC;&#xC758; &#xACE0;&#xC815; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB294; &#xC2E4;&#xC81C; land_detector &#xC0C1;&#xD0DC;&#xB85C; &#xACB0;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/land_detector" target="_blank">modules/land_detector</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Module to detect the freefall and landed state of the vehicle, and publishing the <code>vehicle_land_detected</code> topic. Each vehicle type (multirotor, fixedwing, vtol, ...) provides its own algorithm, taking into account various states, such as commanded thrust, arming state and vehicle motion.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>Every type is implemented in its own class with a common base class. The base class maintains a state (landed, maybe_landed, ground_contact). Each possible state is implemented in the derived classes. A hysteresis and a fixed priority of each internal state determines the actual land_detector state.</p>
 <h4 id="&#xBA40;&#xD2F0;&#xCF65;&#xD130;-&#xCC29;&#xB959;-&#xAC10;&#xC9C0;"><a name="&#xBA40;&#xD2F0;&#xCF65;&#xD130;-&#xCC29;&#xB959;-&#xAC10;&#xC9C0;" class="plugin-anchor" href="#&#xBA40;&#xD2F0;&#xCF65;&#xD130;-&#xCC29;&#xB959;-&#xAC10;&#xC9C0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xBA40;&#xD2F0;&#xCF65;&#xD130; &#xCC29;&#xB959; &#xAC10;&#xC9C0;</h4>
-<p><strong>ground_contact</strong>: &#xCD94;&#xB825; &#xC124;&#xC815;&#xAC12;&#xACFC; z &#xBC29;&#xD5A5; &#xC18D;&#xB3C4;&#xB294; GROUND_CONTACT_TRIGGER_TIME_US &#xC2DC;&#xAC04;&#xB3D9;&#xC548; &#xC124;&#xC815; &#xC784;&#xACC4;&#xAC12; &#xBBF8;&#xB9CC;&#xC774;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ground_contact &#xB97C; &#xAC10;&#xC9C0;&#xD558;&#xBA74;, &#xC704;&#xCE58; &#xC81C;&#xC5B4; &#xC7A5;&#xCE58;&#xAC00; &#xB3D9;&#xCCB4;&#xC758; x &#xBC0F; y &#xCD95; &#xBC29;&#xD5A5;&#xC758; &#xCD94;&#xB825; &#xC124;&#xC815; &#xAC12;&#xC744; &#xB055;&#xB2C8;&#xB2E4;.</p>
-<p><strong>maybe_landed</strong>: &#xB0AE;&#xC740; &#xCD94;&#xB825; &#xD55C;&#xACC4; &#xAC12;&#xACFC; &#xC218;&#xD3C9; &#xBC29;&#xD5A5;&#xC758; 0 &#xC18D;&#xB3C4; &#xAC12;&#xC744; &#xC9C0;&#xB2CC; ground_contact&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;. horizontal direction. &#xACC4;&#xAE30; &#xC2DC;&#xAC04;&#xC740; MAYBE_LAND_TRIGGER_TIM&#xC73C;&#xB85C; &#xC815;&#xC758;&#xD569;&#xB2C8;&#xB2E4;. maybe_landed&#xB97C; &#xAC10;&#xC9C0;&#xD558;&#xBA74; &#xC704;&#xCE58; &#xC870;&#xC815; &#xC7A5;&#xCE58;&#xAC00; &#xCD94;&#xB825; &#xC124;&#xC815; &#xAC12;&#xC744; 0&#xC73C;&#xB85C; &#xC7A1;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p><strong>landed</strong>: &#xC2DC;&#xAC04; &#xAC12;&#xC744; LAND_DETECTOR_TRIGGER_TIME_US&#xB85C; &#xC124;&#xC815;&#xD55C; maybe_landed&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>&#xBAA8;&#xB4C8;&#xC740; HP &#xC791;&#xC5C5; &#xD050;&#xC5D0;&#xC11C; &#xC8FC;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="land_detector_usage"><a name="land_detector_usage" class="plugin-anchor" href="#land_detector_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p><strong>ground_contact</strong>: thrust setpoint and velocity in z-direction must be below a defined threshold for time GROUND_CONTACT_TRIGGER_TIME_US. When ground_contact is detected, the position controller turns off the thrust setpoint in body x and y.</p>
+<p><strong>maybe_landed</strong>: it requires ground_contact together with a tighter thrust setpoint threshold and no velocity in the horizontal direction. The trigger time is defined by MAYBE_LAND_TRIGGER_TIME. When maybe_landed is detected, the position controller sets the thrust setpoint to zero.</p>
+<p><strong>landed</strong>: it requires maybe_landed to be true for time LAND_DETECTOR_TRIGGER_TIME_US.</p>
+<p>The module runs periodically on the HP work queue.</p>
+<h3 id="land_detector_usage"><a name="land_detector_usage" class="plugin-anchor" href="#land_detector_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>land_detector &lt;command&gt; [arguments...]
  Commands:
    start         Start the background task
@@ -2642,11 +2653,11 @@
 
    status        print status info
 </code></pre><h2 id="loadmon"><a name="loadmon" class="plugin-anchor" href="#loadmon"><i class="fa fa-link" aria-hidden="true"></i></a>load_mon</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/load_mon" target="_blank">modules/load_mon</a></p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/load_mon" target="_blank">modules/load_mon</a></p>
 <h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xC791;&#xC5C5; &#xD050;&#xC5D0;&#xC11C; &#xB0AE;&#xC740; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xB85C; &#xC8FC;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xB294; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; CPU &#xBD80;&#xD558;&#xC640; RAM &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xACC4;&#xC0B0;&#xD558;&#xACE0; <code>cpuload</code> &#xD1A0;&#xD53D;&#xC73C;&#xB85C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
-<p>NuttX&#xC5D0;&#xC11C;&#xB294; &#xAC01; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xC2A4;&#xD0DD; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xB298; &#xD655;&#xC778;&#xD558;&#xACE0; 300 &#xBC14;&#xC774;&#xD2B8; &#xC774;&#xD558;&#xB85C; &#xB5A8;&#xC5B4;&#xC9C0;&#xBA74;, &#xB85C;&#xADF8; &#xD30C;&#xC77C;&#xC5D0; &#xB098;&#xD0C0;&#xB098;&#xB294; &#xACBD;&#xACE0;&#xB97C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="load_mon_usage"><a name="load_mon_usage" class="plugin-anchor" href="#load_mon_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>Background process running periodically on the low priority work queue to calculate the CPU load and RAM usage and publish the <code>cpuload</code> topic.</p>
+<p>On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.</p>
+<h3 id="load_mon_usage"><a name="load_mon_usage" class="plugin-anchor" href="#load_mon_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>load_mon &lt;command&gt; [arguments...]
  Commands:
    start         Start the background task
@@ -2655,29 +2666,29 @@
 
    status        print status info
 </code></pre><h2 id="logger"><a name="logger" class="plugin-anchor" href="#logger"><i class="fa fa-link" aria-hidden="true"></i></a>logger</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/logger" target="_blank">modules/logger</a></p>
-<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xC5EC;&#xB7EC; uORB &#xD1A0;&#xD53D;&#xACFC; &#xC2DC;&#xC2A4;&#xD15C; printf &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB294; &#xD56D;&#xBAA9;&#xC744; &#xAE30;&#xB85D;&#xD558;&#xB294; &#xC2DC;&#xC2A4;&#xD15C; &#xB85C;&#xAC70;&#xC785;&#xB2C8;&#xB2E4;. &#xC2DC;&#xC2A4;&#xD15C; &#xBC0F; &#xBE44;&#xD589; &#xC131;&#xB2A5; &#xBD84;&#xC11D;, &#xC138;&#xBD80; &#xC124;&#xC815;, &#xC7AC;&#xD604;, &#xC9C0;&#xBA85; &#xC624;&#xB958; &#xBD84;&#xC11D;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xBC31;&#xC5D4;&#xB4DC; &#xB450;&#xAC00;&#xC9C0;&#xB97C; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/logger" target="_blank">modules/logger</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>System logger which logs a configurable set of uORB topics and system printf messages (<code>PX4_WARN</code> and <code>PX4_ERR</code>) to ULog files. These can be used for system and flight performance evaluation, tuning, replay and crash analysis.</p>
+<p>It supports 2 backends:</p>
 <ul>
 <li>&#xD30C;&#xC77C;: ULog &#xD30C;&#xC77C;&#xC744; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xAE30;&#xB85D;&#xD569;&#xB2C8;&#xB2E4;(SD &#xCE74;&#xB4DC;)</li>
 <li>MAVLink: &#xC774; &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC5D0; ULog &#xB370;&#xC774;&#xD130;&#xB97C; &#xC2E4;&#xC5B4; &#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0; &#xC9C0;&#xC18D;&#xC801;&#xC73C;&#xB85C; &#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;(&#xD074;&#xB77C;&#xC774;&#xC5B8;&#xD2B8;&#xC5D0;&#xC11C; MAVLink &#xD504;&#xB85C;&#xD1A0;&#xCF5C;&#xC744; &#xC9C0;&#xC6D0;&#xD574;&#xC57C;&#xD568;).</li>
 </ul>
-<p>&#xB450; &#xBC31;&#xC5D4;&#xB4DC;&#xB294; &#xB3D9;&#xC2DC;&#xC5D0; &#xD65C;&#xC131;&#xD654;&#xD558;&#xACE0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xD30C;&#xC77C; &#xBC31;&#xC5D4;&#xB4DC;&#xB294; &#xB85C;&#xADF8; &#xD30C;&#xC77C; &#xD615;&#xC2DD; &#xB450;&#xAC00;&#xC9C0; &#xC804;&#xCCB4; (&#xC77C;&#xBC18; &#xB85C;&#xADF8;) &#xBC29;&#xC2DD;, &#xADF8;&#xB9AC;&#xACE0; &#xC784;&#xBD80; &#xAE30;&#xB85D; &#xBC29;&#xC2DD;&#xC744; &#xC9C0;&#xC6D0;&#xD569;&#xB2C8;&#xB2E4;. &#xC784;&#xBB34; &#xB85C;&#xADF8;&#xB294; &#xCD95;&#xC57D;&#xD615; ULog &#xD30C;&#xC77C;&#xC774;&#xBA70;, &#xC9C0;&#xB9AC; &#xC815;&#xBCF4; &#xD45C;&#xC2DC;(geotagging) &#xBC0F; &#xAE30;&#xCCB4; &#xAD00;&#xB9AC; &#xB4F1;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. SDLOG_MISSION &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xB85C; &#xB85C;&#xADF8; &#xAE30;&#xB2A5;&#xC744; &#xCF1C;&#xACE0; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC77C;&#xBC18; &#xB85C;&#xADF8;&#xB294; &#xD56D;&#xC0C1; &#xC784;&#xBB34; &#xB85C;&#xADF8;&#xC758; &#xC0C1;&#xC704; &#xC9D1;&#xD569;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
-<p>&#xAD6C;&#xD604;&#xCCB4;&#xC5D0;&#xC11C;&#xB294; &#xC2A4;&#xB808;&#xB4DC; &#xB450;&#xAC00;&#xC9C0;&#xB97C; &#xD65C;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;:</p>
+<p>Both backends can be enabled and used at the same time.</p>
+<p>The file backend supports 2 types of log files: full (the normal log) and a mission log. The mission log is a reduced ulog file and can be used for example for geotagging or vehicle management. It can be enabled and configured via SDLOG_MISSION parameter. The normal log is always a superset of the mission log.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>The implementation uses two threads:</p>
 <ul>
 <li>&#xBA54;&#xC778; &#xC2A4;&#xB808;&#xB4DC;&#xD574;&#xC11C;&#xB294;, &#xACE0;&#xC815; &#xC8FC;&#xAE30;(&#xB610;&#xB294; -p &#xB85C; &#xC2DC;&#xC791;&#xD588;&#xC744; &#xACBD;&#xC6B0; &#xD1A0;&#xD53D;&#xC744; &#xD3F4;&#xB9C1; &#xCC98;&#xB9AC;)&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xBA70;, &#xB370;&#xC774;&#xD130; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xB97C; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;.</li>
 <li>&#xAE30;&#xB85D; &#xC2A4;&#xB808;&#xB4DC;&#xB294; &#xB370;&#xC774;&#xD130;&#xB97C; &#xD30C;&#xC77C;&#xC5D0; &#xAE30;&#xB85D;&#xD569;&#xB2C8;&#xB2E4;</li>
 </ul>
-<p>&#xC774; &#xC0AC;&#xC774;&#xC5D0; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB294; &#xD06C;&#xAE30;&#xB97C; &#xC9C0;&#xB2CC; &#xAE30;&#xB85D; &#xBC84;&#xD37C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;(&#xADF8;&#xB9AC;&#xACE0; &#xC784;&#xBB34; &#xAE30;&#xB85D;&#xC6A9;&#xC73C;&#xB85C; &#xB2E4;&#xB978; &#xACE0;&#xC815; &#xD06C;&#xAE30; &#xBC84;&#xD37C;&#xB3C4; &#xC788;&#xC74C;). &#xAE30;&#xB85D;&#xC774; &#xBC84;&#xB824;&#xC9C0;&#xB294; &#xC77C;&#xC744; &#xB9C9;&#xAE30; &#xC704;&#xD574; &#xBC84;&#xD37C;&#xB294; &#xCDA9;&#xBD84;&#xD788; &#xCEE4;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xC608;&#xC81C;"><a name="&#xC608;&#xC81C;" class="plugin-anchor" href="#&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC81C;</h3>
-<p>&#xBCF4;&#xD1B5; &#xB85C;&#xAE45;&#xC744; &#xBC14;&#xB85C; &#xC2DC;&#xC791;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xBC95;:</p>
+<p>In between there is a write buffer with configurable size (and another fixed-size buffer for the mission log). It should be large to avoid dropouts.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>Typical usage to start logging immediately:</p>
 <pre><code>logger start -e -t
-</code></pre><p>&#xB610;&#xB294; &#xC774;&#xBBF8; &#xB3D9;&#xC791;&#xC911;&#xC77C; &#xACBD;&#xC6B0;:</p>
+</code></pre><p>Or if already running:</p>
 <pre><code>logger on
-</code></pre><h3 id="logger_usage"><a name="logger_usage" class="plugin-anchor" href="#logger_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+</code></pre><h3 id="logger_usage"><a name="logger_usage" class="plugin-anchor" href="#logger_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>logger &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2704,10 +2715,10 @@
 
    status        print status info
 </code></pre><h2 id="pwminput"><a name="pwminput" class="plugin-anchor" href="#pwminput"><i class="fa fa-link" aria-hidden="true"></i></a>pwm_input</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input" target="_blank">drivers/pwm_input</a></p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input" target="_blank">drivers/pwm_input</a></p>
 <h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xD0C0;&#xC774;&#xBA38; &#xCEA1;&#xCC98; ISR&#xC744; &#xD1B5;&#xD574; AUX5 (&#xB610;&#xB294; MAIN5)&#xC758; PWM &#xC785;&#xB825;&#xC744; &#xCE21;&#xC815;&#xD558;&#xACE0; uORB &apos;pwm_input&apos; &#xBA54;&#xC138;&#xC9C0;&#xB85C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="pwm_input_usage"><a name="pwm_input_usage" class="plugin-anchor" href="#pwm_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB &apos;pwm_input` message.</p>
+<h3 id="pwm_input_usage"><a name="pwm_input_usage" class="plugin-anchor" href="#pwm_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>pwm_input &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2718,12 +2729,12 @@
 
    status        print status info
 </code></pre><h2 id="rcupdate"><a name="rcupdate" class="plugin-anchor" href="#rcupdate"><i class="fa fa-link" aria-hidden="true"></i></a>rc_update</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/rc_update" target="_blank">modules/rc_update</a></p>
-<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>rc_update &#xBAA8;&#xB4C8;&#xC740; RC &#xCC44;&#xB110; &#xB300;&#xC751;&#xC744; &#xCC98;&#xB9AC;&#xD569;&#xB2C8;&#xB2E4;. &#xC6D0;&#xC2DC; &#xC785;&#xB825; &#xCC44;&#xB110;(<code>input_rc</code>)&#xC758; &#xB370;&#xC774;&#xD130;&#xB97C; &#xC77D;&#xACE0;, &#xBCF4;&#xC815; &#xAC12;&#xC744; &#xC801;&#xC6A9;, RC &#xCC44;&#xB110;&#xC744; &#xC124;&#xC815; &#xCC44;&#xB110;, &#xBAA8;&#xB4DC; &#xC804;&#xD658;, &#xC800;&#xC5ED;&#xB300; &#xD544;&#xD130;&#xC5D0; &#xB300;&#xC751;&#xD55C; &#xB2E4;&#xC74C; <code>rc_channels</code>&#xC640; <code>manual_control_setpoint</code>&#xB85C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
-<p>&#xC81C;&#xC5B4; &#xC9C0;&#xC5F0;&#xC744; &#xC904;&#xC774;&#xB824;, &#xBAA8;&#xB4C8;&#xC740; input_rc &#xB97C; &#xB0B4;&#xBCF4;&#xB0BC; &#xB54C; &#xB3D9;&#xC791;&#xD558;&#xB3C4;&#xB85D; &#xD588;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="rc_update_usage"><a name="rc_update_usage" class="plugin-anchor" href="#rc_update_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/rc_update" target="_blank">modules/rc_update</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>The rc_update module handles RC channel mapping: read the raw input channels (<code>input_rc</code>), then apply the calibration, map the RC channels to the configured channels &amp; mode switches, low-pass filter, and then publish as <code>rc_channels</code> and <code>manual_control_setpoint</code>.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>To reduce control latency, the module is scheduled on input_rc publications.</p>
+<h3 id="rc_update_usage"><a name="rc_update_usage" class="plugin-anchor" href="#rc_update_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>rc_update &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2732,17 +2743,17 @@
 
    status        print status info
 </code></pre><h2 id="replay"><a name="replay" class="plugin-anchor" href="#replay"><i class="fa fa-link" aria-hidden="true"></i></a>replay</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/replay" target="_blank">modules/replay</a></p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/replay" target="_blank">modules/replay</a></p>
 <h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xC774; &#xBAA8;&#xB4C8;&#xC740; ULog &#xD30C;&#xC77C; &#xC7AC;&#xD604;&#xC5D0; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC124;&#xC815;&#xC5D0; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xD658;&#xACBD; &#xBCC0;&#xC218; 2&#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>replay</code>&#xC5D0;&#xB294; ULog &#xD30C;&#xC77C; &#xC774;&#xB984;&#xC744; &#xC9C0;&#xC815;&#xD574;&#xC57C; &#xD558;&#xB294;&#xB370;, &#xC774; &#xBCC0;&#xC218;&#xC5D0;&#xB294; &#xC7AC;&#xD604;&#xD560; &#xB85C;&#xADF8; &#xD30C;&#xC77C;&#xC774; &#xB4E4;&#xC5B4;&#xAC11;&#xB2C8;&#xB2E4;. &#xB450;&#xBC88;&#xC9F8; &#xBCC0;&#xC218;&#xB294; <code>replay_mode</code>&#xB85C; &#xC9C0;&#xC815;&#xD558;&#xB294; &#xBAA8;&#xB4DC;&#xC785;&#xB2C8;&#xB2E4;:</p>
+<p>This module is used to replay ULog files.</p>
+<p>There are 2 environment variables used for configuration: <code>replay</code>, which must be set to an ULog file name - it&apos;s the log file to be replayed. The second is the mode, specified via <code>replay_mode</code>:</p>
 <ul>
 <li><code>replay_mode=ekf2</code>: EKF2 &#xC7AC;&#xD604; &#xBAA8;&#xB4DC;&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;. ekf2 &#xBAA8;&#xB4C8;&#xD558;&#xACE0;&#xB9CC; &#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC73C;&#xB098;, &#xAC00;&#xB2A5;&#xD55C; &#xD55C; &#xBE60;&#xB978; &#xC7AC;&#xD604;&#xC774; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</li>
 <li>&#xAE30;&#xD0C0; &#xC77C;&#xBC18;: &#xB2E4;&#xB978; &#xBAA8;&#xB4C8; &#xC7AC;&#xD604;&#xC5D0; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;&#xB9CC;, &#xAE30;&#xB85D;&#xD55C; &#xB85C;&#xADF8; &#xC18D;&#xB3C4;&#xB300;&#xB85C;&#xB9CC; &#xC7AC;&#xD604;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</li>
 </ul>
-<p>&#xBAA8;&#xB4C8;&#xC740; &#xBCF4;&#xD1B5; &#xC5B4;&#xB5A4; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xC7AC;&#xD604;&#xD574;&#xC57C; &#xD558;&#xB294;&#xC9C0; &#xC9C0;&#xC815;&#xD558;&#xB294; uORB &#xC804;&#xC1A1; &#xADDC;&#xCE59;&#xC744; &#xD568;&#xAED8; &#xD65C;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC7AC;&#xD604; &#xBAA8;&#xB4DC;&#xB294; &#xB85C;&#xADF8;&#xC5D0;&#xC11C; &#xCC3E;&#xC740; &#xBAA8;&#xB4E0; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xB0B4;&#xBCF4;&#xB0B4;&#xAE30;&#xB9CC; &#xD569;&#xB2C8;&#xB2E4;. &#xB610;&#xD55C; &#xB85C;&#xADF8;&#xC758; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xAC12;&#xC744; &#xC801;&#xC6A9;&#xD558;&#xAE30;&#xB3C4;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC7AC;&#xD604; &#xC808;&#xCC28;&#xB294; <a href="https://dev.px4.io/master/en/debug/system_wide_replay.html" target="_blank">&#xC2DC;&#xC2A4;&#xD15C; &#xC218;&#xC900; &#xC7AC;&#xD604;</a>&#xD398;&#xC774;&#xC9C0;&#xC5D0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="replay_usage"><a name="replay_usage" class="plugin-anchor" href="#replay_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>The module is typically used together with uORB publisher rules, to specify which messages should be replayed. The replay module will just publish all messages that are found in the log. It also applies the parameters from the log.</p>
+<p>The replay procedure is documented on the <a href="https://dev.px4.io/master/en/debug/system_wide_replay.html" target="_blank">System-wide Replay</a> page.</p>
+<h3 id="replay_usage"><a name="replay_usage" class="plugin-anchor" href="#replay_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>replay &lt;command&gt; [arguments...]
  Commands:
    start         Start replay, using log file from ENV variable &apos;replay&apos;
@@ -2755,11 +2766,11 @@
 
    status        print status info
 </code></pre><h2 id="sendevent"><a name="sendevent" class="plugin-anchor" href="#sendevent"><i class="fa fa-link" aria-hidden="true"></i></a>send_event</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/events" target="_blank">modules/events</a></p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/events" target="_blank">modules/events</a></p>
 <h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>LP &#xC791;&#xC5C5; &#xD050;&#xC5D0;&#xC11C; &#xBC31;&#xADF8;&#xB77C;&#xC6B4;&#xB4DC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xC8FC;&#xAE30;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xC5EC; &#xC790;&#xC6D0; &#xAD00;&#xB9AC; &#xC791;&#xC5C5;&#xC744; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xD604;&#xC7AC;&#xB294; RC &#xC190;&#xC2E4;&#xC2DC; &#xC18C;&#xB9AC; &#xC54C;&#xB78C;&#xB9CC; &#xB2F4;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>CLI &#xB610;&#xB294; uORB &#xD1A0;&#xD53D; (MAVLink &#xC758; vehicle_command &#xB4F1;) &#xC744; &#xD1B5;&#xD574; &#xC2DC;&#xC791;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="send_event_usage"><a name="send_event_usage" class="plugin-anchor" href="#send_event_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>Background process running periodically on the LP work queue to perform housekeeping tasks. It is currently only responsible for tone alarm on RC Loss.</p>
+<p>The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).</p>
+<h3 id="send_event_usage"><a name="send_event_usage" class="plugin-anchor" href="#send_event_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>send_event &lt;command&gt; [arguments...]
  Commands:
    start         Start the background task
@@ -2768,18 +2779,18 @@
 
    status        print status info
 </code></pre><h2 id="sensors"><a name="sensors" class="plugin-anchor" href="#sensors"><i class="fa fa-link" aria-hidden="true"></i></a>sensors</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/sensors" target="_blank">modules/sensors</a></p>
-<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xC13C;&#xC11C; &#xBAA8;&#xB4C8;&#xC740; &#xC804;&#xCCB4; &#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xC911;&#xC2EC;&#xC785;&#xB2C8;&#xB2E4;. &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC758; &#xC800;&#xC218;&#xC900; &#xCD9C;&#xB825;, &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; &#xAD6C;&#xC131; &#xD615;&#xD0DC;&#xB85C;&#xC758; &#xC804;&#xD658;&#xC744; &#xCDE8;&#xD558;&#xBA70;, &#xC2DC;&#xC2A4;&#xD15C; &#xB098;&#xBA38;&#xC9C0; &#xB3D9;&#xC791; &#xBD80;&#xBD84;&#xC744; &#xC704;&#xD574; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC81C;&#xACF5; &#xAE30;&#xB2A5;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;:</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/sensors" target="_blank">modules/sensors</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>The sensors module is central to the whole system. It takes low-level output from drivers, turns it into a more usable form, and publishes it for the rest of the system.</p>
+<p>The provided functionality includes:</p>
 <ul>
 <li>&#xC13C;&#xC11C; &#xB4DC;&#xB77C;&#xC774;&#xBC84;(<code>sensor_gyro</code> &#xB4F1;)&#xC758; &#xCD9C;&#xB825;&#xC744; &#xC77D;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB2E4;&#xC911; &#xB3D9;&#xC77C; &#xD615;&#xC2DD; &#xCD9C;&#xB825;&#xC774; &#xC788;&#xC744; &#xACBD;&#xC6B0;, &#xCD9C;&#xB825; &#xB370;&#xC774;&#xD130; &#xC911; &#xD558;&#xB098;&#xB97C; &#xBF51;&#xC544; &#xC548;&#xC804; &#xC870;&#xCE58;&#xB97C; &#xC218;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xADF8; &#xD6C4; &#xBCF4;&#xB4DC; &#xD68C;&#xC804;&#xACFC; &#xC628;&#xB3C4; &#xBCF4;&#xC815; &#xAC12;(&#xAE30;&#xB2A5;&#xC744; &#xCF30;&#xC744; &#xACBD;&#xC6B0;)&#xC744; &#xC801;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;. &#xB0B4;&#xBCF4;&#xB0B4;&#xB294; &#xC5EC;&#xB7EC; &#xD1A0;&#xD53D; &#xC911; &#xD558;&#xB098;&#xB294; &#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xC5EC;&#xB7EC; &#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xD65C;&#xC6A9;&#xD558;&#xB294; <code>sensor_combined</code> &#xC785;&#xB2C8;&#xB2E4;.</li>
 <li>&#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xAC12;&#xC774; &#xBC14;&#xB00C;&#xC5C8;&#xAC70;&#xB098; &#xBE44;&#xD589;&#xCCB4; &#xAC00;&#xB3D9; &#xC2DC;&#xC791;&#xC2DC;, &#xC13C;&#xC11C; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xC5D0;&#xC11C; &#xCD5C;&#xC2E0; &#xBCF4;&#xC815; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xAC12;(&#xACC4;&#xC218;&#xC640; &#xC624;&#xD504;&#xC14B;)&#xC744; &#xBC1B;&#xC558;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD569;&#xB2C8;&#xB2E4;. &#xC13C;&#xC11C; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB294; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xAC12; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xC2DC; ioctl &#xC778;&#xD130;&#xD398;&#xC774;&#xC2A4;&#xB97C; &#xD65C;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xB3D9;&#xC791;&#xC744; &#xC81C;&#xB300;&#xB85C; &#xC218;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD574; &#xC13C;&#xC11C; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xB294; &#xBC18;&#xB4DC;&#xC2DC; <code>&#xC13C;&#xC11C;</code>&#xB97C; &#xC2DC;&#xC791;&#xD560; &#xB54C; &#xBA3C;&#xC800; &#xB3D9;&#xC791;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</li>
 <li>&#xC13C;&#xC11C; &#xBB34;&#xACB0;&#xC131;&#xC744; &#xC810;&#xAC80;&#xD558;&#xACE0; <code>sensors_status_imu</code> &#xD1A0;&#xD53D;&#xC744; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</li>
 </ul>
-<h3 id="&#xAD6C;&#xD604;"><a name="&#xAD6C;&#xD604;" class="plugin-anchor" href="#&#xAD6C;&#xD604;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xAD6C;&#xD604;</h3>
-<p>&#xD604;&#xC7AC; &#xC120;&#xD0DD;&#xD55C; &#xC790;&#xC774;&#xB85C; &#xD1A0;&#xD53D;&#xC5D0; &#xB300;&#xD574; &#xC2A4;&#xB808;&#xB4DC;&#xC640; &#xD3F4;&#xB9C1;&#xC744; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<h3 id="sensors_usage"><a name="sensors_usage" class="plugin-anchor" href="#sensors_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>It runs in its own thread and polls on the currently selected gyro topic.</p>
+<h3 id="sensors_usage"><a name="sensors_usage" class="plugin-anchor" href="#sensors_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>sensors &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2789,10 +2800,10 @@
 
    status        print status info
 </code></pre><h2 id="temperaturecompensation"><a name="temperaturecompensation" class="plugin-anchor" href="#temperaturecompensation"><i class="fa fa-link" aria-hidden="true"></i></a>temperature_compensation</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/temperature_compensation" target="_blank">modules/temperature_compensation</a></p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/temperature_compensation" target="_blank">modules/temperature_compensation</a></p>
 <h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xC628;&#xB3C4; &#xBCF4;&#xC815; &#xBAA8;&#xB4C8;&#xC740; &#xC2DC;&#xC2A4;&#xD15C;&#xC758; &#xBAA8;&#xB4E0; &#xAC01;&#xAC00;&#xC18D;, &#xAC00;&#xC18D;, &#xAE30;&#xC555; &#xAC12;&#xC5D0; &#xC628;&#xB3C4; &#xBCF4;&#xC815;&#xC744; &#xC801;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xBAA8;&#xB4C8;&#xC740; &#xC13C;&#xC11C;&#xB85C; &#xC624;&#xB294; &#xB370;&#xC774;&#xD130;&#xB97C; &#xD655;&#xC778;&#xD558;&#xACE0; &#xC628;&#xB3C4; &#xBCC0;&#xD654;&#xB97C; &#xAC10;&#xC9C0;&#xD560; &#xB54C;&#xB9C8;&#xB2E4; sensor_thermal_cal &#xAD00;&#xB828; &#xD1A0;&#xD53D;&#xC744; &#xC5C5;&#xB370;&#xC774;&#xD2B8;&#xD569;&#xB2C8;&#xB2E4;. &#xC774; &#xBAA8;&#xB4C8;&#xC740; &#xAE30;&#xCCB4;&#xAC00; &#xC628;&#xB3C4; &#xBCC0;&#xD654; &#xC0AC;&#xC774;&#xD074;&#xC744; &#xACAA;&#xB294; &#xB3D9;&#xC548; &#xACC4;&#xC0B0;&#xD560; &#xC628;&#xB3C4; &#xBCF4;&#xC815; &#xC0C1;&#xAD00; &#xACC4;&#xC218;&#xB97C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xB3C4;&#xB85D;, &#xB2E4;&#xC74C; &#xBD80;&#xD305;&#xC2DC; &#xC0C1;&#xAD00;&#xACC4;&#xC218; &#xCC98;&#xB9AC; &#xB8E8;&#xD2F4; &#xC218;&#xD589;&#xC744; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<h3 id="temperature_compensation_usage"><a name="temperature_compensation_usage" class="plugin-anchor" href="#temperature_compensation_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_thermal_cal topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.</p>
+<h3 id="temperature_compensation_usage"><a name="temperature_compensation_usage" class="plugin-anchor" href="#temperature_compensation_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>temperature_compensation &lt;command&gt; [arguments...]
  Commands:
    start         Start the module, which monitors the sensors and updates the
@@ -2808,18 +2819,19 @@
 
    status        print status info
 </code></pre><h2 id="tunecontrol"><a name="tunecontrol" class="plugin-anchor" href="#tunecontrol"><i class="fa fa-link" aria-hidden="true"></i></a>tune_control</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control" target="_blank">systemcmds/tune_control</a></p>
-<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>(&#xC678;&#xBD80;) &#xC18C;&#xB9AC;&#xB97C; &#xC81C;&#xC5B4;&#xD558;&#xACE0; &#xC2DC;&#xD5D8;&#xD558;&#xB294; &#xBA85;&#xB839;&#xD589; &#xB3C4;&#xAD6C;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC18C;&#xB9AC;&#xB294; &#xB4E4;&#xC744; &#xC218; &#xC788;&#xB294; &#xC54C;&#xB9BC;, &#xACBD;&#xACE0;&#xB97C; &#xB098;&#xD0C0;&#xB0BC; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;(&#xC608;: &#xC2DC;&#xC2A4;&#xD15C; &#xC774;&#xB959; &#xC900;&#xBE44;, &#xC704;&#xCE58; &#xACE0;&#xC815; &#xD68D;&#xB4DD;, &#xB4F1;.). &#xC774; &#xB3C4;&#xAD6C;&#xB294; tune_control uORB &#xD1A0;&#xD53D;&#xC744; &#xC81C;&#xC5B4;&#xD560; &#xC218; &#xC788;&#xB294; &#xC2E4;&#xD589; &#xC911;&#xC778; &#xB4DC;&#xB77C;&#xC774;&#xBC84;&#xAC00; &#xD544;&#xC694;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC18C;&#xB9AC; &#xD615;&#xC2DD;&#xACFC; &#xC0AC;&#xC804; &#xC9C0;&#xC815; &#xC2DC;&#xC2A4;&#xD15C; &#xC54C;&#xB9BC;&#xC74C;&#xC740; &#xB2E4;&#xC74C; &#xC8FC;&#xC18C;&#xC5D0;&#xC11C; &#xCC3E;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;: <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc</a></p>
-<h3 id="&#xC608;&#xC81C;"><a name="&#xC608;&#xC81C;" class="plugin-anchor" href="#&#xC608;&#xC81C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC608;&#xC81C;</h3>
-<p>&#xC2DC;&#xC2A4;&#xD15C; &#xC18C;&#xB9AC; 2&#xBC88;&#xC744; &#xC7AC;&#xC0DD;&#xD558;&#xB824;&#xBA74;:</p>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/tune_control" target="_blank">systemcmds/tune_control</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Command-line tool to control &amp; test the (external) tunes.</p>
+<p>Tunes are used to provide audible notification and warnings (e.g. when the system arms, gets position lock, etc.). The tool requires that a driver is running that can handle the tune_control uorb topic.</p>
+<p>Information about the tune format and predefined system tunes can be found here: <a href="https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc" target="_blank">https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc</a></p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>Play system tune #2:</p>
 <pre><code>tune_control play -t 2
-</code></pre><h3 id="tune_control_usage"><a name="tune_control_usage" class="plugin-anchor" href="#tune_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+</code></pre><h3 id="tune_control_usage"><a name="tune_control_usage" class="plugin-anchor" href="#tune_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>tune_control &lt;command&gt; [arguments...]
  Commands:
    play          Play system tune or single note.
+     error       Play error tune
      [-t &lt;val&gt;]  Play predefined system tune
                  default: 1
      [-f &lt;val&gt;]  Frequency of note in Hz (0-22kHz)
@@ -2833,10 +2845,10 @@
 
    stop          Stop playback (use for repeated tunes)
 </code></pre><h2 id="workqueue"><a name="workqueue" class="plugin-anchor" href="#workqueue"><i class="fa fa-link" aria-hidden="true"></i></a>work_queue</h2>
-<p>&#xC18C;&#xC2A4; &#xCF54;&#xB4DC;: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue" target="_blank">systemcmds/work_queue</a></p>
-<h3 id="&#xC124;&#xBA85;"><a name="&#xC124;&#xBA85;" class="plugin-anchor" href="#&#xC124;&#xBA85;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC124;&#xBA85;</h3>
-<p>&#xC791;&#xC5C5; &#xD050; &#xC0C1;&#xD0DC;&#xB97C; &#xB098;&#xD0C0;&#xB0B4;&#xB294; &#xBA85;&#xB839;&#xD589; &#xB3C4;&#xAD6C;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<h3 id="work_queue_usage"><a name="work_queue_usage" class="plugin-anchor" href="#work_queue_usage"><i class="fa fa-link" aria-hidden="true"></i></a>&#xC0AC;&#xC6A9;&#xBC95; </h3>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue" target="_blank">systemcmds/work_queue</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Command-line tool to show work queue status.</p>
+<h3 id="work_queue_usage"><a name="work_queue_usage" class="plugin-anchor" href="#work_queue_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
 <pre><code>work_queue &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2887,7 +2899,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"시스템","level":"1.7.7","depth":2,"next":{"title":"서식","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]},"previous":{"title":"모의시험","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"middleware/modules_system.md","mtime":"2020-10-07T04:24:10.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-07T04:25:38.971Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"시스템","level":"1.7.7","depth":2,"next":{"title":"서식","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]},"previous":{"title":"모의시험","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"middleware/modules_system.md","mtime":"2020-10-07T04:32:59.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-07T04:34:26.356Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>
