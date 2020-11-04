@@ -2498,15 +2498,15 @@
 <p> For solutions to common build problems see <a href="#troubleshooting">Troubleshooting</a> below.</p>
 </blockquote>
 <h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>Download the PX4 Source Code </h2>
-<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/Firmware" target="_blank">PX4/Firmware</a> repository. To get the <em>very latest</em> version onto your computer, enter the following command into a terminal:</p>
-<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/PX4/Firmware.git --recursive
+<p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/PX4-Autopilot" target="_blank">PX4/PX4-Autopilot</a> repository. To get the <em>very latest</em> version onto your computer, enter the following command into a terminal:</p>
+<pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/PX4/PX4-Autopilot.git --recursive
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> This is all you need to do just to build the latest code. <a href="../contribute/git_examples.html#contributing_code">GIT Examples &gt; Contributing code to PX4</a> provides a lot more information about using git to contribute to PX4.</p>
 </blockquote>
 <h2 id="jmavsim_build"><a name="jmavsim_build" class="plugin-anchor" href="#jmavsim_build"><i class="fa fa-link" aria-hidden="true"></i></a>&#x521D;&#x6B21;&#x7F16;&#x8BD1;&#xFF08;&#x4F7F;&#x7528; jMAVSim &#x6A21;&#x62DF;&#x5668;&#xFF09; </h2>
 <p>First we&apos;ll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
-<p>Navigate into the <strong>Firmware</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
+<p>Navigate into the <strong>PX4-Autopilot</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
 <pre><code class="lang-sh">make px4_sitl jmavsim
 </code></pre>
 <p>This will bring up the PX4 console below:</p>
@@ -2523,17 +2523,17 @@
 </blockquote>
 <h2 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards </h2>
 <h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>Building </h3>
-<p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>Firmware</strong> directory and then call <code>make</code> with the build target for your board.</p>
+<p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>PX4-Autopilot</strong> directory and then call <code>make</code> with the build target for your board.</p>
 <p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot
 make px4_fmu-v4_default
 </code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> In the example above the first part of the build target <code>px4_fmu-v4</code> is the firmware for a particular flight controller hardware and <code>default</code> is the configuration name (in this case the &quot;default&quot; configuration). The <code>default</code> is optional so you could instead do: <code>make px4_fmu-v4</code></p>
 </blockquote>
 <p>A successful run will end with similar output to:</p>
-<pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
-[954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
+<pre><code class="lang-sh">-- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
+[954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 </code></pre>
 <p>The following list shows the build commands for common boards:</p>
 <ul>
@@ -2589,12 +2589,12 @@ Rebooting.
 <p> The value of the environment variable should be set before the build, or <code>make upload</code> will fail to find your RPi.</p>
 </blockquote>
 <p>Build the executable file:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot
 make emlid_navio2 <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
 <p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_default/</strong>. Make sure you can connect to your RPi over ssh, see <a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start" target="_blank">instructions how to access your RPi</a>.</p>
 <p>Then upload it with:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot
 make emlid_navio2 upload <span class="hljs-comment"># for cross-compiler build</span>
 </code></pre>
 <p>Then, connect over ssh and run it with (as root):</p>
@@ -2603,7 +2603,7 @@ sudo ./bin/px4 <span class="hljs-_">-s</span> px4.config
 </code></pre>
 <h4 id="&#x672C;&#x673A;&#x751F;&#x6210;"><a name="&#x672C;&#x673A;&#x751F;&#x6210;" class="plugin-anchor" href="#&#x672C;&#x673A;&#x751F;&#x6210;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x673A;&#x751F;&#x6210;</h4>
 <p>If you&apos;re building <em>directly</em> on the Pi, you will want the native build target (emlid_navio2_native).</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot
 make emlid_navio2_native <span class="hljs-comment"># for native build</span>
 </code></pre>
 <p>The &quot;px4&quot; executable file is in the directory <strong>build/emlid_navio2_native/</strong>. Run it directly with:</p>
@@ -2639,7 +2639,7 @@ pxh&gt;
 <p> If you use the <a href="http://shop.intrinsyc.com/products/qualcomm-electronic-speed-control-board" target="_blank">Qualcomm ESC board</a> (UART-based), then please follow their instructions <a href="https://github.com/ATLFlight/ATLFlightDocs/blob/master/PX4.md" target="_blank">here</a>. If you use normal PWM-based ESCs boards, then you may continue to follow the instructions on this page.</p>
 </blockquote>
 <p>The commands below build the targets for the Linux and the DSP side. Both executables communicate via <a href="../middleware/uorb.html">muORB</a>.</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot
 make atlflight_eagle_default
 </code></pre>
 <p>To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:</p>
@@ -2648,7 +2648,7 @@ make atlflight_eagle_default
 <p>Go back to previous terminal and upload:</p>
 <pre><code class="lang-sh">make atlflight_eagle_default upload
 </code></pre>
-<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.</p>
+<p>Note that this will also copy (and overwrite) the two config files <a href="https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/mainapp.config" target="_blank">mainapp.config</a> and <a href="https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/px4.config" target="_blank">px4.config</a> to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.</p>
 <p>The mixer currently needs to be copied manually:</p>
 <pre><code class="lang-sh">adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 </code></pre>
@@ -2686,19 +2686,19 @@ chmod +x /etc/rc.local
 <pre><code class="lang-sh">adb reboot
 </code></pre>
 <h2 id="&#x7528;&#x56FE;&#x5F62;&#x754C;&#x9762;-ide-&#x7F16;&#x8BD1;"><a name="&#x7528;&#x56FE;&#x5F62;&#x754C;&#x9762;-ide-&#x7F16;&#x8BD1;" class="plugin-anchor" href="#&#x7528;&#x56FE;&#x5F62;&#x754C;&#x9762;-ide-&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x56FE;&#x5F62;&#x754C;&#x9762; IDE &#x7F16;&#x8BD1;</h2>
-<p>The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an <a href="https://github.com/PX4/Firmware/blob/master/eclipse.project" target="_blank">Eclipse project</a> and a <a href="https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a> in the source tree.</p>
+<p>The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an <a href="https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project" target="_blank">Eclipse project</a> and a <a href="https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project" target="_blank">Sublime project</a> in the source tree.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Bkk8zttWxEI"></iframe></div></p>
 <h2 id="qt-creator-&#x529F;&#x80FD;"><a name="qt-creator-&#x529F;&#x80FD;" class="plugin-anchor" href="#qt-creator-&#x529F;&#x80FD;"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator &#x529F;&#x80FD;</h2>
 <p>Qt creator offers clickable symbols, auto-completion of the complete codebase and building and flashing firmware.</p>
 <p><img src="../../assets/toolchain/qtcreator.png" alt=""></p>
 <h3 id="qt-creator-on-linux"><a name="qt-creator-on-linux" class="plugin-anchor" href="#qt-creator-on-linux"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Linux</h3>
 <p>Before starting Qt Creator, the <a href="https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator" target="_blank">project file</a> needs to be created:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/PX4-Autopilot
 mkdir ../Firmware-build
 <span class="hljs-built_in">cd</span> ../Firmware-build
-cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
+cmake ../PX4-Autopilot -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
 </code></pre>
-<p>Then load the CMakeLists.txt in the root firmware folder via <strong>File &gt; Open File or Project</strong> (Select the CMakeLists.txt file).</p>
+<p>Then load the CMakeLists.txt in the root PX4-Autopilot folder via <strong>File &gt; Open File or Project</strong> (Select the CMakeLists.txt file).</p>
 <p>After loading, the <strong>play</strong> button can be configured to run the project by selecting &apos;custom executable&apos; in the run target configuration and entering &apos;make&apos; as executable and &apos;upload&apos; as argument.</p>
 <h3 id="qt-creator-on-windows"><a name="qt-creator-on-windows" class="plugin-anchor" href="#qt-creator-on-windows"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Windows</h3>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2706,7 +2706,7 @@ cmake ../Firmware -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles
 </blockquote>
 <h3 id="qt-creator-on-mac-os"><a name="qt-creator-on-mac-os" class="plugin-anchor" href="#qt-creator-on-mac-os"><i class="fa fa-link" aria-hidden="true"></i></a>Qt Creator on Mac OS</h3>
 <p>Before starting Qt Creator, the <a href="https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator" target="_blank">project file</a> needs to be created:</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/Firmware
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> ~/src/PX4-Autopilot
 mkdir -p build/creator
 <span class="hljs-built_in">cd</span> build/creator
 cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;</span>
@@ -2750,7 +2750,7 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 <li>You can use three underscores if you want to specify a default value between two other settings. For example, <code>gazebo___gdb</code> is equivalent to <code>gazebo_iris_gdb</code>.</li>
 <li>You can use a <code>none</code> value for <code>VIEWER_MODEL_DEBUGGER</code> to start PX4 and wait for a simulator. For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim using <code>./Tools/jmavsim_run.sh -l</code>.</li>
 </ul>
-<p>The <code>VENDOR_MODEL_VARIANT</code> options map to particular <em>cmake</em> configuration files in the PX4 source tree under the <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">/boards</a> directory. Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <strong>boards/VENDOR/MODEL/VARIANT.cmake</strong> (e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
+<p>The <code>VENDOR_MODEL_VARIANT</code> options map to particular <em>cmake</em> configuration files in the PX4 source tree under the <a href="https://github.com/PX4/PX4-Autopilot/tree/master/boards" target="_blank">/boards</a> directory. Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <strong>boards/VENDOR/MODEL/VARIANT.cmake</strong> (e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
 <p>Additional make targets are discussed in the following sections (list is not exhaustive):</p>
 <h3 id="bloaty_compare_master"><a name="bloaty_compare_master" class="plugin-anchor" href="#bloaty_compare_master"><i class="fa fa-link" aria-hidden="true"></i></a>Binary Size Profiling </h3>
 <p>The <code>bloaty_compare_master</code> build target allows you to get a better understanding of the impact of changes on code size. When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the <a href="https://github.com/google/bloaty" target="_blank">bloaty</a> size profiler for binaries).</p>
@@ -2823,7 +2823,7 @@ make distclean
 </code></pre>
 <p>The solution is to increase the maximum allowed number of open files (e.g. to 300). You can do this in the macOS <em>Terminal</em> for each session:</p>
 <ul>
-<li>Run this script <a href="https://github.com/PX4/Firmware/blob/master/Tools/mac_set_ulimit.sh" target="_blank">Tools/mac_set_ulimit.sh</a>, or</li>
+<li>Run this script <a href="https://github.com/PX4/PX4-Autopilot/blob/master/Tools/mac_set_ulimit.sh" target="_blank">Tools/mac_set_ulimit.sh</a>, or</li>
 <li>Enter this command: <pre><code>  sh
   ulimit -S -n 300
 </code></pre></li>
@@ -2884,7 +2884,7 @@ You may need to install it using:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-11-04T00:16:11.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T00:17:04.748Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"构建代码","level":"1.2.3","depth":2,"next":{"title":"编写您的第一个应用程序","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-11-04T02:53:16.805Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T02:54:10.530Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
