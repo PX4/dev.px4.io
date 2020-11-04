@@ -2572,7 +2572,7 @@ PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plu
 </ol>
 <h2 id="px4-changes"><a name="px4-changes" class="plugin-anchor" href="#px4-changes"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Changes</h2>
 <ol>
-<li><p>Inside <strong>common.xml</strong> (in <strong>Firmware/mavlink/include/mavlink/v2.0/message_definitions</strong>), add your MAVLink message as following (same procedure as for MAVROS section above):</p>
+<li><p>Inside <strong>common.xml</strong> (in <strong>PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions</strong>), add your MAVLink message as following (same procedure as for MAVROS section above):</p>
 <pre><code class="lang-xml">...
   <span class="hljs-tag">&lt;<span class="hljs-name">message</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;229&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;KEY_COMMAND&quot;</span>&gt;</span>
      <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Keyboard char command.<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
@@ -2581,7 +2581,7 @@ PLUGINLIB_EXPORT_CLASS(mavros::extra_plugins::KeyboardCommandPlugin, mavros::plu
 ...
 </code></pre>
 </li>
-<li><p>Remove <em>common</em>, <em>standard</em> directories in (<strong>Firmware/mavlink/include/mavlink/v2.0</strong>).</p>
+<li><p>Remove <em>common</em>, <em>standard</em> directories in (<strong>PX4-Autopilot/mavlink/include/mavlink/v2.0</strong>).</p>
 <pre><code class="lang-sh">rm -r common
 rm -r standard
 </code></pre>
@@ -2594,25 +2594,25 @@ python mavgenerate.py
 </li>
 <li><p>You will see a &quot;MAVLink Generator&quot; popup:</p>
 <ul>
-<li>For <em>XML</em>, &quot;Browse&quot; to <strong>/Firmware/mavlink/include/mavlink/v2.0/message_definitions/standard.xml</strong>.</li>
-<li>For Out, &quot;Browse&quot; to <strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>.</li>
+<li>For <em>XML</em>, &quot;Browse&quot; to <strong>/PX4-Autopilot/mavlink/include/mavlink/v2.0/message_definitions/standard.xml</strong>.</li>
+<li>For Out, &quot;Browse&quot; to <strong>/PX4-Autopilot/mavlink/include/mavlink/v2.0/</strong>.</li>
 <li>Select Language <strong>C</strong></li>
 <li>Select Protocol <strong>2.0</strong></li>
 <li>Check <em>Validate</em></li>
 </ul>
 <p>Then, press <strong>Generate</strong>.
-You will see <em>common</em>, and <em>standard</em> directories created in <strong>/Firmware/mavlink/include/mavlink/v2.0/</strong>.</p>
+You will see <em>common</em>, and <em>standard</em> directories created in <strong>/PX4-Autopilot/mavlink/include/mavlink/v2.0/</strong>.</p>
 </li>
-<li><p>Make your own uORB message file <strong>key_command.msg</strong> in (Firmware/msg). For this example the &quot;key_command.msg&quot; has only the code:</p>
+<li><p>Make your own uORB message file <strong>key_command.msg</strong> in (PX4-Autopilot/msg). For this example the &quot;key_command.msg&quot; has only the code:</p>
 <pre><code>char cmd
-</code></pre><p>Then, in <strong>CMakeLists.txt</strong> (in <strong>Firmware/msg</strong>), include</p>
+</code></pre><p>Then, in <strong>CMakeLists.txt</strong> (in <strong>PX4-Autopilot/msg</strong>), include</p>
 <pre><code class="lang-cmake"><span class="hljs-keyword">set</span>(
 ...
      key_command.msg
      )
 </code></pre>
 </li>
-<li><p>Edit <strong>mavlink_receiver.h</strong> (in <strong>Firmware/src/modules/mavlink</strong>)</p>
+<li><p>Edit <strong>mavlink_receiver.h</strong> (in <strong>PX4-Autopilot/src/modules/mavlink</strong>)</p>
 <pre><code class="lang-cpp">...
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/key_command.h&gt;</span></span>
 ...
@@ -2626,7 +2626,7 @@ You will see <em>common</em>, and <em>standard</em> directories created in <stro
 }
 </code></pre>
 </li>
-<li><p>Edit <strong>mavlink_receiver.cpp</strong> (in <strong>Firmware/src/modules/mavlink</strong>).
+<li><p>Edit <strong>mavlink_receiver.cpp</strong> (in <strong>PX4-Autopilot/src/modules/mavlink</strong>).
 This is where PX4 receives the MAVLink message sent from ROS, and publishes it as a uORB topic.</p>
 <pre><code class="lang-cpp">...
 <span class="hljs-keyword">void</span> MavlinkReceiver::handle_message(<span class="hljs-keyword">mavlink_message_t</span> *msg)
@@ -2658,7 +2658,8 @@ MavlinkReceiver::handle_message_key_command(<span class="hljs-keyword">mavlink_m
 }
 </code></pre>
 </li>
-<li><p>Make your own uORB topic subscriber just like any example subscriber module. For this example lets create the model in (/Firmware/src/modules/key_receiver). 
+<li><p>Make your own uORB topic subscriber just like any example subscriber module.
+For this example lets create the model in (/PX4-Autopilot/src/modules/key_receiver). 
 In this directory, create two files <strong>CMakeLists.txt</strong>, <strong>key_receiver.cpp</strong>.
 Each one looks like following.</p>
 <p>-CMakeLists.txt</p>
@@ -2732,7 +2733,8 @@ int key_receiver_main(int argc, char **argv)
 }
 </code></pre><p>For a more detailed explanation please see the documentation for <a href="https://dev.px4.io/en/apps/hello_sky.html" target="_blank">Writing your first application</a>.</p>
 </li>
-<li><p>Lastly add your module in the <strong>default.cmake</strong> file correspondent to your board in <strong>Firmware/boards/</strong>. For example for the Pixhawk 4 add the following code in <strong>Firmware/boards/px4/fmu-v5/default.cmake</strong>:</p>
+<li><p>Lastly add your module in the <strong>default.cmake</strong> file correspondent to your board in <strong>PX4-Autopilot/boards/</strong>.
+For example for the Pixhawk 4 add the following code in <strong>PX4-Autopilot/boards/px4/fmu-v5/default.cmake</strong>:</p>
 <pre><code class="lang-cmake"> MODULES
      ...
      key_receiver
@@ -2761,8 +2763,8 @@ Modifying &quot;gcs_url&quot; is to connect your Pixhawk with UDP, because seria
 </ol>
 <h3 id="build-for-px4"><a name="build-for-px4" class="plugin-anchor" href="#build-for-px4"><i class="fa fa-link" aria-hidden="true"></i></a>Build for PX4</h3>
 <ol>
-<li><p>Build PX4 Firmware and upload <a href="../setup/building_px4.html#nuttx">in the normal way</a>. </p>
-<p> For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the Firmware directory:</p>
+<li><p>Build PX4-Autopilot and upload <a href="../setup/building_px4.html#nuttx">in the normal way</a>. </p>
+<p> For example, to build for Pixhawk 4/FMUv5 execute the following command in the root of the PX4-Autopilot directory:</p>
 <pre><code class="lang-sh"> make px4_fmu-v5_default upload
 </code></pre>
 </li>
@@ -2782,7 +2784,7 @@ This means, publish 97 (&apos;a&apos; in ASCII) to ROS topic &quot;/mavros/keybo
 <ol>
 <li><p>Enter the Pixhawk nutshell through UDP.
 Replace xxx.xx.xxx.xxx with your IP.</p>
-<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> Firmware/Tools
+<pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot/Tools
 ./mavlink_shell.py xxx.xx.xxx.xxx:14557 --baudrate 57600
 </code></pre>
 </li>
@@ -2839,7 +2841,7 @@ nsh&gt;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/mavros_custom_messages.md","mtime":"2020-11-03T21:51:54.749Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-03T21:53:10.550Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Sending Custom Messages from MAVROS","level":"1.8.2.7","depth":3,"next":{"title":"DroneKit","level":"1.8.3","depth":2,"path":"robotics/dronekit.md","ref":"robotics/dronekit.md","articles":[]},"previous":{"title":"External Position Estimation (Vision/Motion based)","level":"1.8.2.6","depth":3,"path":"ros/external_position_estimation.md","ref":"ros/external_position_estimation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"ros/mavros_custom_messages.md","mtime":"2020-11-04T00:16:11.524Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T00:17:04.748Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
