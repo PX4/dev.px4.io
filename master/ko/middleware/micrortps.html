@@ -2754,7 +2754,7 @@ mkdir micrortps_listener
 fastrtpsgen -example x64Linux2.6gcc ../micrortps_client/micrortps_agent/idl/sensor_combined.idl
 </code></pre>
 <p>&#xC774; &#xBA85;&#xB839;&#xC5B4;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC778; Subscriber&#xC640; Publisher&#xB97C; &#xB9CC;&#xB4E4;&#xACE0;, &#xC774;&#xAC83;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xBA54;&#xC778; &#xC5B4;&#xD50C;&#xB9AC;&#xCF00;&#xC774;&#xC158;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. <code>sensor_combined</code> &#xD1A0;&#xD53D;&#xC73C;&#xB85C; &#xBD80;&#xD130; &#xC624;&#xB294; &#xB370;&#xC774;&#xD130;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xAE30; &#xC704;&#xD574;&#xC11C;&#xB294; <strong>sensor_combined_Subscriber.cxx</strong> &#xBA54;&#xC18C;&#xB4DC;&#xC758; <code>onNewDataMessage()</code>&#xB97C; &#xC218;&#xC815;&#xD558;&#xC138;&#xC694;.</p>
-<pre><code class="lang-c++"><span class="hljs-keyword">void</span> sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
+<pre><code class="lang-cpp"><span class="hljs-keyword">void</span> sensor_combined_Subscriber::SubListener::onNewDataMessage(Subscriber* sub)
 {
     <span class="hljs-comment">// Take data</span>
     sensor_combined_ st;
@@ -2814,18 +2814,18 @@ baro_temp_celcius: 43.93
 <h2 id="ros2-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;"><a name="ros2-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;" class="plugin-anchor" href="#ros2-&#xAC10;&#xCCAD;-&#xC720;&#xB2DB;-&#xB9CC;&#xB4E4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2 &#xAC10;&#xCCAD; &#xC720;&#xB2DB; &#xB9CC;&#xB4E4;&#xAE30;</h2>
 <p><code>px4_ros_com</code>&#xAC00; &#xBE4C;&#xB4DC;&#xB418;&#xBA74;, &#xC0DD;&#xC131;&#xB41C; <em>micro-RTPS</em> &#xC5D0;&#xC774;&#xC804;&#xD2B8; &#xC571;&#xACFC; <code>px4_msgs</code>&#xB85C; &#xBD80;&#xD130; &#xC0DD;&#xC131;&#xB41C; ROS2 &#xBA54;&#xC2DC;&#xC9C0; &#xD5E4;&#xB354;, &#xC18C;&#xC2A4;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xB300;&#xC751;&#xD558;&#xB294; uORB&#xC640; 1:1&#xB85C; &#xB9E4;&#xCE6D;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <p>ROS2&#xC5D0;&#xC11C; &#xAC10;&#xCCAD; &#xB178;&#xB4DC;&#xB97C; &#xB9CC;&#xB4DC;&#xB824;&#xBA74; <code>px4_ros_com/src/listeners</code>&#xC758; <code>sensor_combined_listener.cpp</code> &#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC2ED;&#xC2DC;&#xC624;.</p>
-<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_msgs/msg/sensor_combined.hpp&gt;</span></span>
 </code></pre>
 <p>&#xC704;&#xC758; &#xD5E4;&#xB354;&#xB4E4;&#xC740; ROS2 &#xBBF8;&#xB4E4;&#xC6E8;&#xC5B4;&#xC5D0; &#xC811;&#xC18D;&#xD558;&#xAE30; &#xC704;&#xD574; &#xD544;&#xC694;&#xD55C; C++ &#xB77C;&#xC774;&#xBE0C;&#xB7EC;&#xB9AC;&#xB4E4;&#xC744; &#xD3EC;&#xD568;&#xD569;&#xB2C8;&#xB2E4;. &#xD544;&#xC694;&#xD55C; &#xBA54;&#xC2DC;&#xC9C0; &#xD5E4;&#xB354;&#xD30C;&#xC77C;&#xB4E4; &#xB610;&#xD55C; &#xD3EC;&#xD568;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++"><span class="hljs-comment">/**
+<pre><code class="lang-cpp"><span class="hljs-comment">/**
  * @brief Sensor Combined uORB topic data callback
  */</span>
 <span class="hljs-keyword">class</span> SensorCombinedListener : <span class="hljs-keyword">public</span> rclcpp::Node
 {
 </code></pre>
 <p><code>rclcpp::Node</code>&#xC758; &#xC11C;&#xBE0C;&#xD074;&#xB798;&#xC2A4;&#xB85C; <code>SensorCombinedListener</code> &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++">public:
+<pre><code class="lang-cpp">public:
     explicit SensorCombinedListener() : Node(&quot;sensor_combined_listener&quot;) {
         subscription_ = this-&gt;create_subscription&lt;px4_msgs::msg::SensorCombined&gt;(
             &quot;SensorCombined_PubSubTopic&quot;, 10,
@@ -2847,12 +2847,12 @@ baro_temp_celcius: 43.93
     }
 </code></pre>
 <p>&#xC774; &#xCF54;&#xB4DC;&#xB294; <code>sensor_combined</code> uORB &#xBA54;&#xC138;&#xC9C0;(DDS &#xBA54;&#xC138;&#xC9C0;&#xC640; &#xC720;&#xC0AC;)&#xB97C; &#xBC1B;&#xC558;&#xC744; &#xB54C; &#xD638;&#xCD9C;&#xD558;&#xB294; &#xD568;&#xC218;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. &#xC774; &#xD568;&#xC218;&#xB294; &#xBA54;&#xC138;&#xC9C0;&#xB97C; &#xBC1B;&#xC744; &#xB54C;&#xB9C8;&#xB2E4; &#xBA54;&#xC138;&#xC9C0; &#xD544;&#xB4DC; &#xB0B4;&#xC6A9;&#xC744; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++"><span class="hljs-keyword">private</span>:
+<pre><code class="lang-cpp"><span class="hljs-keyword">private</span>:
     rclcpp::Subscription&lt;px4_msgs::msg::SensorCombined&gt;::SharedPtr subscription_;
 };
 </code></pre>
 <p>&#xC704; &#xCF54;&#xB4DC;&#xC5D0;&#xC11C;&#xB294; &#xD638;&#xD658;&#xC131;&#xC744; &#xAC00;&#xC9C4; &#xD558;&#xB098; &#xC774;&#xC0C1;&#xC758; ROS &#xC1A1;&#xC2E0;&#xC790;&#xC5D0; &#xB300;&#xC751; &#xAC00;&#xB2A5;&#xD55C; <code>sensor_combined_topic</code>&#xC73C;&#xB85C; &#xC9C0;&#xC18D; &#xAC10;&#xCCAD; &#xC5F0;&#xACB0;&#xC744; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Starting sensor_combined listener node...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     setvbuf(<span class="hljs-built_in">stdout</span>, <span class="hljs-literal">NULL</span>, _IONBF, BUFSIZ);
@@ -2867,18 +2867,18 @@ baro_temp_celcius: 43.93
 <h2 id="ros2-&#xAD11;&#xC5ED;-&#xC804;&#xB2EC;-&#xB178;&#xB4DC;-&#xB9CC;&#xB4E4;&#xAE30;"><a name="ros2-&#xAD11;&#xC5ED;-&#xC804;&#xB2EC;-&#xB178;&#xB4DC;-&#xB9CC;&#xB4E4;&#xAE30;" class="plugin-anchor" href="#ros2-&#xAD11;&#xC5ED;-&#xC804;&#xB2EC;-&#xB178;&#xB4DC;-&#xB9CC;&#xB4E4;&#xAE30;"><i class="fa fa-link" aria-hidden="true"></i></a>ROS2 &#xAD11;&#xC5ED; &#xC804;&#xB2EC; &#xB178;&#xB4DC; &#xB9CC;&#xB4E4;&#xAE30;</h2>
 <p>ROS2 &#xAD11;&#xC5ED; &#xC804;&#xB2EC; &#xB178;&#xB4DC;&#xB294; DDS/RTPS/PX4 &#xB124;&#xD2B8;&#xC6CC;&#xD06C;&#xC5D0; &#xB370;&#xC774;&#xD130;&#xB97C; &#xB0B4;&#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
 <p>Taking as an example the <code>debug_vect_advertiser.cpp</code> under <code>px4_ros_com/src/advertisers</code>:</p>
-<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span></span>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;chrono&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;rclcpp/rclcpp.hpp&gt;</span></span>
 <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_msgs/msg/debug_vect.hpp&gt;</span></span>
 
 <span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>::chrono_literals;
 </code></pre>
 <p><code>debug_vect</code> &#xBA54;&#xC138;&#xC9C0; &#xD5E4;&#xB354;&#xC640; &#xD544;&#xC694;&#xD55C; &#xD5E4;&#xB354;&#xB97C; &#xD568;&#xAED8; &#xC120;&#xC5B8;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++"><span class="hljs-keyword">class</span> DebugVectAdvertiser : <span class="hljs-keyword">public</span> rclcpp::Node
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> DebugVectAdvertiser : <span class="hljs-keyword">public</span> rclcpp::Node
 {
 </code></pre>
 <p><code>rclcpp::Node</code>&#xC758; &#xC11C;&#xBE0C;&#xD074;&#xB798;&#xC2A4;&#xB85C; <code>DebugVectAdvertiser</code> &#xD074;&#xB798;&#xC2A4;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xAC83; &#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++"><span class="hljs-keyword">public</span>:
+<pre><code class="lang-cpp"><span class="hljs-keyword">public</span>:
     DebugVectAdvertiser() : Node(<span class="hljs-string">&quot;debug_vect_advertiser&quot;</span>) {
         publisher_ = <span class="hljs-keyword">this</span>-&gt;create_publisher&lt;px4_msgs::msg::DebugVect&gt;(<span class="hljs-string">&quot;DebugVect_PubSubTopic&quot;</span>, <span class="hljs-number">10</span>);
         <span class="hljs-keyword">auto</span> timer_callback =
@@ -2903,7 +2903,7 @@ baro_temp_celcius: 43.93
 };
 </code></pre>
 <p>&#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xC1A1;&#xC2E0;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xD568;&#xC218;&#xB97C; &#xB9CC;&#xB4ED;&#xB2C8;&#xB2E4;. &#xBA54;&#xC2DC;&#xC9C0;&#xB294; &#xD0C0;&#xC774;&#xBA38; &#xAE30;&#xBC18;&#xC73C;&#xB85C; &#xB3D9;&#xC791;&#xD558;&#xB294; &#xCF5C;&#xBC31; &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xCD08;&#xB2F9; 2&#xAC1C;&#xC529; &#xBCF4;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
     <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">&quot;Starting debug_vect advertiser node...&quot;</span> &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
     setvbuf(<span class="hljs-built_in">stdout</span>, <span class="hljs-literal">NULL</span>, _IONBF, BUFSIZ);
@@ -3023,9 +3023,8 @@ baro_temp_celcius: 43.93
 <pre><code class="lang-sh"> sudo vi /boot/config.txt
 </code></pre>
 <p> <code>enable_uart</code> &#xAC12;&#xC774; 1&#xB85C; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xD655;&#xC778;&#xD558;&#xC138;&#xC694;.</p>
-<pre><code class="lang-txt"> enable_uart=1
-</code></pre>
-</li>
+<pre><code> enable_uart=1
+</code></pre></li>
 </ol>
 <h2 id="&#xCD94;&#xAC00;-&#xC815;&#xBCF4;"><a name="&#xCD94;&#xAC00;-&#xC815;&#xBCF4;" class="plugin-anchor" href="#&#xCD94;&#xAC00;-&#xC815;&#xBCF4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#xCD94;&#xAC00; &#xC815;&#xBCF4;</h2>
 <ul>
@@ -3076,7 +3075,7 @@ baro_temp_celcius: 43.93
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"next":{"title":"메시지 처리 시험","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2020-11-04T17:34:25.159Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T17:35:15.156Z"},"basePath":"..","book":{"language":"ko"}});
+            gitbook.page.hasChanged({"page":{"title":"RTPS/ROS2 인터페이스","level":"1.6.3","depth":2,"next":{"title":"메시지 처리 시험","level":"1.6.3.1","depth":3,"path":"middleware/micrortps_throughput_test.md","ref":"middleware/micrortps_throughput_test.md","articles":[]},"previous":{"title":"MAVLink 메시징","level":"1.6.2","depth":2,"path":"middleware/mavlink.md","ref":"middleware/mavlink.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"ko","gitbook":"*"},"file":{"path":"middleware/micrortps.md","mtime":"2020-11-04T23:15:04.540Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-04T23:15:27.582Z"},"basePath":"..","book":{"language":"ko"}});
         });
     </script>
 </div>
