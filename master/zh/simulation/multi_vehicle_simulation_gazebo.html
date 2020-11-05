@@ -2490,18 +2490,23 @@
                                 
                                 <h1 id="multi-vehicle-simulation-with-gazebo"><a name="multi-vehicle-simulation-with-gazebo" class="plugin-anchor" href="#multi-vehicle-simulation-with-gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>Multi-Vehicle Simulation with Gazebo</h1>
 <p>This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only). A different approach is used for simulation with and without ROS.</p>
-<h2 id="no_ros"><a name="no_ros" class="plugin-anchor" href="#no_ros"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicle with Gazebo (No ROS) </h2>
+<p><a id="no_ros"></a></p>
+<h2 id="multiple-vehicle-with-gazebo-no-ros"><a name="multiple-vehicle-with-gazebo-no-ros" class="plugin-anchor" href="#multiple-vehicle-with-gazebo-no-ros"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicle with Gazebo (No ROS)</h2>
 <p>To simulate multiple iris or plane vehicles in Gazebo use the following commands in the terminal (from the root of the <em>Firmware</em> tree):</p>
-<pre><code>Tools/gazebo_sitl_multiple_run.sh [-m &lt;model&gt;] [-n &lt;number_of_vehicles&gt;] [-w &lt;world&gt;] [-s &lt;script&gt;]
+<pre><code>Tools/gazebo_sitl_multiple_run.sh [-m &lt;model&gt;] [-n &lt;number_of_vehicles&gt;] [-w &lt;world&gt;] [-s &lt;script&gt;] [-t &lt;target&gt;]
 </code></pre><ul>
 <li><code>&lt;model&gt;</code>: The <a href="gazebo_vehicles.html">vehicle type/model</a> to spawn, e.g.: <code>iris</code> (default), <code>plane</code>, <code>standard_vtol</code>.</li>
 <li><code>&lt;number_of_vehicles&gt;</code>: The number of vehicles to spawn. Default is 3. Maximum is 255.</li>
 <li><code>&lt;world&gt;</code>: The <a href="gazebo_worlds.html">world</a> that the vehicle should be spawned into, e.g.: <code>empty</code> (default)</li>
-<li><code>&lt;script&gt;</code>: Spawn multiple vehicles of different types (overriding the values in <code>-m</code> and <code>-n</code>). For example:<pre><code> -s &quot;iris:3,plane:2,standard_vtol:3&quot;
+<li><p><code>&lt;script&gt;</code>: Spawn multiple vehicles of different types (overriding the values in <code>-m</code> and <code>-n</code>). For example:</p>
+<pre><code> -s &quot;iris:3,plane:2,standard_vtol:3&quot;
 </code></pre><ul>
 <li>Supported vehicle types are: <code>iris</code>, <code>plane</code>, <code>standard_vtol</code>.</li>
 <li>The number after the colon indicates the number of vehicles (of that type) to spawn.</li>
 <li>Maximum number of vehicles is 255.</li>
+</ul>
+<ul>
+<li><code>&lt;target&gt;</code>: build target, e.g: <code>px4_sitl_default</code> (default), <code>px4_sitl_rtps</code></li>
 </ul>
 </li>
 </ul>
@@ -2509,13 +2514,52 @@
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> The 255-vehicle limitation occurs because mavlink <code>MAV_SYS_ID</code> only supports 255 vehicles in the same network The <code>MAV_SYS_ID</code> and various UDP ports are allocated in the SITL rcS: <a href="https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS#L108-L112" target="_blank">init.d-posix/rcS</a></p>
 </blockquote>
-<h3 id="video_mc"><a name="video_mc" class="plugin-anchor" href="#video_mc"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple Multicopter (Iris) </h3>
+<p><a id="video_mc"></a></p>
+<h3 id="video-multiple-multicopter-iris"><a name="video-multiple-multicopter-iris" class="plugin-anchor" href="#video-multiple-multicopter-iris"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple Multicopter (Iris)</h3>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/Mskx_WxzeCk"></iframe></div></p>
-<h3 id="video_fw"><a name="video_fw" class="plugin-anchor" href="#video_fw"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple Plane </h3>
+<p><a id="video_fw"></a></p>
+<h3 id="video-multiple-plane"><a name="video-multiple-plane" class="plugin-anchor" href="#video-multiple-plane"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple Plane</h3>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/aEzFKPMEfjc"></iframe></div></p>
-<h3 id="video_vtol"><a name="video_vtol" class="plugin-anchor" href="#video_vtol"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple VTOL </h3>
+<p><a id="video_vtol"></a></p>
+<h3 id="video-multiple-vtol"><a name="video-multiple-vtol" class="plugin-anchor" href="#video-multiple-vtol"><i class="fa fa-link" aria-hidden="true"></i></a>Video: Multiple VTOL</h3>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/lAjjTFFZebI"></iframe></div></p>
-<h2 id="with_ros"><a name="with_ros" class="plugin-anchor" href="#with_ros"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicles with ROS and Gazebo </h2>
+<p><a id="with_rtps"></a></p>
+<h3 id="build-and-test-rtps"><a name="build-and-test-rtps" class="plugin-anchor" href="#build-and-test-rtps"><i class="fa fa-link" aria-hidden="true"></i></a>Build and Test (RTPS)</h3>
+<p>To simulate multiple vehicles based on RTPS in Gazebo, use the <code>gazebo_sitl_multiple_run.sh</code> command in the terminal with the <code>-t px4_sitl_rtps</code> option from the root of the <em>PX4-Autopilot</em> tree (as described above). Here we will use the <code>-t px4_sitl_rtps</code> option, which sets that we will use RTPS for communicating with  PX4 rather than the MAVLink Simulation API. This will build and run the <code>iris_rtps</code> model (the only model that is currently implemented for use with RTPS).</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> You will need to have installed RTPS and the <code>micrortps_agent</code> should be run in the different terminal for each vehicle. For more information see: <a href="../middleware/micrortps.html">RTPS/ROS2 Interface: PX4-FastRTPS Bridge</a>.</p>
+</blockquote>
+<p>To build an example setup, follow the steps below:</p>
+<ol>
+<li><p>Clone the PX4/Firmware code, then build the SITL code:</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> Firmware_<span class="hljs-built_in">clone</span>
+git submodule update --init --recursive
+DONT_RUN=1 make px4_sitl_rtps gazebo
+</code></pre>
+</li>
+<li><p>build <code>micrortps_agent</code></p>
+<ul>
+<li>To use agent in ROS-independent RTPS, follow the <a href="../middleware/micrortps.html#agent-in-a-ros-independent-offboard-fast-rtps-interface">installation instructions here</a></li>
+<li>To use the agent in ROS2, follow the <a href="../middleware/micrortps.html#agent-interfacing-with-a-ros2-middleware">instructions here</a></li>
+</ul>
+</li>
+<li><p>Run <code>gazebo_sitl_multiple_run.sh</code>. For example, to spawn 4 vehicles, run:</p>
+<pre><code class="lang-bash">./Tools/gabo_sitl_multiple_run.sh  -m iris_rtps -t px4_sitl_rtps -n 4
+</code></pre>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Each vehicle instance is allocated a unique MAVLink system id (1, 2, 3, etc.), can receive data from a unique remote UDP port (2019, 2021, 2023, etc.), and transmit data to UDP port (2020, 2022, 2024, etc.).</p>
+</blockquote>
+</li>
+<li><p>Run <code>micrortps_agent</code>. For example, to connect 4 vehicles, run:</p>
+<pre><code class="lang-bash">micrortps_agent -t UDP -r 2020 <span class="hljs-_">-s</span> 2019 &amp;
+micrortps_agent -t UDP -r 2022 <span class="hljs-_">-s</span> 2021 &amp;
+micrortps_agent -t UDP -r 2024 <span class="hljs-_">-s</span> 2023 &amp;
+micrortps_agent -t UDP -r 2026 <span class="hljs-_">-s</span> 2025 &amp;
+</code></pre>
+</li>
+</ol>
+<p><a id="with_ros"></a></p>
+<h2 id="multiple-vehicles-with-ros-and-gazebo"><a name="multiple-vehicles-with-ros-and-gazebo" class="plugin-anchor" href="#multiple-vehicles-with-ros-and-gazebo"><i class="fa fa-link" aria-hidden="true"></i></a>Multiple Vehicles with ROS and Gazebo</h2>
 <p>This example demonstrates a setup that opens the Gazebo client GUI showing two Iris vehicles in an empty world. You can then control the vehicles with <em>QGroundControl</em> and MAVROS in a similar way to how you would manage a single vehicle.</p>
 <h3 id="required"><a name="required" class="plugin-anchor" href="#required"><i class="fa fa-link" aria-hidden="true"></i></a>Required</h3>
 <ul>
@@ -2653,7 +2697,8 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
 <li>copy your model into the folder indicated above (following the same path convention).</li>
 </ul>
 </li>
-<li>The <code>vehicle</code> argument is used to set the <code>PX4_SIM_MODEL</code> environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the <strong>PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/</strong> directory. For example, here is the plane model&apos;s <a href="https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/1030_plane" target="_blank">startup script</a>. For this to work, the PX4 node in the launch file is passed arguments that specify the <em>rcS</em> file (<strong>etc/init.d/rcS</strong>) and the location of the rootfs etc directory (<code>$(find px4)/build_px4_sitl_default/etc</code>). For simplicity, it is suggested that the startup file for the model be placed alongside PX4&apos;s in <strong>PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/</strong>.</li>
+<li><p>The <code>vehicle</code> argument is used to set the <code>PX4_SIM_MODEL</code> environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the <strong>PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/</strong> directory. For example, here is the plane model&apos;s <a href="https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/1030_plane" target="_blank">startup script</a>. For this to work, the PX4 node in the launch file is passed arguments that specify the <em>rcS</em> file (<strong>etc/init.d/rcS</strong>) and the location of the rootfs etc directory (<code>$(find px4)/build_px4_sitl_default/etc</code>). For simplicity, it is suggested that the startup file for the model be placed alongside PX4&apos;s in <strong>PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/</strong>.</p>
+</li>
 </ol>
 <h2 id="additional-resources"><a name="additional-resources" class="plugin-anchor" href="#additional-resources"><i class="fa fa-link" aria-hidden="true"></i></a>Additional Resources</h2>
 <ul>
@@ -2704,7 +2749,7 @@ export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Multi-Vehicle Sim with Gazebo","level":"1.4.3","depth":2,"next":{"title":"FlightGear Simulation","level":"1.4.4","depth":2,"path":"simulation/flightgear.md","ref":"simulation/flightgear.md","articles":[{"title":"FlightGear Vehicles","level":"1.4.4.1","depth":3,"path":"simulation/flightgear_vehicles.md","ref":"simulation/flightgear_vehicles.md","articles":[]}]},"previous":{"title":"Gazebo Worlds","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi_vehicle_simulation_gazebo.md","mtime":"2020-11-05T21:51:36.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T21:52:24.166Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Multi-Vehicle Sim with Gazebo","level":"1.4.3","depth":2,"next":{"title":"FlightGear Simulation","level":"1.4.4","depth":2,"path":"simulation/flightgear.md","ref":"simulation/flightgear.md","articles":[{"title":"FlightGear Vehicles","level":"1.4.4.1","depth":3,"path":"simulation/flightgear_vehicles.md","ref":"simulation/flightgear_vehicles.md","articles":[]}]},"previous":{"title":"Gazebo Worlds","level":"1.4.2.2","depth":3,"path":"simulation/gazebo_worlds.md","ref":"simulation/gazebo_worlds.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"simulation/multi_vehicle_simulation_gazebo.md","mtime":"2020-11-05T22:04:26.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T22:04:39.410Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>

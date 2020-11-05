@@ -2510,7 +2510,8 @@ sudo groupadd docker
 sudo usermod <span class="hljs-_">-a</span>G docker $ USER
 &#xFF03;&#x5728;&#x4F7F;&#x7528; docker &#x4E4B;&#x524D;&#x518D;&#x6B21;&#x767B;&#x5F55;/&#x6CE8;&#x9500;&#xFF01;
 </code></pre>
-<h2 id="px4_containers"><a name="px4_containers" class="plugin-anchor" href="#px4_containers"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x5730;&#x7F16;&#x8F91;&#x5C42;&#x6B21;&#x7ED3;&#x6784; </h2>
+<p><a id="px4_containers"></a></p>
+<h2 id="container-hierarchy"><a name="container-hierarchy" class="plugin-anchor" href="#container-hierarchy"><i class="fa fa-link" aria-hidden="true"></i></a>Container Hierarchy</h2>
 <p>The available containers are listed below (from <a href="https://github.com/PX4/containers/blob/master/README.md#container-hierarchy" target="_blank">Github</a>):</p>
 <table>
 <thead>
@@ -2559,24 +2560,25 @@ sudo usermod <span class="hljs-_">-a</span>G docker $ USER
 <p> &#x901A;&#x5E38;&#xFF0C;&#x60A8;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x6700;&#x8FD1;&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x6700;&#x65B0;&#x7684;&#x6A21;&#x5F0F;&#xFF08;&#x56E0;&#x4E3A;&#x8FD9;&#x7ECF;&#x5E38;&#x66F4;&#x6539;&#xFF09;&#x3002;</p>
 </blockquote>
 <h2 id="&#x4F7F;&#x7528;-docker-&#x5BB9;&#x5668;"><a name="&#x4F7F;&#x7528;-docker-&#x5BB9;&#x5668;" class="plugin-anchor" href="#&#x4F7F;&#x7528;-docker-&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; Docker &#x5BB9;&#x5668;</h2>
-<p>&#x4EE5;&#x4E0B;&#x8BF4;&#x660E;&#x663E;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x5728; docker &#x5BB9;&#x5668;&#x4E2D;&#x8FD0;&#x884C;&#x7684;&#x5DE5;&#x5177;&#x94FE;&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x6784;&#x5EFA; PX4 &#x6E90;&#x4EE3;&#x7801;&#x3002; The information assumes that you have already downloaded the PX4 source code to <strong>src/PX4-Autopilot</strong>, as shown:</p>
+<p>The following instructions show how to build PX4 source code on the host computer using a toolchain running in a docker container. The information assumes that you have already downloaded the PX4 source code to <strong>src/PX4-Autopilot</strong>, as shown:</p>
 <pre><code class="lang-sh">mkdir src
 <span class="hljs-built_in">cd</span> src
 git <span class="hljs-built_in">clone</span> https://github.com/PX4/PX4-Autopilot.git
 <span class="hljs-built_in">cd</span> PX4-Autopilot
 </code></pre>
 <h3 id="&#x52A9;&#x624B;&#x811A;&#x672C;&#xFF08;dockerrunsh&#xFF09;"><a name="&#x52A9;&#x624B;&#x811A;&#x672C;&#xFF08;dockerrunsh&#xFF09;" class="plugin-anchor" href="#&#x52A9;&#x624B;&#x811A;&#x672C;&#xFF08;dockerrunsh&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x52A9;&#x624B;&#x811A;&#x672C;&#xFF08;docker_run.sh&#xFF09;</h3>
-<p>The easiest way to use the containers is via the <a href="https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh" target="_blank">docker_run.sh</a> helper script. &#x6B64;&#x811A;&#x672C;&#x5C06; PX4 &#x6784;&#x5EFA;&#x547D;&#x4EE4;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF08;&#x4F8B;&#x5982; <code>make tests</code>&#xFF09;&#x3002; &#x5B83;&#x4F7F;&#x7528;&#x9002;&#x5F53;&#x5BB9;&#x5668;&#x548C;&#x5408;&#x7406;&#x73AF;&#x5883;&#x8BBE;&#x7F6E;&#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#xFF08;&#x786C;&#x7F16;&#x7801;&#xFF09;&#x542F;&#x52A8; docker&#x3002;</p>
+<p>The easiest way to use the containers is via the <a href="https://github.com/PX4/PX4-Autopilot/blob/master/Tools/docker_run.sh" target="_blank">docker_run.sh</a> helper script. This script takes a PX4 build command as an argument (e.g. <code>make tests</code>). It starts up docker with a recent version (hard coded) of the appropriate container and sensible environment settings.</p>
 <p>For example, to build SITL you would call (from within the <strong>/PX4-Autopilot</strong> directory):</p>
 <pre><code class="lang-sh">./Tools/docker_run.sh <span class="hljs-string">&apos;make px4_sitl_default&apos;</span>
 </code></pre>
-<p>&#x6216;&#x8005;&#x4F7F;&#x7528; NuttX &#x5DE5;&#x5177;&#x94FE;&#x542F;&#x52A8; bash &#x4F1A;&#x8BDD;&#xFF1A;</p>
+<p>Or to start a bash session using the NuttX toolchain:</p>
 <pre><code>./Tools/docker_run.sh &apos;bash&apos;
 </code></pre><blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> &#x811A;&#x672C;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x4E3A;&#x60A8;&#x4E0D;&#x9700;&#x8981;&#x4E86;&#x89E3; <em>Docker</em> &#x6216;&#x8005;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x5BB9;&#x5668;&#x3002; &#x4F46;&#x5B83;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x51C6;&#x786E;&#xFF01; &#x4E0B;&#x9762;&#x8BA8;&#x8BBA;&#x7684; <a href="#manual_start">section below</a> &#x65B9;&#x6CD5;&#x66F4;&#x7075;&#x6D3B;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x5BF9;&#x811A;&#x672C;&#x6709;&#x4EFB;&#x4F55;&#x95EE;&#x9898;&#xFF0C;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x5B83;&#x3002;</p>
 </blockquote>
-<h3 id="manual_start"><a name="manual_start" class="plugin-anchor" href="#manual_start"><i class="fa fa-link" aria-hidden="true"></i></a>&#x624B;&#x52A8;&#x8C03;&#x7528; Docker </h3>
-<p>&#x5178;&#x578B;&#x547D;&#x4EE4;&#x7684;&#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#x6240;&#x793A;&#x3002; &#x8FD9;&#x5C06;&#x8FD0;&#x884C;&#x4E00;&#x4E2A;&#x652F;&#x6301; X &#x6307;&#x4EE4;&#x7684; Docker &#x5BB9;&#x5668;&#xFF08;&#x4F7F;&#x5BB9;&#x5668;&#x5185;&#x90E8;&#x7684;&#x6A21;&#x62DF; GUI &#x53EF;&#x7528;&#xFF09;&#x3002; &#x5B83;&#x5C06;&#x76EE;&#x5F55; <code>&amp;lt;host_src&amp;gt;</code>from your computer to<code>&amp;lt;container_src&amp;gt;</code> &#x5BB9;&#x5668;&#x5185;&#xFF0C;&#x5E76;&#x8F6C;&#x53D1;&#x8FDE;&#x63A5; <em>QGroundControl</em> &#x6240;&#x9700;&#x7684; UDP &#x7AEF;&#x53E3;&#x3002; &#x4F7F;&#x7528; <code>-&#x2013;privileged</code> &#x9009;&#x9879;&#xFF0C;&#x5B83;&#x5C06;&#x81EA;&#x52A8;&#x8BBF;&#x95EE;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x8BBE;&#x5907;&#xFF08;&#x4F8B;&#x5982;&#x64CD;&#x7EB5;&#x6746;&#x548C; GPU&#xFF09;&#x3002; &#x5982;&#x679C;&#x8FDE;&#x63A5;/&#x65AD;&#x5F00;&#x8BBE;&#x5907;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x5BB9;&#x5668;&#x3002;</p>
+<p><a id="manual_start"></a></p>
+<h3 id="calling-docker-manually"><a name="calling-docker-manually" class="plugin-anchor" href="#calling-docker-manually"><i class="fa fa-link" aria-hidden="true"></i></a>Calling Docker Manually</h3>
+<p>The syntax of a typical command is shown below. This runs a Docker container that has support for X forwarding (makes the simulation GUI available from inside the container). It maps the directory <code>&lt;host_src&gt;</code> from your computer to <code>&lt;container_src&gt;</code> inside the container and forwards the UDP port needed to connect <em>QGroundControl</em>. With the <code>-&#x2013;privileged</code> option it will automatically have access to the devices on your host (e.g. a joystick and GPU). If you connect/disconnect a device you have to restart the container.</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># enable access to xhost from the container</span>
 xhost +
 
@@ -2589,7 +2591,7 @@ docker run -it --privileged \
     -p 14570:14570/udp \
     --name=&lt;<span class="hljs-built_in">local</span>_container_name&gt; &lt;container&gt;:&lt;tag&gt; &lt;build_<span class="hljs-built_in">command</span>&gt;
 </code></pre>
-<p>&#x4F4D;&#x7F6E;&#xFF1A;</p>
+<p>Where,</p>
 <ul>
 <li><code>&amp;lt;host_src&amp;gt;</code>&#xFF1A;&#x8981;&#x6620;&#x5C04;&#x5230;&#x5BB9;&#x5668;&#x4E2D;&#x7684; <code>&amp;lt;container_src&amp;gt;</code> &#x7684;&#x4E3B;&#x8BA1;&#x7B97;&#x673A;&#x76EE;&#x5F55;&#x3002; This should normally be the <strong>PX4-Autopilot</strong> directory.</li>
 <li><code>&amp;lt;container_src&amp;gt;</code>&#xFF1A;&#x5BB9;&#x5668;&#x5185;&#x7684;&#x5171;&#x4EAB;&#xFF08;&#x6E90;&#xFF09;&#x76EE;&#x5F55;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
@@ -2610,67 +2612,67 @@ docker run -it --privileged \
 -p 14570:14570/udp \
 --name=mycontainer px4io/px4-dev-ros:2017-10-23 bash
 </code></pre>
-<p>&#x5982;&#x679C;&#x4E00;&#x5207;&#x987A;&#x5229;&#xFF0C;&#x4F60;&#x73B0;&#x5728;&#x5E94;&#x8BE5;&#x5728;&#x4E00;&#x4E2A;&#x65B0;&#x7684; bash shell &#x4E2D;&#x3002; &#x901A;&#x8FC7;&#x8FD0;&#x884C;&#x9A8C;&#x8BC1;&#x4E00;&#x5207;&#x662F;&#x5426;&#x6B63;&#x5E38;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;SITL&#xFF1A;</p>
+<p>If everything went well you should be in a new bash shell now. Verify if everything works by running, for example, SITL:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> src/PX4-Autopilot    <span class="hljs-comment">#This is &lt;container_src&gt;</span>
 make px4_sitl_default gazebo
 </code></pre>
 <h3 id="&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x5BB9;&#x5668;"><a name="&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x5BB9;&#x5668;" class="plugin-anchor" href="#&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x5BB9;&#x5668;</h3>
-<p><code>docker run</code> &#x547D;&#x4EE4;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x5BB9;&#x5668;&#x3002; &#x8981;&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x6B64;&#x5BB9;&#x5668;&#xFF08;&#x5C06;&#x4FDD;&#x7559;&#x60A8;&#x7684;&#x66F4;&#x6539;&#xFF09;&#xFF0C;&#x53EA;&#x9700;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>The <code>docker run</code> command can only be used to create a new container. To get back into this container (which will retain your changes) simply do:</p>
 <pre><code class="lang-sh"><span class="hljs-comment"># &#x542F;&#x52A8; container</span>
 docker start container_name
 <span class="hljs-comment"># &#x5728;container&#x4E2D;&#x6253;&#x5F00; bash shell</span>
 docker <span class="hljs-built_in">exec</span> -it container_name bash
 </code></pre>
-<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x8FDE;&#x63A5;&#x5230;&#x5BB9;&#x5668;&#x7684;&#x591A;&#x4E2A; shell&#xFF0C;&#x53EA;&#x9700;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x65B0; shell &#x5E76;&#x518D;&#x6B21;&#x6267;&#x884C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x3002;</p>
+<p>If you need multiple shells connected to the container, just open a new shell and execute that last command again.</p>
 <h3 id="&#x6E05;&#x7406;&#x5BB9;&#x5668;"><a name="&#x6E05;&#x7406;&#x5BB9;&#x5668;" class="plugin-anchor" href="#&#x6E05;&#x7406;&#x5BB9;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6E05;&#x7406;&#x5BB9;&#x5668;</h3>
-<p>&#x6709;&#x65F6;&#x60A8;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5B8C;&#x5168;&#x6E05;&#x9664;&#x5BB9;&#x5668;&#x3002; &#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x540D;&#x79F0;&#x6765;&#x6267;&#x884C;&#x6B64;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<p>Sometimes you may need to clear a container altogether. You can do so using its name:</p>
 <pre><code class="lang-sh">docker rm mycontainer
 </code></pre>
-<p>&#x5982;&#x679C;&#x60A8;&#x5FD8;&#x8BB0;&#x4E86;&#x540D;&#x79F0;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5217;&#x51FA;&#x975E;&#x6D3B;&#x52A8;&#x5BB9;&#x5668; Id&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;&#x5220;&#x9664;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<p>If you can&apos;t remember the name, then you can list inactive container ids and then delete them, as shown below:</p>
 <pre><code class="lang-sh">docker ps <span class="hljs-_">-a</span> -q
 45eeb98f1dd9
 docker rm 45eeb98f1dd9
 </code></pre>
 <h3 id="qgroundcontrol"><a name="qgroundcontrol" class="plugin-anchor" href="#qgroundcontrol"><i class="fa fa-link" aria-hidden="true"></i></a>QGroundControl</h3>
-<p>&#x8FD0;&#x884C;&#x6A21;&#x62DF;&#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x4F8B;&#x5982;&#x5728; docker &#x5BB9;&#x5668;&#x5185;&#x7684; SITL &#x5E76;&#x901A;&#x8FC7; <em>QGroundControl</em> &#x4ECE;&#x4E3B;&#x673A;&#x63A7;&#x5236;&#x5B83;&#xFF0C;&#x5FC5;&#x987B;&#x624B;&#x52A8;&#x8BBE;&#x7F6E;&#x901A;&#x4FE1;&#x94FE;&#x63A5;&#x3002; <em>QGroundControl</em> &#x7684;&#x81EA;&#x52A8;&#x8FDE;&#x63A5;&#x529F;&#x80FD;&#x5728;&#x6B64;&#x5904;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
-<p>&#x5728; <em>QGroundControl</em> &#x4E2D;&#xFF0C;&#x5BFC;&#x822A;&#x81F3; <a href="https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html" target="_blank">Settings</a> &#x5E76;&#x9009;&#x62E9;&#x201C;&#x901A;&#x4FE1;&#x94FE;&#x63A5;&#x201D;&#x3002; &#x521B;&#x5EFA;&#x4F7F;&#x7528; UDP &#x534F;&#x8BAE;&#x7684;&#x65B0;&#x94FE;&#x63A5;&#x3002; The port depends on the used <a href="https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS" target="_blank">configuration</a> e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x627E;&#x5230;Docker&#x5BB9;&#x5668;&#x7684;IP&#x5730;&#x5740;&#xFF08;&#x5047;&#x8BBE;&#x5BB9;&#x5668;&#x540D;&#x79F0;&#x4E3A;` mycontainer &lt;/ 0&gt;&#xFF09;&#xFF1A;&lt;/p&gt;</p>
-<pre><code class="sh">$ docker inspect -f &apos;{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}&apos; mycontainer
-`</code></pre> 
-
+<p>When running a simulation instance e.g. SITL inside the docker container and controlling it via <em>QGroundControl</em> from the host, the communication link has to be set up manually. The autoconnect feature of <em>QGroundControl</em> does not work here.</p>
+<p>In <em>QGroundControl</em>, navigate to <a href="https://docs.qgroundcontrol.com/en/SettingsView/SettingsView.html" target="_blank">Settings</a> and select Comm Links. Create a new link that uses the UDP protocol. The port depends on the used <a href="https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/rcS" target="_blank">configuration</a> e.g. port 14570 for the SITL config. The IP address is the one of your docker container, usually 172.17.0.1/16 when using the default network. The IP address of the docker container can be found with the following command (assuming the container name is <code>mycontainer</code>):</p>
+<pre><code class="lang-sh">$ docker inspect <span class="hljs-_">-f</span> <span class="hljs-string">&apos;{ {range .NetworkSettings.Networks}}{ {.IPAddress}}{ {end}}&apos;</span> mycontainer
+</code></pre>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
 <p> &#x4E0A;&#x9762;&#x7684;&#x4E24;&#x4E2A;&#x5927;&#x62EC;&#x53F7;&#x4E4B;&#x95F4;&#x4E0D;&#x5E94;&#x5B58;&#x5728;&#x7A7A;&#x683C;&#xFF08;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x4EE5;&#x907F;&#x514D;gitbook&#x4E2D;&#x7684;UI&#x6E32;&#x67D3;&#x95EE;&#x9898;&#xFF09;&#x3002;</p>
 </blockquote>
 <h3 id="&#x6545;&#x969C;&#x5904;&#x7406;"><a name="&#x6545;&#x969C;&#x5904;&#x7406;" class="plugin-anchor" href="#&#x6545;&#x969C;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6545;&#x969C;&#x5904;&#x7406;</h3>
 <h4 id="&#x6743;&#x9650;&#x9519;&#x8BEF;"><a name="&#x6743;&#x9650;&#x9519;&#x8BEF;" class="plugin-anchor" href="#&#x6743;&#x9650;&#x9519;&#x8BEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6743;&#x9650;&#x9519;&#x8BEF;</h4>
-<p>&#x5BB9;&#x5668;&#x6839;&#x636E;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7528;&#x6237;&#x521B;&#x5EFA;&#x6587;&#x4EF6;-&#x901A;&#x5E38;&#x4E3A;&#x201C;root&#x201D;&#x3002; &#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6743;&#x9650;&#x9519;&#x8BEF;&#xFF0C;&#x5176;&#x4E2D;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
-<p>&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4F7F;&#x7528;&#x884C; <code>-env=LOCAL_USER_ID=&#x201C;$&#xFF08;id-u&#xFF09;&#x201D;</code> &#x5728;&#x5BB9;&#x5668;&#x4E2D;&#x521B;&#x5EFA;&#x5177;&#x6709;&#x4E0E;&#x4E3B;&#x673A;&#x4E0A;&#x7684;&#x7528;&#x6237;&#x76F8;&#x540C;&#x7684; UID &#x7684;&#x7528;&#x6237;&#x3002; &#x8FD9;&#x53EF;&#x786E;&#x4FDD;&#x5728;&#x4E3B;&#x673A;&#x4E0A;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5BB9;&#x5668;&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x3002;</p>
+<p>The container creates files as needed with a default user - typically &quot;root&quot;. This can lead to permission errors where the user on the host computer is not able to access files created by the container.</p>
+<p>The example above uses the line <code>--env=LOCAL_USER_ID=&quot;$(id -u)&quot;</code> to create a user in the container with the same UID as the user on the host. This ensures that all files created within the container will be accessible on the host.</p>
 <h4 id="&#x56FE;&#x5F62;&#x9A71;&#x52A8;&#x95EE;&#x9898;"><a name="&#x56FE;&#x5F62;&#x9A71;&#x52A8;&#x95EE;&#x9898;" class="plugin-anchor" href="#&#x56FE;&#x5F62;&#x9A71;&#x52A8;&#x95EE;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56FE;&#x5F62;&#x9A71;&#x52A8;&#x95EE;&#x9898;</h4>
-<p>&#x8FD0;&#x884C; Gazebo &#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x7C7B;&#x4F3C;&#x4EE5;&#x4E0B;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF1A;</p>
+<p>It&apos;s possible that running Gazebo will result in a similar error message like the following:</p>
 <pre><code class="lang-sh">libGL error: failed to load driver: swrast
 </code></pre>
-<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5FC5;&#x987B;&#x5B89;&#x88C5;&#x4E3B;&#x673A;&#x7CFB;&#x7EDF;&#x7684;&#x672C;&#x673A;&#x56FE;&#x5F62;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x3002; &#x4E0B;&#x8F7D;&#x6B63;&#x786E;&#x7684;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x5E76;&#x5C06;&#x5176;&#x5B89;&#x88C5;&#x5728;&#x5BB9;&#x5668;&#x4E2D;&#x3002; &#x5BF9;&#x4E8E; Nvidia &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E94;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF08;&#x5426;&#x5219;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x5C06;&#x4ECE;&#x4E3B;&#x673A;&#x4E2D;&#x770B;&#x5230;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x6A21;&#x5757;&#x5E76;&#x62D2;&#x7EDD;&#x7EE7;&#x7EED;&#xFF09;&#xFF1A;</p>
+<p>In that case the native graphics driver for your host system must be installed. Download the right driver and install it inside the container. For Nvidia drivers the following command should be used (otherwise the installer will see the loaded modules from the host and refuse to proceed):</p>
 <pre><code class="lang-sh">./NVIDIA-DRIVER.run <span class="hljs-_">-a</span> -N --ui=none --no-kernel-module
 </code></pre>
-<p>&#x6709;&#x5173;&#x6B64;&#x5185;&#x5BB9;&#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1; <a href="http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/" target="_blank">here</a>&#x3002;</p>
-<h2 id="virtual_machine"><a name="virtual_machine" class="plugin-anchor" href="#virtual_machine"><i class="fa fa-link" aria-hidden="true"></i></a>&#x865A;&#x62DF;&#x673A;&#x652F;&#x6301; </h2>
-<p>&#x4EFB;&#x4F55;&#x6700;&#x65B0;&#x7684; Linux &#x53D1;&#x884C;&#x7248;&#x5E94;&#x8BE5;&#x53EF;&#x884C;&#x3002;</p>
-<p>&#x6D4B;&#x8BD5;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#xFF1A;</p>
+<p>More information on this can be found <a href="http://gernotklingler.com/blog/howto-get-hardware-accelerated-opengl-support-docker/" target="_blank">here</a>.</p>
+<p><a id="virtual_machine"></a></p>
+<h2 id="virtual-machine-support"><a name="virtual-machine-support" class="plugin-anchor" href="#virtual-machine-support"><i class="fa fa-link" aria-hidden="true"></i></a>Virtual Machine Support</h2>
+<p>Any recent Linux distribution should work.</p>
+<p>The following configuration is tested:</p>
 <ul>
 <li>OS X &#x4E0E; VMWare Fusion &#x548C; Ubuntu 14.04&#xFF08;Parallels &#x4E0A;&#x652F;&#x6301; GUI &#x7684; Docker &#x5BB9;&#x5668;&#x4F7F; X-Server &#x5D29;&#x6E83;&#xFF09;&#x3002;</li>
 </ul>
-<p><strong>&#x5185;&#x5B58;</strong></p>
-<p>&#x4E3A;&#x865A;&#x62DF;&#x673A;&#x4F7F;&#x7528;&#x81F3;&#x5C11; 4GB &#x5185;&#x5B58;&#x3002;</p>
-<p><strong>&#x7F16;&#x8BD1;&#x65B9;&#x6848;</strong></p>
-<p>&#x5982;&#x679C;&#x7F16;&#x8BD1;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x9519;&#x8BEF;&#xFF1A;</p>
+<p><strong>Memory</strong></p>
+<p>Use at least 4GB memory for the virtual machine.</p>
+<p><strong>Compilation problems</strong></p>
+<p>If compilation fails with errors like this:</p>
 <pre><code class="lang-sh">&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x662F;&#x4E0D;&#x53EF;&#x590D;&#x73B0;&#x7684;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x786C;&#x4EF6;&#x6216;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x95EE;&#x9898;&#x3002;
 c++: internal compiler error: Killed (program cc1plus)
 </code></pre>
-<p>&#x5C1D;&#x8BD5;&#x7981;&#x7528;&#x5E76;&#x884C;&#x6784;&#x5EFA;&#x3002;</p>
-<p><strong>&#x5141;&#x8BB8;&#x4ECE; VM &#x4E3B;&#x673A;&#x63A7;&#x5236; Docker</strong></p>
-<p>&#x7F16;&#x8F91; <code>/etc/defaults/docker</code> &#x5E76;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x884C;&#xFF1A;</p>
+<p>Try disabling parallel builds.</p>
+<p><strong>Allow Docker Control from the VM Host</strong></p>
+<p>Edit <code>/etc/defaults/docker</code> and add this line:</p>
 <pre><code class="lang-sh">DOCKER_OPTS=<span class="hljs-string">&quot;<span class="hljs-variable">${DOCKER_OPTS}</span> -H unix:///var/run/docker.sock -H 0.0.0.0:2375&quot;</span>
 </code></pre>
-<p>&#x7136;&#x540E;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x4ECE;&#x4E3B;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A7;&#x5236; docker&#xFF1A;</p>
+<p>You can then control docker from your host OS:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">export</span> DOCKER_HOST=tcp://&lt;ip of your VM&gt;:2375
 <span class="hljs-comment"># &#x8FD0;&#x884C;&#x4E00;&#x4E9B; docker &#x547D;&#x4EE4;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#xFF0C;&#x5982;&#xFF1A;ps</span>
 docker ps
@@ -2718,7 +2720,7 @@ docker ps
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker Containers","level":"1.12.7","depth":2,"next":{"title":"Maintenance","level":"1.12.8","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]},"previous":{"title":"MAVSDK Integration Testing","level":"1.12.6","depth":2,"path":"test_and_ci/integration_testing_mavsdk.md","ref":"test_and_ci/integration_testing_mavsdk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"test_and_ci/docker.md","mtime":"2020-11-05T21:51:36.414Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T21:52:24.166Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Docker Containers","level":"1.12.7","depth":2,"next":{"title":"Maintenance","level":"1.12.8","depth":2,"path":"test_and_ci/maintenance.md","ref":"test_and_ci/maintenance.md","articles":[]},"previous":{"title":"MAVSDK Integration Testing","level":"1.12.6","depth":2,"path":"test_and_ci/integration_testing_mavsdk.md","ref":"test_and_ci/integration_testing_mavsdk.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"test_and_ci/docker.md","mtime":"2020-11-05T22:04:26.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T22:04:39.410Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
