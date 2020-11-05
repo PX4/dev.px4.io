@@ -2497,7 +2497,8 @@
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
 <p> For solutions to common build problems see <a href="#troubleshooting">Troubleshooting</a> below.</p>
 </blockquote>
-<h2 id="get_px4_code"><a name="get_px4_code" class="plugin-anchor" href="#get_px4_code"><i class="fa fa-link" aria-hidden="true"></i></a>Download the PX4 Source Code </h2>
+<p><a id="get_px4_code"></a></p>
+<h2 id="download-the-px4-source-code"><a name="download-the-px4-source-code" class="plugin-anchor" href="#download-the-px4-source-code"><i class="fa fa-link" aria-hidden="true"></i></a>Download the PX4 Source Code</h2>
 <p>The PX4 source code is stored on Github in the <a href="https://github.com/PX4/PX4-Autopilot" target="_blank">PX4/PX4-Autopilot</a> repository.
 To get the <em>very latest</em> version onto your computer, enter the following command into a terminal:</p>
 <pre><code class="lang-sh">git <span class="hljs-built_in">clone</span> https://github.com/PX4/PX4-Autopilot.git --recursive
@@ -2506,7 +2507,8 @@ To get the <em>very latest</em> version onto your computer, enter the following 
 <p> This is all you need to do just to build the latest code. 
   <a href="../contribute/git_examples.html#contributing_code">GIT Examples &gt; Contributing code to PX4</a> provides a lot more information about using git to contribute to PX4. </p>
 </blockquote>
-<h2 id="jmavsim_build"><a name="jmavsim_build" class="plugin-anchor" href="#jmavsim_build"><i class="fa fa-link" aria-hidden="true"></i></a>First Build (Using the jMAVSim Simulator) </h2>
+<p><a id="jmavsim_build"></a></p>
+<h2 id="first-build-using-the-jmavsim-simulator"><a name="first-build-using-the-jmavsim-simulator" class="plugin-anchor" href="#first-build-using-the-jmavsim-simulator"><i class="fa fa-link" aria-hidden="true"></i></a>First Build (Using the jMAVSim Simulator)</h2>
 <p>First we&apos;ll build a simulated target using a console environment.
 This allows us to validate the system setup before moving on to real hardware and an IDE.</p>
 <p>Navigate into the <strong>PX4-Autopilot</strong> directory and start <a href="../simulation/jmavsim.html">jMAVSim</a> using the following command:</p>
@@ -2527,8 +2529,10 @@ This will reposition the vehicle.</p>
   These are also started with <em>make</em> - e.g.</p>
 <pre><code>  make px4_sitl gazebo
 </code></pre></blockquote>
-<h2 id="nuttx"><a name="nuttx" class="plugin-anchor" href="#nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards </h2>
-<h3 id="building_nuttx"><a name="building_nuttx" class="plugin-anchor" href="#building_nuttx"><i class="fa fa-link" aria-hidden="true"></i></a>Building </h3>
+<p><a id="nuttx"></a></p>
+<h2 id="nuttx--pixhawk-based-boards"><a name="nuttx--pixhawk-based-boards" class="plugin-anchor" href="#nuttx--pixhawk-based-boards"><i class="fa fa-link" aria-hidden="true"></i></a>NuttX / Pixhawk Based Boards</h2>
+<p><a id="building_nuttx"></a></p>
+<h3 id="building"><a name="building" class="plugin-anchor" href="#building"><i class="fa fa-link" aria-hidden="true"></i></a>Building</h3>
 <p>To build for NuttX- or Pixhawk- based boards, navigate into the <strong>PX4-Autopilot</strong> directory and then call <code>make</code> with the build target for your board.</p>
 <p>For example, to build for <em>Pixracer</em> you would use the following command:</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> PX4-Autopilot
@@ -2736,7 +2740,8 @@ cmake ../.. -G <span class="hljs-string">&quot;CodeBlocks - Unix Makefiles&quot;
 </code></pre>
 <p>That&apos;s it! Start <em>Qt Creator</em>, then complete the steps in the video below to set up the project to build.</p>
 <p><div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe frameborder="0" allowfullscreen style="border: none;position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="//www.youtube.com/embed/0pa0gS30zNw"></iframe></div></p>
-<h2 id="make_targets"><a name="make_targets" class="plugin-anchor" href="#make_targets"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Make Build Targets </h2>
+<p><a id="make_targets"></a></p>
+<h2 id="px4-make-build-targets"><a name="px4-make-build-targets" class="plugin-anchor" href="#px4-make-build-targets"><i class="fa fa-link" aria-hidden="true"></i></a>PX4 Make Build Targets</h2>
 <p>The previous sections showed how you can call <em>make</em> to build a number of different targets, start simulators, use IDEs etc.
 This section shows how <em>make</em> options are constructed and how to find the available choices.</p>
 <p>The full syntax to call <em>make</em> with a particular configuration and initialization file is:</p>
@@ -2783,7 +2788,8 @@ For example start PX4 using <code>make px4_sitl_default none</code> and jMAVSim 
 Specifically <code>VENDOR_MODEL_VARIANT</code> maps to a configuration file <strong>boards/VENDOR/MODEL/VARIANT.cmake</strong>
 (e.g. <code>px4_fmu-v5_default</code> corresponds to <a href="https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake" target="_blank">boards/px4/fmu-v5/default.cmake</a>).</p>
 <p>Additional make targets are discussed in the following sections (list is not exhaustive):</p>
-<h3 id="bloaty_compare_master"><a name="bloaty_compare_master" class="plugin-anchor" href="#bloaty_compare_master"><i class="fa fa-link" aria-hidden="true"></i></a>Binary Size Profiling </h3>
+<p><a id="bloaty_compare_master"></a></p>
+<h3 id="binary-size-profiling"><a name="binary-size-profiling" class="plugin-anchor" href="#binary-size-profiling"><i class="fa fa-link" aria-hidden="true"></i></a>Binary Size Profiling</h3>
 <p>The <code>bloaty_compare_master</code> build target allows you to get a better understanding of the impact of changes on code size.
 When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the <a href="https://github.com/google/bloaty" target="_blank">bloaty</a> size profiler for binaries).</p>
 <blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
@@ -2834,7 +2840,8 @@ index 40d7778..2ce7972 100644
 </code></pre>
 <p>This shows that removing <em>mpu9250</em> from <code>px4_fmu-v2_default</code> would save 10.3 kB of flash.
 It also shows the sizes of different pieces of the <em>mpu9250</em> driver.</p>
-<h2 id="firmware_version"><a name="firmware_version" class="plugin-anchor" href="#firmware_version"><i class="fa fa-link" aria-hidden="true"></i></a>Firmware Version &amp; Git Tags </h2>
+<p><a id="firmware_version"></a></p>
+<h2 id="firmware-version--git-tags"><a name="firmware-version--git-tags" class="plugin-anchor" href="#firmware-version--git-tags"><i class="fa fa-link" aria-hidden="true"></i></a>Firmware Version &amp; Git Tags</h2>
 <p>The <em>PX4 Firmware Version</em> and <em>Custom Firmware Version</em> are published using the MAVLink <a href="https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION" target="_blank">AUTOPILOT_VERSION</a> message, and displayed in the <em>QGroundControl</em> <strong>Setup &gt; Summary</strong> airframe panel:</p>
 <p><img src="../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg" alt="Firmware info"></p>
 <p>These are extracted at build time from the active <em>git tag</em> for your repo tree.
@@ -2842,7 +2849,8 @@ The git tag should be formatted as <code>&lt;PX4-version&gt;-&lt;vendor-version&
 <blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
 <p> If you use a different git tag format, versions information may not be displayed properly.</p>
 </blockquote>
-<h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting </h2>
+<p><a id="troubleshooting"></a></p>
+<h2 id="troubleshooting"><a name="troubleshooting" class="plugin-anchor" href="#troubleshooting"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting</h2>
 <h3 id="general-build-errors"><a name="general-build-errors" class="plugin-anchor" href="#general-build-errors"><i class="fa fa-link" aria-hidden="true"></i></a>General Build Errors</h3>
 <p>Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment.
 Updating the submodules and doing a <code>distclean</code> can fix these kinds of errors:</p>
@@ -2855,7 +2863,8 @@ This is common for <code>make px4_fmu-v2_default</code> builds, where the flash 
 In this case, install the version specified in the <a href="dev_env.html">Developer Toolchain</a> instructions.</p>
 <p>If building your own branch, it is possibly you have increased the firmware size over the 1MB limit. 
 In this case you will need to remove any drivers/modules that you don&apos;t need from the build. </p>
-<h3 id="macos_open_files"><a name="macos_open_files" class="plugin-anchor" href="#macos_open_files"><i class="fa fa-link" aria-hidden="true"></i></a>macOS: Too many open fileserror </h3>
+<p><a id="macos_open_files"></a></p>
+<h3 id="macos-too-many-open-fileserror"><a name="macos-too-many-open-fileserror" class="plugin-anchor" href="#macos-too-many-open-fileserror"><i class="fa fa-link" aria-hidden="true"></i></a>macOS: Too many open fileserror</h3>
 <p>MacOS allows a default maximum of 256 open files in all running processes.
 The PX4 build system opens a large number of files, so you may exceed this number.</p>
 <p>The build toolchain will then report <code>Too many open files</code> for many files, as shown below:</p>
@@ -2926,7 +2935,7 @@ You may need to install it using:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-11-04T06:22:15.753Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T10:38:58.016Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Building the Code","level":"1.2.3","depth":2,"next":{"title":"Writing your First Application","level":"1.2.4","depth":2,"path":"apps/hello_sky.md","ref":"apps/hello_sky.md","articles":[]},"previous":{"title":"Additional Tools","level":"1.2.2.6","depth":3,"path":"setup/generic_dev_tools.md","ref":"setup/generic_dev_tools.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"setup/building_px4.md","mtime":"2020-11-05T10:49:02.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T10:49:55.918Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
