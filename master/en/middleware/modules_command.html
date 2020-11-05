@@ -2491,8 +2491,9 @@
                                 <h1 id="modules-reference-command"><a name="modules-reference-command" class="plugin-anchor" href="#modules-reference-command"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Command</h1>
 <h2 id="blupdate"><a name="blupdate" class="plugin-anchor" href="#blupdate"><i class="fa fa-link" aria-hidden="true"></i></a>bl_update</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update" target="_blank">systemcmds/bl_update</a></p>
-<p>Utility to flash the bootloader from a file</p>
-<h3 id="bl_update_usage"><a name="bl_update_usage" class="plugin-anchor" href="#bl_update_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Utility to flash the bootloader from a file
+<a id="bl_update_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
                  state)
@@ -2500,8 +2501,9 @@
    &lt;file&gt;        Bootloader bin file
 </code></pre><h2 id="dumpfile"><a name="dumpfile" class="plugin-anchor" href="#dumpfile"><i class="fa fa-link" aria-hidden="true"></i></a>dumpfile</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile" target="_blank">systemcmds/dumpfile</a></p>
-<p>Dump file utility. Prints file size and contents in binary mode (don&apos;t replace LF with CR LF) to stdout.</p>
-<h3 id="dumpfile_usage"><a name="dumpfile_usage" class="plugin-anchor" href="#dumpfile_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Dump file utility. Prints file size and contents in binary mode (don&apos;t replace LF with CR LF) to stdout.
+<a id="dumpfile_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>dumpfile [arguments...]
      &lt;file&gt;      File to dump
 </code></pre><h2 id="dyn"><a name="dyn" class="plugin-anchor" href="#dyn"><i class="fa fa-link" aria-hidden="true"></i></a>dyn</h2>
@@ -2510,7 +2512,8 @@
 <p>Load and run a dynamic PX4 module, which was not compiled into the PX4 binary.</p>
 <h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
 <pre><code>dyn ./hello.px4mod start
-</code></pre><h3 id="dyn_usage"><a name="dyn_usage" class="plugin-anchor" href="#dyn_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="dyn_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>dyn [arguments...]
      &lt;file&gt;      File containing the module
      [arguments...] Arguments to the module
@@ -2524,7 +2527,8 @@
 <li>Make sure safety is off</li>
 <li>Run this command</li>
 </ul>
-<h3 id="esc_calib_usage"><a name="esc_calib_usage" class="plugin-anchor" href="#esc_calib_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="esc_calib_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>esc_calib [arguments...]
      [-d &lt;val&gt;]  Select PWM output device
                  values: &lt;file:dev&gt;, default: /dev/pwm_output0
@@ -2545,7 +2549,8 @@
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Test the GPS failsafe by stopping GPS:</p>
 <p>failure gps off</p>
-<h3 id="failure_usage"><a name="failure_usage" class="plugin-anchor" href="#failure_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="failure_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>failure [arguments...]
    help          Show this help text
 
@@ -2556,8 +2561,9 @@
                  default: 0
 </code></pre><h2 id="gpio"><a name="gpio" class="plugin-anchor" href="#gpio"><i class="fa fa-link" aria-hidden="true"></i></a>gpio</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/gpio" target="_blank">systemcmds/gpio</a></p>
-<p>This command is used to read and write GPIOs.</p>
-<h3 id="gpio_usage"><a name="gpio_usage" class="plugin-anchor" href="#gpio_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>This command is used to read and write GPIOs.
+<a id="gpio_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>gpio [arguments...]
    read
      &lt;PORT&gt; &lt;PIN&gt; GPIO port and pin
@@ -2573,7 +2579,8 @@
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/hardfault_log" target="_blank">systemcmds/hardfault_log</a></p>
 <p>Hardfault utility</p>
 <p>Used in startup scripts to handle hardfaults</p>
-<h3 id="hardfault_log_usage"><a name="hardfault_log_usage" class="plugin-anchor" href="#hardfault_log_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="hardfault_log_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>hardfault_log &lt;command&gt; [arguments...]
  Commands:
    check         Check if there&apos;s an uncommited hardfault
@@ -2592,8 +2599,9 @@
    reset         Reset the reboot counter
 </code></pre><h2 id="i2cdetect"><a name="i2cdetect" class="plugin-anchor" href="#i2cdetect"><i class="fa fa-link" aria-hidden="true"></i></a>i2cdetect</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/i2cdetect" target="_blank">systemcmds/i2cdetect</a></p>
-<p>Utility to scan for I2C devices on a particular bus.</p>
-<h3 id="i2cdetect_usage"><a name="i2cdetect_usage" class="plugin-anchor" href="#i2cdetect_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Utility to scan for I2C devices on a particular bus.
+<a id="i2cdetect_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>i2cdetect [arguments...]
      [-b &lt;val&gt;]  I2C bus
                  default: 1
@@ -2608,7 +2616,8 @@ after the blinking. The <code>reset</code> command can also be used to return to
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Blink the first LED 5 times in blue:</p>
 <pre><code>led_control blink -c blue -l 0 -n 5
-</code></pre><h3 id="led_control_usage"><a name="led_control_usage" class="plugin-anchor" href="#led_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="led_control_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>led_control &lt;command&gt; [arguments...]
  Commands:
    test          Run a test pattern
@@ -2640,7 +2649,8 @@ after the blinking. The <code>reset</code> command can also be used to return to
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/topic_listener" target="_blank">systemcmds/topic_listener</a></p>
 <p>Utility to listen on uORB topics and print the data to the console.</p>
 <p>The listener can be exited any time by pressing Ctrl+C, Esc, or Q.</p>
-<h3 id="listener_usage"><a name="listener_usage" class="plugin-anchor" href="#listener_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="listener_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>listener &lt;command&gt; [arguments...]
  Commands:
      &lt;topic_name&gt; uORB topic name
@@ -2655,7 +2665,8 @@ after the blinking. The <code>reset</code> command can also be used to return to
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Load or append mixer files to the ESC driver.</p>
 <p>Note that the driver must support the used ioctl&apos;s, which is the case on NuttX, but for example not on RPi.</p>
-<h3 id="mixer_usage"><a name="mixer_usage" class="plugin-anchor" href="#mixer_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="mixer_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>mixer &lt;command&gt; [arguments...]
  Commands:
    load
@@ -2673,7 +2684,8 @@ fw_att_control stop
 </code></pre><p>When starting, a background task is started, runs for several seconds (as specified), then exits.</p>
 <h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
 <pre><code>motor_ramp sine -a 1100 -r 0.5
-</code></pre><h3 id="motor_ramp_usage"><a name="motor_ramp_usage" class="plugin-anchor" href="#motor_ramp_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="motor_ramp_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>motor_ramp [arguments...]
      ramp|sine|square mode
      [-d &lt;val&gt;]  Pwm output device
@@ -2689,7 +2701,8 @@ fw_att_control stop
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/motor_test" target="_blank">systemcmds/motor_test</a></p>
 <p>Utility to test motors.</p>
 <p>WARNING: remove all props before using this command.</p>
-<h3 id="motor_test_usage"><a name="motor_test_usage" class="plugin-anchor" href="#motor_test_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="motor_test_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>motor_test &lt;command&gt; [arguments...]
  Commands:
    test          Set motor(s) to a specific output value
@@ -2706,8 +2719,9 @@ fw_att_control stop
    iterate       Iterate all motors starting and stopping one after the other
 </code></pre><h2 id="mtd"><a name="mtd" class="plugin-anchor" href="#mtd"><i class="fa fa-link" aria-hidden="true"></i></a>mtd</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd" target="_blank">systemcmds/mtd</a></p>
-<p>Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)</p>
-<h3 id="mtd_usage"><a name="mtd_usage" class="plugin-anchor" href="#mtd_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
+<a id="mtd_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>mtd &lt;command&gt; [arguments...]
  Commands:
    status        Print status information
@@ -2735,7 +2749,8 @@ fw_att_control stop
 <p>Start an NSH shell on a given port.</p>
 <p>This was previously used to start a shell on the USB serial port.
 Now there runs mavlink, and it is possible to use a shell over mavlink.</p>
-<h3 id="nshterm_usage"><a name="nshterm_usage" class="plugin-anchor" href="#nshterm_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="nshterm_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>nshterm [arguments...]
      &lt;file:dev&gt;  Device on which to start the shell (eg. /dev/ttyACM0)
 </code></pre><h2 id="param"><a name="param" class="plugin-anchor" href="#param"><i class="fa fa-link" aria-hidden="true"></i></a>param</h2>
@@ -2756,7 +2771,8 @@ parameters to a ground control station.</p>
 <pre><code>param set SYS_AUTOSTART 4001
 param set SYS_AUTOCONFIG 1
 reboot
-</code></pre><h3 id="param_usage"><a name="param_usage" class="plugin-anchor" href="#param_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="param_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>param &lt;command&gt; [arguments...]
  Commands:
    load          Load params from a file (overwrite all)
@@ -2815,8 +2831,9 @@ reboot
      &lt;param&gt;     param name
 </code></pre><h2 id="perf"><a name="perf" class="plugin-anchor" href="#perf"><i class="fa fa-link" aria-hidden="true"></i></a>perf</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf" target="_blank">systemcmds/perf</a></p>
-<p>Tool to print performance counters</p>
-<h3 id="perf_usage"><a name="perf_usage" class="plugin-anchor" href="#perf_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Tool to print performance counters
+<a id="perf_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>perf [arguments...]
    reset         Reset all counters
 
@@ -2843,7 +2860,8 @@ minimum value they should spin.</p>
 </code></pre><p>Test the outputs of eg. channels 1 and 3, and set the PWM value to 1200 us:</p>
 <pre><code>pwm arm
 pwm test -c 13 -p 1200
-</code></pre><h3 id="pwm_usage"><a name="pwm_usage" class="plugin-anchor" href="#pwm_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="pwm_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pwm &lt;command&gt; [arguments...]
  Commands:
    arm           Arm output
@@ -2899,15 +2917,17 @@ pwm test -c 13 -p 1200
      [-e]        Exit with 1 instead of 0 on error
 </code></pre><h2 id="reboot"><a name="reboot" class="plugin-anchor" href="#reboot"><i class="fa fa-link" aria-hidden="true"></i></a>reboot</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot" target="_blank">systemcmds/reboot</a></p>
-<p>Reboot the system</p>
-<h3 id="reboot_usage"><a name="reboot_usage" class="plugin-anchor" href="#reboot_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Reboot the system
+<a id="reboot_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>reboot [arguments...]
      [-b]        Reboot into bootloader
      [lock|unlock] Take/release the shutdown lock (for testing)
 </code></pre><h2 id="sdbench"><a name="sdbench" class="plugin-anchor" href="#sdbench"><i class="fa fa-link" aria-hidden="true"></i></a>sd_bench</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench" target="_blank">systemcmds/sd_bench</a></p>
-<p>Test the speed of an SD Card</p>
-<h3 id="sd_bench_usage"><a name="sd_bench_usage" class="plugin-anchor" href="#sd_bench_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Test the speed of an SD Card
+<a id="sd_bench_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>sd_bench [arguments...]
      [-b &lt;val&gt;]  Block size for each read/write
                  default: 4096
@@ -2924,7 +2944,8 @@ pwm test -c 13 -p 1200
 <p>Set the system time and read it back</p>
 <pre><code>system_time set 1600775044
 system_time get
-</code></pre><h3 id="system_time_usage"><a name="system_time_usage" class="plugin-anchor" href="#system_time_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="system_time_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>system_time &lt;command&gt; [arguments...]
  Commands:
    set           Set the system time, provide time in unix epoch time format
@@ -2932,20 +2953,23 @@ system_time get
    get           Get the system time
 </code></pre><h2 id="top"><a name="top" class="plugin-anchor" href="#top"><i class="fa fa-link" aria-hidden="true"></i></a>top</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/top" target="_blank">systemcmds/top</a></p>
-<p>Monitor running processes and their CPU, stack usage, priority and state</p>
-<h3 id="top_usage"><a name="top_usage" class="plugin-anchor" href="#top_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Monitor running processes and their CPU, stack usage, priority and state
+<a id="top_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>top [arguments...]
    once          print load only once
 </code></pre><h2 id="usbconnected"><a name="usbconnected" class="plugin-anchor" href="#usbconnected"><i class="fa fa-link" aria-hidden="true"></i></a>usb_connected</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/usb_connected" target="_blank">systemcmds/usb_connected</a></p>
 <p>Utility to check if USB is connected. Was previously used in startup scripts.
-A return value of 0 means USB is connected, 1 otherwise.</p>
-<h3 id="usb_connected_usage"><a name="usb_connected_usage" class="plugin-anchor" href="#usb_connected_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+A return value of 0 means USB is connected, 1 otherwise.
+<a id="usb_connected_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>usb_connected [arguments...]
 </code></pre><h2 id="ver"><a name="ver" class="plugin-anchor" href="#ver"><i class="fa fa-link" aria-hidden="true"></i></a>ver</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver" target="_blank">systemcmds/ver</a></p>
-<p>Tool to print various version information</p>
-<h3 id="ver_usage"><a name="ver_usage" class="plugin-anchor" href="#ver_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p>Tool to print various version information
+<a id="ver_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>ver &lt;command&gt; [arguments...]
  Commands:
    hw            Hardware architecture
@@ -3016,7 +3040,7 @@ A return value of 0 means USB is connected, 1 otherwise.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.7.1","depth":2,"next":{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"Modules & Commands","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"Commands","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},{"title":"Baro","level":"1.7.4.2","depth":3,"path":"middleware/modules_driver_baro.md","ref":"middleware/modules_driver_baro.md","articles":[]},{"title":"Distance Sensor","level":"1.7.4.3","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},{"title":"IMU","level":"1.7.4.4","depth":3,"path":"middleware/modules_driver_imu.md","ref":"middleware/modules_driver_imu.md","articles":[]},{"title":"Magnetometer","level":"1.7.4.5","depth":3,"path":"middleware/modules_driver_magnetometer.md","ref":"middleware/modules_driver_magnetometer.md","articles":[]}]},{"title":"Estimators","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},{"title":"System","level":"1.7.7","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2020-11-05T07:24:34.004Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T07:25:20.340Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Commands","level":"1.7.1","depth":2,"next":{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},"previous":{"title":"Modules & Commands","level":"1.7","depth":1,"path":"middleware/modules_main.md","ref":"middleware/modules_main.md","articles":[{"title":"Commands","level":"1.7.1","depth":2,"path":"middleware/modules_command.md","ref":"middleware/modules_command.md","articles":[]},{"title":"Communication","level":"1.7.2","depth":2,"path":"middleware/modules_communication.md","ref":"middleware/modules_communication.md","articles":[]},{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},{"title":"Drivers","level":"1.7.4","depth":2,"path":"middleware/modules_driver.md","ref":"middleware/modules_driver.md","articles":[{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},{"title":"Baro","level":"1.7.4.2","depth":3,"path":"middleware/modules_driver_baro.md","ref":"middleware/modules_driver_baro.md","articles":[]},{"title":"Distance Sensor","level":"1.7.4.3","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},{"title":"IMU","level":"1.7.4.4","depth":3,"path":"middleware/modules_driver_imu.md","ref":"middleware/modules_driver_imu.md","articles":[]},{"title":"Magnetometer","level":"1.7.4.5","depth":3,"path":"middleware/modules_driver_magnetometer.md","ref":"middleware/modules_driver_magnetometer.md","articles":[]}]},{"title":"Estimators","level":"1.7.5","depth":2,"path":"middleware/modules_estimator.md","ref":"middleware/modules_estimator.md","articles":[]},{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},{"title":"System","level":"1.7.7","depth":2,"path":"middleware/modules_system.md","ref":"middleware/modules_system.md","articles":[]},{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_command.md","mtime":"2020-11-05T08:37:08.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T08:37:51.560Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

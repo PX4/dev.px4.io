@@ -2502,7 +2502,8 @@
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/adc/board_adc" target="_blank">drivers/adc/board_adc</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>ADC driver.</p>
-<h3 id="adc_usage"><a name="adc_usage" class="plugin-anchor" href="#adc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="adc_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>adc &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2514,7 +2515,8 @@
    status        print status info
 </code></pre><h2 id="ads1115"><a name="ads1115" class="plugin-anchor" href="#ads1115"><i class="fa fa-link" aria-hidden="true"></i></a>ads1115</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/adc/ads1115" target="_blank">drivers/adc/ads1115</a></p>
-<h3 id="ads1115_usage"><a name="ads1115_usage" class="plugin-anchor" href="#ads1115_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="ads1115_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>ads1115 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2535,7 +2537,8 @@
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.</p>
 <p>It can be enabled with the OSD_ATXXXX_CFG parameter.</p>
-<h3 id="atxxxx_usage"><a name="atxxxx_usage" class="plugin-anchor" href="#atxxxx_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="atxxxx_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>atxxxx &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2559,7 +2562,8 @@
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN</p>
 <pre><code>batt_smbus -X write_flash 19069 2 27 0
-</code></pre><h3 id="batt_smbus_usage"><a name="batt_smbus_usage" class="plugin-anchor" href="#batt_smbus_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="batt_smbus_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>batt_smbus &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2594,7 +2598,8 @@
    status        print status info
 </code></pre><h2 id="blinkm"><a name="blinkm" class="plugin-anchor" href="#blinkm"><i class="fa fa-link" aria-hidden="true"></i></a>blinkm</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/lights/blinkm" target="_blank">drivers/lights/blinkm</a></p>
-<h3 id="blinkm_usage"><a name="blinkm_usage" class="plugin-anchor" href="#blinkm_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="blinkm_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>blinkm &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2622,7 +2627,8 @@
    status        print status info
 </code></pre><h2 id="bst"><a name="bst" class="plugin-anchor" href="#bst"><i class="fa fa-link" aria-hidden="true"></i></a>bst</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst" target="_blank">drivers/telemetry/bst</a></p>
-<h3 id="bst_usage"><a name="bst_usage" class="plugin-anchor" href="#bst_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="bst_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>bst &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2654,7 +2660,8 @@ to use DShot as ESC communication protocol instead of PWM.</p>
 <pre><code>dshot reverse -m 1
 dshot save -m 1
 </code></pre><p>After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.</p>
-<h3 id="dshot_usage"><a name="dshot_usage" class="plugin-anchor" href="#dshot_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="dshot_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>dshot &lt;command&gt; [arguments...]
  Commands:
    start         Start the task (without any mode set, use any of the mode_*
@@ -2732,7 +2739,8 @@ dshot save -m 1
 </code></pre><h2 id="fakegyro"><a name="fakegyro" class="plugin-anchor" href="#fakegyro"><i class="fa fa-link" aria-hidden="true"></i></a>fake_gyro</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/examples/fake_gyro" target="_blank">examples/fake_gyro</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
-<h3 id="fake_gyro_usage"><a name="fake_gyro_usage" class="plugin-anchor" href="#fake_gyro_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="fake_gyro_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>fake_gyro &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2745,7 +2753,8 @@ dshot save -m 1
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Publish the earth magnetic field as a fake magnetometer (sensor_mag).
 Requires vehicle_attitude and vehicle_gps_position.</p>
-<h3 id="fake_magnetometer_usage"><a name="fake_magnetometer_usage" class="plugin-anchor" href="#fake_magnetometer_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="fake_magnetometer_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>fake_magnetometer &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2772,7 +2781,8 @@ gps start -f
 <pre><code>gps start -d /dev/ttyS3 -e /dev/ttyS4
 </code></pre><p>Initiate warm restart of GPS device</p>
 <pre><code>gps reset warm
-</code></pre><h3 id="gps_usage"><a name="gps_usage" class="plugin-anchor" href="#gps_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="gps_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>gps &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2807,7 +2817,8 @@ gps start -f
 the -f flag. If this flag is set, then if initialization fails, the driver will keep trying to initialize again
 every 0.5 seconds. With this flag set, you can plug in a battery after the driver starts, and it will work. Without
 this flag set, the battery must be plugged in before starting the driver.</p>
-<h3 id="ina226_usage"><a name="ina226_usage" class="plugin-anchor" href="#ina226_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="ina226_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>ina226 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2828,7 +2839,8 @@ this flag set, the battery must be plugged in before starting the driver.</p>
    status        print status info
 </code></pre><h2 id="irlock"><a name="irlock" class="plugin-anchor" href="#irlock"><i class="fa fa-link" aria-hidden="true"></i></a>irlock</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/irlock" target="_blank">drivers/irlock</a></p>
-<h3 id="irlock_usage"><a name="irlock_usage" class="plugin-anchor" href="#irlock_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="irlock_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>irlock &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2846,7 +2858,8 @@ this flag set, the battery must be plugged in before starting the driver.</p>
    status        print status info
 </code></pre><h2 id="lsm303agr"><a name="lsm303agr" class="plugin-anchor" href="#lsm303agr"><i class="fa fa-link" aria-hidden="true"></i></a>lsm303agr</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr" target="_blank">drivers/magnetometer/lsm303agr</a></p>
-<h3 id="lsm303agr_usage"><a name="lsm303agr_usage" class="plugin-anchor" href="#lsm303agr_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="lsm303agr_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>lsm303agr &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2867,7 +2880,8 @@ this flag set, the battery must be plugged in before starting the driver.</p>
    status        print status info
 </code></pre><h2 id="paw3902"><a name="paw3902" class="plugin-anchor" href="#paw3902"><i class="fa fa-link" aria-hidden="true"></i></a>paw3902</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902" target="_blank">drivers/optical_flow/paw3902</a></p>
-<h3 id="paw3902_usage"><a name="paw3902_usage" class="plugin-anchor" href="#paw3902_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="paw3902_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>paw3902 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2888,7 +2902,8 @@ this flag set, the battery must be plugged in before starting the driver.</p>
    status        print status info
 </code></pre><h2 id="pca9685"><a name="pca9685" class="plugin-anchor" href="#pca9685"><i class="fa fa-link" aria-hidden="true"></i></a>pca9685</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685" target="_blank">drivers/pca9685</a></p>
-<h3 id="pca9685_usage"><a name="pca9685_usage" class="plugin-anchor" href="#pca9685_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pca9685_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pca9685 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2921,7 +2936,8 @@ IIC communication is based on CDev::I2C</p>
 <code>mixer load /dev/pwm_outputX etc/mixers/quad_x.main.mix</code>
 The number X can be acquired by executing
 <code>pca9685_pwm_out status</code> when this driver is running.</p>
-<h3 id="pca9685_pwm_out_usage"><a name="pca9685_pwm_out_usage" class="plugin-anchor" href="#pca9685_pwm_out_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pca9685_pwm_out_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pca9685_pwm_out &lt;command&gt; [arguments...]
  Commands:
    start         Start the task
@@ -2935,7 +2951,8 @@ The number X can be acquired by executing
    status        print status info
 </code></pre><h2 id="pcf8583"><a name="pcf8583" class="plugin-anchor" href="#pcf8583"><i class="fa fa-link" aria-hidden="true"></i></a>pcf8583</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583" target="_blank">drivers/rpm/pcf8583</a></p>
-<h3 id="pcf8583_usage"><a name="pcf8583_usage" class="plugin-anchor" href="#pcf8583_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pcf8583_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pcf8583 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2951,7 +2968,8 @@ The number X can be acquired by executing
    status        print status info
 </code></pre><h2 id="pmw3901"><a name="pmw3901" class="plugin-anchor" href="#pmw3901"><i class="fa fa-link" aria-hidden="true"></i></a>pmw3901</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901" target="_blank">drivers/optical_flow/pmw3901</a></p>
-<h3 id="pmw3901_usage"><a name="pmw3901_usage" class="plugin-anchor" href="#pmw3901_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pmw3901_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pmw3901 &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2993,7 +3011,8 @@ callback with ioctl calls.</p>
 <pre><code>pwm_out test
 </code></pre><p>Use the <code>pwm</code> command for further configurations (PWM rate, levels, ...), and the <code>mixer</code> command to load
 mixer files.</p>
-<h3 id="pwm_out_usage"><a name="pwm_out_usage" class="plugin-anchor" href="#pwm_out_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pwm_out_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pwm_out &lt;command&gt; [arguments...]
  Commands:
    start         Start the task (without any mode set, use any of the mode_*
@@ -3051,7 +3070,8 @@ mixer files.</p>
 mix them with any loaded mixer and output the result to the
 <code>actuator_output</code> uORB topic.</p>
 <p>It is used in SITL and HITL.</p>
-<h3 id="pwm_out_sim_usage"><a name="pwm_out_sim_usage" class="plugin-anchor" href="#pwm_out_sim_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pwm_out_sim_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pwm_out_sim &lt;command&gt; [arguments...]
  Commands:
    start         Start the module
@@ -3063,7 +3083,8 @@ mix them with any loaded mixer and output the result to the
    status        print status info
 </code></pre><h2 id="px4flow"><a name="px4flow" class="plugin-anchor" href="#px4flow"><i class="fa fa-link" aria-hidden="true"></i></a>px4flow</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow" target="_blank">drivers/optical_flow/px4flow</a></p>
-<h3 id="px4flow_usage"><a name="px4flow_usage" class="plugin-anchor" href="#px4flow_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="px4flow_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>px4flow &lt;command&gt; [arguments...]
  Commands:
    start
@@ -3093,7 +3114,8 @@ mix them with any loaded mixer and output the result to the
 <li>ST24</li>
 <li>TBS Crossfire (CRSF)</li>
 </ul>
-<h3 id="rc_input_usage"><a name="rc_input_usage" class="plugin-anchor" href="#rc_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="rc_input_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>rc_input &lt;command&gt; [arguments...]
  Commands:
    start
@@ -3107,7 +3129,8 @@ mix them with any loaded mixer and output the result to the
    status        print status info
 </code></pre><h2 id="rgbled"><a name="rgbled" class="plugin-anchor" href="#rgbled"><i class="fa fa-link" aria-hidden="true"></i></a>rgbled</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled_ncp5623c" target="_blank">drivers/lights/rgbled_ncp5623c</a></p>
-<h3 id="rgbled_usage"><a name="rgbled_usage" class="plugin-anchor" href="#rgbled_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="rgbled_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>rgbled &lt;command&gt; [arguments...]
  Commands:
    start
@@ -3156,7 +3179,8 @@ the driver terminates immediately.</p>
 <li><code>$ roboclaw status</code></li>
 <li><code>$ roboclaw stop</code></li>
 </ul>
-<h3 id="roboclaw_usage"><a name="roboclaw_usage" class="plugin-anchor" href="#roboclaw_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="roboclaw_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>roboclaw &lt;command&gt; [arguments...]
  Commands:
 </code></pre><h2 id="safetybutton"><a name="safetybutton" class="plugin-anchor" href="#safetybutton"><i class="fa fa-link" aria-hidden="true"></i></a>safety_button</h2>
@@ -3164,7 +3188,8 @@ the driver terminates immediately.</p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module is responsible for the safety button.
 Pressing the safety button 3 times quickly will trigger a GCS pairing request.</p>
-<h3 id="safety_button_usage"><a name="safety_button_usage" class="plugin-anchor" href="#safety_button_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="safety_button_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>safety_button &lt;command&gt; [arguments...]
  Commands:
    start
@@ -3183,7 +3208,8 @@ runs in its own thread instead of on the work queue.</p>
 <h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
 <p>The module is typically started with:
 tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
-<h3 id="tap_esc_usage"><a name="tap_esc_usage" class="plugin-anchor" href="#tap_esc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="tap_esc_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>tap_esc &lt;command&gt; [arguments...]
  Commands:
    start         Start the task
@@ -3195,7 +3221,8 @@ tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/tone_alarm" target="_blank">drivers/tone_alarm</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This module is responsible for the tone alarm.</p>
-<h3 id="tone_alarm_usage"><a name="tone_alarm_usage" class="plugin-anchor" href="#tone_alarm_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="tone_alarm_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>tone_alarm &lt;command&gt; [arguments...]
  Commands:
    start
@@ -3217,7 +3244,8 @@ can be used with each output method and new inputs/outputs can be added with min
 <p>Test the output by setting a fixed yaw angle (and the other axes to 0):</p>
 <pre><code>vmount stop
 vmount test yaw 30
-</code></pre><h3 id="vmount_usage"><a name="vmount_usage" class="plugin-anchor" href="#vmount_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="vmount_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>vmount &lt;command&gt; [arguments...]
  Commands:
    start
@@ -3231,7 +3259,8 @@ vmount test yaw 30
    status        print status info
 </code></pre><h2 id="voxlpm"><a name="voxlpm" class="plugin-anchor" href="#voxlpm"><i class="fa fa-link" aria-hidden="true"></i></a>voxlpm</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/voxlpm" target="_blank">drivers/power_monitor/voxlpm</a></p>
-<h3 id="voxlpm_usage"><a name="voxlpm_usage" class="plugin-anchor" href="#voxlpm_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="voxlpm_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>voxlpm [arguments...]
    start
      [-I]        Internal I2C bus(es)
@@ -3290,7 +3319,7 @@ vmount test yaw 30
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Drivers","level":"1.7.4","depth":2,"next":{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},"previous":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2020-11-05T07:24:34.004Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T07:25:20.340Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Drivers","level":"1.7.4","depth":2,"next":{"title":"Airspeed Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_airspeed_sensor.md","ref":"middleware/modules_driver_airspeed_sensor.md","articles":[]},"previous":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2020-11-05T08:37:08.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T08:37:51.560Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

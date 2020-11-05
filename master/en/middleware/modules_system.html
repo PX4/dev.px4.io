@@ -2492,7 +2492,8 @@
 <h2 id="batterysimulator"><a name="batterysimulator" class="plugin-anchor" href="#batterysimulator"><i class="fa fa-link" aria-hidden="true"></i></a>battery_simulator</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/simulator/battery_simulator" target="_blank">modules/simulator/battery_simulator</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
-<h3 id="battery_simulator_usage"><a name="battery_simulator_usage" class="plugin-anchor" href="#battery_simulator_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="battery_simulator_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>battery_simulator &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2509,7 +2510,8 @@
 </ul>
 <h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>It runs in its own thread and polls on the currently selected gyro topic.</p>
-<h3 id="battery_status_usage"><a name="battery_status_usage" class="plugin-anchor" href="#battery_status_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="battery_status_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>battery_status &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2520,7 +2522,8 @@
 </code></pre><h2 id="camerafeedback"><a name="camerafeedback" class="plugin-anchor" href="#camerafeedback"><i class="fa fa-link" aria-hidden="true"></i></a>camera_feedback</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/camera_feedback" target="_blank">modules/camera_feedback</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
-<h3 id="camera_feedback_usage"><a name="camera_feedback_usage" class="plugin-anchor" href="#camera_feedback_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="camera_feedback_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>camera_feedback &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2532,7 +2535,8 @@
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/commander" target="_blank">modules/commander</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>The commander module contains the state machine for mode switching and failsafe behavior.</p>
-<h3 id="commander_usage"><a name="commander_usage" class="plugin-anchor" href="#commander_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="commander_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>commander &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2585,7 +2589,8 @@ an additional lock per item type via <code>dm_lock</code>.</p>
 which stores the number of items for these types. These items are always updated atomically in one transaction (from
 the mavlink mission manager). During that time, navigator will try to acquire the geofence item lock, fail, and will not
 check for geofence violations.</p>
-<h3 id="dataman_usage"><a name="dataman_usage" class="plugin-anchor" href="#dataman_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="dataman_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>dataman &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2612,7 +2617,8 @@ Note that output from NuttX&apos;s work queues and syslog are not captured.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Keep printing all messages in the background:</p>
 <pre><code>dmesg -f &amp;
-</code></pre><h3 id="dmesg_usage"><a name="dmesg_usage" class="plugin-anchor" href="#dmesg_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="dmesg_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>dmesg &lt;command&gt; [arguments...]
  Commands:
      [-f]        Follow: wait for new messages
@@ -2620,7 +2626,8 @@ Note that output from NuttX&apos;s work queues and syslog are not captured.</p>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/esc_battery" target="_blank">modules/esc_battery</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>This implements using information from the ESC status and publish it as battery status.</p>
-<h3 id="esc_battery_usage"><a name="esc_battery_usage" class="plugin-anchor" href="#esc_battery_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="esc_battery_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>esc_battery &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2631,7 +2638,8 @@ Note that output from NuttX&apos;s work queues and syslog are not captured.</p>
 </code></pre><h2 id="gyrofft"><a name="gyrofft" class="plugin-anchor" href="#gyrofft"><i class="fa fa-link" aria-hidden="true"></i></a>gyro_fft</h2>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/examples/gyro_fft" target="_blank">examples/gyro_fft</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
-<h3 id="gyro_fft_usage"><a name="gyro_fft_usage" class="plugin-anchor" href="#gyro_fft_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="gyro_fft_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>gyro_fft &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2644,7 +2652,8 @@ Note that output from NuttX&apos;s work queues and syslog are not captured.</p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Background process running periodically on the LP work queue to regulate IMU temperature at a setpoint.</p>
 <p>This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.</p>
-<h3 id="heater_usage"><a name="heater_usage" class="plugin-anchor" href="#heater_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="heater_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>heater &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2671,7 +2680,8 @@ horizontal direction. The trigger time is defined by MAYBE_LAND_TRIGGER_TIME. Wh
 position controller sets the thrust setpoint to zero.</p>
 <p><strong>landed</strong>: it requires maybe_landed to be true for time LAND_DETECTOR_TRIGGER_TIME_US.</p>
 <p>The module runs periodically on the HP work queue.</p>
-<h3 id="land_detector_usage"><a name="land_detector_usage" class="plugin-anchor" href="#land_detector_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="land_detector_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>land_detector &lt;command&gt; [arguments...]
  Commands:
    start         Start the background task
@@ -2687,7 +2697,8 @@ position controller sets the thrust setpoint to zero.</p>
 usage and publish the <code>cpuload</code> topic.</p>
 <p>On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output,
 which will also appear in the log file.</p>
-<h3 id="load_mon_usage"><a name="load_mon_usage" class="plugin-anchor" href="#load_mon_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="load_mon_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>load_mon &lt;command&gt; [arguments...]
  Commands:
    start         Start the background task
@@ -2725,7 +2736,8 @@ the mission log). It should be large to avoid dropouts.</p>
 <pre><code>logger start -e -t
 </code></pre><p>Or if already running:</p>
 <pre><code>logger on
-</code></pre><h3 id="logger_usage"><a name="logger_usage" class="plugin-anchor" href="#logger_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="logger_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>logger &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2755,7 +2767,8 @@ the mission log). It should be large to avoid dropouts.</p>
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_input" target="_blank">drivers/pwm_input</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB &apos;pwm_input` message.</p>
-<h3 id="pwm_input_usage"><a name="pwm_input_usage" class="plugin-anchor" href="#pwm_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="pwm_input_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>pwm_input &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2773,7 +2786,8 @@ then apply the calibration, map the RC channels to the configured channels &amp;
 low-pass filter, and then publish as <code>rc_channels</code> and <code>manual_control_setpoint</code>.</p>
 <h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>To reduce control latency, the module is scheduled on input_rc publications.</p>
-<h3 id="rc_update_usage"><a name="rc_update_usage" class="plugin-anchor" href="#rc_update_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="rc_update_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>rc_update &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2798,7 +2812,8 @@ The replay module will just publish all messages that are found in the log. It a
 the log.</p>
 <p>The replay procedure is documented on the <a href="https://dev.px4.io/master/en/debug/system_wide_replay.html" target="_blank">System-wide Replay</a>
 page.</p>
-<h3 id="replay_usage"><a name="replay_usage" class="plugin-anchor" href="#replay_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="replay_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>replay &lt;command&gt; [arguments...]
  Commands:
    start         Start replay, using log file from ENV variable &apos;replay&apos;
@@ -2816,7 +2831,8 @@ page.</p>
 <p>Background process running periodically on the LP work queue to perform housekeeping tasks.
 It is currently only responsible for tone alarm on RC Loss.</p>
 <p>The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).</p>
-<h3 id="send_event_usage"><a name="send_event_usage" class="plugin-anchor" href="#send_event_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="send_event_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>send_event &lt;command&gt; [arguments...]
  Commands:
    start         Start the background task
@@ -2842,7 +2858,8 @@ sensor drivers must already be running when <code>sensors</code> is started.</li
 </ul>
 <h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
 <p>It runs in its own thread and polls on the currently selected gyro topic.</p>
-<h3 id="sensors_usage"><a name="sensors_usage" class="plugin-anchor" href="#sensors_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="sensors_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>sensors &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2859,7 +2876,8 @@ compensated. The module monitors the data coming from the sensors and updates th
 whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation
 routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes
 a temperature cycle.</p>
-<h3 id="temperature_compensation_usage"><a name="temperature_compensation_usage" class="plugin-anchor" href="#temperature_compensation_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="temperature_compensation_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>temperature_compensation &lt;command&gt; [arguments...]
  Commands:
    start         Start the module, which monitors the sensors and updates the
@@ -2885,7 +2903,8 @@ The tool requires that a driver is running that can handle the tune_control uorb
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <p>Play system tune #2:</p>
 <pre><code>tune_control play -t 2
-</code></pre><h3 id="tune_control_usage"><a name="tune_control_usage" class="plugin-anchor" href="#tune_control_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+</code></pre><p><a id="tune_control_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>tune_control &lt;command&gt; [arguments...]
  Commands:
    play          Play system tune or single note.
@@ -2906,7 +2925,8 @@ The tool requires that a driver is running that can handle the tune_control uorb
 <p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/systemcmds/work_queue" target="_blank">systemcmds/work_queue</a></p>
 <h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
 <p>Command-line tool to show work queue status.</p>
-<h3 id="work_queue_usage"><a name="work_queue_usage" class="plugin-anchor" href="#work_queue_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<p><a id="work_queue_usage"></a></p>
+<h3 id="usage"><a name="usage" class="plugin-anchor" href="#usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage</h3>
 <pre><code>work_queue &lt;command&gt; [arguments...]
  Commands:
    start
@@ -2957,7 +2977,7 @@ The tool requires that a driver is running that can handle the tune_control uorb
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"System","level":"1.7.7","depth":2,"next":{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]},"previous":{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_system.md","mtime":"2020-11-05T07:24:34.004Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T07:25:20.340Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"System","level":"1.7.7","depth":2,"next":{"title":"Template","level":"1.7.8","depth":2,"path":"middleware/modules_template.md","ref":"middleware/modules_template.md","articles":[]},"previous":{"title":"Simulations","level":"1.7.6","depth":2,"path":"middleware/modules_simulation.md","ref":"middleware/modules_simulation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_system.md","mtime":"2020-11-05T08:37:08.935Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-05T08:37:51.560Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
