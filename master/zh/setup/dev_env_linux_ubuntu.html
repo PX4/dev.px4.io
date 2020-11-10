@@ -2511,11 +2511,11 @@
 <li><p>&#x5728;bash shell&#x4E2D;&#x4E0D;&#x5E26;&#x53C2;&#x6570;&#x5730;&#x8FD0;&#x884C;ubuntu.sh&#x6765;&#x5B89;&#x88C5;&#x6240;&#x6709;&#x7684;&#x4F9D;&#x8D56;&#x5DE5;&#x5177;&#xFF1A; </p>
 <pre><code> bash
  bash ./Tools/setup/ubuntu.sh
-</code></pre></li>
-</ol>
-<pre><code>* &#x5728;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#x786E;&#x8BA4;&#x5E76;&#x901A;&#x8FC7;&#x6240;&#x6709;&#x7684;&#x63D0;&#x793A;&#x3002;
-* &#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F20;&#x8F93;&#x53C2;&#x6570;`--no-nuttx` &#x548C; `--no-sim-tools` &#x6765;&#x8DF3;&#x8FC7; nuttx &#x548C;/&#x6216; &#x4EFF;&#x771F;&#x5668;&#x5DE5;&#x5177;&#x7684;&#x5B89;&#x88C5;&#x3002;
-</code></pre><ol>
+</code></pre><ul>
+<li>&#x5728;&#x5B89;&#x88C5;&#x8FC7;&#x7A0B;&#x4E2D;&#x786E;&#x8BA4;&#x5E76;&#x901A;&#x8FC7;&#x6240;&#x6709;&#x7684;&#x63D0;&#x793A;&#x3002;</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F20;&#x8F93;&#x53C2;&#x6570;<code>--no-nuttx</code> &#x548C; <code>--no-sim-tools</code> &#x6765;&#x8DF3;&#x8FC7; nuttx &#x548C;/&#x6216; &#x4EFF;&#x771F;&#x5668;&#x5DE5;&#x5177;&#x7684;&#x5B89;&#x88C5;&#x3002;</li>
+</ul>
+</li>
 <li>&#x5B8C;&#x6210;&#x540E;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x8BA1;&#x7B97;&#x673A;&#x3002;</li>
 </ol>
 <blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
@@ -2536,38 +2536,48 @@
 </li>
 </ul>
 <!-- Do we need to add to our scripts or can we assume correct version installs over?
-Remove any old versions of the arm-none-eabi toolchain.</p>
-
-<pre><code class="sh">sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
+Remove any old versions of the arm-none-eabi toolchain.
+```sh
+sudo apt-get remove gcc-arm-none-eabi gdb-arm-none-eabi binutils-arm-none-eabi gcc-arm-embedded
 sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
-</code></pre>
-
-<p>-->
+```
+-->
 <p><a id="raspberry-pi-hardware"></a></p>
 <h2 id="raspberry-pi"><a name="raspberry-pi" class="plugin-anchor" href="#raspberry-pi"><i class="fa fa-link" aria-hidden="true"></i></a>Raspberry Pi</h2>
-<!-- NOTE: RaPi docker toolchain (for comparison) here: https://github.com/PX4/containers/blob/master/docker/Dockerfile_armhf -->
-<p>To get the build toolchain for Raspberry Pi:</p>
+<p>The following instructions explain how to set up a build toolchain for RasPi on <em>Ubuntu 18.04</em>.</p>
+<blockquote class="clearfix alert alert-warning"><strong class="fa fa-2x fa-exclamation-triangle"></strong>
+<p> To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS</p>
+</blockquote>
+<h1 id="developer-quick-start--alternative-build-method-using-dockerhttpsdocspx4iomasterenflightcontrollerraspberrypipilotpirpioshtmlalternative-build-method-using-docker"><a name="developer-quick-start--alternative-build-method-using-dockerhttpsdocspx4iomasterenflightcontrollerraspberrypipilotpirpioshtmlalternative-build-method-using-docker" class="plugin-anchor" href="#developer-quick-start--alternative-build-method-using-dockerhttpsdocspx4iomasterenflightcontrollerraspberrypipilotpirpioshtmlalternative-build-method-using-docker"><i class="fa fa-link" aria-hidden="true"></i></a>Developer Quick Start &gt; Alternative build method using docker](<a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_pilotpi_rpios.html#alternative-build-method-using-docker" target="_blank">https://docs.px4.io/master/en/flight_controller/raspberry_pi_pilotpi_rpios.html#alternative-build-method-using-docker</a>).</h1>
+<p>To get the common dependencies for Raspberry Pi:</p>
 <ol>
 <li>Download <a href="https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh" target="_blank">ubuntu.sh</a> and <a href="https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/requirements.txt" target="_blank">requirements.txt</a> from the PX4 source repository (<strong>/Tools/setup/</strong>):<br> <code>wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/ubuntu.sh</code><br> <code>wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt</code></li>
 <li><p>&#x5728;&#x7EC8;&#x7AEF;&#x4E2D;&#x8FD0;&#x884C;<strong>ubuntu.sh</strong>&#xFF0C;&#x83B7;&#x53D6;&#x4E00;&#x822C;&#x7684;&#x4F9D;&#x8D56;&#x6A21;&#x5757;&#xFF1A; </p>
 <pre><code> bash
  bash ubuntu.sh --no-nuttx --no-sim-tools
 </code></pre></li>
-<li><p>&#x7136;&#x540E;&#x6839;&#x636E;&#x4E0B;&#x9762;&#x7684;&#x63CF;&#x8FF0;&#x5B89;&#x88C5;ARMv7&#x4EA4;&#x53C9;&#x7F16;&#x8BD1;&#x5668;(GCC&#x6216;&#x8005;Clang)&#x3002;</p>
+<li><p>Then setup an cross-compiler (either GCC or clang) as described in the following sections.</p>
 </li>
 </ol>
-<h3 id="gcc"><a name="gcc" class="plugin-anchor" href="#gcc"><i class="fa fa-link" aria-hidden="true"></i></a>GCC</h3>
-<p>The official Raspberry Pi toolchains are not supported as PX4 has requires C++14 (which they do not support).</p>
-<p>Ubuntu provides a set of pre-compiled toolchains that you can use instead. Install these with the terminal command:</p>
-<pre><code>sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
-</code></pre><p>These package contains GCC/G++ 7.4.0 at time of writing. To test the toolchain, please execute:</p>
-<pre><code>arm-linux-gnueabihf-gcc -v
-arm-linux-gnueabihf-g++ -v
-</code></pre><h3 id="clang"><a name="clang" class="plugin-anchor" href="#clang"><i class="fa fa-link" aria-hidden="true"></i></a>Clang</h3>
+<h3 id="gcc-armhf"><a name="gcc-armhf" class="plugin-anchor" href="#gcc-armhf"><i class="fa fa-link" aria-hidden="true"></i></a>GCC (armhf)</h3>
+<p>Ubuntu software repository provides a set of pre-compiled toolchains. Note that Ubuntu Focal comes up with <code>gcc-9-arm-linux-gnueabihf</code> as its default installation which is not fully supported, so we must manually install <code>gcc-8-arm-linux-gnueabihf</code> and set it as the default toolchain. This guide also applies to earlier Ubuntu releases (Bionic). The following instruction assumes you haven&apos;t installed any version of arm-linux-gnueabihf, and will set up the default executable with <code>update-alternatives</code>. Install them with the terminal command:</p>
+<pre><code class="lang-sh">sudo apt-get install -y gcc-8-arm-linux-gnueabihf g++-8-arm-linux-gnueabihf
+</code></pre>
+<p>Set them as default:</p>
+<pre><code class="lang-sh">sudo update-alternatives --install /usr/bin/arm-linux-gnueabihf-gcc arm-linux-gnueabihf-gcc /usr/bin/arm-linux-gnueabihf-8 100 --slave /usr/bin/arm-linux-gnueabihf-g++ arm-linux-gnueabihf-g++ /usr/bin/arm-linux-gnueabihf-g++-8
+sudo update-alternatives --config arm-linux-gnueabihf-gcc
+</code></pre>
+<h3 id="gcc-aarch64"><a name="gcc-aarch64" class="plugin-anchor" href="#gcc-aarch64"><i class="fa fa-link" aria-hidden="true"></i></a>GCC (aarch64)</h3>
+<p>If you want to build PX4 for ARM64 devices, this section is required.</p>
+<pre><code class="lang-sh">sudo apt-get install -y gcc-8-aarch64-linux-gnu g++-8-aarch64-linux-gnu
+sudo update-alternatives --install /usr/bin/aarch64-linux-gnu-gcc aarch64-linux-gnu-gcc /usr/bin/aarch64-linux-gnu-gcc-8 100 --slave /usr/bin/aarch64-linux-gnu-g++ aarch64-linux-gnu-g++ /usr/bin/aarch64-linux-gnu-g++-8
+sudo update-alternatives --config aarch64-linux-gnu-gcc
+</code></pre>
+<h3 id="clang-optional"><a name="clang-optional" class="plugin-anchor" href="#clang-optional"><i class="fa fa-link" aria-hidden="true"></i></a>Clang (optional)</h3>
 <p>First <a href="#gcc">install GCC</a> (needed to use clang).</p>
-<p>We recommend you to get clang from the Ubuntu software repository as follows:</p>
+<p>We recommend you to get clang from the Ubuntu software repository, as shown below:</p>
 <pre><code>sudo apt-get install clang
-</code></pre><p>Example below for building PX4 firmware out of tree, using CMake.</p>
+</code></pre><p>Example below for building PX4 firmware out of tree, using <em>CMake</em>.</p>
 <pre><code class="lang-sh"><span class="hljs-built_in">cd</span> &lt;PATH-TO-PX4-SRC&gt;
 mkdir build/px4_raspberrypi_default_clang
 <span class="hljs-built_in">cd</span> build/px4_raspberrypi_default_clang
@@ -2581,8 +2591,12 @@ cmake \
 ../..
 make
 </code></pre>
-<h3 id="&#x672C;&#x5730;&#x7F16;&#x8BD1;"><a name="&#x672C;&#x5730;&#x7F16;&#x8BD1;" class="plugin-anchor" href="#&#x672C;&#x5730;&#x7F16;&#x8BD1;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x672C;&#x5730;&#x7F16;&#x8BD1;</h3>
-<p>Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here: <a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2 Autopilot</a>.</p>
+<h3 id="detailed-information"><a name="detailed-information" class="plugin-anchor" href="#detailed-information"><i class="fa fa-link" aria-hidden="true"></i></a>Detailed Information</h3>
+<p>Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:</p>
+<ul>
+<li><a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html" target="_blank">Raspberry Pi 2/3 Navio2 Autopilot</a>.</li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/raspberry_pi_pilotpi.html" target="_blank">Raspberry Pi 2/3/4 PilotPi Shield</a>.</li>
+</ul>
 <p><a id="rosgazebo"></a></p>
 <h2 id="rosgazebo"><a name="rosgazebo" class="plugin-anchor" href="#rosgazebo"><i class="fa fa-link" aria-hidden="true"></i></a>ROS/Gazebo</h2>
 <p>This section explains how to install <a href="../ros/">ROS/Gazebo</a> (&quot;Melodic&quot;) for use with PX4.</p>
@@ -2595,16 +2609,16 @@ make
 </ol>
 <p>Note:</p>
 <ul>
-<li>ROS Melodic &#x5DF2;&#x7ECF;&#x9ED8;&#x8BA4;&#x8DDF;Gazebo9&#x4E00;&#x8D77;&#x5B89;&#x88C5;&#x4E86;&#x3002;</li>
-<li>&#x4F60;&#x7684;catkin&#xFF08;ROS&#x7F16;&#x8BD1;&#x7CFB;&#x7EDF;&#xFF09;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x5728;<strong>~/catkin_ws/</strong>&#x4E2D;&#x3002;</li>
-<li>&#x811A;&#x672C;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x6307;&#x4EE4;&#x6765;&#x81EA;&#x4E8E;ROS&#x7684;wiki&#x7684;&quot;Melodic&quot; <a href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank">Ubuntu page</a>&#x3002;</li>
+<li>ROS Melodic is installed with Gazebo9 by default.</li>
+<li>Your catkin (ROS build system) workspace is created at <strong>~/catkin_ws/</strong>.</li>
+<li>The script uses instructions from the ROS Wiki &quot;Melodic&quot; <a href="http://wiki.ros.org/melodic/Installation/Ubuntu" target="_blank">Ubuntu page</a>.</li>
 </ul>
 <h2 id="&#x9AD8;&#x901A;&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF08;snapdragon-flight&#xFF09;"><a name="&#x9AD8;&#x901A;&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF08;snapdragon-flight&#xFF09;" class="plugin-anchor" href="#&#x9AD8;&#x901A;&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF08;snapdragon-flight&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9AD8;&#x901A;&#x9A81;&#x9F99;&#x98DE;&#x63A7;&#xFF08;Snapdragon Flight&#xFF09;</h2>
 <p>Setup instructions for Snapdragon Flight are provided in the <em>PX4 User Guide</em>:</p>
 <ul>
-<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_dev_environment_installation.html" target="_blank">&#x5F00;&#x53D1;&#x73AF;&#x5883;</a></li>
-<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_software_installation.html" target="_blank">&#x8F6F;&#x4EF6;&#x5B89;&#x88C5;</a></li>
-<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_configuration.html" target="_blank">&#x914D;&#x7F6E;</a></li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_dev_environment_installation.html" target="_blank">Development Environment</a></li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_software_installation.html" target="_blank">Software Installation</a></li>
+<li><a href="https://docs.px4.io/master/en/flight_controller/snapdragon_flight_configuration.html" target="_blank">Configuration</a></li>
 </ul>
 <p><a id="fast_rtps"></a></p>
 <h2 id="fast-rtps-installation"><a name="fast-rtps-installation" class="plugin-anchor" href="#fast-rtps-installation"><i class="fa fa-link" aria-hidden="true"></i></a>Fast RTPS installation</h2>
@@ -2657,7 +2671,7 @@ make
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"next":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"previous":{"title":"Linux","level":"1.2.2.2","depth":3,"path":"setup/dev_env_linux.md","ref":"setup/dev_env_linux.md","articles":[{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_linux_arch.md","ref":"setup/dev_env_linux_arch.md","articles":[]},{"title":"高级 Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/dev_env_linux_ubuntu.md","mtime":"2020-11-10T22:59:09.851Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T23:00:01.079Z"},"basePath":"..","book":{"language":"zh"}});
+            gitbook.page.hasChanged({"page":{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"next":{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},"previous":{"title":"Linux","level":"1.2.2.2","depth":3,"path":"setup/dev_env_linux.md","ref":"setup/dev_env_linux.md","articles":[{"title":"Ubuntu/Debian Linux","level":"1.2.2.2.1","depth":4,"path":"setup/dev_env_linux_ubuntu.md","ref":"setup/dev_env_linux_ubuntu.md","articles":[]},{"title":"CentOS Linux","level":"1.2.2.2.2","depth":4,"path":"setup/dev_env_linux_centos.md","ref":"setup/dev_env_linux_centos.md","articles":[]},{"title":"Arch Linux","level":"1.2.2.2.3","depth":4,"path":"setup/dev_env_linux_arch.md","ref":"setup/dev_env_linux_arch.md","articles":[]},{"title":"高级 Linux","level":"1.2.2.2.4","depth":4,"path":"setup/dev_env_advanced_linux.md","ref":"setup/dev_env_advanced_linux.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/dev_env_linux_ubuntu.md","mtime":"2020-11-10T23:44:53.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-10T23:45:46.077Z"},"basePath":"..","book":{"language":"zh"}});
         });
     </script>
 </div>
