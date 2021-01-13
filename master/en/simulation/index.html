@@ -2488,52 +2488,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="simulation"><a name="simulation" class="plugin-anchor" href="#simulation"><i class="fa fa-link" aria-hidden="true"></i></a>Simulation</h1>
-<p>Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated &quot;world&quot;.
-You can interact with this vehicle just as you might with a real vehicle, using <em>QGroundControl</em>, an offboard API, or a radio controller/gamepad.</p>
-<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
-<p> Simulation is a quick, easy, and most importantly, <em>safe</em> way to test changes to PX4 code before attempting to fly in the real world.
-  It is also a good way to start flying with PX4 when you haven&apos;t yet got a vehicle to experiment with.</p>
-</blockquote>
-<p>PX4 supports both <em>Software In the Loop (SITL)</em> simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and <em>Hardware In the Loop (HITL)</em> simulation using a simulation firmware on a real flight controller board.</p>
-<p>Information about available simulators and how to set them up are provided in the next section.
-The other sections provide general information about how the simulator works, and are not required to <em>use</em> the simulators.</p>
-<h2 id="supported-simulators"><a name="supported-simulators" class="plugin-anchor" href="#supported-simulators"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Simulators</h2>
-<p>The following simulators work with PX4 for HITL and/or SITL simulation.</p>
-<table>
-<thead>
-<tr>
-<th>Simulator</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="gazebo.html">Gazebo</a></td>
-<td><p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a> and is commonly used with <a href="ros_interface.html">ROS</a>, a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>), Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine </p></td>
-</tr>
-<tr>
-<td><a href="flightgear.html">FlightGear</a></td>
-<td><p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. <a href="multi_vehicle_flightgear.html">Multi-vehicle simulation</a> is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p></td>
-</tr>
-<tr>
-<td><a href="jsbsim.html">JSBSim</a></td>
-<td><p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p></td>
-</tr>
-<tr>
-<td><a href="jmavsim.html">jMAVSim</a></td>
-<td>A simple multirotor simulator that allows you to fly <em>copter</em> type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for <a href="multi_vehicle_jmavsim.html">multi-vehicle simulation</a>.</p><p><strong>Supported Vehicles:</strong> Quad</p></td>
-</tr>
-<tr>
-<td><a href="airsim.html">AirSim</a></td>
-<td><p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p></td>
-</tr>
-<tr>
-<td><a href="simulation-in-hardware.html">Simulation-In-Hardware</a> (SIH)</td>
-<td><p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot.</p><p><strong>Supported Vehicles:</strong> Quad</p></td>
-</tr>
-</tbody>
-</table>
+                                <p><link rel="canonical" href="https://docs.px4.io/master/en/simulation/"></p>
+<p><meta http-equiv="refresh" content="0; url=https://docs.px4.io/master/en/simulation/"></p>
+<p></p><h1 id="redirecting"><a name="redirecting" class="plugin-anchor" href="#redirecting"><i class="fa fa-link" aria-hidden="true"></i></a>Redirecting...</h1><p></p>
+<p>
+  This page has moved to 
+  <a href="https://docs.px4.io/master/en/simulation/" target="_blank">https://docs.px4.io/master/en/simulation/</a>.
+</p>
+<p>
+  <a href="https://docs.px4.io/master/en/simulation/" target="_blank">Click here</a> if you are not redirected.
+</p>
+<script>window.location.href="https://docs.px4.io/master/en/simulation/";</script>
+
+# Simulation
+
+Simulators allow PX4 flight code to control a computer modeled vehicle in a simulated &quot;world&quot;.
+You can interact with this vehicle just as you might with a real vehicle, using *QGroundControl*, an offboard API, or a radio controller/gamepad.
+
+&gt; **Tip** Simulation is a quick, easy, and most importantly, *safe* way to test changes to PX4 code before attempting to fly in the real world.
+  It is also a good way to start flying with PX4 when you haven&apos;t yet got a vehicle to experiment with.
+
+PX4 supports both *Software In the Loop (SITL)* simulation, where the flight stack runs on computer (either the same computer or another computer on the same network) and *Hardware In the Loop (HITL)* simulation using a simulation firmware on a real flight controller board.
+
+Information about available simulators and how to set them up are provided in the next section.
+The other sections provide general information about how the simulator works, and are not required to *use* the simulators.
+
+
+## Supported Simulators
+
+The following simulators work with PX4 for HITL and/or SITL simulation.
+
+Simulator |Description
+---|---
+[Gazebo](../simulation/gazebo.md) | <p><strong>This simulator is highly recommended.</strong></p><p>A powerful 3D simulation environment that is particularly suitable for testing object-avoidance and computer vision. It can also be used for <a href="multi-vehicle-simulation.html">multi-vehicle simulation</a> and is commonly used with <a href="ros_interface.html">ROS</a>, a collection of tools for automating vehicle control. </p><p><strong>Supported Vehicles:</strong> Quad (<a href="../airframes/airframe_reference.html#copter_quadrotor_wide_3dr_iris_quadrotor">Iris</a> and <a href="../airframes/airframe_reference.html#copter_quadrotor_x_3dr_solo">Solo</a>), Hex (Typhoon H480), <a href="../airframes/airframe_reference.html#vtol_standard_vtol_generic_quad_delta_vtol">Generic quad delta VTOL</a>, Tailsitter, Plane, Rover, Submarine </p>
+[FlightGear](../simulation/flightgear.md) | <p>A simulator that provides physically and visually realistic simulations. In particular it can simulate many weather conditions, including thunderstorms, snow, rain and hail, and can also simulate thermals and different types of atmospheric flows. <a href="multi_vehicle_flightgear.html">Multi-vehicle simulation</a> is also supported.</p> <p><strong>Supported Vehicles:</strong> Plane, Autogyro, Rover</p>
+[JSBSim](../simulation/jsbsim.md) | <p>A simulator that provides advanced flight dynamics models. This can be used to model realistic flight dynamics based on wind tunnel data.</p> <p><strong>Supported Vehicles:</strong> Plane, Quad, Hex</p>
+[jMAVSim](../simulation/jmavsim.md) | A simple multirotor simulator that allows you to fly *copter* type vehicles around a simulated world. <p>It is easy to set up and can be used to test that your vehicle can take off, fly, land, and responds appropriately to various fail conditions (e.g. GPS failure). It can also be used for <a href="multi_vehicle_jmavsim.html">multi-vehicle simulation</a>.</p><p><strong>Supported Vehicles:</strong> Quad</p>
+[AirSim](../simulation/airsim.md) | <p>A cross platform simulator that provides physically and visually realistic simulations. This simulator is resource intensive, and requires a very significantly more powerful computer than the other simulators described here.</p><p><strong>Supported Vehicles:</strong> Iris (MultiRotor model and a configuration for PX4 QuadRotor in the X configuration).</p>
+[Simulation-In-Hardware](../simulation/simulation-in-hardware.md) (SIH) | <p>An alternative to HITL that offers a hard real-time simulation directly on the hardware autopilot.</p><p><strong>Supported Vehicles:</strong> Quad</p>
+
 <p>Instructions for how to setup and use the simulators are in the topics linked above.</p>
 <hr>
 <p>The remainder of this topic is a &quot;somewhat generic&quot; description of how the simulation infrastructure works.
@@ -2825,7 +2818,7 @@ The simulation must already be running on the remote server, and you must be abl
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[{"title":"Multi-Vehicle Sim with JMAVSim","level":"1.4.1.1","depth":3,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]}]},"previous":{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","redirect","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/PX4-user_guide/issues/new?title=DeveloperBug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2021-01-13T03:24:17.679Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T03:25:11.406Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Simulation","level":"1.4","depth":1,"next":{"title":"jMAVSim Simulation","level":"1.4.1","depth":2,"path":"simulation/jmavsim.md","ref":"simulation/jmavsim.md","articles":[{"title":"Multi-Vehicle Sim with JMAVSim","level":"1.4.1.1","depth":3,"path":"simulation/multi_vehicle_jmavsim.md","ref":"simulation/multi_vehicle_jmavsim.md","articles":[]}]},"previous":{"title":"SD Card Layout","level":"1.3.8","depth":2,"path":"concept/sd_card_layout.md","ref":"concept/sd_card_layout.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","redirect","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.11/en/","text":"1.11 - stable"},{"value":"https://dev.px4.io/v1.10/en/","text":"1.10"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 "},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/PX4-user_guide/issues/new?title=DeveloperBug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"master"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"simulation/README.md","mtime":"2021-01-13T03:40:45.271Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T03:41:42.831Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>
