@@ -1,0 +1,2772 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Drivers · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="modules_driver_distance_sensor.html" />
+    
+    
+    <link rel="prev" href="modules_controller.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    Initial Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    Toolchain Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    Ubuntu/Debian Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    CentOS Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    Advanced Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    Virtual Machine Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    Bash on Windows Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
+            
+                <a href="../setup/dev_env_windows_msys.html">
+            
+                    
+                    Msys Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/vscode.html">
+            
+                <a href="../setup/vscode.html">
+            
+                    
+                    Visual Studio Code IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    Additional Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    Building the Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    Writing your First Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    Application/Module Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 Architectural Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    Controller Diagrams
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    Dronecode Platform Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    Flight Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    Mixing and Actuators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit state machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    System Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/failsafes.html">
+            
+                <a href="../simulation/failsafes.html">
+            
+                    
+                    Simulate Failsafes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/simulation-in-hardware.html">
+            
+                <a href="../simulation/simulation-in-hardware.html">
+            
+                    
+                    Simulation-In-Hardware
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    Hardware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    Flight Controller Reference Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    Flight Controller Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    Airframes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    Airframes Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    Adding a New Airframe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="drivers.html">
+            
+                <a href="drivers.html">
+            
+                    
+                    Device Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    Telemetry Radio
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    Sensor and Actuator I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C Bus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN Bus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN Firmware Upgrades
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN Various Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    UART/Serial Ports
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    Port-Configurable Serial Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    Gimbal (Mount) Control Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    Companion Computers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Middleware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="uorb.html">
+            
+                <a href="uorb.html">
+            
+                    
+                    uORB Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="uorb_graph.html">
+            
+                <a href="uorb_graph.html">
+            
+                    
+                    uORB Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="mavlink.html">
+            
+                <a href="mavlink.html">
+            
+                    
+                    MAVLink Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="micrortps.html">
+            
+                <a href="micrortps.html">
+            
+                    
+                    RTPS/ROS2 Interface
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="micrortps_throughput_test.html">
+            
+                <a href="micrortps_throughput_test.html">
+            
+                    
+                    Throughput Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="micrortps_manual_code_generation.html">
+            
+                <a href="micrortps_manual_code_generation.html">
+            
+                    
+                    Manually Generate Client/Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="modules_main.html">
+            
+                <a href="modules_main.html">
+            
+                    
+                    Modules & Commands
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="modules_command.html">
+            
+                <a href="modules_command.html">
+            
+                    
+                    Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="modules_communication.html">
+            
+                <a href="modules_communication.html">
+            
+                    
+                    Communication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="modules_controller.html">
+            
+                <a href="modules_controller.html">
+            
+                    
+                    Controllers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.4" data-path="modules_driver.html">
+            
+                <a href="modules_driver.html">
+            
+                    
+                    Drivers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="modules_driver_distance_sensor.html">
+            
+                <a href="modules_driver_distance_sensor.html">
+            
+                    
+                    Distance Sensor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="modules_estimator.html">
+            
+                <a href="modules_estimator.html">
+            
+                    
+                    Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="modules_simulation.html">
+            
+                <a href="modules_simulation.html">
+            
+                    
+                    Simulations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="modules_system.html">
+            
+                <a href="modules_system.html">
+            
+                    
+                    System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="modules_template.html">
+            
+                <a href="modules_template.html">
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    Robotics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    Offboard Control from Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (MAVLink on ROS)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS Offboard Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    ROS with Gazebo Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    OctoMap Models with ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    ROS Installation on RPi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    External Position Estimation (Vision/Motion based)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    Sending Custom Messages from MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    Debugging/Logging
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    Autopilot Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink Hardware Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    Simulation Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    Sending Debug Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    Flight Log Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    Tutorials
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    Ground Control Station
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    Video Streaming in QGC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    Long-distance Video Streaming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    S.Bus Driver for Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    Parameters & Configs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    Parameter Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    Computer Vision
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    Motion Capture (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Installing driver for Intel RealSense R200
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    Switching State Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    Out-of-Tree Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    System Tunes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    Platform Testing and CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    Test Flights
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    Test MC_01 - Manual Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    Test MC_02 - Full Autonomous
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    Test MC_03 - Auto Manual Mix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    Test MC_04 - Failsafe Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    Test MC_05 - Indoor Flight (Manual Modes)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    Continuous Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins Continuous Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker Containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    Maintenance
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    Contribution (&Dev Call)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    Dev Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    Source Code Management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    Terminology/Notation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Drivers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="modules-reference-driver"><a name="modules-reference-driver" class="plugin-anchor" href="#modules-reference-driver"><i class="fa fa-link" aria-hidden="true"></i></a>Modules Reference: Driver</h1>
+<p>Subcategories:</p>
+<ul>
+<li><a href="modules_driver_distance_sensor.html">Distance Sensor</a></li>
+</ul>
+<h2 id="atxxxx"><a name="atxxxx" class="plugin-anchor" href="#atxxxx"><i class="fa fa-link" aria-hidden="true"></i></a>atxxxx</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/osd/atxxxx" target="_blank">drivers/osd/atxxxx</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for example.</p>
+<p>It can be enabled with the OSD_ATXXXX_CFG parameter.</p>
+<h3 id="atxxxx_usage"><a name="atxxxx_usage" class="plugin-anchor" href="#atxxxx_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>atxxxx &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the driver
+     [-b &lt;val&gt;]  SPI bus (default: use board-specific bus)
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="battsmbus"><a name="battsmbus" class="plugin-anchor" href="#battsmbus"><i class="fa fa-link" aria-hidden="true"></i></a>batt_smbus</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/batt_smbus" target="_blank">drivers/batt_smbus</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Smart battery driver for the BQ40Z50 fuel gauge IC.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>To write to flash to set parameters. address, number_of_bytes, byte0, ... , byteN</p>
+<pre><code>batt_smbus -X write_flash 19069 2 27 0
+</code></pre><h3 id="batt_smbus_usage"><a name="batt_smbus_usage" class="plugin-anchor" href="#batt_smbus_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>batt_smbus &lt;command&gt; [arguments...]
+ Commands:
+   start
+     [-X]        BATT_SMBUS_BUS_I2C_EXTERNAL
+     [-T]        BATT_SMBUS_BUS_I2C_EXTERNAL1
+     [-R]        BATT_SMBUS_BUS_I2C_EXTERNAL2
+     [-I]        BATT_SMBUS_BUS_I2C_INTERNAL
+     [-A]        BATT_SMBUS_BUS_ALL
+
+   man_info      Prints manufacturer info.
+
+   unseal        Unseals the devices flash memory to enable write_flash
+                 commands.
+
+   seal          Seals the devices flash memory to disbale write_flash commands.
+
+   suspend       Suspends the driver from rescheduling the cycle.
+
+   resume        Resumes the driver from suspension.
+
+   write_flash   Writes to flash. The device must first be unsealed with the
+                 unseal command.
+     [address]   The address to start writing.
+     [number of bytes] Number of bytes to send.
+     [data[0]...data[n]] One byte of data at a time separated by spaces.
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="dshot"><a name="dshot" class="plugin-anchor" href="#dshot"><i class="fa fa-link" aria-hidden="true"></i></a>dshot</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/dshot" target="_blank">drivers/dshot</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This is the DShot output driver. It is similar to the fmu driver, and can be used as drop-in replacement
+to use DShot as ESC communication protocol instead of PWM.</p>
+<p>It supports:</p>
+<ul>
+<li>DShot150, DShot300, DShot600, DShot1200</li>
+<li>telemetry via separate UART and publishing as esc_status message</li>
+<li>sending DShot commands via CLI</li>
+</ul>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>Permanently reverse motor 1:</p>
+<pre><code>dshot reverse -m 1
+dshot save -m 1
+</code></pre><p>After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.</p>
+<h3 id="dshot_usage"><a name="dshot_usage" class="plugin-anchor" href="#dshot_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>dshot &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
+
+ All of the mode_* commands will start the module if not running already
+
+   mode_gpio
+
+   mode_pwm      Select all available pins as PWM
+
+   mode_pwm8
+
+   mode_pwm6
+
+   mode_pwm5
+
+   mode_pwm5cap1
+
+   mode_pwm4
+
+   mode_pwm4cap1
+
+   mode_pwm4cap2
+
+   mode_pwm3
+
+   mode_pwm3cap1
+
+   mode_pwm2
+
+   mode_pwm2cap2
+
+   mode_pwm1
+
+   telemetry     Enable Telemetry on a UART
+     &lt;device&gt;    UART device
+
+   reverse       Reverse motor direction
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   normal        Normal motor direction
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   save          Save current settings
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   3d_on         Enable 3D mode
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   3d_off        Disable 3D mode
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   beep1         Send Beep pattern 1
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   beep2         Send Beep pattern 2
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   beep3         Send Beep pattern 3
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   beep4         Send Beep pattern 4
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   beep5         Send Beep pattern 5
+     [-m &lt;val&gt;]  Motor index (1-based, default=all)
+
+   esc_info      Request ESC information
+     -m &lt;val&gt;    Motor index (1-based)
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="fmu"><a name="fmu" class="plugin-anchor" href="#fmu"><i class="fa fa-link" aria-hidden="true"></i></a>fmu</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/px4fmu" target="_blank">drivers/px4fmu</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module is responsible for driving the output and reading the input pins. For boards without a separate IO chip
+(eg. Pixracer), it uses the main channels. On boards with an IO chip (eg. Pixhawk), it uses the AUX channels, and the
+px4io driver is used for main ones.</p>
+<p>It listens on the actuator_controls topics, does the mixing and writes the PWM outputs.</p>
+<p>The module is configured via mode_* commands. This defines which of the first N pins the driver should occupy.
+By using mode_pwm4 for example, pins 5 and 6 can be used by the camera trigger driver or by a PWM rangefinder
+driver. Alternatively, the fmu can be started in one of the capture modes, and then drivers can register a capture
+callback with ioctl calls.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>By default the module runs on a work queue with a callback on the uORB actuator_controls topic.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>It is typically started with:</p>
+<pre><code>fmu mode_pwm
+</code></pre><p>To drive all available pins.</p>
+<p>Capture input (rising and falling edges) and print on the console: start the fmu in one of the capture modes:</p>
+<pre><code>fmu mode_pwm3cap1
+</code></pre><p>This will enable capturing on the 4th pin. Then do:</p>
+<pre><code>fmu test
+</code></pre><p>Use the <code>pwm</code> command for further configurations (PWM rate, levels, ...), and the <code>mixer</code> command to load
+mixer files.</p>
+<h3 id="fmu_usage"><a name="fmu_usage" class="plugin-anchor" href="#fmu_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>fmu &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
+
+ All of the mode_* commands will start the fmu if not running already
+
+   mode_gpio
+
+   mode_pwm      Select all available pins as PWM
+
+   mode_pwm8
+
+   mode_pwm6
+
+   mode_pwm5
+
+   mode_pwm5cap1
+
+   mode_pwm4
+
+   mode_pwm4cap1
+
+   mode_pwm4cap2
+
+   mode_pwm3
+
+   mode_pwm3cap1
+
+   mode_pwm2
+
+   mode_pwm2cap2
+
+   mode_pwm1
+
+   sensor_reset  Do a sensor reset (SPI bus)
+     [&lt;ms&gt;]      Delay time in ms between reset and re-enabling
+
+   peripheral_reset Reset board peripherals
+     [&lt;ms&gt;]      Delay time in ms between reset and re-enabling
+
+   i2c           Configure I2C clock rate
+     &lt;bus_id&gt; &lt;rate&gt; Specify the bus id (&gt;=0) and rate in Hz
+
+   test          Test inputs and outputs
+
+   fake          Arm and send an actuator controls command
+     &lt;roll&gt; &lt;pitch&gt; &lt;yaw&gt; &lt;thrust&gt; Control values in range [-100, 100]
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="gps"><a name="gps" class="plugin-anchor" href="#gps"><i class="fa fa-link" aria-hidden="true"></i></a>gps</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/gps" target="_blank">drivers/gps</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>GPS driver module that handles the communication with the device and publishes the position via uORB.
+It supports multiple protocols (device vendors) and by default automatically selects the correct one.</p>
+<p>The module supports a secondary GPS device, specified via <code>-e</code> parameter. The position will be published
+on the second uORB topic instance, but it&apos;s currently not used by the rest of the system (however the
+data will be logged, so that it can be used for comparisons).</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>There is a thread for each device polling for data. The GPS protocol classes are implemented with callbacks
+so that they can be used in other projects as well (eg. QGroundControl uses them too).</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>For testing it can be useful to fake a GPS signal (it will signal the system that it has a valid position):</p>
+<pre><code>gps stop
+gps start -f
+</code></pre><p>Starting 2 GPS devices (the main GPS on /dev/ttyS3 and the secondary on /dev/ttyS4):</p>
+<pre><code>gps start -d /dev/ttyS3 -e /dev/ttyS4
+</code></pre><p>Initiate warm restart of GPS device</p>
+<pre><code>gps reset warm
+</code></pre><h3 id="gps_usage"><a name="gps_usage" class="plugin-anchor" href="#gps_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>gps &lt;command&gt; [arguments...]
+ Commands:
+   start
+     [-d &lt;val&gt;]  GPS device
+                 values: &lt;file:dev&gt;, default: /dev/ttyS3
+     [-b &lt;val&gt;]  Baudrate (can also be p:&lt;param_name&gt;)
+                 default: 0
+     [-e &lt;val&gt;]  Optional secondary GPS device
+                 values: &lt;file:dev&gt;
+     [-g &lt;val&gt;]  Baudrate (secondary GPS, can also be p:&lt;param_name&gt;)
+                 default: 0
+     [-f]        Fake a GPS signal (useful for testing)
+     [-s]        Enable publication of satellite info
+     [-i &lt;val&gt;]  GPS interface
+                 values: spi|uart, default: uart
+     [-p &lt;val&gt;]  GPS Protocol (default=auto select)
+                 values: ubx|mtk|ash|eml
+
+   stop
+
+   status        print status info
+
+   reset         Reset GPS device
+     cold|warm|hot Specify reset type
+</code></pre><h2 id="pga460"><a name="pga460" class="plugin-anchor" href="#pga460"><i class="fa fa-link" aria-hidden="true"></i></a>pga460</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/pga460" target="_blank">drivers/distance_sensor/pga460</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Ultrasonic range finder driver that handles the communication with the device and publishes the distance via uORB.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>This driver is implented as a NuttX task. This Implementation was chosen due to the need for polling on a message
+via UART, which is not supported in the work_queue. This driver continuously takes range measurements while it is
+running. A simple algorithm to detect false readings is implemented at the driver levelin an attemptto improve
+the quality of data that is being published. The driver will not publish data at all if it deems the sensor data
+to be invalid or unstable.</p>
+<h3 id="pga460_usage"><a name="pga460_usage" class="plugin-anchor" href="#pga460_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>pga460 &lt;command&gt; [arguments...]
+ Commands:
+   start &lt;device_path&gt;
+     [device_path] The pga460 sensor device path, (e.g: /dev/ttyS6
+
+   status
+
+   stop
+
+   help
+</code></pre><h2 id="pwmoutsim"><a name="pwmoutsim" class="plugin-anchor" href="#pwmoutsim"><i class="fa fa-link" aria-hidden="true"></i></a>pwm_out_sim</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/pwm_out_sim" target="_blank">drivers/pwm_out_sim</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Driver for simulated PWM outputs.</p>
+<p>Its only function is to take <code>actuator_control</code> uORB messages,
+mix them with any loaded mixer and output the result to the
+<code>actuator_output</code> uORB topic.</p>
+<p>It is used in SITL and HITL.</p>
+<h3 id="pwm_out_sim_usage"><a name="pwm_out_sim_usage" class="plugin-anchor" href="#pwm_out_sim_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>pwm_out_sim &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the module
+     [-m &lt;val&gt;]  Mode
+                 values: hil|sim, default: sim
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="rcinput"><a name="rcinput" class="plugin-anchor" href="#rcinput"><i class="fa fa-link" aria-hidden="true"></i></a>rc_input</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/rc_input" target="_blank">drivers/rc_input</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module does the RC input parsing and auto-selecting the method. Supported methods are:</p>
+<ul>
+<li>PPM</li>
+<li>SBUS</li>
+<li>DSM</li>
+<li>SUMD</li>
+<li>ST24</li>
+<li>TBS Crossfire (CRSF)</li>
+</ul>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>By default the module runs on the work queue, to reduce RAM usage. It can also be run in its own thread,
+specified via start flag -t, to reduce latency.
+When running on the work queue, it schedules at a fixed frequency.</p>
+<h3 id="rc_input_usage"><a name="rc_input_usage" class="plugin-anchor" href="#rc_input_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>rc_input &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task (without any mode set, use any of the mode_*
+                 cmds)
+     [-t]        Run as separate task instead of the work queue
+     [-d &lt;val&gt;]  RC device
+                 values: &lt;file:dev&gt;, default: /dev/ttyS3
+
+   bind          Send a DSM bind command (module must be running)
+
+   stop
+
+   status        print status info
+</code></pre><h2 id="roboclaw"><a name="roboclaw" class="plugin-anchor" href="#roboclaw"><i class="fa fa-link" aria-hidden="true"></i></a>roboclaw</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/roboclaw" target="_blank">drivers/roboclaw</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This driver communicates over UART with the <a href="http://downloads.ionmc.com/docs/roboclaw_user_manual.pdf" target="_blank">Roboclaw motor driver</a>.
+It performs two tasks:</p>
+<ul>
+<li>Control the motors based on the <code>actuator_controls_0</code> UOrb topic.</li>
+<li>Read the wheel encoders and publish the raw data in the <code>wheel_encoders</code> UOrb topic</li>
+</ul>
+<p>In order to use this driver, the Roboclaw should be put into Packet Serial mode (see the linked documentation), and
+your flight controller&apos;s UART port should be connected to the Roboclaw as shown in the documentation. For Pixhawk 4,
+use the <code>UART &amp; I2C B</code> port, which corresponds to <code>/dev/ttyS3</code>.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>The main loop of this module (Located in <code>RoboClaw.cpp::task_main()</code>) performs 2 tasks:</p>
+<ol>
+<li>Write <code>actuator_controls_0</code> messages to the Roboclaw as they become available</li>
+<li>Read encoder data from the Roboclaw at a constant, fixed rate.</li>
+</ol>
+<p>Because of the latency of UART, this driver does not write every single <code>actuator_controls_0</code> message to the Roboclaw
+immediately. Instead, it is rate limited based on the parameter <code>RBCLW_WRITE_PER</code>.</p>
+<p>On startup, this driver will attempt to read the status of the Roboclaw to verify that it is connected. If this fails,
+the driver terminates immediately.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>The command to start this driver is:</p>
+<p> $ roboclaw start <device> <baud></baud></device></p>
+<p><code>&lt;device&gt;</code> is the name of the UART port. On the Pixhawk 4, this is <code>/dev/ttyS3</code>.
+<code>&lt;baud&gt;</code> is te baud rate.</p>
+<p>All available commands are:</p>
+<ul>
+<li><code>$ roboclaw start &lt;device&gt; &lt;baud&gt;</code></li>
+<li><code>$ roboclaw status</code></li>
+<li><code>$ roboclaw stop</code></li>
+</ul>
+<h3 id="roboclaw_usage"><a name="roboclaw_usage" class="plugin-anchor" href="#roboclaw_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>roboclaw &lt;command&gt; [arguments...]
+ Commands:
+</code></pre><h2 id="safetybutton"><a name="safetybutton" class="plugin-anchor" href="#safetybutton"><i class="fa fa-link" aria-hidden="true"></i></a>safety_button</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/safety_button" target="_blank">drivers/safety_button</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module is responsible for the safety button.</p>
+<h3 id="safety_button_usage"><a name="safety_button_usage" class="plugin-anchor" href="#safety_button_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>safety_button &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the safety button driver
+</code></pre><h2 id="tapesc"><a name="tapesc" class="plugin-anchor" href="#tapesc"><i class="fa fa-link" aria-hidden="true"></i></a>tap_esc</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/drivers/tap_esc" target="_blank">drivers/tap_esc</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>This module controls the TAP_ESC hardware via UART. It listens on the
+actuator_controls topics, does the mixing and writes the PWM outputs.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>Currently the module is implementd as a threaded version only, meaning that it
+runs in its own thread instead of on the work queue.</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
+<p>The module is typically started with:
+tap_esc start -d /dev/ttyS2 -n <1-8></1-8></p>
+<h3 id="tap_esc_usage"><a name="tap_esc_usage" class="plugin-anchor" href="#tap_esc_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>tap_esc &lt;command&gt; [arguments...]
+ Commands:
+   start         Start the task
+     [-d &lt;val&gt;]  Device used to talk to ESCs
+                 values: &lt;device&gt;
+     [-n &lt;val&gt;]  Number of ESCs
+                 default: 4
+</code></pre><h2 id="vmount"><a name="vmount" class="plugin-anchor" href="#vmount"><i class="fa fa-link" aria-hidden="true"></i></a>vmount</h2>
+<p>Source: <a href="https://github.com/PX4/Firmware/tree/master/src/modules/vmount" target="_blank">modules/vmount</a></p>
+<h3 id="description"><a name="description" class="plugin-anchor" href="#description"><i class="fa fa-link" aria-hidden="true"></i></a>Description</h3>
+<p>Mount (Gimbal) control driver. It maps several different input methods (eg. RC or MAVLink) to a configured
+output (eg. AUX channels or MAVLink).</p>
+<p>Documentation how to use it is on the <a href="https://dev.px4.io/en/advanced/gimbal_control.html" target="_blank">gimbal_control</a> page.</p>
+<h3 id="implementation"><a name="implementation" class="plugin-anchor" href="#implementation"><i class="fa fa-link" aria-hidden="true"></i></a>Implementation</h3>
+<p>Each method is implemented in its own class, and there is a common base class for inputs and outputs.
+They are connected via an API, defined by the <code>ControlData</code> data structure. This makes sure that each input method
+can be used with each output method and new inputs/outputs can be added with minimal effort.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>Test the output by setting a fixed yaw angle (and the other axes to 0):</p>
+<pre><code>vmount stop
+vmount test yaw 30
+</code></pre><h3 id="vmount_usage"><a name="vmount_usage" class="plugin-anchor" href="#vmount_usage"><i class="fa fa-link" aria-hidden="true"></i></a>Usage </h3>
+<pre><code>vmount &lt;command&gt; [arguments...]
+ Commands:
+   start
+
+   test          Test the output: set a fixed angle for one axis (vmount must
+                 not be running)
+     roll|pitch|yaw &lt;angle&gt; Specify an axis and an angle in degrees
+
+   stop
+
+   status        print status info
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="modules_controller.html" class="navigation navigation-prev " aria-label="Previous page: Controllers">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="modules_driver_distance_sensor.html" class="navigation navigation-next " aria-label="Next page: Distance Sensor">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Drivers","level":"1.7.4","depth":2,"next":{"title":"Distance Sensor","level":"1.7.4.1","depth":3,"path":"middleware/modules_driver_distance_sensor.md","ref":"middleware/modules_driver_distance_sensor.md","articles":[]},"previous":{"title":"Controllers","level":"1.7.3","depth":2,"path":"middleware/modules_controller.md","ref":"middleware/modules_controller.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"v1.10.0"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"middleware/modules_driver.md","mtime":"2021-01-13T07:25:19.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T07:26:13.874Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

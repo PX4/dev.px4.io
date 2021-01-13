@@ -1,0 +1,2778 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Writing your First Application · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="module_template.html" />
+    
+    
+    <link rel="prev" href="../setup/building_px4.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../setup/getting_started.html">
+            
+                <a href="../setup/getting_started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../setup/config_initial.html">
+            
+                <a href="../setup/config_initial.html">
+            
+                    
+                    Initial Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../setup/dev_env.html">
+            
+                <a href="../setup/dev_env.html">
+            
+                    
+                    Toolchain Installation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../setup/dev_env_mac.html">
+            
+                <a href="../setup/dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../setup/dev_env_linux.html">
+            
+                <a href="../setup/dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="../setup/dev_env_linux_ubuntu.html">
+            
+                <a href="../setup/dev_env_linux_ubuntu.html">
+            
+                    
+                    Ubuntu/Debian Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="../setup/dev_env_linux_centos.html">
+            
+                <a href="../setup/dev_env_linux_centos.html">
+            
+                    
+                    CentOS Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="../setup/dev_env_linux_arch.html">
+            
+                <a href="../setup/dev_env_linux_arch.html">
+            
+                    
+                    Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="../setup/dev_env_advanced_linux.html">
+            
+                <a href="../setup/dev_env_advanced_linux.html">
+            
+                    
+                    Advanced Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../setup/dev_env_windows.html">
+            
+                <a href="../setup/dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.3.1" data-path="../setup/dev_env_windows_cygwin.html">
+            
+                <a href="../setup/dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="../setup/dev_env_windows_vm.html">
+            
+                <a href="../setup/dev_env_windows_vm.html">
+            
+                    
+                    Virtual Machine Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="../setup/dev_env_windows_bash_on_win.html">
+            
+                <a href="../setup/dev_env_windows_bash_on_win.html">
+            
+                    
+                    Bash on Windows Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.4" data-path="../setup/dev_env_windows_msys.html">
+            
+                <a href="../setup/dev_env_windows_msys.html">
+            
+                    
+                    Msys Toolchain
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../setup/vscode.html">
+            
+                <a href="../setup/vscode.html">
+            
+                    
+                    Visual Studio Code IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../setup/fast-rtps-installation.html">
+            
+                <a href="../setup/fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../setup/generic_dev_tools.html">
+            
+                <a href="../setup/generic_dev_tools.html">
+            
+                    
+                    Additional Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../setup/building_px4.html">
+            
+                <a href="../setup/building_px4.html">
+            
+                    
+                    Building the Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="hello_sky.html">
+            
+                <a href="hello_sky.html">
+            
+                    
+                    Writing your First Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="module_template.html">
+            
+                <a href="module_template.html">
+            
+                    
+                    Application/Module Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    Concepts
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 Architectural Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    Controller Diagrams
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    Dronecode Platform Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    Flight Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    Mixing and Actuators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit state machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    System Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    Simulation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    Multi-Vehicle Sim with JMAVSim
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    Multi-Vehicle Sim with Gazebo
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/failsafes.html">
+            
+                <a href="../simulation/failsafes.html">
+            
+                    
+                    Simulate Failsafes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/simulation-in-hardware.html">
+            
+                <a href="../simulation/simulation-in-hardware.html">
+            
+                    
+                    Simulation-In-Hardware
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    Hardware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    Flight Controller Reference Design
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    Flight Controller Porting Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    Airframes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    Airframes Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    Adding a New Airframe
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    Device Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    Telemetry Radio
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK Radio
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    Sensor and Actuator I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C Bus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN Bus
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN Firmware Upgrades
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN Various Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    UART/Serial Ports
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    Port-Configurable Serial Drivers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    Gimbal (Mount) Control Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    Companion Computers
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    Middleware
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
+            
+                <a href="../middleware/uorb_graph.html">
+            
+                    
+                    uORB Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 Interface
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    Throughput Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    Manually Generate Client/Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    Modules & Commands
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    Communication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_controller.html">
+            
+                <a href="../middleware/modules_controller.html">
+            
+                    
+                    Controllers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    Drivers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../middleware/modules_driver_distance_sensor.html">
+            
+                <a href="../middleware/modules_driver_distance_sensor.html">
+            
+                    
+                    Distance Sensor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
+            
+                <a href="../middleware/modules_estimator.html">
+            
+                    
+                    Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../middleware/modules_simulation.html">
+            
+                <a href="../middleware/modules_simulation.html">
+            
+                    
+                    Simulations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../middleware/modules_template.html">
+            
+                <a href="../middleware/modules_template.html">
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    Robotics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    Offboard Control from Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS (MAVLink on ROS)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS Offboard Example
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    ROS with Gazebo Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    OctoMap Models with ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    ROS Installation on RPi
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    External Position Estimation (Vision/Motion based)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    Sending Custom Messages from MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    Debugging/Logging
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    System Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    Autopilot Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink Hardware Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    Simulation Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    Sending Debug Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    Flight Log Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    Tutorials
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    Ground Control Station
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    Video Streaming in QGC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    Long-distance Video Streaming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    S.Bus Driver for Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    Advanced Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    Parameters & Configs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    Parameter Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    Computer Vision
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    Motion Capture (VICON, Optitrack)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    Installing driver for Intel RealSense R200
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    Switching State Estimators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    Out-of-Tree Modules
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    System Tunes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    Platform Testing and CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    Test Flights
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    Test MC_01 - Manual Modes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    Test MC_02 - Full Autonomous
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    Test MC_03 - Auto Manual Mix
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    Test MC_04 - Failsafe Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    Test MC_05 - Indoor Flight (Manual Modes)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    Unit Tests
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    Continuous Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins Continuous Integration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    Integration Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker Containers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    Maintenance
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    Contribution (&Dev Call)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    Dev Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    Source Code Management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    Terminology/Notation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode Shortcuts</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.io/en/">
+            
+                    
+                    PX4 User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="https://dev.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl Developer Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode Camera Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Writing your First Application</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="first-application-tutorial-hello-sky"><a name="first-application-tutorial-hello-sky" class="plugin-anchor" href="#first-application-tutorial-hello-sky"><i class="fa fa-link" aria-hidden="true"></i></a>First Application Tutorial (Hello Sky)</h1>
+<p>This topic explains how to create and run your first onboard application. It covers all the basic concepts and APIs required for app development on PX4.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> For simplicity, more advanced features like start/stop functionality and command-line arguments are omitted. These are covered in <a href="module_template.html">Application/Module Template</a>.</p>
+</blockquote>
+<h2 id="prerequisites"><a name="prerequisites" class="plugin-anchor" href="#prerequisites"><i class="fa fa-link" aria-hidden="true"></i></a>Prerequisites</h2>
+<p>You will require the following:</p>
+<ul>
+<li><a href="../simulation/">PX4 SITL Simulator</a> <em>or</em> a <a href="https://docs.px4.io/master/en/flight_controller/#documented-boards" target="_blank">PX4-compatible flight controller</a>.</li>
+<li><a href="../setup/dev_env.html">PX4 Development Toolchain</a> for the desired target.</li>
+<li><a href="../setup/building_px4.html#get_px4_code">Download the PX4 Source Code</a> from Github</li>
+</ul>
+<p>The source code <a href="https://github.com/PX4/Firmware/tree/master/src/examples/px4_simple_app" target="_blank">Firmware/src/examples/px4_simple_app</a> directory contains a completed version of this tutorial that you can review if you get stuck. </p>
+<ul>
+<li>Rename (or delete) the <strong>px4_simple_app</strong> directory. </li>
+</ul>
+<h2 id="minimal-application"><a name="minimal-application" class="plugin-anchor" href="#minimal-application"><i class="fa fa-link" aria-hidden="true"></i></a>Minimal Application</h2>
+<p>In this section we create a <em>minimal application</em> that just prints out <code>Hello Sky!</code>. This consists of a single <em>C</em> file and a <em>cmake</em> definition (which tells the toolchain how to build the application). </p>
+<ol>
+<li>Create a new directory <strong>Firmware/src/examples/px4_simple_app</strong>.</li>
+<li><p>Create a new C file in that directory named <strong>px4_simple_app.c</strong>:</p>
+<ul>
+<li><p>Copy in the default header to the top of the page. This should be present in all contributed files!</p>
+<pre><code class="lang-c"><span class="hljs-comment">/****************************************************************************
+ *
+ *   Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ * 3. Neither the name PX4 nor the names of its contributors may be
+ *    used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ ****************************************************************************/</span>
+</code></pre>
+</li>
+<li><p>Copy the following code below the default header. This code style should be used for all files.</p>
+<pre><code class="lang-c"><span class="hljs-comment">/**
+ * @file px4_simple_app.c
+ * Minimal application example for PX4 autopilot
+ *
+ * @author Example User &lt;mail@example.com&gt;
+ */</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_log.h&gt;</span></span>
+
+__<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    PX4_INFO(<span class="hljs-string">&quot;Hello Sky!&quot;</span>);
+    <span class="hljs-keyword">return</span> OK;
+}
+</code></pre>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The main function must be named <code>&lt;module_name&gt;_main</code> and exported from the module as shown.</p>
+</blockquote>
+<p><span></span></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <code>PX4_INFO</code> is the equivalent of <code>printf</code> for the PX4 shell (included from <strong>px4_log.h</strong>). There are different log levels: <code>PX4_INFO</code>, <code>PX4_WARN</code>, <code>PX4_ERR</code>, <code>PX4_DEBUG</code>. Warnings and errors are additionally added to the <a href="../log/ulog_file_format.html">ULog</a> and shown on <a href="https://logs.px4.io/" target="_blank">Flight Review</a>.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Create and open a new <em>cmake</em> definition file named <strong>CMakeLists.txt</strong>. 
+Copy in the text below:</p>
+<pre><code class="lang-cmake"><span class="hljs-comment">############################################################################</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#   Copyright (c) 2015 PX4 Development Team. All rights reserved.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Redistribution and use in source and binary forms, with or without</span>
+<span class="hljs-comment"># modification, are permitted provided that the following conditions</span>
+<span class="hljs-comment"># are met:</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># 1. Redistributions of source code must retain the above copyright</span>
+<span class="hljs-comment">#    notice, this list of conditions and the following disclaimer.</span>
+<span class="hljs-comment"># 2. Redistributions in binary form must reproduce the above copyright</span>
+<span class="hljs-comment">#    notice, this list of conditions and the following disclaimer in</span>
+<span class="hljs-comment">#    the documentation and/or other materials provided with the</span>
+<span class="hljs-comment">#    distribution.</span>
+<span class="hljs-comment"># 3. Neither the name PX4 nor the names of its contributors may be</span>
+<span class="hljs-comment">#    used to endorse or promote products derived from this software</span>
+<span class="hljs-comment">#    without specific prior written permission.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS</span>
+<span class="hljs-comment"># &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT</span>
+<span class="hljs-comment"># LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS</span>
+<span class="hljs-comment"># FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE</span>
+<span class="hljs-comment"># COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,</span>
+<span class="hljs-comment"># INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,</span>
+<span class="hljs-comment"># BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS</span>
+<span class="hljs-comment"># OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED</span>
+<span class="hljs-comment"># AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT</span>
+<span class="hljs-comment"># LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN</span>
+<span class="hljs-comment"># ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
+<span class="hljs-comment"># POSSIBILITY OF SUCH DAMAGE.</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">############################################################################</span>
+px4_add_module(
+    MODULE examples__px4_simple_app
+    MAIN px4_simple_app
+    STACK_MAIN <span class="hljs-number">2000</span>
+    SRCS
+        px4_simple_app.c
+    DEPENDS
+    )
+</code></pre>
+<p>The <code>px4_add_module()</code> method builds a static library from a module description. 
+The <code>MAIN</code> block lists the name of the module - this registers the command with NuttX so that it can be called from the PX4 shell or SITL console.</p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The <code>px4_add_module()</code> format is documented in <a href="https://github.com/PX4/Firmware/blob/v1.10.0/cmake/px4_add_module.cmake" target="_blank">Firmware/cmake/px4_add_module.cmake</a>.</p>
+<p><strong>Note</strong>
+If you specify <code>DYNAMIC</code> as an option to <code>px4_add_module</code>, a <em>shared library</em> is created instead of a static library on POSIX platforms (these can be loaded without having to recompile PX4, and shared to others as binaries rather than source code).
+Your app will not become a builtin command, but ends up in a separate file called <code>examples__px4_simple_app.px4mod</code>.
+You can then run your command by loading the file at runtime using the <code>dyn</code> command: <code>dyn ./examples__px4_simple_app.px4mod</code></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="build-the-applicationfirmware"><a name="build-the-applicationfirmware" class="plugin-anchor" href="#build-the-applicationfirmware"><i class="fa fa-link" aria-hidden="true"></i></a>Build the Application/Firmware</h2>
+<p>The application is now complete. In order to run it you first need to make sure that it is built as part of PX4. 
+Applications are added to the build/firmware in the appropriate board-level <em>cmake</em> file for your target: </p>
+<ul>
+<li>PX4 SITL (Simulator): <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/sitl/default.cmake" target="_blank">Firmware/boards/px4/sitl/default.cmake</a></li>
+<li>Pixhawk v1/2: <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake" target="_blank">Firmware/boards/px4/fmu-v2/default.cmake</a></li>
+<li>Pixracer (px4/fmu-v4): <a href="https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v4/default.cmake" target="_blank">Firmware/boards/px4/fmu-v4/default.cmake</a></li>
+<li><em>cmake</em> files for other boards can be found in <a href="https://github.com/PX4/Firmware/tree/master/boards" target="_blank">Firmware/boards/</a></li>
+</ul>
+<p>To enable the compilation of the application into the firmware create a new line for your application somewhere in the <em>cmake</em> file:</p>
+<pre><code>examples/px4_simple_app
+</code></pre><blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> The line will already be present for most files, because the examples are included in firmware by default.</p>
+</blockquote>
+<p>Build the example using the board-specific command:</p>
+<ul>
+<li>jMAVSim Simulator: <code>make px4_sitl_default jmavsim</code></li>
+<li>Pixhawk v1/2: <code>make px4_fmu-v2_default</code> (or just <code>make px4_fmu-v2</code>)</li>
+<li>Pixhawk v3: <code>make px4_fmu-v4_default</code></li>
+<li>Other boards: <a href="../setup/building_px4.html#building_nuttx">Building the Code</a></li>
+</ul>
+<h2 id="test-app-hardware"><a name="test-app-hardware" class="plugin-anchor" href="#test-app-hardware"><i class="fa fa-link" aria-hidden="true"></i></a>Test App (Hardware)</h2>
+<h3 id="upload-the-firmware-to-your-board"><a name="upload-the-firmware-to-your-board" class="plugin-anchor" href="#upload-the-firmware-to-your-board"><i class="fa fa-link" aria-hidden="true"></i></a>Upload the firmware to your board</h3>
+<p>Enable the uploader and then reset the board:</p>
+<ul>
+<li>Pixhawk v1/2: <code>make px4_fmu-v2_default upload</code></li>
+<li>Pixhawk v3: <code>make px4_fmu-v4_default upload</code></li>
+</ul>
+<p>It should print before you reset the board a number of compile messages and at the end:</p>
+<pre><code class="lang-sh">Loaded firmware <span class="hljs-keyword">for</span> X,X, waiting <span class="hljs-keyword">for</span> the bootloader...
+</code></pre>
+<p>Once the board is reset, and uploads, it prints:</p>
+<pre><code class="lang-sh">Erase  : [====================] 100.0%
+Program: [====================] 100.0%
+Verify : [====================] 100.0%
+Rebooting.
+
+[100%] Built target upload
+</code></pre>
+<h3 id="connect-the-console"><a name="connect-the-console" class="plugin-anchor" href="#connect-the-console"><i class="fa fa-link" aria-hidden="true"></i></a>Connect the Console</h3>
+<p>Now connect to the <a href="../debug/system_console.html">system console</a> either via serial or USB. 
+Hitting <strong>ENTER</strong> will bring up the shell prompt:</p>
+<pre><code class="lang-sh">nsh&gt;
+</code></pre>
+<p>Type &apos;&apos;help&apos;&apos; and hit ENTER</p>
+<pre><code class="lang-sh">nsh&gt; <span class="hljs-built_in">help</span>
+  <span class="hljs-built_in">help</span> usage:  <span class="hljs-built_in">help</span> [-v] [&lt;cmd&gt;]
+
+  [           df          <span class="hljs-built_in">kill</span>        mkfifo      ps          sleep       
+  ?           <span class="hljs-built_in">echo</span>        losetup     mkrd        <span class="hljs-built_in">pwd</span>         <span class="hljs-built_in">test</span>        
+  cat         <span class="hljs-built_in">exec</span>        ls          mh          rm          umount      
+  <span class="hljs-built_in">cd</span>          <span class="hljs-built_in">exit</span>        mb          mount       rmdir       <span class="hljs-built_in">unset</span>       
+  cp          free        mkdir       mv          <span class="hljs-built_in">set</span>         usleep      
+  dd          <span class="hljs-built_in">help</span>        mkfatfs     mw          sh          xd          
+
+Builtin Apps:
+  reboot
+  perf
+  top
+  ..
+  px4_simple_app
+  ..
+  sercon
+  serdis
+</code></pre>
+<p>Note that <code>px4_simple_app</code> is now part of the available commands. Start it by typing <code>px4_simple_app</code> and ENTER:</p>
+<pre><code class="lang-sh">nsh&gt; px4_simple_app
+Hello Sky!
+</code></pre>
+<p>The application is now correctly registered with the system and can be extended to actually perform useful tasks.</p>
+<h2 id="test-app-sitl"><a name="test-app-sitl" class="plugin-anchor" href="#test-app-sitl"><i class="fa fa-link" aria-hidden="true"></i></a>Test App (SITL)</h2>
+<p>If you&apos;re using SITL the <em>PX4 console</em> is automatically started (see <a href="../setup/building_px4.html#jmavsim_build">Building the Code &gt; First Build (Using the jMAVSim Simulator)</a>). 
+As with the <em>nsh console</em> (see previous section) you can type <code>help</code> to see the list of built-in apps.</p>
+<p>Enter <code>px4_simple_app</code> to run the minimal app.</p>
+<pre><code class="lang-sh">pxh&gt; px4_simple_app
+INFO  [px4_simple_app] Hello Sky!
+</code></pre>
+<p>The application can now be extended to actually perform useful tasks.</p>
+<h2 id="subscribing-to-sensor-data"><a name="subscribing-to-sensor-data" class="plugin-anchor" href="#subscribing-to-sensor-data"><i class="fa fa-link" aria-hidden="true"></i></a>Subscribing to Sensor Data</h2>
+<p>To do something useful, the application needs to subscribe inputs and publish outputs (e.g. motor or servo commands). </p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The benefits of the PX4 hardware abstraction comes into play here! There is no need to interact in any way with sensor drivers and no need to update your app if the board or sensors are updated.</p>
+</blockquote>
+<p>Individual message channels between applications are called <a href="../middleware/uorb.html">topics</a>. For this tutorial, we are interested in the <a href="https://github.com/PX4/Firmware/blob/master/msg/sensor_combined.msg" target="_blank">sensor_combined</a> topic, which holds the synchronized sensor data of the complete system.</p>
+<p>Subscribing to a topic is straightforward:</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/sensor_combined.h&gt;</span></span>
+..
+<span class="hljs-keyword">int</span> sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+</code></pre>
+<p>The <code>sensor_sub_fd</code> is a topic handle and can be used to very efficiently perform a blocking wait for new data. The current thread goes to sleep and is woken up automatically by the scheduler once new data is available, not consuming any CPU cycles while waiting. To do this, we use the <a href="http://pubs.opengroup.org/onlinepubs/007908799/xsh/poll.html" target="_blank">poll()</a> POSIX system call.</p>
+<p>Adding <code>poll()</code> to the subscription looks like (<em>pseudocode, look for the full implementation below</em>):</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;poll.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/sensor_combined.h&gt;</span></span>
+..
+<span class="hljs-keyword">int</span> sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+
+<span class="hljs-comment">/* one could wait for multiple topics with this technique, just using one here */</span>
+<span class="hljs-keyword">px4_pollfd_struct_t</span> fds[] = {
+    { .fd = sensor_sub_fd,   .events = POLLIN },
+};
+
+<span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) {
+    <span class="hljs-comment">/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */</span>
+    <span class="hljs-keyword">int</span> poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);
+    ..
+    <span class="hljs-keyword">if</span> (fds[<span class="hljs-number">0</span>].revents &amp; POLLIN) {
+        <span class="hljs-comment">/* obtained data for the first file descriptor */</span>
+        <span class="hljs-keyword">struct</span> sensor_combined_s raw;
+        <span class="hljs-comment">/* copy sensors raw data into local buffer */</span>
+        orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &amp;raw);
+        PX4_INFO(<span class="hljs-string">&quot;Accelerometer:\t%8.4f\t%8.4f\t%8.4f&quot;</span>,
+                    (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">0</span>],
+                    (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">1</span>],
+                    (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">2</span>]);
+    }
+}
+</code></pre>
+<p>Compile the app again by entering:</p>
+<pre><code class="lang-sh">make
+</code></pre>
+<h3 id="testing-the-uorb-subscription"><a name="testing-the-uorb-subscription" class="plugin-anchor" href="#testing-the-uorb-subscription"><i class="fa fa-link" aria-hidden="true"></i></a>Testing the uORB Subscription</h3>
+<p>The final step is to start your application as a background process/task by typing the following in the nsh shell:</p>
+<pre><code class="lang-sh">px4_simple_app &amp;
+</code></pre>
+<p>Your app will display 5 sensor values in the console and then exit:</p>
+<pre><code class="lang-sh">[px4_simple_app] Accelerometer:   0.0483          0.0821          0.0332
+[px4_simple_app] Accelerometer:   0.0486          0.0820          0.0336
+[px4_simple_app] Accelerometer:   0.0487          0.0819          0.0327
+[px4_simple_app] Accelerometer:   0.0482          0.0818          0.0323
+[px4_simple_app] Accelerometer:   0.0482          0.0827          0.0331
+[px4_simple_app] Accelerometer:   0.0489          0.0804          0.0328
+</code></pre>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> The <a href="module_template.html">Module Template for Full Applications</a> can be used to write background process that can be controlled from the command line.</p>
+</blockquote>
+<h2 id="publishing-data"><a name="publishing-data" class="plugin-anchor" href="#publishing-data"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing Data</h2>
+<p>To use the calculated outputs, the next step is to <em>publish</em> the results. Below we show how to publish the attitude topic.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> We&apos;ve chosen <code>attitude</code> because we know that the <em>mavlink</em> app forwards it to the ground control station - providing an easy way to look at the results.</p>
+</blockquote>
+<p>The interface is pretty simple: initialize the <code>struct</code> of the topic to be published and advertise the topic:</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/vehicle_attitude.h&gt;</span></span>
+..
+<span class="hljs-comment">/* advertise attitude topic */</span>
+<span class="hljs-keyword">struct</span> vehicle_attitude_s att;
+<span class="hljs-built_in">memset</span>(&amp;att, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(att));
+<span class="hljs-keyword">orb_advert_t</span> att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &amp;att);
+</code></pre>
+<p>In the main loop, publish the information whenever its ready:</p>
+<pre><code class="lang-c">orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &amp;att);
+</code></pre>
+<h2 id="full-example-code"><a name="full-example-code" class="plugin-anchor" href="#full-example-code"><i class="fa fa-link" aria-hidden="true"></i></a>Full Example Code</h2>
+<p>The <a href="https://github.com/PX4/Firmware/blob/master/src/examples/px4_simple_app/px4_simple_app.c" target="_blank">complete example code</a> is now:</p>
+<pre><code class="lang-c"><span class="hljs-comment">/****************************************************************************
+ *
+ *   Copyright (c) 2012-2016 PX4 Development Team. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ * 3. Neither the name PX4 nor the names of its contributors may be
+ *    used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ ****************************************************************************/</span>
+
+<span class="hljs-comment">/**
+ * @file px4_simple_app.c
+ * Minimal application example for PX4 autopilot
+ *
+ * @author Example User &lt;mail@example.com&gt;
+ */</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_config.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_tasks.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;px4_posix.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;poll.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;math.h&gt;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/uORB.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/sensor_combined.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;uORB/topics/vehicle_attitude.h&gt;</span></span>
+
+__<span class="hljs-function">EXPORT <span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">px4_simple_app_main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
+</span>{
+    PX4_INFO(<span class="hljs-string">&quot;Hello Sky!&quot;</span>);
+
+    <span class="hljs-comment">/* subscribe to sensor_combined topic */</span>
+    <span class="hljs-keyword">int</span> sensor_sub_fd = orb_subscribe(ORB_ID(sensor_combined));
+    <span class="hljs-comment">/* limit the update rate to 5 Hz */</span>
+    orb_set_interval(sensor_sub_fd, <span class="hljs-number">200</span>);
+
+    <span class="hljs-comment">/* advertise attitude topic */</span>
+    <span class="hljs-keyword">struct</span> vehicle_attitude_s att;
+    <span class="hljs-built_in">memset</span>(&amp;att, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(att));
+    <span class="hljs-keyword">orb_advert_t</span> att_pub = orb_advertise(ORB_ID(vehicle_attitude), &amp;att);
+
+    <span class="hljs-comment">/* one could wait for multiple topics with this technique, just using one here */</span>
+    <span class="hljs-keyword">px4_pollfd_struct_t</span> fds[] = {
+        { .fd = sensor_sub_fd,   .events = POLLIN },
+        <span class="hljs-comment">/* there could be more file descriptors here, in the form like:
+         * { .fd = other_sub_fd,   .events = POLLIN },
+         */</span>
+    };
+
+    <span class="hljs-keyword">int</span> error_counter = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) {
+        <span class="hljs-comment">/* wait for sensor update of 1 file descriptor for 1000 ms (1 second) */</span>
+        <span class="hljs-keyword">int</span> poll_ret = px4_poll(fds, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span>);
+
+        <span class="hljs-comment">/* handle the poll result */</span>
+        <span class="hljs-keyword">if</span> (poll_ret == <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">/* this means none of our providers is giving us data */</span>
+            PX4_ERR(<span class="hljs-string">&quot;Got no data within a second&quot;</span>);
+
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (poll_ret &lt; <span class="hljs-number">0</span>) {
+            <span class="hljs-comment">/* this is seriously bad - should be an emergency */</span>
+            <span class="hljs-keyword">if</span> (error_counter &lt; <span class="hljs-number">10</span> || error_counter % <span class="hljs-number">50</span> == <span class="hljs-number">0</span>) {
+                <span class="hljs-comment">/* use a counter to prevent flooding (and slowing us down) */</span>
+                PX4_ERR(<span class="hljs-string">&quot;ERROR return value from poll(): %d&quot;</span>, poll_ret);
+            }
+
+            error_counter++;
+
+        } <span class="hljs-keyword">else</span> {
+
+            <span class="hljs-keyword">if</span> (fds[<span class="hljs-number">0</span>].revents &amp; POLLIN) {
+                <span class="hljs-comment">/* obtained data for the first file descriptor */</span>
+                <span class="hljs-keyword">struct</span> sensor_combined_s raw;
+                <span class="hljs-comment">/* copy sensors raw data into local buffer */</span>
+                orb_copy(ORB_ID(sensor_combined), sensor_sub_fd, &amp;raw);
+                PX4_INFO(<span class="hljs-string">&quot;Accelerometer:\t%8.4f\t%8.4f\t%8.4f&quot;</span>,
+                     (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">0</span>],
+                     (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">1</span>],
+                     (<span class="hljs-keyword">double</span>)raw.accelerometer_m_s2[<span class="hljs-number">2</span>]);
+
+                <span class="hljs-comment">/* set att and publish this information for other apps
+                 the following does not have any meaning, it&apos;s just an example
+                */</span>
+                att.q[<span class="hljs-number">0</span>] = raw.accelerometer_m_s2[<span class="hljs-number">0</span>];
+                att.q[<span class="hljs-number">1</span>] = raw.accelerometer_m_s2[<span class="hljs-number">1</span>];
+                att.q[<span class="hljs-number">2</span>] = raw.accelerometer_m_s2[<span class="hljs-number">2</span>];
+
+                orb_publish(ORB_ID(vehicle_attitude), att_pub, &amp;att);
+            }
+
+            <span class="hljs-comment">/* there could be more file descriptors here, in the form like:
+             * if (fds[1..n].revents &amp; POLLIN) {}
+             */</span>
+        }
+    }
+
+    PX4_INFO(<span class="hljs-string">&quot;exiting&quot;</span>);
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h2 id="running-the-complete-example"><a name="running-the-complete-example" class="plugin-anchor" href="#running-the-complete-example"><i class="fa fa-link" aria-hidden="true"></i></a>Running the Complete Example</h2>
+<p>And finally run your app:</p>
+<pre><code class="lang-sh">px4_simple_app
+</code></pre>
+<p>If you start <em>QGroundControl</em>, you can check the sensor values in the real time plot (<strong>Widgets &gt; Analyze</strong>).</p>
+<h2 id="wrap-up"><a name="wrap-up" class="plugin-anchor" href="#wrap-up"><i class="fa fa-link" aria-hidden="true"></i></a>Wrap-Up</h2>
+<p>This tutorial covered everything needed to develop a basic PX4 autopilot application. Keep in mind that the full list of uORB messages/topics is <a href="https://github.com/PX4/Firmware/tree/master/msg/" target="_blank">available here</a> and that the headers are well documented and serve as reference.</p>
+<p>Further information and troubleshooting/common pitfalls can be found here: <a href="../middleware/uorb.html">uORB</a>.</p>
+<p>The next page presents a template for writing a full application with start and stop functionality.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../setup/building_px4.html" class="navigation navigation-prev " aria-label="Previous page: Building the Code">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="module_template.html" class="navigation navigation-next " aria-label="Next page: Application/Module Template">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Writing your First Application","level":"1.2.4","depth":2,"next":{"title":"Application/Module Template","level":"1.2.5","depth":2,"path":"apps/module_template.md","ref":"apps/module_template.md","articles":[]},"previous":{"title":"Building the Code","level":"1.2.3","depth":2,"path":"setup/building_px4.md","ref":"setup/building_px4.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"v1.10.0"},"title":"PX4 Developer Guide","language":"en","gitbook":"*"},"file":{"path":"apps/hello_sky.md","mtime":"2021-01-13T07:25:19.562Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T07:26:13.874Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

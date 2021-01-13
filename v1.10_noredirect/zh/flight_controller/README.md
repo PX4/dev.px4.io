@@ -1,0 +1,1 @@
+Not translated. [English version](https://dev.px4.io/en/flight_controller/)

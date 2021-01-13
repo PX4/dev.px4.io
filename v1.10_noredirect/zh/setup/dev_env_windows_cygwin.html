@@ -1,0 +1,2548 @@
+
+<!DOCTYPE HTML>
+<html lang="zh" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Cygwin 工具链 · PX4 Developer Guide</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-richquotes/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-language-picker/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-versions-select/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-dronecode/theme_styles.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="dev_env_windows_vm.html" />
+    
+    
+    <link rel="prev" href="dev_env_windows.html" />
+    
+
+    </head>
+    <body>
+        
+    
+    <!-- ##HW Add dronecode menu -->
+    <div id="common_dronecode_menu">
+
+      <div class="common_menu_logo large_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png" alt="Dronecode logo (large)" />
+        </a>
+      </div>
+      <div class="common_menu_logo small_version">
+        <a href="https://www.dronecode.org/">
+          <img src="../../gitbook/gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png" alt="Dronecode logo (small)" />
+        </a>
+      </div>
+      
+      <div class="common_menu_options">
+        
+            <div class="common_dronecode_menu_item"><a href="http://px4.io/">PX4</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://qgroundcontrol.com/">QGroundControl</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://qgroundcontrol.com/">QGC</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://www.dronecode.org/sdk/">SDK</a></div>
+            <div class="common_dronecode_menu_item"><a href="https://mavlink.io/en/">MAVLink</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="https://www.dronecode.org/documentation/">Documentation</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="https://www.dronecode.org/documentation/">Docs</a></div>
+            <div class="common_dronecode_menu_item large_version"><a href="http://discuss.px4.io/">Support</a></div>
+            <div class="common_dronecode_menu_item small_version"><a href="http://discuss.px4.io/">Help</a></div>
+        
+      </div>
+    </div>
+    
+<!-- ##HW END Add dronecode menu -->
+    
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="輸入並搜尋" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="getting_started.html">
+            
+                <a href="getting_started.html">
+            
+                    
+                    由此开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="config_initial.html">
+            
+                <a href="config_initial.html">
+            
+                    
+                    初始设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="dev_env.html">
+            
+                <a href="dev_env.html">
+            
+                    
+                    工具链安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="dev_env_mac.html">
+            
+                <a href="dev_env_mac.html">
+            
+                    
+                    Mac OS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="dev_env_linux.html">
+            
+                <a href="dev_env_linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.2.1" data-path="dev_env_linux_ubuntu.html">
+            
+                <a href="dev_env_linux_ubuntu.html">
+            
+                    
+                    Ubuntu/Debian Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.2" data-path="dev_env_linux_centos.html">
+            
+                <a href="dev_env_linux_centos.html">
+            
+                    
+                    CentOS Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.3" data-path="dev_env_linux_arch.html">
+            
+                <a href="dev_env_linux_arch.html">
+            
+                    
+                    Arch Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2.4" data-path="dev_env_advanced_linux.html">
+            
+                <a href="dev_env_advanced_linux.html">
+            
+                    
+                    高级 Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="dev_env_windows.html">
+            
+                <a href="dev_env_windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.2.3.1" data-path="dev_env_windows_cygwin.html">
+            
+                <a href="dev_env_windows_cygwin.html">
+            
+                    
+                    Cygwin 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.2" data-path="dev_env_windows_vm.html">
+            
+                <a href="dev_env_windows_vm.html">
+            
+                    
+                    Virtual Machine 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.3" data-path="dev_env_windows_bash_on_win.html">
+            
+                <a href="dev_env_windows_bash_on_win.html">
+            
+                    
+                    Bash on Windows 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3.4" data-path="dev_env_windows_msys.html">
+            
+                <a href="dev_env_windows_msys.html">
+            
+                    
+                    Msys 工具链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="vscode.html">
+            
+                <a href="vscode.html">
+            
+                    
+                    Visual Studio Code IDE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="fast-rtps-installation.html">
+            
+                <a href="fast-rtps-installation.html">
+            
+                    
+                    Fast RTPS installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="generic_dev_tools.html">
+            
+                <a href="generic_dev_tools.html">
+            
+                    
+                    Additional Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="building_px4.html">
+            
+                <a href="building_px4.html">
+            
+                    
+                    构建代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../apps/hello_sky.html">
+            
+                <a href="../apps/hello_sky.html">
+            
+                    
+                    编写您的第一个应用程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../apps/module_template.html">
+            
+                <a href="../apps/module_template.html">
+            
+                    
+                    应用/模块模板
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../concept/">
+            
+                <a href="../concept/">
+            
+                    
+                    概念
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../concept/architecture.html">
+            
+                <a href="../concept/architecture.html">
+            
+                    
+                    PX4 系统架构概述
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../flight_stack/controller_diagrams.html">
+            
+                <a href="../flight_stack/controller_diagrams.html">
+            
+                    
+                    控制器图解
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../concept/dronecode_architecture.html">
+            
+                <a href="../concept/dronecode_architecture.html">
+            
+                    
+                    Dronecode 平台概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../concept/flight_modes.html">
+            
+                <a href="../concept/flight_modes.html">
+            
+                    
+                    飞行模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../concept/flight_tasks.html">
+            
+                <a href="../concept/flight_tasks.html">
+            
+                    
+                    Flight Tasks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../concept/mixing.html">
+            
+                <a href="../concept/mixing.html">
+            
+                    
+                    Mixing and Actuators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../concept/pwm_limit.html">
+            
+                <a href="../concept/pwm_limit.html">
+            
+                    
+                    PWM limit state machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../concept/system_startup.html">
+            
+                <a href="../concept/system_startup.html">
+            
+                    
+                    System Startup
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../simulation/">
+            
+                <a href="../simulation/">
+            
+                    
+                    仿真
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../simulation/jmavsim.html">
+            
+                <a href="../simulation/jmavsim.html">
+            
+                    
+                    jMAVSim 仿真模拟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../simulation/gazebo.html">
+            
+                <a href="../simulation/gazebo.html">
+            
+                    
+                    Gazebo 仿真模拟
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../simulation/airsim.html">
+            
+                <a href="../simulation/airsim.html">
+            
+                    
+                    AirSim 仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../simulation/multi_vehicle_jmavsim.html">
+            
+                <a href="../simulation/multi_vehicle_jmavsim.html">
+            
+                    
+                    使用 JMAVSim 进行多飞行器仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../simulation/multi-vehicle-simulation.html">
+            
+                <a href="../simulation/multi-vehicle-simulation.html">
+            
+                    
+                    基于 Gazebo 的多飞行器仿真
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../simulation/failsafes.html">
+            
+                <a href="../simulation/failsafes.html">
+            
+                    
+                    Simulate Failsafes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../simulation/hitl.html">
+            
+                <a href="../simulation/hitl.html">
+            
+                    
+                    HITL Simulation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../simulation/simulation-in-hardware.html">
+            
+                <a href="../simulation/simulation-in-hardware.html">
+            
+                    
+                    Simulation-In-Hardware
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../hardware/">
+            
+                <a href="../hardware/">
+            
+                    
+                    硬件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../hardware/reference_design.html">
+            
+                <a href="../hardware/reference_design.html">
+            
+                    
+                    飞行控制器参考设计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../hardware/porting_guide.html">
+            
+                <a href="../hardware/porting_guide.html">
+            
+                    
+                    飞行控制器移植指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../airframes/">
+            
+                <a href="../airframes/">
+            
+                    
+                    机架
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.3.1" data-path="../airframes/airframe_reference.html">
+            
+                <a href="../airframes/airframe_reference.html">
+            
+                    
+                    机架参考
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3.2" data-path="../airframes/adding_a_new_frame.html">
+            
+                <a href="../airframes/adding_a_new_frame.html">
+            
+                    
+                    增加一个新的机型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../middleware/drivers.html">
+            
+                <a href="../middleware/drivers.html">
+            
+                    
+                    设备驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../data_links/telemetry.html">
+            
+                <a href="../data_links/telemetry.html">
+            
+                    
+                    数传电台
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.5.1" data-path="../data_links/sik_radio.html">
+            
+                <a href="../data_links/sik_radio.html">
+            
+                    
+                    SiK 电台
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../sensor_bus/">
+            
+                <a href="../sensor_bus/">
+            
+                    
+                    传感器和执行器 I/O
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.1" data-path="../sensor_bus/i2c.html">
+            
+                <a href="../sensor_bus/i2c.html">
+            
+                    
+                    I2C 总线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2" data-path="../uavcan/">
+            
+                <a href="../uavcan/">
+            
+                    
+                    UAVCAN 总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.2.1" data-path="../uavcan/bootloader_installation.html">
+            
+                <a href="../uavcan/bootloader_installation.html">
+            
+                    
+                    UAVCAN Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.2" data-path="../uavcan/node_firmware.html">
+            
+                <a href="../uavcan/node_firmware.html">
+            
+                    
+                    UAVCAN 固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.3" data-path="../uavcan/node_enumeration.html">
+            
+                <a href="../uavcan/node_enumeration.html">
+            
+                    
+                    UAVCAN 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.2.4" data-path="../uavcan/notes.html">
+            
+                <a href="../uavcan/notes.html">
+            
+                    
+                    UAVCAN 各种注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6.3" data-path="../uart/">
+            
+                <a href="../uart/">
+            
+                    
+                    串行总线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.6.3.1" data-path="../uart/user_configurable_serial_driver.html">
+            
+                <a href="../uart/user_configurable_serial_driver.html">
+            
+                    
+                    端口-配置串行驱动
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../advanced/rtk_gps.html">
+            
+                <a href="../advanced/rtk_gps.html">
+            
+                    
+                    RTK GPS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../advanced/gimbal_control.html">
+            
+                <a href="../advanced/gimbal_control.html">
+            
+                    
+                    云台（安装）控制设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../companion_computer/pixhawk_companion.html">
+            
+                <a href="../companion_computer/pixhawk_companion.html">
+            
+                    
+                    机载计算机设置
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../middleware/">
+            
+                <a href="../middleware/">
+            
+                    
+                    中间件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../middleware/uorb.html">
+            
+                <a href="../middleware/uorb.html">
+            
+                    
+                    uORB 消息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../middleware/uorb_graph.html">
+            
+                <a href="../middleware/uorb_graph.html">
+            
+                    
+                    uORB 图表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../middleware/mavlink.html">
+            
+                <a href="../middleware/mavlink.html">
+            
+                    
+                    MAVLink通讯
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../middleware/micrortps.html">
+            
+                <a href="../middleware/micrortps.html">
+            
+                    
+                    RTPS/ROS2 接口
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.4.1" data-path="../middleware/micrortps_throughput_test.html">
+            
+                <a href="../middleware/micrortps_throughput_test.html">
+            
+                    
+                    输出测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4.2" data-path="../middleware/micrortps_manual_code_generation.html">
+            
+                <a href="../middleware/micrortps_manual_code_generation.html">
+            
+                    
+                    手动生成客户端和代理端代码
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../middleware/modules_main.html">
+            
+                <a href="../middleware/modules_main.html">
+            
+                    
+                    模块 & 命令
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../middleware/modules_command.html">
+            
+                <a href="../middleware/modules_command.html">
+            
+                    
+                    命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../middleware/modules_communication.html">
+            
+                <a href="../middleware/modules_communication.html">
+            
+                    
+                    通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../middleware/modules_controller.html">
+            
+                <a href="../middleware/modules_controller.html">
+            
+                    
+                    控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../middleware/modules_driver.html">
+            
+                <a href="../middleware/modules_driver.html">
+            
+                    
+                    驱动
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.4.1" data-path="../middleware/modules_driver_distance_sensor.html">
+            
+                <a href="../middleware/modules_driver_distance_sensor.html">
+            
+                    
+                    Distance Sensor
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../middleware/modules_estimator.html">
+            
+                <a href="../middleware/modules_estimator.html">
+            
+                    
+                    估计器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../middleware/modules_simulation.html">
+            
+                <a href="../middleware/modules_simulation.html">
+            
+                    
+                    Simulations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../middleware/modules_system.html">
+            
+                <a href="../middleware/modules_system.html">
+            
+                    
+                    System
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../middleware/modules_template.html">
+            
+                <a href="../middleware/modules_template.html">
+            
+                    
+                    Template
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../robotics/">
+            
+                <a href="../robotics/">
+            
+                    
+                    机器人技术
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../ros/offboard_control.html">
+            
+                <a href="../ros/offboard_control.html">
+            
+                    
+                    Linux 的离板模式控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../ros/">
+            
+                <a href="../ros/">
+            
+                    
+                    ROS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.2.1" data-path="../ros/mavros_installation.html">
+            
+                <a href="../ros/mavros_installation.html">
+            
+                    
+                    MAVROS \（ROS 上的 MAVLink\）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.2" data-path="../ros/mavros_offboard.html">
+            
+                <a href="../ros/mavros_offboard.html">
+            
+                    
+                    MAVROS 离板例程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.3" data-path="../simulation/ros_interface.html">
+            
+                <a href="../simulation/ros_interface.html">
+            
+                    
+                    另见 Gazebo 模拟。
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.4" data-path="../simulation/gazebo_octomap.html">
+            
+                <a href="../simulation/gazebo_octomap.html">
+            
+                    
+                    具有 ROS 的 OctoMap 模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.5" data-path="../ros/raspberrypi_installation.html">
+            
+                <a href="../ros/raspberrypi_installation.html">
+            
+                    
+                    在 RPi 上安装 ROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.6" data-path="../ros/external_position_estimation.html">
+            
+                <a href="../ros/external_position_estimation.html">
+            
+                    
+                    外部位置估计（基于视觉/运动）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2.7" data-path="../ros/mavros_custom_messages.html">
+            
+                <a href="../ros/mavros_custom_messages.html">
+            
+                    
+                    Sending Custom Messages from MAVROS
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../robotics/dronekit.html">
+            
+                <a href="../robotics/dronekit.html">
+            
+                    
+                    DroneKit
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../debug/">
+            
+                <a href="../debug/">
+            
+                    
+                    调试日志
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../debug/faq.html">
+            
+                <a href="../debug/faq.html">
+            
+                    
+                    常见问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../debug/system_console.html">
+            
+                <a href="../debug/system_console.html">
+            
+                    
+                    系统控制台
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../debug/gdb_debugging.html">
+            
+                <a href="../debug/gdb_debugging.html">
+            
+                    
+                    飞控调试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../debug/eclipse_jlink.html">
+            
+                <a href="../debug/eclipse_jlink.html">
+            
+                    
+                    Eclipse/JLink Hardware Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../debug/sensor_uorb_topic_debugging.html">
+            
+                <a href="../debug/sensor_uorb_topic_debugging.html">
+            
+                    
+                    Sensor/Topic Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../debug/simulation_debugging.html">
+            
+                <a href="../debug/simulation_debugging.html">
+            
+                    
+                    Simulation Debugging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../debug/debug_values.html">
+            
+                <a href="../debug/debug_values.html">
+            
+                    
+                    Sending Debug Values
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../debug/system_wide_replay.html">
+            
+                <a href="../debug/system_wide_replay.html">
+            
+                    
+                    System-wide Replay
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../debug/profiling.html">
+            
+                <a href="../debug/profiling.html">
+            
+                    
+                    Profiling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../log/logging.html">
+            
+                <a href="../log/logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../log/flight_log_analysis.html">
+            
+                <a href="../log/flight_log_analysis.html">
+            
+                    
+                    Flight Log Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../log/ulog_file_format.html">
+            
+                <a href="../log/ulog_file_format.html">
+            
+                    
+                    ULog File Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../tutorials/tutorials.html">
+            
+                <a href="../tutorials/tutorials.html">
+            
+                    
+                    教程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../qgc/">
+            
+                <a href="../qgc/">
+            
+                    
+                    地面控制站
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../qgc/video_streaming.html">
+            
+                <a href="../qgc/video_streaming.html">
+            
+                    
+                    QGC 的视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../qgc/video_streaming_wifi_broadcast.html">
+            
+                <a href="../qgc/video_streaming_wifi_broadcast.html">
+            
+                    
+                    远距离视频流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../tutorials/linux_sbus.html">
+            
+                <a href="../tutorials/linux_sbus.html">
+            
+                    
+                    S.Bus Driver for Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../advanced/">
+            
+                <a href="../advanced/">
+            
+                    
+                    高级主题
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../advanced/parameters_and_configurations.html">
+            
+                <a href="../advanced/parameters_and_configurations.html">
+            
+                    
+                    参数 & 配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../advanced/parameter_reference.html">
+            
+                <a href="../advanced/parameter_reference.html">
+            
+                    
+                    参数参照表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../advanced/computer_vision.html">
+            
+                <a href="../advanced/computer_vision.html">
+            
+                    
+                    机器视觉
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                <a href="../tutorials/motion-capture-vicon-optitrack.html">
+            
+                    
+                    运动捕获（VICON, Optitrack）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../advanced/realsense_intel_driver.html">
+            
+                <a href="../advanced/realsense_intel_driver.html">
+            
+                    
+                    安装英特尔 RealSense R200 的驱动程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.5" data-path="../advanced/switching_state_estimators.html">
+            
+                <a href="../advanced/switching_state_estimators.html">
+            
+                    
+                    切换状态估计器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.6" data-path="../advanced/out_of_tree_modules.html">
+            
+                <a href="../advanced/out_of_tree_modules.html">
+            
+                    
+                    树外模块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.7" data-path="../software_update/stm32_bootloader.html">
+            
+                <a href="../software_update/stm32_bootloader.html">
+            
+                    
+                    STM32 Bootloader
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../advanced/system_tunes.html">
+            
+                <a href="../advanced/system_tunes.html">
+            
+                    
+                    System Tunes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../test_and_ci/">
+            
+                <a href="../test_and_ci/">
+            
+                    
+                    平台测试和 CI
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../test_and_ci/test_flights.html">
+            
+                <a href="../test_and_ci/test_flights.html">
+            
+                    
+                    测试飞行
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../test_cards/mc_01_manual_modes.html">
+            
+                <a href="../test_cards/mc_01_manual_modes.html">
+            
+                    
+                    测试 MC_01 - 手动模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../test_cards/mc_02_full_autonomous.html">
+            
+                <a href="../test_cards/mc_02_full_autonomous.html">
+            
+                    
+                    测试 MC_02-完全自主
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.3" data-path="../test_cards/mc_03_auto_manual_mix.html">
+            
+                <a href="../test_cards/mc_03_auto_manual_mix.html">
+            
+                    
+                    测试 MC_03 - 自动手动混合
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.4" data-path="../test_cards/mc_04_failsafe_testing.html">
+            
+                <a href="../test_cards/mc_04_failsafe_testing.html">
+            
+                    
+                    测试 MC_04 -故障安全测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.5" data-path="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                <a href="../test_cards/mc_05_indoor_flight_manual_modes.html">
+            
+                    
+                    测试 MC_05-室内飞行（手动模式）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../test_and_ci/unit_tests.html">
+            
+                <a href="../test_and_ci/unit_tests.html">
+            
+                    
+                    单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../test_and_ci/continous_integration.html">
+            
+                <a href="../test_and_ci/continous_integration.html">
+            
+                    
+                    持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.4" data-path="../test_and_ci/jenkins_ci.html">
+            
+                <a href="../test_and_ci/jenkins_ci.html">
+            
+                    
+                    Jenkins 持续集成
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="../test_and_ci/integration_testing.html">
+            
+                <a href="../test_and_ci/integration_testing.html">
+            
+                    
+                    整合测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.6" data-path="../test_and_ci/docker.html">
+            
+                <a href="../test_and_ci/docker.html">
+            
+                    
+                    Docker 容器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.7" data-path="../test_and_ci/maintenance.html">
+            
+                <a href="../test_and_ci/maintenance.html">
+            
+                    
+                    维护
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../contribute/">
+            
+                <a href="../contribute/">
+            
+                    
+                    Contribution (&Dev Call)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../contribute/dev_call.html">
+            
+                <a href="../contribute/dev_call.html">
+            
+                    
+                    Dev Call
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../contribute/code.html">
+            
+                <a href="../contribute/code.html">
+            
+                    
+                    Source Code Management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.2.1" data-path="../contribute/git_examples.html">
+            
+                <a href="../contribute/git_examples.html">
+            
+                    
+                    GIT Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../contribute/docs.html">
+            
+                <a href="../contribute/docs.html">
+            
+                    
+                    Documentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../contribute/translation.html">
+            
+                <a href="../contribute/translation.html">
+            
+                    
+                    Translation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.5" data-path="../contribute/notation.html">
+            
+                <a href="../contribute/notation.html">
+            
+                    
+                    Terminology/Notation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.6" data-path="../contribute/licenses.html">
+            
+                <a href="../contribute/licenses.html">
+            
+                    
+                    Licenses
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../contribute/support.html">
+            
+                <a href="../contribute/support.html">
+            
+                    
+                    Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Dronecode 相关资源</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <a target="_blank" href="https://docs.px4.cc/zh/">
+            
+                    
+                    PX4 用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <a target="_blank" href="https://docs.qgroundcontrol.com/en/">
+            
+                    
+                    QGroundControl用户指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <a target="_blank" href="http://dev.qgc.dimianzhan.com/zh/">
+            
+                    
+                    QGroundControl 开发人员指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <a target="_blank" href="https://mavlink.io/en/">
+            
+                    
+                    MAVLink指南
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" >
+            
+                <a target="_blank" href="https://mavsdk.mavlink.io/develop/en/index.html">
+            
+                    
+                    MAVSDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" >
+            
+                <a target="_blank" href="https://camera-manager.dronecode.org/en/">
+            
+                    
+                    Dronecode相机管理器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本書使用 GitBook 釋出
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Cygwin 工具链</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="windows-cygwin-&#x5DE5;&#x5177;&#x94FE;"><a name="windows-cygwin-&#x5DE5;&#x5177;&#x94FE;" class="plugin-anchor" href="#windows-cygwin-&#x5DE5;&#x5177;&#x94FE;"><i class="fa fa-link" aria-hidden="true"></i></a>Windows Cygwin &#x5DE5;&#x5177;&#x94FE;</h1>
+<p>&#x8BE5;&#x5DE5;&#x5177;&#x94FE;&#x975E;&#x5E38;&#x8F7B;&#x4FBF;&#xFF0C;&#x800C;&#x4E14;&#x5BB9;&#x6613;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;&#x3002; &#x5B83;&#x662F;&#x76EE;&#x524D;Windows&#x73AF;&#x5883;&#x4E0B;&#x7528;&#x4E8E;PX4&#x5F00;&#x53D1;&#x7684;&#x6700;&#x65B0;&#x548C;&#x6700;&#x597D;&#x7684;&#x5DE5;&#x5177;&#x3002;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p> &#x8FD9;&#x662F;&#x5B98;&#x65B9;&#x552F;&#x4E00;&#x652F;&#x6301;&#x7684;&#x5728;Windows&#x73AF;&#x5883;&#x4E0B;&#x5F00;&#x53D1;PX4&#x7684;&#x5DE5;&#x5177;&#x94FE;&#xFF08;&#x5B83;&#x5DF2;&#x7ECF;&#x5728;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x7CFB;&#x7EDF;&#x4E2D;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#xFF09;</p>
+</blockquote>
+<p>&#x8BE5;&#x5DE5;&#x5177;&#x94FE;&#x652F;&#x6301;&#xFF1A;</p>
+<ul>
+<li>&#x7F16;&#x8BD1;/&#x4E0A;&#x4F20; PX4&#x5230;Nuttx&#x76EE;&#x6807;(Pixhawk&#x7CFB;&#x5217;&#x98DE;&#x63A7;)</li>
+<li>JMAVSim/SITL &#x4EFF;&#x771F;&#x4F1A;&#x83B7;&#x5F97;&#x6BD4;&#x5176;&#x4ED6;Windows&#x5DE5;&#x5177;&#x94FE;&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;</li>
+<li>&#x7C7B;&#x578B;&#x6821;&#x9A8C;&#xFF0C;&#x8F7B;&#x4FBF;&#x5B89;&#x88C5;&#xFF0C;&#x5B8C;&#x6574;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x652F;&#x6301;&#x548C;&#x8BB8;&#x591A;<a href="#features">&#x5176;&#x4ED6;&#x7279;&#x6027;</a></li>
+</ul>
+<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x89E3;&#x91CA;&#x600E;&#x6837;&#x4E0B;&#x8F7D;&#x548C;&#x4F7F;&#x7528;&#x8BE5;&#x73AF;&#x5883;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x600E;&#x6837;&#x6269;&#x5C55;&#x548C;&#x66F4;&#x65B0;(&#x6BD4;&#x5982;&#xFF0C;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x7684;&#x7F16;&#x8BD1;&#x5668;)&#x3002;</p>
+<h2 id="installation"><a name="installation" class="plugin-anchor" href="#installation"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;&#x8BF4;&#x660E; </h2>
+<ol>
+<li>Download the latest version of the ready-to-use MSI installer from <a href="https://github.com/PX4/windows-toolchain/releases" target="_blank">Github</a> or <a href="https://s3-us-west-2.amazonaws.com/px4-tools/PX4+Windows+Cygwin+Toolchain/PX4+Windows+Cygwin+Toolchain+0.7.msi" target="_blank">S3</a></li>
+<li>Run it, choose your desired installation location, let it install: <img src="../../assets/toolchain/cygwin_toolchain_installer.PNG" alt="jMAVSimOnWindows"></li>
+<li><p>&#x5728;&#x5B89;&#x88C5;&#x7ED3;&#x675F;&#x540E;&#x52FE;&#x9009;<em>clone the PX4 repository, build and run simulation with jMAVSim</em>(&#x8FD9;&#x7B80;&#x5316;&#x4E86;&#x4F60;&#x7684;&#x5F00;&#x59CB;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;)</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> If you missed this step you will need to <a href="#getting_started">clone the PX4 Firmware repository manually</a>.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="getting_started"><a name="getting_started" class="plugin-anchor" href="#getting_started"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5165;&#x95E8;&#x6307;&#x5357; </h2>
+<p>&#x5DE5;&#x5177;&#x94FE;&#x4F7F;&#x7528;&#x4E13;&#x95E8;&#x914D;&#x7F6E;&#x7684;&#x63A7;&#x5236;&#x53F0;(&#x901A;&#x8FC7;&#x8FD0;&#x884C;<strong>run-console.bat</strong>&#x811A;&#x672C;)&#x4ECE;&#x800C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;PX4&#x7F16;&#x8BD1;&#x547D;&#x4EE4;</p>
+<ol>
+<li>&#x8FDB;&#x5165;&#x5230;&#x5DE5;&#x5177;&#x94FE;&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;(&#x9ED8;&#x8BA4;<strong>C:\PX4</strong>)</li>
+<li>&#x8FD0;&#x884C;<strong>run-console.bat</strong>(&#x53CC;&#x51FB;)&#x542F;&#x52A8;Cygwin bash&#x63A7;&#x5236;&#x53F0;</li>
+<li><p>&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x8FD0;&#x884C;&#x514B;&#x9686;PX4 Firmware&#x4ED3;&#x5E93;&#x547D;&#x4EE4;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x53EA;&#x9700;&#x8981;&#x514B;&#x9686;&#x4E00;&#x6B21; &#x5982;&#x679C;&#x4F60;&#x5728;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x6700;&#x540E;&#x9009;&#x62E9;&#x4E86;<em>clone the PX4 repository, build and run simulation with jMAVSim</em>&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x8FD9;&#x4E00;&#x6B65;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-bash"> <span class="hljs-comment"># &#x514B;&#x9686; PX4 Firmware &#x4ED3;&#x5E93;&#x5230; home &#x76EE;&#x5F55; &amp; &#x540C;&#x65F6;&#x5E76;&#x884C;&#x52A0;&#x8F7D;&#x5B50;&#x6A21;&#x5757;</span>
+ git <span class="hljs-built_in">clone</span> --recursive -j8 https://github.com/PX4/Firmware.git
+</code></pre>
+<p> &#x4F60;&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x7684;Firmware&#x4ED3;&#x5E93;&#x4EE3;&#x7801;&#x6765;&#x7F16;&#x8BD1;PX4</p>
+</li>
+<li><p>&#x4E3E;&#x4F8B;&#xFF0C;&#x8981;&#x8FD0;&#x884C;JMAVSim:</p>
+<pre><code class="lang-bash"> <span class="hljs-comment"># &#x8FDB;&#x5165;Firmware&#x4ED3;&#x5E93;&#x76EE;&#x5F55;</span>
+ <span class="hljs-built_in">cd</span> Firmware 
+ <span class="hljs-comment"># &#x4F7F;&#x7528;JMAVSim&#x7F16;&#x8BD1;&#x5E76;&#x8FD0;&#x884C;SITL&#x6A21;&#x62DF;&#x5668;&#x6765;&#x9A8C;&#x8BC1; </span>
+ make px4_sitl jmavsim
+</code></pre>
+<p> &#x63A7;&#x5236;&#x53F0;&#x5C06;&#x4F1A;&#x663E;&#x793A;&#xFF1A;</p>
+<p> <img src="../../assets/simulation/jmavsim_windows_cygwin.PNG" alt="jMAVSimOnWindows"></p>
+</li>
+</ol>
+<p>&#x4E0B;&#x9762;<a href="building_px4.html"> &#x6709;&#x5173;&#x5982;&#x4F55;&#x751F;&#x6210; PX4 &#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E; </a> (&#x6216;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x90E8;&#x5206;&#x4EE5;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x5E38;&#x89C4;&#x7528;&#x6CD5;&#x8BF4;&#x660E;)&#x3002;</p>
+<h2 id="usage_instructions"><a name="usage_instructions" class="plugin-anchor" href="#usage_instructions"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528;&#x8BF4;&#x660E; </h2>
+<p>&#x5B89;&#x88C5;&#x76EE;&#x5F55; &#xFF08;&#x9ED8;&#x8BA4;&#x4F4D;&#x7F6E;&#xFF1A; <strong>C:\PX4</strong>&#xFF09; &#x7528;&#x4E8E;&#x5F00;&#x542F;PX4 SITL&#xFF08;&#x7C7B;Linux&#xFF09;&#x547D;&#x4EE4;&#x884C;&#x7A97;&#x53E3;&#x7684;&#x811A;&#x672C;&#x6587;&#x4EF6;&#xFF1A; <strong>run-console.bat</strong></p>
+<blockquote class="clearfix alert alert-success"><strong class="fa fa-2x fa-thumbs-o-up"></strong>
+<p> <a href="#manual_setup">Manual Setup</a> &#x90E8;&#x5206;&#x89E3;&#x91CA;&#x4E86;&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8BE5;&#x811A;&#x672C;&#x4EE5;&#x53CA;&#x5B83;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x3002;</p>
+</blockquote>
+<p>&#x666E;&#x904D;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x90FD;&#x901A;&#x8FC7;&#x53CC;&#x51FB; <strong>run-console. bat</strong> &#x811A;&#x672C;&#x6765;&#x624B;&#x52A8;&#x8FD0;&#x884C;&#x7EC8;&#x7AEF;&#x547D;&#x4EE4;&#x6765;&#x542F;&#x52A8;&#x63A7;&#x5236;&#x53F0;&#x7A97;&#x53E3;&#x3002;</p>
+<h3 id="windows--git-&#x7279;&#x6B8A;&#x60C5;&#x51B5;"><a name="windows--git-&#x7279;&#x6B8A;&#x60C5;&#x51B5;" class="plugin-anchor" href="#windows--git-&#x7279;&#x6B8A;&#x60C5;&#x51B5;"><i class="fa fa-link" aria-hidden="true"></i></a>Windows &amp; Git &#x7279;&#x6B8A;&#x60C5;&#x51B5;</h3>
+<h4 id="windows-crlf-&#x5BF9;&#x6BD4;-unix-lf-&#x884C;&#x7ED3;&#x5C3E;"><a name="windows-crlf-&#x5BF9;&#x6BD4;-unix-lf-&#x884C;&#x7ED3;&#x5C3E;" class="plugin-anchor" href="#windows-crlf-&#x5BF9;&#x6BD4;-unix-lf-&#x884C;&#x7ED3;&#x5C3E;"><i class="fa fa-link" aria-hidden="true"></i></a>Windows CR+LF &#x5BF9;&#x6BD4; Unix LF &#x884C;&#x7ED3;&#x5C3E;</h4>
+<p>&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x60A8;&#x6240;&#x6709;&#x7684;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;&#x90FD;&#x5F3A;&#x5236;&#x4F7F;&#x7528;Unix&#x7684;LF&#x884C;&#x7ED3;&#x5C3E;&#xFF0C;&#x5E76;&#x4EE5;&#x6B64;&#x8FD0;&#x884C;&#x5DE5;&#x5177;&#x94FE;&#xFF08;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x7F16;&#x8F91;&#x5668;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x6B64;&#x683C;&#x5F0F;&#x4FDD;&#x5B58;&#x60A8;&#x6240;&#x505A;&#x7684;&#x4FEE;&#x6539; - &#x8B6C;&#x5982; Eclipse &#x6216;&#x8005; VS Code&#xFF09;&#x3002; &#x867D;&#x7136;&#x7F16;&#x8BD1;&#x4EE5; CR+LF &#x884C;&#x4E3A;&#x7ED3;&#x5C3E;&#x7684;&#x672C;&#x5730;&#x6E90;&#x4EE3;&#x7801;&#x4E5F;&#x662F;&#x53EF;&#x884C;&#x7684;&#xFF0C; &#x4F46; Cygwin&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x5982;&#x6267;&#x884C; shell &#x811A;&#x672C;&#xFF09;&#x4ECD;&#x8981;&#x6C42;&#x6587;&#x4EF6;&#x4EE5; Unix &#x884C;&#x7ED3;&#x5C3E; (&#x5426;&#x5219;&#x4F60;&#x4F1A;&#x6536;&#x5230;&#x7C7B;&#x4F3C; <code>$&apos;\r&apos;: Command not found.</code> &#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF09;&#x3002; &#x5E78;&#x8FD0;&#x7684;&#x662F;, &#x53EA;&#x9700;&#x8981;&#x5728;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;&#x7684;&#x6839;&#x76EE;&#x5F55;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x4E24;&#x6761;&#x547D;&#x4EE4;&#x5C31;&#x53EF;&#x4EE5;&#x8BA9; git &#x81EA;&#x52A8;&#x4E3A;&#x4F60;&#x5B8C;&#x6210;&#x6B64;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<pre><code>git config core.autocrlf false
+git config core.eol lf
+</code></pre><p>&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;&#x591A;&#x4E2A;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;&#x4E2D;&#x4F7F;&#x7528;&#x6B64;&#x5DE5;&#x5177;&#x94FE;,&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4E3A;&#x4F60;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x5728;&#x5168;&#x5C40;&#x8303;&#x56F4;&#x5185;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E24;&#x79CD;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code>git config --global ...
+</code></pre><p>&#x4F46;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x5EFA;&#x8BAE;&#x8FD9;&#x6837;&#x505A;, &#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD; Windows &#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x7684;&#x4EFB;&#x4F55;&#x5176;&#x4ED6; (&#x65E0;&#x5173;) git &#x4F7F;&#x7528;&#x3002;</p>
+<h4 id="unix-&#x6267;&#x884C;&#x6743;&#x9650;"><a name="unix-&#x6267;&#x884C;&#x6743;&#x9650;" class="plugin-anchor" href="#unix-&#x6267;&#x884C;&#x6743;&#x9650;"><i class="fa fa-link" aria-hidden="true"></i></a>Unix &#x6267;&#x884C;&#x6743;&#x9650;</h4>
+<p>&#x5728; Unix &#x4E0B;, &#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x4E2D;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x4F4D;, &#x5B83;&#x4F1A;&#x544A;&#x8BC9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x6267;&#x884C;&#x8BE5;&#x6587;&#x4EF6;&#x3002; Cygwin &#x4E0B;&#x7684; <em> git </em> &#x652F;&#x6301;&#x5E76;&#x9075;&#x5B88;&#x8BE5;&#x6807;&#x8BC6;&#x4F4D; (&#x5C3D;&#x7BA1; Windows &#x5E73;&#x53F0;&#x7684;NTFS&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5E76;&#x4E0D;&#x4F7F;&#x7528;&#x8BE5;&#x6807;&#x5FD7;&#x4F4D;)&#x3002; &#x8FD9;&#x4E00;&#x5DEE;&#x5F02;&#x901A;&#x5E38;&#x4F1A;&#x5BFC;&#x81F4; <em>git</em> &#x53D1;&#x73B0;&#x6743;&#x9650;&#x4E2D;&#x7684; &quot;&#x5047;&#x9633;&#x6027;&#xFF08;false-positive&#xFF09;&quot; &#x5DEE;&#x5F02;&#x3002; &#x751F;&#x6210;&#x7684;&#x5DEE;&#x5F02;&#x53EF;&#x80FD;&#x5982;&#x4E0B;&#x6240;&#x793A;:</p>
+<pre><code>diff --git ...
+old mode 100644
+new mode 100755
+</code></pre><p>&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x5728; windows &#x5E73;&#x53F0;&#x4E0A;&#x5168;&#x5C40;&#x7981;&#x7528;&#x6743;&#x8BE5;&#x9650;&#x68C0;&#x67E5;&#x4EE5;&#x907F;&#x514D;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<pre><code>git config --global core.fileMode false # disable execution bit check globally for the machine
+</code></pre><p>&#x5BF9;&#x4E8E;&#x7531;&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x5F15;&#x8D77;&#x6B64;&#x95EE;&#x9898;&#x7684;&#x73B0;&#x6709;&#x5B58;&#x50A8;&#x5E93;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code>git config --unset core.filemode # &#x79FB;&#x9664;&#x5F53;&#x524D;&#x5B58;&#x50A8;&#x5E93;&#x7684;&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#xFF0C;&#x6539;&#x7528;&#x5168;&#x5C40;&#x914D;&#x7F6E;
+git submodule foreach --recursive git config --unset core.filemode # &#x79FB;&#x9664;&#x6240;&#x6709;&#x5B50;&#x6A21;&#x5757;&#x7684;&#x5C40;&#x90E8;&#x914D;&#x7F6E;
+</code></pre><h2 id="&#x9644;&#x52A0;&#x4FE1;&#x606F;"><a name="&#x9644;&#x52A0;&#x4FE1;&#x606F;" class="plugin-anchor" href="#&#x9644;&#x52A0;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9644;&#x52A0;&#x4FE1;&#x606F;</h2>
+<h3 id="features"><a name="features" class="plugin-anchor" href="#features"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7279;&#x6027;/&#x95EE;&#x9898; </h3>
+<p>&#x4EE5;&#x4E0B;&#x5DF2;&#x77E5;&#x6B63;&#x5E38;&#x529F;&#x80FD; (&#x7248;&#x672C; 2.0):</p>
+<ul>
+<li>&#x4F7F;&#x7528; jMAVSim &#x7F16;&#x8BD1;&#x548C;&#x8FD0;&#x884C; SITL, &#x5176;&#x6027;&#x80FD;&#x660E;&#x663E;&#x4F18;&#x4E8E;&#x865A;&#x62DF;&#x673A; (Cygwin&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x672C;&#x673A; windows &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6; <strong> px4.exe </strong>)&#x3002;</li>
+<li>&#x7F16;&#x8BD1;&#x548C;&#x4E0A;&#x4F20; NuttX &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;px4_fmu-v2 &#x548C; px4_fmu-v4&#xFF09;&#x3002;</li>
+<li>&#x4F7F;&#x7528; <em> astyle </em> &#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x68C0;&#x67E5; (&#x652F;&#x6301;&#x547D;&#x4EE4;: <code>make format</code>)&#x3002;</li>
+<li>&#x547D;&#x4EE4;&#x884C;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x3002;</li>
+<li>&#x7EFF;&#x8272;&#x5B89;&#x88C5;&#xFF01; &#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x60A8;&#x7684;&#x7CFB;&#x7EDF;&#x548C;&#x5168;&#x5C40;&#x8DEF;&#x5F84;&#x8BBE;&#x7F6E; (&#x5B83;&#x53EA;&#x4FEE;&#x6539;&#x9009;&#x5B9A;&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;, &#x4F8B;&#x5982; <strong> C:\PX4 \ </strong> &#x5E76;&#x4F7F;&#x7528;&#x4E34;&#x65F6;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#x53D8;&#x91CF;)&#x3002;</li>
+<li>&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x652F;&#x6301;&#x66F4;&#x65B0;&#x5230;&#x6700;&#x65B0;&#x7248;&#x672C;, &#x540C;&#x65F6;&#x4FDD;&#x6301;&#x60A8;&#x7684;&#x4E2A;&#x4EBA;&#x66F4;&#x6539;&#x5728;&#x5DE5;&#x5177;&#x94FE;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x3002;</li>
+</ul>
+<p>&#x8865;&#x5145;:</p>
+<ul>
+<li>Simulation: Gazebo and ROS are not supported.</li>
+<li>&#x4EC5;&#x652F;&#x6301; NuttX &#x548C; JMAVSim/SITL &#x7F16;&#x8BD1;&#x3002;</li>
+<li><a href="https://github.com/orgs/PX4/projects/6" target="_blank">Known problems</a> (Also use to report issues).</li>
+</ul>
+<h3 id="script_setup"><a name="script_setup" class="plugin-anchor" href="#script_setup"><i class="fa fa-link" aria-hidden="true"></i></a>Shell &#x811A;&#x672C;&#x5B89;&#x88C5; </h3>
+<p>&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Github &#x9879;&#x76EE;&#x4E2D;&#x7684; shell &#x811A;&#x672C;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x5B89;&#x88C5;&#x3002;</p>
+<ol>
+<li>&#x8BF7;&#x786E;&#x4FDD;&#x5B89;&#x88C5;&#x4E86; <a href="https://git-scm.com/download/win" target="_blank"> Windows Git </a>&#x3002;</li>
+<li><p>&#x5C06;&#x4EE3;&#x7801;&#x4ED3;&#x5E93; <a href="https://github.com/PX4/windows-toolchain" target="_blank">https://github.com/PX4/windows-toolchain</a> &#x514B;&#x9686;&#x5230;&#x8981;&#x5B89;&#x88C5;&#x5DE5;&#x5177;&#x94FE;&#x7684;&#x4F4D;&#x7F6E;&#x3002; &#x6253;&#x5F00; <code>Git Bash</code> &#x5E76;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF0C;&#x6253;&#x5F00;&#x540E;&#x4F1A;&#x81EA;&#x52A8;&#x8FDB;&#x5165;&#x9ED8;&#x8BA4;&#x7684;&#x5B89;&#x88C5;&#x76EE;&#x5F55;:</p>
+<p> cd /c/
+ git clone <a href="https://github.com/PX4/windows-toolchain" target="_blank">https://github.com/PX4/windows-toolchain</a> PX4</p>
+</li>
+</ol>
+<ol>
+<li>&#x5982;&#x679C;&#x8981;&#x5B89;&#x88C5;&#x6240;&#x6709;&#x7EC4;&#x4EF6;, &#x8BF7;&#x8FDB;&#x5165;&#x5230;&#x65B0;&#x514B;&#x9686;&#x7684;&#x4EE3;&#x7801;&#x4ED3;&#x5E93;&#x6587;&#x4EF6;&#x5939;, &#x7136;&#x540E;&#x53CC;&#x51FB;&#x4F4D;&#x4E8E;&#x6587;&#x4EF6;&#x5939; <code>toolchain</code>&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x811A;&#x672C; <code>install-all-components.bat</code>&#x3002; &#x5982;&#x679C;&#x60A8;&#x53EA;&#x9700;&#x8981;&#x67D0;&#x4E9B;&#x7EC4;&#x4EF6;&#x5E76;&#x5E0C;&#x671B;&#x5360;&#x7528;&#x6709;&#x9650;&#x7684;Internet &#x6570;&#x636E;&#x548C;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;, &#x5219;&#x53EF;&#x4EE5;&#x8FDB;&#x5165;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x7EC4;&#x4EF6;&#x6587;&#x4EF6;&#x5939;, &#x5982; <code>toolchain\cygwin64</code>, &#x7136;&#x540E;&#x5355;&#x51FB; <strong> install-XXX.bat </strong> &#x811A;&#x672C;&#x4EE5;&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x7684;&#x5185;&#x5BB9;&#x3002;</li>
+<li>&#x7EE7;&#x7EED; <a href="#getting_started"> &#x5165;&#x95E8;&#x6307;&#x5357; </a> (&#x6216; <a href="#usage_instructions"> &#x4F7F;&#x7528;&#x8BF4;&#x660E; </a>) </li>
+</ol>
+<h3 id="manual_setup"><a name="manual_setup" class="plugin-anchor" href="#manual_setup"><i class="fa fa-link" aria-hidden="true"></i></a>&#x624B;&#x52A8;&#x5B89;&#x88C5; (&#x5BF9;&#x4E8E;&#x5F00;&#x53D1;&#x4EBA;&#x5458;) </h3>
+<p>&#x672C;&#x8282;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5728;&#x4ECE;&#x57FA;&#x4E8E;&#x811A;&#x672C;&#x5B89;&#x88C5;&#x76EE;&#x5F55;&#x4E2D;&#x901A;&#x8FC7;&#x76F8;&#x5E94;&#x7684;&#x811A;&#x672C;&#x624B;&#x52A8;&#x5B89;&#x88C5; Cygwin &#x5DE5;&#x5177;&#x94FE;&#x3002; &#x4F7F;&#x7528;&#x811A;&#x672C;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x7684;&#x7ED3;&#x679C;&#x4E0E;&#x4F7F;&#x7528; MSI &#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p> &#x56E0;&#x4E3A;&#x5DE5;&#x5177;&#x94FE;&#x7684;&#x66F4;&#x65B0;&#xFF0C;&#x4E0B;&#x8FF0;&#x6307;&#x4EE4;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x6DB5;&#x76D6;&#x672A;&#x6765;&#x6240;&#x6709;&#x66F4;&#x6539;&#x7684;&#x6BCF;&#x4E2A;&#x7EC6;&#x8282;&#x3002;</p>
+</blockquote>
+<ol>
+<li>&#x521B;&#x5EFA; <em> &#x6587;&#x4EF6;&#x5939; </em>: <strong> C:\PX4 \ </strong>&#x3001;<strong> C:\PX4\toolchain \ </strong> &#x548C; <strong> C:\PX4\home \ </strong></li>
+<li>&#x4ECE; <a href="https://cygwin.com/install.html" target="_blank"> Cygwin &#x5B98;&#x65B9;&#x7F51;&#x7AD9; </a> &#x4E0B;&#x8F7D; <em> Cygwin &#x5B89;&#x88C5;&#x7A0B;&#x5E8F; </em> &#x6587;&#x4EF6; <a href="https://cygwin.com/setup-x86_64.exe" target="_blank"> official Cygwin website </a></li>
+<li>&#x8FD0;&#x884C;&#x4E0B;&#x8F7D;&#x7684;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x6587;&#x4EF6;</li>
+<li>&#x5728;&#x5B89;&#x88C5;&#x5411;&#x5BFC;&#x4E2D;&#x9009;&#x62E9;&#x5B89;&#x88C5;&#x5230;&#x6587;&#x4EF6;&#x5939;&#x4E2D;: <strong> C:\PX4\toolchain\cygwin64 \ </strong></li>
+<li><p>&#x9009;&#x62E9;&#x5B89;&#x88C5;&#x9ED8;&#x8BA4;&#x7684; Cygwin &#x57FA;&#x7840;&#x5305;&#x548C;&#x4EE5;&#x4E0B;&#x9644;&#x52A0;&#x5305;&#x7684;&#x6700;&#x65B0;&#x53EF;&#x7528;&#x7248;&#x672C;:</p>
+</li>
+<li><p><strong>&#x76EE;&#x5F55;:&#x5B89;&#x88C5;&#x5305;&#x540D;</strong></p>
+</li>
+<li>Devel:cmake (3.3.2 &#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x65E0;&#x544A;&#x8B66;, 3.6.2&#x6709;&#x544A;&#x8B66;&#x4F46;&#x80FD;&#x591F;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;)</li>
+<li>Devel:gcc-g++</li>
+<li>Devel:gdb</li>
+<li>Devel:git</li>
+<li>Devel:make</li>
+<li>Devel:ninja</li>
+<li>Devel:patch</li>
+<li>Editors:xxd</li>
+<li>Editors:nano (unless you&apos;re the vim pro)</li>
+<li>Python:python2</li>
+<li>Python:python2-pip</li>
+<li>Python:python2-numpy</li>
+<li>Python:python2-jinja2</li>
+<li>Python:python2-pyyaml</li>
+<li>Python:python2-cerberus</li>
+<li>Archive:unzip</li>
+<li>Utils:astyle</li>
+<li>Shells:bash-completion</li>
+<li><p>Web:wget</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> Do not select as many packages as possible which are not on this list, there are some which conflict and break the builds.</p>
+</blockquote>
+<p>  <span></span></p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-edit"></strong>
+<p> That&apos;s what <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-px4.bat" target="_blank">cygwin64/install-cygwin-px4.bat</a> does.</p>
+</blockquote>
+</li>
+<li><p>Write up or copy the <strong>batch scripts</strong> <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/run-console.bat" target="_blank"><code>run-console.bat</code></a> and <a href="https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat" target="_blank"><code>setup-environment.bat</code></a>.</p>
+<p> &#x4F7F;&#x7528;&#x9884;&#x5148;&#x51C6;&#x5907;&#x597D;&#x7684;&#x6279;&#x5904;&#x7406;&#x811A;&#x672C;&#x542F;&#x52A8;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x811A;&#x672C;&#x9884;&#x914D;&#x7F6E;&#x4E86;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;&#x5DE5;&#x5177;&#x94FE;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x7EFF;&#x8272;&#x7248; Cygwin &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002; This is done by always first calling the script <a href="https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat" target="_blank"><strong>setup-environment.bat</strong></a> and the desired application like the console after that.</p>
+<p> The script <a href="https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat" target="_blank">setup-environment.bat</a> locally sets environmental variables for the workspace root directory <code>PX4_DIR</code>, all binary locations <code>PATH</code>, and the home directory of the unix environment <code>HOME</code>.</p>
+</li>
+<li><p>&#x901A;&#x8FC7;&#x6267;&#x884C; Cygwin &#x5DE5;&#x5177;&#x94FE;&#x63A7;&#x5236;&#x53F0; (&#x53CC;&#x51FB; <strong> run-console.bat </strong>) &#x811A;&#x672C;, &#x5411;&#x5B89;&#x88C5;&#x7A0B;&#x5E8F;&#x6DFB;&#x52A0;&#x5FC5;&#x8981;&#x7684; <strong> python &#x5305; </strong></p>
+<pre><code> pip2 install toml 
+ pip2 install pyserial 
+ pip2 install pyulog
+</code></pre></li>
+</ol>
+<pre><code>&gt; ** &#x6CE8;&#x610F; **&#x8FD9;&#x5C31;&#x662F; [ cygwin64/install-cygwin-pxbat ](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/cygwin64/install-cygwin-python-packages.bat) &#x6240;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;
+</code></pre><ol>
+<li><p>&#x4E0B;&#x8F7D; <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" target="_blank"><strong>ARM GCC &#x7F16;&#x8BD1;&#x5668;</strong></a> zip &#x5B58;&#x6863;&#xFF0C;&#x5E76;&#x5C06;&#x5185;&#x5BB9;&#x89E3;&#x538B;&#x7F29;&#x5230;&#x6587;&#x4EF6;&#x5939; <code>C:\PX4\toolchain\gcc-arm</code>&#x3002;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x5DE5;&#x5177;&#x94FE;&#x5728; <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/gcc-arm/install-gcc-arm.bat" target="_blank"> gcc-arm/install-gcc-arm.bat </a> &#x811A;&#x672C;&#x4E2D;&#x6240;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x5B89;&#x88C5; JDK</p>
+<ul>
+<li>&#x4E0B;&#x8F7D; <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank"><strong> Java Development Kit Installer </strong></a>&#x3002;</li>
+<li>&#x56E0;&#x4E3A;&#x4E0D;&#x5E78;&#x7684;&#x662F;, &#x6CA1;&#x6709;&#x7EFF;&#x8272;&#x7684;&#x5F52;&#x6863;&#x6587;&#x4EF6;&#x76F4;&#x63A5;&#x5305;&#x542B;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;, &#x6240;&#x4EE5;&#x60A8;&#x5FC5;&#x987B;&#x5B89;&#x88C5;&#x5B83;&#x3002;</li>
+<li>&#x67E5;&#x627E;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5E76;&#x5C06;&#x5176;&#x79FB;&#x52A8;/&#x590D;&#x5236;&#x5230; <strong> C:\PX4\toolchain\jdk </strong>&#x3002;</li>
+<li><p>&#x60A8;&#x53EF;&#x4EE5;&#x518D;&#x6B21;&#x4ECE; Windows &#x7CFB;&#x7EDF;&#x4E2D;&#x5378;&#x8F7D;&#x8BE5;JDK&#x5DE5;&#x5177;&#x5305;, &#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5DE5;&#x5177;&#x94FE;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x3002;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x5DE5;&#x5177;&#x94FE;&#x5728; <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/jdk/install-jdk.bat" target="_blank"> gcc-arm/install-jdk.bat </a> &#x811A;&#x672C;&#x4E2D;&#x6240;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>&#x4E0B;&#x8F7D; <a href="https://ant.apache.org/bindownload.cgi" target="_blank"><strong>Apache Ant</strong></a> zip &#x5B58;&#x6863;, &#x5E76;&#x5C06;&#x5185;&#x5BB9;&#x89E3;&#x538B;&#x7F29;&#x5230;&#x6587;&#x4EF6;&#x5939; <code>C:\PX4\toolchain\apache-ant</code>&#x3002;</p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x8BF7;&#x786E;&#x4FDD;&#x60A8;&#x6CA1;&#x6709;&#x4ECE;&#x4E0B;&#x8F7D;&#x7684;&#x5F52;&#x6863;&#x6587;&#x4EF6;&#x5185;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x6587;&#x4EF6;&#x5939;&#x5C42;&#x3002;</p>
+</blockquote>
+<p> <span></span></p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x5DE5;&#x5177;&#x94FE;&#x5728; <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat" target="_blank"> gcc-arm/install-apache-ant.bat </a> &#x811A;&#x672C;&#x4E2D;&#x6240;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+</blockquote>
+</li>
+<li><p>&#x4E0B;&#x8F7D;&#x3001;&#x7F16;&#x8BD1;&#x5E76;&#x5C06; <em> genromfs </em>&#x6DFB;&#x52A0;&#x5230;&#x73AF;&#x5883;&#x53D8;&#x91CF;:</p>
+<ul>
+<li>&#x5C06;&#x6E90;&#x4EE3;&#x7801;&#x514B;&#x9686;&#x5230;&#x6587;&#x4EF6;&#x5939; <strong> C:\PX4\toolchain\genromfs\genromfs-src </strong> &#x4E2D;, <pre><code>  cd /c/toolchain/genromfs
+  git clone https://github.com/chexum/genromfs.git genromfs-src
+</code></pre></li>
+</ul>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF1A; </p>
+<pre><code>  cd genromfs-src
+   make all
+</code></pre><ul>
+<li><p>&#x5C06;&#x5305;&#x542B;&#x6709;&#x751F;&#x6210;&#x7684;&#x4E8C;&#x8FDB;&#x5236; <strong> genromfs.exe </strong> &#x7684;&#x6587;&#x4EF6;&#x5939;&#x590D;&#x5236;&#x5230;: <strong> C:\PX4\toolchain\genromfs </strong></p>
+<blockquote class="clearfix alert alert-quote"><strong class="fa fa-2x fa-quote-left"></strong>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x5DE5;&#x5177;&#x94FE;&#x5728; <a href="https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat" target="_blank"> gcc-arm/install-genromfs.bat </a> &#x811A;&#x672C;&#x4E2D;&#x6240;&#x505A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>Make sure all the binary folders of all the installed components are correctly listed in the <code>PATH</code> variable configured by <a href="https://github.com/PX4/windows-toolchain/blob/master/toolchain/scripts/setup-environment.bat" target="_blank"><strong>setup-environment.bat</strong></a>.</p>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="dev_env_windows.html" class="navigation navigation-prev " aria-label="Previous page: Windows">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="dev_env_windows_vm.html" class="navigation navigation-next " aria-label="Next page: Virtual Machine 工具链">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Cygwin 工具链","level":"1.2.2.3.1","depth":4,"next":{"title":"Virtual Machine 工具链","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},"previous":{"title":"Windows","level":"1.2.2.3","depth":3,"path":"setup/dev_env_windows.md","ref":"setup/dev_env_windows.md","articles":[{"title":"Cygwin 工具链","level":"1.2.2.3.1","depth":4,"path":"setup/dev_env_windows_cygwin.md","ref":"setup/dev_env_windows_cygwin.md","articles":[]},{"title":"Virtual Machine 工具链","level":"1.2.2.3.2","depth":4,"path":"setup/dev_env_windows_vm.md","ref":"setup/dev_env_windows_vm.md","articles":[]},{"title":"Bash on Windows 工具链","level":"1.2.2.3.3","depth":4,"path":"setup/dev_env_windows_bash_on_win.md","ref":"setup/dev_env_windows_bash_on_win.md","articles":[]},{"title":"Msys 工具链","level":"1.2.2.3.4","depth":4,"path":"setup/dev_env_windows_msys.md","ref":"setup/dev_env_windows_msys.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git","collapsible-menu","anchors","page-toc-button","ga","language-picker","custom-favicon","bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git","toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git","validate-links","versions-select@git+https://github.com/Dronecode/gitbook-plugin-versions-select.git","mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn","-mermaid","-stub-out-blocks@git+https://github.com/hamishwillee/gitbook-plugin-stub-out-blocks.git","theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-dronecode":{"logo":{"logo_large":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_full.png","logo_small":"gitbook-plugin-theme-dronecode/images/dronecode_top_bar_logo_small.png","url":"https://www.dronecode.org/"}},"validate-links":{"defaultScheme":"https","local":"warn","remote":"disabled"},"collapsible-menu":{},"language-picker":{"grid-columns":3},"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"versions-select":{"type":"branches"},"fontsettings":{"theme":"white","family":"sans","size":2},"richquotes":{"tip":{"alert":"success","picto":"fa-thumbs-o-up"}},"highlight":{},"favicon":"favicon.ico","page-toc-button":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"custom-favicon":{},"mathjax":{"forceSVG":false,"version":"2.7.6"},"ga":{"configuration":"auto","token":"UA-33658859-3"},"versions":{"gitbookConfigURL":"https://raw.githubusercontent.com/PX4/Devguide/master/book.json","options":[{"value":"https://dev.px4.io/master/en/","text":"master"},{"value":"https://dev.px4.io/v1.9.0/en/","text":"1.9 - stable"},{"value":"https://dev.px4.io/v1.8.2/en/","text":"1.8.2"},{"value":"https://dev.px4.io/v1.8.0/en/","text":"1.8.0"}]},"toolbar":{"buttons":[{"label":"Bug tracker","icon":"fa fa-bug","position":"left","url":"https://github.com/PX4/Devguide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"},{"label":"GitHub","icon":"fa fa-github","url":"https://github.com/PX4/Devguide"},{"label":"Edit page on github","icon":"fa fa-pencil-square-o","position":"left","url":"https://github.com/PX4/Devguide/edit/master/{{filepath_lang}}"}]},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"logo":"./assets/site/logo_pro_small.png","px4_version":"v1.10.0"},"title":"PX4 Developer Guide","language":"zh","gitbook":"*"},"file":{"path":"setup/dev_env_windows_cygwin.md","mtime":"2021-01-13T07:25:19.590Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-01-13T07:26:13.874Z"},"basePath":"..","book":{"language":"zh"}});
+        });
+    </script>
+</div>
+
+    
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-language-picker/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-toolbar/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-versions-select/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
